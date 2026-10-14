@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EntityModel</RootNamespace>
+    <AssemblyName>EntityModel</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="g.cs" />
+    <Compile Include="GenericModel\CFSUpdateResult.cs" />
+    <Compile Include="GenericModel\RadioFeatureObjs.cs" />
+    <Compile Include="Motorola\CommonCPS\CommonContract\CommonConstants.cs" />
+    <Compile Include="Motorola\CommonCPS\CommonContract\Serializer.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AddReadWriteBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AddRestoreBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AddTGSARecordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApkApplicationDesc.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplicationFeatureSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AppLock.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AppLockData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplyConfiguationBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplyGeneralPackagesBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplyIPProgramSystemBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplyMVOBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplyPBBPackagesBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ApplyTemplateBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXCodeplug.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXConfigurationViewSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXDataProfile.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXDataProfileSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXOtarProfile.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXRadio.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXRadioFeatureFilter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXRadioSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXRadioSystem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXRadioSystemSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXRadioUpgradeRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXSystemInfoSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXSystemRadioInfoSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXTemplate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXTemplateSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\APXVAInformation.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASKProgrammingHistoryItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASKRelatedFields.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Astro25DataGroupID.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AstroASKProgrammingHistory.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROCACertificates.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROCACertificatesSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AstroDataProfTrunkingGroupgIDs.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTRODVRSFiles.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTRODVRSFilesSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROFirmware.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROFirmwareSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROLanguageDetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROLanguagePack.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROLanguagePackSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROMVOEntry.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROPackage.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROPackageSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROPasswordInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTRORadioSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROTTSVoiceAnnouncement.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROTTSVoiceAnnouncementSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AstroUpgradeFirmwareRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROUpgradeLanguagePackBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROVoiceAnnouncement.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ASTROVoiceAnnouncementSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\AutoAddRadioRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\BatchJobParameterBase.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\BatchOperationJob.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\BatchOperationJobContainer.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\BatchOpJobViewSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\BLEditSaveDataArg.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\BLVersion.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CACertificatesDetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CallBacks\BatchOpEventArg.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CallBacks\ClientEventEntry.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CallBacks\ClientEventInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CallBacks\DBMigrationEventArgs.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CallBacks\DBMigrationProgress.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CallBacks\GroupRadioAssociationObjs.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CancelJobBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CertificatesDesc.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CfsUpgradeRadioBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ChangedData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ChangedRecord.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ClearDataInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ClearDataProgressReport.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ClientInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ClientVersion.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CloneableObj.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Codeplug.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CommonConsts.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CommonRadioSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CompleteJobBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Configuration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConfigurationSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConfigurationViewSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConstStrings.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConvertionRadioWorkModeRelationship.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConvertRadioFromCModeToTModeOpJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConvertRadioFromCModeToTModeResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ConvertTRadioInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CopyConfigurationBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CopyTopSetParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CpsFeatureItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CreateBLFieldAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\CruncherData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DataProfileInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DataTransferObjects\APXOtarProfileDTO.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DataTransferObjects\APXOtarProfileInfoDTO.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DataTransferObjects\APXOtarProfileRadioInfoDTO.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBField.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNode.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNodeDataModels\ConfigurationDataModelUtils.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNodeDataModels\ConfigurationExtention.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNodeDataModels\MapEntity.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNodeDataModels\SetEntity.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNodeUpdateDataSource.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBNodeUpdateDataSourceDao.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBRefField.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBUpdate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DBUpgradeProcessInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DefineAttributes\a.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DefineAttributes\ForBLNodeAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteConfigurationBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteIPProgramSystemBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteJobContainerBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteKeyBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeletePackageBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeletePBBPasswordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteRadioBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteRecordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteSACRecordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteTemplateBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeleteTGSARecordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeviceCapability.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DeviceInfoSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DiscardCPChangesBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DiscardCPRFChangesBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DMR3Site.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DMR3System.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DPInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DPJobQueryResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\DVRSFilesDetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EditSACRecordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EditTGSARecordBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EntitlementList.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EntitlementResponseItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EntityPair.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EntitySummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EnumeratedDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EnumeratedDetailResponse.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\EnumHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ExecutorJobBase.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\FeatureItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\FeatureList.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\FeatureRequestObject.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\FeatureResponseObject.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Field.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\FlatJob.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GeneralPackageSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ASTRO_OptionIDDefinition.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\BatchOperationJobParameter\DeleteQueryBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\BatchOperationJobParameter\MoveQuerysBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\ConfigurationOriginalRadioInformation.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\CopyConfigurationArg.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\DeleteRecordResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\SaveAsArgs.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\SaveAsResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\SaveConfirmResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\SaveDataForPerConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ConfigurationArgs\SaveResultForPerConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DatabaseSizeSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DatabaseTableInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\ConfigRelationshipChange.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBNodeVisitorBase.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBResolverRelationship.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBResolverSaveData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBUpgradeFinalizeInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBUpgradeInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBUpgradeRelatedSets.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBUpgradeResolverSetRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBUpgradeSet.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\DBUpgradeVersionInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\FieldInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\IDBNodeVisitor.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\NameMappingManager.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\ReferMapping.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\ResolverReferRelationship.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\ResolverSameConfigRelationship.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\SetInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\SetInfoUtils.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\SyncDataSourceOfConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\SyncDataSourceOfRecord.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\SyncDataSourceOfRecordDao.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\DBNodeDataModels\SyncDataSourceRecordDataCarrier.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\Desicription_Of_FieldsTierout.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\Desicription_Of_FieldsTierout_Helper.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\HomeSetArgs\SaveHomeSetConfirmResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\Motorola\CommonCPS\Server\EntityModel\GenericModel\DPJobSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\MultipleFieldsXML.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\NameAndValue.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\OptionIDDefinition.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\PackageFileInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ParameterClasses\FilterParameter_OfListCompatibleConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\PCRFirmwareCodeplugPairPackageFileInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\PCRFirmwareFileInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\PCR_OptionIDDefinition.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\RMCUIPropertyConstStrings.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\SyncTypesDescription.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Group.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GroupDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GroupDetailResponse.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\GroupResources.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\HOption.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IEntity.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IJobRequestBuilder.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportAPXRadioFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportCFGFromTemplateOpJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportConfigurationBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportConvergeRadioFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportMatrixRadioFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportPackageBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportPBBRadioFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportPCRDeviceCertificateFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportRadioBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportRadioFromCSVBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportRadioFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportSACFromCSVBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportSACFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportTemplateBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportTGSAFromCSVBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ImportTGSAFromCSVRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\InternalUpgradeData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IPBBCodeplug.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IPBBRadio.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IPProgramSystem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IPProgramSystemDMR3.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IPProgramSystemLE.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IPProgramSystemOther.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IRadioFeature.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IRadioFeatureVisitor.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\IRecordSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Job.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobContainer.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobContainerDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobContainerResources.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobContainerResponse.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobContainerSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobDetailResources.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobDetailResponse.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobRequestBuilder.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobStatistic.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobStatisticConfig.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobStatusUpdateResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobSummaryViewEntity.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JobTypeExtention.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPASTROWriteJobUpdateData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPJobSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPPCRWriteJobUpdateData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPReadJobUpdateRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPWriteJobUpdateData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\JPWriteJobUpdateRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\KeySummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\LanguageDetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\LanguageSettingDesc.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\LESystemLinkInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\LicenseFeature.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\LicenseRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\LinkType.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ListPCRUpgradePackageFilter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MapOfConfigDBNodeUpdate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MapOfConfigDBNodeUpdateDao.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixCodeplug.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixKey.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixOTAPKey.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixPreSharedKey.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixPrivacyKey.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixRadio.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixRadioFeatureFilter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixRadioSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixRASKey.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixSymmetricKey.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixTemplate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MatrixTemplateSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateCodeplugParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateDeviceCapabilityParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateFirmwareParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateGroupParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateLPParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateMatrixKeyParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateRadioParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateTemplateDataToRadioParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateTemplateParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateTTSParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrateVAParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationCodeplugApplicationPairParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationEstimatedData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationPasswordParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationPBBConfigrationInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationPBBConfigurationAndWiFi.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationPBBWiFi.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationPBBWiFiListInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationRadioFeatureParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationRadioTemplateInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationSpentTimeDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationTemplateInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MigrationTemplateRadioTempFileInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MoveDevicesBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\MVOEntry.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ObjectStatus.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\OperationResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\OptionDesc.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\OptionDesItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\OptionsCollection.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\OrderByOption.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\OrderOption.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Package.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PackageRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PackageSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PasswordInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBApplication.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBApplicationShortcut.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBApplicationShortcutSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBApplicationSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBApplicationWidget.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBApplicationWidgetSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBCertificate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBCertificateSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBCodeplug.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBFirmware.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBFirmwareSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBHomeSet.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBHomeSetPackageSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBJsonFile.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBPackage.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBPackageSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBPassword.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBProvisioning.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBRadio.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBRadioFeatureFilter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBRadioSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PBBShortcutDesc.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRCodeplug.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRCodepluRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRConfigurationViewSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRDeviceCertificate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRDeviceCertificateDetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRDMR3Site.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PcrFeatureDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmware.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmwareCodeplugPair.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmwareCodeplugPairGroup.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmwareCodeplugPairGroupRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmwareCodeplugPairGroupSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmwareRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRFirmwareSub.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRHOption.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRKeyData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRLanguageDetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRLanguagePack.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRLanguagePackRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRLanguagePackSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRMVOEntry.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRPackage.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRPackageRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRPackageSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRPasswordInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRRadioSystem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRRadioSystemSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRRadioUpgradeRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRSiteSelection.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRSiteSelectionItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRSiteSelectionList.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRSystemInfoSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRSystemRadioInfoSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRTextToSpeech.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRTextToSpeechRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRTextToSpeechSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRVAInformation.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRVoiceAnnouncement.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRVoiceAnnouncementRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCRVoiceAnnouncementSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\PCR_CFSFeatureCodeExtensions.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ProductCPVersionAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ProductCPVersionSection.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ProfileRadioInfoSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\QueryGroup.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\QueryNode.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\QueryNodeExtentions.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\QuerySummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Radio.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioActivityData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioBaseInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioConversionRelationshipParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioConvertionOpJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioConvertionResult.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioDataForMigration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioDetailResponse.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioFeature.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioFeatureFilter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioFeatureRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioFeatureSet.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioFeatureSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioInfoForApplyConfiguration.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioInfoForApplyIPProgramSystem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioInfoForApplyTemplate.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioManagementLicenseInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioResources.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioUpgradeRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RadioWithMismatchOptions.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReadWriteJob.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReadWriteJobContainer.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReadWriteJobViewSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Record.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RecordComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RecordSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RecordTypeConst.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RecSetMaxConst.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RecSetMaxDefItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RecSetMaxLimitation.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReferenceMap.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReferFieldInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RefRecord.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RefSet.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RegisteredDevices.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RelationshipMap.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReleaseVersionAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReleaseVersionSection.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReservedEntity.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReservedOpertion.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ReservedType.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ResetRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Response.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RMCInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RMFile.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RSExtentions.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\RWJobContainerChangeHistory.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SACRecord.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SACRecordSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SACSelSite.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SACSiteSelection.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SearchOption.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SecurityFieldRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SelectMVOArguments.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SendDeviceRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SerializableClass.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SerialNumber.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Server.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ServerConstants.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ServerInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ServerVersion.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SetSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SubmitLicenseRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SubmitRadioFeatureBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SummaryFieldDefinition.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SyncData.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SyncDataHandlerContract.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SyncDataTypes.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SyncData_FieldItem.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SyncData_Record.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\SystemInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Task.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TeamplateConfigurationRelationship.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\Template.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TemplateInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TemplateSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TGSARecord.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TGSASelSite.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TGSASelSiteSummary.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TGSASiteSelection.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TSFeature.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\TTSVADetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\UpdateJobRequest.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\UpdatePBBPackagesBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\UpdateRadioDataBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\UpgradeCodeplugVersionBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\UpgradeRadioBatchJobParameter.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\UuidOP.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\VADetailInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\VAInformation.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ValidatedField.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\ValidateEntitySet.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\EntityModel\VersionInfoHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\GenericModel\InputOfUpgradeCPVersion.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\GenericModel\ResultOfUpgradeCPVersion.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\ServiceModel\CallBack\ServerEventEntry.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\ServiceModel\CallBack\ServerEventInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\Server\ServiceModel\CallBack\ServerEventType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Motorola\CommonCPS\Server\EntityModel\GenericModel\ApplyMVOArgs\OptionsCollectionBackward.xslt" />
+    <EmbeddedResource Include="Motorola\CommonCPS\Server\EntityModel\IA\GenericModel\DBNodeDataModels\BLLMetaData\xml.rm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewId\NewId.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C7}</Project>
+      <Name>NewId</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

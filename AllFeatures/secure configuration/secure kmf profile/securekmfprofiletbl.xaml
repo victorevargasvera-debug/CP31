@@ -1,0 +1,1618 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.SecureKMFProfile.PageSecureKMFProfileTbl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:SecureKMFProfileNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.SecureKMFProfile" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Title="{x:Static ResourceNS:AcgResources.ID_ASTROOTARPROFILETABLEVIEW}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpRecNavToolbar
+			Name="RecNavToolbarPageSecureKMFProfile"
+			TableMode="True"
+			MyRecordsetDataSource="{Binding ElementName=SecureKMFProfileList, Path=DataSource}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2055</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2055</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetSecureKMFProfile"
+				ObjectType="{x:Type SecureKMFProfileNS:SecureKMFProfile}"
+				x:Key="GetFeatureNode" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfGenIndependentKeyList_43597CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfGenIndependentKeyList_43597_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfKeyListMgmtEraseAllKeys_43650CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfKeyListMgmtEraseAllKeys_43650_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfileInfiniteUKEKRetention_43651CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfileInfiniteUKEKRetention_43651_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfOTARGenerateKeyLossKey_43652CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfOTARGenerateKeyLossKey_43652_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfKVLFIPSLevel3ApprovedMode_43653CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfUserSelectable_43657CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfUserSelectable_43657Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfUserSelectable_43657, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfUserSelectable_43657_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfUserSelectable_43657_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfUserSelectable_43657"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfUserSelectable_43657_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfUserSelectable_43657_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfErasePreviousOnUserChange_43658CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfErasePreviousOnUserChange_43658_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfileSecureProfileGUID_43662CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableViewOnlyCtrl
+								Content="{Binding Path=Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.SecKmfProfileSecureProfileGUID_43662_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+							</AcpUINS:AcpTableViewOnlyCtrl>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 11-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 12-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfRadioInhibitViaASTROOTAR_43690CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 13-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 14-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								Text="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationNumberofAttempts_A8576CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 15-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-10}"
+								Text="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 16-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-168}"
+								Text="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 17-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 18-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 19-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationResponseKind_A8947CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 20-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 21-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-90}"
+								Text="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 22-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileASTROOTARInformation}"
+								MyBLObject="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfDataTransportKMFIPAddress_A8375CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 23-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{number:0-255}.{number:0-255}.{number:0-255}.{number:0-255}"
+								Text="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileDataTransport}"
+								MyBLObject="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfDataTransportKMFUDPPort_A8384CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 24-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-65535}"
+								Text="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileDataTransport}"
+								MyBLObject="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfDataTransportSubscriberOTARPort_A9226CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 25-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-65535}"
+								Text="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileDataTransport}"
+								MyBLObject="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfDataTransportOTARTransportCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 26-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileDataTransport}"
+								MyBLObject="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportOTARTransport_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfDataTransportKMFBroadbandIdCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 27-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandIdValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileDataTransport}"
+								MyBLObject="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandId, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandId_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandId_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandId"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandId_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DataTransport.SecKmfProfDataTransportKMFBroadbandId_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SecKmfProfLabtoolLastUserSelectedProfileKey_A8416CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 28-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-65535}"
+								Text="{Binding Path=Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSecureKMFProfileLabtool}"
+								MyBLObject="{Binding Path=Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 29-->
+		<AcpUINS:AcpXamDataPresenter
+			Name="SecureKMFProfileList"
+			KeyboardNavigation.AcceptsReturn="True"
+			Grid.Row="1">
+			<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+				<MultiBinding
+					Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+					Mode="OneWay">
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppMode" />
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppHideMatches" />
+					<Binding
+						Source="{StaticResource GetParentFeature}"
+						Path="_HasDiffs" />
+					<Binding
+						Path="IsAcpVisible"
+						RelativeSource="{RelativeSource Self}" />
+					<Binding
+						Path="FieldLayouts[0].Fields[0].Visibility"
+						RelativeSource="{RelativeSource Self}" />
+				</MultiBinding>
+			</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+			<igcontrols:DataPresenterBase.FieldLayouts>
+				<igcontrols:FieldLayout>
+					<igcontrols:FieldLayout.Fields>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ASTROOTARPROFILENAME}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationKeyofSecureKMFProfile_A12663CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_INDEPENDENTKEYLIST}"
+							BindingPath="General.SecKmfProfGenIndependentKeyList_43597"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfGenIndependentKeyList_43597_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfGenIndependentKeyList_43597CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ERASEALLKEYS}"
+							BindingPath="General.SecKmfProfKeyListMgmtEraseAllKeys_43650"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfKeyListMgmtEraseAllKeys_43650_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfKeyListMgmtEraseAllKeys_43650CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_INFINITEUKEKRETENTION}"
+							BindingPath="General.SecKmfProfileInfiniteUKEKRetention_43651"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfileInfiniteUKEKRetention_43651_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfileInfiniteUKEKRetention_43651CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_OTARGENERATEKEYLOSSKEY}"
+							BindingPath="General.SecKmfProfOTARGenerateKeyLossKey_43652"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfOTARGenerateKeyLossKey_43652_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfOTARGenerateKeyLossKey_43652CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_KVLFIPSLEVEL3APPROVEDMODE}"
+							BindingPath="General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfKVLFIPSLevel3ApprovedMode_43653_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfKVLFIPSLevel3ApprovedMode_43653CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_USERSELECTABLE}"
+							BindingPath="General.SecKmfProfUserSelectable_43657"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfUserSelectable_43657_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfUserSelectable_43657CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ERASEPREVIOUSONUSERCHANGE}"
+							BindingPath="General.SecKmfProfErasePreviousOnUserChange_43658"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfErasePreviousOnUserChange_43658_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfErasePreviousOnUserChange_43658CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_SECUREPROFILEGUID}"
+							BindingPath="General.SecKmfProfileSecureProfileGUID_43662"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.SecKmfProfileSecureProfileGUID_43662_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfileSecureProfileGUID_43662CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ERASEPREVIOUSKEYSETONOTARCHANGEOVER}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationErasePreviousKeysetonOTARChangeover_A7978CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_RADIOINHIBITVIAASTROOTAR}"
+							BindingPath="ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfRadioInhibitViaASTROOTAR_43690_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfRadioInhibitViaASTROOTAR_43690CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_INDIVIDUALASTROOTARRADIOID}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationIndividualASTROOTARRadioID_A8285CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_NUMBEROFATTEMPTS}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationNumberofAttempts_A8576_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationNumberofAttempts_A8576CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_OTARINACTIVITYTIMERHRS}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationOTARInactivityTimerhr_A8673CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_OTARRXSECURITYLEVEL}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_OTARTXSECURITYLEVEL}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_REKEYREQUESTSTATUSALERTTONE}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationRekeyRequestStatusAlertTone_A8928CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_RESPONSEKIND}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationResponseKind_A8947_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationResponseKind_A8947CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_TIMEBETWEENATTEMPTSSEC}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationTimeBetweenAttemptssec_A9375CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_USERSELECTABLEREKEYREQUEST}"
+							BindingPath="ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=ASTROOTARInformation.SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfASTROOTARInformationUserSelectableRekeyRequest_A9608CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_KMFIPADDRESS}"
+							BindingPath="DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=DataTransport.SecKmfProfDataTransportKMFIPAddress_A8375_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfDataTransportKMFIPAddress_A8375CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_KMFUDPPORT}"
+							BindingPath="DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=DataTransport.SecKmfProfDataTransportKMFUDPPort_A8384_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfDataTransportKMFUDPPort_A8384CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_SUBSCRIBEROTARPORT}"
+							BindingPath="DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=DataTransport.SecKmfProfDataTransportSubscriberOTARPort_A9226_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfDataTransportSubscriberOTARPort_A9226CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_OTAR_TRANSPORT}"
+							BindingPath="DataTransport.SecKmfProfDataTransportOTARTransport"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=DataTransport.SecKmfProfDataTransportOTARTransport_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfDataTransportOTARTransportCellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_KMF_BROADBAND_ID}"
+							BindingPath="DataTransport.SecKmfProfDataTransportKMFBroadbandId"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=DataTransport.SecKmfProfDataTransportKMFBroadbandId_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfDataTransportKMFBroadbandIdCellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_LASTUSERSELECTEDPROFILEKEY}"
+							BindingPath="Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Labtool.SecKmfProfLabtoolLastUserSelectedProfileKey_A8416_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource SecKmfProfLabtoolLastUserSelectedProfileKey_A8416CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+					</igcontrols:FieldLayout.Fields>
+				</igcontrols:FieldLayout>
+			</igcontrols:DataPresenterBase.FieldLayouts>
+		</AcpUINS:AcpXamDataPresenter>
+	</Grid>
+</AcpUINS:AcpPageFeature>

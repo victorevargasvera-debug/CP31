@@ -1,0 +1,166 @@
+<Window
+	x:Class="DevComponents.WpfEditors.ColorsDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dc="clr-namespace:DevComponents.WpfEditors"
+	Title="Colors"
+	Height="340"
+	Width="330"
+	SnapsToDevicePixels="True"
+	WindowStyle="ThreeDBorderWindow"
+	ShowInTaskbar="False"
+	ResizeMode="NoResize">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<dc:ColorComponentConverter
+				x:Key="ColorComponentConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel
+		LastChildFill="True"
+		Margin="5">
+		<DockPanel
+			Dock="Right"
+			Margin="8,0,0,0">
+			<!--Unknown connection ID: 1-->
+			<Button
+				Name="d"
+				DockPanel.Dock="Top"
+				Margin="0,0,0,6"
+				MinWidth="75"
+				Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogOKButton}}}" />
+			<!--Unknown connection ID: 2-->
+			<Button
+				Name="e"
+				DockPanel.Dock="Top"
+				MinWidth="75"
+				Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogCancelButton}}}" />
+			<StackPanel
+				Orientation="Vertical"
+				DockPanel.Dock="Bottom"
+				VerticalAlignment="Bottom">
+				<Label
+					HorizontalAlignment="Center"
+					Padding="2"
+					Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogNewColor}}}" />
+				<Border
+					Width="56"
+					Height="23"
+					BorderThickness="1,1,1,0"
+					BorderBrush="#FF000000"
+					Background="{Binding Path=SelectedColorBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+				<Border
+					Width="56"
+					Height="23"
+					BorderThickness="1"
+					BorderBrush="#FF000000"
+					Background="{Binding Path=CurrentColorBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+				<Label
+					HorizontalAlignment="Center"
+					Padding="2"
+					Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogCurrentColor}}}" />
+			</StackPanel>
+		</DockPanel>
+		<TabControl>
+			<TabItem
+				Header="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogTabStandard}}}">
+				<DockPanel
+					LastChildFill="True">
+					<Label
+						DockPanel.Dock="Top"
+						Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogColorsLabel}}}" />
+					<!--Unknown connection ID: 3-->
+					<dc:ColorComb
+						Name="f"
+						SelectedColorChanged="ColorComb_SelectedColorChanged" />
+				</DockPanel>
+			</TabItem>
+			<TabItem
+				Header="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogTabCustom}}}">
+				<DockPanel
+					LastChildFill="True">
+					<Label
+						DockPanel.Dock="Top"
+						Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogColorsLabel}}}" />
+					<Grid
+						DockPanel.Dock="Bottom"
+						Margin="8">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Label
+							Grid.Row="0"
+							Grid.Column="0"
+							Margin="16,0,0,0"
+							Padding="1"
+							Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogRedLabel}}}" />
+						<!--Unknown connection ID: 4-->
+						<dc:IntegerInput
+							Name="g"
+							ValueChanged="RedInputValueChanged"
+							ShowUpDown="True"
+							MinValue="0"
+							MaxValue="255"
+							Grid.Row="0"
+							Grid.Column="1"
+							Width="64"
+							AllowEmptyState="False" />
+						<Label
+							Grid.Row="1"
+							Grid.Column="0"
+							Margin="16,0,0,0"
+							Padding="1"
+							Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogGreenLabel}}}" />
+						<!--Unknown connection ID: 5-->
+						<dc:IntegerInput
+							Name="h"
+							ValueChanged="GreenInputValueChanged"
+							ShowUpDown="True"
+							MinValue="0"
+							MaxValue="255"
+							Grid.Row="1"
+							Grid.Column="1"
+							Width="64"
+							AllowEmptyState="False" />
+						<Label
+							Grid.Row="2"
+							Grid.Column="0"
+							Margin="16,0,0,0"
+							Padding="1"
+							Content="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:StringKeys, ResourceId={x:Static dc:StringKeys.ColorDialogBlueLabel}}}" />
+						<!--Unknown connection ID: 6-->
+						<dc:IntegerInput
+							Name="i"
+							ValueChanged="BlueInputValueChanged"
+							ShowUpDown="True"
+							MinValue="0"
+							MaxValue="255"
+							Grid.Row="2"
+							Grid.Column="1"
+							Width="64"
+							AllowEmptyState="False" />
+					</Grid>
+					<DockPanel
+						LastChildFill="True">
+						<!--Unknown connection ID: 7-->
+						<dc:ColorContrast
+							Name="j"
+							SelectedColorChanged="ColorContrast1_SelectedColorChanged"
+							DockPanel.Dock="Right"
+							BaseColor="{Binding Path=SelectedColor, ElementName=k}" />
+						<!--Unknown connection ID: 8-->
+						<dc:ColorBlender
+							Name="k"
+							SelectedColorChanged="ColorBlender1_SelectedColorChanged" />
+					</DockPanel>
+				</DockPanel>
+			</TabItem>
+		</TabControl>
+	</DockPanel>
+</Window>

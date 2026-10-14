@@ -1,0 +1,29 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Radio.DetailsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:radio="clr-namespace:Motorola.CommonCPS.RadioManagement.Radio">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="F5"
+			Command="{Binding RefreshCommand}" />
+		<KeyBinding
+			Key="R"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.RestoreRadioCommand}" />
+	</UIElement.InputBindings>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Radio;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border
+		BorderBrush="#FFD3D3D3"
+		BorderThickness="1">
+		<!--Unknown connection ID: 1-->
+		<controls:RMRadioDetail
+			Name="rdRadioDetail"
+			AllowDoOperation="True"
+			SelectedJobs="{Binding SelectedItems}" />
+	</Border>
+</UserControl>

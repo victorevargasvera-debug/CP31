@@ -1,0 +1,447 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.MenuItems.PageMenuItems" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:MenuItemsRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.MenuItems"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2088</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2088</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 2-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderMenuItemsGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 3-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderMenuItemsGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 4-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 5-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderMenuItemsGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderMenuItemsGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 6-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderMenuItemsGeneralPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="DispMenuConventionalSelectedMenuItems_A21736"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="DispMenuTrunkingSelectedMenuItems_A21735"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 7-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDispMenuConventionalSelectedMenuItems_A21736"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736}"
+									IsChecked="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DispMenuConventionalSelectedMenuItems_A21736"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 8-->
+								<AcpUINS:AcpLabel
+									Name="LblDispMenuConventionalSelectedMenuItems_A21736"
+									Content="{x:Static ResourceNS:AcgResources.ID_CONVENTIONALSELECTEDMENUITEMS}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_CONVENTIONALSELECTEDMENUITEMS}"
+									MyParentCtrl="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736}"
+									IsAcpValid="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 9-->
+								<AcpUINS:AcpMenuItems
+									Name="DispMenuConventionalSelectedMenuItems_A21736"
+									MaximumItemsAllowed="24"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									SelectedItemsItemsSource="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736.Items}"
+									AvailableItemsItemsSource="{Binding Path=General.DispMenuConventionalAvailableMenuItems_A22666.Items}"
+									MyExpander="{Binding ElementName=ExpanderMenuItemsGeneral}"
+									MyBLObject="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736}"
+									MyLabelCtrl="{Binding ElementName=LblDispMenuConventionalSelectedMenuItems_A21736}"
+									IsAcpValid="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736_Valid}"
+									IsAcpApplicable="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736_Applicable}"
+									AreValuesEqual="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpMenuItems.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.DispMenuConventionalSelectedMenuItems_A21736_Editable" />
+											<Binding
+												Path="General.DispMenuConventionalSelectedMenuItems_A21736" />
+										</MultiBinding>
+									</AcpUINS:AcpMenuItems.IsAcpEditable>
+									<AcpUINS:AcpMenuItems.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DispMenuConventionalSelectedMenuItems_A21736_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpMenuItems.IsAcpVisible>
+								</AcpUINS:AcpMenuItems>
+								<!--Unknown connection ID: 10-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDispMenuConventionalSelectedMenuItems_A21736"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736}"
+									MyCompCtrl="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736Comp}"
+									AreValuesEqual="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DispMenuConventionalSelectedMenuItems_A21736"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DispMenuConventionalSelectedMenuItems_A21736"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DispMenuConventionalSelectedMenuItems_A21736"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 11-->
+								<AcpUINS:AcpMenuItems
+									Name="DispMenuConventionalSelectedMenuItems_A21736Comp"
+									MaximumItemsAllowed="24"
+									IsAcpEditable="false"
+									Grid.Row="0"
+									Grid.Column="5"
+									SelectedItemsItemsSource="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736.Items}"
+									AvailableItemsItemsSource="{Binding Path=General.DispMenuConventionalAvailableMenuItems_A22666.Items}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DispMenuConventionalSelectedMenuItems_A21736}"
+									MyParentCtrl="{Binding ElementName=DispMenuConventionalSelectedMenuItems_A21736}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDispMenuConventionalSelectedMenuItems_A21736}">
+									<AcpUINS:AcpMenuItems.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DispMenuConventionalSelectedMenuItems_A21736"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpMenuItems.IsAcpVisible>
+								</AcpUINS:AcpMenuItems>
+								<!--Unknown connection ID: 12-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDispMenuTrunkingSelectedMenuItems_A21735"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735}"
+									IsChecked="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DispMenuTrunkingSelectedMenuItems_A21735"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 13-->
+								<AcpUINS:AcpLabel
+									Name="LblDispMenuTrunkingSelectedMenuItems_A21735"
+									Content="{x:Static ResourceNS:AcgResources.ID_TRUNKINGSELECTEDMENUITEMS}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_TRUNKINGSELECTEDMENUITEMS}"
+									MyParentCtrl="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735}"
+									IsAcpValid="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 14-->
+								<AcpUINS:AcpMenuItems
+									Name="DispMenuTrunkingSelectedMenuItems_A21735"
+									MaximumItemsAllowed="24"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									SelectedItemsItemsSource="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735.Items}"
+									AvailableItemsItemsSource="{Binding Path=General.DispMenuTrunkingAvailableMenuItems_A22667.Items}"
+									MyExpander="{Binding ElementName=ExpanderMenuItemsGeneral}"
+									MyBLObject="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735}"
+									MyLabelCtrl="{Binding ElementName=LblDispMenuTrunkingSelectedMenuItems_A21735}"
+									IsAcpValid="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735_Valid}"
+									IsAcpApplicable="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735_Applicable}"
+									AreValuesEqual="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpMenuItems.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.DispMenuTrunkingSelectedMenuItems_A21735_Editable" />
+											<Binding
+												Path="General.DispMenuTrunkingSelectedMenuItems_A21735" />
+										</MultiBinding>
+									</AcpUINS:AcpMenuItems.IsAcpEditable>
+									<AcpUINS:AcpMenuItems.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DispMenuTrunkingSelectedMenuItems_A21735_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpMenuItems.IsAcpVisible>
+								</AcpUINS:AcpMenuItems>
+								<!--Unknown connection ID: 15-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDispMenuTrunkingSelectedMenuItems_A21735"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735}"
+									MyCompCtrl="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735Comp}"
+									AreValuesEqual="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DispMenuTrunkingSelectedMenuItems_A21735"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DispMenuTrunkingSelectedMenuItems_A21735"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DispMenuTrunkingSelectedMenuItems_A21735"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpMenuItems
+									Name="DispMenuTrunkingSelectedMenuItems_A21735Comp"
+									MaximumItemsAllowed="24"
+									IsAcpEditable="false"
+									Grid.Row="1"
+									Grid.Column="5"
+									SelectedItemsItemsSource="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735.Items}"
+									AvailableItemsItemsSource="{Binding Path=General.DispMenuTrunkingAvailableMenuItems_A22667.Items}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DispMenuTrunkingSelectedMenuItems_A21735}"
+									MyParentCtrl="{Binding ElementName=DispMenuTrunkingSelectedMenuItems_A21735}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDispMenuTrunkingSelectedMenuItems_A21735}">
+									<AcpUINS:AcpMenuItems.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DispMenuTrunkingSelectedMenuItems_A21735"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpMenuItems.IsAcpVisible>
+								</AcpUINS:AcpMenuItems>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

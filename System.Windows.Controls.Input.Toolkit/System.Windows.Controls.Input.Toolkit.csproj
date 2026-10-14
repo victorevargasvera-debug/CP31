@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Windows</RootNamespace>
+    <AssemblyName>System.Windows.Controls.Input.Toolkit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automation\Peers\AutoCompleteBoxAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\RatingAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\RatingItemAutomationPeer.cs" />
+    <Compile Include="Controls\AutoCompleteBox.cs" />
+    <Compile Include="Controls\AutoCompleteFilterMode.cs" />
+    <Compile Include="Controls\AutoCompleteFilterPredicate.cs" />
+    <Compile Include="Controls\AutoCompleteSearch.cs" />
+    <Compile Include="Controls\BindingEvaluator.cs" />
+    <Compile Include="Controls\EnumerableFunctions.cs" />
+    <Compile Include="Controls\Extensions.cs" />
+    <Compile Include="Controls\InteractionHelper.cs" />
+    <Compile Include="Controls\ISelectionAdapter.cs" />
+    <Compile Include="Controls\ItemsControlHelper.cs" />
+    <Compile Include="Controls\IUpdateVisualState.cs" />
+    <Compile Include="Controls\NullableConverter.cs" />
+    <Compile Include="Controls\PopulatedEventArgs.cs" />
+    <Compile Include="Controls\PopulatedEventHandler.cs" />
+    <Compile Include="Controls\PopulatingEventArgs.cs" />
+    <Compile Include="Controls\PopulatingEventHandler.cs" />
+    <Compile Include="Controls\PopupHelper.cs" />
+    <Compile Include="Controls\Primitives\Clipper.cs" />
+    <Compile Include="Controls\Primitives\LinearClipper.cs" />
+    <Compile Include="Controls\Properties\Resources.cs" />
+    <Compile Include="Controls\Rating.cs" />
+    <Compile Include="Controls\RatingItem.cs" />
+    <Compile Include="Controls\RatingSelectionMode.cs" />
+    <Compile Include="Controls\RoutedPropertyChangingEventArgs.cs" />
+    <Compile Include="Controls\RoutedPropertyChangingEventHandler.cs" />
+    <Compile Include="Controls\SelectorSelectionAdapter.cs" />
+    <Compile Include="Controls\Tuple.2.cs" />
+    <Compile Include="Controls\Tuple.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Controls\VisualTreeExtensions.cs" />
+    <Compile Include="Controls\WeakEventListener.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPFToolkit\WPFToolkit.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E6}</Project>
+      <Name>WPFToolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

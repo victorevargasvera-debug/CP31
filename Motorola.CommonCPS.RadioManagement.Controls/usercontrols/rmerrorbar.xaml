@@ -1,0 +1,50 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMErrorBar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:ContextErrorToVisibilityConverter
+				x:Key="ContextErrorToVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<!--Unknown connection ID: 1-->
+	<Border
+		Name="Br"
+		Background="{StaticResource BrushInvalidBackground}"
+		Margin="0,20,0,0"
+		Padding="5">
+		<FrameworkElement.Style>
+			<Style
+				TargetType="{x:Type Border}">
+				<Setter
+					Property="Visibility">
+					<Setter.Value>
+						<MultiBinding
+							Converter="{StaticResource ContextErrorToVisibilityConverter}">
+							<Binding
+								Path="Error"
+								RelativeSource="{RelativeSource AncestorType=UserControl}" />
+							<Binding
+								Path="Tag"
+								RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}" />
+						</MultiBinding>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</FrameworkElement.Style>
+		<ScrollViewer
+			MaxHeight="350"
+			HorizontalScrollBarVisibility="Disabled"
+			VerticalScrollBarVisibility="Auto">
+			<!--Unknown connection ID: 2-->
+			<local:RMTextBlock
+				Name="tblError"
+				Foreground="{StaticResource BrushInvalid}"
+				TextWrapping="Wrap"
+				Text="{Binding Path=Error, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+		</ScrollViewer>
+	</Border>
+</UserControl>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Core</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="ConnectionMonitor.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="j.cs" />
+    <Compile Include="MyApp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RadioManagementBootstrapper.cs" />
+    <Compile Include="RadioManagementControl.xaml.cs">
+      <DependentUpon>RadioManagementControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RadioManagementControlViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACPBrowser\ACPBrowser.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA62F}</Project>
+      <Name>ACPBrowser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IncompatibilityHandler\IncompatibilityHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA67D}</Project>
+      <Name>IncompatibilityHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DockManager.v15.1\InfragisticsWPF4.DockManager.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68A}</Project>
+      <Name>InfragisticsWPF4.DockManager.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.Interactivity\Microsoft.Practices.Prism.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69B}</Project>
+      <Name>Microsoft.Practices.Prism.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.MefExtensions\Microsoft.Practices.Prism.MefExtensions.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69C}</Project>
+      <Name>Microsoft.Practices.Prism.MefExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.ASTRODataProfile\Motorola.CommonCPS.RadioManagement.ASTRODataProfile.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A4}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.ASTRODataProfile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.ASTROOtarProfile\Motorola.CommonCPS.RadioManagement.ASTROOtarProfile.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A5}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.ASTROOtarProfile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.ASTROSystem\Motorola.CommonCPS.RadioManagement.ASTROSystem.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A6}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.ASTROSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.CACertificates\Motorola.CommonCPS.RadioManagement.CACertificates.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A7}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.CACertificates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.CommandHandler\Motorola.CommonCPS.RadioManagement.CommandHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.CommonCore\Motorola.CommonCPS.RadioManagement.CommonCore.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AA}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.CommonCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Common\Motorola.CommonCPS.RadioManagement.Common.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A9}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Controls\Motorola.CommonCPS.RadioManagement.Controls.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AB}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.DVRSFiles\Motorola.CommonCPS.RadioManagement.DVRSFiles.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.DVRSFiles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Events\Motorola.CommonCPS.RadioManagement.Events.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AF}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Firmware\Motorola.CommonCPS.RadioManagement.Firmware.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Firmware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Infrastructure\Motorola.CommonCPS.RadioManagement.Infrastructure.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B3}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.InteractionHelper\Motorola.CommonCPS.RadioManagement.InteractionHelper.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B4}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.InteractionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Job\Motorola.CommonCPS.RadioManagement.Job.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B5}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Job</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.LanguagePack\Motorola.CommonCPS.RadioManagement.LanguagePack.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B6}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.LanguagePack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.LocalService\Motorola.CommonCPS.RadioManagement.LocalService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B7}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.LocalService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect\Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B9}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Radio\Motorola.CommonCPS.RadioManagement.Radio.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BB}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Radio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.RMALS\Motorola.CommonCPS.RadioManagement.RMALS.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BC}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.RMALS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.RMRLS\Motorola.CommonCPS.RadioManagement.RMRLS.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BD}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.RMRLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.SharedService\Motorola.CommonCPS.RadioManagement.SharedService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.SharedService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Template\Motorola.CommonCPS.RadioManagement.Template.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BF}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Template</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.VoiceAnnouncement\Motorola.CommonCPS.RadioManagement.VoiceAnnouncement.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.VoiceAnnouncement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Operation\Operation.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6CE}</Project>
+      <Name>Operation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlCommonUtility\SamlCommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D8}</Project>
+      <Name>SamlCommonUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="RadioManagementControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

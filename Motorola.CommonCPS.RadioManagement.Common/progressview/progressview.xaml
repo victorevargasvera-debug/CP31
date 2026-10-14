@@ -1,0 +1,57 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.ProgressView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Width="Auto" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="BoolToVisibilityConverter" />
+			<converters:BoolToVisibilityInverseConverter
+				x:Key="BoolToVisibilityInverseConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="24">
+		<Grid
+			Visibility="{Binding ProgressContext.IsShowProgressBar, Converter={StaticResource BoolToVisibilityConverter}}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="20" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<controls:RMProgressBar
+				AutomationProperties.AutomationId="ProgressBar"
+				Height="24"
+				Width="350"
+				Value="{Binding ProgressContext.Rate}" />
+			<Grid
+				Row="2"
+				Visibility="{Binding ProgressContext.IsSupportCancel, Converter={StaticResource BoolToVisibilityConverter}}">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="20" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<controls:RMTextBlock
+					HorizontalAlignment="Center"
+					Text="{Binding ProgressContext.Description}" />
+				<controls:RMButton
+					Grid.Row="2"
+					Content="{x:Static resourceRepository:Resources.General_Cancel}"
+					IsCancel="True"
+					Width="95" />
+			</Grid>
+		</Grid>
+		<!--Unknown connection ID: 1-->
+		<controls:RMWaitingIndicator
+			Name="rwiProgress"
+			AutomationProperties.AutomationId="WaitingIndicator"
+			Progress="{Binding ProgressContext.Rate}"
+			Visibility="{Binding ProgressContext.IsShowProgressBar, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+	</Grid>
+</UserControl>

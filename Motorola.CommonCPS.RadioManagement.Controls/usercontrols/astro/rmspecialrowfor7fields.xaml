@@ -1,0 +1,117 @@
+<local:RMSpecialEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMSpecialRowFor7Fields" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:MultiFieldsIsVisibleConverter
+				x:Key="multiFieldsIsVisibleConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.Visibility>
+		<MultiBinding
+			Converter="{StaticResource multiFieldsIsVisibleConverter}">
+			<Binding
+				Path="Field1.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="Field2.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="ComboBox1.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="ComboBox2.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="Spin1.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="ComboBox3.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="ComboBox4.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+		</MultiBinding>
+	</UIElement.Visibility>
+	<!--Unknown connection ID: 1-->
+	<UniformGrid
+		Name="Grid1"
+		Rows="1"
+		DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}">
+		<!--Unknown connection ID: 2-->
+		<local:RMTextBlock
+			Name="TB1"
+			Margin="6,0,20,0"
+			Grid.Column="0"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Right"
+			Text="{Binding Header1}" />
+		<!--Unknown connection ID: 3-->
+		<local:RMStringFieldEditor
+			Name="NI1"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="1"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			DataContext="{Binding Field1}" />
+		<!--Unknown connection ID: 4-->
+		<local:RMStringFieldEditor
+			Name="NI2"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="2"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			DataContext="{Binding Field2}" />
+		<!--Unknown connection ID: 5-->
+		<local:RMListFieldEditor
+			Name="CB1"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="3"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			IsSortRequired="True"
+			DataContext="{Binding ComboBox1}" />
+		<!--Unknown connection ID: 6-->
+		<local:RMListFieldEditor
+			Name="CB2"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="4"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			DataContext="{Binding ComboBox2}" />
+		<!--Unknown connection ID: 7-->
+		<local:RMNumericFieldEditor
+			Name="NI3"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="5"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			DataContext="{Binding Spin1}" />
+		<!--Unknown connection ID: 8-->
+		<local:RMListFieldEditor
+			Name="CB3"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="6"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			DataContext="{Binding ComboBox3}" />
+		<!--Unknown connection ID: 9-->
+		<local:RMListFieldEditor
+			Name="CB4"
+			Margin="6,0,0,0"
+			Width="100"
+			Grid.Column="7"
+			IsEditorOnly="True"
+			HorizontalContentAlignment="Stretch"
+			DataContext="{Binding ComboBox4}" />
+	</UniformGrid>
+</local:RMSpecialEditor>

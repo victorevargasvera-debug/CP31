@@ -1,0 +1,915 @@
+<AcpUINS:AcpPageFeature
+	x:Class="SpecialFeatures.Ucl.HotList.UclTrunkingCallHotListPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:src="clr-namespace:ConstraintHelper;assembly=AllFeatures" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:UclHotListNS="clr-namespace:SpecialFeatures.Ucl.HotList" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	Title="{x:Static CommonResxNS:AppResources.ASTRO_25_Trunking_Hot_List}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarUclTrunkingCallHotList"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentRecset">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2208</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetChildRecset">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2208</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10415</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2208</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ContactAliasCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableComboBox
+								Height="23.2766666666667"
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								MyExpander="{Binding ElementName=ExpTrunkingCallHotList}"
+								MyBLObject="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037Object, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								ItemsSource="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037Object.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpApplicable="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037_Applicable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.HotList.UclAstro25TrkHotList_ContactAlias_A00037Object"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CallIDCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableComboBox
+								Height="23.2766666666667"
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								MyExpander="{Binding ElementName=ExpTrunkingCallHotList}"
+								MyBLObject="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038Object, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								ItemsSource="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038Object.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038_Valid, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpApplicable="{Binding Path=Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038_Applicable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.HotList.UclAstro25TrkHotList_CallID_a00038Object"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 5-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpTrunkingCallHotList, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 6-->
+				<Hyperlink
+					Name="HLinkTrunkingCallHotList"
+					Tag="ExpTrunkingCallHotList">
+					<TextBlock
+						TextDecorations="Underline"
+						Text="{Binding Path=TrunkingCallHotList.UIName}">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="TrunkingCallHotList.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 7-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 8-->
+				<AcpUINS:AcpExpander
+					Name="ExpTrunkingCallHotList"
+					Width="Auto"
+					Header="{x:Static CommonResxNS:AppResources.ASTRO_25_Trunking_Hot_List}"
+					ExpandDirection="Down"
+					Margin="0,0,0,0"
+					VerticalAlignment="Top"
+					ShowDiffIcon="{Binding Path=TrunkingCallHotList.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 9-->
+						<AcpUINS:AcpChildRecNavToolbar
+							Name="RecNavToolbarTrunkingCallHotListHotList"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentRecset}, Path=/TrunkingCallHotList.EmbeddedRecset}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TrunkingCallHotList.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=TrunkingCallHotListDataPresenter, Path=DataSource}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderPseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<Grid
+									Row="0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<!--Unknown connection ID: 11-->
+									<Grid
+										Name="StdGrpBoxExpanderColumn"
+										Column="0">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="170" />
+											<ColumnDefinition
+												Width="225" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 12-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnTrunkingHotListAlias"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=TxtBoxHotListAlias}"
+											IsChecked="{Binding ElementName=TxtBoxHotListAlias, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="TxtBoxHotListAlias"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 13-->
+										<AcpUINS:AcpLabel
+											Name="LblHotListAlias"
+											Content="{x:Static CommonResxNS:AppResources.Hot_List_Alias}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static CommonResxNS:AppResources.Hot_List_Alias}"
+											MyParentCtrl="{Binding ElementName=TxtBoxHotListAlias}"
+											IsAcpValid="{Binding ElementName=TxtBoxHotListAlias, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=TxtBoxHotListAlias, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=TxtBoxHotListAlias, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 14-->
+										<AcpUINS:AcpTextBox
+											Name="TxtBoxHotListAlias"
+											Grid.Row="0"
+											Grid.Column="2"
+											MyParentCtrl="{Binding ElementName=GrpBoxExpanderTrunkingHotListAlias}"
+											MyExpander="{Binding ElementName=ExpTrunkingCallHotList}"
+											MyBLObject="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036Object}"
+											MyLabelCtrl="{Binding ElementName=LblHotListAlias}"
+											Text="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036Value}"
+											IsAcpValid="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036_Valid}"
+											IsAcpApplicable="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036_Applicable}"
+											AreValuesEqual="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036_Editable" />
+													<Binding
+														Path="TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036Object" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpEditable>
+											<AcpUINS:AcpTextBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpVisible>
+										</AcpUINS:AcpTextBox>
+									</Grid>
+									<!--Unknown connection ID: 15-->
+									<Grid
+										Name="CompGrpBoxExpanderColumn"
+										Column="1"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 16-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnHotListAlias"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=TxtBoxHotListAlias}"
+											MyCompCtrl="{Binding ElementName=TxtBoxHotListAliasComp}"
+											AreValuesEqual="{Binding ElementName=TxtBoxHotListAlias, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="TxtBoxHotListAlias"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="TxtBoxHotListAlias"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="TxtBoxHotListAlias"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 17-->
+										<AcpUINS:AcpViewOnlyCtrl
+											Name="TxtBoxHotListAliasComp"
+											Grid.Row="0"
+											Grid.Column="1"
+											Content="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036Value}"
+											MyBLObject="{Binding Path=TrunkingCallHotList.UclAstro25TrkHotList_HotListAlias_A00036Object}"
+											MyParentCtrl="{Binding ElementName=TxtBoxHotListAlias}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnHotListAlias}">
+											<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="TxtBoxHotListAlias"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+										</AcpUINS:AcpViewOnlyCtrl>
+									</Grid>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 18-->
+						<Grid
+							Name="GridFrame">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 19-->
+								<AcpUINS:AcpGroupBox
+									Name="GroupBoxTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 20-->
+										<AcpUINS:AcpXamDataPresenter
+											Name="TrunkingCallHotListDataPresenter"
+											KeyboardNavigation.AcceptsReturn="True"
+											Grid.Row="1"
+											Header="{x:Static CommonResxNS:AppResources.ASTRO_25_Trunking_Hot_List}"
+											MyExpander="{Binding ElementName=ExpTrunkingCallHotList}"
+											igcontrols:DataSource="{Binding Source={StaticResource GetParentRecset}, Path=/TrunkingCallHotList.EmbeddedRecset}">
+											<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpXamDataPresenterVisibityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="DataSource.HasDiffs"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="IsAcpVisible"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														ElementName="ContactAliasTable_Col"
+														Path="Visibility" />
+													<Binding
+														ElementName="CallIdTable_Col"
+														Path="Visibility" />
+												</MultiBinding>
+											</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<igcontrols:DataPresenterBase.FieldLayouts>
+												<igcontrols:FieldLayout>
+													<igcontrols:FieldLayout.Fields>
+														<!--Unknown connection ID: 21-->
+														<igcontrols:UnboundField
+															x:Name="ContactAliasTable_Col"
+															Label="{x:Static CommonResxNS:AppResources.Contact_Id}"
+															BindingPath="HotList.UclAstro25TrkHotList_ContactAlias_A00037Object"
+															BindingMode="OneWay"
+															Visibility="{Binding Source={StaticResource GetChildRecset}, Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037_Visible, Converter={StaticResource BooleanToVisibility}}">
+															<igcontrols:Field.Settings>
+																<igcontrols:FieldSettings
+																	CellValuePresenterStyle="{StaticResource ContactAliasCellStyle}" />
+															</igcontrols:Field.Settings>
+														</igcontrols:UnboundField>
+														<!--Unknown connection ID: 22-->
+														<igcontrols:UnboundField
+															x:Name="CallIdTable_Col"
+															Label="{x:Static CommonResxNS:AppResources.Call_ID}"
+															BindingPath="HotList.UclAstro25TrkHotList_CallID_a00038Object"
+															BindingMode="OneWay"
+															Visibility="{Binding Source={StaticResource GetChildRecset}, Path=HotList.UclAstro25TrkHotList_CallID_a00038_Visible, Converter={StaticResource BooleanToVisibility}}">
+															<igcontrols:Field.Settings>
+																<igcontrols:FieldSettings
+																	CellValuePresenterStyle="{StaticResource CallIDCellStyle}" />
+															</igcontrols:Field.Settings>
+														</igcontrols:UnboundField>
+													</igcontrols:FieldLayout.Fields>
+												</igcontrols:FieldLayout>
+											</igcontrols:DataPresenterBase.FieldLayouts>
+										</AcpUINS:AcpXamDataPresenter>
+									</Grid>
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarTrunkingCallHotListHotList"
+												Path="TableMode" />
+											<Binding
+												ElementName="TrunkingCallHotListDataPresenter"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 23-->
+								<AcpUINS:AcpGroupBox
+									Name="GroupBoxSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<!--Unknown connection ID: 24-->
+									<Grid
+										Name="grid"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding TrunkingCallHotList.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<!--Unknown connection ID: 25-->
+										<Grid
+											Name="StdGridGeneralGrp"
+											Column="0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="Auto" />
+												<ColumnDefinition
+													Width="170" />
+												<ColumnDefinition
+													Width="225" />
+												<ColumnDefinition
+													Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition />
+												<RowDefinition />
+											</Grid.RowDefinitions>
+											<!--Unknown connection ID: 26-->
+											<AcpUINS:AcpComboBox
+												Name="ContactAlias"
+												Height="23.2766666666667"
+												Grid.Row="0"
+												Grid.Column="2"
+												DisplayMemberPath="ItemName"
+												SelectedValuePath="ItemName"
+												MyExpander="{Binding ElementName=ExpTrunkingCallHotList}"
+												MyBLObject="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037Object}"
+												ItemsSource="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037Object.Items}"
+												SelectedValue="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037_UIValue}"
+												MyLabelCtrl="{Binding ElementName=LblContactAlias}"
+												IsAcpValid="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037_Valid}"
+												IsAcpApplicable="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037_Applicable}"
+												AreValuesEqual="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+												<AcpUINS:AcpComboBox.IsAcpEditable>
+													<MultiBinding
+														Converter="{StaticResource editabilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Path="HotList.UclAstro25TrkHotList_ContactAlias_A00037_Editable" />
+														<Binding
+															Path="HotList.UclAstro25TrkHotList_ContactAlias_A00037Object" />
+													</MultiBinding>
+												</AcpUINS:AcpComboBox.IsAcpEditable>
+												<AcpUINS:AcpComboBox.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource parentControlVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppHideMatches" />
+														<Binding
+															Path="AreValuesEqual"
+															RelativeSource="{RelativeSource Self}" />
+														<Binding
+															Path="HotList.UclAstro25TrkHotList_ContactAlias_A00037_Visible" />
+													</MultiBinding>
+												</AcpUINS:AcpComboBox.IsAcpVisible>
+											</AcpUINS:AcpComboBox>
+											<!--Unknown connection ID: 27-->
+											<AcpUINS:AcpCustomViewCheckBox
+												Name="CVBtnContactAlias"
+												Grid.Row="0"
+												Grid.Column="0"
+												MyParentCtrl="{Binding ElementName=ContactAlias}"
+												IsChecked="{Binding ElementName=ContactAlias, Path=MyBLObject.CustomViewVisibility}">
+												<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="IsAcpVisible" />
+													</MultiBinding>
+												</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											</AcpUINS:AcpCustomViewCheckBox>
+											<!--Unknown connection ID: 28-->
+											<AcpUINS:AcpLabel
+												Name="LblContactAlias"
+												Content="{x:Static CommonResxNS:AppResources.Contact_Id}"
+												VerticalAlignment="Center"
+												Grid.Row="0"
+												Grid.Column="1"
+												HelpText="{x:Static CommonResxNS:AppResources.Contact_Selection}"
+												MyParentCtrl="{Binding ElementName=ContactAlias}"
+												IsAcpValid="{Binding ElementName=ContactAlias, Path=IsAcpValid}"
+												IsAcpApplicable="{Binding ElementName=ContactAlias, Path=IsAcpApplicable}"
+												IsAcpVisible="{Binding ElementName=ContactAlias, Path=IsAcpVisible}" />
+											<!--Unknown connection ID: 29-->
+											<AcpUINS:AcpRtdButton
+												Name="RtdBtnContactAlias"
+												Grid.Row="0"
+												Grid.Column="3"
+												MyParentCtrl="{Binding ElementName=ContactAlias}">
+												<AcpUINS:AcpRtdButton.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="ShowRtdButtons" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="MyBLObject" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="IsAcpVisible" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="IsAcpEditable" />
+													</MultiBinding>
+												</AcpUINS:AcpRtdButton.IsAcpVisible>
+											</AcpUINS:AcpRtdButton>
+											<!--Unknown connection ID: 30-->
+											<AcpUINS:AcpComboBox
+												Name="CallID"
+												Height="23.2766666666667"
+												Grid.Row="1"
+												Grid.Column="2"
+												DisplayMemberPath="ItemName"
+												SelectedValuePath="ItemName"
+												MyExpander="{Binding ElementName=ExpTrunkingCallHotList}"
+												MyBLObject="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038Object}"
+												ItemsSource="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038Object.Items}"
+												SelectedValue="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038_UIValue}"
+												MyLabelCtrl="{Binding ElementName=LblCallID}"
+												IsAcpValid="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038_Valid}"
+												IsAcpApplicable="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038_Applicable}"
+												AreValuesEqual="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+												<AcpUINS:AcpComboBox.IsAcpEditable>
+													<MultiBinding
+														Converter="{StaticResource editabilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Path="HotList.UclAstro25TrkHotList_CallID_a00038_Editable" />
+														<Binding
+															Path="HotList.UclAstro25TrkHotList_CallID_a00038Object" />
+													</MultiBinding>
+												</AcpUINS:AcpComboBox.IsAcpEditable>
+												<AcpUINS:AcpComboBox.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource parentControlVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppHideMatches" />
+														<Binding
+															Path="AreValuesEqual"
+															RelativeSource="{RelativeSource Self}" />
+														<Binding
+															Path="HotList.UclAstro25TrkHotList_CallID_a00038_Visible" />
+													</MultiBinding>
+												</AcpUINS:AcpComboBox.IsAcpVisible>
+											</AcpUINS:AcpComboBox>
+											<!--Unknown connection ID: 31-->
+											<AcpUINS:AcpCustomViewCheckBox
+												Name="CVBtnCallID"
+												Grid.Row="1"
+												Grid.Column="0"
+												MyParentCtrl="{Binding ElementName=CallID}"
+												IsChecked="{Binding ElementName=CallID, Path=MyBLObject.CustomViewVisibility}">
+												<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															ElementName="CallID"
+															Path="IsAcpVisible" />
+													</MultiBinding>
+												</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											</AcpUINS:AcpCustomViewCheckBox>
+											<!--Unknown connection ID: 32-->
+											<AcpUINS:AcpLabel
+												Name="LblCallID"
+												Content="{x:Static CommonResxNS:AppResources.Call_ID}"
+												VerticalAlignment="Center"
+												Grid.Row="1"
+												Grid.Column="1"
+												HelpText="{x:Static CommonResxNS:AppResources.Call_ID}"
+												MyParentCtrl="{Binding ElementName=CallID}"
+												IsAcpValid="{Binding ElementName=CallID, Path=IsAcpValid}"
+												IsAcpApplicable="{Binding ElementName=CallID, Path=IsAcpApplicable}"
+												IsAcpVisible="{Binding ElementName=CallID, Path=IsAcpVisible}" />
+											<!--Unknown connection ID: 33-->
+											<AcpUINS:AcpRtdButton
+												Name="RtdBtnCallID"
+												Grid.Row="1"
+												Grid.Column="3"
+												MyParentCtrl="{Binding ElementName=CallID}">
+												<AcpUINS:AcpRtdButton.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="ShowRtdButtons" />
+														<Binding
+															ElementName="CallID"
+															Path="MyBLObject" />
+														<Binding
+															ElementName="CallID"
+															Path="IsAcpVisible" />
+														<Binding
+															ElementName="CallID"
+															Path="IsAcpEditable" />
+													</MultiBinding>
+												</AcpUINS:AcpRtdButton.IsAcpVisible>
+											</AcpUINS:AcpRtdButton>
+										</Grid>
+										<!--Unknown connection ID: 34-->
+										<Grid
+											Name="CompGridGeneralGrp"
+											Column="1"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TrunkingCallHotList.EmbeddedRecset}">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="Auto" />
+												<ColumnDefinition
+													Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition />
+												<RowDefinition />
+											</Grid.RowDefinitions>
+											<!--Unknown connection ID: 35-->
+											<AcpUINS:AcpCopyButton
+												Name="CopyButtonContactAlias"
+												Grid.Row="0"
+												Grid.Column="0"
+												MyParentCtrl="{Binding ElementName=ContactAlias}"
+												MyCompCtrl="{Binding ElementName=ContactAliasComp}"
+												AreValuesEqual="{Binding ElementName=ContactAlias, Path=AreValuesEqual}">
+												<AcpUINS:AcpCopyButton.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="MyBLObject" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="IsAcpVisible" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="IsAcpEditable" />
+													</MultiBinding>
+												</AcpUINS:AcpCopyButton.IsAcpVisible>
+											</AcpUINS:AcpCopyButton>
+											<!--Unknown connection ID: 36-->
+											<AcpUINS:AcpViewOnlyCtrl
+												Name="ContactAliasComp"
+												Grid.Row="0"
+												Grid.Column="1"
+												Content="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037_UIValue}"
+												MyBLObject="{Binding Path=HotList.UclAstro25TrkHotList_ContactAlias_A00037Object}"
+												MyParentCtrl="{Binding ElementName=ContactAlias}"
+												MyCopyButtonCtrl="{Binding ElementName=CopyButtonContactAlias}">
+												<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource comparatorControlVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															ElementName="ContactAlias"
+															Path="IsAcpVisible" />
+													</MultiBinding>
+												</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+											</AcpUINS:AcpViewOnlyCtrl>
+											<!--Unknown connection ID: 37-->
+											<AcpUINS:AcpCopyButton
+												Name="CopyButtonCallID"
+												Grid.Row="1"
+												Grid.Column="0"
+												MyParentCtrl="{Binding ElementName=CallID}"
+												MyCompCtrl="{Binding ElementName=CallIDComp}"
+												AreValuesEqual="{Binding ElementName=CallID, Path=AreValuesEqual}">
+												<AcpUINS:AcpCopyButton.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															ElementName="CallID"
+															Path="MyBLObject" />
+														<Binding
+															ElementName="CallID"
+															Path="IsAcpVisible" />
+														<Binding
+															ElementName="CallID"
+															Path="IsAcpEditable" />
+													</MultiBinding>
+												</AcpUINS:AcpCopyButton.IsAcpVisible>
+											</AcpUINS:AcpCopyButton>
+											<!--Unknown connection ID: 38-->
+											<AcpUINS:AcpViewOnlyCtrl
+												Name="CallIDComp"
+												Grid.Row="1"
+												Grid.Column="1"
+												Content="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038_UIValue}"
+												MyBLObject="{Binding Path=HotList.UclAstro25TrkHotList_CallID_a00038Object}"
+												MyParentCtrl="{Binding ElementName=CallID}"
+												MyCopyButtonCtrl="{Binding ElementName=CopyButtonCallID}">
+												<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource comparatorControlVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															ElementName="CallID"
+															Path="IsAcpVisible" />
+													</MultiBinding>
+												</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+											</AcpUINS:AcpViewOnlyCtrl>
+										</Grid>
+									</Grid>
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarTrunkingCallHotListHotList"
+												Path="TableMode" />
+											<Binding
+												ElementName="ContactAlias"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="CallID"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="TxtBoxHotListAlias"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="GroupBoxTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="GroupBoxSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

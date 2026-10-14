@@ -1,0 +1,115 @@
+<local:RMSealedFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMBitmapFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Name="fedBitmap"
+	Height="Auto">
+	<!--Unknown connection ID: 2-->
+	<Grid
+		Name="grdMain">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="21" />
+		</Grid.ColumnDefinitions>
+		<local:RMTextBlock
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			Text="{Binding Path=Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+		<Grid
+			Column="2">
+			<!--Unknown connection ID: 3-->
+			<ItemsControl
+				Name="iclBitMap"
+				VerticalAlignment="Center"
+				Height="Auto"
+				Width="Auto"
+				Grid.IsSharedSizeScope="True"
+				AllowDrop="False"
+				ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				ScrollViewer.CanContentScroll="False"
+				ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+				ScrollViewer.IsDeferredScrollingEnabled="True">
+				<UIElement.IsEnabled>
+					<MultiBinding
+						Converter="{StaticResource FieldPropertiesToIsEnableConverter}">
+						<Binding
+							Path="IsEditable" />
+						<Binding
+							Path="IsMVODynamic" />
+						<Binding
+							Path="UseMVODefault" />
+					</MultiBinding>
+				</UIElement.IsEnabled>
+				<ItemsControl.ItemsSource>
+					<MultiBinding
+						Converter="{StaticResource NumericFieldToBitmapItemSrouceConverter}">
+						<Binding
+							Path="Value" />
+						<Binding
+							Path="Max"
+							Converter="{StaticResource MaxValueToMaxLengthConverter}" />
+					</MultiBinding>
+				</ItemsControl.ItemsSource>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<local:RMToggleButton
+							Click="ToggleButton_Click"
+							Width="30"
+							Height="20"
+							Content="{Binding Index}"
+							IsChecked="{Binding Value, Converter={StaticResource BinaryNumberToIsCheckedConverter}}" />
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+				<Control.Template>
+					<ControlTemplate>
+						<ScrollViewer
+							HorizontalScrollBarVisibility="Auto">
+							<StackPanel
+								Name="StackPanel1"
+								IsItemsHost="True"
+								Orientation="Horizontal" />
+						</ScrollViewer>
+					</ControlTemplate>
+				</Control.Template>
+			</ItemsControl>
+			<Border
+				Background="{StaticResource BrushGray}"
+				Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+				<local:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+			</Border>
+		</Grid>
+		<!--Unknown connection ID: 4-->
+		<local:RMButton
+			Name="btnLock"
+			Click="btnLock_Click"
+			Grid.Column="3"
+			Margin="1,0,0,0"
+			Width="20"
+			IsEnabled="{Binding IsEditable}"
+			Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}"
+			Tag="{Binding UseMVODefault, Mode=TwoWay}">
+			<Control.Template>
+				<ControlTemplate>
+					<Image>
+						<Image.Source>
+							<MultiBinding
+								Converter="{StaticResource BoolToLockIconPathConverter}">
+								<Binding
+									Path="UseMVODefault" />
+								<Binding
+									Path="IsEditable" />
+								<Binding
+									RelativeSource="{RelativeSource Self}" />
+							</MultiBinding>
+						</Image.Source>
+					</Image>
+				</ControlTemplate>
+			</Control.Template>
+		</local:RMButton>
+	</Grid>
+</local:RMSealedFieldEditor>

@@ -1,0 +1,159 @@
+<Window
+	x:Class="SpecialFeatures.FileOperations.MessageWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	Title=""
+	ResizeMode="NoResize"
+	ShowInTaskbar="False"
+	WindowStartupLocation="CenterOwner"
+	WindowStyle="None"
+	SizeToContent="WidthAndHeight"
+	MaxWidth="400"
+	BorderBrush="#FF5D636C"
+	BorderThickness="1" xmlns:fileoperations="clr-namespace:SpecialFeatures.FileOperations">
+	<Control.Background>
+		<LinearGradientBrush
+			EndPoint="0.5,0.99"
+			StartPoint="0.5,0.105">
+			<GradientStop
+				Color="#FFA6A9AF"
+				Offset="0.545" />
+			<GradientStop
+				Color="#FFC2C5CC"
+				Offset="1" />
+			<GradientStop
+				Color="#FF8F939B"
+				Offset="0" />
+		</LinearGradientBrush>
+	</Control.Background>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="../Styles/ResourceSpecialFeatures.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel>
+		<!--Unknown connection ID: 1-->
+		<Label
+			Name="operationLabel"
+			FontSize="16"
+			HorizontalAlignment="Stretch"
+			HorizontalContentAlignment="Left"
+			BorderThickness="0,0,0,0"
+			Background="{DynamicResource Brush1234}"
+			Foreground="#FFD0D0D0"
+			Content=""
+			BorderBrush="{x:Null}">
+			<UIElement.OpacityMask>
+				<RadialGradientBrush>
+					<Brush.RelativeTransform>
+						<TransformGroup>
+							<ScaleTransform
+								CenterX="0.5"
+								CenterY="0.5"
+								ScaleX="1.557"
+								ScaleY="1.557" />
+							<SkewTransform
+								AngleX="0"
+								AngleY="0"
+								CenterX="0.5"
+								CenterY="0.5" />
+							<RotateTransform
+								Angle="0"
+								CenterX="0.5"
+								CenterY="0.5" />
+							<TranslateTransform
+								X="0"
+								Y="0" />
+						</TransformGroup>
+					</Brush.RelativeTransform>
+					<GradientStop
+						Color="#FF000000"
+						Offset="0.529" />
+					<GradientStop
+						Color="#00000000"
+						Offset="0.959" />
+				</RadialGradientBrush>
+			</UIElement.OpacityMask>
+		</Label>
+		<Rectangle
+			Height="12"
+			StrokeLineJoin="Round"
+			StrokeThickness="1"
+			Stroke="{x:Null}">
+			<UIElement.OpacityMask>
+				<LinearGradientBrush
+					EndPoint="0.018,0.972"
+					StartPoint="0.018,-0.136">
+					<GradientStop
+						Color="#FF000000"
+						Offset="0" />
+					<GradientStop
+						Color="#00000000"
+						Offset="1" />
+					<GradientStop
+						Color="#6D000000"
+						Offset="0.406" />
+				</LinearGradientBrush>
+			</UIElement.OpacityMask>
+			<Shape.Fill>
+				<LinearGradientBrush
+					EndPoint="0.5,1"
+					StartPoint="0.5,0.057">
+					<GradientStop
+						Color="#FF000000"
+						Offset="0" />
+					<GradientStop
+						Color="#00FFFFFF"
+						Offset="1" />
+					<GradientStop
+						Color="#B34B4B4B"
+						Offset="0.459" />
+				</LinearGradientBrush>
+			</Shape.Fill>
+		</Rectangle>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto"
+					MinHeight="18" />
+				<RowDefinition
+					Height="Auto"
+					MinHeight="3" />
+			</Grid.RowDefinitions>
+			<!--Unknown connection ID: 2-->
+			<TextBox
+				Name="ProgText"
+				Grid.Row="0"
+				VerticalScrollBarVisibility="Auto"
+				HorizontalContentAlignment="Center"
+				IsReadOnly="true"
+				Foreground="#FFFFFFFF"
+				FontSize="12"
+				FontStyle="Italic"
+				FontFamily="Verdana"
+				FontWeight="Bold"
+				Text="{x:Static CommonResxNS:AppResources.This_is_a_test}"
+				Background="#00FFFFFF"
+				BorderThickness="0"
+				TextWrapping="Wrap"
+				ClipToBounds="False"
+				Margin="-0.001,0,0,0"
+				VerticalContentAlignment="Center" />
+			<Button
+				Style="{DynamicResource AnotherB}"
+				Grid.Row="1"
+				Height="30"
+				Margin="0,10"
+				IsCancel="True"
+				VerticalAlignment="Top"
+				Background="{DynamicResource Brush1234}"
+				Foreground="#FFFFFFFF"
+				FontFamily="Verdana"
+				FontSize="16"
+				HorizontalAlignment="Center"
+				Width="61.846"
+				Content="{x:Static CommonResxNS:AppResources.OK_Id}" />
+		</Grid>
+	</StackPanel>
+</Window>

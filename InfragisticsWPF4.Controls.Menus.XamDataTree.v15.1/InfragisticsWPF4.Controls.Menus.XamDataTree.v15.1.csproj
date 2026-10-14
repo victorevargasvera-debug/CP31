@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA684}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\XamDataTreeAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\XamDataTreeNodeAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\XamDataTreeNodeControlAutomationPeer.cs" />
+    <Compile Include="Controls\Menus\ActiveNodeChangedEventArgs.cs" />
+    <Compile Include="Controls\Menus\ActiveNodeChangingEventArgs.cs" />
+    <Compile Include="Controls\Menus\BeginEditingNodeEventArgs.cs" />
+    <Compile Include="Controls\Menus\CancellableNodeDeletionEventArgs.cs" />
+    <Compile Include="Controls\Menus\CancellableNodeEventArgs.cs" />
+    <Compile Include="Controls\Menus\CancellableNodeExpansionChangedEventArgs.cs" />
+    <Compile Include="Controls\Menus\CheckBoxSettings.cs" />
+    <Compile Include="Controls\Menus\CheckBoxSettingsOverride.cs" />
+    <Compile Include="Controls\Menus\DataItemNodeMap.cs" />
+    <Compile Include="Controls\Menus\GlobalNodeLayoutCollection.cs" />
+    <Compile Include="Controls\Menus\InitializeNodeEventArgs.cs" />
+    <Compile Include="Controls\Menus\IntermediateNodesManager.cs" />
+    <Compile Include="Controls\Menus\InternalNodesCollection.cs" />
+    <Compile Include="Controls\Menus\NodeDeletedEventArgs.cs" />
+    <Compile Include="Controls\Menus\NodeEventArgs.cs" />
+    <Compile Include="Controls\Menus\NodeExpansionChangedEventArgs.cs" />
+    <Compile Include="Controls\Menus\NodeLayout.cs" />
+    <Compile Include="Controls\Menus\NodeLayoutAssignedEventArgs.cs" />
+    <Compile Include="Controls\Menus\NodeLayoutBase.cs" />
+    <Compile Include="Controls\Menus\NodeLayoutCollection.cs" />
+    <Compile Include="Controls\Menus\NodeLayoutEventArgs.cs" />
+    <Compile Include="Controls\Menus\NodeLineTemination.cs" />
+    <Compile Include="Controls\Menus\NodeSelectionEventArgs.cs" />
+    <Compile Include="Controls\Menus\NodesManager.cs" />
+    <Compile Include="Controls\Menus\NodeValidationErrorEventArgs.cs" />
+    <Compile Include="Controls\Menus\Primitives\ActiveNodeIndicator.cs" />
+    <Compile Include="Controls\Menus\Primitives\NodeLineControl.cs" />
+    <Compile Include="Controls\Menus\Primitives\NodeLinePanel.cs" />
+    <Compile Include="Controls\Menus\Primitives\NodeLineTerminator.cs" />
+    <Compile Include="Controls\Menus\Primitives\NodesPanel.cs" />
+    <Compile Include="Controls\Menus\Properties\Resources.cs" />
+    <Compile Include="Controls\Menus\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\Menus\ReferenceEqualityComparer.cs" />
+    <Compile Include="Controls\Menus\SelectedCollectionBase.cs" />
+    <Compile Include="Controls\Menus\SelectedNodesCollection.cs" />
+    <Compile Include="Controls\Menus\SettingsBase.cs" />
+    <Compile Include="Controls\Menus\SettingsBaseOverride.cs" />
+    <Compile Include="Controls\Menus\strings.cs" />
+    <Compile Include="Controls\Menus\TreeCheckBoxMode.cs" />
+    <Compile Include="Controls\Menus\TreeDataObjectCreationEventArgs.cs" />
+    <Compile Include="Controls\Menus\TreeDragSelectType.cs" />
+    <Compile Include="Controls\Menus\TreeDropDestination.cs" />
+    <Compile Include="Controls\Menus\TreeDropEventArgs.cs" />
+    <Compile Include="Controls\Menus\TreeEditingNodeEventArgs.cs" />
+    <Compile Include="Controls\Menus\TreeEditingSettings.cs" />
+    <Compile Include="Controls\Menus\TreeEditingSettingsOverride.cs" />
+    <Compile Include="Controls\Menus\TreeExitEditingEventArgs.cs" />
+    <Compile Include="Controls\Menus\TreeInvokeAction.cs" />
+    <Compile Include="Controls\Menus\TreeMouseEditingAction.cs" />
+    <Compile Include="Controls\Menus\TreeSelectionSettings.cs" />
+    <Compile Include="Controls\Menus\TreeSelectionType.cs" />
+    <Compile Include="Controls\Menus\XamDataTree.cs" />
+    <Compile Include="Controls\Menus\XamDataTreeNode.cs" />
+    <Compile Include="Controls\Menus\XamDataTreeNodeControl.cs" />
+    <Compile Include="Controls\Menus\XamDataTreeNodeDataContext.cs" />
+    <Compile Include="Controls\Menus\XamDataTreeNodesCollection.cs" />
+    <Compile Include="Controls\Menus\XamDataTreeNodesManager.cs" />
+    <Compile Include="Controls\Menus\XamDataTreeUtilities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="SRDataTree.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Menus\Properties\Resources.resources" />
+    <EmbeddedResource Include="Controls\Menus\strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.DataManager.v15.1\InfragisticsWPF4.DataManager.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA686}</Project>
+      <Name>InfragisticsWPF4.DataManager.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DragDrop.v15.1\InfragisticsWPF4.DragDrop.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68C}</Project>
+      <Name>InfragisticsWPF4.DragDrop.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Menus\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

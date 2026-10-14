@@ -1,0 +1,449 @@
+<Window
+	x:Class="SpecialFeatures.POP25BatchProgrammer.POP25BatchProgrammerProgress" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:dc="clr-namespace:DevComponents.WpfEditors;assembly=AcpWpfEditors" xmlns:src="clr-namespace:SpecialFeatures.FileOperations" xmlns:local="clr-namespace:SpecialFeatures.POP25BatchProgrammer" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	Name="This"
+	Title="{x:Static CommonResxNS:AppResources.POP25_Batch_Programming_Progress}"
+	Height="530"
+	Width="620"
+	MaxWidth="650"
+	WindowStyle="ToolWindow"
+	WindowStartupLocation="CenterScreen"
+	Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaPopupDialogueBackground}}}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="..\FileOperations\BusyIndicator.xaml" />
+				<ResourceDictionary
+					Source="..\Styles\ResourceSpecialFeatures.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<SolidColorBrush
+				Color="#FF4F81BD"
+				x:Key="DataGrid_Style0_Header" />
+			<local:IntToBusyStateConverter
+				x:Key="IntToBusyStateConverter" />
+			<RoutedCommand
+				x:Key="F1Help" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.CommandBindings>
+		<!--Unknown connection ID: 2-->
+		<CommandBinding
+			Command="{StaticResource F1Help}" />
+	</UIElement.CommandBindings>
+	<UIElement.InputBindings>
+		<KeyBinding
+			Command="{StaticResource F1Help}"
+			Key="F1" />
+	</UIElement.InputBindings>
+	<ScrollViewer
+		VerticalScrollBarVisibility="Auto"
+		HorizontalScrollBarVisibility="Auto">
+		<DockPanel
+			Height="715"
+			Width="560">
+			<Grid
+				DockPanel.Dock="Bottom"
+				Height="705"
+				Width="530">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="530" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="29" />
+					<RowDefinition
+						Height="576" />
+					<RowDefinition
+						Height="45" />
+					<RowDefinition
+						Height="20*" />
+				</Grid.RowDefinitions>
+				<!--Unknown connection ID: 3-->
+				<StackPanel
+					Name="spBatchProgrammingIPAndStart"
+					Grid.Row="0"
+					Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Height="29"
+					Width="490"
+					VerticalAlignment="Top"
+					Margin="20,0">
+					<Label
+						Content="{x:Static CommonResxNS:AppResources.ARS_Server_IP}"
+						FontSize="12"
+						Height="28"
+						Width="139"
+						Margin="0,0,0,0" />
+					<!--Unknown connection ID: 4-->
+					<TextBox
+						Name="txtboxArsServer"
+						Height="23"
+						Width="120"
+						IsEnabled="False" />
+					<Label
+						Content="{x:Static CommonResxNS:AppResources.Started_Id}"
+						FontSize="12"
+						Height="28"
+						Width="65" />
+					<!--Unknown connection ID: 5-->
+					<AcpUINS:AcpTextBox
+						Name="dtProgressDateTime"
+						Width="216"
+						Height="25"
+						HorizontalAlignment="Left"
+						IsEnabled="False"
+						IsReadOnly="True" />
+				</StackPanel>
+				<!--Unknown connection ID: 6-->
+				<StackPanel
+					Name="spBackGround"
+					Grid.Row="1"
+					Height="660"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Width="510"
+					Grid.RowSpan="3">
+					<!--Unknown connection ID: 7-->
+					<DataGrid
+						Name="dgBatchProgrammingProgress"
+						RowHeight="20"
+						AlternatingRowBackground="#FFF0F8FF"
+						AlternationCount="2"
+						CanUserAddRows="False"
+						CanUserDeleteRows="False"
+						AutoGenerateColumns="False"
+						Height="230"
+						Width="490"
+						HorizontalScrollBarVisibility="Auto"
+						VerticalScrollBarVisibility="Auto"
+						BorderThickness="3"
+						Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+						<DataGrid.Columns>
+							<DataGridTextColumn
+								Header="{x:Static CommonResxNS:AppResources.Radio_ID_Id}"
+								Width="160"
+								IsReadOnly="True"
+								Binding="{Binding Radio_ID}">
+								<DataGridColumn.HeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="Background"
+											Value="{StaticResource DataGrid_Style0_Header}" />
+										<Setter
+											Property="Foreground"
+											Value="#FFFFFFFF" />
+									</Style>
+								</DataGridColumn.HeaderStyle>
+								<DataGridBoundColumn.ElementStyle>
+									<Style
+										TargetType="{x:Type TextBlock}">
+										<Style.Triggers>
+											<DataTrigger
+												Value="false"
+												Binding="{Binding Path=Radio_ID_Check}">
+												<Setter
+													Property="Foreground"
+													Value="#FF808080" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</DataGridBoundColumn.ElementStyle>
+							</DataGridTextColumn>
+							<DataGridTextColumn
+								Header="{x:Static CommonResxNS:AppResources.IP_Address}"
+								Width="190"
+								IsReadOnly="True"
+								Binding="{Binding Radio_IP}">
+								<DataGridColumn.HeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="Background"
+											Value="{StaticResource DataGrid_Style0_Header}" />
+										<Setter
+											Property="Foreground"
+											Value="#FFFFFFFF" />
+									</Style>
+								</DataGridColumn.HeaderStyle>
+								<DataGridBoundColumn.ElementStyle>
+									<Style
+										TargetType="{x:Type TextBlock}">
+										<Style.Triggers>
+											<DataTrigger
+												Value="false"
+												Binding="{Binding Path=Radio_IP_ARS_Check}">
+												<Setter
+													Property="Foreground"
+													Value="#FF808080" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</DataGridBoundColumn.ElementStyle>
+							</DataGridTextColumn>
+							<DataGridTextColumn
+								Header="{x:Static CommonResxNS:AppResources.Status_Id}"
+								Width="128"
+								IsReadOnly="True"
+								Binding="{Binding Status}">
+								<DataGridColumn.HeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="Background"
+											Value="{StaticResource DataGrid_Style0_Header}" />
+										<Setter
+											Property="Foreground"
+											Value="#FFFFFFFF" />
+									</Style>
+								</DataGridColumn.HeaderStyle>
+								<DataGridBoundColumn.ElementStyle>
+									<Style
+										TargetType="{x:Type TextBlock}">
+										<Style.Triggers>
+											<DataTrigger
+												Value="FAILED"
+												Binding="{Binding Path=Status}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+											</DataTrigger>
+											<DataTrigger
+												Value="SUCCESS"
+												Binding="{Binding Path=Status}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+											</DataTrigger>
+											<DataTrigger
+												Value="Cancelled!"
+												Binding="{Binding Path=Status}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</DataGridBoundColumn.ElementStyle>
+							</DataGridTextColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+					<StackPanel
+						Height="60"
+						Width="506"
+						Margin="0">
+						<Grid
+							Width="493"
+							Height="50"
+							HorizontalAlignment="Left"
+							Margin="10,0,0,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="120" />
+								<ColumnDefinition
+									Width="400" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="25" />
+								<RowDefinition
+									Height="25" />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 8-->
+							<TextBox
+								Name="ProgText"
+								VerticalScrollBarVisibility="Auto"
+								HorizontalContentAlignment="Center"
+								IsReadOnly="true"
+								Foreground="#FFFFFFFF"
+								FontSize="11"
+								FontStyle="Italic"
+								FontFamily="Verdana"
+								FontWeight="Normal"
+								Text="{x:Static CommonResxNS:AppResources.Radio_Status}"
+								Background="#00FFFFFF"
+								BorderThickness="0"
+								TextWrapping="Wrap"
+								ClipToBounds="False"
+								VerticalContentAlignment="Center"
+								Grid.ColumnSpan="3"
+								HorizontalAlignment="Left"
+								Width="490"
+								Height="20"
+								Margin="0,6,0,24"
+								Grid.RowSpan="2" />
+							<Label
+								Width="145"
+								Grid.Row="1"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Bottom"
+								Margin="0,0,0,-10"
+								Height="34"
+								Content="{x:Static CommonResxNS:AppResources.Radio_Progress}"
+								Grid.ColumnSpan="2" />
+							<!--Unknown connection ID: 9-->
+							<ProgressBar
+								Name="pbBatchProgrammingProgress"
+								Grid.Column="1"
+								Height="12"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Bottom"
+								Width="343"
+								Minimum="0"
+								Maximum="100"
+								Grid.Row="1"
+								Margin="27,0,0,6" />
+						</Grid>
+					</StackPanel>
+					<StackPanel
+						Height="30"
+						Width="493"
+						Margin="10,5,0,0"
+						HorizontalAlignment="Left">
+						<Grid
+							Width="600">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="25" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="120" />
+								<ColumnDefinition
+									Width="400" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Width="148"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Bottom"
+								Content="{x:Static CommonResxNS:AppResources.Overall_Progress}"
+								Grid.ColumnSpan="2" />
+							<!--Unknown connection ID: 10-->
+							<ProgressBar
+								Name="pbOverallBatchProgrammingProgress"
+								Margin="29,0,0,6"
+								Grid.Column="1"
+								Height="12"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Bottom"
+								Width="343"
+								Minimum="0"
+								Maximum="100" />
+						</Grid>
+					</StackPanel>
+					<StackPanel
+						Height="30"
+						Width="500"
+						Margin="0,0,0,0">
+						<Grid
+							Width="490">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="25" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="83.5" />
+								<ColumnDefinition
+									Width="36.5" />
+								<ColumnDefinition
+									Width="390" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Width="157"
+								HorizontalAlignment="Left"
+								Content="{x:Static CommonResxNS:AppResources.Retries_Remaining}"
+								Grid.ColumnSpan="3" />
+							<!--Unknown connection ID: 11-->
+							<TextBox
+								Name="txtbxRetryCount"
+								Grid.Column="2"
+								HorizontalAlignment="Left"
+								Width="32"
+								Height="20"
+								IsEnabled="False"
+								Margin="34,2,0,4" />
+						</Grid>
+					</StackPanel>
+					<StackPanel
+						Orientation="Horizontal"
+						Width="500"
+						VerticalAlignment="Bottom"
+						Margin="0,3,0,0">
+						<!--Unknown connection ID: 12-->
+						<Expander
+							Name="batProgressResultExpander"
+							Margin="0,5,0,0"
+							IsEnabled="True"
+							Width="495">
+							<HeaderedContentControl.Header>
+								<TextBlock
+									Text="{x:Static CommonResxNS:AppResources.POP25_Batch_Programming_Results}" />
+							</HeaderedContentControl.Header>
+							<StackPanel
+								Orientation="Vertical"
+								Width="490"
+								Height="225">
+								<!--Unknown connection ID: 13-->
+								<TextBox
+									Name="txtBoxProgressStatus"
+									IsReadOnly="True"
+									IsUndoEnabled="False"
+									Height="160"
+									Width="485"
+									Visibility="Visible"
+									ScrollViewer.CanContentScroll="True"
+									ScrollViewer.VerticalScrollBarVisibility="Auto"
+									ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+								<!--Unknown connection ID: 14-->
+								<Button
+									Name="btnSaveToFile"
+									Width="164"
+									Content="{x:Static CommonResxNS:AppResources.Save_To_File}"
+									Height="23"
+									HorizontalAlignment="Right"
+									Margin="0,18,9,0"
+									VerticalAlignment="Bottom" />
+							</StackPanel>
+						</Expander>
+					</StackPanel>
+					<!--Unknown connection ID: 15-->
+					<StackPanel
+						Name="spBatchProgrammingRadioProgress"
+						Orientation="Horizontal"
+						HorizontalAlignment="Center"
+						Margin="0,15,0,0"
+						Height="30"
+						Width="505"
+						VerticalAlignment="Bottom">
+						<!--Unknown connection ID: 16-->
+						<Button
+							Name="btnBatchProgrammingClose"
+							Content="{x:Static CommonResxNS:AppResources.Close_Id}"
+							Height="23"
+							Width="75"
+							HorizontalAlignment="Left"
+							Margin="4,3,0,0" />
+						<!--Unknown connection ID: 17-->
+						<Button
+							Name="btnBatchProgrammingCancel"
+							Content="{x:Static CommonResxNS:AppResources.Cancel_Id}"
+							Height="23"
+							Width="75"
+							HorizontalAlignment="Left"
+							Margin="135,2,0,0" />
+						<!--Unknown connection ID: 18-->
+						<Button
+							Name="btnBatchProgrammingHelp"
+							Content="{x:Static CommonResxNS:AppResources.Help_Id}"
+							Height="23"
+							Width="75"
+							HorizontalAlignment="Left"
+							Margin="130,3,0,0" />
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</DockPanel>
+	</ScrollViewer>
+</Window>

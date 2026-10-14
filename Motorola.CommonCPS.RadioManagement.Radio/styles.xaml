@@ -1,0 +1,259 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<converters:StringValueToVisibilityConverter
+		x:Key="StringValueToVisibilityConverter" />
+	<converters:DMR3ProductFamilyToVALPEnable
+		x:Key="DMR3ProductFamilyToVALPEnable" />
+	<Style
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		BasedOn="{StaticResource CellValuePresenterStyle}"
+		x:Key="ShowLanguagePacksStyle">
+		<Style.Setters>
+			<Setter
+				Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+							<TextBlock
+								Margin="{TemplateBinding Padding}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Visibility="{Binding Path=DataRecord.DataItem.LanguagePacksInfo, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource StringValueToVisibilityConverter}}">
+								<controls:RMHyperlink
+									Name="lbtDetails"
+									IsEnabled="{Binding Path=DataRecord.DataItem.ProductFamily, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource DMR3ProductFamilyToVALPEnable}}"
+									Command="{Binding Path=DataContext.PrepareShowLanguagePacksDetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+									CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+									<FrameworkContentElement.Style>
+										<Style
+											TargetType="{x:Type controls:RMHyperlink}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="False"
+													Binding="{Binding ElementName=lbtDetails, Path=IsEnabled}">
+													<Setter
+														Property="Inline.TextDecorations"
+														Value="" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkContentElement.Style>
+									<TextBlock
+										Text="{Binding Path=DataRecord.DataItem.LanguagePacksInfo, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+								</controls:RMHyperlink>
+							</TextBlock>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style.Setters>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Record.DataItem.IsOutOfSync, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Hidden" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		BasedOn="{StaticResource CellValuePresenterStyle}"
+		x:Key="ShowPCRDeviceCertificateStyle">
+		<Style.Setters>
+			<Setter
+				Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+							<TextBlock
+								Margin="{TemplateBinding Padding}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Visibility="{Binding Path=DataRecord.DataItem.PCRDeviceCertificateInfo, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource StringValueToVisibilityConverter}}">
+								<controls:RMHyperlink
+									Name="lbtDetails"
+									Command="{Binding Path=DataContext.PrepareShowPCRDeviceCertificateDetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+									CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+									<FrameworkContentElement.Style>
+										<Style
+											TargetType="{x:Type controls:RMHyperlink}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="False"
+													Binding="{Binding ElementName=lbtDetails, Path=IsEnabled}">
+													<Setter
+														Property="Inline.TextDecorations"
+														Value="" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkContentElement.Style>
+									<TextBlock
+										Text="{Binding Path=DataRecord.DataItem.PCRDeviceCertificateInfo, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+								</controls:RMHyperlink>
+							</TextBlock>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style.Setters>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Record.DataItem.IsOutOfSync, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Hidden" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		BasedOn="{StaticResource CellValuePresenterStyle}"
+		x:Key="ShowVAPacksStyle">
+		<Style.Setters>
+			<Setter
+				Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+							<TextBlock
+								Margin="{TemplateBinding Padding}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Visibility="{Binding Path=DataRecord.DataItem.VAFiles, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource StringValueToVisibilityConverter}}">
+								<controls:RMHyperlink
+									Name="lbtDetails"
+									IsEnabled="{Binding Path=DataRecord.DataItem.ProductFamily, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource DMR3ProductFamilyToVALPEnable}}"
+									Command="{Binding Path=DataContext.PrepareShowVADetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+									CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+									<FrameworkContentElement.Style>
+										<Style
+											TargetType="{x:Type controls:RMHyperlink}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="False"
+													Binding="{Binding ElementName=lbtDetails, Path=IsEnabled}">
+													<Setter
+														Property="Inline.TextDecorations"
+														Value="" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkContentElement.Style>
+									<TextBlock
+										Text="{Binding Path=DataRecord.DataItem.VAFiles, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+								</controls:RMHyperlink>
+							</TextBlock>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style.Setters>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Record.DataItem.IsOutOfSync, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Hidden" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		BasedOn="{StaticResource CellValuePresenterStyle}"
+		x:Key="ShowAppsStyle">
+		<Style.Setters>
+			<Setter
+				Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+							<TextBlock
+								Margin="{TemplateBinding Padding}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Visibility="{Binding Path=DataRecord.DataItem.Apps, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource StringValueToVisibilityConverter}}">
+								<controls:RMHyperlink
+									Name="lbtDetails"
+									Command="{Binding Path=DataContext.PrepareShowAppDetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+									CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+									<TextBlock
+										Text="{Binding Path=DataRecord.DataItem.Apps, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+								</controls:RMHyperlink>
+							</TextBlock>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style.Setters>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Record.DataItem.IsOutOfSync, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Hidden" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		BasedOn="{StaticResource CellValuePresenterStyle}"
+		x:Key="ShowCertificateStyle">
+		<Style.Setters>
+			<Setter
+				Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+							<TextBlock
+								Margin="{TemplateBinding Padding}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Visibility="{Binding Path=DataRecord.DataItem.Certificates, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}, Converter={StaticResource StringValueToVisibilityConverter}}">
+								<controls:RMHyperlink
+									Name="lbtDetails"
+									Command="{Binding Path=DataContext.PrepareShowCertificateDetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+									CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+									<TextBlock
+										Text="{Binding Path=DataRecord.DataItem.Certificates, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+								</controls:RMHyperlink>
+							</TextBlock>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style.Setters>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Record.DataItem.IsOutOfSync, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Hidden" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

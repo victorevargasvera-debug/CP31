@@ -1,0 +1,251 @@
+<local:RMCellPresentableFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMNumericFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:converter="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Name="fedNumeric"
+	Loaded="fedNumeric_Loaded"
+	Height="Auto">
+	<!--Unknown connection ID: 2-->
+	<Grid
+		Name="grdMain">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="21" />
+		</Grid.ColumnDefinitions>
+		<local:RMTextBlock
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			Text="{Binding Path=Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+		<!--Unknown connection ID: 3-->
+		<Grid
+			Name="grdeditor"
+			Column="2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="{Binding Path=ShowDecimalEditor, Converter={StaticResource BoolToWidthConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="{Binding Path=ShowHexEditor, Converter={StaticResource BoolToWidthConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+					<ColumnDefinition
+						Width="{Binding Path=ShowOctEditor, Converter={StaticResource BoolToWidthConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+					<ColumnDefinition
+						Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<!--Unknown connection ID: 4-->
+				<local:RMNumericInput
+					Name="nmiNumber"
+					PreviewKeyUp="nmiNumber_PreviewKeyUp"
+					LostFocus="nmiNumber_LostFocus"
+					ig:InvalidValueBehavior="RevertValue"
+					ig:ValueTypeName="Decimal"
+					Style="{StaticResource FieldEditorNumericInputStyle}"
+					Validation.ErrorTemplate="{x:Null}"
+					ig:Value="{Binding Path=Value, UpdateSourceTrigger=LostFocus}"
+					Visibility="{Binding Path=ShowDecimalEditor, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}">
+					<ig:XamMaskedInput.Mask>
+						<MultiBinding
+							Converter="{StaticResource NumericRangeToMaskConverter}">
+							<Binding
+								Path="MinOriginal" />
+							<Binding
+								Path="MaxOriginal" />
+							<Binding
+								Path="ValueType" />
+							<Binding
+								Path="Mask"
+								RelativeSource="{RelativeSource AncestorType={x:Type local:RMNumericFieldEditor}}" />
+							<Binding
+								Path="ShowOctEditor"
+								RelativeSource="{RelativeSource AncestorType={x:Type local:RMFieldEditor}}" />
+							<Binding
+								Path="ShowHexEditor"
+								RelativeSource="{RelativeSource AncestorType={x:Type local:RMFieldEditor}}" />
+							<Binding
+								Path="Value" />
+						</MultiBinding>
+					</ig:XamMaskedInput.Mask>
+					<ig:ValueInput.IsReadOnly>
+						<MultiBinding
+							Converter="{StaticResource FieldPropertiesToIsReadOnlyConverter}">
+							<Binding
+								Path="IsEditable" />
+							<Binding
+								Path="IsMVODynamic" />
+							<Binding
+								Path="UseMVODefault" />
+							<Binding
+								Path="IsApplicable" />
+						</MultiBinding>
+					</ig:ValueInput.IsReadOnly>
+					<FrameworkElement.ToolTip>
+						<MultiBinding
+							Converter="{StaticResource NumericFieldInfoToTextConverter}">
+							<Binding
+								Path="RangeSection" />
+							<Binding
+								Path="Step" />
+							<Binding
+								Path="." />
+						</MultiBinding>
+					</FrameworkElement.ToolTip>
+				</local:RMNumericInput>
+				<Border
+					Grid.Column="1"
+					Background="{StaticResource BrushControlForeground}"
+					Height="1"
+					Margin="5"
+					Width="5">
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{StaticResource MultiBoolsToVisibilityConverter}">
+							<Binding
+								Path="ShowDecimalEditor"
+								RelativeSource="{RelativeSource AncestorType={x:Type local:RMFieldEditor}}" />
+							<Binding
+								Path="ShowHexEditor"
+								RelativeSource="{RelativeSource AncestorType={x:Type local:RMFieldEditor}}" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</Border>
+				<!--Unknown connection ID: 5-->
+				<local:RMMaskedInput
+					Name="msiHex"
+					PreviewKeyDown="msiNumber_PreviewKeyDown"
+					TextChanged="msiHex_TextChanged"
+					Grid.Column="2"
+					ig:InvalidValueBehavior="RevertValue"
+					Style="{StaticResource FieldEditorHexNumericInputStyle}"
+					ig:Text="{Binding Path=Value, Converter={StaticResource DecimalToHexConverter}, UpdateSourceTrigger=LostFocus}"
+					Visibility="{Binding Path=ShowHexEditor, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}"
+					ig:Mask="{Binding Path=MaxOriginal, Converter={StaticResource MaxLengthInsertedToNumberEditorMaskConverter}, ConverterParameter=Hex}">
+					<FrameworkElement.ToolTip>
+						<MultiBinding
+							Converter="{StaticResource NumericFieldInfoToTextConverter}"
+							ConverterParameter="Hex">
+							<Binding
+								Path="RangeSection" />
+							<Binding
+								Path="Step" />
+							<Binding
+								Path="." />
+						</MultiBinding>
+					</FrameworkElement.ToolTip>
+					<ig:ValueInput.ValueConstraint>
+						<ig:ValueConstraint
+							Nullable="False" />
+					</ig:ValueInput.ValueConstraint>
+				</local:RMMaskedInput>
+				<!--Unknown connection ID: 6-->
+				<local:RMMaskedInput
+					Name="msiOct"
+					PreviewKeyDown="msiNumber_PreviewKeyDown"
+					Grid.Column="3"
+					ig:InvalidValueBehavior="RevertValue"
+					Style="{StaticResource FieldEditorOctNumericInputStyle}"
+					ig:Text="{Binding Path=Value, Converter={StaticResource DecimalToOctConverter}, UpdateSourceTrigger=LostFocus}"
+					Visibility="{Binding Path=ShowOctEditor, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}"
+					ig:Mask="{Binding Path=MaxOriginal, Converter={StaticResource MaxLengthInsertedToNumberEditorMaskConverter}, ConverterParameter=Oct}">
+					<FrameworkElement.ToolTip>
+						<MultiBinding
+							Converter="{StaticResource NumericFieldInfoToTextConverter}"
+							ConverterParameter="Oct">
+							<Binding
+								Path="RangeSection" />
+							<Binding
+								Path="Step" />
+							<Binding
+								Path="." />
+						</MultiBinding>
+					</FrameworkElement.ToolTip>
+					<ig:ValueInput.ValueConstraint>
+						<ig:ValueConstraint
+							Nullable="False" />
+					</ig:ValueInput.ValueConstraint>
+				</local:RMMaskedInput>
+				<!--Unknown connection ID: 7-->
+				<Grid
+					Name="grdButtons"
+					Column="4"
+					Margin="10,0,5,0"
+					VerticalAlignment="Center"
+					Height="22"
+					Visibility="{Binding ElementName=nmiNumber, Path=IsReadOnly, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+					<UIElement.IsEnabled>
+						<MultiBinding
+							Converter="{StaticResource FieldPropertiesToIsEnableConverter}">
+							<Binding
+								Path="IsEditable" />
+							<Binding
+								Path="IsMVODynamic" />
+							<Binding
+								Path="UseMVODefault" />
+						</MultiBinding>
+					</UIElement.IsEnabled>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition
+							Height="1" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<!--Unknown connection ID: 8-->
+					<RepeatButton
+						Name="rbtIncrease"
+						ContentTemplate="{StaticResource IncreaseGlyphKey}"
+						Style="{StaticResource SpinButtonStyle}" />
+					<!--Unknown connection ID: 9-->
+					<RepeatButton
+						Name="rbtDecrease"
+						Grid.Row="2"
+						ContentTemplate="{StaticResource DecreaseGlyphKey}"
+						Height="10"
+						Style="{StaticResource SpinButtonStyle}" />
+				</Grid>
+			</Grid>
+			<!--Unknown connection ID: 10-->
+			<Border
+				Name="borderfreeze"
+				Background="#00FFFFFF"
+				Visibility="Collapsed" />
+			<Border
+				Background="{StaticResource BrushGray}"
+				Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+				<TextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+			</Border>
+		</Grid>
+		<!--Unknown connection ID: 11-->
+		<local:RMButton
+			Name="btnLock"
+			Click="btnLock_Click"
+			Grid.Column="3"
+			Margin="1,0,0,0"
+			Width="20"
+			IsEnabled="{Binding IsEditable}"
+			Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}"
+			Tag="{Binding UseMVODefault, Mode=TwoWay}">
+			<Control.Template>
+				<ControlTemplate>
+					<Image>
+						<Image.Source>
+							<MultiBinding
+								Converter="{StaticResource BoolToLockIconPathConverter}">
+								<Binding
+									Path="UseMVODefault" />
+								<Binding
+									Path="IsEditable" />
+								<Binding
+									RelativeSource="{RelativeSource Self}" />
+							</MultiBinding>
+						</Image.Source>
+					</Image>
+				</ControlTemplate>
+			</Control.Template>
+		</local:RMButton>
+	</Grid>
+</local:RMCellPresentableFieldEditor>

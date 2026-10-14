@@ -1,0 +1,1844 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:src="clr-namespace:ControlHeadGraphicView.converters">
+	<AcpBLConverterNS:InvertBoolConverter
+		x:Key="InvertBoolConverter" />
+	<BooleanToVisibilityConverter
+		x:Key="BooleanToVisibility" />
+	<src:O9GraphicviewEditabilityConverter
+		x:Key="o9GraphicviewEditabilityConverter" />
+	<src:O9GraphicviewMenuItemsVisibilityConverter
+		x:Key="menuItemsVisibilityConverter" />
+	<AcpUICommonNS:CellVisibilityStausConverter
+		x:Key="CellVisibilityStatus" />
+	<SolidColorBrush
+		Color="#FFEAFF00"
+		x:Key="YellowPress1" />
+	<SolidColorBrush
+		Color="#FFB3C20F"
+		x:Key="Yellow Mouseover1" />
+	<SolidColorBrush
+		Color="#FFFF7D00"
+		x:Key="O7 orange" />
+	<SolidColorBrush
+		Color="#FF40D640"
+		x:Key="O7 green" />
+	<SolidColorBrush
+		Color="#FF0096FF"
+		x:Key="O7 blue" />
+	<SolidColorBrush
+		Color="#FFFF081E"
+		x:Key="O7 red" />
+	<SolidColorBrush
+		Color="#FFFBE803"
+		x:Key="O7 yellow" />
+	<SolidColorBrush
+		Color="#FFFF7D00"
+		x:Key="04 orange" />
+	<Style
+		TargetType="{x:Type ContentControl}"
+		x:Key="ContentControlStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ContentControl}">
+					<Grid
+						Background="#00FFFFFF"
+						Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}">
+						<Path
+							Stretch="Fill"
+							StrokeThickness="3.2"
+							StrokeMiterLimit="2.75"
+							Stroke="#FF778B9F"
+							Data="F1 M447.768,315.643 L565.675,315.643 C568.988,315.643 571.675,318.33 571.675,321.643 L571.675,368.958 C571.675,372.271 568.988,374.958 565.675,374.958 L447.768,374.958 C444.454,374.958 441.768,372.271 441.768,368.958 L441.768,321.643 C441.768,318.33 444.454,315.643 447.768,315.643"
+							Fill="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+							<UIElement.BitmapEffect>
+								<DropShadowBitmapEffect
+									Softness="0.3"
+									ShadowDepth="12"
+									Opacity="0.4"
+									Color="#FF000000"
+									Direction="315"
+									Noise="0" />
+							</UIElement.BitmapEffect>
+						</Path>
+						<ContentPresenter
+							Margin="5,5,5,5"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Content="{TemplateBinding Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToolTip}"
+		x:Key="ToolTipStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToolTip}">
+					<Grid
+						Name="Border"
+						Background="#00FFFFFF"
+						Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}">
+						<Path
+							Stretch="Fill"
+							StrokeThickness="3.2"
+							StrokeMiterLimit="2.75"
+							Stroke="#FF778B9F"
+							Data="F1 M682.642,71.8275 L800.549,71.8275 C803.863,71.8275 806.549,74.5139 806.549,77.8275 L806.549,104.142 C806.549,107.455 803.863,110.142 800.549,110.142 L708.013,110.142 L699.004,125.745 L691.003,110.142 L682.642,110.142 C679.329,110.142 676.642,107.455 676.642,104.142 L676.642,77.8275 C676.642,74.5139 679.329,71.8275 682.642,71.8275"
+							Fill="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+							<UIElement.BitmapEffect>
+								<DropShadowBitmapEffect
+									Softness="0.3"
+									ShadowDepth="12"
+									Opacity="0.4"
+									Color="#FF000000"
+									Direction="315"
+									Noise="0" />
+							</UIElement.BitmapEffect>
+						</Path>
+						<ContentPresenter
+							Margin="5,-12,5,5"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Content="{TemplateBinding Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToolTip}"
+		x:Key="ToolTipStyleWith4Rows">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToolTip}">
+					<Grid
+						Name="Border"
+						Background="#00FFFFFF"
+						Width="{TemplateBinding Width}"
+						Height="130">
+						<Path
+							Stretch="Fill"
+							StrokeThickness="3.2"
+							StrokeMiterLimit="2.75"
+							Stroke="#FF778B9F"
+							Data="F1 M682.642,71.8275 L800.549,71.8275 C803.863,71.8275 806.549,74.5139 806.549,77.8275 L806.549,104.142 C806.549,107.455 803.863,110.142 800.549,110.142 L708.013,110.142 L699.004,125.745 L691.003,110.142 L682.642,110.142 C679.329,110.142 676.642,107.455 676.642,104.142 L676.642,77.8275 C676.642,74.5139 679.329,71.8275 682.642,71.8275"
+							Margin="0,0,0,0"
+							Fill="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+							<UIElement.BitmapEffect>
+								<DropShadowBitmapEffect
+									Softness="0.3"
+									ShadowDepth="12"
+									Opacity="0.4"
+									Color="#FF000000"
+									Direction="315"
+									Noise="0" />
+							</UIElement.BitmapEffect>
+						</Path>
+						<ContentPresenter
+							Margin="5,-40,5,5"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Content="{TemplateBinding Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="ShowAllButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						Margin="-4.099,1.015,-6.432,-2.592">
+						<Viewbox
+							Margin="0,3.336,0,0">
+							<Canvas
+								Width="83.8958"
+								Height="19.5167">
+								<Path
+									Width="83.8958"
+									Height="18.6119"
+									Canvas.Left="-3.05176e-005"
+									Canvas.Top="0.904907"
+									Stretch="Fill"
+									Data="F1 M4,0.904907 L79.8958,0.904907 C82.1049,0.904907 83.8957,2.69574 83.8957,4.90491 L83.8957,15.5168 C83.8957,17.726 82.1049,19.5168 79.8958,19.5168 L4,19.5168 C1.79083,19.5168 -3.05176E-05,17.726 -3.05176E-05,15.5168 L-3.05176E-05,4.90491 C-3.05176E-05,2.69574 1.79083,0.904907 4,0.904907">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.442311,0.0127895"
+											EndPoint="0.442311,1.02562">
+											<GradientStop
+												Color="#FF757575"
+												Offset="0.698633" />
+											<GradientStop
+												Color="#FFC9D7E6"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="82.8263"
+									Height="17.2125"
+									Canvas.Left="0.444473"
+									Canvas.Top="0"
+									Stretch="Fill"
+									Data="F1 M4.44444,0 L79.2707,0 C81.4799,0 83.2708,1.79089 83.2708,4 L83.2708,13.2125 C83.2708,15.4216 81.4799,17.2125 79.2707,17.2125 L4.44444,17.2125 C2.23531,17.2125 0.444473,15.4216 0.444473,13.2125 L0.444473,4 C0.444473,1.79089 2.23531,0 4.44444,0">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.442311,0.0127903"
+											EndPoint="0.442311,1.02563">
+											<GradientStop
+												Color="#FF95969D"
+												Offset="0" />
+											<GradientStop
+												Color="#FF757C86"
+												Offset="0.0712353" />
+											<GradientStop
+												Color="#FF556270"
+												Offset="0.0716612" />
+											<GradientStop
+												Color="#FF212121"
+												Offset="0.559803" />
+											<GradientStop
+												Color="#FF212121"
+												Offset="0.884908" />
+											<GradientStop
+												Color="#FF454647"
+												Offset="0.889251" />
+											<GradientStop
+												Color="#FF212121"
+												Offset="0.995657" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+							</Canvas>
+						</Viewbox>
+						<Label
+							Name="label"
+							FontFamily="Arial"
+							FontWeight="Bold"
+							Foreground="#FFC0C0C0"
+							Margin="0.445,0,0.625,1.853"
+							FontSize="12"
+							Content="{x:Static CommonResxNS:AppResources.Show_All}"
+							HorizontalAlignment="Center" />
+						<Path
+							Stretch="Fill"
+							Data="F1 M156.888,-10.8521 C162.598,-13.8823 176.107,-14.8628 199.756,-14.8627 C222.361,-14.8626 234.365,-14.024 239.714,-12.2121 L239.714,-16.0477 C239.714,-18.2569 237.923,-20.0477 235.714,-20.0477 L160.888,-20.0477 C158.679,-20.0477 156.888,-18.2569 156.888,-16.0477 L156.888,-10.8521"
+							Opacity="0.615"
+							Margin="0.445,3.336,0.625,10.321">
+							<Shape.Fill>
+								<LinearGradientBrush
+									EndPoint="0.5,1"
+									StartPoint="0.5,0">
+									<GradientStop
+										Color="#00FFFFFF"
+										Offset="0" />
+									<GradientStop
+										Color="#FFFFFFFF"
+										Offset="0.994" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.442311,1.02563"
+										StartPoint="0.442311,0.0127903">
+										<GradientStop
+											Color="#FF95969D"
+											Offset="0" />
+										<GradientStop
+											Color="#FF757C86"
+											Offset="0.0712353" />
+										<GradientStop
+											Color="#FF556270"
+											Offset="0.0716612" />
+										<GradientStop
+											Color="#FF556270"
+											Offset="0.559803" />
+										<GradientStop
+											Color="#FF343940"
+											Offset="0.884908" />
+										<GradientStop
+											Color="#FF454647"
+											Offset="0.905" />
+										<GradientStop
+											Color="#FF212121"
+											Offset="0.995657" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="label"
+								Property="Foreground"
+								Value="#FF000000" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="label"
+								Property="Foreground"
+								Value="#FFFFFFFF" />
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.442311,1.02563"
+										StartPoint="0.442311,0.0127903">
+										<GradientStop
+											Color="#FFF0CA8A"
+											Offset="0" />
+										<GradientStop
+											Color="#FF757C86"
+											Offset="0.0712353" />
+										<GradientStop
+											Color="#FF6F604B"
+											Offset="0.0716612" />
+										<GradientStop
+											Color="#FFF89B32"
+											Offset="0.408" />
+										<GradientStop
+											Color="#FF9E611D"
+											Offset="0.884908" />
+										<GradientStop
+											Color="#FF736246"
+											Offset="0.905" />
+										<GradientStop
+											Color="#FFD5A351"
+											Offset="0.995657" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="O7EmergencyButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Path
+							Stretch="Fill"
+							Data="F1 M653.133,67.6607 C653.133,59.0191 646.127,52.0132 637.486,52.0132 C628.845,52.0132 621.838,59.0191 621.838,67.6607 C621.838,76.3023 628.845,83.3082 637.486,83.3082 C646.127,83.3082 653.133,76.3023 653.133,67.6607"
+							Opacity="1"
+							Margin="5,4.68,6,5.68"
+							Width="32.864"
+							Height="32.864">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="-0.0187523,-0.519257"
+									EndPoint="-0.0187523,0.54937">
+									<GradientStop
+										Color="#FFFFFAF2"
+										Offset="0" />
+									<GradientStop
+										Color="#FFEEDB9A"
+										Offset="0.170718" />
+									<GradientStop
+										Color="#FFDDBC42"
+										Offset="0.340659" />
+									<GradientStop
+										Color="#FFE99D31"
+										Offset="0.7709" />
+									<GradientStop
+										Color="#FFF57F20"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Name="path"
+							Stretch="Fill"
+							Data="F1 M651.951,67.6607 C651.951,59.6718 645.474,53.1951 637.486,53.1951 C629.497,53.1951 623.021,59.6718 623.021,67.6607 C623.021,75.6497 629.497,82.1264 637.486,82.1264 C645.474,82.1264 651.951,75.6497 651.951,67.6607"
+							Margin="5.659,4.68,5.341,5.68"
+							Opacity="1"
+							Height="32.864"
+							Width="32.864">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.516494,-0.212698"
+									EndPoint="0.516494,1.03595">
+									<GradientStop
+										Color="#FFD2C183"
+										Offset="0.0128205" />
+									<GradientStop
+										Color="#FFE3A051"
+										Offset="0.656987" />
+									<GradientStop
+										Color="#FFF57F20"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.516494,1.03595"
+										StartPoint="0.516494,-0.212698">
+										<GradientStop
+											Color="#FFFFC800"
+											Offset="0.0128205" />
+										<GradientStop
+											Color="#FFFFA841"
+											Offset="0.656987" />
+										<GradientStop
+											Color="#FFFF811B"
+											Offset="0.992" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.516494,1.03595"
+										StartPoint="0.516494,-0.212698">
+										<GradientStop
+											Color="#FFFFFFFF"
+											Offset="0.0128205" />
+										<GradientStop
+											Color="#FFFCD7AC"
+											Offset="0.656987" />
+										<GradientStop
+											Color="#FFA84B00"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="O7MFKStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						Margin="-0.918,0.099,0.918,-0.098">
+						<Canvas
+							Name="canvas"
+							RenderTransformOrigin="0.5,0.5"
+							Margin="0">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform
+										ScaleX="1"
+										ScaleY="1" />
+									<SkewTransform
+										AngleX="0"
+										AngleY="0" />
+									<RotateTransform
+										Angle="0" />
+									<TranslateTransform
+										X="0"
+										Y="0" />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+							<Ellipse
+								Width="81"
+								Height="81"
+								Canvas.Left="6.465"
+								Canvas.Top="6.614"
+								Stretch="Fill"
+								VerticalAlignment="Stretch">
+								<Shape.Fill>
+									<RadialGradientBrush
+										RadiusX="0.5"
+										RadiusY="0.5"
+										Center="0.499999,0.5"
+										GradientOrigin="0.499999,0.5">
+										<Brush.RelativeTransform>
+											<TransformGroup />
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FFD6D7D8"
+											Offset="0.522258" />
+										<GradientStop
+											Color="#FF212121"
+											Offset="0.95114" />
+										<GradientStop
+											Color="#FF3B3B3B"
+											Offset="1" />
+									</RadialGradientBrush>
+								</Shape.Fill>
+							</Ellipse>
+							<Path
+								Width="75.605"
+								Height="75.605"
+								Canvas.Left="9.419"
+								Canvas.Top="9.738"
+								Stretch="Fill"
+								Data="F1 M545.025,523.612 C545.025,521.028 547.52642,518.19597 549.81142,517.33897 C549.07942,513.35297 547.73117,510.55929 545.57117,507.30529 C543.33217,508.37229 539.529,507.722 537.675,505.868 C535.802,503.994 535.30224,500.0338 536.41224,497.7818 C533.18224,495.5708 530.72347,494.14818 526.74447,493.36018 C525.95547,495.76918 522.605,498.518 519.931,498.518 C517.254,498.518 513.79007,495.77582 513.00607,493.35982 C509.02207,494.13582 506.91552,494.89721 503.67752,497.10121 C504.81652,499.36021 504.075,503.981 502.188,505.868 C500.316,507.738 495.75216,508.23826 493.50116,507.13526 C491.33516,510.38926 490.33689,512.66877 489.59989,516.65877 C491.92689,517.49177 494.837,520.998 494.837,523.612 C494.837,526.194 492.55934,529.74492 490.27834,530.60392 C491.08034,534.56492 492.134,536.91343 494.349,540.12743 C496.549,539.17943 500.39,539.559 502.188,541.356 C503.965,543.134 504.5856,547.636 503.6776,549.821 C506.9136,551.986 509.0362,552.64432 513.0062,553.39232 C513.9222,551.23432 517.439,548.706 519.931,548.706 C522.419,548.706 525.31586,551.41125 526.23586,553.56225 C530.20086,552.80325 532.84229,551.82282 536.07329,549.65082 C535.18829,547.47482 535.91,543.121 537.675,541.356 C539.456,539.575 543.72373,539.21433 545.91073,540.12733 C548.11873,536.91333 548.84517,534.22271 549.64217,530.26371 C547.40317,529.38571 545.025,526.164 545.025,523.612">
+								<Shape.Fill>
+									<RadialGradientBrush
+										RadiusX="0.615407"
+										RadiusY="0.614882"
+										Center="0.378945,0.129682"
+										GradientOrigin="0.378945,0.129682">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<SkewTransform
+													CenterX="0.378945"
+													CenterY="0.129682"
+													AngleX="0.0523441"
+													AngleY="0" />
+												<RotateTransform
+													CenterX="0.378945"
+													CenterY="0.129682"
+													Angle="66.5116" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FFAFAFB4"
+											Offset="0" />
+										<GradientStop
+											Color="#FF6F7079"
+											Offset="0.27253" />
+										<GradientStop
+											Color="#FF212121"
+											Offset="0.988528" />
+									</RadialGradientBrush>
+								</Shape.Fill>
+							</Path>
+							<Ellipse
+								Width="53.546"
+								Height="53.546"
+								Canvas.Left="20.673"
+								Canvas.Top="19.69"
+								Stretch="Fill">
+								<Shape.Fill>
+									<RadialGradientBrush
+										RadiusX="0.985939"
+										RadiusY="0.98594"
+										Center="0.499172,0.994329"
+										GradientOrigin="0.499172,0.994329">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<RotateTransform
+													CenterX="0.499172"
+													CenterY="0.994329"
+													Angle="-90" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF676772"
+											Offset="0.0108578" />
+										<GradientStop
+											Color="#FF212121"
+											Offset="0.95114" />
+										<GradientStop
+											Color="#FF3B3B3B"
+											Offset="1" />
+									</RadialGradientBrush>
+								</Shape.Fill>
+							</Ellipse>
+						</Canvas>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="canvas"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<ScaleTransform
+											ScaleX="1"
+											ScaleY="1" />
+										<SkewTransform
+											AngleX="0"
+											AngleY="0" />
+										<RotateTransform
+											Angle="45" />
+										<TranslateTransform
+											X="0"
+											Y="0" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="canvas"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<ScaleTransform
+											ScaleX="1"
+											ScaleY="1" />
+										<SkewTransform
+											AngleX="0"
+											AngleY="0" />
+										<RotateTransform
+											Angle="90.178" />
+										<TranslateTransform
+											X="0"
+											Y="0" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="O7UpButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						Margin="1.687,1.997,1.865,-0.303">
+						<Viewbox
+							HorizontalAlignment="Right"
+							Margin="0,-0.801,0,0"
+							Width="52.087"
+							Height="41.921"
+							VerticalAlignment="Top">
+							<Canvas
+								Height="72.163"
+								Width="89.775">
+								<Path
+									Name="UpBtnOuter"
+									Height="65.473"
+									Stretch="Fill"
+									StrokeThickness="2.08827"
+									StrokeLineJoin="Round"
+									Stroke="#FF2A2929"
+									Fill="#FF393939"
+									Data="F1 M-0.89958752,-1.4131181 C-0.89961287,-0.56392827 -0.77371033,8.1998242 -0.59943023,9.8725242 C-0.42514025,11.545324 1.2794801,11.921953 1.6802598,12.656078 C2.4399934,14.047715 17.566999,29.599272 21.59121,31.833086 C24.935531,33.689497 30.104695,34.155275 35.57893,32.147093 C39.783498,30.60468 52.58757,15.665314 55.198915,12.520385 C56.635155,10.790674 57.666817,10.882718 57.632875,9.2747359 C57.599242,7.6813956 58.139261,-2.2111545 57.180661,-2.6293045 C56.221961,-3.0474545 40.611177,-11.292303 27.839619,-11.296871 C17.656758,-11.300513 -0.81251752,-2.834818 -0.89958752,-1.4131181"
+									Margin="0"
+									Grid.RowSpan="2"
+									Canvas.Left="0.701"
+									Width="86.561"
+									Canvas.Top="2.97" />
+								<Path
+									Name="UpBtnInside"
+									Stretch="Fill"
+									Data="F1 M-4.2940319,3.4988095 C-4.3423698,6.7564677 -4.3050947,10.197261 -4.1717697,13.256353 C-4.1486713,13.786336 -3.0705456,13.971038 -2.6629037,14.540772 C2.3042903,21.483098 12.828582,29.935982 14.628039,31.365475 C15.759863,32.264599 22.678289,32.716694 25.320543,30.919977 C28.568006,28.711723 31.611962,25.658267 41.42763,14.363526 C42.197461,13.477694 42.843965,13.435722 42.874321,12.630789 C43.004864,9.1692776 42.930076,4.5790572 42.751736,3.2583721 C42.667361,2.6335364 27.624999,-4.2023869 19.105532,-4.0680266 C9.4436432,-3.9156492 -2.2180386,1.8300367 -4.2940319,3.4988095"
+									Margin="0"
+									Grid.RowSpan="2"
+									Opacity="1"
+									Height="61.78"
+									Width="82.257"
+									Canvas.Left="3.024"
+									Canvas.Top="4.887">
+									<Shape.Fill>
+										<RadialGradientBrush
+											Center="1.018,2.19"
+											GradientOrigin="1.018,2.19"
+											RadiusX="1.763"
+											RadiusY="1.611">
+											<Brush.RelativeTransform>
+												<TransformGroup>
+													<ScaleTransform
+														CenterY="1.713"
+														CenterX="1.066"
+														ScaleY="1"
+														ScaleX="1" />
+													<SkewTransform
+														AngleY="0"
+														AngleX="3.588"
+														CenterY="1.713"
+														CenterX="1.066" />
+													<RotateTransform
+														Angle="71.666"
+														CenterY="1.713"
+														CenterX="1.066" />
+													<TranslateTransform
+														X="-0.069"
+														Y="-0.028" />
+												</TransformGroup>
+											</Brush.RelativeTransform>
+											<GradientStop
+												Color="#FF525252"
+												Offset="0.794746" />
+											<GradientStop
+												Color="#FF5E5D5D"
+												Offset="0.864161" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="0.912217" />
+											<GradientStop
+												Color="#FF121212"
+												Offset="0.997651" />
+										</RadialGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path1"
+									Data="M1.044135,5.765135 C1.044135,3.1577987 3.1577987,1.044135 5.765135,1.044135 L9.095865,1.044135 C11.703201,1.044135 13.816865,3.1577987 13.816865,5.765135 L13.816865,22.547865 C13.816865,25.155201 11.703201,27.268865 9.095865,27.268865 L5.765135,27.268865 C3.1577987,27.268865 1.044135,25.155201 1.044135,22.547865"
+									Height="27.352"
+									Canvas.Left="37.205"
+									Stretch="Fill"
+									StrokeThickness="1.87049"
+									Stroke="#FF232323"
+									StrokeLineJoin="Round"
+									Canvas.Top="14.335"
+									Width="13.64">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.113792,0.506946"
+											EndPoint="1.11387,0.506946">
+											<GradientStop
+												Color="#FF484848"
+												Offset="0" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path2"
+									Data="M0.935245,3.716245 C0.935245,2.1803411 2.1803411,0.935245 3.716245,0.935245 L5.251755,0.935245 C6.7876589,0.935245 8.032755,2.1803411 8.032755,3.716245 L8.032755,19.087755 C8.032755,20.623659 6.7876589,21.868755 5.251755,21.868755 L3.716245,21.868755 C2.1803411,21.868755 0.935245,20.623659 0.935245,19.087755"
+									Height="23.21"
+									Canvas.Left="39.215"
+									RenderTransformOrigin="0.514,0.447"
+									Stretch="Fill"
+									Fill="#FFD1D1D1"
+									StrokeLineJoin="Round"
+									Canvas.Top="16.401"
+									Width="9.412" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="UpBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="1.018,2.19"
+										GradientOrigin="1.018,2.19"
+										RadiusX="1.763"
+										RadiusY="1.611">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="1.713"
+													CenterX="1.066"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<RotateTransform
+													Angle="71.666"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<TranslateTransform
+													X="-0.069"
+													Y="-0.028" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF343434"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF5D5D5D"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover1}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="UpBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="1.018,2.19"
+										GradientOrigin="1.018,2.19"
+										RadiusX="1.763"
+										RadiusY="1.611">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="1.713"
+													CenterX="1.066"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<RotateTransform
+													Angle="71.666"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<TranslateTransform
+													X="-0.069"
+													Y="-0.028" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF3A3A3A"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF4B4B4B"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="UpBtnInside"
+								Property="Canvas.Top"
+								Value="5.887" />
+							<Setter
+								TargetName="path2"
+								Property="Canvas.Top"
+								Value="17.401" />
+							<Setter
+								TargetName="path2"
+								Property="Fill"
+								Value="#FF0096FF" />
+							<Setter
+								TargetName="UpBtnOuter"
+								Property="Fill"
+								Value="#FF808080" />
+							<Setter
+								TargetName="UpBtnOuter"
+								Property="Stroke"
+								Value="#FF4B4B4B" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="UpBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="1.018,2.19"
+										GradientOrigin="1.018,2.19"
+										RadiusX="1.763"
+										RadiusY="1.611">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="1.713"
+													CenterX="1.066"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<RotateTransform
+													Angle="71.666"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<TranslateTransform
+													X="-0.069"
+													Y="-0.028" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF3A3A3A"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF4B4B4B"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="UpBtnInside"
+								Property="Canvas.Top"
+								Value="5.887" />
+							<Setter
+								TargetName="path2"
+								Property="Canvas.Top"
+								Value="17.401" />
+							<Setter
+								TargetName="path2"
+								Property="Fill"
+								Value="#FF0096FF" />
+							<Setter
+								TargetName="UpBtnOuter"
+								Property="Fill"
+								Value="#FF808080" />
+							<Setter
+								TargetName="UpBtnOuter"
+								Property="Stroke"
+								Value="#FF4B4B4B" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{x:Null}" />
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="O7DownButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						HorizontalAlignment="Stretch"
+						Width="Auto"
+						Height="Auto"
+						VerticalAlignment="Stretch"
+						Margin="-1.254,0,0.237,0">
+						<Viewbox>
+							<Canvas
+								Width="83.441"
+								Height="67.431"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top">
+								<Path
+									Name="DownBtnOuter"
+									Width="83.437"
+									Height="63.652"
+									Stretch="Fill"
+									StrokeThickness="2.0789"
+									StrokeLineJoin="Round"
+									Stroke="#FF2A2929"
+									Fill="#FF393939"
+									Data="F1 M-9.6938554,28.341943 C-9.9231815,24.024377 -10.219175,21.440716 -10.219205,20.098116 C-10.219265,18.755616 -9.9468758,18.996419 -9.0108266,17.763893 C-8.2479271,16.759359 10.805965,-2.2626739 12.358261,-3.2089137 C14.51008,-4.5206081 23.587162,-4.5086801 25.734448,-2.8395484 C27.503857,-1.4641485 47.980412,18.356417 48.339713,18.974931 C48.738727,19.66181 48.796748,22.2628 48.739958,23.352222 C48.663902,24.811239 48.568556,28.4179 48.411606,29.091078 C47.644355,32.381917 31.01574,39.153812 18.97779,39.00242 C8.3853396,38.869207 -8.7708356,32.138667 -9.6938554,28.341943"
+									Canvas.Left="-0.261" />
+								<Path
+									Name="DownBtnInside"
+									Width="79.805"
+									Height="60.316"
+									Stretch="Fill"
+									Data="F1 M-6.4928274,28.819703 C-7.043413,24.326158 -7.042526,22.783662 -7.0419053,21.643557 C-7.041174,20.300502 -6.9292571,20.017902 -6.1459271,19.22952 C1.7808696,11.251602 4.0557773,8.3013955 13.238404,0.13326789 C15.018601,-1.4502528 23.07677,-1.0140069 24.726272,0.27374182 C28.186434,2.9750535 44.231181,18.997247 45.417175,20.275367 C45.666336,20.543882 45.783688,23.260756 45.783412,23.762875 C45.782776,24.921922 45.523925,27.227111 45.230286,29.038471 C44.964773,30.676334 32.270283,37.979189 19.528973,37.975215 C10.072404,37.972265 -6.2869097,31.03292 -6.4928274,28.819703"
+									Opacity="1"
+									Canvas.Top="1.605"
+									Canvas.Left="1.612">
+									<Shape.Fill>
+										<RadialGradientBrush
+											Center="-1.217,1.433"
+											GradientOrigin="-1.217,1.433"
+											RadiusX="1.438"
+											RadiusY="1.391">
+											<Brush.RelativeTransform>
+												<TransformGroup>
+													<ScaleTransform
+														CenterY="1.713"
+														CenterX="1.066"
+														ScaleY="1"
+														ScaleX="1" />
+													<SkewTransform
+														AngleY="0"
+														AngleX="3.588"
+														CenterY="1.713"
+														CenterX="1.066" />
+													<RotateTransform
+														Angle="71.666"
+														CenterY="1.713"
+														CenterX="1.066" />
+													<TranslateTransform
+														X="-0.069"
+														Y="-0.028" />
+												</TransformGroup>
+											</Brush.RelativeTransform>
+											<GradientStop
+												Color="#FF525252"
+												Offset="0.794746" />
+											<GradientStop
+												Color="#FF5E5D5D"
+												Offset="0.864161" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="0.912217" />
+											<GradientStop
+												Color="#FF121212"
+												Offset="0.997651" />
+										</RadialGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path1"
+									Data="M1.044135,5.765135 C1.044135,3.1577987 3.1577987,1.044135 5.765135,1.044135 L9.095865,1.044135 C11.703201,1.044135 13.816865,3.1577987 13.816865,5.765135 L13.816865,22.547865 C13.816865,25.155201 11.703201,27.268865 9.095865,27.268865 L5.765135,27.268865 C3.1577987,27.268865 1.044135,25.155201 1.044135,22.547865"
+									Height="27.871"
+									Canvas.Left="33.703"
+									Stretch="Fill"
+									StrokeThickness="1.87049"
+									Stroke="#FF232323"
+									StrokeLineJoin="Round"
+									Canvas.Top="26.986"
+									Width="14.455">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.113792,0.506946"
+											EndPoint="1.11387,0.506946">
+											<GradientStop
+												Color="#FF484848"
+												Offset="0" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path2"
+									Data="M0.935245,3.716245 C0.935245,2.1803411 2.1803411,0.935245 3.716245,0.935245 L5.251755,0.935245 C6.7876589,0.935245 8.032755,2.1803411 8.032755,3.716245 L8.032755,19.087755 C8.032755,20.623659 6.7876589,21.868755 5.251755,21.868755 L3.716245,21.868755 C2.1803411,21.868755 0.935245,20.623659 0.935245,19.087755"
+									Height="22.576"
+									Canvas.Left="36.555"
+									RenderTransformOrigin="0.514,0.447"
+									Stretch="Fill"
+									Fill="#FFD1D1D1"
+									StrokeLineJoin="Round"
+									Canvas.Top="29.585"
+									Width="8.672" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="DownBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="-1.217,1.433"
+										GradientOrigin="-1.217,1.433"
+										RadiusX="1.438"
+										RadiusY="1.391">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="1.713"
+													CenterX="1.066"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<RotateTransform
+													Angle="71.666"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<TranslateTransform
+													X="-0.069"
+													Y="-0.028" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF343434"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF5D5D5D"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover1}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="DownBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="-1.474,1.325"
+										GradientOrigin="-1.474,1.325"
+										RadiusX="1.763"
+										RadiusY="1.611">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="1.713"
+													CenterX="1.066"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<RotateTransform
+													Angle="71.666"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<TranslateTransform
+													X="-0.069"
+													Y="-0.028" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF3A3A3A"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF4B4B4B"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="DownBtnInside"
+								Property="Canvas.Top"
+								Value="0.605" />
+							<Setter
+								TargetName="path2"
+								Property="Canvas.Top"
+								Value="28.585" />
+							<Setter
+								TargetName="path2"
+								Property="Fill"
+								Value="#FF40D640" />
+							<Setter
+								TargetName="DownBtnOuter"
+								Property="Fill"
+								Value="#FF808080" />
+							<Setter
+								TargetName="DownBtnOuter"
+								Property="Stroke"
+								Value="#FF4B4B4B" />
+							<Setter
+								TargetName="path2"
+								Property="Fill"
+								Value="#FF40D640" />
+							<Setter
+								TargetName="DownBtnOuter"
+								Property="Fill"
+								Value="#FF808080" />
+							<Setter
+								TargetName="DownBtnOuter"
+								Property="Stroke"
+								Value="#FF4B4B4B" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="DownBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="-1.474,1.325"
+										GradientOrigin="-1.474,1.325"
+										RadiusX="1.763"
+										RadiusY="1.611">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="1.713"
+													CenterX="1.066"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<RotateTransform
+													Angle="71.666"
+													CenterY="1.713"
+													CenterX="1.066" />
+												<TranslateTransform
+													X="-0.069"
+													Y="-0.028" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF3A3A3A"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF4B4B4B"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="DownBtnInside"
+								Property="Canvas.Top"
+								Value="0.605" />
+							<Setter
+								TargetName="path2"
+								Property="Canvas.Top"
+								Value="28.585" />
+							<Setter
+								TargetName="path2"
+								Property="Fill"
+								Value="#FF40D640" />
+							<Setter
+								TargetName="DownBtnOuter"
+								Property="Fill"
+								Value="#FF808080" />
+							<Setter
+								TargetName="DownBtnOuter"
+								Property="Stroke"
+								Value="#FF4B4B4B" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{x:Null}" />
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="O7LeftButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						Margin="-2.059,-1.46,-0.991,-2.414">
+						<Viewbox
+							Margin="0,-0.25,0,-1.368">
+							<Canvas
+								Width="78.196"
+								Height="103.19">
+								<Path
+									Name="LeftBtnOuter"
+									Width="73.207"
+									Height="97.364"
+									Stretch="Fill"
+									StrokeThickness="2.0789"
+									StrokeLineJoin="Round"
+									Stroke="#FF2A2929"
+									Fill="#FF393939"
+									Data="F1 M53.161521,-11.804715 C55.670287,-12.688591 60.553601,-12.45378 62.473008,-12.324694 C64.012174,-12.221181 65.699395,-11.663271 66.235906,-11.239695 C67.380906,-10.335718 84.237138,5.5816631 85.383398,8.8257825 C87.142839,13.805316 86.68908,20.1423 85.474847,22.796728 C83.763772,26.5373 67.586747,41.68938 66.796102,42.451822 C65.811661,43.401148 65.732769,43.025793 64.335094,43.60692 C62.597944,44.329194 54.157119,44.362872 53.451187,43.995348 C51.379325,42.916691 44.328077,30.20616 44.17793,15.748423 C44.067922,5.1557081 50.281313,-8.5291124 53.161521,-11.804715"
+									Opacity="1"
+									HorizontalAlignment="Left"
+									Canvas.Top="1.085"
+									Canvas.Left="1.999" />
+								<Path
+									Name="LeftBtnInside"
+									Width="69.825"
+									Height="94.74"
+									Stretch="Fill"
+									Data="F1 M58.577614,-10.190604 C61.825044,-11.206791 68.022203,-11.129617 69.800574,-10.330143 C70.581037,-9.9792829 71.239822,-9.5529509 71.776419,-9.0515434 C74.548926,-6.4608542 86.338919,5.392294 90.28826,10.866524 C91.530868,12.588919 92.153964,22.408583 90.185558,25.99937 C87.616133,30.686544 73.543165,44.21136 72.196916,45.593851 C71.02527,46.79704 70.293516,46.49496 68.536583,47.170547 C66.202261,48.068157 60.458756,47.559578 58.728475,47.241675 C55.996028,46.739645 49.000819,28.791038 49.39492,16.564508 C49.679203,7.7449883 55.358422,-6.6607646 58.577614,-10.190604"
+									Canvas.Top="2.324"
+									Canvas.Left="3.502">
+									<Shape.Fill>
+										<RadialGradientBrush
+											Center="0.819,-0.584"
+											GradientOrigin="0.819,-0.584"
+											RadiusX="1.653"
+											RadiusY="1.609">
+											<Brush.RelativeTransform>
+												<TransformGroup>
+													<ScaleTransform
+														CenterY="-0.531"
+														CenterX="0.857"
+														ScaleY="1"
+														ScaleX="1" />
+													<SkewTransform
+														AngleY="0"
+														AngleX="3.588"
+														CenterY="-0.531"
+														CenterX="0.857" />
+													<RotateTransform
+														Angle="-69.916"
+														CenterY="-0.531"
+														CenterX="0.857" />
+													<TranslateTransform
+														X="0.985"
+														Y="0.859" />
+												</TransformGroup>
+											</Brush.RelativeTransform>
+											<GradientStop
+												Color="#FF525252"
+												Offset="0.794746" />
+											<GradientStop
+												Color="#FF5E5D5D"
+												Offset="0.864161" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="0.912217" />
+											<GradientStop
+												Color="#FF121212"
+												Offset="0.997651" />
+										</RadialGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path1"
+									Data="M0.935245,4.668245 C0.935245,2.606566 2.606566,0.935245 4.668245,0.935245 L19.745755,0.935245 C21.807434,0.935245 23.478755,2.606566 23.478755,4.668245 L23.478755,6.878755 C23.478755,8.940434 21.807434,10.611755 19.745755,10.611755 L4.668245,10.611755 C2.606566,10.611755 0.935245,8.940434 0.935245,6.878755"
+									Height="14.633"
+									Canvas.Left="14.066"
+									RenderTransformOrigin="0.5,0.5"
+									Stretch="Fill"
+									Stroke="#FF232323"
+									StrokeThickness="1.87049"
+									Canvas.Top="42.931"
+									Width="32.66">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.113792,0.506946"
+											EndPoint="1.11387,0.506946">
+											<GradientStop
+												Color="#FF484848"
+												Offset="0" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path2"
+									Data="M0.935245,4.668245 C0.935245,2.606566 2.606566,0.935245 4.668245,0.935245 L19.745755,0.935245 C21.807434,0.935245 23.478755,2.606566 23.478755,4.668245 L23.478755,6.878755 C23.478755,8.940434 21.807434,10.611755 19.745755,10.611755 L4.668245,10.611755 C2.606566,10.611755 0.935245,8.940434 0.935245,6.878755"
+									Fill="#FFD1D1D1"
+									Height="10.256"
+									Canvas.Left="16.273"
+									Stretch="Fill"
+									StrokeLineJoin="Round"
+									Canvas.Top="45.119"
+									Width="28.12" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="LeftBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="0.819,-0.584"
+										GradientOrigin="0.819,-0.584"
+										RadiusX="1.653"
+										RadiusY="1.609">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="-0.531"
+													CenterX="0.857"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="-0.531"
+													CenterX="0.857" />
+												<RotateTransform
+													Angle="-69.916"
+													CenterY="-0.531"
+													CenterX="0.857" />
+												<TranslateTransform
+													X="0.985"
+													Y="0.859" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF343434"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF5D5D5D"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover1}"
+								Property="Fill" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{x:Null}" />
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="O7RightButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						Margin="-0.517,-1.114,-2.832,-1.899"
+						HorizontalAlignment="Stretch"
+						Width="Auto"
+						Height="Auto"
+						VerticalAlignment="Stretch">
+						<Viewbox
+							Margin="0">
+							<Canvas
+								Width="57.68"
+								Height="74.529">
+								<Path
+									Name="RightBtnOuter"
+									Width="51.585"
+									Height="67.828"
+									Stretch="Fill"
+									StrokeThickness="2.0789"
+									StrokeLineJoin="Round"
+									Stroke="#FF2A2929"
+									Fill="#FF393939"
+									Data="F1 M20.108989,-18.194963 C16.275867,-18.591375 12.281319,-18.912763 7.4734839,-18.430512 C4.7083495,-18.153154 5.2373984,-17.58768 3.6725328,-15.78463 C1.2942096,-13.044309 -17.342846,6.2179481 -18.123781,9.5830938 C-19.155775,14.030079 -18.679657,19.318484 -18.343,22.322623 C-17.707999,27.98901 0.98004457,46.142222 3.2461821,48.635992 C4.8989174,50.454743 5.1054766,50.765249 6.9373315,51.639121 C7.9436673,52.119185 16.198359,52.153887 20.13189,51.393584 C22.979095,50.843254 30.894139,33.036553 30.743992,18.578816 C30.633984,7.9861003 24.141695,-13.038008 20.108989,-18.194963"
+									Opacity="1"
+									Canvas.Top="3.042"
+									Canvas.Left="0.248" />
+								<Path
+									Name="RightBtnInside"
+									Width="48.107"
+									Height="64.204"
+									Canvas.Left="1.907"
+									Stretch="Fill"
+									Data="F1 M28.453341,-15.543404 C22.073169,-16.006037 16.577055,-15.630849 16.003847,-15.42321 C15.639762,-15.291323 16.834073,-16.278122 14.983739,-14.272309 C7.2315116,-5.8686804 -4.5225023,7.8898365 -5.1107028,10.016721 C-6.1292123,13.699567 -6.6075315,17.950792 -5.5159158,23.135589 C-4.5953138,27.50813 6.8973464,39.922973 13.983107,47.409033 C15.616342,49.134536 15.106159,49.249926 16.943162,49.93943 C18.734356,50.61174 28.648536,50.274873 29.18828,49.474418 C32.758555,44.179604 37.550634,31.649089 37.751204,20.356761 C37.951512,9.0791836 32.221931,-10.254632 28.453341,-15.543404"
+									Opacity="1"
+									Canvas.Top="4.983">
+									<Shape.Fill>
+										<RadialGradientBrush
+											Center="-0.203,-2.865"
+											GradientOrigin="-0.203,-2.865"
+											RadiusX="1.653"
+											RadiusY="1.609">
+											<Brush.RelativeTransform>
+												<TransformGroup>
+													<ScaleTransform
+														CenterY="-0.531"
+														CenterX="0.857"
+														ScaleY="1"
+														ScaleX="1" />
+													<SkewTransform
+														AngleY="0"
+														AngleX="3.588"
+														CenterY="-0.531"
+														CenterX="0.857" />
+													<RotateTransform
+														Angle="-69.916"
+														CenterY="-0.531"
+														CenterX="0.857" />
+													<TranslateTransform
+														X="0.985"
+														Y="0.859" />
+												</TransformGroup>
+											</Brush.RelativeTransform>
+											<GradientStop
+												Color="#FF525252"
+												Offset="0.794746" />
+											<GradientStop
+												Color="#FF5E5D5D"
+												Offset="0.864161" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="0.912217" />
+											<GradientStop
+												Color="#FF121212"
+												Offset="0.997651" />
+										</RadialGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path1"
+									Data="M0.935245,4.668245 C0.935245,2.606566 2.606566,0.935245 4.668245,0.935245 L19.745755,0.935245 C21.807434,0.935245 23.478755,2.606566 23.478755,4.668245 L23.478755,6.878755 C23.478755,8.940434 21.807434,10.611755 19.745755,10.611755 L4.668245,10.611755 C2.606566,10.611755 0.935245,8.940434 0.935245,6.878755"
+									Height="10.376"
+									Canvas.Left="21.173"
+									RenderTransformOrigin="0.5,0.5"
+									Stretch="Fill"
+									Stroke="#FF232323"
+									StrokeThickness="1.87049"
+									Canvas.Top="31.559"
+									Width="22.445">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.113792,0.506946"
+											EndPoint="1.11387,0.506946">
+											<GradientStop
+												Color="#FF484848"
+												Offset="0" />
+											<GradientStop
+												Color="#FF2A2A2A"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path2"
+									Data="M0.935245,4.668245 C0.935245,2.606566 2.606566,0.935245 4.668245,0.935245 L19.745755,0.935245 C21.807434,0.935245 23.478755,2.606566 23.478755,4.668245 L23.478755,6.878755 C23.478755,8.940434 21.807434,10.611755 19.745755,10.611755 L4.668245,10.611755 C2.606566,10.611755 0.935245,8.940434 0.935245,6.878755"
+									Fill="#FFD1D1D1"
+									Height="6.231"
+									Canvas.Left="23.167"
+									Stretch="Fill"
+									StrokeLineJoin="Round"
+									Canvas.Top="33.616"
+									Width="18.144" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="RightBtnInside"
+								Property="Fill">
+								<Setter.Value>
+									<RadialGradientBrush
+										Center="-0.203,-2.865"
+										GradientOrigin="-0.203,-2.865"
+										RadiusX="1.653"
+										RadiusY="1.609">
+										<Brush.RelativeTransform>
+											<TransformGroup>
+												<ScaleTransform
+													CenterY="-0.531"
+													CenterX="0.857"
+													ScaleY="1"
+													ScaleX="1" />
+												<SkewTransform
+													AngleY="0"
+													AngleX="3.588"
+													CenterY="-0.531"
+													CenterX="0.857" />
+												<RotateTransform
+													Angle="-69.916"
+													CenterY="-0.531"
+													CenterX="0.857" />
+												<TranslateTransform
+													X="0.985"
+													Y="0.859" />
+											</TransformGroup>
+										</Brush.RelativeTransform>
+										<GradientStop
+											Color="#FF343434"
+											Offset="0.794746" />
+										<GradientStop
+											Color="#FF5D5D5D"
+											Offset="0.864161" />
+										<GradientStop
+											Color="#FF2A2A2A"
+											Offset="0.912217" />
+										<GradientStop
+											Color="#FF121212"
+											Offset="0.997651" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover1}"
+								Property="Fill" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{x:Null}" />
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="O7DataButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Canvas>
+							<Path
+								Name="Outer"
+								Data="M34.708501,0 L34.746697,0.0010001685 L35.056001,0.0010001685 C35.09977,0.001000315 35.14302,0.0032179046 35.185647,0.0075469038 L35.260877,0.019028155 L35.633453,0.048366035 C40.195205,0.52810152 43.755001,4.5175598 43.755001,9.3680003 C43.755001,14.218441 40.195205,18.207899 35.633453,18.687634 L35.287946,18.71484 L35.185647,18.730454 C35.14302,18.734782 35.09977,18.737 35.056001,18.737 L1.2680016,18.737 C0.56770325,18.737 0,18.169297 0,17.469 L0,1.2690006 C0,0.56870325 0.56770325,0.001000315 1.2680016,0.0010001685 L34.670304,0.0010001685"
+								Stretch="Fill"
+								Opacity="1"
+								Canvas.Top="0.978"
+								Height="26.385"
+								Width="60.777"
+								Canvas.Left="0.75">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0.353311,0.00178202"
+										EndPoint="0.352,1.275">
+										<GradientStop
+											Color="#FF333232"
+											Offset="0.00115607" />
+										<GradientStop
+											Color="#FF191919"
+											Offset="0.360194" />
+										<GradientStop
+											Color="#FF000000"
+											Offset="0.71978" />
+										<GradientStop
+											Color="#FF2B292A"
+											Offset="0.859715" />
+										<GradientStop
+											Color="#FF565354"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Path>
+							<Path
+								Name="path"
+								Width="13.08"
+								Height="10.085"
+								Canvas.Left="26.776"
+								Canvas.Top="5.728"
+								Stretch="Fill"
+								Fill="#CDFFFFFF"
+								Data="F1 M30.9904,29.9413 C30.9392,30.4873 30.4472,30.93 29.8904,30.93 L16.2271,30.93 C15.6703,30.93 15.261,30.4873 15.3122,29.9413 L16.3865,18.3814 C16.4377,17.8353 16.9296,17.3926 17.4865,17.3926 L31.1497,17.3926 C31.7065,17.3926 32.1158,17.8353 32.0657,18.3814 L30.9904,29.9413 M29.5027,20.8852 C29.554,20.3382 29.1437,19.8965 28.587,19.8965 L19.583,19.8965 C19.0261,19.8965 18.5341,20.3382 18.4839,20.8852 L17.8741,27.4374 C17.8239,27.9844 18.2332,28.4262 18.7899,28.4262 L27.7939,28.4262 C28.3508,28.4262 28.8427,27.9844 28.8929,27.4374 L29.5027,20.8852" />
+							<Path
+								Name="path1"
+								Width="17.543"
+								Height="5.161"
+								Canvas.Left="20.663"
+								Canvas.Top="16.735"
+								Stretch="Fill"
+								Fill="#CDFFFFFF"
+								Data="M24.4687,38.5861 C24.2148,38.8655 23.5222,39.0918 22.9221,39.0918 L8.19427,39.0918 C7.59314,39.0918 7.3147,38.8655 7.56958,38.5861 L12.9589,32.6713 C13.2137,32.392 13.9063,32.1657 14.5054,32.1657 L29.2342,32.1657 C29.8343,32.1657 30.1148,32.392 29.859,32.6713 L24.4687,38.5861 M15.7903,33.3187 L24.9465,33.3187 C25.309,33.3187 25.3871,33.6125 25.121,33.9749 L25.121,33.9749 C24.8549,34.3373 24.3454,34.6312 23.9829,34.6312 L14.8267,34.6312 C14.4642,34.6312 14.3861,34.3373 14.6522,33.9749 L14.6522,33.9749 C14.9183,33.6125 15.4278,33.3187 15.7903,33.3187 M13.6966,35.6937 L22.8528,35.6937 C23.2153,35.6937 23.2933,35.9875 23.0273,36.3499 L23.0273,36.3499 C22.7612,36.7123 22.2517,37.0062 21.8892,37.0062 L12.733,37.0062 C12.3704,37.0062 12.2924,36.7123 12.5585,36.3499 L12.5585,36.3499 C12.8246,35.9875 13.3341,35.6937 13.6966,35.6937" />
+						</Canvas>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover1}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover1}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="Outer"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										StartPoint="0.588869,-0.00131893"
+										EndPoint="0.588869,0.988463">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF252525"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF434242"
+											Offset="0.903226" />
+										<GradientStop
+											Color="#FF000000"
+											Offset="0.990783" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource O7 red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource O7 red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="Outer"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										StartPoint="0.588869,-0.00131893"
+										EndPoint="0.588869,0.988463">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF252525"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF434242"
+											Offset="0.903226" />
+										<GradientStop
+											Color="#FF000000"
+											Offset="0.990783" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource O7 red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource O7 red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

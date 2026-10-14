@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Events</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Events</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivateDockedPaneRequestedEvent.cs" />
+    <Compile Include="ActiveDataContextChangedEvent.cs" />
+    <Compile Include="ActiveMainModuleChangedEvent.cs" />
+    <Compile Include="ActiveMainModuleChangingEvent.cs" />
+    <Compile Include="ActiveViewChangedEvent.cs" />
+    <Compile Include="AppendInfoToNavigationPathRequestedEvent.cs" />
+    <Compile Include="ChangeButtonBarModeEvent.cs" />
+    <Compile Include="ChangePasswordDialogRequestedEvent.cs" />
+    <Compile Include="ChangeTechnologyRequestedEvent.cs" />
+    <Compile Include="CleanViewCacheDataRequestedEvent.cs" />
+    <Compile Include="CloseDockedPaneRequestedEvent.cs" />
+    <Compile Include="ClosePopupWindowRequestedEvent.cs" />
+    <Compile Include="CloseRadioManagementRequestedEvent.cs" />
+    <Compile Include="DatabaseSpaceWarningEvent.cs" />
+    <Compile Include="DisableMainViewEvent.cs" />
+    <Compile Include="DisplaySettingsChangedEvent.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="EnableMainViewEvent.cs" />
+    <Compile Include="EndGrouplistEditModeRequestedEvent.cs" />
+    <Compile Include="EndQueryGrouplistEditModeRequestedEvent.cs" />
+    <Compile Include="FeatureTypeRequestedEvent.cs" />
+    <Compile Include="FocusMainModuleRequestedEvent.cs" />
+    <Compile Include="GetDataGridForASTROSystemRequestedEvent.cs" />
+    <Compile Include="GetDataGridInfoForDataProfileRequestedEvent.cs" />
+    <Compile Include="GetDataGridInfoForOtarProfileRequestedEvent.cs" />
+    <Compile Include="GetDataGridInfoForRadiosRequestedEvent.cs" />
+    <Compile Include="GetGroupCollectionRequestedEvent.cs" />
+    <Compile Include="GoToRadioDetailsRequestedEvent.cs" />
+    <Compile Include="GoToRadioReportsRequestedEvent.cs" />
+    <Compile Include="GoToRadioViewRequestedEvent.cs" />
+    <Compile Include="LeavingHomeSetCancelledEvent.cs" />
+    <Compile Include="LeavingSetCancelledEvent.cs" />
+    <Compile Include="LockSelectedNavigationItemRequestedEvent.cs" />
+    <Compile Include="NavigateToMainModuleCouldCancelEvent.cs" />
+    <Compile Include="NavigateToMainModuleRequestedEvent.cs" />
+    <Compile Include="NavigateToViewChangedEvent.cs" />
+    <Compile Include="NavigateToViewRequestedEvent.cs" />
+    <Compile Include="OAuthLoginDialogRequestedEvent.cs" />
+    <Compile Include="OutputPaneBackgroundWorkEvent.cs" />
+    <Compile Include="OutputPaneItemChangedEvent.cs" />
+    <Compile Include="PopupPaneNewItemAddedEvent.cs" />
+    <Compile Include="PopupWindowClosedEvent.cs" />
+    <Compile Include="PrintCommandRequestedEvent.cs" />
+    <Compile Include="PrintPreviewCommandRequestedEvent.cs" />
+    <Compile Include="PrintViewPreviewRequestedEvent.cs" />
+    <Compile Include="PrintViewRequestedEvent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefreshDetailsViewRequestedEvent.cs" />
+    <Compile Include="RefreshGroupsTree.cs" />
+    <Compile Include="RefreshRadioReportsRequestedEvent.cs" />
+    <Compile Include="RefreshRequestedEvent.cs" />
+    <Compile Include="ReloadMainViewRequestedEvent.cs" />
+    <Compile Include="ReloadResourceRequestedEvent.cs" />
+    <Compile Include="RenameGroupRequestedEvent.cs" />
+    <Compile Include="ReportInformationRequestedEvent.cs" />
+    <Compile Include="ReportStatusRequestedEvent.cs" />
+    <Compile Include="ResetOptionFilterForJobViewEvent.cs" />
+    <Compile Include="ResultPayload.cs" />
+    <Compile Include="SelectAgencyRequestedEvent.cs" />
+    <Compile Include="SelectGroupInGroupsView.cs" />
+    <Compile Include="SelectResourceRequestedEvent.cs" />
+    <Compile Include="ShowAboutDialogRequestedEvent.cs" />
+    <Compile Include="ShowAddRadioDialogRequestedEvent.cs" />
+    <Compile Include="ShowApplyTemplatetoRelatedRadiosDialogRequestedEvent.cs" />
+    <Compile Include="ShowCACertificatesPacksDialogRequestedEvent.cs" />
+    <Compile Include="ShowClearDataDialogRequestedEvent.cs" />
+    <Compile Include="ShowCodeplugVersionRequestedEvent.cs" />
+    <Compile Include="ShowConfirmationDialogRequestedEvent.cs" />
+    <Compile Include="ShowCopyPasteWarningDialogRequestedEvent.cs" />
+    <Compile Include="ShowDBMigrationDialogRequestedEvent.cs" />
+    <Compile Include="ShowDVRSFilesPacksDialogRequestedEvent.cs" />
+    <Compile Include="ShowErrorMessageDialogRequestedEvent.cs" />
+    <Compile Include="ShowHelpInConfigViewRequestedEvent.cs" />
+    <Compile Include="ShowHelpWindowRequestedEvent.cs" />
+    <Compile Include="ShowImportLanguagePackDialogRequestedEvent.cs" />
+    <Compile Include="ShowImportRadiosDialogRequestedEvent.cs" />
+    <Compile Include="ShowImportTemplatesDialogRequestedEvent.cs" />
+    <Compile Include="ShowLanguagePacksDialogRequestedEvent.cs" />
+    <Compile Include="ShowMismatchOptionsRequestedEvent.cs" />
+    <Compile Include="ShowModifyCodeplugPasswordRequestedEvent.cs" />
+    <Compile Include="ShowMoveDeviceDialogRequestedEvent.cs" />
+    <Compile Include="ShowNotificationDialogRequestedEvent.cs" />
+    <Compile Include="ShowProgressDialogRequestedEvent.cs" />
+    <Compile Include="ShowRadioConversionDialogRequestedEvent.cs" />
+    <Compile Include="ShowRegisterApplicationLicenseDialogRequestedEvent.cs" />
+    <Compile Include="ShowRegisterRadioLicenseDialogRequestedEvent.cs" />
+    <Compile Include="ShowResetIdentifiersDialogRequestedEvent.cs" />
+    <Compile Include="ShowResetRadioPasswordRequestedEvent.cs" />
+    <Compile Include="ShowRetryDialogRequestedEvent.cs" />
+    <Compile Include="ShowRMSaveFileDialogEventParam.cs" />
+    <Compile Include="ShowRMSaveFileDialogRequestedEvent.cs" />
+    <Compile Include="ShowSaveTemplateAsDialogRequestedEvent.cs" />
+    <Compile Include="ShowScheduleJobDialogRequestedEvent.cs" />
+    <Compile Include="ShowScheduleJobsDialogRequestedEvent.cs" />
+    <Compile Include="ShowSelectASKForCFSDialogRequestedEvent.cs" />
+    <Compile Include="ShowSelectFirmwareDialogRequestedEvent.cs" />
+    <Compile Include="ShowSelectGeneralPackageRequestedEvent.cs" />
+    <Compile Include="ShowSelectRadiosDialogRequestedEvent.cs" />
+    <Compile Include="ShowSelectRunningRadiosRequestedEvent.cs" />
+    <Compile Include="ShowSelectTemplateDialogRequestedEvent.cs" />
+    <Compile Include="ShowSelectWarningRadiostoScheduleJobsDialogRequestedEvent.cs" />
+    <Compile Include="ShowSettingsDialogRequestedEvent.cs" />
+    <Compile Include="ShowSTAProgressWindow.cs" />
+    <Compile Include="ShowStartUpNotificationDialogRequestedEvent.cs" />
+    <Compile Include="ShowTemplateConversionDialogRequestedEvent.cs" />
+    <Compile Include="ShowTemplateLanguagePacksDialogRequestedEvent.cs" />
+    <Compile Include="ShowTemplateVAPacksDialogRequestedEvent.cs" />
+    <Compile Include="ShowTestDlgRequestedEvent.cs" />
+    <Compile Include="ShowUpdateLogSettingRequestedEvent.cs" />
+    <Compile Include="ShowUpdateRadioDataRequsetedEvent.cs" />
+    <Compile Include="ShowVAPacksDialogRequestedEvent.cs" />
+    <Compile Include="ShowWiFiPasswordValidationDialogRequestedEvent.cs" />
+    <Compile Include="UpdateActivedHelpURLRequestedEvent.cs" />
+    <Compile Include="UpdateConfigurationNameRequestedEvent.cs" />
+    <Compile Include="UpdateNavigationPathRequestedEvent.cs" />
+    <Compile Include="UserLoginDialogRequestedEvent.cs" />
+    <Compile Include="WaitingIndicatorVisibilityChangedEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.Interactivity\Microsoft.Practices.Prism.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69B}</Project>
+      <Name>Microsoft.Practices.Prism.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

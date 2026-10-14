@@ -1,0 +1,33 @@
+﻿using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
+
+namespace Infragistics.Windows.Controls
+{
+	// Token: 0x02000111 RID: 273
+	public class VisibilityToBooleanConverter : global::System.Windows.Data.IValueConverter
+	{
+		// Token: 0x06000975 RID: 2421 RVA: 0x00020468 File Offset: 0x0001E668
+		object global::System.Windows.Data.IValueConverter.Convert(object value, global::System.Type targetType, object parameter, global::System.Globalization.CultureInfo culture)
+		{
+			global::System.Windows.Visibility? visibility = new global::System.Windows.Visibility?((global::System.Windows.Visibility)value);
+			if (visibility != null && visibility.Value == global::System.Windows.Visibility.Visible)
+			{
+				return global::Infragistics.KnownBoxes.TrueBox;
+			}
+			return global::Infragistics.KnownBoxes.FalseBox;
+		}
+
+		// Token: 0x06000976 RID: 2422 RVA: 0x000204A0 File Offset: 0x0001E6A0
+		object global::System.Windows.Data.IValueConverter.ConvertBack(object value, global::System.Type targetType, object parameter, global::System.Globalization.CultureInfo culture)
+		{
+			bool? flag = new bool?((bool)value);
+			if (flag != null && flag.Value)
+			{
+				return global::Infragistics.KnownBoxes.VisibilityVisibleBox;
+			}
+			return global::Infragistics.KnownBoxes.VisibilityCollapsedBox;
+		}
+	}
+}

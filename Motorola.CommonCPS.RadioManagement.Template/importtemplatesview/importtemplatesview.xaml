@@ -1,0 +1,230 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Template.ImportTemplatesView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters"
+	Height="Auto"
+	Width="600" xmlns:template="clr-namespace:Motorola.CommonCPS.RadioManagement.Template">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:DisplayTextConverter
+				x:Key="DisplayTextConverter" />
+			<converters:EditCharacterConverter
+				x:Key="EditCharacterConverter" />
+			<converters:RadiosCountToVisibilityConverter
+				x:Key="RadiosCountToVisibilityConverter" />
+			<converters:GridViewSourceConverter
+				x:Key="GridViewSourceConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 2-->
+		<Grid
+			Name="gridPassword">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="40" />
+			</Grid.RowDefinitions>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="60" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Text="{x:Static resourceRepository:Resources.RMC_ImportTemplate_Password}" />
+				<!--Unknown connection ID: 3-->
+				<controls:RMPasswordBox
+					Name="xmePassword"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Width="400"
+					Password="{Binding ImportTemplatesContext.Password}" />
+			</Grid>
+			<Grid
+				Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<!--Unknown connection ID: 4-->
+				<controls:RMButton
+					Name="btnAdvance"
+					CommandParameter="advance"
+					Content="{x:Static resourceRepository:Resources.RMC_Action_AdvancedOptions}"
+					MinWidth="120"
+					HorizontalAlignment="Left"
+					Visibility="{Binding Path=ImportTemplatesContext.FilesCount, Converter={StaticResource RadiosCountToVisibilityConverter}}"
+					Command="{Binding SwitchPasswordModeCommand}" />
+			</Grid>
+		</Grid>
+		<!--Unknown connection ID: 5-->
+		<Grid
+			Name="gridAdvanced">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="40" />
+			</Grid.RowDefinitions>
+			<!--Unknown connection ID: 6-->
+			<controls:RMDataGrid
+				Name="dgrFiles"
+				TextElement.FontSize="12"
+				igDP:GroupByAreaLocation="None"
+				MaxHeight="200"
+				igDP:DataSource="{Binding ImportTemplatesContext.FilePasswords, Converter={StaticResource GridViewSourceConverter}}"
+				SearchCommand="{Binding SearchCommand}">
+				<igDP:DataPresenterBase.FieldLayoutSettings>
+					<igDP:FieldLayoutSettings
+						HighlightAlternateRecords="True"
+						AutoFitMode="ExtendLastField"
+						AutoGenerateFields="False"
+						RecordSelectorLocation="None" />
+				</igDP:DataPresenterBase.FieldLayoutSettings>
+				<igDP:DataPresenterBase.FieldLayouts>
+					<igDP:FieldLayout>
+						<igDP:FieldLayout.Fields>
+							<igDP:Field
+								Name="FileName"
+								Label="{x:Static resourceRepository:Resources.RMC_Model_FilePassword_FileName}">
+								<igDP:Field.Settings>
+									<igDP:FieldSettings>
+										<igDP:FieldSettings.EditorStyle>
+											<Style
+												TargetType="{x:Type igEditors:XamTextEditor}">
+												<Setter
+													Property="igEditors:ValueEditor.IsReadOnly"
+													Value="True" />
+											</Style>
+										</igDP:FieldSettings.EditorStyle>
+									</igDP:FieldSettings>
+								</igDP:Field.Settings>
+							</igDP:Field>
+							<igDP:Field
+								Name="Password"
+								Label="{x:Static resourceRepository:Resources.RMC_Model_FilePassword_Password}">
+								<igDP:Field.Settings>
+									<igDP:FieldSettings>
+										<igDP:FieldSettings.EditorStyle>
+											<Style
+												TargetType="{x:Type igEditors:XamMaskedEditor}">
+												<Style.Resources>
+													<ResourceDictionary>
+														<Style
+															TargetType="{x:Type igEditors:DisplayCharacterPresenter}"
+															x:Key="{x:Type igEditors:DisplayCharacterPresenter}">
+															<Setter
+																Property="Template">
+																<Setter.Value>
+																	<ControlTemplate
+																		TargetType="{x:Type igEditors:DisplayCharacterPresenter}">
+																		<Grid>
+																			<controls:RMTextBlock
+																				Text="{Binding ConverterParameter=B, Path=DisplayCharacter.DrawString, Converter={StaticResource EditCharacterConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+																			<Rectangle
+																				Fill="{DynamicResource SystemColors.HighlightBrushKey}"
+																				Opacity="0.5"
+																				Visibility="{Binding Path=DrawAsSelected, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+																		</Grid>
+																	</ControlTemplate>
+																</Setter.Value>
+															</Setter>
+														</Style>
+													</ResourceDictionary>
+												</Style.Resources>
+												<Setter
+													Property="igEditors:TextEditorBase.ValueToDisplayTextConverter"
+													Value="{StaticResource DisplayTextConverter}" />
+												<Setter
+													Property="Background"
+													Value="#00FFFFFF" />
+												<Setter
+													Property="BorderThickness"
+													Value="0" />
+												<Setter
+													Property="BorderBrush"
+													Value="#00FFFFFF" />
+												<Setter
+													Property="Foreground"
+													Value="#FF000000" />
+												<Setter
+													Property="igEditors:XamMaskedEditor.PromptChar"
+													Value="" />
+												<Style.Triggers>
+													<Trigger
+														Property="igEditors:ValueEditor.IsInEditMode"
+														Value="True">
+														<Setter
+															Property="FrameworkElement.ContextMenu"
+															Value="{StaticResource CutCopyPasteContextMenu}" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</igDP:FieldSettings.EditorStyle>
+									</igDP:FieldSettings>
+								</igDP:Field.Settings>
+							</igDP:Field>
+						</igDP:FieldLayout.Fields>
+					</igDP:FieldLayout>
+				</igDP:DataPresenterBase.FieldLayouts>
+			</controls:RMDataGrid>
+			<Grid
+				Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<!--Unknown connection ID: 7-->
+				<controls:RMButton
+					Name="btnBasic"
+					CommandParameter="basic"
+					Content="{x:Static resourceRepository:Resources.RMC_Action_BasicOptions}"
+					MinWidth="120"
+					HorizontalAlignment="Left"
+					Command="{Binding SwitchPasswordModeCommand}" />
+			</Grid>
+		</Grid>
+		<Grid
+			Row="1"
+			HorizontalAlignment="Right"
+			Margin="24,15,24,15"
+			Width="200">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 8-->
+			<controls:RMButton
+				Name="btnOK"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_OK}"
+				IsDefault="True"
+				Command="{Binding ImportTemplatesCommand}" />
+			<!--Unknown connection ID: 9-->
+			<controls:RMButton
+				Name="btnCancel"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Cancel}"
+				IsCancel="True" />
+		</Grid>
+	</Grid>
+</UserControl>

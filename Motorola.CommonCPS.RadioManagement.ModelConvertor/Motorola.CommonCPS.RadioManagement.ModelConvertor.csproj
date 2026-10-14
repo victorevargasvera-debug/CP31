@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.ModelConvertor</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConvertorExtensions\Entity2Dto.cs" />
+    <Compile Include="ConvertorExtensions\Enum2Enum.cs" />
+    <Compile Include="ConvertorExtensions\Enum2ResourceString.cs" />
+    <Compile Include="ConvertorExtensions\Extensions.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ModelConvertor\LanguageSettingConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.SharedService\Motorola.CommonCPS.RadioManagement.SharedService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.SharedService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,1889 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Radio.RadiosView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:prism="http://www.codeplex.com/prism" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="clr-namespace:Infragistics.Controls.Menus;assembly=InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:RFResourceRepository="clr-namespace:RFResourceRepository;assembly=RFResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Radio" xmlns:comparers="clr-namespace:Motorola.CommonCPS.RadioManagement.CommonBase.Comparers;assembly=CommonBase"
+	Name="uscRadios">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="N"
+			Modifiers="Alt"
+			Command="{Binding CommandProxy.PrepareAddRadioCommand}" />
+		<KeyBinding
+			Key="I"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.PrepareImportRadiosCommand}" />
+		<KeyBinding
+			Key="H"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.PrepareImportFileToGridCommand}" />
+		<KeyBinding
+			Key="C"
+			Modifiers="Control+Shift"
+			Command="{Binding CommandProxy.ImportFromConsoleCommand}" />
+		<KeyBinding
+			Key="R"
+			Modifiers="Control+Shift"
+			Command="{Binding CommandProxy.ExportRadioCommand}" />
+		<KeyBinding
+			Key="D"
+			Modifiers="Control+Shift"
+			Command="{Binding CommandProxy.ExportDVRSCommand}" />
+		<KeyBinding
+			Key="S"
+			Modifiers="Control+Shift"
+			Command="{Binding ExportRadiosGridToFileCommand}" />
+		<KeyBinding
+			Key="A"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareSelectApkApplicationCommand}" />
+		<KeyBinding
+			Key="B"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareSelectPBBFirmwareCommand}" />
+		<KeyBinding
+			Key="H"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareSelectHomeSetPackagesCommand}" />
+		<KeyBinding
+			Key="E"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareSelectCertificatesCommand}" />
+		<KeyBinding
+			Key="G"
+			Modifiers="Control"
+			Command="{Binding EditCodeplugCommand}" />
+		<KeyBinding
+			Key="M"
+			Modifiers="Control"
+			Command="{Binding PrepareSelectTemplateCommand}" />
+		<KeyBinding
+			Key="P"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrintViewPreviewCommand}" />
+		<KeyBinding
+			Key="P"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.PrintViewCommand}" />
+		<KeyBinding
+			Key="W"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.ShowRadioDetailsCommand}" />
+		<KeyBinding
+			Key="G"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareMoveDeviceCommand}" />
+		<KeyBinding
+			Key="F"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.EditConfigurationForRadioCommand}" />
+		<KeyBinding
+			Key="F"
+			Modifiers="Alt+Shift"
+			Command="{Binding PrepareSelectConfigurationCommand}" />
+		<KeyBinding
+			Key="L"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.DiscardChangesCommand}" />
+		<KeyBinding
+			Key="J"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.PrepareScheduleJobCommand}" />
+		<KeyBinding
+			Key="J"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.CancelJobCommand}" />
+		<KeyBinding
+			Key="C"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.CompleteJobCommand}" />
+		<KeyBinding
+			Key="S"
+			Modifiers="Alt+Shift"
+			Command="{Binding ShowSpellCheckResultsCommand}" />
+		<KeyBinding
+			Key="U"
+			Modifiers="Control"
+			Command="{Binding UpgradeLanguagePackCommnand}" />
+	</UIElement.InputBindings>
+	<i:Interaction.Triggers>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowAddRadioDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:AddRadioView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowModifyCodeplugPasswordDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ModifyCodeplugPasswordView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowResetRadioPasswordDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ResetRadioPasswordView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowResetIdentifiersDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ResetIdentifiersView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectTemplateDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectTemplateView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowWiFiPasswordValidationDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:WiFiPasswordValidationView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowImportRadiosDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ImportRadiosView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowScheduleJobDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ScheduleJobView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectFirmwareDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectFirmwareView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowLanguagePacksDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ShowLanguagePacksView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowVAPacksDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ShowVAPacksView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowMismatchOptionsDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:ShowMismatchOptionsView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowMoveDeviceDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:MoveGroupView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowUpdateRadioDataDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:UpdateRadioDataView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectRadiosDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectRadiosView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectRunningRadiosDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectRunningRadiosView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectWarningRadiostoScheduleJobDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectWarningRadiosView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectProvisioningPackageDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectProvisioningPackageView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectCodeplugVersionDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				ResizeWindow="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectCodeplugVersionView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowCopyPasteWarningContextDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:CopyPasteWarningView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+	</i:Interaction.Triggers>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Radio;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:GetConfigurationNameConverter
+				x:Key="GetConfigurationNameConverter" />
+			<converters:BoolToInverseConverter
+				x:Key="BoolToInverseConverter" />
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:ModeIdentifierToDiscardChangesVisibilityConverter
+				x:Key="ModeIdentifierToDiscardChangesVisibilityConverter" />
+			<converters:IsMismatchAndDelaySyncNeedFixToToolTipConverter
+				x:Key="IsMismatchAndDelaySyncNeedFixToToolTipConverter" />
+			<converters:ReadOnlyToCellBackGroundConverter
+				x:Key="ReadOnlyToCellBackGroundConverter" />
+			<converters:JobStatusToStringConverter
+				x:Key="JobStatusToStringConverter" />
+			<converters:RadioChangeIndicatorToBoolConverter
+				x:Key="RadioChangeIndicatorToBoolConverter" />
+			<converters:VisibilityByRecordCountConverter
+				x:Key="VisibilityByRecordCountConverter" />
+			<converters:TrimValueConverter
+				x:Key="TrimValueConverter" />
+			<converters:RegionToStringConverter
+				x:Key="RegionToStringConverter" />
+			<converters:PCRRadioIDToStringConverter
+				x:Key="PCRRadioIDToStringConverter" />
+			<converters:PCRRadioIPToStringConverter
+				x:Key="PCRRadioIPToStringConverter" />
+			<converters:PCRRadioIDToMaskConverter
+				x:Key="PCRRadioIDToMaskConverter" />
+			<converters:PCRFiveToneIdToMaskConverter
+				x:Key="PCRFiveToneIdToMaskConverter" />
+			<converters:IsMismatchNeedFixToBorderThicknessConverter
+				x:Key="IsMismatchNeedFixToBorderThicknessConverter" />
+			<converters:IsMismatchAndDelaySyncNeedFixToBorderBrushConverter
+				x:Key="IsMismatchAndDelaySyncNeedFixToBorderBrushConverter" />
+			<converters:CheckforPasswordInApplicableConverter
+				x:Key="CheckforPasswordInApplicableConverter" />
+			<converters:ConfigurePasswordPerDeviceInApplicableConverter
+				x:Key="ConfigurePasswordPerDeviceInApplicableConverter" />
+			<converters:ProductFamilyIdentifierToVisibilityConverter
+				x:Key="ProductFamilyIdentifierToVisibilityConverter" />
+			<comparers:EnableFeatureCountComparer
+				x:Key="EnableFeatureCountComparer" />
+			<controls:BindingProxy
+				Data="{Binding ChangeVRIDEntryFormatCommand}"
+				x:Key="ChangeVRIDEntryFormatCommandProxy" />
+			<ContextMenu
+				x:Key="cmConverter">
+				<!--Unknown connection ID: 2-->
+				<MenuItem
+					Name="DecimalFormat"
+					Header="{x:Static resourceRepository:Resources.RMC_Model_RadioView_VRID_EntryFormat_Dec}"
+					CommandParameter="D"
+					Command="{Binding Data, Source={StaticResource ChangeVRIDEntryFormatCommandProxy}}" />
+				<!--Unknown connection ID: 3-->
+				<MenuItem
+					Name="HexFormat"
+					Header="{x:Static resourceRepository:Resources.RMC_Model_RadioView_VRID_EntryFormat_Hex}"
+					CommandParameter="H"
+					Command="{Binding Data, Source={StaticResource ChangeVRIDEntryFormatCommandProxy}}" />
+			</ContextMenu>
+			<Style
+				TargetType="{x:Type igDP:CellValuePresenter}"
+				x:Key="selectedCellStyle">
+				<Style.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsSelected}">
+						<Setter
+							Property="Background"
+							Value="{DynamicResource SelectedRowBackgroundBrush}" />
+						<Setter
+							Property="BorderBrush"
+							Value="{DynamicResource SelectedRowBackgroundBrush}" />
+						<Setter
+							Property="igDP:CellValuePresenter.BorderActiveBrush"
+							Value="#00FFFFFF" />
+						<Setter
+							Property="igDP:CellValuePresenter.BackgroundActive"
+							Value="#00FFFFFF" />
+						<Setter
+							Property="igDP:CellValuePresenter.BackgroundHover"
+							Value="#00FFFFFF" />
+						<Setter
+							Property="igDP:CellValuePresenter.CornerRadius"
+							Value="0,0,0,0" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+			<Style
+				TargetType="{x:Type igDP:CellValuePresenter}"
+				BasedOn="{StaticResource CellValuePresenterStyle}"
+				x:Key="ASTROFlashCodeStyle">
+				<Setter
+					Property="FrameworkElement.ToolTip">
+					<Setter.Value>
+						<Grid>
+							<DataGrid
+								Background="#00FFFFFF"
+								HeadersVisibility="Column"
+								RowBackground="#00FFFFFF"
+								CanUserAddRows="False"
+								SelectionUnit="FullRow"
+								AutoGenerateColumns="False"
+								BorderThickness="0"
+								GridLinesVisibility="None"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Panel.ZIndex="2"
+								ItemsSource="{Binding DataItem.LicensedFeatureList}"
+								Visibility="{Binding Path=Items.Count, RelativeSource={RelativeSource Self}, Converter={StaticResource VisibilityByRecordCountConverter}}">
+								<DataGrid.ColumnHeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="Background"
+											Value="#FFD3D3D3" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+										<Setter
+											Property="FontWeight"
+											Value="Bold" />
+										<Setter
+											Property="BorderThickness"
+											Value="0,0,0,1" />
+										<Setter
+											Property="BorderBrush"
+											Value="#FF000000" />
+										<Setter
+											Property="Padding"
+											Value="5,2,5,2" />
+									</Style>
+								</DataGrid.ColumnHeaderStyle>
+								<DataGrid.Columns>
+									<DataGridTextColumn
+										Width="Auto"
+										Header="{x:Static resourceRepository:Resources.General_Feature}"
+										Binding="{Binding FeatureName}" />
+								</DataGrid.Columns>
+							</DataGrid>
+							<Label
+								Content="{x:Static resourceRepository:Resources.Not_Applicable}"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Panel.ZIndex="0" />
+						</Grid>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igDP:CellValuePresenter}"
+				BasedOn="{StaticResource CellValuePresenterStyle}"
+				x:Key="ASTROOTARIDNavigationStyle">
+				<Style.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding DataItem.IsMSOTAREnabled}">
+						<Setter
+							Property="FrameworkElement.ToolTip">
+							<Setter.Value>
+								<Label
+									Content="{x:Static resourceRepository:Resources.General_UseOTARProfileViewToChangeOTARID}"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top"
+									Visibility="{Binding DataItem.IsMSOTAREnabled, Converter={StaticResource BoolToVisibilityConverter}}" />
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type igDP:CellValuePresenter}">
+									<TextBlock
+										Margin="{TemplateBinding Padding}"
+										VerticalAlignment="Center"
+										HorizontalAlignment="Right">
+										<controls:RMHyperlink
+											Command="{Binding Path=DataContext.MSOtarNavigationCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+											CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+											<TextBlock
+												Text="{Binding Path=Value, RelativeSource={RelativeSource TemplatedParent}}" />
+										</controls:RMHyperlink>
+									</TextBlock>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+			<Style
+				TargetType="{x:Type igDP:CellValuePresenter}"
+				BasedOn="{StaticResource CellValuePresenterStyle}"
+				x:Key="ShowLicensesStyle">
+				<Style.Setters>
+					<Setter
+						Property="Visibility"
+						Value="Hidden" />
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate>
+								<Border
+									BorderThickness="{TemplateBinding BorderThickness}"
+									BorderBrush="{TemplateBinding BorderBrush}"
+									Background="{TemplateBinding Background}">
+									<controls:RMLinkButton
+										Name="lbtDetails"
+										ToolTip="{x:Static resourceRepository:Resources.RMC_Action_ShowDetails_Tooltip}"
+										Content="è"
+										FontFamily="Wingdings"
+										Command="{Binding Path=DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+										CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+								</Border>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style.Setters>
+				<Style.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+						<Setter
+							Property="Visibility"
+							Value="Visible" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+			<Style
+				TargetType="{x:Type igDP:CellValuePresenter}"
+				x:Key="{x:Type igDP:CellValuePresenter}">
+				<Style.Triggers>
+					<DataTrigger
+						Value="{x:Static resourceRepository:Resources.General_Licenses}"
+						Binding="{Binding Path=Field.Label, RelativeSource={RelativeSource Self}}">
+						<Setter
+							Property="BorderThickness"
+							Value="0,0,1,0" />
+						<Setter
+							Property="BorderBrush"
+							Value="#FFD3D3D3" />
+						<Setter
+							Property="FrameworkElement.ToolTip">
+							<Setter.Value>
+								<Grid>
+									<DataGrid
+										Background="#00FFFFFF"
+										HeadersVisibility="Column"
+										RowBackground="#00FFFFFF"
+										CanUserAddRows="False"
+										SelectionUnit="FullRow"
+										AutoGenerateColumns="False"
+										BorderThickness="0"
+										GridLinesVisibility="None"
+										HorizontalAlignment="Left"
+										VerticalAlignment="Top"
+										Panel.ZIndex="2"
+										ItemsSource="{Binding DataItem.FeatureList}"
+										Visibility="{Binding Path=Items.Count, RelativeSource={RelativeSource Self}, Converter={StaticResource VisibilityByRecordCountConverter}}">
+										<DataGrid.ColumnHeaderStyle>
+											<Style
+												TargetType="{x:Type DataGridColumnHeader}">
+												<Setter
+													Property="Background"
+													Value="#FFD3D3D3" />
+												<Setter
+													Property="Foreground"
+													Value="#FF000000" />
+												<Setter
+													Property="FontWeight"
+													Value="Bold" />
+												<Setter
+													Property="BorderThickness"
+													Value="0,0,0,1" />
+												<Setter
+													Property="BorderBrush"
+													Value="#FF000000" />
+												<Setter
+													Property="Padding"
+													Value="5,2,5,2" />
+											</Style>
+										</DataGrid.ColumnHeaderStyle>
+										<DataGrid.Columns>
+											<DataGridTextColumn
+												Width="Auto"
+												Header="{x:Static resourceRepository:Resources.General_Feature}"
+												Binding="{Binding LicenseName}" />
+											<DataGridTextColumn
+												Width="Auto"
+												Header="{x:Static resourceRepository:Resources.General_Status}"
+												Binding="{Binding LicenseStauts}" />
+										</DataGrid.Columns>
+									</DataGrid>
+									<Label
+										Content="{x:Static resourceRepository:Resources.Not_Applicable}"
+										HorizontalAlignment="Left"
+										VerticalAlignment="Top"
+										Panel.ZIndex="0" />
+								</Grid>
+							</Setter.Value>
+						</Setter>
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+			<x:ArrayExtension
+				Type="{Type sys:Object}"
+				x:Key="RadiosListContextMenuItems">
+				<Separator />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_Action_Radio_ShowDetails}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_W}"
+					Command="{Binding CommandProxy.ShowRadioDetailsCommand, IsAsync=True}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Delete}"
+					Command="Delete"
+					Visibility="{Binding ConverterParameter=[MAINTENANCEMODE:TRUE][EXCLFAMILY:AMP], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_MoveDevice}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_Shift_G}"
+					Command="{Binding CommandProxy.PrepareMoveDeviceCommand, IsAsync=True}" />
+				<Separator />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_EditConfiguration}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_F}"
+					Command="{Binding CommandProxy.EditConfigurationForRadioCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_SelectConfiguration}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_Shift_F}"
+					Command="{Binding PrepareSelectConfigurationCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Compare}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}">
+					<ItemsControl.Items>
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_CompareAssignedConfiguration}"
+							Command="{Binding CompareAssignedConfigCommand, IsAsync=True}" />
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_CompareLastProgrammed}"
+							Command="{Binding CompareLastProgrammedCommand, IsAsync=True}" />
+					</ItemsControl.Items>
+				</MenuItem>
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_EditTemplate}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_G}"
+					Visibility="{Binding ConverterParameter=[MODE:Template][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+					Command="{Binding EditCodeplugCommand, IsAsync=True}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_SelectTemplate}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_M}"
+					Visibility="{Binding ConverterParameter=[MODE:Template][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+					Command="{Binding PrepareSelectTemplateCommand, IsAsync=True}" />
+				<Separator
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_DiscardChanges}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_L}"
+					Command="{Binding CommandProxy.DiscardChangesCommand, IsAsync=True}"
+					Visibility="{Binding Converter={StaticResource ModeIdentifierToDiscardChangesVisibilityConverter}}" />
+				<Separator
+					Visibility="{Binding Converter={StaticResource ModeIdentifierToDiscardChangesVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_ScheduleJob}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_J}"
+					Command="{Binding CommandProxy.PrepareScheduleJobCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_CancelJob}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_Shift_J}"
+					Command="{Binding CommandProxy.CancelJobCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Name="mniCompleteJob"
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_CompleteJob}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_Shift_B}"
+					Command="{Binding CommandProxy.CompleteJobCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro][EXCLFAMILY:AMP], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<Separator />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_UpdateRadio}"
+					Command="{Binding CommandProxy.PrepareUpdateRadioDataCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_SpellCheck}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_Shift_S}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+					Command="{Binding ShowSpellCheckResultsCommand, IsAsync=True}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Reports}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+					Command="{Binding PrepareReportsCommand, IsAsync=True}" />
+				<Separator
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Upgrade}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}">
+					<ItemsControl.Items>
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_SelectFirmware}"
+							Command="{Binding CommandProxy.PrepareSelectFirmwareCommand, IsAsync=True}" />
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_SelectFlashPort}"
+							Command="{Binding CommandProxy.PrepareSelectFlashPortCommand, IsAsync=True}"
+							Visibility="{Binding ConverterParameter=[MODE:Template], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_UpgradeCodeplugVersion}"
+							Visibility="{Binding ConverterParameter=[MODE:Configuration], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+							Command="{Binding UpgradeCodeplugVersionCommand, IsAsync=True}" />
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_UpgradeLanguagePack}"
+							InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_U}"
+							Command="{Binding UpgradeLanguagePackCommnand, IsAsync=True}"
+							Visibility="{Binding ConverterParameter=[EXCLFAMILY:AMP], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+					</ItemsControl.Items>
+				</MenuItem>
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_UpgradeLanguagePack}"
+					InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_U}"
+					Command="{Binding UpgradeLanguagePackCommnand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[PAC:PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<Separator
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_Action_Export}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}">
+					<ItemsControl.Items>
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_Action_Export_Radio}"
+							InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_R}"
+							Command="{Binding CommandProxy.ExportRadioCommand, IsAsync=True}"
+							Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_Action_Export_DVRS}"
+							InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_D}"
+							Command="{Binding CommandProxy.ExportDVRSCommand, IsAsync=True}"
+							Visibility="{Binding ConverterParameter=[PAC:Astro], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+						<MenuItem
+							Header="{x:Static resourceRepository:Resources.RMC_Action_Export_GridToFile}"
+							InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_S}"
+							Command="{Binding ExportRadiosGridToFileCommand, IsAsync=True}"
+							Visibility="{Binding ConverterParameter=[PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+					</ItemsControl.Items>
+				</MenuItem>
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_Action_ModifyCodeplugPassword}"
+					Command="{Binding PrepareModifyCodeplugPasswordCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[PAC:Astro/PCR][EXCLFAMILY:AMP], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_Action_ResetRadioPassword}"
+					Command="{Binding PrepareResetRadioPasswordCommand, IsAsync=True}"
+					Visibility="{Binding ConverterParameter=[MODE:Template][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<Separator
+					Visibility="{Binding ConverterParameter=[MODE:Configuration][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_CopyIdentity}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+					Command="{Binding CopyRadioIdentityCommand, IsAsync=True}" />
+				<MenuItem
+					Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_PasteIdentity}"
+					Visibility="{Binding ConverterParameter=[MODE:Configuration][PAC:Astro/PCR], Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}}"
+					Command="{Binding PasteRadioIdentityCommand, IsAsync=True}" />
+			</x:ArrayExtension>
+			<!--Unknown connection ID: 4-->
+			<ContextMenu
+				x:Key="RadiosGridContextMenu">
+				<ItemsControl.ItemsSource>
+					<CompositeCollection>
+						<CollectionContainer
+							Collection="{StaticResource CutCopyPasteContextMenuItems}" />
+						<CollectionContainer
+							Collection="{StaticResource RadiosListContextMenuItems}" />
+					</CompositeCollection>
+				</ItemsControl.ItemsSource>
+			</ContextMenu>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Border
+			Grid.Column="2"
+			BorderBrush="#FFD3D3D3"
+			BorderThickness="1"
+			Visibility="{Binding APXVisibility}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<WrapPanel
+					Grid.Row="0"
+					Margin="10,10,10,0"
+					HorizontalAlignment="Right">
+					<!--Unknown connection ID: 5-->
+					<Button
+						Name="btnShowDetails"
+						Style="{StaticResource EditorButtonStyle}"
+						MinWidth="120"
+						Content="{x:Static resourceRepository:Resources.RMC_Action_Radio_ShowDetails}"
+						Command="{Binding CommandProxy.ShowRadioDetailsCommand}" />
+					<!--Unknown connection ID: 6-->
+					<Button
+						Name="btnEditConfiguration"
+						Style="{StaticResource EditorButtonStyle}"
+						MinWidth="120"
+						Content="{x:Static resourceRepository:Resources.RMC_ContextMenu_EditConfiguration}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration]}"
+						Command="{Binding CommandProxy.EditConfigurationForRadioCommand}" />
+					<!--Unknown connection ID: 7-->
+					<Button
+						Name="btnSpellCheck"
+						Style="{StaticResource EditorButtonStyle}"
+						MinWidth="120"
+						Content="{x:Static resourceRepository:Resources.RMC_ContextMenu_SpellCheck}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration]}"
+						Command="{Binding ShowSpellCheckResultsCommand}" />
+					<!--Unknown connection ID: 8-->
+					<Button
+						Name="btnScheduleJob"
+						Style="{StaticResource EditorButtonStyle}"
+						MinWidth="120"
+						Content="{x:Static resourceRepository:Resources.RMC_ContextMenu_ScheduleJob}"
+						Command="{Binding CommandProxy.PrepareScheduleJobCommand}" />
+				</WrapPanel>
+				<!--Unknown connection ID: 9-->
+				<controls:RMDataGrid
+					Name="dgrASTRORadios"
+					Margin="10"
+					Grid.Row="1"
+					igDP:GroupByAreaLocation="None"
+					AutoSaveCustomizations="True"
+					GridToFileButtonVisibility="Visible"
+					FileToGridButtonVisibility="Visible"
+					CRUDToolBarVisibility="Visible"
+					ContextMenu="{StaticResource RadiosGridContextMenu}"
+					igDP:DataSource="{Binding Items}"
+					AddCommand="{Binding CommandProxy.PrepareAddRadioCommand}"
+					EditCommand="{Binding EditCommand}"
+					DeleteCommand="{Binding CommandProxy.DeleteRadiosCommand}"
+					SearchCommand="{Binding SearchCommand}"
+					infrastructure:DataGridEditModeEnding.Command="{Binding SaveItemCommand}"
+					infrastructure:DataGridSelectedItemsChanged.Command="{Binding UpdateSelectedItemsCommand}"
+					infrastructure:DataGridEditModeStarted.Command="{Binding EnterEditModeCommand}"
+					GridToFileCommand="{Binding ExportRadiosGridToFileCommand}"
+					FileToGridCommand="{Binding CommandProxy.PrepareImportFileToGridCommand}"
+					AdditionalButtonVisibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MAINTENANCEMODE:TRUE][EXCLFAMILY:AMP]}"
+					ImportCommand="{Binding CommandProxy.PrepareImportRadiosCommand}"
+					ExportCommand="{Binding CommandProxy.ExportRadioCommand}"
+					IsLoadingItemsFromViewCache="{Binding IsLoadingItemsFromViewCache}">
+					<igDP:DataPresenterBase.FieldLayouts>
+						<igDP:FieldLayout>
+							<igDP:FieldLayout.Fields>
+								<igDP:Field
+									Name="SerialNumber"
+									Label="{x:Static resourceRepository:Resources.General_Serial_Number}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											AllowHiding="Never">
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.ValueConstraint">
+														<Setter.Value>
+															<igEditors:ValueConstraint
+																MaxLength="10" />
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsSerialNumberEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="ModelNumber"
+									Label="{x:Static resourceRepository:Resources.General_Model_Number}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="CodeplugVersion"
+									Label="{x:Static resourceRepository:Resources.ShowJobComposite_CodeplugVersion}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="FirmwareVersion"
+									Label="{x:Static resourceRepository:Resources.General_Firmware_Version}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="AstroPurchasedFlashCode"
+									Label="{x:Static resourceRepository:Resources.RMC_FlashCode}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											CellValuePresenterStyle="{StaticResource ASTROFlashCodeStyle}">
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="UIChangeIndicator"
+									Label="{x:Static resourceRepository:Resources.RMC_Modified}"
+									ToolTip="{StaticResource RadioChangeIndicatorToolTip}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											CellValuePresenterStyle="{StaticResource RadioChangeIndicatorStyle}">
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="GroupName"
+									Label="{x:Static resourceRepository:Resources.General_Group}"
+									HorizontalContentAlignment="Right"
+									Width="130">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													TargetType="{x:Type controls:RMTreeComboEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsGroupNameEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="controls:RMTreeComboEditor.ItemsSource"
+														Value="{Binding ElementName=uscRadios, Path=DataContext.Groups}" />
+													<Setter
+														Property="controls:RMTreeComboEditor.CurrentGroup"
+														Value="{Binding Path=DataItem.CurentGroup}" />
+													<Setter
+														Property="infrastructure:RMTreeItemSelected.Command"
+														Value="{Binding ElementName=uscRadios, Path=DataContext.CommandProxy.MoveDeviceCommand}" />
+													<Setter
+														Property="controls:RMTreeComboEditor.NodeLayouts">
+														<Setter.Value>
+															<ig:NodeLayoutCollection>
+																<ig:NodeLayout
+																	Key="GroupLayout"
+																	TargetTypeName="Group"
+																	DisplayMemberPath="Name" />
+															</ig:NodeLayoutCollection>
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="ConfigurationName"
+									Label="{x:Static resourceRepository:Resources.RMC_Radio_Configuration}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="igEditors:ValueEditor.Text">
+														<Setter.Value>
+															<MultiBinding
+																Converter="{StaticResource GetConfigurationNameConverter}">
+																<Binding
+																	Path="DataItem.ConfigurationName" />
+																<Binding
+																	Path="DataItem.TemplateName" />
+															</MultiBinding>
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="FrameworkElement.ToolTip">
+														<Setter.Value>
+															<MultiBinding
+																Converter="{StaticResource IsMismatchAndDelaySyncNeedFixToToolTipConverter}">
+																<Binding
+																	Path="DataItem.IsOutOfSync" />
+																<Binding
+																	Path="DataItem.MismatchFlags" />
+																<Binding
+																	Path="DataItem.SyncErrorCode" />
+															</MultiBinding>
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness">
+														<Setter.Value>
+															<MultiBinding
+																Converter="{StaticResource IsMismatchNeedFixToBorderThicknessConverter}">
+																<Binding
+																	Path="DataItem.IsOutOfSync" />
+																<Binding
+																	Path="DataItem.MismatchFlags" />
+															</MultiBinding>
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="BorderBrush">
+														<Setter.Value>
+															<MultiBinding
+																Converter="{StaticResource IsMismatchAndDelaySyncNeedFixToBorderBrushConverter}">
+																<Binding
+																	Path="DataItem.IsOutOfSync" />
+																<Binding
+																	Path="DataItem.MismatchFlags" />
+																<Binding
+																	Path="DataItem.SyncErrorCode" />
+															</MultiBinding>
+														</Setter.Value>
+													</Setter>
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="UIJobStatus"
+									Label="{x:Static resourceRepository:Resources.General_JobStatus}"
+									Converter="{StaticResource JobStatusToStringConverter}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											EditAsType="{x:Type sys:String}">
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="Provisioned"
+									Label="Provisioned">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource CheckFieldStyle}"
+													TargetType="{x:Type igEditors:XamCheckEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Style.Triggers>
+														<DataTrigger
+															Value="True"
+															Binding="{Binding Path=DataRecord.DataItem.ProductFamily, Converter={StaticResource ConfigurePasswordPerDeviceInApplicableConverter}, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+															<Setter
+																Property="Template">
+																<Setter.Value>
+																	<ControlTemplate
+																		TargetType="{x:Type igEditors:XamCheckEditor}">
+																		<controls:RMTextBox
+																			BorderBrush="#00FFFFFF"
+																			BorderThickness="0"
+																			Background="#00FFFFFF"
+																			Text="{x:Static resourceRepository:Resources.Not_Applicable}"
+																			IsReadOnly="True"
+																			HorizontalAlignment="Center"
+																			VerticalAlignment="Center"
+																			Height="Auto"
+																			MaxHeight="400"
+																			TextWrapping="Wrap"
+																			FontStyle="Oblique" />
+																	</ControlTemplate>
+																</Setter.Value>
+															</Setter>
+														</DataTrigger>
+													</Style.Triggers>
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="LastContactTime"
+									Label="Last Contact Time">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											AllowEdit="false"
+											EditAsType="{x:Type sys:DateTime}" />
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="RadioAlias"
+									Label="{x:Static resourceRepository:Resources.General_RadioAlias}"
+									Converter="{StaticResource TrimValueConverter}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.ValueConstraint">
+														<Setter.Value>
+															<igEditors:ValueConstraint
+																MaxLength="14" />
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsRadioAliasEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="OtarID"
+									Label="{x:Static resourceRepository:Resources.General_OTARID}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											CellValuePresenterStyle="{StaticResource ASTROOTARIDNavigationStyle}">
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsOtarIDEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.Mask"
+														Value="nnnnnnn" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.PromptChar"
+														Value="" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="SubscriberIP"
+									Label="{x:Static resourceRepository:Resources.General_SubscriberIP}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource ipMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsSubscriberIPEditable, Converter={StaticResource BoolToInverseConverter}}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="TemplateName"
+									Label="{x:Static resourceRepository:Resources.General_Template}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="JobName"
+									Label="{x:Static resourceRepository:Resources.Job_Name}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="PasswordPerDevice"
+									Label="{x:Static resourceRepository:Resources.ConfigurePasswordPerDevice}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource CheckFieldStyle}"
+													TargetType="{x:Type igEditors:XamCheckEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Style.Triggers>
+														<DataTrigger
+															Value="True"
+															Binding="{Binding Path=DataRecord.DataItem.ProductFamily, Converter={StaticResource ConfigurePasswordPerDeviceInApplicableConverter}, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+															<Setter
+																Property="Template">
+																<Setter.Value>
+																	<ControlTemplate
+																		TargetType="{x:Type igEditors:XamCheckEditor}">
+																		<controls:RMTextBox
+																			BorderBrush="#00FFFFFF"
+																			BorderThickness="0"
+																			Background="#00FFFFFF"
+																			Text="{x:Static resourceRepository:Resources.Not_Applicable}"
+																			IsReadOnly="True"
+																			HorizontalAlignment="Center"
+																			VerticalAlignment="Center"
+																			Height="Auto"
+																			MaxHeight="400"
+																			TextWrapping="Wrap"
+																			FontStyle="Oblique" />
+																	</ControlTemplate>
+																</Setter.Value>
+															</Setter>
+														</DataTrigger>
+													</Style.Triggers>
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="PasswordPolicy"
+									Label="{x:Static resourceRepository:Resources.CheckforPassword}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											AllowEdit="False"
+											EditAsType="{x:Type sys:String}">
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="igEditors:ValueEditor.Text">
+														<Setter.Value>
+															<MultiBinding
+																Converter="{StaticResource CheckforPasswordInApplicableConverter}"
+																Mode="OneWay">
+																<Binding
+																	Path="DataItem.PasswordPolicy" />
+																<Binding
+																	Path="DataItem.ProductFamily" />
+															</MultiBinding>
+														</Setter.Value>
+													</Setter>
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="ForeignIP"
+									Label="{x:Static resourceRepository:Resources.General_ForeignIP}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource ipMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsForeignIPEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="PeerIP"
+									Label="{x:Static resourceRepository:Resources.General_PeerIP}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource ipMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsPeerIPEditable, Converter={StaticResource BoolToInverseConverter}}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="BluetoothDUNSubscriberIP"
+									Label="{x:Static resourceRepository:Resources.General_BluetoothDUNSubscriberIP}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource ipMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsBluetoothDUNSubscriberIPEditable, Converter={StaticResource BoolToInverseConverter}}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="BluetoothDUNPeerIP"
+									Label="{x:Static resourceRepository:Resources.General_BluetoothDUNPeerIP}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource ipMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsBluetoothDUNPeerIPEditable, Converter={StaticResource BoolToInverseConverter}}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="BluetoothFriendlyName"
+									Label="{x:Static resourceRepository:Resources.General_BluetoothFriendlyName}"
+									Converter="{StaticResource TrimValueConverter}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsBluetoothFriendlyNameEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="igEditors:ValueEditor.ValueConstraint">
+														<Setter.Value>
+															<igEditors:ValueConstraint
+																MaxLength="14" />
+														</Setter.Value>
+													</Setter>
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="UserName"
+									Label="{x:Static resourceRepository:Resources.General_UserName}"
+									Converter="{StaticResource TrimValueConverter}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsUserNameEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.Mask"
+														Value="{}{char:20:0-9A-Za-z\s*/#/$/&amp;/%/*/ /\-/+///}" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.PromptChar"
+														Value="" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="UserPIN"
+									Label="{x:Static resourceRepository:Resources.General_UserPIN}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource PasswordWithCopyStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.EditTemplate">
+														<Setter.Value>
+															<ControlTemplate
+																TargetType="{x:Type igEditors:XamMaskedEditor}">
+																<controls:RMPasswordEditor
+																	Background="#00FFFFFF"
+																	Mask="{}{char:20:0-9A-Za-z\s*/#/$/&amp;/%/*/ /\-/+///}"
+																	IsShowingEyeButton="True"
+																	Password="{Binding Value, UpdateSourceTrigger=LostFocus, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}}}"
+																	IsReadOnly="{Binding Path=DataItem.IsUserPINEditable, Converter={StaticResource BoolToInverseConverter}}"
+																	Foreground="{Binding Path=DataItem.IsUserPINEditable, Converter={StaticResource ReadOnlyToCellBackGroundConverter}}" />
+															</ControlTemplate>
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsUserPINEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="Foreground"
+														Value="{Binding Path=DataItem.IsUserPINEditable, Converter={StaticResource ReadOnlyToCellBackGroundConverter}}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="UserLoginUnitID"
+									Label="{x:Static resourceRepository:Resources.General_UserLoginUnitID}"
+									Converter="{StaticResource TrimValueConverter}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsUserLoginUnitIDEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.Mask"
+														Value="{}{char:20:0-9a-zA-Z #$%&amp;*+\-/}" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.PromptChar"
+														Value="" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="GroupDataJobId"
+									Label="{x:Static resourceRepository:Resources.Genenal_Group_Data_Job_ID}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="VRID"
+									Label="{x:Static resourceRepository:Resources.General_VRID}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmMaskedEditorStyle}"
+													TargetType="{x:Type igEditors:XamMaskedEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsVRIDEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.PromptChar"
+														Value="" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="igEditors:XamMaskedEditor.Mask"
+														Value="{}{char:8:0-9a-fA-FxX}" />
+													<Setter
+														Property="HorizontalContentAlignment"
+														Value="Right" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="AskRequired"
+									Label="{x:Static resourceRepository:Resources.General_ASKRequired}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource CheckFieldStyle}"
+													TargetType="{x:Type igEditors:XamCheckEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsAskRequiredEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="IsEnabled"
+														Value="{Binding Path=DataItem.IsAskRequiredEditable}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="OwnerAdvKeyTypeForGUI"
+									Label="{x:Static resourceRepository:Resources.General_Owner_Advanced_Key_Type}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="OwnerSystemIdForGUI"
+									Label="{x:Static resourceRepository:Resources.General_Owner_System_ID}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="DisableWriteProtect"
+									Label="{x:Static resourceRepository:Resources.General_Write_Protect}"
+									Width="Auto">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource CheckFieldStyle}"
+													TargetType="{x:Type igEditors:XamCheckEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="IsEnabled"
+														Value="{Binding Path=DataItem.AppIsAskRequired}" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="LanguagePacksInfo"
+									Label="{x:Static resourceRepository:Resources.General_LanguagePacks}"
+									Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration]}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											CellValuePresenterStyle="{StaticResource ShowLanguagePacksStyle}" />
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="VAFiles"
+									Label="{x:Static resourceRepository:Resources.RMC_VoiceFiles}"
+									Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration]}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings
+											CellValuePresenterStyle="{StaticResource ShowVAPacksStyle}" />
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="TuningVersion"
+									Label="{x:Static resourceRepository:Resources.General_TuningVersion}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+								<igDP:Field
+									Name="Comments"
+									Label="{x:Static resourceRepository:Resources.General_Comments}">
+									<igDP:Field.Settings>
+										<igDP:FieldSettings>
+											<igDP:FieldSettings.EditorStyle>
+												<Style
+													BasedOn="{StaticResource rmTextEditorStyle}"
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.ValueConstraint">
+														<Setter.Value>
+															<igEditors:ValueConstraint
+																MaxLength="1024" />
+														</Setter.Value>
+													</Setter>
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="{Binding Path=DataItem.IsCommentEditable, Converter={StaticResource BoolToInverseConverter}}" />
+													<Setter
+														Property="Background"
+														Value="#00FFFFFF" />
+													<Setter
+														Property="BorderThickness"
+														Value="0" />
+													<Setter
+														Property="BorderBrush"
+														Value="#00FFFFFF" />
+												</Style>
+											</igDP:FieldSettings.EditorStyle>
+										</igDP:FieldSettings>
+									</igDP:Field.Settings>
+								</igDP:Field>
+							</igDP:FieldLayout.Fields>
+						</igDP:FieldLayout>
+					</igDP:DataPresenterBase.FieldLayouts>
+				</controls:RMDataGrid>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

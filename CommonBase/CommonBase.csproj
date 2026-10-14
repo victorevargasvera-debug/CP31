@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonBase</RootNamespace>
+    <AssemblyName>CommonBase</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\a.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\AppLanguage.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Comparers\AlphanumericalStringComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Comparers\EnableFeatureCountComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Comparers\NumericalStringComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Constants\AstroFieldName.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Constants\Constant.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Constants\DeviceIdentifiers.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Constants\Modes.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Constants\PcrConstant.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Converters\JobTypeConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Converters\ViewNameFontSizeConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\CopyPasteIdentifyAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\EntitytMemberNameAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Enums\CommandType.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Enums\ValueEditType.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Global.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\IResource.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\LoggerName.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\PacResourceFactory.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\CommonExceptionHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\CompressionHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\ConcurrentObserverCollection.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\FeatureNameResourceCache.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\FlowDirectionHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\GuidExtensions.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\Logger.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\LogLevel.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\LogUtil.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\ObservableCollectionFast.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\ObservableCollectionMT.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\PropertyHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\RegistrySettings.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\Utility.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\WidgetInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\AESCryption.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

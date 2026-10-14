@@ -1,0 +1,769 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:controls="clr-namespace:Infragistics.Windows.Controls" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:igWindows="clr-namespace:Infragistics.Windows.Controls" xmlns:themes="clr-namespace:Infragistics.Windows.Themes" xmlns:igThemes="clr-namespace:Infragistics.Windows.Themes">
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabContentBackgroundFillKey}">
+		<GradientStop
+			Color="#FFFCFCFE"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF4F3EE"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		Color="Transparent"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabControlTabStripCenterFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FF9BAC9C"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		StartPoint="0,1"
+		EndPoint="0,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalBottomCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalTopCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalLeftCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		StartPoint="1,0"
+		EndPoint="0,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalRightCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		Color="#00000000"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalHighlightDarkFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		Color="#00000000"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalHighlightLightFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FF000000"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemNormalTextFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		Color="#FF9BAC9C"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0,1"
+		EndPoint="0,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackBottomCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackTopCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackLeftCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		StartPoint="1,0"
+		EndPoint="0,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackRightCenterFillKey}">
+		<GradientStop
+			Color="#FFFFFFF6"
+			Offset="0" />
+		<GradientStop
+			Color="#FFF2ECDB"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		Color="#FFCF7225"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackHighlightDarkFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		Color="#FFE39658"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackHighlightLightFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Hover"
+		Color="#FF000000"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemHottrackTextFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FF919B9C"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedOuterBorderFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FFFCFCFE"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedBottomCenterFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FFFCFCFE"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedTopCenterFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FFFCFCFE"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedLeftCenterFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FFFCFCFE"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedRightCenterFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FFCF7225"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedHighlightDarkFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FFE39658"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedHighlightLightFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		igThemes:ResourceWasher.WashGroup="Selected"
+		Color="#FF000000"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemIsSelectedTextFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFC9C7BA"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemDisabledOuterBorderFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFF5F4EA"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.TabItemDisabledCenterFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFACA899"
+		x:Key="{ComponentResourceKey {x:Type controls:SortIndicator}, SortIndicatorBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type controls:SortIndicator}, SortIndicatorBackgroundHover}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type controls:IGControlBase}, CarouselItemSelected}">
+		<GradientStop
+			Color="#FF969696"
+			Offset="0.985" />
+		<GradientStop
+			Color="#FFF5F5F5"
+			Offset="0" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowBackgroundFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFe5e5d7"
+					Offset="0" />
+				<GradientStop
+					Color="#FFf3f2e7"
+					Offset="0.6000000238418579" />
+				<GradientStop
+					Color="#FFf3f2e7"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCaptionTextFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFF2"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveCaptionTextFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0.45652173913043476,0"
+		EndPoint="0.45652173913043476,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCaptionOuterBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFa5b383"
+					Offset="0" />
+				<GradientStop
+					Color="#FF83936f"
+					Offset="0.04650000110268593" />
+				<GradientStop
+					Color="#FFa5b383"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFF1F3D2"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCaptionInnerBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0.5,0"
+		EndPoint="0.5,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCaptionCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFc8d0a2"
+					Offset="0" />
+				<GradientStop
+					Color="#FFc8d0a2"
+					Offset="0.03739999979734421" />
+				<GradientStop
+					Color="#FFb5bd8a"
+					Offset="0.10329999774694443" />
+				<GradientStop
+					Color="#FFb1bb88"
+					Offset="0.3400000035762787" />
+				<GradientStop
+					Color="#FFb3be8a"
+					Offset="0.38999998569488525" />
+				<GradientStop
+					Color="#FFb1bd8a"
+					Offset="0.5799000263214111" />
+				<GradientStop
+					Color="#FFbfc894"
+					Offset="0.75" />
+				<GradientStop
+					Color="#FFc5cd99"
+					Offset="0.9199000000953674" />
+				<GradientStop
+					Color="#FFbcc792"
+					Offset="0.9624000191688538" />
+				<GradientStop
+					Color="#FFbcc792"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF5E764F"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveOuterBorder1FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF86996B"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveOuterBorder2FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFBAC891"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveOuterBorder3FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFCBD798"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveOuterBorder4FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFBBC1AD"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveCaptionOuterBorderFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFF2F2DC"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveCaptionInnerBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0.5,0"
+		EndPoint="0.5,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveCaptionCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFdbddc1"
+					Offset="0" />
+				<GradientStop
+					Color="#FFced2b6"
+					Offset="0.06069999933242798" />
+				<GradientStop
+					Color="#FFd4dabc"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFB7BDAB"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveOuterBorder1FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFBEC3AF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveOuterBorder2FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFD7DBC1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveOuterBorder3FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFDDE2C5"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowInactiveOuterBorder4FillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonNormalOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonNormalInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFb7c3a2" />
+				<GradientStop
+					Offset="1"
+					Color="#FF768753" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonNormalCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFc7c7b4" />
+				<GradientStop
+					Offset="0.36"
+					Color="#FF9cab81" />
+				<GradientStop
+					Offset="1"
+					Color="#FF7c8d4f" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonHottrackOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonHottrackInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFdceebf" />
+				<GradientStop
+					Offset="1"
+					Color="#FF94a861" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonHottrackCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFecf3df" />
+				<GradientStop
+					Offset="0.65"
+					Color="#FFb3c881" />
+				<GradientStop
+					Offset="1"
+					Color="#FFa3b76b" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonPressedOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonPressedInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF474a3c" />
+				<GradientStop
+					Offset="1"
+					Color="#FF6b7152" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveMinMaxButtonPressedCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF505542" />
+				<GradientStop
+					Offset="0.36"
+					Color="#FF686e50" />
+				<GradientStop
+					Offset="1"
+					Color="#FF6e7354" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#7FFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowNotActiveMinMaxButtonNormalOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowNotActiveMinMaxButtonNormalInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFe2ecd1" />
+				<GradientStop
+					Offset="1"
+					Color="#FFa8b590" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowNotActiveMinMaxButtonNormalCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFeaf3db" />
+				<GradientStop
+					Offset="0.46"
+					Color="#FFc7d5b1" />
+				<GradientStop
+					Offset="1"
+					Color="#FFbfcca1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonNormalOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0.9983090487393466,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonNormalInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFed937d"
+					Offset="0" />
+				<GradientStop
+					Color="#FFc32c01"
+					Offset="0.75" />
+				<GradientStop
+					Color="#FFc32c01"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1.0067723592122395,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonNormalCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFec947d"
+					Offset="0" />
+				<GradientStop
+					Color="#FFe13a04"
+					Offset="0.75" />
+				<GradientStop
+					Color="#FFe13a04"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonHottrackOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0.9983090487393466,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonHottrackInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFffa196"
+					Offset="0" />
+				<GradientStop
+					Color="#FFde4837"
+					Offset="0.5" />
+				<GradientStop
+					Color="#FFee5d41"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1.0067723592122395,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonHottrackCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFffa59a"
+					Offset="0" />
+				<GradientStop
+					Color="#FFfc5e4c"
+					Offset="0.5" />
+				<GradientStop
+					Color="#FFfe815b"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonPressedOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0.9983090487393466,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonPressedInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FF6b220f"
+					Offset="0" />
+				<GradientStop
+					Color="#FFbc3c1b"
+					Offset="0.5" />
+				<GradientStop
+					Color="#FFc6441f"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1.0067723592122395,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonPressedCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FF912d14"
+					Offset="0" />
+				<GradientStop
+					Color="#FFbc3c1b"
+					Offset="0.5" />
+				<GradientStop
+					Color="#FFcb4921"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFBBC3EB"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowNotActiveCloseButtonNormalOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0.9983090487393466,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowNotActiveCloseButtonNormalInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFb28dab"
+					Offset="0" />
+				<GradientStop
+					Color="#FFa16073"
+					Offset="0.75" />
+				<GradientStop
+					Color="#FFa16073"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1.0067723592122395,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowNotActiveCloseButtonNormalCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#FFb18cab"
+					Offset="0" />
+				<GradientStop
+					Color="#FFaf6573"
+					Offset="0.75" />
+				<GradientStop
+					Color="#FFaf6573"
+					Offset="1" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonNormalGlyphStrokeKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonNormalGlyphFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonHottrackGlyphFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFE29D89"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowActiveCloseButtonPressedGlyphFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowDisabledCloseButtonOuterBorderFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowDisabledCloseButtonInnerBorderFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFf9f9f5" />
+				<GradientStop
+					Offset="1"
+					Color="#FFd4d3c8" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0.5,0"
+		EndPoint="0.5,1"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowDisabledCloseButtonCenterFillKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFf6f5ee" />
+				<GradientStop
+					Offset="1"
+					Color="#FFefede2" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF6E6E67"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.ToolWindowDisabledCloseButtonGlyphFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF6060A0"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.DropIndicatorFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFA5A597"
+		x:Key="{x:Static igWindows:PrimitivesBrushKeys.DropTargetStrokeKey}" />
+</ResourceDictionary>

@@ -1,0 +1,193 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ig="clr-namespace:Infragistics.Windows" xmlns:igWindows="clr-namespace:Infragistics.Windows.Controls" xmlns:controls="clr-namespace:Infragistics.Windows.Controls" xmlns:looks="clr-namespace:Infragistics.Windows.Looks" xmlns:themes="clr-namespace:Infragistics.Windows.Themes">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="PrimitivesGeneric_Express.xaml" />
+		<ResourceDictionary
+			Source="PrimitivesIGTheme_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		BasedOn="{x:Static themes:PrimitivesGeneric.ExpanderBar}"
+		TargetType="{x:Type igWindows:ExpanderBar}"
+		x:Key="{x:Type igWindows:ExpanderBar}">
+		<Setter
+			Property="MinHeight"
+			Value="10" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igWindows:ExpanderBar}">
+					<Grid>
+						<Rectangle
+							Name="bgRect"
+							Margin="0">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0,0"
+									EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStop
+											Offset="0"
+											Color="#FFFF9900" />
+										<GradientStop
+											Offset="0.085"
+											Color="#FFFF9900" />
+										<GradientStop
+											Offset=".49"
+											Color="#FFFF9900" />
+										<GradientStop
+											Offset=".49"
+											Color="#FFD76C02" />
+										<GradientStop
+											Offset=".93"
+											Color="#FFD76C02" />
+										<GradientStop
+											Offset="1"
+											Color="#FF9A4E01" />
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Rectangle>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="0.681433096511737*" />
+								<RowDefinition
+									Height="0.318566903488263*" />
+							</Grid.RowDefinitions>
+							<Rectangle
+								Grid.Row="0"
+								Margin="0,1,0,0">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0,0"
+										EndPoint="0,.95">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Offset="0"
+												Color="#FFFFFFFF" />
+											<GradientStop
+												Offset="1"
+												Color="#00FFFFFF" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Rectangle>
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		BasedOn="{x:Static themes:PrimitivesGeneric.ExpansionIndicator}"
+		TargetType="{x:Type igWindows:ExpansionIndicator}"
+		x:Key="{x:Type igWindows:ExpansionIndicator}">
+		<Setter
+			Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush
+					StartPoint="0,0"
+					EndPoint="1,1">
+					<GradientBrush.GradientStops>
+						<GradientStopCollection>
+							<GradientStop
+								Color="sc#1, 0.57900393, 0.57900393, 0.57900393"
+								Offset="1" />
+							<GradientStop
+								Color="#FFFFFFFF"
+								Offset="0.36153846153846259" />
+						</GradientStopCollection>
+					</GradientBrush.GradientStops>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="BorderBrush"
+			Value="#FF999999" />
+		<Setter
+			Property="Foreground"
+			Value="#FF000000" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="ClipToBounds"
+			Value="False" />
+		<Setter
+			Property="Margin"
+			Value="5,0,3,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igWindows:ExpansionIndicator}">
+					<Grid
+						Background="#00FFFFFF">
+						<Grid
+							Name="grdExpansionIndicatorClosed"
+							Width="9"
+							Height="9"
+							RenderTransformOrigin="0.5,0.5"
+							SnapsToDevicePixels="True">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Border
+								Name="outerBorder"
+								Background="{TemplateBinding BorderBrush}"
+								RenderTransformOrigin="0.5,0.5"
+								CornerRadius="2,2,2,2" />
+							<Border
+								Name="innerFill"
+								Margin="1,1,1,1"
+								Width="Auto"
+								Height="Auto"
+								RenderTransformOrigin="0.5,0.5"
+								CornerRadius="1.5,1.5,1.5,1.5"
+								Background="{TemplateBinding Background}" />
+							<Rectangle
+								Name="plusHorizontal"
+								Fill="{TemplateBinding Foreground}"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								Margin="2,4,2,4"
+								Width="Auto"
+								Height="1"
+								RenderTransformOrigin="0.5,0.5" />
+							<Rectangle
+								Name="plusVert"
+								Fill="{TemplateBinding Foreground}"
+								Margin="4,2,4,2"
+								Width="1"
+								Height="Auto"
+								RenderTransformOrigin="0.5,0.5" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="ToggleButton.IsChecked"
+									Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="plusVert"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

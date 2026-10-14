@@ -1,0 +1,94 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMPathNavigator" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls"
+	Height="16">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<controls:LastItemToVisibilityConverter
+				x:Key="LastItemToVisibilityConverter" />
+			<controls:TruncatePrefix4StartPathSectionConverter
+				x:Key="TruncatePrefix4StartPathSectionConverter" />
+			<controls:TruncatePathStringConverter
+				x:Key="TruncatePathStringConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Canvas>
+		<!--Unknown connection ID: 1-->
+		<ItemsControl
+			Name="breadCrumbsbar"
+			VerticalAlignment="Center"
+			Height="Auto"
+			Width="Auto"
+			Grid.IsSharedSizeScope="True"
+			AllowDrop="False"
+			ItemsSource="{Binding}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="*"
+								SharedSizeGroup="MiddleColumn" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<ContentControl
+							Name="button"
+							Grid.Column="0"
+							Visibility="Visible"
+							Focusable="True"
+							BorderThickness="1"
+							ToolTip="{Binding Path=Value, Converter={StaticResource TruncatePrefix4StartPathSectionConverter}}">
+							<ContentControl.Content>
+								<controls:RMHyperlink
+									Click="Hyperlink_Click"
+									TextDecorations="none"
+									Tag="{Binding}"
+									IsEnabled="{Binding ElementName=breadCrumbsbar, Path=IsEnabled}">
+									<StackPanel
+										Orientation="Horizontal">
+										<ContentPresenter
+											Content="{Binding Path=Value, Converter={StaticResource TruncatePathStringConverter}}" />
+									</StackPanel>
+								</controls:RMHyperlink>
+							</ContentControl.Content>
+						</ContentControl>
+						<Border
+							Margin="2,0"
+							Grid.Column="2"
+							BorderThickness="2"
+							CornerRadius="3">
+							<ContentControl
+								Name="arrow"
+								Grid.Column="1"
+								Focusable="False"
+								MinWidth="16"
+								BorderThickness="1"
+								Visibility="{Binding ElementName=breadCrumbsbar, Path=ItemsSource, Converter={StaticResource LastItemToVisibilityConverter}}">
+								<Path
+									Fill="#FF000000"
+									Data="M0,0 L5,3.5 L0,7"
+									SnapsToDevicePixels="True"
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center" />
+							</ContentControl>
+						</Border>
+					</Grid>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+			<Control.Template>
+				<ControlTemplate>
+					<StackPanel
+						Name="StackPanel1"
+						IsItemsHost="True"
+						Orientation="Horizontal" />
+				</ControlTemplate>
+			</Control.Template>
+		</ItemsControl>
+	</Canvas>
+</UserControl>

@@ -1,0 +1,937 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igDT="http://schemas.infragistics.com/xaml" xmlns:igPrimDT="http://schemas.infragistics.com/xaml/primitives" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Theme.Colors.xaml" />
+		<ResourceDictionary
+			Source="Styles.WPF.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<SolidColorBrush
+		Color="{StaticResource Color_021}"
+		x:Key="TreeBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_021}"
+		x:Key="TreeBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_011}"
+		x:Key="TreeDefaultEditorBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_021}"
+		x:Key="TreeNodeBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_021}"
+		x:Key="TreeNodeBorderBrush" />
+	<LinearGradientBrush
+		StartPoint="0.47,0"
+		EndPoint="0.47,0.96"
+		x:Key="TreeNodeHoverBackgroundBrush">
+		<GradientStop
+			Offset="0"
+			Color="{StaticResource Color_014}" />
+		<GradientStop
+			Offset="0.98"
+			Color="{StaticResource Color_016}" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="{StaticResource Color_016}"
+		x:Key="TreeNodeHoverBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_013}"
+		x:Key="TreeNodeSelectedBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_014}"
+		x:Key="TreeNodeSelectedBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_021}"
+		x:Key="TreeNodeActiveBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_014}"
+		x:Key="TreeNodeActiveBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_007}"
+		x:Key="NodeLineBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_007}"
+		x:Key="NodeLineTerminatorBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_016}"
+		x:Key="DropIndicatorBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_016}"
+		x:Key="DropIndicatorBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_005}"
+		x:Key="ExpansionIndicatorGlyphBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_014}"
+		x:Key="ExpansionIndicatorGlyphHoverBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Color_002}"
+		x:Key="ExpansionIndicatorGlyphExpandedBackgroundBrush" />
+	<igPrimDT:BoolToVisibilityConverter
+		x:Key="BoolToVis" />
+	<Style
+		TargetType="{x:Type igPrimDT:ExpansionIndicator}"
+		x:Key="ExpansionIndicatorStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igPrimDT:ExpansionIndicator}">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ThemeForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ExpansionIndicatorGlyph"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ExpansionIndicatorGlyphHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ThemeLightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Selected" />
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimation
+											Duration="0"
+											To="0.35"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											Storyboard.TargetName="ExpansionIndicator" />
+										<DoubleAnimation
+											Duration="0"
+											To="0.35"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											Storyboard.TargetName="contentControl" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="ExpansionStates">
+								<VisualState
+									x:Name="Expanded">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames
+											Storyboard.TargetName="ExpansionIndicatorGlyph"
+											Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+											<SplineDoubleKeyFrame
+												KeyTime="0"
+												Value="90" />
+										</DoubleAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ExpansionIndicatorGlyph"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ExpansionIndicatorGlyphExpandedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Collapsed" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="15" />
+							<ColumnDefinition
+								Width="5" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid
+							Name="ExpansionIndicator"
+							ColumnSpan="2"
+							RowSpan="2"
+							Background="{StaticResource TransparentBrush}">
+							<Path
+								Name="ExpansionIndicatorGlyph"
+								Data="M0,0 C0,0 0,8 0,8 C0,8 1,8 1,8 C1,8 1,7 1,7 C1,7 2,7 2,7 C2,7 2,6 2,6 C2,6 3,6 3,6 C3,6 3,5 3,5 C3,5 4,5 4,5 C4,5 4,3 4,3 C4,3 3,3 3,3 C3,3 3,2 3,2 C3,2 2,2 2,2 C2,2 2,1 2,1 C2,1 1,1 1,1 C1,1 1,0 1,0 C1,0 0,0 0,0"
+								Width="4"
+								Height="8"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Margin="5,5,5,5"
+								RenderTransformOrigin="0.5,0.5"
+								Fill="{StaticResource ExpansionIndicatorGlyphBackgroundBrush}">
+								<UIElement.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform />
+										<SkewTransform />
+										<RotateTransform />
+										<TranslateTransform />
+									</TransformGroup>
+								</UIElement.RenderTransform>
+							</Path>
+						</Grid>
+						<ContentControl
+							Name="contentControl"
+							Grid.Column="2">
+							<ContentPresenter
+								Margin="{TemplateBinding Padding}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Left" />
+						</ContentControl>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type TextBox}"
+		BasedOn="{StaticResource TextBoxStyle}"
+		x:Key="XamDataTreeDefaultEditorStyle">
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ThemeForegroundBrush}" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource TreeDefaultEditorBackgroundBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type igDT:XamDataTree}"
+		x:Key="XamDataTreeStyle">
+		<Setter
+			Property="igDT:XamDataTree.DefaultEditorStyle"
+			Value="{StaticResource XamDataTreeDefaultEditorStyle}" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource TreeBackgroundBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource TreeBorderBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ThemeForegroundBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDT:XamDataTree}">
+					<Border
+						Name="Bd"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="*" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<igPrimDT:NodesPanel
+								Name="NodesPanel"
+								Background="{StaticResource TransparentBrush}" />
+							<ScrollBar
+								Name="VerticalScrollBar"
+								Width="20"
+								Grid.Row="0"
+								Grid.Column="1"
+								Style="{StaticResource ScrollbarStyle}" />
+							<ScrollBar
+								Name="HorizontalScrollBar"
+								Height="20"
+								Grid.Row="2"
+								Style="{StaticResource ScrollbarStyle}" />
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDT:XamDataTree}"
+		BasedOn="{StaticResource XamDataTreeStyle}"
+		x:Key="{x:Type igDT:XamDataTree}" />
+	<Style
+		TargetType="{x:Type igPrimDT:ActiveNodeIndicator}"
+		x:Key="ActiveNodeIndicatorStyle">
+		<Setter
+			Property="Background"
+			Value="{StaticResource TreeNodeActiveBackgroundBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource TreeNodeActiveBorderBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igPrimDT:ActiveNodeIndicator}">
+					<Rectangle
+						StrokeDashCap="Round"
+						Fill="{TemplateBinding Background}"
+						Stroke="{TemplateBinding BorderBrush}"
+						StrokeThickness="1"
+						RadiusX="3"
+						RadiusY="3" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igPrimDT:ActiveNodeIndicator}"
+		BasedOn="{StaticResource ActiveNodeIndicatorStyle}"
+		x:Key="{x:Type igPrimDT:ActiveNodeIndicator}" />
+	<Style
+		TargetType="{x:Type igDT:XamDataTreeNodeControl}"
+		x:Key="XamDataTreeNodeControlStyle">
+		<Setter
+			Property="Background"
+			Value="{StaticResource TreeNodeBackgroundBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource TreeNodeBorderBrush}" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ThemeForegroundBrush}" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="10,3" />
+		<Setter
+			Property="igDT:XamDataTreeNodeControl.CheckBoxStyle"
+			Value="{StaticResource CheckBoxStyle}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDT:XamDataTreeNodeControl}">
+					<Grid
+						Background="{StaticResource TransparentBrush}">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ThemeForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="hoverBorder"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ThemeLightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames
+											Storyboard.TargetName="main"
+											Storyboard.TargetProperty="Opacity">
+											<EasingDoubleKeyFrame
+												KeyTime="0"
+												Value="0.35" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="ExpandedIconStates">
+								<VisualState
+									x:Name="HideIcons" />
+								<VisualState
+									x:Name="ShowCollapsedIcon">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="CollapsedIcon"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="ShowExpandedIcon">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="ExpandedIcon"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="ActiveStates">
+								<VisualState
+									x:Name="Inactive" />
+								<VisualState
+									x:Name="Active">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="ActiveBorder"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="SelectedStates">
+								<VisualState
+									x:Name="NotSelected" />
+								<VisualState
+									x:Name="Selected">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="SelectedBorder"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="EndLines">
+								<VisualState
+									x:Name="None">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="LineTerminator"
+											Storyboard.TargetProperty="NodeLineEnd">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<igDT:NodeLineTemination>None</igDT:NodeLineTemination>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="TShape">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="LineTerminator"
+											Storyboard.TargetProperty="NodeLineEnd">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<igDT:NodeLineTemination>TShape</igDT:NodeLineTemination>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="LShape">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="LineTerminator"
+											Storyboard.TargetProperty="NodeLineEnd">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<igDT:NodeLineTemination>LShape</igDT:NodeLineTemination>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="DropStates">
+								<VisualState
+									x:Name="NoDrop" />
+								<VisualState
+									x:Name="DropOnto">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames
+											Storyboard.TargetName="DropOntoElem"
+											Storyboard.TargetProperty="Opacity">
+											<EasingDoubleKeyFrame
+												KeyTime="00:00:00.15"
+												Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="DropBefore">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="DropBeforeElem"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="DropAfter">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="DropAfterElem"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Grid
+							Name="main">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition />
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<igPrimDT:NodeLineControl
+								Name="lineControl"
+								Node="{Binding Node}" />
+							<igPrimDT:NodeLineTerminator
+								Name="LineTerminator"
+								Grid.Column="1"
+								Node="{Binding Node, RelativeSource={RelativeSource TemplatedParent}}" />
+							<igPrimDT:ExpansionIndicator
+								Name="ExpansionIndicator"
+								IsTabStop="False"
+								Grid.Column="1"
+								Style="{StaticResource ExpansionIndicatorStyle}"
+								Visibility="{Binding Node.HasChildren, Converter={StaticResource BoolToVis}, RelativeSource={RelativeSource TemplatedParent}}"
+								IsExpanded="{Binding Node.IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+							<CheckBox
+								Name="Checkbox"
+								Grid.Column="2"
+								IsTabStop="False"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Style="{StaticResource CheckBoxStyle}"
+								IsThreeState="{Binding Node.NodeLayout.CheckBoxSettings.IsCheckBoxThreeStateResolved}"
+								Visibility="{Binding Node.NodeLayout.CheckBoxSettings.CheckBoxVisibilityResolved}"
+								IsChecked="{Binding Node.IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Border
+								Name="Bd"
+								Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								CornerRadius="1" />
+							<Border
+								Name="hoverBorder"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Visibility="Collapsed"
+								Grid.Column="5"
+								CornerRadius="3"
+								Background="{StaticResource TreeNodeHoverBackgroundBrush}"
+								BorderBrush="{StaticResource TreeNodeHoverBorderBrush}" />
+							<Border
+								Name="SelectedBorder"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								CornerRadius="3"
+								Visibility="Collapsed"
+								Grid.Column="5"
+								Background="{StaticResource TreeNodeSelectedBackgroundBrush}"
+								BorderBrush="{StaticResource TreeNodeSelectedBorderBrush}" />
+							<ContentControl
+								Name="ExpandedIcon"
+								HorizontalContentAlignment="Center"
+								VerticalContentAlignment="Center"
+								Visibility="Collapsed"
+								Grid.Column="4"
+								IsTabStop="False" />
+							<ContentControl
+								Name="CollapsedIcon"
+								HorizontalContentAlignment="Center"
+								VerticalContentAlignment="Center"
+								Visibility="Collapsed"
+								Grid.Column="4"
+								IsTabStop="False" />
+							<igPrimDT:ActiveNodeIndicator
+								Name="ActiveBorder"
+								Visibility="Collapsed"
+								Grid.Column="5"
+								IsTabStop="False"
+								Margin="0"
+								Style="{StaticResource ActiveNodeIndicatorStyle}" />
+							<ContentControl
+								Name="contentControl"
+								Grid.Column="5"
+								Foreground="{TemplateBinding Foreground}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+								<ContentPresenter
+									Name="ContentPresenter"
+									Margin="{TemplateBinding Padding}" />
+							</ContentControl>
+						</Grid>
+						<Grid
+							Name="DropBeforeElem"
+							Visibility="Collapsed"
+							VerticalAlignment="Top"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform />
+									<TranslateTransform
+										Y="-3" />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+							<Rectangle
+								Name="bar"
+								Height="1"
+								StrokeThickness="0"
+								Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+							<Path
+								Name="arrowLeft"
+								Height="7"
+								Width="6"
+								Stretch="Fill"
+								Data="M166,184 C166,184 166,194 166,194 C166,194 171,189 171,189 C171,189 166,184 166,184"
+								HorizontalAlignment="Left"
+								Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+							<Path
+								Name="arrowRight"
+								HorizontalAlignment="Right"
+								Height="7"
+								Width="6"
+								Stretch="Fill"
+								Data="M178,194 C178,194 178,184 178,184 C178,184 173,189 173,189 C173,189 178,194 178,194"
+								Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+						</Grid>
+						<Grid
+							Name="DropAfterElem"
+							Visibility="Collapsed"
+							VerticalAlignment="Bottom"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform />
+									<TranslateTransform
+										Y="4" />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+							<Rectangle
+								Name="bar1"
+								Height="1"
+								StrokeThickness="0"
+								Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+							<Path
+								Name="arrowLeft1"
+								Height="7"
+								Width="6"
+								Stretch="Fill"
+								Data="M166,184 C166,184 166,194 166,194 C166,194 171,189 171,189 C171,189 166,184 166,184"
+								HorizontalAlignment="Left"
+								Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+							<Path
+								Name="arrowRight1"
+								HorizontalAlignment="Right"
+								Height="7"
+								Width="6"
+								Stretch="Fill"
+								Data="M178,194 C178,194 178,184 178,184 C178,184 173,189 173,189 C173,189 178,194 178,194"
+								Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+						</Grid>
+						<Rectangle
+							Name="DropOntoElem"
+							IsHitTestVisible="False"
+							Opacity="0"
+							StrokeThickness="2"
+							RadiusX="2"
+							RadiusY="2"
+							Stroke="{StaticResource DropIndicatorBorderBrush}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDT:XamDataTreeNodeControl}"
+		BasedOn="{StaticResource XamDataTreeNodeControlStyle}"
+		x:Key="{x:Type igDT:XamDataTreeNodeControl}" />
+	<Style
+		TargetType="{x:Type igPrimDT:NodeLineControl}"
+		x:Key="NodeLineControlStyle">
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igPrimDT:NodeLineControl}">
+					<igPrimDT:NodeLinePanel
+						Name="StackPanel"
+						Node="{Binding Node, RelativeSource={RelativeSource TemplatedParent}}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igPrimDT:NodeLineControl.VerticalLine">
+			<Setter.Value>
+				<DataTemplate>
+					<Grid>
+						<Rectangle
+							VerticalAlignment="Stretch"
+							Width="1"
+							Fill="{StaticResource NodeLineBackgroundBrush}" />
+					</Grid>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igPrimDT:NodeLineControl.HorizontalLine">
+			<Setter.Value>
+				<DataTemplate>
+					<Grid
+						VerticalAlignment="Center">
+						<Rectangle
+							Height="1"
+							Fill="{StaticResource NodeLineBackgroundBrush}" />
+					</Grid>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igPrimDT:NodeLineControl}"
+		BasedOn="{StaticResource NodeLineControlStyle}"
+		x:Key="{x:Type igPrimDT:NodeLineControl}" />
+	<Style
+		TargetType="{x:Type igPrimDT:NodeLineTerminator}"
+		x:Key="NodeLineTerminatorStyle">
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource NodeLineTerminatorBackgroundBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igPrimDT:NodeLineTerminator}">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="Lines">
+								<VisualState
+									x:Name="None" />
+								<VisualState
+									x:Name="T">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="TShape"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="LShape"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="L">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="LShape"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetName="TShape"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Grid
+							Name="LShape"
+							Visibility="Collapsed">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="0.5*" />
+								<RowDefinition
+									Height="0.5*" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="0.5*" />
+								<ColumnDefinition
+									Width="0.5*" />
+							</Grid.ColumnDefinitions>
+							<Rectangle
+								Width="1"
+								Fill="{TemplateBinding BorderBrush}"
+								HorizontalAlignment="Left"
+								Grid.Column="1" />
+							<Rectangle
+								VerticalAlignment="Top"
+								Height="1"
+								Fill="{TemplateBinding BorderBrush}"
+								Grid.Row="1"
+								Grid.Column="1" />
+						</Grid>
+						<Grid
+							Name="TShape"
+							Visibility="Collapsed">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="0.5*" />
+								<ColumnDefinition
+									Width="0.5*" />
+							</Grid.ColumnDefinitions>
+							<Rectangle
+								Width="1"
+								Fill="{TemplateBinding BorderBrush}"
+								HorizontalAlignment="Left"
+								Grid.Column="1" />
+							<Rectangle
+								VerticalAlignment="Center"
+								Height="1"
+								Fill="{TemplateBinding BorderBrush}"
+								Grid.Column="1" />
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igPrimDT:NodeLineTerminator}"
+		BasedOn="{StaticResource NodeLineTerminatorStyle}"
+		x:Key="{x:Type igPrimDT:NodeLineTerminator}" />
+</ResourceDictionary>

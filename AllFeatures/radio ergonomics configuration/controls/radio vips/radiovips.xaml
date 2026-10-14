@@ -1,0 +1,2619 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.RadioVIPs.PageRadioVIPs" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:RadioVIPsRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.RadioVIPs" xmlns:RadioVIPInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.RadioVIPs" xmlns:GCAIVIPInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.RadioVIPs"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2125</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2125</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2125</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10218</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderRadioVIPsGCAIVIPTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2125</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10797</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadVipName_A22501CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 2-->
+							<AcpUINS:AcpTableViewOnlyCtrl
+								Content="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipName_A22501Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipName_A22501, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipName_A22501_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipName_A22501_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipName_A22501"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipName_A22501_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipName_A22501_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+							</AcpUINS:AcpTableViewOnlyCtrl>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadVipInputBCO_A21328CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipInputBCO_A21328_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadVipInputFeature_A21329CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipInputFeature_A21329_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadVipOutputBCO_A20946CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputBCO_A20946_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadVipOutputFeature_A20947CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipOutputFeature_A20947_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadVipKey_A22500CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RadioVIPInnerSection.RadVipKey_A22500_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadioGCAIVipName_42622CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableViewOnlyCtrl
+								Content="{Binding Path=Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+								MyBLObject="{Binding Path=Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVipName_42622_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+							</AcpUINS:AcpTableViewOnlyCtrl>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="GCAIVipInputBCO_42620CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+								MyBLObject="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputBCO_42620_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="GCAIVipInputFeature_42623CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+								MyBLObject="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.GCAIVipInputFeature_42623_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadioGCAIVIPKey_42621CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 11-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+								MyBLObject="{Binding Path=Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 12-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderRadioVIPsGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 13-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderRadioVIPsGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderRadioVIPsGCAI, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 14-->
+				<Hyperlink
+					Name="HLinkGCAI"
+					Tag="ExpanderRadioVIPsGCAI">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GCAI}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="GCAI.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 15-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 16-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderRadioVIPsGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderRadioVIPsRadioVIPTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderRadioVIPsRadioVIPSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 17-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderRadioVIPsRadioVIP"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/General.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderRadioVIPsRadioVIP, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 18-->
+					<Grid
+						Name="ExpanderRadioVIPsGeneralGrid">
+						<!--Unknown connection ID: 19-->
+						<Grid
+							Name="ExpanderRadioVIPsRadioVIPGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 20-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderRadioVIPsRadioVIPTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderRadioVIPsRadioVIP"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderRadioVIPsRadioVIP"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 21-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderRadioVIPsRadioVIP"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_RADIOVIPTABLE}"
+									MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/General.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="RadVipName_A22501_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadVipInputBCO_A21328_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadVipInputFeature_A21329_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadVipOutputBCO_A20946_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadVipOutputFeature_A20947_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadVipKey_A22500_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 22-->
+												<igcontrols:UnboundField
+													x:Name="RadVipName_A22501_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_NAME}"
+													BindingPath="RadioVIPInnerSection.RadVipName_A22501"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView}, Path=RadioVIPInnerSection.RadVipName_A22501_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadVipName_A22501CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 23-->
+												<igcontrols:UnboundField
+													x:Name="RadVipInputBCO_A21328_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_INPUTBCO}"
+													BindingPath="RadioVIPInnerSection.RadVipInputBCO_A21328"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView}, Path=RadioVIPInnerSection.RadVipInputBCO_A21328_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadVipInputBCO_A21328CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 24-->
+												<igcontrols:UnboundField
+													x:Name="RadVipInputFeature_A21329_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_INPUTFEATURE}"
+													BindingPath="RadioVIPInnerSection.RadVipInputFeature_A21329"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView}, Path=RadioVIPInnerSection.RadVipInputFeature_A21329_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadVipInputFeature_A21329CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 25-->
+												<igcontrols:UnboundField
+													x:Name="RadVipOutputBCO_A20946_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_OUTPUTBCO}"
+													BindingPath="RadioVIPInnerSection.RadVipOutputBCO_A20946"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView}, Path=RadioVIPInnerSection.RadVipOutputBCO_A20946_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadVipOutputBCO_A20946CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 26-->
+												<igcontrols:UnboundField
+													x:Name="RadVipOutputFeature_A20947_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_OUTPUTFEATURE}"
+													BindingPath="RadioVIPInnerSection.RadVipOutputFeature_A20947"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView}, Path=RadioVIPInnerSection.RadVipOutputFeature_A20947_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadVipOutputFeature_A20947CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 27-->
+												<igcontrols:UnboundField
+													x:Name="RadVipKey_A22500_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_KEY}"
+													BindingPath="RadioVIPInnerSection.RadVipKey_A22500"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsRadioVIPTableView}, Path=RadioVIPInnerSection.RadVipKey_A22500_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadVipKey_A22500CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 28-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderRadioVIPsRadioVIPSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderRadioVIPsRadioVIP"
+											Path="TableMode" />
+										<Binding
+											ElementName="RadVipName_A22501"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadVipInputBCO_A21328"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadVipInputFeature_A21329"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadVipOutputBCO_A20946"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadVipOutputFeature_A20947"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadVipKey_A22500"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 29-->
+								<Grid
+									Name="gridExpanderRadioVIPsRadioVIPSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding General.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 30-->
+									<AcpUINS:AcpLabel
+										Name="RadVipName_A22501"
+										AcpLabelFromViewOnlyCtrl="True"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipName_A22501Value}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipName_A22501}"
+										MyLabelCtrl="{Binding ElementName=LblRadVipName_A22501}"
+										IsAcpValid="{Binding Path=RadioVIPInnerSection.RadVipName_A22501_Valid}"
+										IsAcpApplicable="{Binding Path=RadioVIPInnerSection.RadVipName_A22501_Applicable}"
+										AreValuesEqual="{Binding Path=RadioVIPInnerSection.RadVipName_A22501_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipName_A22501_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 31-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadVipName_A22501"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadVipName_A22501}"
+										IsChecked="{Binding ElementName=RadVipName_A22501, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 32-->
+									<AcpUINS:AcpLabel
+										Name="LblRadVipName_A22501"
+										Content="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										MyParentCtrl="{Binding ElementName=RadVipName_A22501}"
+										IsAcpValid="{Binding ElementName=RadVipName_A22501, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadVipName_A22501, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadVipName_A22501, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 33-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadVipName_A22501"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadVipName_A22501}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 34-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadVipName_A22501"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadVipName_A22501}"
+										MyCompCtrl="{Binding ElementName=RadVipName_A22501Comp}"
+										AreValuesEqual="{Binding ElementName=RadVipName_A22501, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 35-->
+									<AcpUINS:AcpLabel
+										Name="RadVipName_A22501Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipName_A22501Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipName_A22501}"
+										MyParentCtrl="{Binding ElementName=RadVipName_A22501}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadVipName_A22501}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipName_A22501"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 36-->
+									<AcpUINS:AcpComboBox
+										Name="RadVipInputBCO_A21328"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328.Items}"
+										SelectedValue="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328}"
+										MyLabelCtrl="{Binding ElementName=LblRadVipInputBCO_A21328}"
+										IsAcpValid="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328_Valid}"
+										IsAcpApplicable="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328_Applicable}"
+										AreValuesEqual="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipInputBCO_A21328_Editable" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipInputBCO_A21328" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipInputBCO_A21328_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 37-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadVipInputBCO_A21328"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadVipInputBCO_A21328}"
+										IsChecked="{Binding ElementName=RadVipInputBCO_A21328, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 38-->
+									<AcpUINS:AcpLabel
+										Name="LblRadVipInputBCO_A21328"
+										Content="{x:Static ResourceNS:AcgResources.ID_INPUTBCO}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_INPUTBCO}"
+										MyParentCtrl="{Binding ElementName=RadVipInputBCO_A21328}"
+										IsAcpValid="{Binding ElementName=RadVipInputBCO_A21328, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadVipInputBCO_A21328, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadVipInputBCO_A21328, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 39-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadVipInputBCO_A21328"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadVipInputBCO_A21328}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 40-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadVipInputBCO_A21328"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadVipInputBCO_A21328}"
+										MyCompCtrl="{Binding ElementName=RadVipInputBCO_A21328Comp}"
+										AreValuesEqual="{Binding ElementName=RadVipInputBCO_A21328, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 41-->
+									<AcpUINS:AcpLabel
+										Name="RadVipInputBCO_A21328Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipInputBCO_A21328}"
+										MyParentCtrl="{Binding ElementName=RadVipInputBCO_A21328}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadVipInputBCO_A21328}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipInputBCO_A21328"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 42-->
+									<AcpUINS:AcpComboBox
+										Name="RadVipInputFeature_A21329"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329.Items}"
+										SelectedValue="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329}"
+										MyLabelCtrl="{Binding ElementName=LblRadVipInputFeature_A21329}"
+										IsAcpValid="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329_Valid}"
+										IsAcpApplicable="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329_Applicable}"
+										AreValuesEqual="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipInputFeature_A21329_Editable" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipInputFeature_A21329" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipInputFeature_A21329_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 43-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadVipInputFeature_A21329"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadVipInputFeature_A21329}"
+										IsChecked="{Binding ElementName=RadVipInputFeature_A21329, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 44-->
+									<AcpUINS:AcpLabel
+										Name="LblRadVipInputFeature_A21329"
+										Content="{x:Static ResourceNS:AcgResources.ID_INPUTFEATURE}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_INPUTFEATURE}"
+										MyParentCtrl="{Binding ElementName=RadVipInputFeature_A21329}"
+										IsAcpValid="{Binding ElementName=RadVipInputFeature_A21329, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadVipInputFeature_A21329, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadVipInputFeature_A21329, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 45-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadVipInputFeature_A21329"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadVipInputFeature_A21329}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 46-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadVipInputFeature_A21329"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadVipInputFeature_A21329}"
+										MyCompCtrl="{Binding ElementName=RadVipInputFeature_A21329Comp}"
+										AreValuesEqual="{Binding ElementName=RadVipInputFeature_A21329, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 47-->
+									<AcpUINS:AcpLabel
+										Name="RadVipInputFeature_A21329Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="2"
+										Grid.Column="5"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipInputFeature_A21329}"
+										MyParentCtrl="{Binding ElementName=RadVipInputFeature_A21329}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadVipInputFeature_A21329}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipInputFeature_A21329"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 48-->
+									<AcpUINS:AcpComboBox
+										Name="RadVipOutputBCO_A20946"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946.Items}"
+										SelectedValue="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946}"
+										MyLabelCtrl="{Binding ElementName=LblRadVipOutputBCO_A20946}"
+										IsAcpValid="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946_Valid}"
+										IsAcpApplicable="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946_Applicable}"
+										AreValuesEqual="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipOutputBCO_A20946_Editable" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipOutputBCO_A20946" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipOutputBCO_A20946_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 49-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadVipOutputBCO_A20946"
+										Margin="0,5,0,0"
+										Grid.Row="3"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadVipOutputBCO_A20946}"
+										IsChecked="{Binding ElementName=RadVipOutputBCO_A20946, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 50-->
+									<AcpUINS:AcpLabel
+										Name="LblRadVipOutputBCO_A20946"
+										Content="{x:Static ResourceNS:AcgResources.ID_OUTPUTBCO}"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_OUTPUTBCO}"
+										MyParentCtrl="{Binding ElementName=RadVipOutputBCO_A20946}"
+										IsAcpValid="{Binding ElementName=RadVipOutputBCO_A20946, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadVipOutputBCO_A20946, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadVipOutputBCO_A20946, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 51-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadVipOutputBCO_A20946"
+										Grid.Row="3"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadVipOutputBCO_A20946}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 52-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadVipOutputBCO_A20946"
+										Grid.Row="3"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadVipOutputBCO_A20946}"
+										MyCompCtrl="{Binding ElementName=RadVipOutputBCO_A20946Comp}"
+										AreValuesEqual="{Binding ElementName=RadVipOutputBCO_A20946, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 53-->
+									<AcpUINS:AcpLabel
+										Name="RadVipOutputBCO_A20946Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="3"
+										Grid.Column="5"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipOutputBCO_A20946}"
+										MyParentCtrl="{Binding ElementName=RadVipOutputBCO_A20946}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadVipOutputBCO_A20946}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipOutputBCO_A20946"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 54-->
+									<AcpUINS:AcpComboBox
+										Name="RadVipOutputFeature_A20947"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947.Items}"
+										SelectedValue="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947}"
+										MyLabelCtrl="{Binding ElementName=LblRadVipOutputFeature_A20947}"
+										IsAcpValid="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947_Valid}"
+										IsAcpApplicable="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947_Applicable}"
+										AreValuesEqual="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipOutputFeature_A20947_Editable" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipOutputFeature_A20947" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipOutputFeature_A20947_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 55-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadVipOutputFeature_A20947"
+										Margin="0,5,0,0"
+										Grid.Row="4"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadVipOutputFeature_A20947}"
+										IsChecked="{Binding ElementName=RadVipOutputFeature_A20947, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 56-->
+									<AcpUINS:AcpLabel
+										Name="LblRadVipOutputFeature_A20947"
+										Content="{x:Static ResourceNS:AcgResources.ID_OUTPUTFEATURE}"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_OUTPUTFEATURE}"
+										MyParentCtrl="{Binding ElementName=RadVipOutputFeature_A20947}"
+										IsAcpValid="{Binding ElementName=RadVipOutputFeature_A20947, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadVipOutputFeature_A20947, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadVipOutputFeature_A20947, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 57-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadVipOutputFeature_A20947"
+										Grid.Row="4"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadVipOutputFeature_A20947}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 58-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadVipOutputFeature_A20947"
+										Grid.Row="4"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadVipOutputFeature_A20947}"
+										MyCompCtrl="{Binding ElementName=RadVipOutputFeature_A20947Comp}"
+										AreValuesEqual="{Binding ElementName=RadVipOutputFeature_A20947, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 59-->
+									<AcpUINS:AcpLabel
+										Name="RadVipOutputFeature_A20947Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="4"
+										Grid.Column="5"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipOutputFeature_A20947}"
+										MyParentCtrl="{Binding ElementName=RadVipOutputFeature_A20947}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadVipOutputFeature_A20947}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipOutputFeature_A20947"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 60-->
+									<AcpUINS:AcpTextBox
+										Name="RadVipKey_A22500"
+										VerticalAlignment="Center"
+										Grid.Row="5"
+										Grid.Column="2"
+										Text="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500Value}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGeneral}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500}"
+										MyLabelCtrl="{Binding ElementName=LblRadVipKey_A22500}"
+										IsAcpValid="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500_Valid}"
+										IsAcpApplicable="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500_Applicable}"
+										AreValuesEqual="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipKey_A22500_Editable" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipKey_A22500" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="RadioVIPInnerSection.RadVipKey_A22500_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 61-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadVipKey_A22500"
+										Margin="0,5,0,0"
+										Grid.Row="5"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadVipKey_A22500}"
+										IsChecked="{Binding ElementName=RadVipKey_A22500, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipKey_A22500"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 62-->
+									<AcpUINS:AcpLabel
+										Name="LblRadVipKey_A22500"
+										Content="{x:Static ResourceNS:AcgResources.ID_KEY}"
+										VerticalAlignment="Center"
+										Grid.Row="5"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_KEY}"
+										MyParentCtrl="{Binding ElementName=RadVipKey_A22500}"
+										IsAcpValid="{Binding ElementName=RadVipKey_A22500, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadVipKey_A22500, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadVipKey_A22500, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 63-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadVipKey_A22500"
+										Grid.Row="5"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadVipKey_A22500}"
+										MyCompCtrl="{Binding ElementName=RadVipKey_A22500Comp}"
+										AreValuesEqual="{Binding ElementName=RadVipKey_A22500, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipKey_A22500"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadVipKey_A22500"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadVipKey_A22500"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 64-->
+									<AcpUINS:AcpLabel
+										Name="RadVipKey_A22500Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="5"
+										Grid.Column="5"
+										Content="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+										MyBLObject="{Binding Path=RadioVIPInnerSection.RadVipKey_A22500}"
+										MyParentCtrl="{Binding ElementName=RadVipKey_A22500}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadVipKey_A22500}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadVipKey_A22500"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 65-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderRadioVIPsGCAI"
+					Width="Auto"
+					Header="{Binding Path=GCAI.UIName}"
+					ShowDiffIcon="{Binding Path=GCAI.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderRadioVIPsGCAIVIPTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderRadioVIPsGCAIVIPSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 66-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderRadioVIPsGCAIVIP"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/GCAI.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderRadioVIPsGCAIVIP, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/GCAI.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 67-->
+					<Grid
+						Name="ExpanderRadioVIPsGCAIGrid">
+						<!--Unknown connection ID: 68-->
+						<Grid
+							Name="ExpanderRadioVIPsGCAIVIPGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 69-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderRadioVIPsGCAIVIPTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderRadioVIPsGCAIVIP"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderRadioVIPsGCAIVIP"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 70-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderRadioVIPsGCAIVIP"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_GCAIVIPTABLE}"
+									MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/GCAI.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="RadioGCAIVipName_42622_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="GCAIVipInputBCO_42620_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="GCAIVipInputFeature_42623_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadioGCAIVIPKey_42621_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 71-->
+												<igcontrols:UnboundField
+													x:Name="RadioGCAIVipName_42622_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_NAME}"
+													BindingPath="GCAIVIPInnerSection.RadioGCAIVipName_42622"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsGCAIVIPTableView}, Path=GCAIVIPInnerSection.RadioGCAIVipName_42622_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadioGCAIVipName_42622CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 72-->
+												<igcontrols:UnboundField
+													x:Name="GCAIVipInputBCO_42620_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_INPUTBCO}"
+													BindingPath="GCAIVIPInnerSection.GCAIVipInputBCO_42620"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsGCAIVIPTableView}, Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource GCAIVipInputBCO_42620CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 73-->
+												<igcontrols:UnboundField
+													x:Name="GCAIVipInputFeature_42623_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_INPUTFEATURE}"
+													BindingPath="GCAIVIPInnerSection.GCAIVipInputFeature_42623"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsGCAIVIPTableView}, Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource GCAIVipInputFeature_42623CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 74-->
+												<igcontrols:UnboundField
+													x:Name="RadioGCAIVIPKey_42621_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_KEY}"
+													BindingPath="GCAIVIPInnerSection.RadioGCAIVIPKey_42621"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderRadioVIPsGCAIVIPTableView}, Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadioGCAIVIPKey_42621CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 75-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderRadioVIPsGCAIVIPSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderRadioVIPsGCAIVIP"
+											Path="TableMode" />
+										<Binding
+											ElementName="RadioGCAIVipName_42622"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="GCAIVipInputBCO_42620"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="GCAIVipInputFeature_42623"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadioGCAIVIPKey_42621"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 76-->
+								<Grid
+									Name="gridExpanderRadioVIPsGCAIVIPSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding GCAI.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 77-->
+									<AcpUINS:AcpLabel
+										Name="RadioGCAIVipName_42622"
+										AcpLabelFromViewOnlyCtrl="True"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Content="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622Value}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622}"
+										MyLabelCtrl="{Binding ElementName=LblRadioGCAIVipName_42622}"
+										IsAcpValid="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622_Valid}"
+										IsAcpApplicable="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622_Applicable}"
+										AreValuesEqual="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="GCAIVIPInnerSection.RadioGCAIVipName_42622_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 78-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadioGCAIVipName_42622"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVipName_42622}"
+										IsChecked="{Binding ElementName=RadioGCAIVipName_42622, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 79-->
+									<AcpUINS:AcpLabel
+										Name="LblRadioGCAIVipName_42622"
+										Content="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVipName_42622}"
+										IsAcpValid="{Binding ElementName=RadioGCAIVipName_42622, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadioGCAIVipName_42622, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadioGCAIVipName_42622, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 80-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadioGCAIVipName_42622"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVipName_42622}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 81-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadioGCAIVipName_42622"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVipName_42622}"
+										MyCompCtrl="{Binding ElementName=RadioGCAIVipName_42622Comp}"
+										AreValuesEqual="{Binding ElementName=RadioGCAIVipName_42622, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 82-->
+									<AcpUINS:AcpLabel
+										Name="RadioGCAIVipName_42622Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/GCAI.EmbeddedRecset}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.RadioGCAIVipName_42622}"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVipName_42622}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadioGCAIVipName_42622}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadioGCAIVipName_42622"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 83-->
+									<AcpUINS:AcpComboBox
+										Name="GCAIVipInputBCO_42620"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620.Items}"
+										SelectedValue="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620}"
+										MyLabelCtrl="{Binding ElementName=LblGCAIVipInputBCO_42620}"
+										IsAcpValid="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620_Valid}"
+										IsAcpApplicable="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620_Applicable}"
+										AreValuesEqual="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="GCAIVIPInnerSection.GCAIVipInputBCO_42620_Editable" />
+												<Binding
+													Path="GCAIVIPInnerSection.GCAIVipInputBCO_42620" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="GCAIVIPInnerSection.GCAIVipInputBCO_42620_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 84-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnGCAIVipInputBCO_42620"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputBCO_42620}"
+										IsChecked="{Binding ElementName=GCAIVipInputBCO_42620, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 85-->
+									<AcpUINS:AcpLabel
+										Name="LblGCAIVipInputBCO_42620"
+										Content="{x:Static ResourceNS:AcgResources.ID_INPUTBCO}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_INPUTBCO}"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputBCO_42620}"
+										IsAcpValid="{Binding ElementName=GCAIVipInputBCO_42620, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=GCAIVipInputBCO_42620, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=GCAIVipInputBCO_42620, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 86-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnGCAIVipInputBCO_42620"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputBCO_42620}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 87-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnGCAIVipInputBCO_42620"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputBCO_42620}"
+										MyCompCtrl="{Binding ElementName=GCAIVipInputBCO_42620Comp}"
+										AreValuesEqual="{Binding ElementName=GCAIVipInputBCO_42620, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 88-->
+									<AcpUINS:AcpLabel
+										Name="GCAIVipInputBCO_42620Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/GCAI.EmbeddedRecset}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.GCAIVipInputBCO_42620}"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputBCO_42620}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnGCAIVipInputBCO_42620}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GCAIVipInputBCO_42620"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 89-->
+									<AcpUINS:AcpComboBox
+										Name="GCAIVipInputFeature_42623"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623.Items}"
+										SelectedValue="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623}"
+										MyLabelCtrl="{Binding ElementName=LblGCAIVipInputFeature_42623}"
+										IsAcpValid="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623_Valid}"
+										IsAcpApplicable="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623_Applicable}"
+										AreValuesEqual="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="GCAIVIPInnerSection.GCAIVipInputFeature_42623_Editable" />
+												<Binding
+													Path="GCAIVIPInnerSection.GCAIVipInputFeature_42623" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="GCAIVIPInnerSection.GCAIVipInputFeature_42623_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 90-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnGCAIVipInputFeature_42623"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputFeature_42623}"
+										IsChecked="{Binding ElementName=GCAIVipInputFeature_42623, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 91-->
+									<AcpUINS:AcpLabel
+										Name="LblGCAIVipInputFeature_42623"
+										Content="{x:Static ResourceNS:AcgResources.ID_INPUTFEATURE}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_INPUTFEATURE}"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputFeature_42623}"
+										IsAcpValid="{Binding ElementName=GCAIVipInputFeature_42623, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=GCAIVipInputFeature_42623, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=GCAIVipInputFeature_42623, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 92-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnGCAIVipInputFeature_42623"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputFeature_42623}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 93-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnGCAIVipInputFeature_42623"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputFeature_42623}"
+										MyCompCtrl="{Binding ElementName=GCAIVipInputFeature_42623Comp}"
+										AreValuesEqual="{Binding ElementName=GCAIVipInputFeature_42623, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 94-->
+									<AcpUINS:AcpLabel
+										Name="GCAIVipInputFeature_42623Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="2"
+										Grid.Column="5"
+										Content="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/GCAI.EmbeddedRecset}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.GCAIVipInputFeature_42623}"
+										MyParentCtrl="{Binding ElementName=GCAIVipInputFeature_42623}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnGCAIVipInputFeature_42623}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GCAIVipInputFeature_42623"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 95-->
+									<AcpUINS:AcpTextBox
+										Name="RadioGCAIVIPKey_42621"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="2"
+										Text="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621Value}"
+										MyExpander="{Binding ElementName=ExpanderRadioVIPsGCAI}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621}"
+										MyLabelCtrl="{Binding ElementName=LblRadioGCAIVIPKey_42621}"
+										IsAcpValid="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Valid}"
+										IsAcpApplicable="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Applicable}"
+										AreValuesEqual="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Editable" />
+												<Binding
+													Path="GCAIVIPInnerSection.RadioGCAIVIPKey_42621" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="GCAIVIPInnerSection.RadioGCAIVIPKey_42621_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 96-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadioGCAIVIPKey_42621"
+										Margin="0,5,0,0"
+										Grid.Row="3"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVIPKey_42621}"
+										IsChecked="{Binding ElementName=RadioGCAIVIPKey_42621, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadioGCAIVIPKey_42621"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 97-->
+									<AcpUINS:AcpLabel
+										Name="LblRadioGCAIVIPKey_42621"
+										Content="{x:Static ResourceNS:AcgResources.ID_KEY}"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_KEY}"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVIPKey_42621}"
+										IsAcpValid="{Binding ElementName=RadioGCAIVIPKey_42621, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadioGCAIVIPKey_42621, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadioGCAIVIPKey_42621, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 98-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadioGCAIVIPKey_42621"
+										Grid.Row="3"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVIPKey_42621}"
+										MyCompCtrl="{Binding ElementName=RadioGCAIVIPKey_42621Comp}"
+										AreValuesEqual="{Binding ElementName=RadioGCAIVIPKey_42621, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadioGCAIVIPKey_42621"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadioGCAIVIPKey_42621"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadioGCAIVIPKey_42621"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 99-->
+									<AcpUINS:AcpLabel
+										Name="RadioGCAIVIPKey_42621Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="3"
+										Grid.Column="5"
+										Content="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/GCAI.EmbeddedRecset}"
+										MyBLObject="{Binding Path=GCAIVIPInnerSection.RadioGCAIVIPKey_42621}"
+										MyParentCtrl="{Binding ElementName=RadioGCAIVIPKey_42621}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadioGCAIVIPKey_42621}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadioGCAIVIPKey_42621"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlHeadGraphicView</RootNamespace>
+    <AssemblyName>ControlHeadGraphicView</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="acpcontrol\AcpTextBoxSpinner_G.xaml.cs">
+      <DependentUpon>AcpTextBoxSpinner_G.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="acpcontrol\AcpTextBox_G.cs" />
+    <Compile Include="converters\EditabilityToOpacityConverter.cs" />
+    <Compile Include="converters\O9GraphicviewEditabilityConverter.cs" />
+    <Compile Include="converters\O9GraphicviewMenuItemsVisibilityConverter.cs" />
+    <Compile Include="DEKGraphicView.xaml.cs">
+      <DependentUpon>DEKGraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="E5GraphicView.xaml.cs">
+      <DependentUpon>E5GraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeypadGraphicView.xaml.cs">
+      <DependentUpon>KeypadGraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeypadMicAndAccessoriesGraphicView.xaml.cs">
+      <DependentUpon>KeypadMicAndAccessoriesGraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MFKColorConverter.cs" />
+    <Compile Include="O2GraphicView.xaml.cs">
+      <DependentUpon>O2GraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O3GraphicView.xaml.cs">
+      <DependentUpon>O3GraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O5GraphicView.xaml.cs">
+      <DependentUpon>O5GraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O7GraphicView.xaml.cs">
+      <DependentUpon>O7GraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O9GraphicView.xaml.cs">
+      <DependentUpon>O9GraphicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O9GraphicViewControlColor.cs" />
+    <Compile Include="O9GraphicViewControlColorKeys.cs" />
+    <Compile Include="O9GraphicViewControlState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartKeyFobGraphicView.xaml.cs">
+      <DependentUpon>SmartKeyFobGraphicView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpBusinessLayer\AcpBusinessLayer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA630}</Project>
+      <Name>AcpBusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonLib\AcpCommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</Project>
+      <Name>AcpCommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUILib\AcpUILib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63A}</Project>
+      <Name>AcpUILib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUI\AcpUI.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA639}</Project>
+      <Name>AcpUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="acpcontrol\AcpTextBoxSpinner_G.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="acpcontrol\acptextboxspinner_g_style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="acpcontrol\acptextbox_g_style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DEKGraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="E5GraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeypadGraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeypadMicAndAccessoriesGraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O2GraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O3GraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O5GraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O7GraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O9GraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SmartKeyFobGraphicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\dekgraphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\e5graphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\keypadgraphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\keypadmicandaccessoriesgraphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o2graphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o3graphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o5graphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o7graphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o9graphicviewacptextboxstyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o9graphicviewskin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\o9graphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\smartkeyfobgraphicviewstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\spinnerarrowdown.png" />
+    <Resource Include="icons\spinnerarrowup.png" />
+    <Resource Include="images\03controlheadback.png" />
+    <Resource Include="images\05 controlhead.png" />
+    <Resource Include="images\controlhead09background.png" />
+    <Resource Include="images\dek.png" />
+    <Resource Include="images\e5.png" />
+    <Resource Include="images\e5_keys\e5_down_key.png" />
+    <Resource Include="images\e5_keys\e5_emergency_key.png" />
+    <Resource Include="images\e5_keys\e5_p_key.png" />
+    <Resource Include="images\e5_keys\e5_up_key.png" />
+    <Resource Include="images\image03.png" />
+    <Resource Include="images\image13.png" />
+    <Resource Include="images\keypad.png" />
+    <Resource Include="images\keypadmicandaccessories.png" />
+    <Resource Include="images\o2.png" />
+    <Resource Include="images\o7.png" />
+    <Resource Include="images\smartkeyfob.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlphaColorConverter.cs" />
+    <Compile Include="Animation.cs" />
+    <Compile Include="AnimationEventArgs.cs" />
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AssemblyVersion.cs" />
+    <Compile Include="AutomationPeers\AutomationPeerProxy.cs" />
+    <Compile Include="AutomationPeers\ExpansionIndicatorAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\FrameworkElementAutomationPeerBase.cs" />
+    <Compile Include="CalculatedForegroundConverter.cs" />
+    <Compile Include="CancellableEventArgs.cs" />
+    <Compile Include="Collections\AggregateCollection.cs" />
+    <Compile Include="Collections\CollectionBase.cs" />
+    <Compile Include="Collections\CollectionBaseEnumerator.cs" />
+    <Compile Include="Collections\DateCollection.cs" />
+    <Compile Include="Collections\EmptyEnumerator.cs" />
+    <Compile Include="Collections\ICreateItemCallback.cs" />
+    <Compile Include="Collections\ISparseArrayItem.cs" />
+    <Compile Include="Collections\ISparseArrayMultiItem.cs" />
+    <Compile Include="Collections\ItemPropertyChangedEventArgs.cs" />
+    <Compile Include="Collections\MultiSourceEnumerator.cs" />
+    <Compile Include="Collections\ObservableCollectionExtended.cs" />
+    <Compile Include="Collections\ReadOnlyNotifyCollection.cs" />
+    <Compile Include="Collections\SingleItemEnumerator.cs" />
+    <Compile Include="Collections\SparseArray.cs" />
+    <Compile Include="Collections\TypedEnumerable.cs" />
+    <Compile Include="Collections\WeakDictionary.cs" />
+    <Compile Include="Collections\WeakList.2.cs" />
+    <Compile Include="Collections\WeakList.cs" />
+    <Compile Include="Collections\WeakSet.cs" />
+    <Compile Include="ColorBlendConverter.cs" />
+    <Compile Include="ColorBlendMode.cs" />
+    <Compile Include="ColorUtilities.cs" />
+    <Compile Include="CommandBase.cs" />
+    <Compile Include="CommandSourceCollection.cs" />
+    <Compile Include="CommandSourceManager.cs" />
+    <Compile Include="Controls\BindingPart.cs" />
+    <Compile Include="Controls\CalendarHelper.cs" />
+    <Compile Include="Controls\Commanding.cs" />
+    <Compile Include="Controls\CommandSource.cs" />
+    <Compile Include="Controls\DayOfWeekFlags.cs" />
+    <Compile Include="Controls\DialogElementProxy.cs" />
+    <Compile Include="Controls\DialogManager.cs" />
+    <Compile Include="Controls\Editors\ClipboardOperation.cs" />
+    <Compile Include="Controls\Editors\ClipboardOperationCancelEventArgs.cs" />
+    <Compile Include="Controls\Editors\ClipboardOperationEventArgs.cs" />
+    <Compile Include="Controls\Editors\ClipboardOperationStatus.cs" />
+    <Compile Include="Controls\Editors\DropDownButtonDisplayMode.cs" />
+    <Compile Include="Controls\HierarchicalDataTemplate.cs" />
+    <Compile Include="Controls\IDialogElementProxyHost.cs" />
+    <Compile Include="Controls\IProvideTouchInfo.cs" />
+    <Compile Include="Controls\ISupportScrollHelper.cs" />
+    <Compile Include="Controls\KeyEventTracker.cs" />
+    <Compile Include="Controls\Layouts\Primitives\GridBagConstraint.cs" />
+    <Compile Include="Controls\Layouts\Primitives\GridBagConstraintConstants.cs" />
+    <Compile Include="Controls\Layouts\Primitives\GridBagLayoutItemDimensions.cs" />
+    <Compile Include="Controls\Layouts\Primitives\GridBagLayoutItemDimensionsCollection.cs" />
+    <Compile Include="Controls\Layouts\Primitives\GridBagLayoutManager.cs" />
+    <Compile Include="Controls\Layouts\Primitives\IAutoSizeLayoutItem.cs" />
+    <Compile Include="Controls\Layouts\Primitives\IGridBagConstraint.cs" />
+    <Compile Include="Controls\Layouts\Primitives\ILayoutContainer.cs" />
+    <Compile Include="Controls\Layouts\Primitives\ILayoutItem.cs" />
+    <Compile Include="Controls\Layouts\Primitives\LayoutItemsCollection.cs" />
+    <Compile Include="Controls\Layouts\Primitives\LayoutManagerBase.cs" />
+    <Compile Include="Controls\LostFocusTracker.cs" />
+    <Compile Include="Controls\PanEventArgs.cs" />
+    <Compile Include="Controls\ParameterBindingDataContext.cs" />
+    <Compile Include="Controls\PresentationUtilities.cs" />
+    <Compile Include="Controls\Primitives\BoolToHiddenConverter.cs" />
+    <Compile Include="Controls\Primitives\BoolToVisibilityConverter.cs" />
+    <Compile Include="Controls\Primitives\DoubleToStringConverter.cs" />
+    <Compile Include="Controls\Primitives\EmbeddedTextBox.cs" />
+    <Compile Include="Controls\Primitives\EmptyToCollapsedConverter.cs" />
+    <Compile Include="Controls\Primitives\ExpansionIndicator.cs" />
+    <Compile Include="Controls\Primitives\FixedValueConverter.cs" />
+    <Compile Include="Controls\Primitives\InverseBooleanConverter.cs" />
+    <Compile Include="Controls\Primitives\IResourceProviderClient.cs" />
+    <Compile Include="Controls\Primitives\PopupResizer.cs" />
+    <Compile Include="Controls\Primitives\ResizerPosition.cs" />
+    <Compile Include="Controls\Primitives\ResourceProvider.2.cs" />
+    <Compile Include="Controls\Primitives\ResourceProvider.cs" />
+    <Compile Include="Controls\Primitives\ResourceProviderWithOverrides.cs" />
+    <Compile Include="Controls\Primitives\ResourceStringBase.cs" />
+    <Compile Include="Controls\Primitives\ScaledDoubleConverter.cs" />
+    <Compile Include="Controls\Primitives\SystemResourceId.cs" />
+    <Compile Include="Controls\Primitives\SystemResourceProvider.cs" />
+    <Compile Include="Controls\Primitives\UniformGrid.cs" />
+    <Compile Include="Controls\Primitives\ValidationDecorator.cs" />
+    <Compile Include="Controls\Primitives\ValueConverterGroup.cs" />
+    <Compile Include="Controls\Primitives\XamlHelper.cs" />
+    <Compile Include="Controls\ScrollType.cs" />
+    <Compile Include="Controls\StateChangedEventArgs.cs" />
+    <Compile Include="Controls\TapEventArgs.cs" />
+    <Compile Include="Controls\TouchHandleableEventArgs.cs" />
+    <Compile Include="Controls\TouchHelper.cs" />
+    <Compile Include="Controls\TouchHelperBase.cs" />
+    <Compile Include="Controls\TouchScrollHelper.cs" />
+    <Compile Include="Controls\TouchScrollMode.cs" />
+    <Compile Include="Controls\TouchState.cs" />
+    <Compile Include="CoreUtilities.cs" />
+    <Compile Include="CurrentItemEventArgs.cs" />
+    <Compile Include="DateRange.cs" />
+    <Compile Include="DateRangeConverter.cs" />
+    <Compile Include="DeferredOperation.cs" />
+    <Compile Include="DependencyObjectExtensions.cs" />
+    <Compile Include="DependencyObjectNotifier.cs" />
+    <Compile Include="DependencyObjectRecyclingContainer.cs" />
+    <Compile Include="DependencyPropertyUtilities.cs" />
+    <Compile Include="EditUtilities.cs" />
+    <Compile Include="ExtendedVisibility.cs" />
+    <Compile Include="FeatureInfo.cs" />
+    <Compile Include="FileDownloader.cs" />
+    <Compile Include="FileDownloadStatus.cs" />
+    <Compile Include="GetSetHelper.cs" />
+    <Compile Include="GetSetProxy.cs" />
+    <Compile Include="ICollectionBase.2.cs" />
+    <Compile Include="ICollectionBase.cs" />
+    <Compile Include="ICommandTarget.cs" />
+    <Compile Include="INeedInitializationForPersistence.cs" />
+    <Compile Include="InfragisticsFeatureAttribute.cs" />
+    <Compile Include="InternalDynamicResourceString.cs" />
+    <Compile Include="InvalidEventNameException.cs" />
+    <Compile Include="IPropertyChangeListener.cs" />
+    <Compile Include="IProvideCustomObjectPersistence.cs" />
+    <Compile Include="IProvideCustomPersistence.cs" />
+    <Compile Include="IProvideCustomStorage.cs" />
+    <Compile Include="IProvideParent.cs" />
+    <Compile Include="IProvidePersistenceLookupKeys.cs" />
+    <Compile Include="IProvidePropertyPersistenceSettings.cs" />
+    <Compile Include="IProvideScrollInfo.cs" />
+    <Compile Include="IRecyclableElement.cs" />
+    <Compile Include="IRecyclableElementHost.cs" />
+    <Compile Include="ISelectableObject.cs" />
+    <Compile Include="ISupportPositioning.cs" />
+    <Compile Include="ISupportPropertyChangeNotifications.cs" />
+    <Compile Include="ISupportRecycling.cs" />
+    <Compile Include="ITypedPropertyChangeListener.cs" />
+    <Compile Include="ITypedSupportPropertyChangeNotifications.cs" />
+    <Compile Include="IValueChangeListener.cs" />
+    <Compile Include="KnownBoxes.cs" />
+    <Compile Include="ListenerList.cs" />
+    <Compile Include="ListParser.cs" />
+    <Compile Include="LocalizedCategoryAttribute.cs" />
+    <Compile Include="LocalizedDescriptionAttribute.cs" />
+    <Compile Include="ModifierKeysConverterEx.cs" />
+    <Compile Include="NestedPropertyChangedEventArgs.cs" />
+    <Compile Include="NullableEnumTypeConverter.cs" />
+    <Compile Include="PlatformProxy.cs" />
+    <Compile Include="PositionSorter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyChangeListener.cs" />
+    <Compile Include="PropertyChangeListenerList.cs" />
+    <Compile Include="PropertyChangeNotifier.cs" />
+    <Compile Include="PropertyChangeNotifierExtended.cs" />
+    <Compile Include="RecyclingContainer.cs" />
+    <Compile Include="RecyclingManager.cs" />
+    <Compile Include="ResourceCustomizerLocator.cs" />
+    <Compile Include="Shared\DynamicResourceString.cs" />
+    <Compile Include="Shared\ResourceCustomizer.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="StringResourceLocationAttribute.cs" />
+    <Compile Include="Themes\BuiltInThemeBase.cs" />
+    <Compile Include="Themes\ControlMappingKeys.cs" />
+    <Compile Include="Themes\ThemeBase.cs" />
+    <Compile Include="Themes\ThemeManager.cs" />
+    <Compile Include="Themes\ThemeResourceDictionary.cs" />
+    <Compile Include="TypedPropertyChangeListenerList.cs" />
+    <Compile Include="TypeResolverUtilities.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="ValueConverterBase.cs" />
+    <Compile Include="ValueHolder.cs" />
+    <Compile Include="VisualStateUtilities.cs" />
+    <Compile Include="WeakCollectionChangedHandler.cs" />
+    <Compile Include="WeakEventHandler.cs" />
+    <Compile Include="WeakPropertyChangedHandler.cs" />
+    <Compile Include="WeakReferenceHelper.cs" />
+    <Compile Include="Windows\Automation\Peers\AutomationControlPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\CarouselListBoxItemAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\ComparisonOperatorSelectorAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\ExpanderDecoratorAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\IListAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\PopupResizerBarAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\RecycleableItemAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\RecyclingItemsControlAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\SimpleTextBlockAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\TabItemExAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\ToolWindowAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\XamCarouselListBoxAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\XamTabControlAutomationPeer.cs" />
+    <Compile Include="Windows\CloneInfo.cs" />
+    <Compile Include="Windows\CloneManager.cs" />
+    <Compile Include="Windows\Commands\Commands.cs" />
+    <Compile Include="Windows\Commands\CommandsBase.cs" />
+    <Compile Include="Windows\Commands\CommandUtilities.cs" />
+    <Compile Include="Windows\Commands\CommandWrapper.cs" />
+    <Compile Include="Windows\Commands\ExecuteCommandInfo.cs" />
+    <Compile Include="Windows\Commands\ICommandEx.cs" />
+    <Compile Include="Windows\Commands\ICommandHost.cs" />
+    <Compile Include="Windows\Commands\IGRoutedCommand.cs" />
+    <Compile Include="Windows\Commands\IGRoutedUICommand.cs" />
+    <Compile Include="Windows\Controls\AutoDisabledImage.cs" />
+    <Compile Include="Windows\Controls\AutomationControl.cs" />
+    <Compile Include="Windows\Controls\BoolConverter.cs" />
+    <Compile Include="Windows\Controls\BoolToHiddenConverter.cs" />
+    <Compile Include="Windows\Controls\BoolToValueConverter.cs" />
+    <Compile Include="Windows\Controls\BrushHelper.cs" />
+    <Compile Include="Windows\Controls\CardPanel.cs" />
+    <Compile Include="Windows\Controls\CarouselListBoxItem.cs" />
+    <Compile Include="Windows\Controls\CarouselPanelAdorner.cs" />
+    <Compile Include="Windows\Controls\CarouselPanelItem.cs" />
+    <Compile Include="Windows\Controls\CarouselPanelNavigator.cs" />
+    <Compile Include="Windows\Controls\CarouselPanelUIElementCollection.cs" />
+    <Compile Include="Windows\Controls\CarouselViewSettings.cs" />
+    <Compile Include="Windows\Controls\ClippedTextToolTipService.cs" />
+    <Compile Include="Windows\Controls\ComparisonCondition.cs" />
+    <Compile Include="Windows\Controls\ComparisonOperator.cs" />
+    <Compile Include="Windows\Controls\ComparisonOperatorFlags.cs" />
+    <Compile Include="Windows\Controls\ComparisonOperatorListItem.cs" />
+    <Compile Include="Windows\Controls\ComparisonOperatorListItemCollection.cs" />
+    <Compile Include="Windows\Controls\ComparisonOperatorSelector.cs" />
+    <Compile Include="Windows\Controls\ComplementCondition.cs" />
+    <Compile Include="Windows\Controls\ConditionEvaluationContext.cs" />
+    <Compile Include="Windows\Controls\ConditionGroup.cs" />
+    <Compile Include="Windows\Controls\DateRangeScope.cs" />
+    <Compile Include="Windows\Controls\DesiredSizeDecorator.cs" />
+    <Compile Include="Windows\Controls\DropIndicator.cs" />
+    <Compile Include="Windows\Controls\DropLocation.cs" />
+    <Compile Include="Windows\Controls\EffectStop.cs" />
+    <Compile Include="Windows\Controls\EffectStopCollection.cs" />
+    <Compile Include="Windows\Controls\EffectStopDirection.cs" />
+    <Compile Include="Windows\Controls\Events\CancelableRoutedEventArgs.cs" />
+    <Compile Include="Windows\Controls\Events\ExecutedCommandEventArgs.cs" />
+    <Compile Include="Windows\Controls\Events\ExecutingCommandEventArgs.cs" />
+    <Compile Include="Windows\Controls\Events\SelectedOperatorChangedEventArgs.cs" />
+    <Compile Include="Windows\Controls\Events\SortStatusChangedEventArgs.cs" />
+    <Compile Include="Windows\Controls\Events\TabClosingEventArgs.cs" />
+    <Compile Include="Windows\Controls\Events\TabControlDropDownOpeningEventArgs.cs" />
+    <Compile Include="Windows\Controls\ExpanderBar.cs" />
+    <Compile Include="Windows\Controls\ExpansionIndicator.cs" />
+    <Compile Include="Windows\Controls\ExpansionIndicatorToggleMode.cs" />
+    <Compile Include="Windows\Controls\FormattableToStringConverter.cs" />
+    <Compile Include="Windows\Controls\GrowOnlyDecorator.cs" />
+    <Compile Include="Windows\Controls\ICarouselPanelSelectionHost.cs" />
+    <Compile Include="Windows\Controls\ICondition.cs" />
+    <Compile Include="Windows\Controls\IFilterEvaluator.cs" />
+    <Compile Include="Windows\Controls\IGControlBase.cs" />
+    <Compile Include="Windows\Controls\ITabItemGroup.cs" />
+    <Compile Include="Windows\Controls\ItemContainerGenerationMode.cs" />
+    <Compile Include="Windows\Controls\IToolWindowHost.cs" />
+    <Compile Include="Windows\Controls\LogicalOperator.cs" />
+    <Compile Include="Windows\Controls\Markup\CursorExtension.cs" />
+    <Compile Include="Windows\Controls\Markup\SafeDropShadowEffectExtension.cs" />
+    <Compile Include="Windows\Controls\Markup\SafeOuterGlowExtension.cs" />
+    <Compile Include="Windows\Controls\MousePanningAdorner.cs" />
+    <Compile Include="Windows\Controls\MousePanningDecorator.cs" />
+    <Compile Include="Windows\Controls\NotBoolToVisibilityConverter.cs" />
+    <Compile Include="Windows\Controls\NullToFalseConverter.cs" />
+    <Compile Include="Windows\Controls\NullToParameterConverter.cs" />
+    <Compile Include="Windows\Controls\OpacityEffectStop.cs" />
+    <Compile Include="Windows\Controls\OpacityEffectStopCollection.cs" />
+    <Compile Include="Windows\Controls\PagerContentPresenter.cs" />
+    <Compile Include="Windows\Controls\PagerScrollDirection.cs" />
+    <Compile Include="Windows\Controls\PathItemTransitionStyle.cs" />
+    <Compile Include="Windows\Controls\PopupController.cs" />
+    <Compile Include="Windows\Controls\PopupHelper.cs" />
+    <Compile Include="Windows\Controls\PopupResizeMode.cs" />
+    <Compile Include="Windows\Controls\PopupResizerBar.cs" />
+    <Compile Include="Windows\Controls\PopupResizerBarLocation.cs" />
+    <Compile Include="Windows\Controls\PopupResizerDecorator.cs" />
+    <Compile Include="Windows\Controls\PopupResizerStackPanel.cs" />
+    <Compile Include="Windows\Controls\PrimitivesBrushKeys.cs" />
+    <Compile Include="Windows\Controls\RelativeContentLocation.cs" />
+    <Compile Include="Windows\Controls\ResizingMode.cs" />
+    <Compile Include="Windows\Controls\RoundedRectCorners.cs" />
+    <Compile Include="Windows\Controls\RoundedRectSide.cs" />
+    <Compile Include="Windows\Controls\ScalingEffectStop.cs" />
+    <Compile Include="Windows\Controls\ScalingEffectStopCollection.cs" />
+    <Compile Include="Windows\Controls\SelectionType.cs" />
+    <Compile Include="Windows\Controls\SimpleTextBlock.cs" />
+    <Compile Include="Windows\Controls\SkewAngleXEffectStop.cs" />
+    <Compile Include="Windows\Controls\SkewAngleXEffectStopCollection.cs" />
+    <Compile Include="Windows\Controls\SkewAngleYEffectStop.cs" />
+    <Compile Include="Windows\Controls\SkewAngleYEffectStopCollection.cs" />
+    <Compile Include="Windows\Controls\SortIndicator.cs" />
+    <Compile Include="Windows\Controls\SortStatus.cs" />
+    <Compile Include="Windows\Controls\SpecialFilterOperandBase.cs" />
+    <Compile Include="Windows\Controls\SpecialFilterOperandFactory.cs" />
+    <Compile Include="Windows\Controls\SpecialFilterOperands.cs" />
+    <Compile Include="Windows\Controls\SpecialFilterOperandTypeConverter.cs" />
+    <Compile Include="Windows\Controls\StringFormatConverter.cs" />
+    <Compile Include="Windows\Controls\StringWithoutMnemonicsConverter.cs" />
+    <Compile Include="Windows\Controls\SynchronizedSizeDecorator.cs" />
+    <Compile Include="Windows\Controls\TabAreaDropDownPlacement.cs" />
+    <Compile Include="Windows\Controls\TabControlCommands.cs" />
+    <Compile Include="Windows\Controls\TabControlStates.cs" />
+    <Compile Include="Windows\Controls\TabItemCloseButtonVisibility.cs" />
+    <Compile Include="Windows\Controls\TabItemEx.cs" />
+    <Compile Include="Windows\Controls\TabItemExCommands.cs" />
+    <Compile Include="Windows\Controls\TabItemExStates.cs" />
+    <Compile Include="Windows\Controls\TabItemPanel.cs" />
+    <Compile Include="Windows\Controls\TabLayoutStyle.cs" />
+    <Compile Include="Windows\Controls\ToolWindow.cs" />
+    <Compile Include="Windows\Controls\ToolWindowAdorner.cs" />
+    <Compile Include="Windows\Controls\ToolWindowAlignmentMode.cs" />
+    <Compile Include="Windows\Controls\ToolWindowContainer.cs" />
+    <Compile Include="Windows\Controls\ToolWindowHostPopup.cs" />
+    <Compile Include="Windows\Controls\ToolWindowHostType.cs" />
+    <Compile Include="Windows\Controls\ToolWindowHostWindow.cs" />
+    <Compile Include="Windows\Controls\ToolWindowPart.cs" />
+    <Compile Include="Windows\Controls\ToolWindowResizeElement.cs" />
+    <Compile Include="Windows\Controls\ToolWindowResizeElementLocation.cs" />
+    <Compile Include="Windows\Controls\ToolWindowStartupLocation.cs" />
+    <Compile Include="Windows\Controls\TypeCheckConverter.cs" />
+    <Compile Include="Windows\Controls\UniformGridEx.cs" />
+    <Compile Include="Windows\Controls\ValueEntry.cs" />
+    <Compile Include="Windows\Controls\ViewSettingsBase.cs" />
+    <Compile Include="Windows\Controls\VisibilityToBooleanConverter.cs" />
+    <Compile Include="Windows\Controls\XamCarouselListBox.cs" />
+    <Compile Include="Windows\Controls\XamCarouselPanel.cs" />
+    <Compile Include="Windows\Controls\XamCarouselPanelCommands.cs" />
+    <Compile Include="Windows\Controls\XamCarouselPanelStates.cs" />
+    <Compile Include="Windows\Controls\XamPager.cs" />
+    <Compile Include="Windows\Controls\XamScreenTip.cs" />
+    <Compile Include="Windows\Controls\XamTabControl.cs" />
+    <Compile Include="Windows\Controls\ZOrderEffectStop.cs" />
+    <Compile Include="Windows\Controls\ZOrderEffectStopCollection.cs" />
+    <Compile Include="Windows\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Windows\Converters\NotBoolToVisibilityConverter.cs" />
+    <Compile Include="Windows\DeviceUnitLength.cs" />
+    <Compile Include="Windows\DeviceUnitLengthConverter.cs" />
+    <Compile Include="Windows\DeviceUnitSize.cs" />
+    <Compile Include="Windows\DeviceUnitSizeConverter.cs" />
+    <Compile Include="Windows\DeviceUnitThickness.cs" />
+    <Compile Include="Windows\DeviceUnitThicknessConverter.cs" />
+    <Compile Include="Windows\DeviceUnitType.cs" />
+    <Compile Include="Windows\ExpanderDecorator.cs" />
+    <Compile Include="Windows\Helpers\ActionHistory.cs" />
+    <Compile Include="Windows\Helpers\BindingListChangedEventManager.cs" />
+    <Compile Include="Windows\Helpers\ClassComparer.cs" />
+    <Compile Include="Windows\Helpers\ClipboardHelper.cs" />
+    <Compile Include="Windows\Helpers\EnumerableObjectWrapper.cs" />
+    <Compile Include="Windows\Helpers\FocusWithinManager.cs" />
+    <Compile Include="Windows\Helpers\FrameworkContentElementNotifier.cs" />
+    <Compile Include="Windows\Helpers\GroupTempValueReplacement.cs" />
+    <Compile Include="Windows\Helpers\HashSet.cs" />
+    <Compile Include="Windows\Helpers\IMinMaxWatcherOwner.cs" />
+    <Compile Include="Windows\Helpers\MinMaxWatcher.cs" />
+    <Compile Include="Windows\Helpers\NameScopeProxy.cs" />
+    <Compile Include="Windows\Helpers\NativeWindowMethods.cs" />
+    <Compile Include="Windows\Helpers\NullableConverter.cs" />
+    <Compile Include="Windows\Helpers\StyleSelectorHelperBase.cs" />
+    <Compile Include="Windows\Helpers\TempValueReplacement.cs" />
+    <Compile Include="Windows\HwndSourceHelper.cs" />
+    <Compile Include="Windows\Internal\AdornerEx.cs" />
+    <Compile Include="Windows\Internal\CloneBehavior.cs" />
+    <Compile Include="Windows\Internal\CloneBehaviorAttribute.cs" />
+    <Compile Include="Windows\Internal\DataBindingUtilities.cs" />
+    <Compile Include="Windows\Internal\DataColumnPropertyDescriptor.cs" />
+    <Compile Include="Windows\Internal\DataTablePropertyDescriptorProvider.cs" />
+    <Compile Include="Windows\Internal\DataViewPropertyDescriptorProvider.cs" />
+    <Compile Include="Windows\Internal\ModalWindowHelper.cs" />
+    <Compile Include="Windows\Internal\ObjectSerializationInfo.cs" />
+    <Compile Include="Windows\Internal\ObjectSerializerBase.cs" />
+    <Compile Include="Windows\Internal\ObjectWrapper.cs" />
+    <Compile Include="Windows\Internal\PropertyDescriptorCollectionComparer.cs" />
+    <Compile Include="Windows\Internal\PropertyDescriptorProvider.cs" />
+    <Compile Include="Windows\Internal\PropertyDescriptorsChangedEventArgs.cs" />
+    <Compile Include="Windows\Internal\PropertySerializationInfo.cs" />
+    <Compile Include="Windows\Internal\PropertyValueTracker.cs" />
+    <Compile Include="Windows\Internal\ThrottleTimer.cs" />
+    <Compile Include="Windows\Internal\TileManager.cs" />
+    <Compile Include="Windows\Internal\TypedListPropertyDescriptorProvider.cs" />
+    <Compile Include="Windows\Internal\TypePropertyDescriptorProvider.cs" />
+    <Compile Include="Windows\Internal\ValuePropertyDescriptor.cs" />
+    <Compile Include="Windows\Internal\XmlNodePropertyDescriptor.cs" />
+    <Compile Include="Windows\Internal\XmlNodePropertyDescriptorProvider.cs" />
+    <Compile Include="Windows\Internal\XmlSerializationInfo.cs" />
+    <Compile Include="Windows\Licensing\BetaProductInfo.cs" />
+    <Compile Include="Windows\Licensing\LicenseOptions.cs" />
+    <Compile Include="Windows\Licensing\LicenseStatus.cs" />
+    <Compile Include="Windows\Licensing\ProductType.cs" />
+    <Compile Include="Windows\Licensing\UltraLicense.cs" />
+    <Compile Include="Windows\Licensing\UltraLicenseAttribute.cs" />
+    <Compile Include="Windows\Licensing\UltraLicenseBaseAttribute.cs" />
+    <Compile Include="Windows\Licensing\UltraLicenseInfo.cs" />
+    <Compile Include="Windows\Licensing\UltraLicenseProvider.cs" />
+    <Compile Include="Windows\Licensing\UltraProductInfo.cs" />
+    <Compile Include="Windows\Licensing\UltraProductInfoBase.cs" />
+    <Compile Include="Windows\Licensing\UnlicensedProductInfo.cs" />
+    <Compile Include="Windows\Reporting\HorizontalPaginationMode.cs" />
+    <Compile Include="Windows\Reporting\IEmbeddedVisualPaginator.cs" />
+    <Compile Include="Windows\Reporting\IEmbeddedVisualPaginatorFactory.cs" />
+    <Compile Include="Windows\Reporting\PageOrientation.cs" />
+    <Compile Include="Windows\Reporting\PagePosition.cs" />
+    <Compile Include="Windows\Reporting\PagePrintOrder.cs" />
+    <Compile Include="Windows\Reporting\RepeatType.cs" />
+    <Compile Include="Windows\Reporting\ReportBase.cs" />
+    <Compile Include="Windows\Reporting\ReportSection.cs" />
+    <Compile Include="Windows\Reporting\ReportSettings.cs" />
+    <Compile Include="Windows\Resizing\IAutoResizeHost.cs" />
+    <Compile Include="Windows\Resizing\IResizableElement.cs" />
+    <Compile Include="Windows\Resizing\IResizeHost.cs" />
+    <Compile Include="Windows\Resizing\IResizeHostMulti.cs" />
+    <Compile Include="Windows\Resizing\ResizeConstraints.cs" />
+    <Compile Include="Windows\Resizing\ResizeController.cs" />
+    <Compile Include="Windows\Resources.cs" />
+    <Compile Include="Windows\ResourcesWindows.cs" />
+    <Compile Include="Windows\Scrolling\DeferredScrollService.cs" />
+    <Compile Include="Windows\Scrolling\IDeferredScrollHost.cs" />
+    <Compile Include="Windows\Scrolling\IDeferredScrollPanel.cs" />
+    <Compile Include="Windows\Selection\AdjustScrollInfoCallback.cs" />
+    <Compile Include="Windows\Selection\AutoScrollInfo.cs" />
+    <Compile Include="Windows\Selection\ISelectableElement.cs" />
+    <Compile Include="Windows\Selection\ISelectableItem.cs" />
+    <Compile Include="Windows\Selection\ISelectionHost.cs" />
+    <Compile Include="Windows\Selection\ISelectionStrategyFilter.cs" />
+    <Compile Include="Windows\Selection\ScrollDirection.cs" />
+    <Compile Include="Windows\Selection\ScrollOrientation.cs" />
+    <Compile Include="Windows\Selection\ScrollSpeed.cs" />
+    <Compile Include="Windows\Selection\SelectionController.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategyBase.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategyContiguous.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategyExtended.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategyExtendedAutoDrag.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategyNone.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategySingle.cs" />
+    <Compile Include="Windows\Selection\SelectionStrategySingleAutoDrag.cs" />
+    <Compile Include="Windows\Themes\AssemblyResourceSetLoader.cs" />
+    <Compile Include="Windows\Themes\AssemblyResourceSetLoaderAttribute.cs" />
+    <Compile Include="Windows\Themes\AssemblyThemeGroupingNameAttribute.cs" />
+    <Compile Include="Windows\Themes\Internal\PrimitivesThemeTypeConverter.cs" />
+    <Compile Include="Windows\Themes\Internal\WindowsAssemblyResourceSetLoader.cs" />
+    <Compile Include="Windows\Themes\IResourceWasherTarget.cs" />
+    <Compile Include="Windows\Themes\PrimitivesAero.cs" />
+    <Compile Include="Windows\Themes\PrimitivesGeneric.cs" />
+    <Compile Include="Windows\Themes\PrimitivesIGTheme.cs" />
+    <Compile Include="Windows\Themes\PrimitivesLunaNormal.cs" />
+    <Compile Include="Windows\Themes\PrimitivesLunaOlive.cs" />
+    <Compile Include="Windows\Themes\PrimitivesLunaSilver.cs" />
+    <Compile Include="Windows\Themes\PrimitivesMetro.cs" />
+    <Compile Include="Windows\Themes\PrimitivesMetroDark.cs" />
+    <Compile Include="Windows\Themes\PrimitivesOffice2010Blue.cs" />
+    <Compile Include="Windows\Themes\PrimitivesOffice2013.cs" />
+    <Compile Include="Windows\Themes\PrimitivesOffice2k7Black.cs" />
+    <Compile Include="Windows\Themes\PrimitivesOffice2k7Blue.cs" />
+    <Compile Include="Windows\Themes\PrimitivesOffice2k7Silver.cs" />
+    <Compile Include="Windows\Themes\PrimitivesOnyx.cs" />
+    <Compile Include="Windows\Themes\PrimitivesResourceSet.cs" />
+    <Compile Include="Windows\Themes\PrimitivesRoyale.cs" />
+    <Compile Include="Windows\Themes\PrimitivesRoyaleStrong.cs" />
+    <Compile Include="Windows\Themes\PrimitivesWashBaseDark.cs" />
+    <Compile Include="Windows\Themes\PrimitivesWashBaseLight.cs" />
+    <Compile Include="Windows\Themes\ResourceHolder.cs" />
+    <Compile Include="Windows\Themes\ResourceSet.cs" />
+    <Compile Include="Windows\Themes\ResourceSetLoader.cs" />
+    <Compile Include="Windows\Themes\ResourceSetLocator.cs" />
+    <Compile Include="Windows\Themes\ResourceWasher.cs" />
+    <Compile Include="Windows\Themes\StaticPropertyResourceKey.cs" />
+    <Compile Include="Windows\Themes\StaticPropertyResourceKeyConverter.cs" />
+    <Compile Include="Windows\Themes\ThemeManager.cs" />
+    <Compile Include="Windows\Themes\ThemeTypeConverter.cs" />
+    <Compile Include="Windows\Themes\WashGroup.cs" />
+    <Compile Include="Windows\Themes\WashGroupCollection.cs" />
+    <Compile Include="Windows\Themes\WashMode.cs" />
+    <Compile Include="Windows\Tiles\AllowTileDragging.cs" />
+    <Compile Include="Windows\Tiles\ExplicitLayoutTileSizeBehavior.cs" />
+    <Compile Include="Windows\Tiles\ItemInfoBase.cs" />
+    <Compile Include="Windows\Tiles\ITileConstraints.cs" />
+    <Compile Include="Windows\Tiles\MaximizedTileLayoutOrder.cs" />
+    <Compile Include="Windows\Tiles\MaximizedTileLocation.cs" />
+    <Compile Include="Windows\Tiles\TileDragIndicator.cs" />
+    <Compile Include="Windows\Tiles\TileDragManager.cs" />
+    <Compile Include="Windows\Tiles\TileLayoutOrder.cs" />
+    <Compile Include="Windows\Tiles\TilesPanelBase.cs" />
+    <Compile Include="Windows\Tiles\TileState.cs" />
+    <Compile Include="Windows\Utilities.cs" />
+    <Compile Include="Windows\Virtualization\RecyclingItemContainerGenerator.cs" />
+    <Compile Include="Windows\Virtualization\RecyclingItemsControl.cs" />
+    <Compile Include="Windows\Virtualization\RecyclingItemsPanel.cs" />
+    <Compile Include="WinMDPropertyToObjectType.cs" />
+    <Compile Include="WinMDTypeAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows\Properties\Resources.resources" />
+    <EmbeddedResource Include="Windows\strings.resources" />
+    <EmbeddedResource Include="Windows\ToolboxIcons\TabItemEx\Icon\Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="generic_shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesaero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesaero_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesaero_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesgeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesgeneric_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesgeneric_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesigtheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesigtheme_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesigtheme_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunanormal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunanormal_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunanormal_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunaolive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunaolive_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunaolive_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunasilver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunasilver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveslunasilver_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesmetro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesmetrodark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesmetrodark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesmetrodark_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesmetro_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesmetro_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2010blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2010blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2010blue_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2013.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2013_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2013_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7black_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7black_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7blue_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7silver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesoffice2k7silver_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesonyx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesonyx_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesonyx_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesroyale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesroyalestrong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesroyalestrong_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesroyalestrong_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesroyale_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitivesroyale_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveswashbasedark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveswashbasedark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveswashbaselight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\primitives\primitiveswashbaselight_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero2.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aerolite.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\royale.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\zune.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\collapsed.bmp" />
+    <Resource Include="images\expanded.bmp" />
+    <Resource Include="images\filterop_bottom.png" />
+    <Resource Include="images\filterop_bottompercentile.png" />
+    <Resource Include="images\filterop_contains.png" />
+    <Resource Include="images\filterop_doesnotcontain.png" />
+    <Resource Include="images\filterop_doesnotendwith.png" />
+    <Resource Include="images\filterop_doesnotmatch.png" />
+    <Resource Include="images\filterop_doesnotstartwith.png" />
+    <Resource Include="images\filterop_endswith.png" />
+    <Resource Include="images\filterop_equals.png" />
+    <Resource Include="images\filterop_greaterthan.png" />
+    <Resource Include="images\filterop_greaterthanorequalto.png" />
+    <Resource Include="images\filterop_lessthan.png" />
+    <Resource Include="images\filterop_lessthanorequalto.png" />
+    <Resource Include="images\filterop_like.png" />
+    <Resource Include="images\filterop_match.png" />
+    <Resource Include="images\filterop_notequals.png" />
+    <Resource Include="images\filterop_notlike.png" />
+    <Resource Include="images\filterop_startswith.png" />
+    <Resource Include="images\filterop_top.png" />
+    <Resource Include="images\filterop_toppercentile.png" />
+    <Resource Include="resourcesets\cursors\horizontalsplitter.cur" />
+    <Resource Include="resourcesets\cursors\verticalsplitter.cur" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

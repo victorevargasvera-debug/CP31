@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA640}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DevComponents.WpfEditors</RootNamespace>
+    <AssemblyName>AcpWpfEditors</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="b.cs" />
+    <Compile Include="ButtonPartKeys.cs" />
+    <Compile Include="ButtonStateKeys.cs" />
+    <Compile Include="c.cs" />
+    <Compile Include="CheckBoxPartKeys.cs" />
+    <Compile Include="CheckBoxStateKeys.cs" />
+    <Compile Include="ColorBlender.cs" />
+    <Compile Include="ColorComb.cs" />
+    <Compile Include="ColorComponentConverter.cs" />
+    <Compile Include="ColorContrast.cs" />
+    <Compile Include="ColorInput.cs" />
+    <Compile Include="ColorItem.cs" />
+    <Compile Include="ColorItemSelector.cs" />
+    <Compile Include="ColorsDialog.xaml.cs">
+      <DependentUpon>ColorsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CombCell.cs" />
+    <Compile Include="d.cs" />
+    <Compile Include="DateTimeInput.cs" />
+    <Compile Include="DocumentTabBorder.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="DoubleInput.cs" />
+    <Compile Include="e.2.cs" />
+    <Compile Include="e.cs" />
+    <Compile Include="eDateTimePickerFormat.cs" />
+    <Compile Include="EditColors.cs" />
+    <Compile Include="EditorsSettings.cs" />
+    <Compile Include="eEditorsVisualStyle.cs" />
+    <Compile Include="eStateAnimationType.cs" />
+    <Compile Include="eSuperTabControlLayoutType.cs" />
+    <Compile Include="eSuperTabItemColorPart.cs" />
+    <Compile Include="eTabCloseButtonVisibility.cs" />
+    <Compile Include="eTabItemColor.cs" />
+    <Compile Include="eTabItemState.cs" />
+    <Compile Include="eTabStyle.cs" />
+    <Compile Include="eWatermarkBehavior.cs" />
+    <Compile Include="f.cs" />
+    <Compile Include="FreeTextEntryBox.cs" />
+    <Compile Include="FreeTextEntryConversionEventArgs.cs" />
+    <Compile Include="FreeTextEntryConversionEventHandler.cs" />
+    <Compile Include="InputBaseControl.cs" />
+    <Compile Include="InputButtonSettings.cs" />
+    <Compile Include="InputNumericControl.cs" />
+    <Compile Include="IntegerInput.cs" />
+    <Compile Include="MonthCalendar.cs" />
+    <Compile Include="MonthCalendarPartKeys.cs" />
+    <Compile Include="NoteTabBorder.cs" />
+    <Compile Include="Primitives\a.cs" />
+    <Compile Include="Primitives\ColorInputDropDownButton.cs" />
+    <Compile Include="Primitives\ColorInputGroup.cs" />
+    <Compile Include="Primitives\DateTimeGroup.cs" />
+    <Compile Include="Primitives\DayLabelItem.cs" />
+    <Compile Include="Primitives\eDateTimePart.cs" />
+    <Compile Include="Primitives\EditorButton.cs" />
+    <Compile Include="Primitives\EditorCalendarDropDownButton.cs" />
+    <Compile Include="Primitives\EditorClearButton.xaml.cs">
+      <DependentUpon>EditorClearButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Primitives\EditorColorSwatch.cs" />
+    <Compile Include="Primitives\EditorDoubleInput.cs" />
+    <Compile Include="Primitives\EditorElement.cs" />
+    <Compile Include="Primitives\EditorFreeTextButton.xaml.cs">
+      <DependentUpon>EditorFreeTextButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Primitives\EditorGroup.cs" />
+    <Compile Include="Primitives\EditorInputBase.cs" />
+    <Compile Include="Primitives\EditorInputGroup.cs" />
+    <Compile Include="Primitives\EditorIntegerInput.cs" />
+    <Compile Include="Primitives\EditorListInput.cs" />
+    <Compile Include="Primitives\EditorNumericInput.cs" />
+    <Compile Include="Primitives\EditorPopupButton.cs" />
+    <Compile Include="Primitives\EditorStringListInput.cs" />
+    <Compile Include="Primitives\EditorUpDownButton.cs" />
+    <Compile Include="Primitives\eHourPeriod.cs" />
+    <Compile Include="Primitives\eUpDownButtonAutoChange.cs" />
+    <Compile Include="Primitives\eYearDisplayFormat.cs" />
+    <Compile Include="Primitives\HourPeriodInput.cs" />
+    <Compile Include="Primitives\IDateTimePartInput.cs" />
+    <Compile Include="Primitives\InputValidationRoutedEventArgs.cs" />
+    <Compile Include="Primitives\LockUpdateCheckBox.cs" />
+    <Compile Include="Primitives\MonthCalendarDayLabel.cs" />
+    <Compile Include="Primitives\MonthCalendarDayNameLabel.cs" />
+    <Compile Include="Primitives\MonthCalendarWeekLabel.cs" />
+    <Compile Include="Primitives\MonthNameInput.cs" />
+    <Compile Include="Primitives\NumericDayInput.cs" />
+    <Compile Include="Primitives\NumericDayOfYearInput.cs" />
+    <Compile Include="Primitives\NumericHourInput.cs" />
+    <Compile Include="Primitives\NumericMinuteInput.cs" />
+    <Compile Include="Primitives\NumericMonthInput.cs" />
+    <Compile Include="Primitives\NumericSecondInput.cs" />
+    <Compile Include="Primitives\NumericYearInput.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RibbonTabBorder.cs" />
+    <Compile Include="SelectableControl.cs" />
+    <Compile Include="SingleMonthCalendar.cs" />
+    <Compile Include="StateAnimationControl.cs" />
+    <Compile Include="StringKeys.cs" />
+    <Compile Include="SuperTabControl.cs" />
+    <Compile Include="SuperTabItem.cs" />
+    <Compile Include="SuperTabPanel.cs" />
+    <Compile Include="TabCloseButton.cs" />
+    <Compile Include="TabCloseButtonPartKeys.cs" />
+    <Compile Include="TabCloseButtonStateKeys.cs" />
+    <Compile Include="TabClosingRoutedEventArgs.cs" />
+    <Compile Include="TabClosingRoutedEventHandler.cs" />
+    <Compile Include="TabDragPreview.cs" />
+    <Compile Include="TabHeaderControl.cs" />
+    <Compile Include="TabNavigation.cs" />
+    <Compile Include="TabNavigationPartKeys.cs" />
+    <Compile Include="TabPanelBorder.cs" />
+    <Compile Include="Themes\Office2007BlackSkin.xaml.cs">
+      <DependentUpon>Office2007BlackSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2007BlueSkin.xaml.cs">
+      <DependentUpon>Office2007BlueSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2007FiremanSkin.xaml.cs">
+      <DependentUpon>Office2007FiremanSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2007FullColorSkin.xaml.cs">
+      <DependentUpon>Office2007FullColorSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2007MilitarySkin.xaml.cs">
+      <DependentUpon>Office2007MilitarySkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2007PoliceSkin.xaml.cs">
+      <DependentUpon>Office2007PoliceSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2007SilverSkin.xaml.cs">
+      <DependentUpon>Office2007SilverSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2010BlackSkin.xaml.cs">
+      <DependentUpon>Office2010BlackSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2010BlueSkin.xaml.cs">
+      <DependentUpon>Office2010BlueSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\Office2010SilverSkin.xaml.cs">
+      <DependentUpon>Office2010SilverSkin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpDownButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ColorBlender\Icon.png" />
+    <EmbeddedResource Include="ColorComb\Icon.png" />
+    <EmbeddedResource Include="ColorInput\Icon.png" />
+    <EmbeddedResource Include="ColorItemSelector\Icon.png" />
+    <EmbeddedResource Include="DateTimeInput\Icon.png" />
+    <EmbeddedResource Include="DoubleInput\Icon.png" />
+    <EmbeddedResource Include="IntegerInput\Icon.png" />
+    <EmbeddedResource Include="MonthCalendar\Icon.png" />
+    <EmbeddedResource Include="Properties\Resources.resources" />
+    <EmbeddedResource Include="StateAnimationControl\Icon.png" />
+    <EmbeddedResource Include="SuperTabControl\Icon.png" />
+    <EmbeddedResource Include="TabHeaderControl\Icon.png" />
+    <EmbeddedResource Include="TabNavigation\Icon.png" />
+    <EmbeddedResource Include="UpDownButton\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ColorsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Primitives\EditorClearButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Primitives\EditorFreeTextButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\colorblender.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\colorinput.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\colorinputdropdownbutton.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\coloritem.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\coloritemselector.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\combcell.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\datetimeinput.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\doubleinput.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\editorbutton.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\editorcalendardropdownbutton.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\editorcolorswatch.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\freetextentrybox.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\integerinput.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\lockupdatecheckbox.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\monthcalendar.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\monthcalendardaylabel.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\monthcalendardaynamelabel.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\monthcalendarweeklabel.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007BlackSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007BlueSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007FiremanSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007FullColorSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007MilitarySkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007PoliceSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2007SilverSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2010BlackSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2010BlueSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Office2010SilverSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\singlemonthcalendar.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\supertabcolors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\supertabcontrol.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\supertabitem.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\systemtext.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\tabclosebutton.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\tabdragpreview.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\tabheadercontrol.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\tabnavigation.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\updownbutton.generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="primitives\images\clear.png" />
+    <Resource Include="primitives\images\freetext.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

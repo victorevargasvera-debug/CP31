@@ -1,0 +1,389 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.MissionCriticalGeofence.PageMissionCriticalGeofenceTbl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:MissionCriticalGeofenceNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.MissionCriticalGeofence" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Title="{x:Static ResourceNS:AcgResources.ID_MISSIONCRITICALGEOFENCETABLEVIEW}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpRecNavToolbar
+			Name="RecNavToolbarPageMissionCriticalGeofence"
+			TableMode="True"
+			MyRecordsetDataSource="{Binding ElementName=MissionCriticalGeofenceList, Path=DataSource}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4174</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4174</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetMissionCriticalGeofence"
+				ObjectType="{x:Type MissionCriticalGeofenceNS:MissionCriticalGeofence}"
+				x:Key="GetFeatureNode" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="GeofenceAliasName_42867CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.General.GeofenceAliasName_42867Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.GeofenceAliasName_42867, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.GeofenceAliasName_42867_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.GeofenceAliasName_42867_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.GeofenceAliasName_42867"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.GeofenceAliasName_42867_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.GeofenceAliasName_42867_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="McGeofencePriority_42879CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-100}"
+								Text="{Binding Path=Record.DataItem.General.McGeofencePriority_42879_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.McGeofencePriority_42879, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.McGeofencePriority_42879_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.McGeofencePriority_42879_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.McGeofencePriority_42879"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.McGeofencePriority_42879_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.McGeofencePriority_42879_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="McGeofenceRadiusInMeters_42890CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{char:8:0-9disabledDISABLED}"
+								Text="{Binding Path=Record.DataItem.General.McGeofenceRadiusInMeters_42890_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.McGeofenceRadiusInMeters_42890, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.McGeofenceRadiusInMeters_42890_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.McGeofenceRadiusInMeters_42890_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.McGeofenceRadiusInMeters_42890"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.McGeofenceRadiusInMeters_42890_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.McGeofenceRadiusInMeters_42890_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="McGeofenceEntryAction_42887CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.General.McGeofenceEntryAction_42887.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.General.McGeofenceEntryAction_42887_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.McGeofenceEntryAction_42887, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.McGeofenceEntryAction_42887_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.McGeofenceEntryAction_42887_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.McGeofenceEntryAction_42887"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.McGeofenceEntryAction_42887_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.McGeofenceEntryAction_42887_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="McGeofenceExitAction_42888CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.General.McGeofenceExitAction_42888.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.General.McGeofenceExitAction_42888_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.McGeofenceExitAction_42888, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.McGeofenceExitAction_42888_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.McGeofenceExitAction_42888_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.McGeofenceExitAction_42888"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.McGeofenceExitAction_42888_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.McGeofenceExitAction_42888_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 8-->
+		<AcpUINS:AcpXamDataPresenter
+			Name="MissionCriticalGeofenceList"
+			KeyboardNavigation.AcceptsReturn="True"
+			Grid.Row="1">
+			<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+				<MultiBinding
+					Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+					Mode="OneWay">
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppMode" />
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppHideMatches" />
+					<Binding
+						Source="{StaticResource GetParentFeature}"
+						Path="_HasDiffs" />
+					<Binding
+						Path="IsAcpVisible"
+						RelativeSource="{RelativeSource Self}" />
+					<Binding
+						Path="FieldLayouts[0].Fields[0].Visibility"
+						RelativeSource="{RelativeSource Self}" />
+				</MultiBinding>
+			</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+			<igcontrols:DataPresenterBase.FieldLayouts>
+				<igcontrols:FieldLayout>
+					<igcontrols:FieldLayout.Fields>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_GEOFENCEALIASNAME}"
+							BindingPath="General.GeofenceAliasName_42867"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.GeofenceAliasName_42867_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource GeofenceAliasName_42867CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_PRIORITY}"
+							BindingPath="General.McGeofencePriority_42879"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.McGeofencePriority_42879_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource McGeofencePriority_42879CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_RADIUSMETERS}"
+							BindingPath="General.McGeofenceRadiusInMeters_42890"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.McGeofenceRadiusInMeters_42890_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource McGeofenceRadiusInMeters_42890CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ENTRYACTION}"
+							BindingPath="General.McGeofenceEntryAction_42887"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.McGeofenceEntryAction_42887_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource McGeofenceEntryAction_42887CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_EXITACTION}"
+							BindingPath="General.McGeofenceExitAction_42888"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.McGeofenceExitAction_42888_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource McGeofenceExitAction_42888CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+					</igcontrols:FieldLayout.Fields>
+				</igcontrols:FieldLayout>
+			</igcontrols:DataPresenterBase.FieldLayouts>
+		</AcpUINS:AcpXamDataPresenter>
+	</Grid>
+</AcpUINS:AcpPageFeature>

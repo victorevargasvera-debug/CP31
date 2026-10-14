@@ -1,0 +1,42 @@
+﻿using System;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure.DependencyResolution;
+using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations.Infrastructure;
+using System.Data.Entity.Migrations.Sql;
+
+namespace System.Data.Entity.Internal
+{
+	// Token: 0x020000F1 RID: 241
+	internal class DatabaseCreator
+	{
+		// Token: 0x06001216 RID: 4630 RVA: 0x0002DF74 File Offset: 0x0002C174
+		public DatabaseCreator() : this(global::System.Data.Entity.DbConfiguration.DependencyResolver)
+		{
+		}
+
+		// Token: 0x06001217 RID: 4631 RVA: 0x0002DF81 File Offset: 0x0002C181
+		public DatabaseCreator(global::System.Data.Entity.Infrastructure.DependencyResolution.IDbDependencyResolver resolver)
+		{
+			this._resolver = resolver;
+		}
+
+		// Token: 0x06001218 RID: 4632 RVA: 0x0002DF90 File Offset: 0x0002C190
+		public virtual void CreateDatabase(global::System.Data.Entity.Internal.InternalContext internalContext, global::System.Func<global::System.Data.Entity.Migrations.DbMigrationsConfiguration, global::System.Data.Entity.DbContext, global::System.Data.Entity.Migrations.Infrastructure.MigratorBase> createMigrator, global::System.Data.Entity.Core.Objects.ObjectContext objectContext)
+		{
+			if (internalContext.CodeFirstModel != null && this._resolver.GetService(internalContext.ProviderName) != null)
+			{
+				createMigrator(internalContext.MigrationsConfiguration, internalContext.Owner).Update();
+			}
+			else
+			{
+				internalContext.DatabaseOperations.Create(objectContext);
+				internalContext.SaveMetadataToDatabase();
+			}
+			internalContext.MarkDatabaseInitialized();
+		}
+
+		// Token: 0x04000904 RID: 2308
+		private readonly global::System.Data.Entity.Infrastructure.DependencyResolution.IDbDependencyResolver _resolver;
+	}
+}

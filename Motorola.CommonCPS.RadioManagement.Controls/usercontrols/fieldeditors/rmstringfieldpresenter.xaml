@@ -1,0 +1,38 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMStringFieldPresenter" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls"
+	Height="Auto">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="21" />
+		</Grid.ColumnDefinitions>
+		<local:RMTextBlock
+			FontStyle="Oblique"
+			FontWeight="Normal"
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			Text="{Binding Path=Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMStringFieldPresenter}}}" />
+		<!--Unknown connection ID: 1-->
+		<Border
+			Name="BorderInvalid"
+			Grid.Column="2"
+			BorderThickness="1">
+			<!--Unknown connection ID: 2-->
+			<local:RMTextBox
+				Name="TxbText"
+				FontStyle="Oblique"
+				IsReadOnly="True"
+				FontWeight="Normal"
+				TextWrapping="Wrap"
+				Height="Auto"
+				MaxHeight="400"
+				Style="{StaticResource FieldEditorTextBoxtyle}"
+				Text="{Binding Path=Text, RelativeSource={RelativeSource AncestorType={x:Type local:RMStringFieldPresenter}}}"
+				MaxLength="{Binding MaxLength}" />
+		</Border>
+	</Grid>
+</UserControl>

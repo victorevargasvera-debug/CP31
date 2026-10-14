@@ -1,0 +1,27 @@
+<Window
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMNotificationWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls"
+	SizeToContent="WidthAndHeight"
+	MaxWidth="600"
+	Title="{Binding Title}">
+	<Grid
+		Margin="24">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="20" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<local:RMTextBlock
+			TextWrapping="Wrap"
+			Text="{Binding Content}" />
+		<local:RMButton
+			Grid.Row="2"
+			Content="{x:Static resourceRepository:Resources.RMC_Action_OK}"
+			IsDefault="True"
+			HorizontalAlignment="Right"
+			IsCancel="True"
+			Width="81" />
+	</Grid>
+</Window>

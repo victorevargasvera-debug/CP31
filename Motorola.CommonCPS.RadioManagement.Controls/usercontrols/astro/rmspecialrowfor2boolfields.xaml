@@ -1,0 +1,58 @@
+<local:RMSpecialEditorFor2Fields
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMSpecialRowFor2BoolFields" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:MultiFieldsIsVisibleConverter
+				x:Key="multiFieldsIsVisibleConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.Visibility>
+		<MultiBinding
+			Converter="{StaticResource multiFieldsIsVisibleConverter}">
+			<Binding
+				Path="Field1.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="Field2.IsVisible"
+				RelativeSource="{RelativeSource Self}" />
+		</MultiBinding>
+	</UIElement.Visibility>
+	<Grid
+		DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition
+				Width="{Binding Path=Field1Visibility, Converter={StaticResource VisibilityToGridWidthConverter}}" />
+			<ColumnDefinition
+				Width="{Binding Path=Field2Visibility, Converter={StaticResource VisibilityToGridWidthConverter}}" />
+		</Grid.ColumnDefinitions>
+		<local:RMTextBlock
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Right"
+			Text="{Binding TB1}" />
+		<!--Unknown connection ID: 1-->
+		<local:RMBoolFieldEditor
+			Name="FD1"
+			Grid.Column="2"
+			IsEditorOnly="True"
+			HorizontalAlignment="Center"
+			Margin="6"
+			DataContext="{Binding Field1}" />
+		<!--Unknown connection ID: 2-->
+		<local:RMBoolFieldEditor
+			Name="FD2"
+			Grid.Column="3"
+			IsEditorOnly="True"
+			HorizontalAlignment="Center"
+			Margin="6"
+			DataContext="{Binding Field2}" />
+	</Grid>
+</local:RMSpecialEditorFor2Fields>

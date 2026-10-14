@@ -1,0 +1,488 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI">
+	<SolidColorBrush
+		Color="#888"
+		x:Key="DisabledForegroundBrush" />
+	<SolidColorBrush
+		Color="#FFF"
+		x:Key="WindowBackgroundBrush" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="NormalBorderBrush">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Color="#CCC"
+					Offset="0.0" />
+				<GradientStop
+					Color="#444"
+					Offset="1.0" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#888"
+		x:Key="SolidBorderBrush" />
+	<SolidColorBrush
+		Color="#444"
+		x:Key="GlyphBrush" />
+	<ControlTemplate
+		TargetType="{x:Type ToggleButton}"
+		x:Key="ComboBoxToggleButton">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="20" />
+			</Grid.ColumnDefinitions>
+			<Border
+				Name="Border"
+				Grid.ColumnSpan="2"
+				CornerRadius="2"
+				BorderBrush="#00FFFFFF"
+				BorderThickness="1"
+				Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTableComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTableComboBoxBackground}}}" />
+			<Border
+				Grid.Column="0"
+				CornerRadius="2,0,0,2"
+				Margin="1"
+				Background="#00FFFFFF"
+				BorderBrush="#00FFFFFF"
+				BorderThickness="0,0,1,0" />
+			<Path
+				Name="Arrow"
+				Visibility="Collapsed"
+				Grid.Column="1"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Data="M0,0 L4,4 L8,0"
+				Fill="{StaticResource GlyphBrush}" />
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="true">
+				<Setter
+					TargetName="Border"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpComboBoxBackground}}}" />
+				<Setter
+					TargetName="Border"
+					Property="BorderBrush"
+					Value="{StaticResource NormalBorderBrush}" />
+				<Setter
+					TargetName="Arrow"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+			<Trigger
+				Property="ToggleButton.IsChecked"
+				Value="true">
+				<Setter
+					TargetName="Border"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpComboBoxBackground}}}" />
+				<Setter
+					TargetName="Border"
+					Property="BorderBrush"
+					Value="{StaticResource NormalBorderBrush}" />
+				<Setter
+					TargetName="Arrow"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					TargetName="Border"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTableComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTableComboBoxInapplicableBackground}}}" />
+				<Setter
+					TargetName="Border"
+					Property="BorderBrush"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource DisabledForegroundBrush}" />
+				<Setter
+					TargetName="Arrow"
+					Property="Fill"
+					Value="{StaticResource DisabledForegroundBrush}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type TextBox}"
+		x:Key="ComboBoxTextBox">
+		<Border
+			Name="PART_ContentHost"
+			Focusable="False"
+			Background="{TemplateBinding Background}" />
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type ComboBox}"
+		Triggers=""
+		x:Key="ComboBoxTableBase">
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="true" />
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="true" />
+		<Setter
+			Property="HorizontalScrollBarVisibility"
+			Value="Auto" />
+		<Setter
+			Property="VerticalScrollBarVisibility"
+			Value="Auto" />
+		<Setter
+			Property="CanContentScroll"
+			Value="False" />
+		<Setter
+			Property="MinWidth"
+			Value="3" />
+		<Setter
+			Property="MinHeight"
+			Value="20" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ComboBox}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<ToggleButton
+							Name="ToggleButton"
+							Margin="1,0, 0, 0"
+							Grid.Column="0"
+							Focusable="false"
+							ClickMode="Press"
+							Template="{StaticResource ComboBoxToggleButton}"
+							IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<ContentPresenter
+							Name="ContentSite"
+							IsHitTestVisible="False"
+							Content="{TemplateBinding SelectionBoxItem}"
+							ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+							ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+							Margin="3,3,23,3"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left" />
+						<TextBox
+							Name="PART_EditableTextBox"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Center"
+							Margin="3,3,23,3"
+							Focusable="True"
+							Background="#00FFFFFF"
+							Visibility="Hidden"
+							IsReadOnly="{TemplateBinding IsReadOnly}"
+							Template="{StaticResource ComboBoxTextBox}"
+							Style="{x:Null}" />
+						<Popup
+							Name="Popup"
+							Placement="Bottom"
+							IsOpen="{TemplateBinding IsDropDownOpen}"
+							AllowsTransparency="True"
+							Focusable="False"
+							PopupAnimation="Slide">
+							<Grid
+								Name="DropDown"
+								SnapsToDevicePixels="True"
+								MinWidth="{TemplateBinding ActualWidth}"
+								MaxHeight="{TemplateBinding MaxDropDownHeight}">
+								<Border
+									Name="DropDownBorder"
+									BorderThickness="1"
+									Background="{StaticResource WindowBackgroundBrush}"
+									BorderBrush="{StaticResource SolidBorderBrush}" />
+								<ScrollViewer
+									Margin="4,6,4,6"
+									SnapsToDevicePixels="True">
+									<StackPanel
+										IsItemsHost="True"
+										KeyboardNavigation.DirectionalNavigation="Contained" />
+								</ScrollViewer>
+							</Grid>
+						</Popup>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ItemsControl.HasItems"
+							Value="false">
+							<Setter
+								TargetName="DropDownBorder"
+								Property="MinHeight"
+								Value="95" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="false">
+							<Setter
+								Property="Foreground"
+								Value="{StaticResource DisabledForegroundBrush}" />
+						</Trigger>
+						<Trigger
+							Property="ItemsControl.IsGrouping"
+							Value="true">
+							<Setter
+								Property="CanContentScroll"
+								Value="false" />
+						</Trigger>
+						<Trigger
+							SourceName="Popup"
+							Property="Popup.AllowsTransparency"
+							Value="true">
+							<Setter
+								TargetName="DropDownBorder"
+								Property="Border.CornerRadius"
+								Value="2" />
+							<Setter
+								TargetName="DropDownBorder"
+								Property="Margin"
+								Value="1,0,2,0" />
+						</Trigger>
+						<Trigger
+							Property="ComboBox.IsEditable"
+							Value="true">
+							<Setter
+								Property="IsTabStop"
+								Value="false" />
+							<Setter
+								TargetName="PART_EditableTextBox"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="ContentSite"
+								Property="Visibility"
+								Value="Hidden" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTableComboBox}"
+		BasedOn="{StaticResource ComboBoxTableBase}"
+		x:Key="{x:Type AcpUINS:AcpTableComboBox}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTableComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTableComboBoxBackground}}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTableComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTableComboBoxForeground}}}" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpComboBoxInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpComboBox}"
+		x:Key="{x:Type AcpUINS:AcpComboBox}">
+		<Setter
+			Property="CanContentScroll"
+			Value="False" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpComboBoxBackground}}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpComboBoxForeground}}}" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpComboBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpComboBoxInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type ComboBoxItem}"
+		x:Key="{x:Type ComboBoxItem}">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+		<Setter
+			Property="Padding"
+			Value="3,0,3,0" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ComboBoxItem}">
+					<Border
+						Name="Bd"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						Padding="{TemplateBinding Padding}"
+						SnapsToDevicePixels="true">
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ComboBoxItem.IsHighlighted"
+							Value="true">
+							<Setter
+								TargetName="Bd"
+								Value="{DynamicResource SystemColors.HighlightBrushKey}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource SystemColors.HighlightTextBrushKey}"
+								Property="Foreground" />
+						</Trigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding Path=IsHighlighted, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding Path=ItemValidity}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Value="{DynamicResource SystemColors.ControlTextBrushKey}"
+								Property="Foreground" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding Path=IsHighlighted, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding Path=ItemValidity}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="Foreground"
+								Value="#FFFF0000" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsHighlighted, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding Path=ItemValidity}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="Bd"
+								Value="{DynamicResource SystemColors.HighlightBrushKey}"
+								Property="Background" />
+							<Setter
+								Property="Foreground"
+								Value="#FFFF0000" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsHighlighted, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding Path=ItemValidity}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="Bd"
+								Value="{DynamicResource SystemColors.HighlightBrushKey}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource SystemColors.HighlightTextBrushKey}"
+								Property="Foreground" />
+						</MultiDataTrigger>
+						<DataTrigger
+							Value="False"
+							Binding="{Binding Path=ItemVisibility}">
+							<Setter
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								Property="IsEnabled"
+								Value="False" />
+						</DataTrigger>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=ItemVisibility}">
+							<Setter
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								Property="IsEnabled"
+								Value="True" />
+						</DataTrigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="false">
+							<Setter
+								Value="{DynamicResource SystemColors.GrayTextBrushKey}"
+								Property="Foreground" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA665}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common.Communication</RootNamespace>
+    <AssemblyName>CommonCommunicationUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonUtility\GlobalConstansts.cs" />
+    <Compile Include="CommonUtil\BasicFunctions.cs" />
+    <Compile Include="CommonUtil\DeviceControlInputParams.cs" />
+    <Compile Include="CommonUtil\DeviceControlOperationType.cs" />
+    <Compile Include="CommonUtil\DeviceControlOutputParams.cs" />
+    <Compile Include="CommonUtil\DeviceControlResult.cs" />
+    <Compile Include="CommonUtil\EventLogger.cs" />
+    <Compile Include="CommonUtil\IObservable.cs" />
+    <Compile Include="CommonUtil\IObserver.cs" />
+    <Compile Include="CommonUtil\NativeMethods.cs" />
+    <Compile Include="CommonUtil\NativeMethodsForOtherNamSpace.cs" />
+    <Compile Include="CommonUtil\ObjectClone.cs" />
+    <Compile Include="CommonUtil\SingletonBase.cs" />
+    <Compile Include="CommonUtil\TCPPortManager.cs" />
+    <Compile Include="CommonUtil\TraceLogger.cs" />
+    <Compile Include="CommonUtil\TraceLoggerPC.cs" />
+    <Compile Include="CommonUtil\TransportLogger.cs" />
+    <Compile Include="CommonUtil\USB_CONNECTION_STATUS.cs" />
+    <Compile Include="CommonUtil\USB_USER_ERROR_CODE.cs" />
+    <Compile Include="CommonUtil\WinAPIWrapper.cs" />
+    <Compile Include="d.cs" />
+    <Compile Include="Definitions.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="o.cs" />
+    <Compile Include="p.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialNumberValidator.cs" />
+    <Compile Include="SrecData.cs" />
+    <Compile Include="SrecDataCollection.cs" />
+    <Compile Include="SrecLine.cs" />
+    <Compile Include="Srecord.cs" />
+    <Compile Include="SrecType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

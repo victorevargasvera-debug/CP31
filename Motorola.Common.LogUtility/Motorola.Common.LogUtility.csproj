@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common.LogUtility</RootNamespace>
+    <AssemblyName>Motorola.Common.LogUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADONetAppender.cs" />
+    <Compile Include="AppConfigurator.cs" />
+    <Compile Include="Configurator.cs" />
+    <Compile Include="ConsoleAppender.cs" />
+    <Compile Include="DbgViewAppender.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="FileAppender.cs" />
+    <Compile Include="FileLocker.cs" />
+    <Compile Include="IAppender.cs" />
+    <Compile Include="ILog.cs" />
+    <Compile Include="LoggerUtil.cs" />
+    <Compile Include="LoggingEventArgs.cs" />
+    <Compile Include="LoggingLevel.cs" />
+    <Compile Include="LogImpl.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="LogUtilityContainer.cs" />
+    <Compile Include="LogUtilityModule.cs" />
+    <Compile Include="PerformanceMeasurement\AutomaticPerformanceMeasurer.cs" />
+    <Compile Include="PerformanceMeasurement\IAutomaticPerformanceMeasurer.cs" />
+    <Compile Include="PerformanceMeasurement\IPerformanceMeasurer.cs" />
+    <Compile Include="PerformanceMeasurement\IPerformanceMeasurerManager.cs" />
+    <Compile Include="PerformanceMeasurement\IPerformanceMonitor.cs" />
+    <Compile Include="PerformanceMeasurement\IPerformanceWatch.cs" />
+    <Compile Include="PerformanceMeasurement\OperationInfo.cs" />
+    <Compile Include="PerformanceMeasurement\OperationParameters.cs" />
+    <Compile Include="PerformanceMeasurement\OperationType.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceDetails.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceExtensions.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceLogElasticSearch.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceMeasure.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceMeasurer.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceMeasurerManager.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceMonitor.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceSnapshot.cs" />
+    <Compile Include="PerformanceMeasurement\PerformanceWatch.cs" />
+    <Compile Include="PerformanceMeasurement\SystemState.cs" />
+    <Compile Include="PredefinedName.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64A}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C8}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLog\NLog.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C9}</Project>
+      <Name>NLog</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

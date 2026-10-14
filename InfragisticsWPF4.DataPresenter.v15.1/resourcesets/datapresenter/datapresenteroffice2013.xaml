@@ -1,0 +1,3746 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igWindows="http://infragistics.com/Windows" xmlns:editors="http://infragistics.com/Editors" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter" xmlns:themes="clr-namespace:Infragistics.Windows.Themes" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="DataPresenterGeneric.xaml" />
+		<ResourceDictionary
+			Source="DataPresenterOffice2013_Express.xaml" />
+		<ResourceDictionary
+			Source="../DataPresenterBrushes/DataPresenterOffice2013_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="ScrollBarButtonStyle">
+		<Setter
+			Property="MinWidth"
+			Value="15" />
+		<Setter
+			Property="MinHeight"
+			Value="15" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Name="grid1">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Arrow">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ScrollbarPageButtonArrowHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Background"
+											Storyboard.TargetName="Bg">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ScrollbarPageButtonHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="BorderBrush"
+											Storyboard.TargetName="Bg">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ScrollbarPageButtonHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Arrow">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ScrollbarPageButtonArrowPressedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Background"
+											Storyboard.TargetName="Bg">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ScrollbarPageButtonPressedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="BorderBrush"
+											Storyboard.TargetName="Bg">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ScrollbarPageButtonPressedBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Arrow">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Background"
+											Storyboard.TargetName="Bg">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="BorderBrush"
+											Storyboard.TargetName="Bg">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Border
+							Name="Bg"
+							BorderThickness="1"
+							Background="{StaticResource ScrollbarPageButtonBackgroundBrush}"
+							BorderBrush="{StaticResource ScrollbarPageButtonBorderBrush}" />
+						<Path
+							Name="Arrow"
+							Data="M0,4 L7,4 L4,0"
+							Height="4"
+							Stretch="Uniform"
+							Width="7"
+							Margin="{TemplateBinding Padding}"
+							Fill="{StaticResource ScrollbarPageButtonArrowBackgroundBrush}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="ScrollBarPageButtonStyle">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Rectangle
+						Fill="{TemplateBinding Background}"
+						Height="{TemplateBinding Height}"
+						Width="{TemplateBinding Width}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Thumb}"
+		x:Key="HScrollBarThumbStyle">
+		<Setter
+			Property="MinWidth"
+			Value="5" />
+		<Setter
+			Property="MinHeight"
+			Value="15" />
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Grid
+						Margin="0">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource HScrollbarThumbHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Stroke"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource HScrollbarThumbHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource HScrollbarThumbPressedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Stroke"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource HScrollbarThumbPressedBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Stroke"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Rectangle
+							Name="Thumb"
+							Height="15"
+							Fill="{StaticResource HScrollbarThumbBackgroundBrush}"
+							Stroke="{StaticResource HScrollbarThumbBorderBrush}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Thumb}"
+		x:Key="VScrollBarThumbStyle">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="MinWidth"
+			Value="15" />
+		<Setter
+			Property="MinHeight"
+			Value="5" />
+		<Setter
+			Property="Stylus.IsPressAndHoldEnabled"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Grid
+						Name="grid"
+						Height="Auto"
+						Width="Auto">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource VScrollbarThumbHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Stroke"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource VScrollbarThumbHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource VScrollbarThumbPressedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Stroke"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource VScrollbarThumbPressedBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Fill"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Duration="0"
+											Storyboard.TargetProperty="Stroke"
+											Storyboard.TargetName="Thumb">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource DisabledBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Rectangle
+							Name="Thumb"
+							Width="15"
+							Fill="{StaticResource VScrollbarThumbBackgroundBrush}"
+							Stroke="{StaticResource VScrollbarThumbBorderBrush}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollBar}"
+		x:Key="ScrollBarStyle">
+		<Setter
+			Property="Stylus.IsPressAndHoldEnabled"
+			Value="False" />
+		<Setter
+			Property="Stylus.IsFlicksEnabled"
+			Value="False" />
+		<Setter
+			Property="Width"
+			Value="15" />
+		<Setter
+			Property="MinWidth"
+			Value="15" />
+		<Setter
+			Property="Margin"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollBar}">
+					<Grid
+						Name="Bg"
+						SnapsToDevicePixels="True">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="15" />
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="15" />
+						</Grid.RowDefinitions>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualStateGroup.Transitions>
+									<VisualTransition
+										GeneratedDuration="0:0:0.3" />
+								</VisualStateGroup.Transitions>
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver" />
+								<VisualState
+									x:Name="Disabled" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Rectangle
+							Grid.RowSpan="3"
+							Fill="{StaticResource ScrollbarBackgroundBrush}" />
+						<RepeatButton
+							Name="repeatButton"
+							Command="{x:Static ScrollBar.LineUpCommand}"
+							IsEnabled="True"
+							HorizontalAlignment="Center"
+							Style="{StaticResource ScrollBarButtonStyle}" />
+						<Track
+							Name="PART_Track"
+							IsDirectionReversed="True"
+							IsEnabled="True"
+							Grid.Row="1">
+							<Track.DecreaseRepeatButton>
+								<RepeatButton
+									Command="{x:Static ScrollBar.PageUpCommand}"
+									Style="{StaticResource ScrollBarPageButtonStyle}" />
+							</Track.DecreaseRepeatButton>
+							<Track.IncreaseRepeatButton>
+								<RepeatButton
+									Command="{x:Static ScrollBar.PageDownCommand}"
+									Style="{StaticResource ScrollBarPageButtonStyle}" />
+							</Track.IncreaseRepeatButton>
+							<Track.Thumb>
+								<Thumb
+									Name="thumb"
+									HorizontalAlignment="Center"
+									Width="30"
+									Style="{StaticResource VScrollBarThumbStyle}" />
+							</Track.Thumb>
+						</Track>
+						<RepeatButton
+							Name="repeatButton1"
+							Command="{x:Static ScrollBar.LineDownCommand}"
+							IsEnabled="True"
+							Grid.Row="2"
+							RenderTransformOrigin="0.5,0.5"
+							HorizontalAlignment="Center"
+							Style="{StaticResource ScrollBarButtonStyle}">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="180" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</RepeatButton>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="ScrollBar.Orientation"
+				Value="Horizontal">
+				<Setter
+					Property="Width"
+					Value="Auto" />
+				<Setter
+					Property="MinWidth"
+					Value="0" />
+				<Setter
+					Property="Height"
+					Value="15" />
+				<Setter
+					Property="MinHeight"
+					Value="15" />
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ScrollBar}">
+							<Grid
+								Name="Bg"
+								SnapsToDevicePixels="True">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="15" />
+									<ColumnDefinition
+										Width="*" />
+									<ColumnDefinition
+										Width="15" />
+								</Grid.ColumnDefinitions>
+								<VisualStateManager.VisualStateGroups>
+									<VisualStateGroup
+										x:Name="CommonStates">
+										<VisualStateGroup.Transitions>
+											<VisualTransition
+												GeneratedDuration="0:0:0.3" />
+										</VisualStateGroup.Transitions>
+										<VisualState
+											x:Name="Normal" />
+										<VisualState
+											x:Name="MouseOver">
+											<Storyboard>
+												<DoubleAnimationUsingKeyFrames
+													Storyboard.TargetProperty="(UIElement.Opacity)"
+													Storyboard.TargetName="repeatButton">
+													<EasingDoubleKeyFrame
+														KeyTime="0"
+														Value="1" />
+												</DoubleAnimationUsingKeyFrames>
+												<DoubleAnimationUsingKeyFrames
+													Storyboard.TargetProperty="(UIElement.Opacity)"
+													Storyboard.TargetName="repeatButton1">
+													<EasingDoubleKeyFrame
+														KeyTime="0"
+														Value="1" />
+												</DoubleAnimationUsingKeyFrames>
+											</Storyboard>
+										</VisualState>
+										<VisualState
+											x:Name="Disabled" />
+									</VisualStateGroup>
+								</VisualStateManager.VisualStateGroups>
+								<Rectangle
+									Grid.ColumnSpan="5"
+									Fill="{StaticResource ScrollbarBackgroundBrush}" />
+								<RepeatButton
+									Name="repeatButton"
+									Command="{x:Static ScrollBar.LineLeftCommand}"
+									IsEnabled="True"
+									Style="{DynamicResource ScrollBarButtonStyle}"
+									Opacity="1"
+									RenderTransformOrigin="0.5,0.5"
+									VerticalAlignment="Center">
+									<UIElement.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform />
+											<SkewTransform />
+											<RotateTransform
+												Angle="-90" />
+											<TranslateTransform />
+										</TransformGroup>
+									</UIElement.RenderTransform>
+								</RepeatButton>
+								<Track
+									Name="PART_Track"
+									Grid.Column="1"
+									IsEnabled="True">
+									<Track.DecreaseRepeatButton>
+										<RepeatButton
+											Command="{x:Static ScrollBar.PageLeftCommand}"
+											Style="{StaticResource ScrollBarPageButtonStyle}" />
+									</Track.DecreaseRepeatButton>
+									<Track.IncreaseRepeatButton>
+										<RepeatButton
+											Command="{x:Static ScrollBar.PageRightCommand}"
+											Style="{StaticResource ScrollBarPageButtonStyle}" />
+									</Track.IncreaseRepeatButton>
+									<Track.Thumb>
+										<Thumb
+											VerticalAlignment="Center"
+											Height="30"
+											Style="{StaticResource HScrollBarThumbStyle}" />
+									</Track.Thumb>
+								</Track>
+								<RepeatButton
+									Name="repeatButton1"
+									Grid.Column="2"
+									Command="{x:Static ScrollBar.LineRightCommand}"
+									IsEnabled="True"
+									Style="{DynamicResource ScrollBarButtonStyle}"
+									Opacity="1"
+									RenderTransformOrigin="0.5,0.5"
+									VerticalAlignment="Center">
+									<UIElement.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform />
+											<SkewTransform />
+											<RotateTransform
+												Angle="90" />
+											<TranslateTransform />
+										</TransformGroup>
+									</UIElement.RenderTransform>
+								</RepeatButton>
+							</Grid>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollViewer}"
+		x:Key="ScrollViewerStyle">
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Top" />
+		<Setter
+			Property="VerticalScrollBarVisibility"
+			Value="Auto" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollViewer}">
+					<Grid
+						Name="Grid">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<ScrollContentPresenter
+							Name="PART_ScrollContentPresenter"
+							CanContentScroll="{TemplateBinding CanContentScroll}"
+							CanHorizontallyScroll="False"
+							CanVerticallyScroll="False"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							Content="{TemplateBinding Content}"
+							Grid.Column="0"
+							Margin="{TemplateBinding Padding}"
+							Grid.Row="0" />
+						<ScrollBar
+							Name="PART_VerticalScrollBar"
+							AutomationProperties.AutomationId="VerticalScrollBar"
+							Cursor="Arrow"
+							Grid.Column="1"
+							Maximum="{TemplateBinding ScrollableHeight}"
+							Minimum="0"
+							Grid.Row="0"
+							Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+							ViewportSize="{TemplateBinding ViewportHeight}"
+							Style="{StaticResource ScrollBarStyle}"
+							Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<ScrollBar
+							Name="PART_HorizontalScrollBar"
+							AutomationProperties.AutomationId="HorizontalScrollBar"
+							Cursor="Arrow"
+							Grid.Column="0"
+							Maximum="{TemplateBinding ScrollableWidth}"
+							Minimum="0"
+							Orientation="Horizontal"
+							Grid.Row="1"
+							Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+							ViewportSize="{TemplateBinding ViewportWidth}"
+							Style="{StaticResource ScrollBarStyle}"
+							Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:XamDataCarousel}"
+		x:Key="{x:Type igDP:XamDataCarousel}">
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:XamDataCarousel}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}">
+						<Grid
+							Name="PART_ContentSiteGrid" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type ScrollViewer}"
+					BasedOn="{StaticResource ScrollViewerStyle}"
+					x:Key="{x:Type ScrollViewer}" />
+				<Style
+					TargetType="{x:Type ScrollBar}"
+					BasedOn="{StaticResource ScrollBarStyle}"
+					x:Key="{x:Type ScrollBar}" />
+			</ResourceDictionary>
+		</Style.Resources>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:XamDataPresenter}"
+		x:Key="{x:Type igDP:XamDataPresenter}">
+		<Setter
+			Property="igDP:DataPresenterBase.RecordSelectorErrorIconExtent"
+			Value="30" />
+		<Setter
+			Property="igDP:DataPresenterBase.RecordSelectorExtent"
+			Value="30" />
+		<Setter
+			Property="igDP:DataPresenterBase.RecordSelectorFixButtonExtent"
+			Value="30" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type ScrollViewer}"
+					BasedOn="{StaticResource ScrollViewerStyle}"
+					x:Key="{x:Type ScrollViewer}" />
+				<Style
+					TargetType="{x:Type ScrollBar}"
+					BasedOn="{StaticResource ScrollBarStyle}"
+					x:Key="{x:Type ScrollBar}" />
+			</ResourceDictionary>
+		</Style.Resources>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:XamDataGrid}"
+		x:Key="{x:Type igDP:XamDataGrid}">
+		<Setter
+			Property="igDP:DataPresenterBase.RecordSelectorExtent"
+			Value="30" />
+		<Setter
+			Property="igDP:DataPresenterBase.RecordSelectorFixButtonExtent"
+			Value="20" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type ScrollViewer}"
+					BasedOn="{StaticResource ScrollViewerStyle}"
+					x:Key="{x:Type ScrollViewer}" />
+				<Style
+					TargetType="{x:Type ScrollBar}"
+					BasedOn="{StaticResource ScrollBarStyle}"
+					x:Key="{x:Type ScrollBar}" />
+			</ResourceDictionary>
+		</Style.Resources>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="IconButtonStyle">
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Height"
+			Value="24" />
+		<Setter
+			Property="MinWidth"
+			Value="24" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonNormalCenterBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonNormalOuterBorderBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid
+						Name="Grid">
+						<Border
+							Name="Border"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Padding="{TemplateBinding Padding}"
+							SnapsToDevicePixels="True">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="*" />
+								</Grid.ColumnDefinitions>
+								<ContentPresenter
+									Name="Image"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Center"
+									Margin="5,0,5,0"
+									Content="{TemplateBinding Content}"
+									MinWidth="16"
+									MinHeight="16" />
+								<TextBlock
+									Name="text"
+									Text="{TemplateBinding Tag}"
+									Grid.Column="1"
+									HorizontalAlignment="Stretch"
+									Margin="6,2"
+									VerticalAlignment="Center"
+									Foreground="{TemplateBinding Foreground}" />
+							</Grid>
+						</Border>
+						<Border
+							Name="innerStroke"
+							SnapsToDevicePixels="True"
+							Margin="1"
+							BorderBrush="{DynamicResource igDP:DataPresenterBrushKeys.ButtonNormalInnerBorderBrush}"
+							BorderThickness="1" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonHoverCenterBrush}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonHoverOuterBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="innerStroke"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonHoverInnerBorderBrush}"
+								Property="BorderBrush" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonPressedCenterBrush}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonPressedOuterBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="innerStroke"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonPressedInnerBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="text"
+								Property="Foreground"
+								Value="{StaticResource ForegroundBrush}" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="text"
+								Property="Foreground"
+								Value="{StaticResource DisabledForegroundBrush}" />
+							<Setter
+								TargetName="Image"
+								Property="UIElement.Opacity"
+								Value="0.3" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonDisabledCenterBrush}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonDisabledOuterBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="innerStroke"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonDisabledInnerBorderBrush}"
+								Property="BorderBrush" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="ButtonStyle">
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Padding"
+			Value="10,0,10,2" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="MinHeight"
+			Value="24" />
+		<Setter
+			Property="MinWidth"
+			Value="24" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonNormalCenterBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonNormalOuterBorderBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid
+						Name="Grid">
+						<Border
+							Name="Border"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							SnapsToDevicePixels="True">
+							<ContentControl
+								Name="Content"
+								Margin="{TemplateBinding Padding}"
+								Content="{TemplateBinding Content}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center" />
+						</Border>
+						<Border
+							Name="innerStroke"
+							SnapsToDevicePixels="True"
+							Margin="1,1,1,1"
+							BorderBrush="{DynamicResource igDP:DataPresenterBrushKeys.ButtonNormalInnerBorderBrush}"
+							BorderThickness="1" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonHoverCenterBrush}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonHoverOuterBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="innerStroke"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonHoverInnerBorderBrush}"
+								Property="BorderBrush" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonPressedCenterBrush}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonPressedOuterBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="innerStroke"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonPressedInnerBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="Content"
+								Property="Foreground"
+								Value="{StaticResource ForegroundBrush}" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="Content"
+								Property="Foreground"
+								Value="{StaticResource DisabledForegroundBrush}" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonDisabledCenterBrush}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonDisabledOuterBorderBrush}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="innerStroke"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ButtonDisabledInnerBorderBrush}"
+								Property="BorderBrush" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		BasedOn="{StaticResource ButtonStyle}"
+		TargetType="{x:Type Button}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, ButtonStyle}" />
+	<Style
+		TargetType="{x:Type igDP:FixedFieldButton}"
+		x:Key="{x:Type igDP:FixedFieldButton}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type ToggleButton}"
+					x:Key="{x:Type ToggleButton}">
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type ToggleButton}">
+								<igWindows:CardPanel
+									Background="{TemplateBinding Background}">
+									<ContentPresenter />
+								</igWindows:CardPanel>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+				<Style
+					TargetType="{x:Type Menu}"
+					x:Key="{x:Type Menu}">
+					<Setter
+						Property="Background"
+						Value="#00FFFFFF" />
+					<Setter
+						Property="BorderThickness"
+						Value="0" />
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type Menu}">
+								<Grid
+									Name="Bd"
+									IsSharedSizeScope="True">
+									<StackPanel
+										IsItemsHost="True"
+										ClipToBounds="True"
+										VerticalAlignment="Center" />
+								</Grid>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+				<Style
+					TargetType="{x:Type MenuItem}"
+					x:Key="{x:Type MenuItem}">
+					<Setter
+						Property="FontFamily"
+						Value="Segoe UI" />
+					<Setter
+						Property="FontSize"
+						Value="12" />
+					<Setter
+						Property="Background"
+						Value="{DynamicResource igDP:DataPresenterBrushKeys.MenuHighlightBackgroundBrushFillKey}" />
+					<Setter
+						Property="BorderBrush"
+						Value="{DynamicResource igDP:DataPresenterBrushKeys.MenuHighlightOuterBorderBrushFillKey}" />
+					<Setter
+						Property="BorderThickness"
+						Value="1" />
+					<Setter
+						Property="Padding"
+						Value="3,2,3,2" />
+					<Setter
+						Property="MinHeight"
+						Value="22" />
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type MenuItem}">
+								<Grid
+									Background="#00FFFFFF">
+									<Border
+										Name="Hover"
+										Visibility="Collapsed"
+										Background="{TemplateBinding Background}"
+										BorderBrush="{TemplateBinding BorderBrush}"
+										BorderThickness="{TemplateBinding BorderThickness}" />
+									<Grid
+										Margin="{TemplateBinding Padding}">
+										<ContentPresenter
+											Name="Content"
+											Margin="{TemplateBinding Padding}"
+											Content="{TemplateBinding Header}"
+											ContentSource="Header"
+											RecognizesAccessKey="True" />
+										<Popup
+											Name="PART_Popup"
+											AllowsTransparency="True"
+											HorizontalOffset="-2"
+											Placement="Bottom"
+											PopupAnimation="{DynamicResource SystemParameters.ComboBoxPopupAnimationKey}"
+											Focusable="False"
+											IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}">
+											<Border
+												Name="SubMenuBorder"
+												BorderThickness="1"
+												Background="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBackground}}"
+												BorderBrush="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBorder}}">
+												<Border>
+													<ScrollViewer
+														CanContentScroll="True"
+														Margin="1"
+														Style="{StaticResource ScrollViewerStyle}">
+														<ItemsPresenter
+															Grid.IsSharedSizeScope="True"
+															KeyboardNavigation.DirectionalNavigation="Cycle"
+															KeyboardNavigation.TabNavigation="Cycle" />
+													</ScrollViewer>
+												</Border>
+											</Border>
+										</Popup>
+									</Grid>
+								</Grid>
+								<ControlTemplate.Triggers>
+									<Trigger
+										Property="MenuItem.IsSuspendingPopupAnimation"
+										Value="True">
+										<Setter
+											TargetName="PART_Popup"
+											Property="PopupAnimation"
+											Value="None" />
+									</Trigger>
+									<MultiTrigger>
+										<MultiTrigger.Conditions>
+											<Condition
+												Property="MenuItem.Role"
+												Value="SubmenuItem" />
+											<Condition
+												Property="MenuItem.IsHighlighted"
+												Value="True" />
+										</MultiTrigger.Conditions>
+										<Setter
+											TargetName="Hover"
+											Property="Visibility"
+											Value="Visible" />
+									</MultiTrigger>
+									<Trigger
+										Property="IsEnabled"
+										Value="False">
+										<Setter
+											Property="Foreground"
+											Value="{StaticResource DisabledForegroundBrush}" />
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="igDP:FixedFieldButton.FixToFarEdgePrompt"
+			Value="{Binding Value, Source={x:Static igDP:ResourcesDataPresenter.FieldFixToFarEdgePrompt}}" />
+		<Setter
+			Property="igDP:FixedFieldButton.FixToNearEdgePrompt"
+			Value="{Binding Value, Source={x:Static igDP:ResourcesDataPresenter.FieldFixToNearEdgePrompt}}" />
+		<Setter
+			Property="igDP:FixedFieldButton.UnfixPrompt"
+			Value="{Binding Value, Source={x:Static igDP:ResourcesDataPresenter.FieldUnfixPrompt}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBorder}}" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:FixedFieldButton}">
+					<Border
+						Name="bd"
+						Background="#00FFFFFF">
+						<igWindows:CardPanel>
+							<ToggleButton
+								Name="toggleButton"
+								Focusable="False"
+								CommandParameter="{TemplateBinding igDP:Field}"
+								Background="#00FFFFFF">
+								<Grid
+									VerticalAlignment="Center"
+									HorizontalAlignment="Center">
+									<Path
+										Name="btnFixedGlyph"
+										Visibility="Collapsed"
+										HorizontalAlignment="Center"
+										VerticalAlignment="Center"
+										Stretch="Fill"
+										Opacity="1"
+										Data="M1,0 L2,0 L6,0 L7,0 L7,1 L6,1 L6,4 L7,4 L7,5 L8,5 L8,6 L5,6 L5,10 L3,10 L3,6 L0,6 L0,5 L1,5 L1,4 L2,4 L2,1 L1,1"
+										Height="10"
+										Width="8"
+										Fill="{TemplateBinding Foreground}" />
+									<Path
+										Name="btnUnfixedGlyph"
+										HorizontalAlignment="Center"
+										VerticalAlignment="Center"
+										Stretch="Fill"
+										Opacity="1"
+										Data="M4,0 L5,0 L5,1 L6,1 L6,2 L9,2 L9,1 L10,1 L10,2 L10,3 L10,5 L10,6 L10,7 L9,7 L9,6 L6,6 L6,7 L5,7 L5,8 L4,8 L4,6 L4,5 L0,5 L0,3 L4,3 L4,2"
+										Width="10"
+										Height="8"
+										Fill="{TemplateBinding Foreground}" />
+								</Grid>
+							</ToggleButton>
+							<Menu
+								Name="menu"
+								Visibility="Collapsed"
+								IsMainMenu="False">
+								<MenuItem
+									Padding="0"
+									VerticalAlignment="Center">
+									<HeaderedItemsControl.Header>
+										<igWindows:CardPanel>
+											<Grid
+												Margin="3,0"
+												VerticalAlignment="Center">
+												<Path
+													Name="menuFixedGlyph"
+													Visibility="Collapsed"
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center"
+													Stretch="Fill"
+													Opacity="1"
+													Data="M1,0 L2,0 L6,0 L7,0 L7,1 L6,1 L6,4 L7,4 L7,5 L8,5 L8,6 L5,6 L5,10 L3,10 L3,6 L0,6 L0,5 L1,5 L1,4 L2,4 L2,1 L1,1"
+													Height="10"
+													Width="8"
+													Fill="{TemplateBinding Foreground}" />
+												<Path
+													Name="MenuUnfixedGlyph"
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center"
+													Stretch="Fill"
+													Opacity="1"
+													Data="M4,0 L5,0 L5,1 L6,1 L6,2 L9,2 L9,1 L10,1 L10,2 L10,3 L10,5 L10,6 L10,7 L9,7 L9,6 L6,6 L6,7 L5,7 L5,8 L4,8 L4,6 L4,5 L0,5 L0,3 L4,3 L4,2"
+													Width="10"
+													Height="8"
+													Fill="{TemplateBinding Foreground}" />
+											</Grid>
+										</igWindows:CardPanel>
+									</HeaderedItemsControl.Header>
+									<MenuItem
+										Name="unfix"
+										Header="{TemplateBinding igDP:UnfixPrompt}"
+										Command="igDP:DataPresenterCommands.UnfixField"
+										CommandParameter="{TemplateBinding igDP:Field}" />
+									<MenuItem
+										Name="fixNear"
+										Header="{TemplateBinding igDP:FixToNearEdgePrompt}"
+										Command="igDP:DataPresenterCommands.FixFieldNear"
+										CommandParameter="{TemplateBinding igDP:Field}" />
+									<MenuItem
+										Name="fixFar"
+										Header="{TemplateBinding igDP:FixToFarEdgePrompt}"
+										Command="igDP:DataPresenterCommands.FixFieldFar"
+										CommandParameter="{TemplateBinding igDP:Field}" />
+								</MenuItem>
+							</Menu>
+						</igWindows:CardPanel>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Property="Foreground"
+								Value="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonBackgroundHover}}" />
+						</Trigger>
+						<DataTrigger
+							Value="FixedToNearEdge"
+							Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}">
+							<Setter
+								TargetName="menuFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="MenuUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="btnFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="btnUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<DataTrigger
+							Value="FixedToFarEdge"
+							Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}">
+							<Setter
+								TargetName="menuFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="MenuUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="btnFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="btnUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<DataTrigger
+							Value="NearOrFar"
+							Binding="{Binding Field.AllowFixingResolved, RelativeSource={RelativeSource TemplatedParent}}">
+							<Setter
+								TargetName="menu"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="toggleButton"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="Near"
+									Binding="{Binding Field.AllowFixingResolved, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="Scrollable"
+									Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.FixFieldNear" />
+						</MultiDataTrigger>
+						<DataTrigger
+							Value="FixedToNearEdge"
+							Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}">
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.UnfixField" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="Far"
+									Binding="{Binding Field.AllowFixingResolved, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="Scrollable"
+									Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.FixFieldFar" />
+						</MultiDataTrigger>
+						<DataTrigger
+							Value="FixedToFarEdge"
+							Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}">
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.UnfixField" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="NearOrFar"
+									Binding="{Binding Field.AllowFixingResolved, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="Scrollable"
+									Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="unfix"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="NearOrFar"
+									Binding="{Binding Field.AllowFixingResolved, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="FixedToNearEdge"
+									Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="fixNear"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="NearOrFar"
+									Binding="{Binding Field.AllowFixingResolved, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="FixedToFarEdge"
+									Binding="{Binding Field.FixedLocation, RelativeSource={RelativeSource TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="fixFar"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:FixedRecordButton}"
+		x:Key="{x:Type igDP:FixedRecordButton}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type ToggleButton}"
+					x:Key="{x:Type ToggleButton}">
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type ToggleButton}">
+								<igWindows:CardPanel
+									Background="{TemplateBinding Background}">
+									<ContentPresenter />
+								</igWindows:CardPanel>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+				<Style
+					TargetType="{x:Type Menu}"
+					x:Key="{x:Type Menu}">
+					<Setter
+						Property="Background"
+						Value="#00FFFFFF" />
+					<Setter
+						Property="BorderThickness"
+						Value="0" />
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type Menu}">
+								<Grid
+									IsSharedSizeScope="True">
+									<StackPanel
+										IsItemsHost="True"
+										ClipToBounds="True" />
+								</Grid>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+				<Style
+					TargetType="{x:Type MenuItem}"
+					x:Key="{x:Type MenuItem}">
+					<Setter
+						Property="FontFamily"
+						Value="Segoe UI" />
+					<Setter
+						Property="FontSize"
+						Value="12" />
+					<Setter
+						Property="Background"
+						Value="{DynamicResource igDP:DataPresenterBrushKeys.MenuHighlightBackgroundBrushFillKey}" />
+					<Setter
+						Property="BorderBrush"
+						Value="{DynamicResource igDP:DataPresenterBrushKeys.MenuHighlightOuterBorderBrushFillKey}" />
+					<Setter
+						Property="BorderThickness"
+						Value="1" />
+					<Setter
+						Property="Padding"
+						Value="3,2" />
+					<Setter
+						Property="Height"
+						Value="22" />
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type MenuItem}">
+								<Grid
+									Background="#00FFFFFF">
+									<Border
+										Name="Hover"
+										Visibility="Collapsed"
+										Background="{TemplateBinding Background}"
+										BorderBrush="{TemplateBinding BorderBrush}"
+										BorderThickness="{TemplateBinding BorderThickness}" />
+									<Grid
+										Margin="{TemplateBinding Padding}">
+										<ContentPresenter
+											Name="Content"
+											Margin="{TemplateBinding Padding}"
+											Content="{TemplateBinding Header}"
+											ContentSource="Header"
+											RecognizesAccessKey="True" />
+										<Popup
+											Name="PART_Popup"
+											AllowsTransparency="True"
+											HorizontalOffset="-2"
+											Placement="Bottom"
+											PopupAnimation="{DynamicResource SystemParameters.ComboBoxPopupAnimationKey}"
+											Focusable="False"
+											IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}">
+											<Border
+												Name="SubMenuBorder"
+												BorderThickness="1"
+												Background="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBackground}}"
+												BorderBrush="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBorder}}">
+												<ScrollViewer
+													CanContentScroll="True"
+													Margin="1"
+													Style="{StaticResource ScrollViewerStyle}">
+													<ItemsPresenter
+														Grid.IsSharedSizeScope="True"
+														KeyboardNavigation.DirectionalNavigation="Cycle"
+														KeyboardNavigation.TabNavigation="Cycle" />
+												</ScrollViewer>
+											</Border>
+										</Popup>
+									</Grid>
+								</Grid>
+								<ControlTemplate.Triggers>
+									<Trigger
+										Property="MenuItem.IsSuspendingPopupAnimation"
+										Value="True">
+										<Setter
+											TargetName="PART_Popup"
+											Property="PopupAnimation"
+											Value="None" />
+									</Trigger>
+									<MultiTrigger>
+										<MultiTrigger.Conditions>
+											<Condition
+												Property="MenuItem.Role"
+												Value="SubmenuItem" />
+											<Condition
+												Property="MenuItem.IsHighlighted"
+												Value="True" />
+										</MultiTrigger.Conditions>
+										<Setter
+											TargetName="Hover"
+											Property="Visibility"
+											Value="Visible" />
+									</MultiTrigger>
+									<Trigger
+										Property="IsEnabled"
+										Value="False">
+										<Setter
+											Property="Foreground"
+											Value="{StaticResource DisabledForegroundBrush}" />
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="igDP:FixedRecordButton.FixToBottomPrompt"
+			Value="{Binding Value, Source={x:Static igDP:ResourcesDataPresenter.RecordFixToBottomPrompt}}" />
+		<Setter
+			Property="igDP:FixedRecordButton.FixToTopPrompt"
+			Value="{Binding Value, Source={x:Static igDP:ResourcesDataPresenter.RecordFixToTopPrompt}}" />
+		<Setter
+			Property="igDP:FixedRecordButton.UnfixPrompt"
+			Value="{Binding Value, Source={x:Static igDP:ResourcesDataPresenter.RecordUnfixPrompt}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.FixedRecordGlyphBrush}" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:FixedRecordButton}">
+					<Border
+						Background="#00FFFFFF"
+						Margin="6 2">
+						<igWindows:CardPanel>
+							<Rectangle
+								Name="rectangle"
+								Fill="{StaticResource TransparentBrush}" />
+							<ToggleButton
+								Name="toggleButton"
+								Focusable="False"
+								Background="#00FFFFFF"
+								CommandParameter="{Binding}">
+								<Grid
+									VerticalAlignment="Center"
+									HorizontalAlignment="Center">
+									<Path
+										Name="btnFixedGlyph"
+										Visibility="Collapsed"
+										HorizontalAlignment="Center"
+										VerticalAlignment="Center"
+										Stretch="Fill"
+										Opacity="1"
+										Data="M1,0 L2,0 L6,0 L7,0 L7,1 L6,1 L6,4 L7,4 L7,5 L8,5 L8,6 L5,6 L5,10 L3,10 L3,6 L0,6 L0,5 L1,5 L1,4 L2,4 L2,1 L1,1"
+										Height="10"
+										Width="8"
+										Fill="{TemplateBinding Foreground}" />
+									<Path
+										Name="btnUnfixedGlyph"
+										HorizontalAlignment="Center"
+										VerticalAlignment="Center"
+										Data="M4,0 L5,0 L5,1 L6,1 L6,2 L9,2 L9,1 L10,1 L10,2 L10,3 L10,5 L10,6 L10,7 L9,7 L9,6 L6,6 L6,7 L5,7 L5,8 L4,8 L4,6 L4,5 L0,5 L0,3 L4,3 L4,2"
+										Width="10"
+										Height="8"
+										Fill="{TemplateBinding Foreground}" />
+								</Grid>
+							</ToggleButton>
+							<Menu
+								Name="menu"
+								Visibility="Collapsed"
+								IsMainMenu="False">
+								<MenuItem
+									Padding="0">
+									<HeaderedItemsControl.Header>
+										<igWindows:CardPanel>
+											<Grid
+												Width="12"
+												Height="12">
+												<Path
+													Name="menuFixedGlyph"
+													Visibility="Collapsed"
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center"
+													Stretch="Fill"
+													Opacity="1"
+													Data="M1,0 L2,0 L6,0 L7,0 L7,1 L6,1 L6,4 L7,4 L7,5 L8,5 L8,6 L5,6 L5,10 L3,10 L3,6 L0,6 L0,5 L1,5 L1,4 L2,4 L2,1 L1,1"
+													Height="10"
+													Width="8"
+													Fill="{TemplateBinding Foreground}" />
+												<Path
+													Name="MenuUnfixedGlyph"
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center"
+													Stretch="Fill"
+													Opacity="1"
+													Data="M4,0 L5,0 L5,1 L6,1 L6,2 L9,2 L9,1 L10,1 L10,2 L10,3 L10,5 L10,6 L10,7 L9,7 L9,6 L6,6 L6,7 L5,7 L5,8 L4,8 L4,6 L4,5 L0,5 L0,3 L4,3 L4,2"
+													Width="10"
+													Height="8"
+													Fill="{TemplateBinding Foreground}" />
+											</Grid>
+										</igWindows:CardPanel>
+									</HeaderedItemsControl.Header>
+									<MenuItem
+										Name="unfix"
+										Header="{TemplateBinding igDP:UnfixPrompt}"
+										Command="igDP:DataPresenterCommands.UnfixRecord"
+										CommandParameter="{Binding}" />
+									<MenuItem
+										Name="fixTop"
+										Header="{TemplateBinding igDP:FixToTopPrompt}"
+										Command="igDP:DataPresenterCommands.FixRecordTop"
+										CommandParameter="{Binding}" />
+									<MenuItem
+										Name="fixBottom"
+										Header="{TemplateBinding igDP:FixToBottomPrompt}"
+										Command="igDP:DataPresenterCommands.FixRecordBottom"
+										CommandParameter="{Binding}" />
+								</MenuItem>
+							</Menu>
+						</igWindows:CardPanel>
+					</Border>
+					<ControlTemplate.Triggers>
+						<DataTrigger
+							Value="FixedToTop"
+							Binding="{Binding FixedLocation}">
+							<Setter
+								TargetName="menuFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="MenuUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="btnFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="btnUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<DataTrigger
+							Value="FixedToBottom"
+							Binding="{Binding FixedLocation}">
+							<Setter
+								TargetName="menuFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="MenuUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="btnFixedGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="btnUnfixedGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDP:FixedRecordButton.IsFixedOnTopAllowed"
+									Value="True" />
+								<Condition
+									Property="igDP:FixedRecordButton.IsFixedOnBottomAllowed"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="menu"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="toggleButton"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnTopAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsFixedOnBottomAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="Scrollable"
+									Binding="{Binding FixedLocation}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.FixRecordTop" />
+						</MultiDataTrigger>
+						<DataTrigger
+							Value="FixedToTop"
+							Binding="{Binding FixedLocation}">
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.UnfixRecord" />
+						</DataTrigger>
+						<DataTrigger
+							Value="FixedToBottom"
+							Binding="{Binding FixedLocation}">
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.UnfixRecord" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding IsFixedOnTopAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnBottomAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="Scrollable"
+									Binding="{Binding FixedLocation}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="toggleButton"
+								Property="Command"
+								Value="igDP:DataPresenterCommands.FixRecordBottom" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnTopAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnBottomAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="Scrollable"
+									Binding="{Binding FixedLocation}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="unfix"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnTopAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnBottomAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="FixedToTop"
+									Binding="{Binding FixedLocation}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="fixTop"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnTopAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsFixedOnBottomAllowed, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Condition
+									Value="FixedToBottom"
+									Binding="{Binding FixedLocation}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="fixBottom"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CustomFilterSelectionControl}"
+		x:Key="{x:Type igDP:CustomFilterSelectionControl}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type igWindows:ComparisonOperatorSelector}"
+					x:Key="{x:Type igWindows:ComparisonOperatorSelector}">
+					<Setter
+						Property="igWindows:ComparisonOperatorSelector.DropDownButtonStyle">
+						<Setter.Value>
+							<Style
+								TargetType="{x:Type ToggleButton}">
+								<Setter
+									Property="FrameworkElement.OverridesDefaultStyle"
+									Value="True" />
+								<Setter
+									Property="MinWidth"
+									Value="0" />
+								<Setter
+									Property="MinHeight"
+									Value="0" />
+								<Setter
+									Property="Background"
+									Value="#00FFFFFF" />
+								<Setter
+									Property="Focusable"
+									Value="False" />
+								<Setter
+									Property="Padding"
+									Value="2" />
+								<Setter
+									Property="ButtonBase.ClickMode"
+									Value="Press" />
+								<Setter
+									Property="Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type ToggleButton}">
+											<Border
+												Background="{TemplateBinding Background}"
+												BorderBrush="{TemplateBinding BorderBrush}"
+												BorderThickness="{TemplateBinding BorderThickness}"
+												igWindows:Utilities.SnapElementToDevicePixels="True">
+												<StackPanel
+													Orientation="Horizontal">
+													<igWindows:AutoDisabledImage
+														Margin="{TemplateBinding Padding}"
+														MinHeight="14"
+														MinWidth="14"
+														Stretch="None"
+														HorizontalAlignment="Center"
+														VerticalAlignment="Center"
+														Source="{Binding Path=(igWindows:ComparisonOperatorSelector.Selector).SelectedOperatorInfo.Image, RelativeSource={RelativeSource Self}}" />
+													<TextBlock
+														VerticalAlignment="Center"
+														Margin="6,0,0,0"
+														Text="{Binding Path=(igWindows:ComparisonOperatorSelector.Selector).SelectedOperatorInfo.Description, RelativeSource={RelativeSource Self}}" />
+												</StackPanel>
+											</Border>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="MinHeight"
+			Value="240" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.CustomFilterControlToolbarBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.CustomFilterControlHeaderBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.CustomFilterControlTextblockBrush}" />
+		<Setter
+			Property="igDP:CustomFilterSelectionControl.AndLogicalOperatorBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.AndLogicalOperatorBrush}" />
+		<Setter
+			Property="igDP:CustomFilterSelectionControl.OrLogicalOperatorBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.OrLogicalOperatorBrush}" />
+		<Setter
+			Property="igDP:CustomFilterSelectionControl.LogicalOperatorColumnWidth"
+			Value="12" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:CustomFilterSelectionControl}">
+					<Border
+						BorderThickness="{TemplateBinding BorderThickness}"
+						BorderBrush="{TemplateBinding BorderBrush}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="*" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<Border
+								Background="{DynamicResource igDP:DataPresenterBrushKeys.CustomFilterControlHeaderBrush}">
+								<TextBlock
+									FontSize="20"
+									Text="{TemplateBinding igDP:FieldDescription}"
+									Margin="6,4"
+									Foreground="{StaticResource ForegroundBrush}" />
+							</Border>
+							<Border
+								Grid.Row="1"
+								SnapsToDevicePixels="True"
+								BorderThickness="0,1"
+								Background="{TemplateBinding Background}"
+								BorderBrush="{StaticResource FilterDescriptionBorderbrush}">
+								<Grid
+									Name="toolbar">
+									<StackPanel
+										Orientation="Horizontal"
+										Margin="12"
+										VerticalAlignment="Top">
+										<Button
+											Command="{x:Static igDP:CustomFilterSelectionControl.AddConditionCommand}"
+											Tag="{TemplateBinding igDP:AddConditionLabel}"
+											Margin="0,0,8,0"
+											Style="{StaticResource IconButtonStyle}">
+											<Path
+												Width="11"
+												Height="11"
+												Data="M4,0 L7,0 L7,4 L11,4 L11,7 L7,7 L7,11 L4,11 L4,7 L0,7 L0,4 L4,4"
+												Stretch="Fill"
+												Fill="{StaticResource CustomFilterButtonGlyph}" />
+										</Button>
+										<Button
+											Command="{x:Static igDP:CustomFilterSelectionControl.RemoveSelectedConditionsCommand}"
+											Margin="0,0,12,0"
+											Tag="{TemplateBinding igDP:RemoveSelectedConditionsLabel}"
+											Style="{StaticResource IconButtonStyle}">
+											<Rectangle
+												Width="11"
+												Height="3"
+												HorizontalAlignment="Left"
+												Margin="2,0,0,0"
+												Fill="{StaticResource CustomFilterButtonGlyph}" />
+										</Button>
+										<TextBlock
+											Name="GroupSelected"
+											Text="{TemplateBinding igDP:GroupSelectedLabel}"
+											TextWrapping="Wrap"
+											VerticalAlignment="Center"
+											Foreground="{TemplateBinding Foreground}"
+											Margin="8,0" />
+										<Button
+											Command="{x:Static igDP:CustomFilterSelectionControl.GroupSelectedConditionsAsAndGroupCommand}"
+											Margin="0,0,8,0"
+											Tag="{TemplateBinding igDP:GroupSelectedConditionsAsAndGroupLabel}"
+											Style="{StaticResource IconButtonStyle}">
+											<Path
+												Width="14"
+												Height="14"
+												Margin="1,0,0,0"
+												Data="M10,6 L10,10 L6,10 L6,12 L12,12 L12,6 M2,2 L2,8 L4,8 L4,4 L8,4 L8,2 M0,0 L10,0 L10,2 L10,4 L14,4 L14,5 L14,6 L14,12 L14,14 L12,14 L6,14 L4,14 L4,12 L4,10 L2,10 L0,10 L0,8 L0,2 L0,0.99"
+												Stretch="Fill"
+												StrokeThickness="2"
+												Fill="{StaticResource CustomFilterButtonGlyph}" />
+										</Button>
+										<Button
+											Command="{x:Static igDP:CustomFilterSelectionControl.GroupSelectedConditionsAsOrGroupCommand}"
+											Margin="0,0,8,0"
+											Tag="{TemplateBinding igDP:GroupSelectedConditionsAsOrGroupLabel}"
+											Style="{StaticResource IconButtonStyle}">
+											<Path
+												Width="14"
+												Height="14"
+												Margin="1,0,0,0"
+												Data="M2,2 L2,8 L4,8 L6,8 L6,10 L6,12 L12,12 L12,6 L10,6 L8,6 L8,4 L8,2 M0,0 L10,0 L10,2 L10,4 L14,4 L14,5 L14,6 L14,12 L14,14 L12,14 L6,14 L4,14 L4,12 L4,10 L2,10 L0,10 L0,8 L0,2 L0,1"
+												Stretch="Fill"
+												StrokeThickness="2"
+												Fill="{StaticResource CustomFilterButtonGlyph}" />
+										</Button>
+										<Button
+											Command="{x:Static igDP:CustomFilterSelectionControl.ToggleSelectedGroupLogicalOperatorCommand}"
+											Margin="0,0,8,0"
+											Tag="{TemplateBinding igDP:ToggleOperatorOfSelectedConditionsLabel}"
+											Style="{StaticResource IconButtonStyle}">
+											<Path
+												Width="14"
+												Height="14"
+												HorizontalAlignment="Left"
+												Margin="2,0,0,0"
+												Data="M10.81,3.13 C10.81,3.13 6.35,3.15 6.35,3.15 C6.35,3.15 7.12,3.92 7.83,4.63 L7.9,4.7 L6.29,6.27 L6.29,6.27 L6.31,6.25 L7.66,7.6 L9.24,6.04 L9.31,6.11 C10.02,6.82 10.79,7.59 10.79,7.59 C10.79,7.59 10.81,3.13 10.81,3.13 M2,1.99 L2,12 L12,12 L7.63,7.63 L6.05,9.17 L6.12,9.24 C6.83,9.95 7.59,10.72 7.59,10.72 C7.59,10.72 3.13,10.74 3.13,10.74 C3.13,10.74 3.16,6.29 3.16,6.29 C3.16,6.29 3.93,7.05 4.64,7.76 L4.7,7.83 L6.28,6.28 M6.25E-07,0 L2,0 L12,0 L13.99,0 L14,1.99 L14,13.99 L0,14 L0,12 L6.25E-07,1.99"
+												Stretch="Fill"
+												Fill="{StaticResource CustomFilterButtonGlyph}" />
+										</Button>
+										<Button
+											Command="{x:Static igDP:CustomFilterSelectionControl.UngroupSelectedConditionsCommand}"
+											Margin="0"
+											Tag="{TemplateBinding igDP:UngroupSelectedConditionsLabel}"
+											Style="{StaticResource IconButtonStyle}">
+											<Path
+												Width="14"
+												Height="14"
+												Margin="1,0,0,0"
+												Data="M12,12 L14,12 L14,14 L12,14 M9,12 L11,12 L11,14 L9,14 M6,12 L8,12 L8,14 L6,14 M3,12 L5,12 L5,14 L3,14 M12,9 L14,9 L14,11 L12,11 M0,9 L1.99,9 L1.99,11 L0,11 M12,6 L14,6 L14,8 L12,8 M0,6 L1.99,6 L1.99,8 L0,8 M9,3 L11,3 L11,5 L10,5 L10,10 L5,10 L5,11 L3,11 L3,9 L4,9 L4,4 L9,4 M0,3 L1.99,3 L1.99,5 L0,5 M12,3 L14,3 L14,5 L12,5 M9,0 L11,0 L11,1.99 L9,1.99 M6,0 L8,0 L8,1.99 L6,1.99 M3,0 L5,0 L5,1.99 L3,1.99 M0,0 L1.99,0 L1.99,1.99 L0,1.99"
+												Stretch="Fill"
+												StrokeThickness="1.5"
+												Fill="{StaticResource CustomFilterButtonGlyph}" />
+										</Button>
+									</StackPanel>
+								</Grid>
+							</Border>
+							<Grid
+								Row="2">
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="*" />
+									<RowDefinition
+										Height=".3*" />
+								</Grid.RowDefinitions>
+								<Border>
+									<igDP:XamDataGrid
+										Name="PART_ConditionsGrid"
+										GroupByAreaLocation="None">
+										<FrameworkElement.Resources>
+											<ResourceDictionary>
+												<Style
+													TargetType="{x:Type igDP:DataRecordPresenter}"
+													x:Key="{x:Type igDP:DataRecordPresenter}">
+													<Setter
+														Property="Margin"
+														Value="0" />
+												</Style>
+											</ResourceDictionary>
+										</FrameworkElement.Resources>
+									</igDP:XamDataGrid>
+								</Border>
+								<Border
+									BorderThickness="0,1"
+									Grid.Row="1"
+									Background="{StaticResource FilterDescriptionBackgroundBrush}"
+									BorderBrush="{StaticResource FilterDescriptionBorderbrush}">
+									<ScrollViewer
+										Margin="0"
+										VerticalScrollBarVisibility="Auto"
+										Style="{StaticResource ScrollViewerStyle}">
+										<TextBlock
+											TextWrapping="Wrap"
+											Text="{TemplateBinding igDP:FilterSummaryDescription}"
+											Margin="12" />
+									</ScrollViewer>
+								</Border>
+							</Grid>
+							<Border
+								Name="FooterBackground"
+								Grid.Row="3"
+								Background="{DynamicResource igDP:DataPresenterBrushKeys.CustomFilterControlToolbarBrush}">
+								<DockPanel
+									KeyboardNavigation.TabNavigation="Local"
+									Margin="12"
+									LastChildFill="False"
+									VerticalAlignment="Top">
+									<Button
+										TabIndex="1"
+										DockPanel.Dock="Right"
+										MinWidth="100"
+										Command="{x:Static igDP:CustomFilterSelectionControl.CancelChangesCommand}"
+										Margin="0,0,8,0"
+										IsCancel="True"
+										Content="{TemplateBinding igDP:CancelButtonLabel}"
+										Style="{StaticResource ButtonStyle}" />
+									<Button
+										TabIndex="0"
+										DockPanel.Dock="Right"
+										MinWidth="100"
+										Command="{x:Static igDP:CustomFilterSelectionControl.CommitChangesCommand}"
+										Margin="0,0,8,0"
+										IsDefault="True"
+										Content="{TemplateBinding igDP:OkButtonLabel}"
+										Style="{StaticResource ButtonStyle}" />
+									<Border
+										Name="groupContainer">
+										<StackPanel
+											Orientation="Horizontal">
+											<StackPanel
+												Orientation="Horizontal">
+												<Rectangle
+													Width="16"
+													Height="16"
+													VerticalAlignment="Center"
+													Fill="{TemplateBinding igDP:AndLogicalOperatorBrush}"
+													Margin="0,0,8,0" />
+												<TextBlock
+													Text="{TemplateBinding igDP:AndGroupLegendDescription}"
+													VerticalAlignment="Center"
+													Margin="0,0,20,0" />
+											</StackPanel>
+											<StackPanel
+												Orientation="Horizontal">
+												<Rectangle
+													Width="16"
+													Height="16"
+													VerticalAlignment="Center"
+													Fill="{TemplateBinding igDP:OrLogicalOperatorBrush}"
+													Margin="0,0,8,0" />
+												<TextBlock
+													Text="{TemplateBinding igDP:OrGroupLegendDescription}"
+													VerticalAlignment="Center"
+													Margin="0,0,20,0" />
+											</StackPanel>
+										</StackPanel>
+									</Border>
+								</DockPanel>
+							</Border>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CarouselBreadcrumbControl}"
+		x:Key="{x:Type igDP:CarouselBreadcrumbControl}">
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="Padding"
+			Value="6,4" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource CarouselBreadcrumbControlBackgroundBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource CarouselBreadcrumbControlBorderBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:CarouselBreadcrumbControl}">
+					<Border
+						Name="Border"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Padding="{TemplateBinding Padding}"
+						Background="{TemplateBinding Background}"
+						CornerRadius="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, BreadcrumbCornerRadius}}">
+						<Grid>
+							<ItemsControl
+								ItemsSource="{Binding Path=Breadcrumbs, RelativeSource={RelativeSource TemplatedParent}}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<StackPanel
+											Orientation="{Binding Path=Orientation, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type igDP:CarouselBreadcrumbControl}}}" />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+							</ItemsControl>
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igDP:CarouselBreadcrumbControl.HasCrumbs"
+							Value="False">
+							<Setter
+								TargetName="Border"
+								Property="Visibility"
+								Value="Hidden" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CarouselBreadcrumb}"
+		x:Key="{x:Type igDP:CarouselBreadcrumb}">
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource BreadcrumbForegroundBrush}" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource BreadcrumbBackgroundBrush}" />
+		<Setter
+			Property="Padding"
+			Value="6 2 6 4" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource BreadcrumbBorderBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="RenderTransform">
+			<Setter.Value>
+				<TranslateTransform
+					X="0"
+					Y="0" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:CarouselBreadcrumb}">
+					<StackPanel
+						Name="itemContainer"
+						Orientation="Horizontal"
+						Opacity=".7">
+						<Border
+							Name="itemBG"
+							CornerRadius="0"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Cursor="{TemplateBinding Cursor}"
+							Background="{TemplateBinding Background}"
+							Margin="0,0,4,0">
+							<ContentPresenter
+								Margin="{TemplateBinding Padding}"
+								Content="{TemplateBinding Content}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						</Border>
+						<Path
+							Name="separator"
+							Stretch="Fill"
+							Data="F1 M51.411503,29.262499 C49.336216,29.34656 47.952686,31.512136 42.20528,36.971252 C35.217281,43.704453 26.3262,53.349899 19.2195,59.935299 C14.8568,64.2686 7.2060499,63.963299 3.1127901,59.429901 C-1.34058,54.963299 -0.91650403,47.283199 3.65942,43.056599 C16.736799,29.883301 29.872801,16.763201 43.031502,3.66992 C47.432701,-1.22339 55.764801,-1.22339 60.151402,3.66992 C73.111504,16.523199 85.964798,29.483299 98.898201,42.3633 C102.685,45.789902 104.711,51.601898 102.151,56.3367 C99.431503,62.883301 90.098099,65.283203 84.698097,60.536598 C77.218102,53.896599 68.232216,43.891151 60.992218,36.98455 C56.023273,31.512136 53.48679,29.178438 51.411503,29.262499"
+							RenderTransformOrigin="0.5,0.5"
+							Width="14"
+							Height="7.882"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left"
+							Fill="{StaticResource BreadcrumbSeparatorFillBrush}">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="90" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Path>
+					</StackPanel>
+					<ControlTemplate.Triggers>
+						<Trigger
+							SourceName="itemBG"
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="itemContainer"
+								Property="UIElement.Opacity"
+								Value="1" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CarouselBreadcrumb.IsLastBreadcrumb"
+							Value="True">
+							<Setter
+								TargetName="separator"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<EventTrigger
+							RoutedEvent="FrameworkElement.Loaded">
+							<BeginStoryboard>
+								<Storyboard
+									Duration="0:0:0.5">
+									<DoubleAnimation
+										Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+										From="50"
+										To="0"
+										BeginTime="0:0:0"
+										Duration="0:0:00.35"
+										FillBehavior="HoldEnd" />
+									<DoubleAnimation
+										Storyboard.TargetProperty="(UIElement.Opacity)"
+										From="0"
+										To="1"
+										BeginTime="0:0:0"
+										Duration="0:0:00.5"
+										FillBehavior="HoldEnd" />
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CarouselItem}"
+		x:Key="{x:Type igDP:CarouselItem}">
+		<Setter
+			Property="Width"
+			Value="400" />
+		<Setter
+			Property="igDP:CarouselItem.ItemDisappearingStoryboard"
+			Value="{StaticResource ItemDisappearing}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:CarouselItem}">
+					<Grid
+						Name="root">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="{Binding Path=(igWindows:XamCarouselPanel.ViewSettings).(igWindows:CarouselViewSettings.ItemSize).Height, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type igDP:CarouselViewPanel}}}" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<ScrollViewer
+							Name="ScrollViewer"
+							Focusable="False"
+							HorizontalScrollBarVisibility="{TemplateBinding igWindows:ItemHorizontalScrollBarVisibility}"
+							VerticalScrollBarVisibility="{TemplateBinding igWindows:ItemVerticalScrollBarVisibility}"
+							VerticalAlignment="Bottom">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<Style
+										TargetType="{x:Type ScrollViewer}"
+										BasedOn="{StaticResource ScrollViewerStyle}"
+										x:Key="{x:Type ScrollViewer}">
+										<Setter
+											Property="Template">
+											<Setter.Value>
+												<ControlTemplate
+													TargetType="{x:Type ScrollViewer}">
+													<Grid
+														Name="Grid">
+														<Grid.ColumnDefinitions>
+															<ColumnDefinition
+																Width="*" />
+															<ColumnDefinition
+																Width="Auto" />
+														</Grid.ColumnDefinitions>
+														<Grid.RowDefinitions>
+															<RowDefinition
+																Height="*" />
+															<RowDefinition
+																Height="Auto" />
+														</Grid.RowDefinitions>
+														<Border
+															Margin="0 -1 -1 0">
+															<ScrollContentPresenter
+																Name="PART_ScrollContentPresenter"
+																CanContentScroll="{TemplateBinding CanContentScroll}"
+																CanHorizontallyScroll="False"
+																CanVerticallyScroll="False"
+																ContentTemplate="{TemplateBinding ContentTemplate}"
+																Content="{TemplateBinding Content}"
+																Grid.Column="0"
+																Margin="{TemplateBinding Padding}"
+																Grid.Row="0" />
+														</Border>
+														<ScrollBar
+															Name="PART_VerticalScrollBar"
+															AutomationProperties.AutomationId="VerticalScrollBar"
+															Cursor="Arrow"
+															Grid.Column="1"
+															Maximum="{TemplateBinding ScrollableHeight}"
+															Minimum="0"
+															Grid.Row="0"
+															Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+															ViewportSize="{TemplateBinding ViewportHeight}"
+															Style="{StaticResource ScrollBarStyle}"
+															Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+														<ScrollBar
+															Name="PART_HorizontalScrollBar"
+															AutomationProperties.AutomationId="HorizontalScrollBar"
+															Cursor="Arrow"
+															Grid.Column="0"
+															Maximum="{TemplateBinding ScrollableWidth}"
+															Minimum="0"
+															Orientation="Horizontal"
+															Grid.Row="1"
+															Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+															ViewportSize="{TemplateBinding ViewportWidth}"
+															Style="{StaticResource ScrollBarStyle}"
+															Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+													</Grid>
+												</ControlTemplate>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<Viewbox
+								Name="ViewBox"
+								VerticalAlignment="Bottom"
+								HorizontalAlignment="Center">
+								<Grid
+									Name="itemContentHolder">
+									<Border
+										Name="itemContentHolderBackground"
+										BorderThickness="0"
+										CornerRadius="0"
+										Background="{TemplateBinding Background}" />
+									<Border
+										BorderThickness="1"
+										BorderBrush="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByLabelHighlight}}">
+										<ContentControl
+											Name="itemContent"
+											Focusable="False"
+											Grid.Row="0"
+											Content="{TemplateBinding Content}" />
+									</Border>
+								</Grid>
+							</Viewbox>
+						</ScrollViewer>
+						<Grid
+							Name="glyphCanvas"
+							Row="0">
+							<igWindows:ExpansionIndicator
+								Name="ExpansionIndicator"
+								Margin="0 0 -15 -3"
+								HorizontalAlignment="Right"
+								VerticalAlignment="Bottom"
+								Canvas.Left="{Binding Path=ActualWidth, ElementName=glyphCanvas}"
+								IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+								Background="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, CarouselItemExpansionIndicator}}"
+								Visibility="{Binding Path=ExpansionIndicatorVisibility, RelativeSource={RelativeSource TemplatedParent}}">
+								<Control.Template>
+									<ControlTemplate
+										TargetType="{x:Type igWindows:ExpansionIndicator}">
+										<Grid
+											Background="#00FFFFFF"
+											Width="12"
+											Height="12">
+											<Path
+												Name="selectorArrow"
+												RenderTransformOrigin="0.5,0.5"
+												Fill="{TemplateBinding Background}"
+												Stretch="Fill"
+												StrokeThickness="1"
+												HorizontalAlignment="Right"
+												VerticalAlignment="Bottom"
+												Margin="{TemplateBinding Padding}"
+												Width="6"
+												Height="6"
+												Cursor="{TemplateBinding Cursor}"
+												Data="M10,0 L10,10 L0,10"
+												Visibility="Visible"
+												Stroke="{StaticResource TransparentBrush}" />
+										</Grid>
+									</ControlTemplate>
+								</Control.Template>
+							</igWindows:ExpansionIndicator>
+						</Grid>
+						<Border
+							Name="reflection"
+							Grid.Row="1"
+							IsHitTestVisible="False"
+							Margin="0,1,0,0"
+							VerticalAlignment="Top"
+							Visibility="{Binding Path=ReflectionVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type igDP:CarouselViewPanel}}}"
+							Height="{Binding Path=ActualHeight, ElementName=ScrollViewer}"
+							Width="{Binding Path=ActualWidth, ElementName=ScrollViewer}">
+							<Border.Background>
+								<VisualBrush
+									Stretch="None"
+									Opacity=".15"
+									AlignmentX="Center"
+									AlignmentY="Bottom"
+									Visual="{Binding ElementName=ScrollViewer}">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<MatrixTransform
+												Matrix="1,0,0,-1,0,0" />
+											<TranslateTransform
+												Y="1" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+								</VisualBrush>
+							</Border.Background>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igWindows:CarouselPanelItem.AutoScaleItemContentsToFit"
+							Value="True">
+							<Setter
+								TargetName="ScrollViewer"
+								Property="HorizontalScrollBarVisibility"
+								Value="Disabled" />
+							<Setter
+								TargetName="ScrollViewer"
+								Property="VerticalScrollBarVisibility"
+								Value="Disabled" />
+							<Setter
+								TargetName="ScrollViewer"
+								Property="Focusable"
+								Value="False" />
+							<Setter
+								TargetName="ViewBox"
+								Property="Viewbox.Stretch"
+								Value="Uniform" />
+							<Setter
+								TargetName="ViewBox"
+								Property="Viewbox.StretchDirection"
+								Value="Both" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CarouselItem.IsOpacityReduced"
+							Value="True">
+							<Setter
+								TargetName="root"
+								Property="UIElement.Opacity"
+								Value="0.35" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ButtonBase}"
+		x:Key="CardButtonStyleBase">
+		<Setter
+			Property="ToolTipService.ShowOnDisabled"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Border.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="Width"
+			Value="13" />
+		<Setter
+			Property="Height"
+			Value="12" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.CollapseCardGlyphNormalBrushKey}" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsMouseOver, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardButtonBackgroundHottrackBrushKey}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardButtonBorderHottrackBrushKey}" />
+			</DataTrigger>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardButtonBackgroundPressedBrushKey}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardButtonBorderPressedBrushKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.CollapseCardGlyphPressedBrushKey}" />
+			</Trigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsActive}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.CollapseCardGlyphActiveBrushKey}" />
+			</DataTrigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="UIElement.Opacity"
+					Value="0.35" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		BasedOn="{StaticResource CardButtonStyleBase}"
+		x:Key="{x:Static igDP:CardHeaderPresenter.CollapseCardButtonStyleKey}">
+		<Setter
+			Property="FrameworkElement.ToolTip"
+			Value="{StaticResource collapseCardToolTip}" />
+		<Setter
+			Property="MinWidth"
+			Value="24" />
+		<Setter
+			Property="MinHeight"
+			Value="24" />
+		<Setter
+			Property="ButtonBase.ClickMode"
+			Value="Release" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Name="bg"
+						Background="#00FFFFFF"
+						BorderBrush="#00FFFFFF"
+						BorderThickness="1"
+						SnapsToDevicePixels="True"
+						Padding="{TemplateBinding Padding}">
+						<igWindows:CardPanel>
+							<Path
+								Name="NotCollapsedImage"
+								Width="10"
+								Height="7"
+								Data="M10.152689,0 L12,2.046204 L5.9873667,7.4666667 L0,2.0465911 L1.8960046,6.2584877E-06 L5.9755836,3.7479901"
+								Fill="{TemplateBinding Foreground}"
+								Visibility="Collapsed"
+								Stretch="Fill"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center" />
+							<Path
+								Name="CollapsedImage"
+								Width="10"
+								Height="7"
+								Data="M5.9977827,0 L11.999999,5.3653057 L10.152688,7.4809019 L5.9755831,3.7615662 L1.8960045,7.4809082 L0,5.3656935"
+								Fill="{TemplateBinding Foreground}"
+								Stretch="Fill"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center" />
+						</igWindows:CardPanel>
+					</Border>
+					<ControlTemplate.Triggers>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=IsContainingCardCollapsedResolved}">
+							<Setter
+								TargetName="NotCollapsedImage"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="CollapsedImage"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{StaticResource unCollapseCardToolTip}" />
+						</DataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		BasedOn="{StaticResource CardButtonStyleBase}"
+		x:Key="{x:Static igDP:CardHeaderPresenter.CollapseEmptyCellsButtonStyleKey}">
+		<Setter
+			Property="MinWidth"
+			Value="24" />
+		<Setter
+			Property="MinHeight"
+			Value="24" />
+		<Setter
+			Property="FrameworkElement.ToolTip"
+			Value="{StaticResource collapseEmptyCellsToolTip}" />
+		<Setter
+			Property="ButtonBase.ClickMode"
+			Value="Release" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Background="#00FFFFFF"
+						SnapsToDevicePixels="True"
+						Padding="{TemplateBinding Padding}">
+						<igWindows:CardPanel>
+							<Grid>
+								<Ellipse
+									Name="glyphStroke"
+									Width="10"
+									Height="10"
+									Stroke="{TemplateBinding Foreground}"
+									StrokeThickness="1" />
+								<Ellipse
+									Name="glyphCenter"
+									Width="6"
+									Height="6"
+									Fill="{TemplateBinding Foreground}" />
+							</Grid>
+						</igWindows:CardPanel>
+					</Border>
+					<ControlTemplate.Triggers>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=ShouldCollapseEmptyCellsResolved}">
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{StaticResource unCollapseEmptyCellsToolTip}" />
+						</DataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CardHeaderPresenter}"
+		x:Key="{x:Type igDP:CardHeaderPresenter}">
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="MinHeight"
+			Value="24" />
+		<Setter
+			Property="TextTrimming"
+			Value="CharacterEllipsis" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundNormalBrushKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardBorderBrushKey}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextNormalBrushKey}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:CardHeaderPresenter}">
+					<Grid>
+						<Border
+							Name="Bd"
+							Background="{TemplateBinding Background}">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="*" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<ContentPresenter
+									Name="CardHeader"
+									Content="{TemplateBinding Content}"
+									ContentTemplate="{TemplateBinding ContentTemplate}"
+									ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+									VerticalAlignment="Center"
+									HorizontalAlignment="Stretch"
+									Margin="5,0" />
+								<Border
+									BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Grid.ColumnSpan="3"
+									SnapsToDevicePixels="True" />
+								<Button
+									Name="ToggleEmptyCellsCollapsedStateButton"
+									Command="{x:Static igDP:DataPresenterCommands.ToggleEmptyCardCellsCollapsedState}"
+									Margin="2,0"
+									Grid.Column="1"
+									Style="{DynamicResource igDP:CardHeaderPresenter.CollapseEmptyCellsButtonStyleKey}"
+									CommandParameter="{Binding}"
+									Visibility="{Binding Card.CollapseEmptyCellsButtonVisibility, Mode=OneWay, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+								<Button
+									Name="ToggleCollapsedStateButton"
+									Command="{x:Static igDP:DataPresenterCommands.ToggleCardCollapsedState}"
+									Margin="2,0,5,0"
+									Grid.Column="2"
+									Style="{DynamicResource igDP:CardHeaderPresenter.CollapseCardButtonStyleKey}"
+									CommandParameter="{Binding}"
+									Visibility="{Binding Card.CollapseCardButtonVisibility, Mode=OneWay, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+							</Grid>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding IsFilterRecord, RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}"
+								Property="Foreground" />
+							<Setter
+								TargetName="ToggleCollapsedStateButton"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}"
+								Property="Foreground" />
+							<Setter
+								TargetName="ToggleEmptyCellsCollapsedStateButton"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}"
+								Property="Foreground" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsActive, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsAddRecord, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextNormalBrushKey}"
+								Property="Foreground" />
+							<Setter
+								TargetName="ToggleCollapsedStateButton"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextNormalBrushKey}"
+								Property="Foreground" />
+							<Setter
+								TargetName="ToggleEmptyCellsCollapsedStateButton"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextNormalBrushKey}"
+								Property="Foreground" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsActive, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding Path=IsAddRecord, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding Path=IsSelected, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsFilterRecord, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}"
+								Property="Background" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}"
+								Property="Foreground" />
+							<Setter
+								TargetName="ToggleCollapsedStateButton"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}"
+								Property="Foreground" />
+							<Setter
+								TargetName="ToggleEmptyCellsCollapsedStateButton"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}"
+								Property="Foreground" />
+						</MultiDataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsSelected, RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsAddRecord, RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+				<Setter
+					Property="FontFamily"
+					Value="Segoe UI Semibold" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsFilterRecord, RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+				<Setter
+					Property="FontFamily"
+					Value="Segoe UI Semibold" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:CardViewCard}"
+		x:Key="{x:Type igDP:CardViewCard}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardBackgroundBrushKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardBorderBrushKey}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Visibility"
+			Value="{Binding VisibilityResolved}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:CardViewCard}">
+					<Border
+						Name="Bd"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						Background="{TemplateBinding Background}"
+						Padding="{TemplateBinding Padding}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="*" />
+							</Grid.RowDefinitions>
+							<Border
+								Name="HeaderBgWhenVisHidden"
+								Visibility="Collapsed"
+								Background="{Binding Background, ElementName=CardHeaderPresenter}" />
+							<igDP:CardHeaderPresenter
+								Name="CardHeaderPresenter"
+								Content="{Binding Header, RelativeSource={x:Static RelativeSource.TemplatedParent}}"
+								ContentTemplate="{Binding HeaderTemplate, RelativeSource={x:Static RelativeSource.TemplatedParent}}"
+								ContentTemplateSelector="{Binding HeaderTemplateSelector, RelativeSource={x:Static RelativeSource.TemplatedParent}}"
+								Visibility="{Binding HeaderVisibility, RelativeSource={x:Static RelativeSource.TemplatedParent}}"
+								Card="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+							<Rectangle
+								Name="captionStroke"
+								Fill="{TemplateBinding BorderBrush}"
+								Height="1"
+								Grid.Row="1" />
+							<Rectangle
+								Name="outerBd"
+								Fill="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardChromeBorderBrushKey}"
+								Grid.Row="1"
+								Grid.Column="1" />
+							<Border
+								Name="innerBd"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="1"
+								Grid.Row="2"
+								Margin="0 1 0 0"
+								SnapsToDevicePixels="True">
+								<ScrollViewer
+									Name="CardContentScrollViewer"
+									Focusable="False"
+									CanContentScroll="False"
+									HorizontalScrollBarVisibility="Auto"
+									VerticalScrollBarVisibility="Auto"
+									Style="{StaticResource ScrollViewerStyle}">
+									<ContentControl
+										Name="CardContent"
+										Content="{TemplateBinding Content}"
+										ContentTemplate="{TemplateBinding ContentTemplate}" />
+								</ScrollViewer>
+							</Border>
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igDP:CardViewCard.IsCollapsed"
+							Value="True">
+							<Setter
+								TargetName="innerBd"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="Bd"
+								Property="VerticalAlignment"
+								Value="Top" />
+							<Setter
+								TargetName="captionStroke"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CardViewCard.HeaderVisibility"
+							Value="Collapsed">
+							<Setter
+								TargetName="captionStroke"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="innerBd"
+								Property="Margin"
+								Value="1" />
+							<Setter
+								TargetName="innerBd"
+								Property="BorderThickness"
+								Value="1" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CardViewCard.HeaderVisibility"
+							Value="Hidden">
+							<Setter
+								TargetName="HeaderBgWhenVisHidden"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CardViewCard.IsSelected"
+							Value="True" />
+						<Trigger
+							Property="igDP:CardViewCard.IsActive"
+							Value="True" />
+						<Trigger
+							Property="igDP:CardViewCard.IsAddRecord"
+							Value="True">
+							<Setter
+								TargetName="CardHeaderPresenter"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowHeaderBrushKey}"
+								Property="Background" />
+							<Setter
+								TargetName="outerBd"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowCardChromeBrushKey}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CardViewCard.IsFilterRecord"
+							Value="True">
+							<Setter
+								TargetName="CardHeaderPresenter"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderFilterRecordHeaderBrushKey}"
+								Property="Background" />
+							<Setter
+								TargetName="outerBd"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderFilterRecordCardChromeBrushKey}"
+								Property="Fill" />
+							<Setter
+								TargetName="CardHeaderPresenter"
+								Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowHeaderTextBrushKey}"
+								Property="Foreground" />
+						</Trigger>
+						<Trigger
+							Property="igDP:CardViewCard.IsOpacityReduced"
+							Value="True">
+							<Setter
+								TargetName="Bd"
+								Property="UIElement.Opacity"
+								Value="0.35" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Menu}"
+		x:Key="RootMenuStyle">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Menu.IsMainMenu"
+			Value="False" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<igWindows:CardPanel />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type igDP:FieldMenuItem}"
+		x:Key="subMenuItemTemplate">
+		<igWindows:CardPanel
+			Background="#00FFFFFF">
+			<Border
+				Name="Highlight"
+				BorderThickness="1"
+				BorderBrush="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemHotTrackOuterBorderBrushKey}"
+				Background="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemHotTrackInnerBorderBrushKey}"
+				SnapsToDevicePixels="True"
+				Visibility="Collapsed">
+				<Border
+					Name="HighlightInner"
+					Background="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemHotTrackFillBrushKey}" />
+			</Border>
+			<Grid
+				SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="MenuItemIconArea" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="24" />
+				</Grid.ColumnDefinitions>
+				<Border
+					Name="IconAreaBackground"
+					Grid.Column="0"
+					Background="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemIconAreaBrushKey}"
+					BorderBrush="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemIconAreaBorderBrushKey}"
+					BorderThickness="0"
+					Margin="0" />
+				<Border
+					Name="IconArea"
+					Grid.Column="0"
+					Margin="3">
+					<Border
+						Name="OrangeCheckBox"
+						SnapsToDevicePixels="True"
+						BorderThickness="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Padding="1">
+						<igWindows:CardPanel
+							Width="13"
+							Height="13">
+							<igWindows:CardPanel
+								Name="GlyphPanel"
+								FlowDirection="LeftToRight"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Visibility="Collapsed">
+								<igWindows:CardPanel
+									SnapsToDevicePixels="True"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top">
+									<Path
+										Height="8"
+										Width="8"
+										Stretch="Fill"
+										Data="M1145.607177734375,430 C1145.607177734375,430 1141.449951171875,435.0772705078125 1141.449951171875,435.0772705078125 C1141.449951171875,435.0772705078125 1139.232177734375,433.0999755859375 1139.232177734375,433.0999755859375 C1139.232177734375,433.0999755859375 1138,434.5538330078125 1138,434.5538330078125 C1138,434.5538330078125 1141.482177734375,438 1141.482177734375,438 C1141.482177734375,438 1141.96875,437.9375 1141.96875,437.9375 C1141.96875,437.9375 1147,431.34619140625 1147,431.34619140625 C1147,431.34619140625 1145.607177734375,430 1145.607177734375,430"
+										Fill="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemCheckMarkStrokeBrushKey}"
+										StrokeThickness="1"
+										Margin="0.627,0.363,0,0" />
+								</igWindows:CardPanel>
+							</igWindows:CardPanel>
+							<igWindows:AutoDisabledImage
+								Name="Icon"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								Source="{Binding ImageSource}" />
+						</igWindows:CardPanel>
+					</Border>
+				</Border>
+				<ContentPresenter
+					Name="Header"
+					ContentSource="Header"
+					HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+					VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+					RecognizesAccessKey="True"
+					Margin="7,0,0,0"
+					Grid.Column="2" />
+				<Rectangle
+					Name="Separator"
+					SnapsToDevicePixels="True"
+					Visibility="Collapsed"
+					Fill="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemSeparatorBrushKey}"
+					Height="1"
+					Grid.Column="0"
+					Grid.ColumnSpan="4" />
+				<Grid
+					Name="Menu_Arrow"
+					Width="20"
+					Height="20"
+					Margin="0"
+					Column="3"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Visibility="Collapsed">
+					<Path
+						Name="Glyph_Arrow"
+						Fill="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemDropDownArrowBrushKey}"
+						SnapsToDevicePixels="True"
+						Stretch="None"
+						Height="10"
+						Width="6"
+						Data="M0,0 L0,8 L4,4"
+						HorizontalAlignment="Center"
+						Margin="0"
+						VerticalAlignment="Center" />
+				</Grid>
+			</Grid>
+			<Popup
+				Name="PART_Popup"
+				AllowsTransparency="True"
+				Placement="Right"
+				Focusable="False"
+				IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}">
+				<AdornerDecorator>
+					<Border
+						BorderThickness="1"
+						BorderBrush="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemPopupOuterBorderBrushKey}"
+						Background="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemPopupFillBrushKey}">
+						<igWindows:PopupResizerDecorator
+							Name="resizeDecorator"
+							Grid.IsSharedSizeScope="True">
+							<igWindows:XamPager
+								CanContentScroll="True"
+								VerticalScrollBarVisibility="Auto"
+								HorizontalScrollBarVisibility="Disabled">
+								<ItemsPresenter
+									Grid.ColumnSpan="2"
+									KeyboardNavigation.TabNavigation="Cycle"
+									KeyboardNavigation.DirectionalNavigation="Cycle"
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</igWindows:XamPager>
+						</igWindows:PopupResizerDecorator>
+					</Border>
+				</AdornerDecorator>
+			</Popup>
+		</igWindows:CardPanel>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding HasResizableItems}">
+				<Setter
+					TargetName="resizeDecorator"
+					Property="igWindows:PopupResizerDecorator.ResizeMode"
+					Value="Both" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsResizable}">
+				<Setter
+					TargetName="IconArea"
+					Property="VerticalAlignment"
+					Value="Top" />
+			</DataTrigger>
+			<Trigger
+				Property="MenuItem.IsSubmenuOpen"
+				Value="False">
+				<Setter
+					TargetName="PART_Popup"
+					Value="{DynamicResource SystemParameters.MenuPopupAnimationKey}"
+					Property="PopupAnimation" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="SubmenuHeader">
+				<Setter
+					TargetName="Menu_Arrow"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsSeparator}">
+				<Setter
+					TargetName="IconArea"
+					Property="Visibility"
+					Value="Collapsed" />
+				<Setter
+					TargetName="Header"
+					Property="Column"
+					Value="2" />
+				<Setter
+					TargetName="Menu_Arrow"
+					Property="Visibility"
+					Value="Collapsed" />
+				<Setter
+					TargetName="Separator"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="Separator"
+					Property="Margin"
+					Value="1,0" />
+			</DataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding IsHighlighted, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding IsControlHost}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					TargetName="IconAreaBackground"
+					Property="Visibility"
+					Value="Collapsed" />
+				<Setter
+					TargetName="Highlight"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="Glyph_Arrow"
+					Value="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemHotTrackDropDownArrowBrushKey}"
+					Property="Fill" />
+			</MultiDataTrigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource DisabledForegroundBrush}" />
+				<Setter
+					TargetName="Glyph_Arrow"
+					Property="Fill"
+					Value="{StaticResource DisabledBackgroundBrush}" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						SourceName="Icon"
+						Property="Source"
+						Value="{x:Null}" />
+					<Condition
+						Property="MenuItem.IsChecked"
+						Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter
+					TargetName="GlyphPanel"
+					Property="Visibility"
+					Value="Visible" />
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type igDP:FieldMenuItem}"
+		x:Key="{x:Type igDP:FieldMenuItem}">
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.MenuItemForegroundBrushKey}" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="MenuItem.CommandParameter"
+			Value="{Binding CommandParameter}" />
+		<Setter
+			Property="MenuItem.Command"
+			Value="{Binding Command}" />
+		<Setter
+			Property="MenuItem.IsChecked"
+			Value="{Binding IsChecked}" />
+		<Setter
+			Property="MenuItem.IsCheckable"
+			Value="{Binding IsCheckable}" />
+		<Setter
+			Property="Header"
+			Value="{Binding Header}" />
+		<Setter
+			Property="MenuItem.Icon"
+			Value="{Binding ImageSource}" />
+		<Setter
+			Property="ItemsSource"
+			Value="{Binding Items}" />
+		<Setter
+			Property="MenuItem.StaysOpenOnClick"
+			Value="{Binding StaysOpenOnClick}" />
+		<Setter
+			Property="igWindows:PopupResizerStackPanel.IsResizable"
+			Value="{Binding IsResizable}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="Template"
+			Value="{StaticResource subMenuItemTemplate}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<igWindows:PopupResizerStackPanel />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="TopLevelHeader">
+				<Setter
+					Property="Template"
+					Value="{StaticResource topLevelMenuItemTemplate}" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="TopLevelItem">
+				<Setter
+					Property="Template"
+					Value="{StaticResource topLevelMenuItemTemplate}" />
+			</Trigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsSeparator}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsResizable}">
+				<Setter
+					Property="VerticalContentAlignment"
+					Value="Stretch" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type igDP:FilterButton}"
+		x:Key="excelFilterButtonTemplate">
+		<Border
+			BorderThickness="{TemplateBinding BorderThickness}"
+			BorderBrush="{TemplateBinding BorderBrush}"
+			Background="#00FFFFFF"
+			SnapsToDevicePixels="True"
+			Padding="{TemplateBinding Padding}">
+			<Menu
+				SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+				HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+				VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+				Style="{StaticResource RootMenuStyle}">
+				<igDP:FieldMenuItem
+					Name="PART_FilterMenu"
+					HorizontalContentAlignment="Center"
+					VerticalContentAlignment="Center"
+					IsSubmenuOpen="{Binding IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+					<FrameworkElement.DataContext>
+						<igDP:FieldMenuDataItem />
+					</FrameworkElement.DataContext>
+					<HeaderedItemsControl.Header>
+						<Path
+							Width="12"
+							Height="10"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Data="M0,0 C0,0 11,0 11,0 C11,0 7,4 7,4 C7,4 7,8 7,8 C7,8 4,8 4,8 C4,8 4,4 4,4 C4,4 0,0 0,0"
+							Fill="{TemplateBinding Background}"
+							Stretch="Fill" />
+					</HeaderedItemsControl.Header>
+				</igDP:FieldMenuItem>
+			</Menu>
+		</Border>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type igDP:FilterButton}"
+		x:Key="FilterButtonStyleBase">
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="MinHeight"
+			Value="24" />
+		<Setter
+			Property="MinWidth"
+			Value="24" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBorder}}" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:FilterButton}">
+					<Border
+						Name="Border"
+						Background="#00FFFFFF"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						IsHitTestVisible="True">
+						<igWindows:CardPanel
+							IsHitTestVisible="False"
+							Margin="{TemplateBinding Padding}">
+							<Path
+								Name="btnPath"
+								Fill="{TemplateBinding Background}"
+								Width="12"
+								Height="10"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Data="M0,0 C0,0 11,0 11,0 C11,0 7,4 7,4 C7,4 7,8 7,8 C7,8 4,8 4,8 C4,8 4,4 4,4 C4,4 0,0 0,0"
+								Stretch="Fill" />
+							<editors:XamComboEditor
+								MinDropDownWidth="150"
+								DropDownResizeMode="None"
+								Opacity="0"
+								MaxWidth="1"
+								ItemsSource="{Binding Operands, RelativeSource={RelativeSource TemplatedParent}}"
+								SelectedItem="{Binding SelectedOperand, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+								IsDropDownOpen="{Binding IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+								Height="{Binding ActualHeight, ElementName=btnPath}" />
+						</igWindows:CardPanel>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="igDP:FilterButton.DropDownType"
+				Value="MultiSelectExcelStyle">
+				<Setter
+					Property="Template"
+					Value="{StaticResource excelFilterButtonTemplate}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:FilterButton}"
+		BasedOn="{StaticResource FilterButtonStyleBase}"
+		x:Key="{x:Type igDP:FilterButton}">
+		<Setter
+			Property="Padding"
+			Value="3,0" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonBackgroundHover}}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:XamDataCards}"
+		x:Key="{x:Type igDP:XamDataCards}">
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDP:DataPresenterBrushKeys.ViewCardPanelBackgroundBrushKey}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:XamDataCards}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}">
+						<Grid
+							Name="PART_ContentSiteGrid" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type ScrollViewer}"
+					BasedOn="{StaticResource ScrollViewerStyle}"
+					x:Key="{x:Type ScrollViewer}" />
+				<Style
+					TargetType="{x:Type ScrollBar}"
+					BasedOn="{StaticResource ScrollBarStyle}"
+					x:Key="{x:Type ScrollBar}" />
+			</ResourceDictionary>
+		</Style.Resources>
+	</Style>
+</ResourceDictionary>

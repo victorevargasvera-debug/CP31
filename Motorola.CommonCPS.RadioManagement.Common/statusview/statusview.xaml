@@ -1,0 +1,56 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.StatusView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Background="{StaticResource StatusAreaBackgroundColor}">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0"
+			Margin="15,4">
+			<controls:RMTextBlock
+				HorizontalAlignment="Left"
+				Text="{Binding Status}" />
+			<controls:RMTextBlock
+				HorizontalAlignment="Right"
+				Text="{Binding Information}" />
+		</Grid>
+		<Grid
+			Row="1"
+			Margin="15,4"
+			Visibility="{Binding DatabaseSpaceWarningVisibility}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="16" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Image
+					Grid.Column="0"
+					Height="16"
+					Width="16"
+					HorizontalAlignment="Left"
+					Source="{Binding DatabaseSpaceWarningIcon}" />
+				<!--Unknown connection ID: 1-->
+				<controls:RMTextBlock
+					Grid.Column="1"
+					Margin="5,0,0,0"
+					HorizontalAlignment="Left"
+					Text="{Binding DatabaseSpaceWarningMsg}"
+					Foreground="{Binding DatabaseSpaceWarningColor}" />
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

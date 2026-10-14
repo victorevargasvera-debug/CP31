@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ModuleOAuthOpenIDConnect.cs" />
+    <Compile Include="mshtml\IHTMLDocument3.cs" />
+    <Compile Include="mshtml\IHTMLElement.cs" />
+    <Compile Include="mshtml\IHTMLElementCollection.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="OAuthLoginView.cs" />
+    <Compile Include="OAuthLoginViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectAgencyView.cs" />
+    <Compile Include="SelectAgencyViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IdentityModel.OidcClient\IdentityModel.OidcClient.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA67C}</Project>
+      <Name>IdentityModel.OidcClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IdentityModel\IdentityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA67B}</Project>
+      <Name>IdentityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.CommandHandler\Motorola.CommonCPS.RadioManagement.CommandHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Controls\Motorola.CommonCPS.RadioManagement.Controls.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AB}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Infrastructure\Motorola.CommonCPS.RadioManagement.Infrastructure.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B3}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlCommonUtility\SamlCommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D8}</Project>
+      <Name>SamlCommonUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="oauthloginview\oauthloginview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="selectagencyview\selectagencyview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

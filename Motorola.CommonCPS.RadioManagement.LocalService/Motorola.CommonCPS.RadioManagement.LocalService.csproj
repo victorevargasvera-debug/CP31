@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.LocalService</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.LocalService</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.2.cs" />
+    <Compile Include="a.cs" />
+    <Compile Include="AddAstroRadioContextValidator.cs" />
+    <Compile Include="AppLicenseViewCache.cs" />
+    <Compile Include="AppLicenseViewProvider.cs" />
+    <Compile Include="ASTRODataProfileViewCache.cs" />
+    <Compile Include="ASTRODataProfileViewProvider.cs" />
+    <Compile Include="ASTROLocalService.cs" />
+    <Compile Include="ASTROOtarProfileInfoViewCache.cs" />
+    <Compile Include="ASTROOtarProfileRadioInfoViewCache.cs" />
+    <Compile Include="ASTROOtarProfileRadioInfoViewProvider.cs" />
+    <Compile Include="ASTROOtarProfileToRadioViewCache.cs" />
+    <Compile Include="ASTROOtarProfileToRadioViewProvider.cs" />
+    <Compile Include="ASTROOtarProfileViewCache.cs" />
+    <Compile Include="ASTROOtarProfileViewProvider.cs" />
+    <Compile Include="ASTROOtarRadioToProfileViewCache.cs" />
+    <Compile Include="ASTROOtarRadioToProfileViewProvider.cs" />
+    <Compile Include="ASTRORadioValidationService.cs" />
+    <Compile Include="ASTROScheduleJobContextValidator.cs" />
+    <Compile Include="ASTROSystemViewCache.cs" />
+    <Compile Include="ASTROSystemViewProvider.cs" />
+    <Compile Include="ASTROUIValidationService.cs" />
+    <Compile Include="AvailableOptionsCache.cs" />
+    <Compile Include="b.2.cs" />
+    <Compile Include="b.cs" />
+    <Compile Include="c.2.cs" />
+    <Compile Include="c.cs" />
+    <Compile Include="CACertificatesViewCache.cs" />
+    <Compile Include="CompatibleTemplatesViewCache.cs" />
+    <Compile Include="CompatibleTemplatesViewProvider.cs" />
+    <Compile Include="d.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="e.cs" />
+    <Compile Include="f.cs" />
+    <Compile Include="FirmwareViewCache.cs" />
+    <Compile Include="g.cs" />
+    <Compile Include="GeneralPackageLoaclService.cs" />
+    <Compile Include="GeneralPackageViewCache.cs" />
+    <Compile Include="h.cs" />
+    <Compile Include="HelpMapData.cs" />
+    <Compile Include="HistoricalJobsProvider.cs" />
+    <Compile Include="HistoricalJobViewCache.cs" />
+    <Compile Include="i.cs" />
+    <Compile Include="IASTROLocalService.cs" />
+    <Compile Include="IASTROUIValidationService.cs" />
+    <Compile Include="IGeneralPackageLocalService.cs" />
+    <Compile Include="ILocalService.cs" />
+    <Compile Include="ImportRadioContextValidator.cs" />
+    <Compile Include="IRadioValidationService.cs" />
+    <Compile Include="IValidationUIServiceBase.cs" />
+    <Compile Include="j.cs" />
+    <Compile Include="JobViewCache.cs" />
+    <Compile Include="k.cs" />
+    <Compile Include="l.cs" />
+    <Compile Include="LanguagePackViewCache.cs" />
+    <Compile Include="LocalService.cs" />
+    <Compile Include="LocalServiceProxy.cs" />
+    <Compile Include="LocalServiceUtility.cs" />
+    <Compile Include="m.cs" />
+    <Compile Include="ModelConverter.cs" />
+    <Compile Include="ModifyPasswrodContextValidator.cs" />
+    <Compile Include="NewASTROOtarProfileCache.cs" />
+    <Compile Include="NewDataProfileCache.cs" />
+    <Compile Include="NewSystemCache.cs" />
+    <Compile Include="PackageViewCache.cs" />
+    <Compile Include="PackageViewProvider.cs" />
+    <Compile Include="ProfileInfoViewCache.cs" />
+    <Compile Include="ProfileRadioInfoViewCache.cs" />
+    <Compile Include="ProfileRadioInfoViewProvider.cs" />
+    <Compile Include="ProfileToRadioViewCache.cs" />
+    <Compile Include="ProfileToRadioViewProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioCache.cs" />
+    <Compile Include="RadioConversionViewCache.cs" />
+    <Compile Include="RadioLicenseAllViewCache.cs" />
+    <Compile Include="RadioLicenseAllViewProvider.cs" />
+    <Compile Include="RadioLicenseFeatureSubViewCache.cs" />
+    <Compile Include="RadioLicenseFeatureSubViewProvider.cs" />
+    <Compile Include="RadioLicenseFeatureViewCache.cs" />
+    <Compile Include="RadioLicenseRadioSubViewCache.cs" />
+    <Compile Include="RadioLicenseRadioSubViewProvider.cs" />
+    <Compile Include="RadioLicenseRadioViewCache.cs" />
+    <Compile Include="RadioProvider.cs" />
+    <Compile Include="RadioToProfileViewCache.cs" />
+    <Compile Include="RadioToProfileViewProvider.cs" />
+    <Compile Include="RadioToSystemViewCache.cs" />
+    <Compile Include="RadioToSystemViewProvider.cs" />
+    <Compile Include="RadioValidationService.cs" />
+    <Compile Include="RadioViewCache.cs" />
+    <Compile Include="ResetIdentifierValidationService.cs" />
+    <Compile Include="ScheduleJobContextValidator.cs" />
+    <Compile Include="SelectFirmwareContextValidator.cs" />
+    <Compile Include="SelectMVOViewCache.cs" />
+    <Compile Include="SystemInfoViewCache.cs" />
+    <Compile Include="SystemInfoViewProvider.cs" />
+    <Compile Include="SystemRadioInfoViewCache.cs" />
+    <Compile Include="SystemRadioInfoViewProvider.cs" />
+    <Compile Include="SystemToRadioViewCache.cs" />
+    <Compile Include="SystemToRadioViewProvider.cs" />
+    <Compile Include="TemplateReferencedRadioProvider.cs" />
+    <Compile Include="TemplateReferencedRadiosViewCache.cs" />
+    <Compile Include="TemplateRelatedRadiosProvider.cs" />
+    <Compile Include="TemplateRelatedRadiosProviderForPCRUpgrade.cs" />
+    <Compile Include="TemplateRelatedRadiosViewCache.cs" />
+    <Compile Include="TemplateRelatedRadiosViewCacheForPCRUpgarde.cs" />
+    <Compile Include="TemplateViewCache.cs" />
+    <Compile Include="TemplateViewProvider.cs" />
+    <Compile Include="TextToSpeechViewCache.cs" />
+    <Compile Include="UiBusyService.cs" />
+    <Compile Include="ValidationServiceFactory.cs" />
+    <Compile Include="ValidationUIServiceBase.cs" />
+    <Compile Include="ViewCacheNotifier.cs" />
+    <Compile Include="VoiceAnnouncementViewCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityBuilderLib\ActivityBuilderLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA642}</Project>
+      <Name>ActivityBuilderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonASK\CommonASK.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA663}</Project>
+      <Name>CommonASK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Converters\Motorola.CommonCPS.RadioManagement.Converters.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AC}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.InteractionHelper\Motorola.CommonCPS.RadioManagement.InteractionHelper.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B4}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.InteractionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.ModelConvertor\Motorola.CommonCPS.RadioManagement.ModelConvertor.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.ModelConvertor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.SharedService\Motorola.CommonCPS.RadioManagement.SharedService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.SharedService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedUtility\SharedUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DB}</Project>
+      <Name>SharedUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewCache\ViewCache.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E5}</Project>
+      <Name>ViewCache</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,852 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.DVRSProfiles.PageDVRSProfilesTbl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:DVRSProfilesNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.DVRSProfiles" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Title="{x:Static ResourceNS:AcgResources.ID_DVRSPROFILESTABLEVIEW}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpRecNavToolbar
+			Name="RecNavToolbarPageDVRSProfiles"
+			TableMode="True"
+			MyRecordsetDataSource="{Binding ElementName=DVRSProfilesList, Path=DataSource}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4143</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4143</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetDVRSProfiles"
+				ObjectType="{x:Type DVRSProfilesNS:DVRSProfiles}"
+				x:Key="GetFeatureNode" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralDVRSProfName_A41809CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralDVRSProfName_A41809_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralDVRSRemoteActivation_A41800CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralDVRSRemoteActivation_A41800_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralGenStsOnDVRSModChg_A41801CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChg_A41801_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-60}"
+								Text="{Binding Path=Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralICMAllowed_A41802CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralICMAllowed_A41802_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralOutSysRepLocalMode_A41804CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralOutSysRepLocalMode_A41804_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralMSUSysPTTInLocalMode_A41803CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralLocalTxFallback_A41806CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 11-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralLocalTxFallback_A41806_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralProxyTimeOutTimer_A41807CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 12-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{char:8:0-9infiniteINFINITE}"
+								Text="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralProxyTimeOutTimer_A41807_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralProxyLimitPatienceTimer_A41808CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 13-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-60}"
+								Text="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralProxyLimitPatienceTimer_A41808_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralProxyRFSSReponseTimer_A41810CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 14-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-6375}"
+								Text="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralProxyRFSSReponseTimer_A41810_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSProfGeneralSuspendScanOnDVRSActive_42782CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 15-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSProfilesGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DVRSProfGeneralSuspendScanOnDVRSActive_42782_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 16-->
+		<AcpUINS:AcpXamDataPresenter
+			Name="DVRSProfilesList"
+			KeyboardNavigation.AcceptsReturn="True"
+			Grid.Row="1">
+			<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+				<MultiBinding
+					Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+					Mode="OneWay">
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppMode" />
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppHideMatches" />
+					<Binding
+						Source="{StaticResource GetParentFeature}"
+						Path="_HasDiffs" />
+					<Binding
+						Path="IsAcpVisible"
+						RelativeSource="{RelativeSource Self}" />
+					<Binding
+						Path="FieldLayouts[0].Fields[0].Visibility"
+						RelativeSource="{RelativeSource Self}" />
+				</MultiBinding>
+			</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+			<igcontrols:DataPresenterBase.FieldLayouts>
+				<igcontrols:FieldLayout>
+					<igcontrols:FieldLayout.Fields>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DVRSPROFILENAME}"
+							BindingPath="General.DVRSProfGeneralDVRSProfName_A41809"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralDVRSProfName_A41809_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralDVRSProfName_A41809CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DVRSREMOTEACTIVATION}"
+							BindingPath="General.DVRSProfGeneralDVRSRemoteActivation_A41800"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralDVRSRemoteActivation_A41800_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralDVRSRemoteActivation_A41800CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_GENERATESTATUSONDVRSMODECHANGE}"
+							BindingPath="General.DVRSProfGeneralGenStsOnDVRSModChg_A41801"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralGenStsOnDVRSModChg_A41801_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralGenStsOnDVRSModChg_A41801CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_GENERATESTATUSONDVRSMODECHANGEHOLDOFFSEC}"
+							BindingPath="General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralGenStsOnDVRSModChgHoldoff_A41869CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ICMALLOWED}"
+							BindingPath="General.DVRSProfGeneralICMAllowed_A41802"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralICMAllowed_A41802_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralICMAllowed_A41802CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_OUTBOUNDSYSTEMREPEATINLOCALMODE}"
+							BindingPath="General.DVRSProfGeneralOutSysRepLocalMode_A41804"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralOutSysRepLocalMode_A41804_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralOutSysRepLocalMode_A41804CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_MSUSYSTEMPTTINLOCALMODE}"
+							BindingPath="General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralMSUSysPTTInLocalMode_A41803_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralMSUSysPTTInLocalMode_A41803CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ROUTEMSUMICAUDIOTODVRSINSYSTEMMODE}"
+							BindingPath="General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralRouteMSUPTTMicAudToDVR_A41805CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_LOCALTXFALLBACK}"
+							BindingPath="General.DVRSProfGeneralLocalTxFallback_A41806"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralLocalTxFallback_A41806_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralLocalTxFallback_A41806CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_PROXYTIMEOUTTIMERSEC}"
+							BindingPath="General.DVRSProfGeneralProxyTimeOutTimer_A41807"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralProxyTimeOutTimer_A41807_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralProxyTimeOutTimer_A41807CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_PROXYLIMITEDPATIENCESEC}"
+							BindingPath="General.DVRSProfGeneralProxyLimitPatienceTimer_A41808"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralProxyLimitPatienceTimer_A41808_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralProxyLimitPatienceTimer_A41808CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_PROXYRFSSRESPONSETIMEMS}"
+							BindingPath="General.DVRSProfGeneralProxyRFSSReponseTimer_A41810"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralProxyRFSSReponseTimer_A41810_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralProxyRFSSReponseTimer_A41810CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_SUSPENDSCANONDVRSACTIVE}"
+							BindingPath="General.DVRSProfGeneralSuspendScanOnDVRSActive_42782"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DVRSProfGeneralSuspendScanOnDVRSActive_42782_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DVRSProfGeneralSuspendScanOnDVRSActive_42782CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+					</igcontrols:FieldLayout.Fields>
+				</igcontrols:FieldLayout>
+			</igcontrols:DataPresenterBase.FieldLayouts>
+		</AcpUINS:AcpXamDataPresenter>
+	</Grid>
+</AcpUINS:AcpPageFeature>

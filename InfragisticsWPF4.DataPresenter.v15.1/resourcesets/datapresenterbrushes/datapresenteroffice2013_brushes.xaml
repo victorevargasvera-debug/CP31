@@ -1,0 +1,793 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:themes="http://infragistics.com/Themes" xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+	<Color
+		x:Key="Color_001">#FF444444</Color>
+	<Color
+		x:Key="Color_002">#FF6D6D6D</Color>
+	<Color
+		x:Key="Color_003">#FF777777</Color>
+	<Color
+		x:Key="Color_004">#FF959595</Color>
+	<Color
+		x:Key="Color_005">#FFABABAB</Color>
+	<Color
+		x:Key="Color_006">#FFE1E1E1</Color>
+	<Color
+		x:Key="Color_007">#FFF0F0F0</Color>
+	<Color
+		x:Key="Color_008">#FFF3F3F3</Color>
+	<Color
+		x:Key="Color_009">#FFFFFFFF</Color>
+	<Color
+		x:Key="Color_0010">#FFE6F2FA</Color>
+	<Color
+		x:Key="Color_010">#FFCDE6F7</Color>
+	<Color
+		x:Key="Color_011">#FF92C0E0</Color>
+	<Color
+		x:Key="Color_012">#FF2A8DD4</Color>
+	<Color
+		x:Key="Color_013">#FF0072C6</Color>
+	<Color
+		x:Key="Color_014">#FFD20000</Color>
+	<Color
+		x:Key="Color_046">#00FFFFFF</Color>
+	<Color
+		x:Key="Color_056">#19000000</Color>
+	<Color
+		x:Key="Color_015">#FF5B9BD5</Color>
+	<Color
+		x:Key="Color_016">#FFED7D31</Color>
+	<Color
+		x:Key="Color_017">#FFA5A5A5</Color>
+	<Color
+		x:Key="Color_018">#FFFFC000</Color>
+	<Color
+		x:Key="Color_019">#FF4472C4</Color>
+	<Color
+		x:Key="Color_020">#FF70AD47</Color>
+	<Color
+		x:Key="Color_021">#FF255E91</Color>
+	<Color
+		x:Key="Color_022">#FF9E480E</Color>
+	<Color
+		x:Key="Color_023">#FFE0CD8E</Color>
+	<Color
+		x:Key="Color_024">#FF997300</Color>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="ForegroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="LightForegroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="AccentForegroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="TransparentBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="RecordScrollTipBackground" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="RecordScrollTipStroke" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="TreeViewBackground" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="ListboxBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="ListboxBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="SummaryCommandButtonsBackgroundPressed" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="GroupByAreaMultiBackgroundStroke" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="IndicatorsFill" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="CustomFilterButtonGlyph" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="FilterDescriptionBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="FilterDescriptionBorderbrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_012}"
+		x:Key="FilterActiveBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_006}"
+		x:Key="DisabledBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="DisabledBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_002}"
+		x:Key="DisabledForegroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="CheckBoxBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="CheckBoxHoverBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="CheckBoxPressedBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="CheckBoxFocusedBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="CheckBoxBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="CheckBoxHoverBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="CheckBoxPressedBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="CheckBoxFocusedBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="CarouselBreadcrumbControlBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_014}"
+		x:Key="CarouselBreadcrumbControlBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="BreadcrumbForegroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_008}"
+		x:Key="BreadcrumbBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="BreadcrumbBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="BreadcrumbSeparatorFillBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, CarouselItemExpansionIndicator}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, BreadcrumbItemForegroundHover}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, CardBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, AddRowBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, FixedRecord}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, NestedContentBackgroundBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelHighlight}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelForeground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelInnerBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelOuterBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByNavBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByNavBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByNavBackgroundHover}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByAreaBackgroundHighlight}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_006}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByLabelHighlight}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByLabelHighlightBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_002}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonBackgroundHover}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCSCItemForeground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_002}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBackgroundHover}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.BaseBackgroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.LabelPresenterFooterMid}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_020}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.AndLogicalOperatorBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_016}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.OrLogicalOperatorBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ConnectorLinePenBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FieldLayoutForeground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedRecordGlyphBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FieldChooserDragBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ExpanderBarBackgroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ExpanderBarBackgroundHoverKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ExpanderBarBorderHoverKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalCenterBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalOuterBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalInnerBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonHoverCenterBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonHoverOuterBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonHoverInnerBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonPressedCenterBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonPressedOuterBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonPressedInnerBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_006}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledOuterBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledCenterBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledInnerBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlTextblockBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlHeaderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlToolbarBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="FixedFieldsSplitterBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterVerticalFillBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterHorizontalFillBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_0010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterVerticalHottrackFillBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_0010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterHorizontalHottrackFillBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_006}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterStrokeBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterHottrackStrokeBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterGripperDarkLineBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterGripperLightLineBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.GroupByAreaMultiHighlightBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.GroupByAreaMultiBackgroundBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.GroupByNavBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFCAD5"
+		themes:ResourceWasher.IsExcludedFromWash="True"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.DataErrorHighlightBackgroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.IsExcludedFromWash="True"
+		Color="{StaticResource Color_014}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.DataErrorHighlightBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.IsExcludedFromWash="True"
+		Color="{StaticResource Color_014}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.DataErrorIconForegroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.SummaryCSCItemForegroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.SummaryCommandButtonsBorderKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_003}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCardGlyphNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCardGlyphPressedBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCardGlyphActiveBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCellGlyphCheckedStrokeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCellGlyphCheckedBackgroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBackgroundHottrackBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBackgroundPressedBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowHeaderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBorderHottrackBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBorderPressedBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardBackgroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardChromeBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderTextNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardPanelBackgroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderBorderNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowHeaderTextBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowCardChromeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderFilterRecordHeaderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		Color="{StaticResource Color_013}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderFilterRecordCardChromeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackOuterBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Text"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackForegroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIconAreaBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIconAreaBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemCheckMarkStrokeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="IsChecked"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIsCheckedBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemDropDownArrowBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackDropDownArrowBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Text"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemForegroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Text"
+		Color="{StaticResource Color_006}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemSeparatorBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemPopupFillBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="{StaticResource Color_005}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemPopupOuterBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuHighlightOuterBorderBrushFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_001}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuHighlightTextBrushFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuHighlightBackgroundBrushFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackInnerBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_010}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackFillBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_011}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIsCheckedFillBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="{StaticResource Color_046}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.RecordFilterTreeSearchBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.RecordFilterTreeClearSearchFillBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.RecordFilterTreeClearSearchHotTrackFillBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#19994F"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryRecordPresenterBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#1119994F"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryRecordPresenterBackground}" />
+	<CornerRadius
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, BreadcrumbCornerRadius}">0,0,0,0</CornerRadius>
+	<CornerRadius
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelCornerRadius}">0</CornerRadius>
+	<DrawingBrush
+		x:Freeze="true"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FFSplitterVerticalTileBrushKey}" />
+	<DrawingBrush
+		x:Freeze="true"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FFSplitterHorizontalTileBrushKey}" />
+	<Pen
+		x:Freeze="true"
+		Thickness="1"
+		StartLineCap="Square"
+		EndLineCap="Square"
+		Brush="{StaticResource {x:Static igDP:DataPresenterBrushKeys.ConnectorLinePenBrush}}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ConnectorLinePen}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="HScrollbarThumbBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="HScrollbarThumbBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="VScrollbarThumbBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="VScrollbarThumbBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="VScrollbarThumbHoverBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="HScrollbarThumbHoverBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="VScrollbarThumbHoverBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="HScrollbarThumbHoverBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="VScrollbarThumbPressedBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="HScrollbarThumbPressedBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="VScrollbarThumbPressedBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="HScrollbarThumbPressedBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ScrollbarPageButtonArrowBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ScrollbarPageButtonArrowPressedBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ScrollbarPageButtonArrowHoverBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="ScrollbarPageButtonBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_007}"
+		x:Key="ScrollbarPageButtonPressedBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="ScrollbarPageButtonHoverBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_005}"
+		x:Key="ScrollbarPageButtonBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ScrollbarPageButtonPressedBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ScrollbarPageButtonHoverBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_008}"
+		x:Key="ScrollbarBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_009}"
+		x:Key="ExpansionIndicatorGlyphBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ExpansionIndicatorGlyphBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_013}"
+		x:Key="ExpansionIndicatorGlyphHoverBackgroundBrush" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="{StaticResource Color_003}"
+		x:Key="ExpansionIndicatorGlyphExpandedBackgroundBrush" />
+</ResourceDictionary>

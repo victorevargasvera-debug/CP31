@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpecialFeatures</RootNamespace>
+    <AssemblyName>SpecialFeatures</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcpReportManagerLib\AcpReportMgrLib.cs" />
+    <Compile Include="AcpReportManagerLib\Global.cs" />
+    <Compile Include="AcpReportManagerLib\InputDialog.xaml.cs">
+      <DependentUpon>InputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpReportManagerLib\PageCustomPrintSelection.xaml.cs">
+      <DependentUpon>PageCustomPrintSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpReportManagerLib\PageSelectPrintItems.xaml.cs">
+      <DependentUpon>PageSelectPrintItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpReportManagerLib\ReportFileItem.cs" />
+    <Compile Include="AcpReportManagerLib\ReportsSerializeItems.cs" />
+    <Compile Include="AcpReportManagerLib\reportType.cs" />
+    <Compile Include="AcpReportManagerLib\ReportViewer.xaml.cs">
+      <DependentUpon>ReportViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpReportManagerLib\RptMgrErrorHandler.cs" />
+    <Compile Include="AcpReportManagerLib\RptTreeViewItem.cs" />
+    <Compile Include="AcpReportManagerLib\XPFContent.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\AcpBaseXMLCoreEngine.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\AcpReports.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\AcpXMLCoreEngLib.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\AddRadHandoutTablesFuncs.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\AddRadInfotablesFuncs.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\BaseHandOutXMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\BaseRadioInfoXMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\E5XMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\HandOutXMLCoreEngine.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\IAcpReports.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\IAddRadHandouttables.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\IAddRadInfotables.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\O2XMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\O3XMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\O5XMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\O7XMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\O9XMLCoreEngine.cs" />
+    <Compile Include="ACPXMLCoreEngineLib\XMLCoreEngineFactory.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\_RecSet.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\_table.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\_UIFields.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\_Value.cs" />
+    <Compile Include="AcpXMLCoreEngineLib\_XMLData.cs" />
+    <Compile Include="BusyIndicator.cs" />
+    <Compile Include="BusyStates.cs" />
+    <Compile Include="CBISerialNum\CbiSerNumWind.cs" />
+    <Compile Include="CBISerialNum\MyDataSource.cs" />
+    <Compile Include="CBISerialNum\SerialNumberRule.cs" />
+    <Compile Include="CloneExpress\PageCloneExpress.cs" />
+    <Compile Include="CloneWiFi\PageCloneWiFiView.cs" />
+    <Compile Include="CloneWiFi\PageCloneWiFiViewModel.cs" />
+    <Compile Include="CloneWiFi\WiFiPwd.cs" />
+    <Compile Include="CloneWiFi\WiFiRecord.cs" />
+    <Compile Include="CloneWizard\PageCloneWizard.cs" />
+    <Compile Include="CloneWizard\SerialNumberValidMultiConverter.cs" />
+    <Compile Include="CloneWizard\SetCloneBtnLblConverter.cs" />
+    <Compile Include="Clone_Configuration\Common\AllowCloning.cs" />
+    <Compile Include="Clone_Configuration\Common\AstroRecSetCounts.cs" />
+    <Compile Include="Clone_Configuration\Common\AstroRecSetCountsItem.cs" />
+    <Compile Include="Clone_Configuration\Common\ClearAndRestorePassword.cs" />
+    <Compile Include="Clone_Configuration\Common\CodeplugData.cs" />
+    <Compile Include="Clone_Configuration\Common\CompatibilityChecks.cs" />
+    <Compile Include="Clone_Configuration\Common\DataModemPasswordUtil.cs" />
+    <Compile Include="Clone_Configuration\Common\DVRSXmlUtil.cs" />
+    <Compile Include="Clone_Configuration\Common\PINPasswordUtil.cs" />
+    <Compile Include="Clone_Configuration\Common\RadioEjectTimer.cs" />
+    <Compile Include="Clone_Configuration\Common\WiFiPasswordUtil.cs" />
+    <Compile Include="Clone_Configuration\Common\Win32APIs.cs" />
+    <Compile Include="CommonExceptionHelper.cs" />
+    <Compile Include="CommonSecurity.cs" />
+    <Compile Include="Comms\BluetoothPANProgramming.cs" />
+    <Compile Include="Comms\Clone.cs" />
+    <Compile Include="Comms\CloneParameters.cs" />
+    <Compile Include="Comms\CodeplugFormatConverter.cs" />
+    <Compile Include="Comms\CommParamBase.cs" />
+    <Compile Include="Comms\Comms.cs" />
+    <Compile Include="Comms\COMMS_OP.cs" />
+    <Compile Include="Comms\COMMS_TRANSPORT.cs" />
+    <Compile Include="Comms\DataProfIP.cs" />
+    <Compile Include="Comms\DeviceDiscoveryHandler.cs" />
+    <Compile Include="Comms\DeviceManager.cs" />
+    <Compile Include="Comms\DeviceManagerSingleTon.cs" />
+    <Compile Include="Comms\DeviceProxy.cs" />
+    <Compile Include="Comms\DeviceServiceHandler.cs" />
+    <Compile Include="Comms\DeviceServiceManagerProvider.cs" />
+    <Compile Include="Comms\Extension.cs" />
+    <Compile Include="Comms\FileProxy.cs" />
+    <Compile Include="Comms\FileProxyFactory.cs" />
+    <Compile Include="Comms\IDeviceManager.cs" />
+    <Compile Include="Comms\IDeviceProxy.cs" />
+    <Compile Include="Comms\LoadTxmCertificateMenu.xaml.cs">
+      <DependentUpon>LoadTxmCertificateMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Comms\Logger.cs" />
+    <Compile Include="Comms\ParseDataHelper.cs" />
+    <Compile Include="Comms\ProgressUpdate.xaml.cs">
+      <DependentUpon>ProgressUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Comms\ProxyParameter.cs" />
+    <Compile Include="Comms\RadioIdInfo.cs" />
+    <Compile Include="Comms\RadioOperationValidator.cs" />
+    <Compile Include="Comms\RadioParams.cs" />
+    <Compile Include="Comms\RadioPartitionConsts.cs" />
+    <Compile Include="Comms\SerialNumberValidator.cs" />
+    <Compile Include="Comms\Util\ComparableExtention.cs" />
+    <Compile Include="Comms\Util\HostVersion.cs" />
+    <Compile Include="Comms\Util\IIOCompressionHelper.cs" />
+    <Compile Include="Comms\Util\IOCompressionHelper.cs" />
+    <Compile Include="CxfFilePassword\CxfFileHandler.cs" />
+    <Compile Include="CxfFilePassword\Helpers\CmpToRawPartitionsConversionHelper.cs" />
+    <Compile Include="CxfFilePassword\Helpers\CpsCodeplugToCmpBytesConversionHelper.cs" />
+    <Compile Include="CxfFilePassword\Models\CxfFileInitializePasswordPromptResult.cs" />
+    <Compile Include="CxfFilePassword\Models\CxfFilePasswordPromptResult.cs" />
+    <Compile Include="CxfFilePassword\ViewModel\CxfFileInitializePasswordPromptViewModel.cs" />
+    <Compile Include="CxfFilePassword\ViewModel\CxfFilePasswordPromptViewModel.cs" />
+    <Compile Include="CxfFilePassword\View\CxfFileInitializePasswordPrompt.xaml.cs">
+      <DependentUpon>CxfFileInitializePasswordPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CxfFilePassword\View\CxfFilePasswordPrompt.xaml.cs">
+      <DependentUpon>CxfFilePasswordPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DdiltBuilder\DdiltBuilder.cs" />
+    <Compile Include="DdiltBuilder\DDILTComparer.cs" />
+    <Compile Include="DdiltBuilder\DdiltContainer.cs" />
+    <Compile Include="DdiltBuilder\DdiltGroup.cs" />
+    <Compile Include="DepotLabtool\DepotCommon.cs" />
+    <Compile Include="DepotLabtool\DepotCreateCodeplugWnd.xaml.cs">
+      <DependentUpon>DepotCreateCodeplugWnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepotLabtool\DepotPageUpgradeRadioProgressWnd.cs" />
+    <Compile Include="DepotLabtool\DepotUpgradeCodeplugWnd.xaml.cs">
+      <DependentUpon>DepotUpgradeCodeplugWnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepotLabtool\DepotUpgradeRadioWnd.xaml.cs">
+      <DependentUpon>DepotUpgradeRadioWnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepotLabtool\DisableEncConverter.cs" />
+    <Compile Include="DepotLabtool\DualKnobsConverter.cs" />
+    <Compile Include="DepotLabtool\ExtendedU1ValidConverter.cs" />
+    <Compile Include="DepotLabtool\FlashCodeplugForDepot.cs" />
+    <Compile Include="DepotLabtool\MariRadSoftConverter.cs" />
+    <Compile Include="DepotLabtool\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepotLabtool\PCIHandler.cs" />
+    <Compile Include="DepotLabtool\RegionValidConverter.cs" />
+    <Compile Include="DepotLabtool\UltraLowPowerConverter.cs" />
+    <Compile Include="DepotLabtool\UpgradeRadioData.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="DVRSFiles\DVRSFilesHelper.cs" />
+    <Compile Include="DVRSFiles\List\CustomSelectWindow.cs" />
+    <Compile Include="DVRSFiles\List\DownloadStatusesConverter.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileConstraints.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileItem.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileLabtoolSection.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileList.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileListInner.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileListInnerRecset.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileListInnerSection.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileListPage.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileListPageTbl.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileListRecSet.cs" />
+    <Compile Include="DVRSFiles\List\DVRSFileParentControlVisibilityConverter.cs" />
+    <Compile Include="DVRSFiles\List\TheDownloadStatuses.cs" />
+    <Compile Include="DVRSXML\CRC32.cs" />
+    <Compile Include="DVRSXML\DvrsElementItem.cs" />
+    <Compile Include="DVRSXML\DvrsMsuDataSync.cs" />
+    <Compile Include="FCCExceptionHandler\BaseSection.cs" />
+    <Compile Include="FCCExceptionHandler\FCCExceptionHandler.cs" />
+    <Compile Include="FCCExceptionHandler\FreqRange.cs" />
+    <Compile Include="FCCExceptionHandler\PointSection.cs" />
+    <Compile Include="FCCExceptionHandler\RangeSection.cs" />
+    <Compile Include="FCCExceptionHandler\SectionType.cs" />
+    <Compile Include="FileOperations\BrowseForFileDialogBox.xaml.cs">
+      <DependentUpon>BrowseForFileDialogBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileOperations\BrowseForFileLauncher.xaml.cs">
+      <DependentUpon>BrowseForFileLauncher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileOperations\BrowseForFilePage.xaml.cs">
+      <DependentUpon>BrowseForFilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileOperations\BusyIndicator.xaml.cs">
+      <DependentUpon>BusyIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileOperations\BusyIndicatorAutomationPeer.cs" />
+    <Compile Include="FileOperations\DialogResult.cs" />
+    <Compile Include="FileOperations\FileOperationData.cs" />
+    <Compile Include="FileOperations\FileOperationReturnEventArgs.cs" />
+    <Compile Include="FileOperations\FileOperationReturnEventHandler.cs" />
+    <Compile Include="FileOperations\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\Crc32.cs" />
+    <Compile Include="Flashport\FeatureNode.cs" />
+    <Compile Include="Flashport\FeatureSection.cs" />
+    <Compile Include="Flashport\Field.cs" />
+    <Compile Include="Flashport\FlashDataManager.cs" />
+    <Compile Include="Flashport\FlashDocument.cs" />
+    <Compile Include="Flashport\FlashFeatureIDs.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\FlashkeyConfiguration.xaml.cs">
+      <DependentUpon>FlashkeyConfiguration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\FlashkeyConfiguration\FlashkeyConfigurationFeatures.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\FlashkeyConfigurationFeaturesInner.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\FlashkeyConfigurationFeaturesInnerRecset.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\FlashkeyConfigurationFeaturesInnerSection.xaml.cs">
+      <DependentUpon>FlashkeyConfigurationFeaturesInnerSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\FlashkeyConfiguration\FlashkeyConfigurationRecset.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\General.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\PageFlashkeyConfiguration.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\PageFlashkeyConfigurationFeaturesInnerSection.cs" />
+    <Compile Include="Flashport\FlashkeyConfiguration\ReadFlashkeyConfiguration.cs" />
+    <Compile Include="Flashport\FlashkeyLib\Crc8Generator.cs" />
+    <Compile Include="Flashport\FlashkeyLib\Definitions.cs" />
+    <Compile Include="Flashport\FlashkeyLib\FieldLayout.cs" />
+    <Compile Include="Flashport\FlashkeyLib\FieldType.cs" />
+    <Compile Include="Flashport\FlashkeyLib\FindType.cs" />
+    <Compile Include="Flashport\FlashkeyLib\Flashkey.cs" />
+    <Compile Include="Flashport\FlashkeyLib\FlashkeyLayout.cs" />
+    <Compile Include="Flashport\FlashkeyLib\FlashkeyManager.cs" />
+    <Compile Include="Flashport\FlashkeyLib\StringEncoding.cs" />
+    <Compile Include="Flashport\FlashKeyManagerSingleTon.cs" />
+    <Compile Include="Flashport\FlashportUpgradeFile.cs" />
+    <Compile Include="Flashport\FlashRadio\ApxNext\FirmwareFileValidator.cs" />
+    <Compile Include="Flashport\FlashRadio\ApxNext\MetadataFileValidator.cs" />
+    <Compile Include="Flashport\FlashRadio\ApxNext\ProgressStage.cs" />
+    <Compile Include="Flashport\FlashRadio\ApxNext\ProgressUpdater.cs" />
+    <Compile Include="Flashport\FlashRadio\ApxNext\UpgradeRadioApxNext.cs" />
+    <Compile Include="Flashport\FlashRadio\Flashcode.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashcodeDecoder.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashcodeFormatter.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashcodeGenerator.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashcodeMapping.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashCodeplug.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashcodeTable.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashcodeValidator.cs" />
+    <Compile Include="Flashport\FlashRadio\FlashDefinitions.cs" />
+    <Compile Include="Flashport\FlashRadio\HasItemsToImageConverter.cs" />
+    <Compile Include="Flashport\FlashRadio\HasItemsToMessageConverter.cs" />
+    <Compile Include="Flashport\FlashRadio\MainUIDispatcher.cs" />
+    <Compile Include="Flashport\FlashRadio\MyDataSource.cs" />
+    <Compile Include="Flashport\FlashRadio\Option.cs" />
+    <Compile Include="Flashport\FlashRadio\OptionGatingConstraint.cs" />
+    <Compile Include="Flashport\FlashRadio\OptionIDs.cs" />
+    <Compile Include="Flashport\FlashRadio\OwnerSystemData.cs" />
+    <Compile Include="Flashport\FlashRadio\OwnerSystemIDWnd.xaml.cs">
+      <DependentUpon>OwnerSystemIDWnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\FlashRadio\PageUpgradeRadioProgress.xaml.cs">
+      <DependentUpon>PageUpgradeRadioProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\FlashRadio\ProgressUserState.cs" />
+    <Compile Include="Flashport\FlashRadio\RadioInfoParams.cs" />
+    <Compile Include="Flashport\FlashRadio\SelectedItemConverter.cs" />
+    <Compile Include="Flashport\FlashRadio\SerialNumberValidator.cs" />
+    <Compile Include="Flashport\FlashRadio\UpgradeRadio.cs" />
+    <Compile Include="Flashport\FlashRadio\UpgradeRadioException.cs" />
+    <Compile Include="Flashport\FlashRadio\UpgradeRadioResult.cs" />
+    <Compile Include="Flashport\FlashRadio\UpgradeRadioValidator.cs" />
+    <Compile Include="Flashport\FlashRadio\UserState.cs" />
+    <Compile Include="Flashport\FlashRadio\VersionComparator.cs" />
+    <Compile Include="Flashport\FlashSectionIDs.cs" />
+    <Compile Include="Flashport\RadioConfiguration\General.cs" />
+    <Compile Include="Flashport\RadioConfiguration\PageRadioConfiguration.cs" />
+    <Compile Include="Flashport\RadioConfiguration\PageRadioConfigurationFeaturesInnerSection.cs" />
+    <Compile Include="Flashport\RadioConfiguration\RadioConfiguration.xaml.cs">
+      <DependentUpon>RadioConfiguration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\RadioConfiguration\RadioConfigurationFeatures.cs" />
+    <Compile Include="Flashport\RadioConfiguration\RadioConfigurationFeaturesInner.cs" />
+    <Compile Include="Flashport\RadioConfiguration\RadioConfigurationFeaturesInnerRecset.cs" />
+    <Compile Include="Flashport\RadioConfiguration\RadioConfigurationFeaturesInnerSection.xaml.cs">
+      <DependentUpon>RadioConfigurationFeaturesInnerSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flashport\RadioConfiguration\RadioConfigurationRecset.cs" />
+    <Compile Include="Flashport\RadioConfiguration\ReadRadioConfiguration.cs" />
+    <Compile Include="Flashport\Recordset.cs" />
+    <Compile Include="Flashport\RMCFlashkey.cs" />
+    <Compile Include="Flashport\UpgradeFileDefinitions.cs" />
+    <Compile Include="LastSetJobUuidHelper.cs" />
+    <Compile Include="Model_Configuration\ErrorException.cs" />
+    <Compile Include="Model_Configuration\ExpEvaluator.cs" />
+    <Compile Include="Model_Configuration\ExpParser.cs" />
+    <Compile Include="Model_Configuration\ExpTreeNode.cs" />
+    <Compile Include="Model_Configuration\IOperatorImp.cs" />
+    <Compile Include="Model_Configuration\IParser.cs" />
+    <Compile Include="Model_Configuration\ModelConfiguration.cs" />
+    <Compile Include="Model_Configuration\ModelTiering.cs" />
+    <Compile Include="Model_Configuration\Token.cs" />
+    <Compile Include="Model_Configuration\TreeStack.cs" />
+    <Compile Include="PasswordResetFile\PageResetRadioPasswordProgress.xaml.cs">
+      <DependentUpon>PageResetRadioPasswordProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordResetFile\PasswordResetException.cs" />
+    <Compile Include="PasswordResetFile\ProgressUserState.cs" />
+    <Compile Include="PasswordResetFile\SendPasswordResetFileExecutor.cs" />
+    <Compile Include="PasswordResetFile\UserState.cs" />
+    <Compile Include="POP25BatchProgrammer\ARSGetPOP25BatchIPAddress.cs" />
+    <Compile Include="POP25BatchProgrammer\DataGridRadioIDValidation.cs" />
+    <Compile Include="POP25BatchProgrammer\DataGridRadioIPValidation.cs" />
+    <Compile Include="POP25BatchProgrammer\IntToBusyStateConverter.cs" />
+    <Compile Include="POP25BatchProgrammer\POP25BatchProgrammerProgress.xaml.cs">
+      <DependentUpon>POP25BatchProgrammerProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="POP25BatchProgrammer\POP25BatchProgrammerRadioList.xaml.cs">
+      <DependentUpon>POP25BatchProgrammerRadioList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="POP25BatchProgrammer\POP25BatchProgrammerScheduler.xaml.cs">
+      <DependentUpon>POP25BatchProgrammerScheduler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="POP25BatchProgrammer\POP25RadioInfo.cs" />
+    <Compile Include="POP25BatchProgrammer\RadioList.cs" />
+    <Compile Include="POP25BatchProgrammer\ValidityToForegroundConverter.cs" />
+    <Compile Include="Programming\ARSGetIPAddressCompleted.cs" />
+    <Compile Include="Programming\ARSGetIPAddressWorker.cs" />
+    <Compile Include="Programming\CheckToNotEnabled.cs" />
+    <Compile Include="Programming\CheckToVisibilityConverter.cs" />
+    <Compile Include="Programming\DeviceOperationInProgressWindow.cs" />
+    <Compile Include="Programming\DeviceOpStatusWindow.xaml.cs">
+      <DependentUpon>DeviceOpStatusWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Programming\OTAPPrescenceResult.cs" />
+    <Compile Include="Programming\OTAPProgrammingParameters.cs" />
+    <Compile Include="Programming\OTAPProgrammingWindow.cs" />
+    <Compile Include="Programming\OTAP_SUBSCRIBER_NETWORK_PRESCENCE.cs" />
+    <Compile Include="Programming\ProgrammingOperation.cs" />
+    <Compile Include="Programming\ProgrammingTransport.cs" />
+    <Compile Include="Programming\UI\IPTextBox.cs" />
+    <Compile Include="Programming\UI\SPF_UI_IPAddressV4_Control.cs" />
+    <Compile Include="Programming\USBProgrammingWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioFeatureSet\ExtendedFeatureSet.cs" />
+    <Compile Include="RadioFeatureSet\ExtendedFeatureSetInner.cs" />
+    <Compile Include="RadioFeatureSet\ExtendedFeatureSetInnerRecset.cs" />
+    <Compile Include="RadioFeatureSet\ExtendedFeatureSetInnerSection.cs" />
+    <Compile Include="RadioFeatureSet\FeatureSet.cs" />
+    <Compile Include="RadioFeatureSet\FeatureSetConstraints.cs" />
+    <Compile Include="RadioFeatureSet\FeatureSetInner.cs" />
+    <Compile Include="RadioFeatureSet\FeatureSetInnerRecset.cs" />
+    <Compile Include="RadioFeatureSet\FeatureSetInnerSection.xaml.cs">
+      <DependentUpon>FeatureSetInnerSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RadioFeatureSet\General.cs" />
+    <Compile Include="RadioFeatureSet\PageFeatureSetInnerSection.cs" />
+    <Compile Include="RadioFeatureSet\PageRadioFeatureSet.cs" />
+    <Compile Include="RadioFeatureSet\PCIGatings.cs" />
+    <Compile Include="RadioFeatureSet\RadioFeatureSet.xaml.cs">
+      <DependentUpon>RadioFeatureSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RadioFeatureSet\RadioFeatureSetFeatureIDs.cs" />
+    <Compile Include="RadioFeatureSet\RadioFeatureSetRecset.cs" />
+    <Compile Include="RadioFeatureSet\RadioFeatureSetSectionIDs.cs" />
+    <Compile Include="RadioLanguagePack\BinarySeralizeDeserialize.cs" />
+    <Compile Include="RadioLanguagePack\LanguagePackHelper.cs" />
+    <Compile Include="RadioLanguagePack\LPFileEncDec.cs" />
+    <Compile Include="ReadWritePassword\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadWritePassword\InitReadWritePassword.xaml.cs">
+      <DependentUpon>InitReadWritePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadWritePassword\PromptReadWritePassword.xaml.cs">
+      <DependentUpon>PromptReadWritePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadWritePassword\ReadWritePasswordApp.cs" />
+    <Compile Include="ReadWritePassword\ReadWriteUtil.cs" />
+    <Compile Include="ReadWritePassword\ReadWriteWindow.cs" />
+    <Compile Include="ReadWriteTlsPsk\ReadWriteTlsPskHelper.cs" />
+    <Compile Include="ReadWriteTlsPsk\TlsPskHandler.cs" />
+    <Compile Include="Security\ASKConstraints.cs" />
+    <Compile Include="Security\CpsFeatureID.cs" />
+    <Compile Include="Security\CPSRadioAccessValidator.cs" />
+    <Compile Include="Security\Feature.cs" />
+    <Compile Include="Security\FieldMapInfo.cs" />
+    <Compile Include="Security\FieldMapManager.cs" />
+    <Compile Include="Security\KeyFeature.cs" />
+    <Compile Include="Security\KeyFieldMapInfo.cs" />
+    <Compile Include="Security\ProtectionOption.cs" />
+    <Compile Include="Security\RadioAccessValidator.cs" />
+    <Compile Include="Security\RadioAccessValidatorBase.cs" />
+    <Compile Include="Security\RadioSecurityData.cs" />
+    <Compile Include="Security\RefKeyFieldMapInfo.cs" />
+    <Compile Include="Security\RMCRadioAccessValidator.cs" />
+    <Compile Include="Security\TrkSysBandPlan.cs" />
+    <Compile Include="Security\TrkSysID.cs" />
+    <Compile Include="SpecialFeaturesSettings.cs" />
+    <Compile Include="SpecialFeaturesSettings.Designer.cs">
+      <DependentUpon>SpecialFeaturesSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SystemCertificates\CACertificatesHelper.cs" />
+    <Compile Include="SystemCertificates\List\CertFileItem.cs" />
+    <Compile Include="SystemCertificates\List\CustomSelectWindow.cs" />
+    <Compile Include="SystemCertificates\List\DownloadStatusesConverter.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateConstraints.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateGeneralSection.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateList.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateListPage.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateListPageTbl.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateListRecSet.cs" />
+    <Compile Include="SystemCertificates\List\SystemCertificateParentControlVisibilityConverter.cs" />
+    <Compile Include="SystemCertificates\List\TheDownloadStatuses.cs" />
+    <Compile Include="UCL\CallListUpdate\ConsoleAliasesListSetting.cs" />
+    <Compile Include="UCL\CallListUpdate\ConsoleAliasesListSettingsSectionHandler.cs" />
+    <Compile Include="UCL\CallListUpdate\CSVProvider.cs" />
+    <Compile Include="UCL\CallListUpdate\ICSVProvider.cs" />
+    <Compile Include="UCL\CallListUpdate\UpdateUCL.cs" />
+    <Compile Include="Ucl\Contact\AstroCallList.cs" />
+    <Compile Include="Ucl\Contact\AstroCallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\AstroCallListRecset.cs" />
+    <Compile Include="Ucl\Contact\ConstantDefinition.cs" />
+    <Compile Include="Ucl\Contact\ContactChildTableVisibityConverter.cs" />
+    <Compile Include="Ucl\Contact\DecToHexConverter.cs" />
+    <Compile Include="Ucl\Contact\DTMFCallList.cs" />
+    <Compile Include="Ucl\Contact\DTMFCallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\DTMFCallListRecset.cs" />
+    <Compile Include="Ucl\Contact\ListinfoAstroCallTypeEnum.cs" />
+    <Compile Include="Ucl\Contact\ListinfoPhoneCategoryEnum.cs" />
+    <Compile Include="Ucl\Contact\LOVs.cs" />
+    <Compile Include="Ucl\Contact\MDCCallList.cs" />
+    <Compile Include="Ucl\Contact\MDCCallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\MDCCallListRecset.cs" />
+    <Compile Include="Ucl\Contact\PhoneCallList.cs" />
+    <Compile Include="Ucl\Contact\PhoneCallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\PhoneCallListRecset.cs" />
+    <Compile Include="Ucl\Contact\QCIICallList.cs" />
+    <Compile Include="Ucl\Contact\QCIICallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\QCIICallListRecset.cs" />
+    <Compile Include="Ucl\Contact\TrunkingCallList.cs" />
+    <Compile Include="Ucl\Contact\TrunkingCallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\TrunkingCallListRecset.cs" />
+    <Compile Include="Ucl\Contact\TrunkingT2CallList.cs" />
+    <Compile Include="Ucl\Contact\TrunkingT2CallListCallListSection.cs" />
+    <Compile Include="Ucl\Contact\TrunkingT2CallListRecset.cs" />
+    <Compile Include="Ucl\Contact\UclContact.cs" />
+    <Compile Include="Ucl\Contact\UclContactAstroCallListSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactConstraints.cs" />
+    <Compile Include="Ucl\Contact\UclContactDTMFCallListSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactGeneralSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactMDCCallListSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactPage.cs" />
+    <Compile Include="Ucl\Contact\UclContactPageTblView.cs" />
+    <Compile Include="Ucl\Contact\UclContactPhoneCallListSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactQCIICallListSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactRecset.cs" />
+    <Compile Include="Ucl\Contact\UclContactTrunkingCallListSection.cs" />
+    <Compile Include="Ucl\Contact\UclContactTrunkingT2CallListSection.cs" />
+    <Compile Include="Ucl\HotList\AstroCallHotList.cs" />
+    <Compile Include="Ucl\HotList\AstroCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\AstroCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\ConstantDefinition.cs" />
+    <Compile Include="Ucl\HotList\DTMFCallHotList.cs" />
+    <Compile Include="Ucl\HotList\DTMFCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\DTMFCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\MDCCallHotList.cs" />
+    <Compile Include="Ucl\HotList\MDCCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\MDCCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\PhoneCallHotList.cs" />
+    <Compile Include="Ucl\HotList\PhoneCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\PhoneCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\QCIICallHotList.cs" />
+    <Compile Include="Ucl\HotList\QCIICallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\QCIICallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\TrunkingCallHotList.cs" />
+    <Compile Include="Ucl\HotList\TrunkingCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\TrunkingCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\TrunkingT2CallHotList.cs" />
+    <Compile Include="Ucl\HotList\TrunkingT2CallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\TrunkingT2CallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclAstroCallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclAstroCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclAstroCallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclAstroCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclAstroCallHotListTblView.cs" />
+    <Compile Include="Ucl\HotList\UclDTMFCallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclDTMFCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclDTMFCallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclDTMFCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclHotListConstraints.cs" />
+    <Compile Include="Ucl\HotList\UclMDCCallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclMDCCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclMDCCallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclMDCCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclMDCCallHotListTblView.cs" />
+    <Compile Include="Ucl\HotList\UclPhoneCallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclPhoneCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclPhoneCallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclPhoneCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclQCIICallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclQCIICallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclQCIICallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclQCIICallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingCallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingCallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingCallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingCallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingCallHotListTblView.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingT2CallHotList.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingT2CallHotListHotListSection.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingT2CallHotListPage.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingT2CallHotListRecset.cs" />
+    <Compile Include="Ucl\HotList\UclTrunkingT2CallHotListTblView.cs" />
+    <Compile Include="Ucl\UclWide\LOVs.cs" />
+    <Compile Include="Ucl\UclWide\PageUclWide.cs" />
+    <Compile Include="Ucl\UclWide\UclWide.cs" />
+    <Compile Include="Ucl\UclWide\UclWideConstraints.cs" />
+    <Compile Include="Ucl\UclWide\UclWideRecset.cs" />
+    <Compile Include="Ucl\UclWide\UclWideSectionGeneral.cs" />
+    <Compile Include="Ucl\UclWide\UclWideSectionLabtool.cs" />
+    <Compile Include="Utilites\FieldFilters.cs" />
+    <Compile Include="Utilities\ASKProgrammingHistoryItem.cs" />
+    <Compile Include="Utilities\Astro25DataGroupID.cs" />
+    <Compile Include="Utilities\AstroASKProgrammingHistory.cs" />
+    <Compile Include="Utilities\AstroDataProfTrunkingGroupgIDs.cs" />
+    <Compile Include="Utilities\RelayCommand.cs" />
+    <Compile Include="Utilities\RMUtilities.cs" />
+    <Compile Include="Utilities\RMVersioningUtilities.cs" />
+    <Compile Include="VoiceAnnouncements\ACPVoiceAnnouncementImportUI.cs" />
+    <Compile Include="VoiceAnnouncements\ACPVoiceAnnouncementUsageMeter.cs" />
+    <Compile Include="VoiceAnnouncements\List\CustomVASelectWindow.cs" />
+    <Compile Include="VoiceAnnouncements\List\DownloadStatusesConverter.cs" />
+    <Compile Include="VoiceAnnouncements\List\LOVs.cs" />
+    <Compile Include="VoiceAnnouncements\List\TheDownloadStatuses.cs" />
+    <Compile Include="VoiceAnnouncements\List\TTSVoiceAnnouncementGeneralSection.cs" />
+    <Compile Include="VoiceAnnouncements\List\TTSVoiceAnnouncementList.cs" />
+    <Compile Include="VoiceAnnouncements\List\TTSVoiceAnnouncementListRecSet.cs" />
+    <Compile Include="VoiceAnnouncements\List\TTSVoiceAnnouncementsConstraints.cs" />
+    <Compile Include="VoiceAnnouncements\List\VAFileItem.cs" />
+    <Compile Include="VoiceAnnouncements\List\VAParentControlVisibilityConverter.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementEncodeType_A22264_Lov.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementGeneralSection.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementList.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementListPage.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementListPageTbl.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementListRecSet.cs" />
+    <Compile Include="VoiceAnnouncements\List\VoiceAnnouncementsConstraints.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\LOVs.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\PageSiteSelectableAlertList.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\PageSiteSelectableAlertListTbl.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertList.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertList41985.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertListConfigurationType_A42058_Lov.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertListRecset.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertTableInner.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertTableInnerRecset.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SiteSelectableAlertTableInnerSection.cs" />
+    <Compile Include="VoiceAnnouncements\SiteSelectableAlertList\SSAConstraints.cs" />
+    <Compile Include="VoiceAnnouncements\TtsDataTreeUpdater.cs" />
+    <Compile Include="VoiceAnnouncements\VAHelper.cs" />
+    <Compile Include="VoiceAnnouncements\VoiceAnnouncementUtilities.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\General.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\LOVs.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\VoiceAnnouncementPriority_A76515_Lov.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\VoiceAnnouncementsConstraints.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\VoiceAnnouncementWide.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\VoiceAnnouncementWidePage.cs" />
+    <Compile Include="VoiceAnnouncements\Wide\VoiceAnnouncementWideRecSet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\apxfMap" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpASKLib\AcpASKLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA62E}</Project>
+      <Name>AcpASKLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACPBrowser\ACPBrowser.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA62F}</Project>
+      <Name>ACPBrowser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpBusinessLayer\AcpBusinessLayer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA630}</Project>
+      <Name>AcpBusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonLib\AcpCommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</Project>
+      <Name>AcpCommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCryptoLib\AcpCryptoLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA633}</Project>
+      <Name>AcpCryptoLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpFileHandlerLib\AcpFileHandlerLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA635}</Project>
+      <Name>AcpFileHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpKeyValidatorLib\AcpKeyValidatorLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA636}</Project>
+      <Name>AcpKeyValidatorLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpModelTieringLib\AcpModelTieringLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA637}</Project>
+      <Name>AcpModelTieringLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpSecurityLib\AcpSecurityLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA638}</Project>
+      <Name>AcpSecurityLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUILib\AcpUILib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63A}</Project>
+      <Name>AcpUILib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUITTS\AcpUITTS.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63B}</Project>
+      <Name>AcpUITTS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUI\AcpUI.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA639}</Project>
+      <Name>AcpUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACPVoiceAnnouncementLib\ACPVoiceAnnouncementLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63D}</Project>
+      <Name>ACPVoiceAnnouncementLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpWpfEditors\AcpWpfEditors.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA640}</Project>
+      <Name>AcpWpfEditors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpWpfRibbon\AcpWpfRibbon.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA641}</Project>
+      <Name>AcpWpfRibbon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AllFeatures\AllFeatures.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA645}</Project>
+      <Name>AllFeatures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64A}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommonFile\Common.Communication.CommonFile.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA655}</Project>
+      <Name>Common.Communication.CommonFile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommunicationManager\Common.Communication.CommunicationManager.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA657}</Project>
+      <Name>Common.Communication.CommunicationManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.Service\Common.Communication.Service.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA660}</Project>
+      <Name>Common.Communication.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonResources\CommonResources.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66A}</Project>
+      <Name>CommonResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA662}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStoreDecryptionHandler\DataStoreDecryptionHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66F}</Project>
+      <Name>DataStoreDecryptionHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Encaten\Encaten.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA671}</Project>
+      <Name>Encaten</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBtnWrapperLib\IBtnWrapperLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA679}</Project>
+      <Name>IBtnWrapperLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v12.1\InfragisticsWPF4.DataPresenter.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA687}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v12.1\InfragisticsWPF4.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA690}</Project>
+      <Name>InfragisticsWPF4.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.SharedService\Motorola.CommonCPS.RadioManagement.SharedService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.SharedService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MotorolaSolutions.RadioCentral.CodeplugExchangeLibrary\MotorolaSolutions.RadioCentral.CodeplugExchangeLibrary.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C6}</Project>
+      <Name>MotorolaSolutions.RadioCentral.CodeplugExchangeLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PackUnpackExec\PackUnpackExec.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6CF}</Project>
+      <Name>PackUnpackExec</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PackUnpackLib\PackUnpackLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D0}</Project>
+      <Name>PackUnpackLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pba\Pba.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D1}</Project>
+      <Name>Pba</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSLManagerComp\SSLManagerComp.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DD}</Project>
+      <Name>SSLManagerComp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SpecialFeaturesSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>SpecialFeaturesSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AcpReportManagerLib\InputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpReportManagerLib\PageCustomPrintSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpReportManagerLib\PageSelectPrintItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpReportManagerLib\ReportViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\calllistupdate\updateucl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\contact\uclcontactpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\contact\uclcontactpagetblview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\uclastrocallhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\uclastrocallhotlisttblview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\ucldtmfcallhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\uclmdccallhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\uclmdccallhotlisttblview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\uclphonecallhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\uclqciicallhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\ucltrunkingcallhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\ucltrunkingcallhotlisttblview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\ucltrunkingt2callhotlistpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\hotlist\ucltrunkingt2callhotlisttblview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="call list configuration\uclwide\pageuclwide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cbi\cbisernumwind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="certificatemanagement\systemcertificatelist\customselectwindow\customselectwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="certificatemanagement\systemcertificatelist\systemcertificatelist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="certificatemanagement\systemcertificatelist\systemcertificatelisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="clone configuration\clone express\pagecloneexpress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="clone configuration\clone wifi\pageclonewifiview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="clone configuration\clone wizard\pageclonewizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Comms\LoadTxmCertificateMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Comms\ProgressUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CxfFilePassword\View\CxfFileInitializePasswordPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CxfFilePassword\View\CxfFilePasswordPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepotLabtool\DepotCreateCodeplugWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepotLabtool\DepotUpgradeCodeplugWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepotLabtool\depotupgraderadioprogresswnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepotLabtool\DepotUpgradeRadioWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepotLabtool\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepotLabtool\resourcespecialfeatures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dvrsfiles\dvrsfilelist\customselectwindow\customselectwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dvrsfiles\dvrsfilelist\dvrsfilelist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dvrsfiles\dvrsfilelist\dvrsfilelisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileOperations\BrowseForFileDialogBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileOperations\BrowseForFileLauncher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileOperations\BrowseForFilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileOperations\BusyIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileOperations\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flashport\FlashkeyConfiguration\FlashkeyConfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flashport\FlashkeyConfiguration\FlashkeyConfigurationFeaturesInnerSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flashport\FlashRadio\OwnerSystemIDWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flashport\FlashRadio\PageUpgradeRadioProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flashport\RadioConfiguration\RadioConfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flashport\RadioConfiguration\RadioConfigurationFeaturesInnerSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PasswordResetFile\PageResetRadioPasswordProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="POP25BatchProgrammer\POP25BatchProgrammerProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="POP25BatchProgrammer\POP25BatchProgrammerRadioList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="POP25BatchProgrammer\POP25BatchProgrammerScheduler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Programming\DeviceOpStatusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="programming\otap\otapprogrammingwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Programming\UI\spf_ui_ipaddressv4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="programming\usb\usbprogrammingwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RadioFeatureSet\FeatureSetInnerSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RadioFeatureSet\RadioFeatureSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadWritePassword\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadWritePassword\InitReadWritePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadWritePassword\PromptReadWritePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadWritePassword\readwritepassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\resourcespecialfeatures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\site selectable alert list\siteselectablealertlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\site selectable alert list\siteselectablealertlisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementcalculateui\acpvoiceannouncementusagemeter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementimportui\acpvoiceannouncementimportui.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementimportui\voiceannouncementutilities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementlist\customvaselectwindow\customvaselectwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementlist\voiceannouncementlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementlist\voiceannouncementlisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="voiceannouncements\voiceannouncementwide\voiceannouncementwide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cbi\error.ico" />
+    <Resource Include="icons\spinnerarrowdown.png" />
+    <Resource Include="icons\spinnerarrowup.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

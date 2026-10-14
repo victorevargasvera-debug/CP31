@@ -1,0 +1,3035 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.PhoneWide.PagePhoneWide" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:PhoneWideRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.PhoneWide" xmlns:DTMFTimingInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.PhoneWide" xmlns:DTMFCodesInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.PhoneWide"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2000</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2000</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderPhoneWideDTMFTimingTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2000</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10002</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderPhoneWideDTMFCodesTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2000</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10000</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDialingkeyofDialing_A21285CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 2-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDialingInitialDelayms_A7835CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-6375}"
+								Text="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDialingDigitDurationms_A7834CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-6375}"
+								Text="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDialingInterdigitDelayms_A7836CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-6375}"
+								Text="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDTMFCodesAccess_A7381CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:4:0-9*#P}"
+								Text="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PhnWideDTMFCodesDeaccess_A7803CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:4:0-9*#P}"
+								Text="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+								MyBLObject="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 9-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderPhoneWideGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 10-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderPhoneWideGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderPhoneWideDTMFTiming, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 11-->
+				<Hyperlink
+					Name="HLinkDTMFTiming"
+					Tag="ExpanderPhoneWideDTMFTiming">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_DTMFTIMING}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="DTMFTiming.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderPhoneWideDTMFCodes, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 12-->
+				<Hyperlink
+					Name="HLinkDTMFCodes"
+					Tag="ExpanderPhoneWideDTMFCodes">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_DTMFCODES}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="DTMFCodes.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 13-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 14-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderPhoneWideGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderPhoneWideGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 15-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderPhoneWideGeneralPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="PhnWideGeneralDisplayFormat_A7874"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="PhnWideDialingPhoneDialing_A8700"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnPhnWideGeneralDisplayFormat_A7874"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874}"
+									IsChecked="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 17-->
+								<AcpUINS:AcpLabel
+									Name="LblPhnWideGeneralDisplayFormat_A7874"
+									Content="{x:Static ResourceNS:AcgResources.ID_DISPLAYFORMAT}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DISPLAYFORMAT}"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874}"
+									IsAcpValid="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 18-->
+								<AcpUINS:AcpComboBox
+									Name="PhnWideGeneralDisplayFormat_A7874"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874.Items}"
+									SelectedValue="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderPhoneWideGeneral}"
+									MyBLObject="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874}"
+									MyLabelCtrl="{Binding ElementName=LblPhnWideGeneralDisplayFormat_A7874}"
+									IsAcpValid="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874_Valid}"
+									IsAcpApplicable="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874_Applicable}"
+									AreValuesEqual="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.PhnWideGeneralDisplayFormat_A7874_Editable" />
+											<Binding
+												Path="General.PhnWideGeneralDisplayFormat_A7874" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.PhnWideGeneralDisplayFormat_A7874_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 19-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnPhnWideGeneralDisplayFormat_A7874"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 20-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnPhnWideGeneralDisplayFormat_A7874"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874}"
+									MyCompCtrl="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874Comp}"
+									AreValuesEqual="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 21-->
+								<AcpUINS:AcpLabel
+									Name="PhnWideGeneralDisplayFormat_A7874Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.PhnWideGeneralDisplayFormat_A7874}"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralDisplayFormat_A7874}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideGeneralDisplayFormat_A7874}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideGeneralDisplayFormat_A7874"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 22-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnPhnWideGeneralManualAccessLiveDialing_A8462"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462}"
+									IsChecked="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 23-->
+								<AcpUINS:AcpLabel
+									Name="LblPhnWideGeneralManualAccessLiveDialing_A8462"
+									Content="{x:Static ResourceNS:AcgResources.ID_MANUALACCESSLIVEDIALING}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_MANUALACCESSLIVEDIALING}"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462}"
+									IsAcpValid="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 24-->
+								<AcpUINS:AcpCheckBox
+									Name="PhnWideGeneralManualAccessLiveDialing_A8462"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462Value}"
+									MyExpander="{Binding ElementName=ExpanderPhoneWideGeneral}"
+									MyBLObject="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462}"
+									MyLabelCtrl="{Binding ElementName=LblPhnWideGeneralManualAccessLiveDialing_A8462}"
+									IsAcpValid="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462_Valid}"
+									IsAcpApplicable="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462_Applicable}"
+									AreValuesEqual="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.PhnWideGeneralManualAccessLiveDialing_A8462_Editable" />
+											<Binding
+												Path="General.PhnWideGeneralManualAccessLiveDialing_A8462" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.PhnWideGeneralManualAccessLiveDialing_A8462_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 25-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnPhnWideGeneralManualAccessLiveDialing_A8462"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 26-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnPhnWideGeneralManualAccessLiveDialing_A8462"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462}"
+									MyCompCtrl="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462Comp}"
+									AreValuesEqual="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 27-->
+								<AcpUINS:AcpCheckBox
+									Name="PhnWideGeneralManualAccessLiveDialing_A8462Comp"
+									IsAcpEditable="false"
+									Grid.Row="1"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.PhnWideGeneralManualAccessLiveDialing_A8462}"
+									MyParentCtrl="{Binding ElementName=PhnWideGeneralManualAccessLiveDialing_A8462}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideGeneralManualAccessLiveDialing_A8462}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideGeneralManualAccessLiveDialing_A8462"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 28-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnPhnWideDialingPhoneDialing_A8700"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingPhoneDialing_A8700}"
+									IsChecked="{Binding ElementName=PhnWideDialingPhoneDialing_A8700, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 29-->
+								<AcpUINS:AcpLabel
+									Name="LblPhnWideDialingPhoneDialing_A8700"
+									Content="{x:Static ResourceNS:AcgResources.ID_PHONEDIALING}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PHONEDIALING}"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingPhoneDialing_A8700}"
+									IsAcpValid="{Binding ElementName=PhnWideDialingPhoneDialing_A8700, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=PhnWideDialingPhoneDialing_A8700, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=PhnWideDialingPhoneDialing_A8700, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 30-->
+								<AcpUINS:AcpComboBox
+									Name="PhnWideDialingPhoneDialing_A8700"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.PhnWideDialingPhoneDialing_A8700.Items}"
+									SelectedValue="{Binding Path=General.PhnWideDialingPhoneDialing_A8700_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderPhoneWideGeneral}"
+									MyBLObject="{Binding Path=General.PhnWideDialingPhoneDialing_A8700}"
+									MyLabelCtrl="{Binding ElementName=LblPhnWideDialingPhoneDialing_A8700}"
+									IsAcpValid="{Binding Path=General.PhnWideDialingPhoneDialing_A8700_Valid}"
+									IsAcpApplicable="{Binding Path=General.PhnWideDialingPhoneDialing_A8700_Applicable}"
+									AreValuesEqual="{Binding Path=General.PhnWideDialingPhoneDialing_A8700_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.PhnWideDialingPhoneDialing_A8700_Editable" />
+											<Binding
+												Path="General.PhnWideDialingPhoneDialing_A8700" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.PhnWideDialingPhoneDialing_A8700_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 31-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnPhnWideDialingPhoneDialing_A8700"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingPhoneDialing_A8700}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 32-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnPhnWideDialingPhoneDialing_A8700"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingPhoneDialing_A8700}"
+									MyCompCtrl="{Binding ElementName=PhnWideDialingPhoneDialing_A8700Comp}"
+									AreValuesEqual="{Binding ElementName=PhnWideDialingPhoneDialing_A8700, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 33-->
+								<AcpUINS:AcpLabel
+									Name="PhnWideDialingPhoneDialing_A8700Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="2"
+									Grid.Column="5"
+									Content="{Binding Path=General.PhnWideDialingPhoneDialing_A8700_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.PhnWideDialingPhoneDialing_A8700}"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingPhoneDialing_A8700}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingPhoneDialing_A8700}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideDialingPhoneDialing_A8700"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 34-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnPhnWideDialingASTRO25PhoneOverdialType_A7473"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									IsChecked="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 35-->
+								<AcpUINS:AcpLabel
+									Name="LblPhnWideDialingASTRO25PhoneOverdialType_A7473"
+									Content="{x:Static ResourceNS:AcgResources.ID_ASTRO25PHONEOVERDIALTYPE}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_ASTRO25PHONEOVERDIALTYPE}"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									IsAcpValid="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 36-->
+								<AcpUINS:AcpComboBox
+									Name="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473.Items}"
+									SelectedValue="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderPhoneWideGeneral}"
+									MyBLObject="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									MyLabelCtrl="{Binding ElementName=LblPhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									IsAcpValid="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473_Valid}"
+									IsAcpApplicable="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473_Applicable}"
+									AreValuesEqual="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.PhnWideDialingASTRO25PhoneOverdialType_A7473_Editable" />
+											<Binding
+												Path="General.PhnWideDialingASTRO25PhoneOverdialType_A7473" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.PhnWideDialingASTRO25PhoneOverdialType_A7473_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 37-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnPhnWideDialingASTRO25PhoneOverdialType_A7473"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 38-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnPhnWideDialingASTRO25PhoneOverdialType_A7473"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									MyCompCtrl="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473Comp}"
+									AreValuesEqual="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 39-->
+								<AcpUINS:AcpLabel
+									Name="PhnWideDialingASTRO25PhoneOverdialType_A7473Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="3"
+									Grid.Column="5"
+									Content="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.PhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									MyParentCtrl="{Binding ElementName=PhnWideDialingASTRO25PhoneOverdialType_A7473}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingASTRO25PhoneOverdialType_A7473}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="PhnWideDialingASTRO25PhoneOverdialType_A7473"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 40-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderPhoneWideDTMFTiming"
+					Width="Auto"
+					Header="{Binding Path=DTMFTiming.UIName}"
+					ShowDiffIcon="{Binding Path=DTMFTiming.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderPhoneWideDTMFTimingPseudo0"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderPhoneWideDTMFTimingTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderPhoneWideDTMFTimingTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 41-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderPhoneWideDTMFTimingTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/DTMFTiming.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderPhoneWideDTMFTimingTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFTiming.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 42-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderPhoneWideDTMFTimingPseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource groupboxVisibilityConverter}">
+										<Binding
+											ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="230" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 43-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnPhnWideDialingDTMFPauseTimems_A7898"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898}"
+										IsChecked="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 44-->
+									<AcpUINS:AcpLabel
+										Name="LblPhnWideDialingDTMFPauseTimems_A7898"
+										Content="{x:Static ResourceNS:AcgResources.ID_DTMFPAUSETIMEMS}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_DTMFPAUSETIMEMS}"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898}"
+										IsAcpValid="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 45-->
+									<AcpUINS:AcpTextBoxSpinner
+										Name="PhnWideDialingDTMFPauseTimems_A7898"
+										MaskTypeSpinner="{}{number:0-4000}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+										MyBLObject="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898}"
+										MyLabelCtrl="{Binding ElementName=LblPhnWideDialingDTMFPauseTimems_A7898}"
+										IsAcpValid="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_Valid}"
+										IsAcpApplicable="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_Applicable}"
+										AreValuesEqual="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_Editable" />
+												<Binding
+													Path="DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinner>
+									<!--Unknown connection ID: 46-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnPhnWideDialingDTMFPauseTimems_A7898"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 47-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnPhnWideDialingDTMFPauseTimems_A7898"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898}"
+										MyCompCtrl="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898Comp}"
+										AreValuesEqual="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 48-->
+									<AcpUINS:AcpLabel
+										Name="PhnWideDialingDTMFPauseTimems_A7898Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=DTMFTiming.PhnWideDialingDTMFPauseTimems_A7898}"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFPauseTimems_A7898}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingDTMFPauseTimems_A7898}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDialingDTMFPauseTimems_A7898"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 49-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnPhnWideDialingDTMFDigitHangtimems_A7896"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896}"
+										IsChecked="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 50-->
+									<AcpUINS:AcpLabel
+										Name="LblPhnWideDialingDTMFDigitHangtimems_A7896"
+										Content="{x:Static ResourceNS:AcgResources.ID_DTMFDIGITHANGTIMEMS}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_DTMFDIGITHANGTIMEMS}"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896}"
+										IsAcpValid="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 51-->
+									<AcpUINS:AcpTextBoxSpinner
+										Name="PhnWideDialingDTMFDigitHangtimems_A7896"
+										MaskTypeSpinner="{}{number:0-6375}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										Text="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+										MyBLObject="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896}"
+										MyLabelCtrl="{Binding ElementName=LblPhnWideDialingDTMFDigitHangtimems_A7896}"
+										IsAcpValid="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_Valid}"
+										IsAcpApplicable="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_Applicable}"
+										AreValuesEqual="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_Editable" />
+												<Binding
+													Path="DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinner>
+									<!--Unknown connection ID: 52-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnPhnWideDialingDTMFDigitHangtimems_A7896"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 53-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnPhnWideDialingDTMFDigitHangtimems_A7896"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896}"
+										MyCompCtrl="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896Comp}"
+										AreValuesEqual="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 54-->
+									<AcpUINS:AcpLabel
+										Name="PhnWideDialingDTMFDigitHangtimems_A7896Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=DTMFTiming.PhnWideDialingDTMFDigitHangtimems_A7896}"
+										MyParentCtrl="{Binding ElementName=PhnWideDialingDTMFDigitHangtimems_A7896}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingDTMFDigitHangtimems_A7896}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDialingDTMFDigitHangtimems_A7896"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 55-->
+						<Grid
+							Name="ExpanderPhoneWideDTMFTimingGrid">
+							<!--Unknown connection ID: 56-->
+							<Grid
+								Name="ExpanderPhoneWideDTMFTimingTableGrid"
+								Row="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 57-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderPhoneWideDTMFTimingTableTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderPhoneWideDTMFTimingTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="ExpanderPhoneWideDTMFTimingTable"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 58-->
+									<AcpUINS:AcpXamDataPresenter
+										Name="ExpanderPhoneWideDTMFTimingTable"
+										KeyboardNavigation.AcceptsReturn="True"
+										Header="{x:Static ResourceNS:AcgResources.ID_DTMFTIMING}"
+										MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+										igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/DTMFTiming.EmbeddedRecset}">
+										<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="DataSource.HasDiffs"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="IsAcpVisible"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													ElementName="PhnWideDialingkeyofDialing_A21285_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="PhnWideDialingInitialDelayms_A7835_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="PhnWideDialingDigitDurationms_A7834_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="PhnWideDialingInterdigitDelayms_A7836_Col"
+													Path="Visibility" />
+											</MultiBinding>
+										</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<igcontrols:DataPresenterBase.FieldLayouts>
+											<igcontrols:FieldLayout>
+												<igcontrols:FieldLayout.Fields>
+													<!--Unknown connection ID: 59-->
+													<igcontrols:UnboundField
+														x:Name="PhnWideDialingkeyofDialing_A21285_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_DTMFTIMING}"
+														BindingPath="DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFTimingTableTableView}, Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource PhnWideDialingkeyofDialing_A21285CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 60-->
+													<igcontrols:UnboundField
+														x:Name="PhnWideDialingInitialDelayms_A7835_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_INITIALDELAYMS}"
+														BindingPath="DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFTimingTableTableView}, Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource PhnWideDialingInitialDelayms_A7835CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 61-->
+													<igcontrols:UnboundField
+														x:Name="PhnWideDialingDigitDurationms_A7834_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_DIGITDURATIONMS}"
+														BindingPath="DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFTimingTableTableView}, Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource PhnWideDialingDigitDurationms_A7834CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 62-->
+													<igcontrols:UnboundField
+														x:Name="PhnWideDialingInterdigitDelayms_A7836_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_INTERDIGITDELAYMS}"
+														BindingPath="DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFTimingTableTableView}, Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource PhnWideDialingInterdigitDelayms_A7836CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+												</igcontrols:FieldLayout.Fields>
+											</igcontrols:FieldLayout>
+										</igcontrols:DataPresenterBase.FieldLayouts>
+									</AcpUINS:AcpXamDataPresenter>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 63-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderPhoneWideDTMFTimingTableSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderPhoneWideDTMFTimingTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="PhnWideDialingkeyofDialing_A21285"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingInitialDelayms_A7835"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingDigitDurationms_A7834"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="PhnWideDialingInterdigitDelayms_A7836"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 64-->
+									<Grid
+										Name="gridExpanderPhoneWideDTMFTimingTableSRecView"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding DTMFTiming.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="170" />
+											<ColumnDefinition
+												Width="225" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="180" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 65-->
+										<AcpUINS:AcpTextBox
+											Name="PhnWideDialingkeyofDialing_A21285"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="2"
+											Text="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285Value}"
+											MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285}"
+											MyLabelCtrl="{Binding ElementName=LblPhnWideDialingkeyofDialing_A21285}"
+											IsAcpValid="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Valid}"
+											IsAcpApplicable="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Applicable}"
+											AreValuesEqual="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Editable" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpEditable>
+											<AcpUINS:AcpTextBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpVisible>
+										</AcpUINS:AcpTextBox>
+										<!--Unknown connection ID: 66-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnPhnWideDialingkeyofDialing_A21285"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingkeyofDialing_A21285}"
+											IsChecked="{Binding ElementName=PhnWideDialingkeyofDialing_A21285, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingkeyofDialing_A21285"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 67-->
+										<AcpUINS:AcpLabel
+											Name="LblPhnWideDialingkeyofDialing_A21285"
+											Content="{x:Static ResourceNS:AcgResources.ID_DTMFTIMING}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_DTMFTIMING}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingkeyofDialing_A21285}"
+											IsAcpValid="{Binding ElementName=PhnWideDialingkeyofDialing_A21285, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=PhnWideDialingkeyofDialing_A21285, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=PhnWideDialingkeyofDialing_A21285, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 68-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnPhnWideDialingkeyofDialing_A21285"
+											Grid.Row="0"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingkeyofDialing_A21285}"
+											MyCompCtrl="{Binding ElementName=PhnWideDialingkeyofDialing_A21285Comp}"
+											AreValuesEqual="{Binding ElementName=PhnWideDialingkeyofDialing_A21285, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingkeyofDialing_A21285"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingkeyofDialing_A21285"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingkeyofDialing_A21285"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 69-->
+										<AcpUINS:AcpLabel
+											Name="PhnWideDialingkeyofDialing_A21285Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="0"
+											Grid.Column="5"
+											Content="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285Value}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFTiming.EmbeddedRecset}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingkeyofDialing_A21285}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingkeyofDialing_A21285}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingkeyofDialing_A21285}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingkeyofDialing_A21285"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 70-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="PhnWideDialingInitialDelayms_A7835"
+											MaskTypeSpinner="{}{number:0-6375}"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="2"
+											Text="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835}"
+											MyLabelCtrl="{Binding ElementName=LblPhnWideDialingInitialDelayms_A7835}"
+											IsAcpValid="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Valid}"
+											IsAcpApplicable="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Applicable}"
+											AreValuesEqual="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Editable" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 71-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnPhnWideDialingInitialDelayms_A7835"
+											Margin="0,5,0,0"
+											Grid.Row="1"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInitialDelayms_A7835}"
+											IsChecked="{Binding ElementName=PhnWideDialingInitialDelayms_A7835, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 72-->
+										<AcpUINS:AcpLabel
+											Name="LblPhnWideDialingInitialDelayms_A7835"
+											Content="{x:Static ResourceNS:AcgResources.ID_INITIALDELAYMS}"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_INITIALDELAYMS}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInitialDelayms_A7835}"
+											IsAcpValid="{Binding ElementName=PhnWideDialingInitialDelayms_A7835, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=PhnWideDialingInitialDelayms_A7835, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=PhnWideDialingInitialDelayms_A7835, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 73-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnPhnWideDialingInitialDelayms_A7835"
+											Grid.Row="1"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInitialDelayms_A7835}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 74-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnPhnWideDialingInitialDelayms_A7835"
+											Grid.Row="1"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInitialDelayms_A7835}"
+											MyCompCtrl="{Binding ElementName=PhnWideDialingInitialDelayms_A7835Comp}"
+											AreValuesEqual="{Binding ElementName=PhnWideDialingInitialDelayms_A7835, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 75-->
+										<AcpUINS:AcpLabel
+											Name="PhnWideDialingInitialDelayms_A7835Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="1"
+											Grid.Column="5"
+											Content="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFTiming.EmbeddedRecset}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInitialDelayms_A7835}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInitialDelayms_A7835}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingInitialDelayms_A7835}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingInitialDelayms_A7835"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 76-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="PhnWideDialingDigitDurationms_A7834"
+											MaskTypeSpinner="{}{number:0-6375}"
+											VerticalAlignment="Center"
+											Grid.Row="2"
+											Grid.Column="2"
+											Text="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834}"
+											MyLabelCtrl="{Binding ElementName=LblPhnWideDialingDigitDurationms_A7834}"
+											IsAcpValid="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Valid}"
+											IsAcpApplicable="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Applicable}"
+											AreValuesEqual="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Editable" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 77-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnPhnWideDialingDigitDurationms_A7834"
+											Margin="0,5,0,0"
+											Grid.Row="2"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingDigitDurationms_A7834}"
+											IsChecked="{Binding ElementName=PhnWideDialingDigitDurationms_A7834, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 78-->
+										<AcpUINS:AcpLabel
+											Name="LblPhnWideDialingDigitDurationms_A7834"
+											Content="{x:Static ResourceNS:AcgResources.ID_DIGITDURATIONMS}"
+											VerticalAlignment="Center"
+											Grid.Row="2"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_DIGITDURATIONMS}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingDigitDurationms_A7834}"
+											IsAcpValid="{Binding ElementName=PhnWideDialingDigitDurationms_A7834, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=PhnWideDialingDigitDurationms_A7834, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=PhnWideDialingDigitDurationms_A7834, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 79-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnPhnWideDialingDigitDurationms_A7834"
+											Grid.Row="2"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingDigitDurationms_A7834}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 80-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnPhnWideDialingDigitDurationms_A7834"
+											Grid.Row="2"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingDigitDurationms_A7834}"
+											MyCompCtrl="{Binding ElementName=PhnWideDialingDigitDurationms_A7834Comp}"
+											AreValuesEqual="{Binding ElementName=PhnWideDialingDigitDurationms_A7834, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 81-->
+										<AcpUINS:AcpLabel
+											Name="PhnWideDialingDigitDurationms_A7834Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="2"
+											Grid.Column="5"
+											Content="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFTiming.EmbeddedRecset}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingDigitDurationms_A7834}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingDigitDurationms_A7834}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingDigitDurationms_A7834}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingDigitDurationms_A7834"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 82-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="PhnWideDialingInterdigitDelayms_A7836"
+											MaskTypeSpinner="{}{number:0-6375}"
+											VerticalAlignment="Center"
+											Grid.Row="3"
+											Grid.Column="2"
+											Text="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFTiming}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836}"
+											MyLabelCtrl="{Binding ElementName=LblPhnWideDialingInterdigitDelayms_A7836}"
+											IsAcpValid="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Valid}"
+											IsAcpApplicable="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Applicable}"
+											AreValuesEqual="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Editable" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 83-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnPhnWideDialingInterdigitDelayms_A7836"
+											Margin="0,5,0,0"
+											Grid.Row="3"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836}"
+											IsChecked="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 84-->
+										<AcpUINS:AcpLabel
+											Name="LblPhnWideDialingInterdigitDelayms_A7836"
+											Content="{x:Static ResourceNS:AcgResources.ID_INTERDIGITDELAYMS}"
+											VerticalAlignment="Center"
+											Grid.Row="3"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_INTERDIGITDELAYMS}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836}"
+											IsAcpValid="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 85-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnPhnWideDialingInterdigitDelayms_A7836"
+											Grid.Row="3"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 86-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnPhnWideDialingInterdigitDelayms_A7836"
+											Grid.Row="3"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836}"
+											MyCompCtrl="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836Comp}"
+											AreValuesEqual="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 87-->
+										<AcpUINS:AcpLabel
+											Name="PhnWideDialingInterdigitDelayms_A7836Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="3"
+											Grid.Column="5"
+											Content="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFTiming.EmbeddedRecset}"
+											MyBLObject="{Binding Path=DTMFTimingInnerSection.PhnWideDialingInterdigitDelayms_A7836}"
+											MyParentCtrl="{Binding ElementName=PhnWideDialingInterdigitDelayms_A7836}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDialingInterdigitDelayms_A7836}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="PhnWideDialingInterdigitDelayms_A7836"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 88-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderPhoneWideDTMFCodes"
+					Width="Auto"
+					Header="{Binding Path=DTMFCodes.UIName}"
+					ShowDiffIcon="{Binding Path=DTMFCodes.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderPhoneWideDTMFCodesTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderPhoneWideDTMFCodesTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 89-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderPhoneWideDTMFCodesTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/DTMFCodes.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderPhoneWideDTMFCodesTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFCodes.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 90-->
+					<Grid
+						Name="ExpanderPhoneWideDTMFCodesGrid">
+						<!--Unknown connection ID: 91-->
+						<Grid
+							Name="ExpanderPhoneWideDTMFCodesTableGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 92-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderPhoneWideDTMFCodesTableTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderPhoneWideDTMFCodesTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderPhoneWideDTMFCodesTable"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 93-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderPhoneWideDTMFCodesTable"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_DTMFCODES}"
+									MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/DTMFCodes.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="PhnWideDTMFCodesAccess_A7381_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="PhnWideDTMFCodesDeaccess_A7803_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 94-->
+												<igcontrols:UnboundField
+													x:Name="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_DTMFCODES}"
+													BindingPath="DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFCodesTableTableView}, Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource PhnWideDTMFCodesKeyofDTMFCodesTable_A12800CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 95-->
+												<igcontrols:UnboundField
+													x:Name="PhnWideDTMFCodesAccess_A7381_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_ACCESS}"
+													BindingPath="DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFCodesTableTableView}, Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource PhnWideDTMFCodesAccess_A7381CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 96-->
+												<igcontrols:UnboundField
+													x:Name="PhnWideDTMFCodesDeaccess_A7803_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_DEACCESS}"
+													BindingPath="DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderPhoneWideDTMFCodesTableTableView}, Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource PhnWideDTMFCodesDeaccess_A7803CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 97-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderPhoneWideDTMFCodesTableSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderPhoneWideDTMFCodesTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="PhnWideDTMFCodesAccess_A7381"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="PhnWideDTMFCodesDeaccess_A7803"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 98-->
+								<Grid
+									Name="gridExpanderPhoneWideDTMFCodesTableSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding DTMFCodes.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 99-->
+									<AcpUINS:AcpTextBox
+										Name="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800Value}"
+										MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+										MyBLObject="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										MyLabelCtrl="{Binding ElementName=LblPhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										IsAcpValid="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Valid}"
+										IsAcpApplicable="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Applicable}"
+										AreValuesEqual="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Editable" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 100-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnPhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										IsChecked="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 101-->
+									<AcpUINS:AcpLabel
+										Name="LblPhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+										Content="{x:Static ResourceNS:AcgResources.ID_DTMFCODES}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_DTMFCODES}"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										IsAcpValid="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 102-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnPhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										MyCompCtrl="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800Comp}"
+										AreValuesEqual="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 103-->
+									<AcpUINS:AcpLabel
+										Name="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFCodes.EmbeddedRecset}"
+										MyBLObject="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesKeyofDTMFCodesTable_A12800}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDTMFCodesKeyofDTMFCodesTable_A12800}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesKeyofDTMFCodesTable_A12800"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 104-->
+									<AcpUINS:AcpTextBox
+										Name="PhnWideDTMFCodesAccess_A7381"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										MaskType="{}{char:4:0-9*#P}"
+										Text="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+										MyBLObject="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381}"
+										MyLabelCtrl="{Binding ElementName=LblPhnWideDTMFCodesAccess_A7381}"
+										IsAcpValid="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Valid}"
+										IsAcpApplicable="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Applicable}"
+										AreValuesEqual="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Editable" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 105-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnPhnWideDTMFCodesAccess_A7381"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesAccess_A7381}"
+										IsChecked="{Binding ElementName=PhnWideDTMFCodesAccess_A7381, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 106-->
+									<AcpUINS:AcpLabel
+										Name="LblPhnWideDTMFCodesAccess_A7381"
+										Content="{x:Static ResourceNS:AcgResources.ID_ACCESS}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_ACCESS}"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesAccess_A7381}"
+										IsAcpValid="{Binding ElementName=PhnWideDTMFCodesAccess_A7381, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=PhnWideDTMFCodesAccess_A7381, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=PhnWideDTMFCodesAccess_A7381, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 107-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnPhnWideDTMFCodesAccess_A7381"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesAccess_A7381}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 108-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnPhnWideDTMFCodesAccess_A7381"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesAccess_A7381}"
+										MyCompCtrl="{Binding ElementName=PhnWideDTMFCodesAccess_A7381Comp}"
+										AreValuesEqual="{Binding ElementName=PhnWideDTMFCodesAccess_A7381, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 109-->
+									<AcpUINS:AcpLabel
+										Name="PhnWideDTMFCodesAccess_A7381Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFCodes.EmbeddedRecset}"
+										MyBLObject="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesAccess_A7381}"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesAccess_A7381}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDTMFCodesAccess_A7381}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesAccess_A7381"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 110-->
+									<AcpUINS:AcpTextBox
+										Name="PhnWideDTMFCodesDeaccess_A7803"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										MaskType="{}{char:4:0-9*#P}"
+										Text="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderPhoneWideDTMFCodes}"
+										MyBLObject="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803}"
+										MyLabelCtrl="{Binding ElementName=LblPhnWideDTMFCodesDeaccess_A7803}"
+										IsAcpValid="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Valid}"
+										IsAcpApplicable="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Applicable}"
+										AreValuesEqual="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Editable" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 111-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnPhnWideDTMFCodesDeaccess_A7803"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803}"
+										IsChecked="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 112-->
+									<AcpUINS:AcpLabel
+										Name="LblPhnWideDTMFCodesDeaccess_A7803"
+										Content="{x:Static ResourceNS:AcgResources.ID_DEACCESS}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_DEACCESS}"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803}"
+										IsAcpValid="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 113-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnPhnWideDTMFCodesDeaccess_A7803"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 114-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnPhnWideDTMFCodesDeaccess_A7803"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803}"
+										MyCompCtrl="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803Comp}"
+										AreValuesEqual="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 115-->
+									<AcpUINS:AcpLabel
+										Name="PhnWideDTMFCodesDeaccess_A7803Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="2"
+										Grid.Column="5"
+										Content="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/DTMFCodes.EmbeddedRecset}"
+										MyBLObject="{Binding Path=DTMFCodesInnerSection.PhnWideDTMFCodesDeaccess_A7803}"
+										MyParentCtrl="{Binding ElementName=PhnWideDTMFCodesDeaccess_A7803}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnPhnWideDTMFCodesDeaccess_A7803}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="PhnWideDTMFCodesDeaccess_A7803"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

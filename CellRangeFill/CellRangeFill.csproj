@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA651}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.UI.CellRangeFill</RootNamespace>
+    <AssemblyName>CellRangeFill</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CellRangeCopyFiller.cs" />
+    <Compile Include="CellRangeFillContext.cs" />
+    <Compile Include="CellRangeFillEndedEventArgs.cs" />
+    <Compile Include="CellRangeFillEndedEventHandler.cs" />
+    <Compile Include="CellRangeFiller.cs" />
+    <Compile Include="CellRangeFillerBinding.cs" />
+    <Compile Include="CellRangeFillerBindingCollection.cs" />
+    <Compile Include="CellRangeFillManager.cs" />
+    <Compile Include="CellRangeFillParameter.cs" />
+    <Compile Include="CellRangeFillStartedEventArgs.cs" />
+    <Compile Include="CellRangeFillStartedEventHandler.cs" />
+    <Compile Include="CellRangeSeriesFiller.cs" />
+    <Compile Include="CellValueSetterBase.cs" />
+    <Compile Include="CellValueSetterBinding.cs" />
+    <Compile Include="CellValueSetterBindingCollection.cs" />
+    <Compile Include="Constraints\CellValueConstraintBinding.cs" />
+    <Compile Include="Constraints\CellValueConstraintBindingCollection.cs" />
+    <Compile Include="Constraints\CellValueConstraintContainer.cs" />
+    <Compile Include="Constraints\CellValueRangeConstraint.cs" />
+    <Compile Include="Constraints\CellValueStringLengthConstraint.cs" />
+    <Compile Include="Constraints\ICellValueConstraint.2.cs" />
+    <Compile Include="Constraints\ICellValueConstraint.cs" />
+    <Compile Include="Constraints\ICellValueRangeConstraint.cs" />
+    <Compile Include="Constraints\Int32CellValueRangeConstraint.cs" />
+    <Compile Include="Constraints\MultiCellValueConstraint.cs" />
+    <Compile Include="DescriptionAttributeHelper.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="FillDirection.cs" />
+    <Compile Include="FillErrorAction.cs" />
+    <Compile Include="FillOperation.cs" />
+    <Compile Include="FillOperationException.cs" />
+    <Compile Include="FillReadonlyAction.cs" />
+    <Compile Include="FillRolloverAction.cs" />
+    <Compile Include="ICellEditabilityResolver.cs" />
+    <Compile Include="ICellRangeFiller.cs" />
+    <Compile Include="ICellValueSetter.2.cs" />
+    <Compile Include="ICellValueSetter.cs" />
+    <Compile Include="IGridSorting.cs" />
+    <Compile Include="Int32CellRangeSeriesFiller.cs" />
+    <Compile Include="IPAddressCellRangeSeriesFiller.cs" />
+    <Compile Include="IPostFillActionResolver.cs" />
+    <Compile Include="PostFillAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UndoRedo\CommitableTask.cs" />
+    <Compile Include="UndoRedo\CommitManager.cs" />
+    <Compile Include="UndoRedo\ContainerTask.cs" />
+    <Compile Include="UndoRedo\SetCellValueTask.cs" />
+    <Compile Include="UndoRedo\UndoableTask.cs" />
+    <Compile Include="UndoRedo\UndoManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CellRangeSelect\CellRangeSelect.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA652}</Project>
+      <Name>CellRangeSelect</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v15.1\InfragisticsWPF4.DataPresenter.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Controls\Motorola.CommonCPS.RadioManagement.Controls.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AB}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

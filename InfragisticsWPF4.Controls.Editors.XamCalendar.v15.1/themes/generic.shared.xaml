@@ -1,0 +1,520 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:igEditors="clr-namespace:Infragistics.Controls.Editors" xmlns:igEditorsPrim="clr-namespace:Infragistics.Controls.Editors.Primitives" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:igBase="clr-namespace:Infragistics.Controls" xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives" xmlns:igPrimLocal="clr-namespace:Infragistics.Controls.Primitives" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<igPrim:ValueConverterGroup
+		x:Key="boolToFontBold">
+		<igPrim:FixedValueConverter>
+			<igPrim:FixedValueConverter.SourceValue>
+				<sys:Boolean>True</sys:Boolean>
+			</igPrim:FixedValueConverter.SourceValue>
+			<igPrim:FixedValueConverter.DestinationValue>
+				<FontWeight>Bold</FontWeight>
+			</igPrim:FixedValueConverter.DestinationValue>
+		</igPrim:FixedValueConverter>
+	</igPrim:ValueConverterGroup>
+	<igPrim:ValueConverterGroup
+		x:Key="visibilityTo52Converter">
+		<igPrim:FixedValueConverter>
+			<igPrim:FixedValueConverter.SourceValue>
+				<Visibility>Visible</Visibility>
+			</igPrim:FixedValueConverter.SourceValue>
+			<igPrim:FixedValueConverter.DestinationValue>
+				<sys:Int32>52</sys:Int32>
+			</igPrim:FixedValueConverter.DestinationValue>
+		</igPrim:FixedValueConverter>
+		<igPrim:FixedValueConverter
+			DestinationValue="{x:Null}">
+			<igPrim:FixedValueConverter.SourceValue>
+				<Visibility>Collapsed</Visibility>
+			</igPrim:FixedValueConverter.SourceValue>
+		</igPrim:FixedValueConverter>
+	</igPrim:ValueConverterGroup>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="BorderlessButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Background="#00FFFFFF">
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type igEditorsPrim:CalendarItem}"
+		x:Key="CalendarItemInner">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup
+					x:Name="FocusStates">
+					<VisualState
+						x:Name="Unfocused" />
+					<VisualState
+						x:Name="Focused">
+						<Storyboard
+							TargetProperty="Visibility"
+							TargetName="focusRect">
+							<ObjectAnimationUsingKeyFrames>
+								<DiscreteObjectKeyFrame
+									KeyTime="0">
+									<ObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</ObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border
+				Name="OuterBorder"
+				igPrim:XamlHelper.SnapsToDevicePixels="True"
+				HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+				VerticalAlignment="{TemplateBinding VerticalAlignment}"
+				BorderThickness="{TemplateBinding BorderThickness}"
+				BorderBrush="{TemplateBinding igEditorsPrim:ComputedBorderBrush}"
+				Background="{TemplateBinding igEditorsPrim:ComputedBackground}"
+				CornerRadius="{Binding Path=(igEditors:CalendarBase.Calendar).ResourceProviderResolved[ItemCorderRadius], RelativeSource={RelativeSource TemplatedParent}}">
+				<Border
+					Name="InnerBorder"
+					BorderBrush="{TemplateBinding igEditorsPrim:ComputedInnerBorderBrush}"
+					BorderThickness="1"
+					CornerRadius="{Binding Path=CornerRadius, ElementName=OuterBorder}">
+					<TextBlock
+						Text="{TemplateBinding Content}"
+						HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+						igPrim:XamlHelper.SnapsToDevicePixels="{TemplateBinding igPrim:SnapsToDevicePixels}"
+						Foreground="{TemplateBinding igEditorsPrim:ComputedForeground}"
+						Margin="{TemplateBinding Padding}"
+						FontWeight="{Binding Path=IsHighlighted, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToFontBold}}" />
+				</Border>
+			</Border>
+			<Rectangle
+				Name="focusRect"
+				Visibility="Collapsed"
+				Stroke="#D0000000"
+				StrokeThickness="1"
+				StrokeDashArray="1 2" />
+		</Grid>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItem}"
+		x:Key="CalendarItemBase">
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Padding"
+			Value="4,1,4,1" />
+		<Setter
+			Property="Template"
+			Value="{StaticResource CalendarItemInner}" />
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItem}"
+		BasedOn="{StaticResource CalendarItemBase}"
+		x:Key="{x:Type igEditorsPrim:CalendarItem}">
+		<Setter
+			Property="Margin"
+			Value="0,0,.5,.5" />
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarDay}"
+		BasedOn="{StaticResource CalendarItemBase}"
+		x:Key="CalendarDayBase" />
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarDay}"
+		BasedOn="{StaticResource CalendarDayBase}"
+		x:Key="{x:Type igEditorsPrim:CalendarDay}" />
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarDayOfWeek}"
+		x:Key="CalendarDayOfWeekBase">
+		<Setter
+			Property="igPrim:XamlHelper.Focusable"
+			Value="False" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Background"
+			Value="{Binding Path=ComputedBackground, RelativeSource={RelativeSource Self}}" />
+		<Setter
+			Property="Foreground"
+			Value="{Binding Path=ComputedForeground, RelativeSource={RelativeSource Self}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditorsPrim:CalendarDayOfWeek}">
+					<Border
+						HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalAlignment}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="0"
+						Background="{TemplateBinding Background}"
+						Padding="{TemplateBinding Padding}">
+						<TextBlock
+							Text="{TemplateBinding igEditorsPrim:DisplayText}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							igPrim:XamlHelper.SnapsToDevicePixels="{TemplateBinding igPrim:SnapsToDevicePixels}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarDayOfWeek}"
+		BasedOn="{StaticResource CalendarDayOfWeekBase}"
+		x:Key="{x:Type igEditorsPrim:CalendarDayOfWeek}" />
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarWeekNumber}"
+		x:Key="CalendarWeekNumberBase">
+		<Setter
+			Property="igPrim:XamlHelper.Focusable"
+			Value="False" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Padding"
+			Value="1,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditorsPrim:CalendarWeekNumber}">
+					<Border
+						HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalAlignment}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="0"
+						Background="{TemplateBinding igEditorsPrim:ComputedBackground}">
+						<TextBlock
+							Margin="{TemplateBinding Padding}"
+							MinWidth="6"
+							Foreground="{TemplateBinding igEditorsPrim:ComputedForeground}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							igPrim:XamlHelper.SnapsToDevicePixels="{TemplateBinding igPrim:SnapsToDevicePixels}"
+							Text="{Binding}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarWeekNumber}"
+		BasedOn="{StaticResource CalendarWeekNumberBase}"
+		x:Key="{x:Type igEditorsPrim:CalendarWeekNumber}" />
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItemGroupTitle}"
+		x:Key="CalendarItemGroupTitleBase">
+		<Setter
+			Property="igPrim:XamlHelper.Focusable"
+			Value="False" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditorsPrim:CalendarItemGroupTitle}">
+					<Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalAlignment}"
+						CornerRadius="0"
+						Background="{TemplateBinding igEditorsPrim:ComputedBackground}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True"
+						Padding="{TemplateBinding Padding}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Button
+								Name="headerContent"
+								Grid.Column="0"
+								Grid.ColumnSpan="3"
+								Foreground="{TemplateBinding igEditorsPrim:ComputedForeground}"
+								HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+								IsTabStop="False"
+								igPrim:XamlHelper.Focusable="False"
+								VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+								igPrim:XamlHelper.SnapsToDevicePixels="{TemplateBinding igPrim:SnapsToDevicePixels}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								Content="{TemplateBinding Content}"
+								Style="{StaticResource BorderlessButtonStyle}">
+								<ig:Commanding.Command>
+									<igEditorsPrim:CalendarCommandSource
+										ig:EventName="Click"
+										CommandType="ZoomOutCalendarMode"
+										ig:ParameterBinding="{Binding Path=Group, RelativeSource={RelativeSource TemplatedParent}}" />
+								</ig:Commanding.Command>
+							</Button>
+							<RepeatButton
+								Name="previousMonth"
+								Grid.Column="0"
+								IsTabStop="False"
+								Foreground="{TemplateBinding igEditorsPrim:ComputedForeground}"
+								igPrim:XamlHelper.Focusable="False"
+								Content="&lt;"
+								Visibility="{Binding Path=Group.ScrollPreviousButtonVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+								Style="{Binding Path=(igEditors:CalendarBase.Calendar).ScrollPreviousRepeatButtonStyleResolved, RelativeSource={RelativeSource TemplatedParent}}">
+								<ig:Commanding.Command>
+									<igEditorsPrim:CalendarCommandSource
+										ig:EventName="Click"
+										CommandType="ScrollPreviousGroup" />
+								</ig:Commanding.Command>
+							</RepeatButton>
+							<RepeatButton
+								Name="nextMonth"
+								Grid.Column="2"
+								IsTabStop="False"
+								Foreground="{TemplateBinding igEditorsPrim:ComputedForeground}"
+								igPrim:XamlHelper.Focusable="False"
+								Content="&gt;"
+								Visibility="{Binding Path=Group.ScrollNextButtonVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+								Style="{Binding Path=(igEditors:CalendarBase.Calendar).ScrollNextRepeatButtonStyleResolved, RelativeSource={RelativeSource TemplatedParent}}">
+								<ig:Commanding.Command>
+									<igEditorsPrim:CalendarCommandSource
+										ig:EventName="Click"
+										CommandType="ScrollNextGroup" />
+								</ig:Commanding.Command>
+							</RepeatButton>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Padding"
+			Value="0,0,0,0" />
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItemGroupTitle}"
+		BasedOn="{StaticResource CalendarItemGroupTitleBase}"
+		x:Key="{x:Type igEditorsPrim:CalendarItemGroupTitle}" />
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItemGroup}"
+		x:Key="{x:Type igEditorsPrim:CalendarItemGroup}">
+		<Setter
+			Property="igPrim:XamlHelper.Focusable"
+			Value="False" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditorsPrim:CalendarItemGroup}">
+					<Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True"
+						Padding="{TemplateBinding Padding}">
+						<Grid
+							igPrim:XamlHelper.SnapsToDevicePixels="{TemplateBinding igPrim:SnapsToDevicePixels}">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="*" />
+							</Grid.RowDefinitions>
+							<igEditorsPrim:CalendarItemGroupTitle
+								Name="groupTitle"
+								Content="{TemplateBinding Title}" />
+							<igEditorsPrim:CalendarItemAreaPanel
+								Grid.Row="1" />
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItemArea}"
+		x:Key="CalendarItemAreaBase">
+		<Setter
+			Property="igPrim:XamlHelper.Focusable"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditorsPrim:CalendarItemArea}">
+					<Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True"
+						Padding="{TemplateBinding Padding}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<igEditorsPrim:CalendarDayOfWeekPanel
+								Name="DayOfWeekPanel"
+								Grid.Column="1"
+								Visibility="{TemplateBinding DayOfWeekHeaderVisibility}"
+								igPrim:XamlHelper.Focusable="False"
+								Background="{Binding Path=(igEditors:CalendarBase.Calendar).ResourceProviderResolved[DayOfWeekBackgroundBrush], RelativeSource={RelativeSource TemplatedParent}}" />
+							<Grid
+								Name="weekNumbers"
+								Column="0"
+								Row="1"
+								Visibility="{TemplateBinding igEditorsPrim:WeekNumberVisibility}"
+								Margin="0,1,0,0">
+								<igEditorsPrim:CalendarWeekNumber
+									Opacity="0"
+									IsHitTestVisible="False"
+									DataContext="{Binding Path=(igEditors:CalendarBase.Calendar).WeekNumberVisibility, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource visibilityTo52Converter}}" />
+								<igEditorsPrim:CalendarWeekNumberPanel
+									Name="WeekNumberPanel"
+									igPrim:FirstRow="{TemplateBinding FirstItemRowOffset}" />
+							</Grid>
+							<Border
+								Name="itemsList"
+								Grid.Column="1"
+								Grid.Row="1"
+								BorderThickness="{TemplateBinding igEditorsPrim:ComputedItemsBorderThickness}"
+								BorderBrush="{Binding Path=(igEditors:CalendarBase.Calendar).ResourceProviderResolved[DayOfWeekSeparatorBrush], RelativeSource={RelativeSource TemplatedParent}}">
+								<igPrim:UniformGrid
+									Name="ItemPanel"
+									XamlHelper.Focusable="False"
+									FirstColumn="{TemplateBinding igEditorsPrim:FirstItemColumnOffset}"
+									FirstRow="{TemplateBinding igEditorsPrim:FirstItemRowOffset}"
+									Rows="{TemplateBinding igEditorsPrim:ItemRows}"
+									Columns="{TemplateBinding igEditorsPrim:ItemColumns}" />
+							</Border>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igEditorsPrim:CalendarItemArea}"
+		BasedOn="{StaticResource CalendarItemAreaBase}"
+		x:Key="{x:Type igEditorsPrim:CalendarItemArea}">
+		<Setter
+			Property="Margin"
+			Value="0,5,0,0" />
+	</Style>
+	<Style
+		TargetType="{x:Type igEditors:XamCalendar}"
+		x:Key="{x:Type igEditors:XamCalendar}">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="igPrim:XamlHelper.Focusable"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="{Binding Path=ResourceProviderResolved[CalendarBackgroundBrush], RelativeSource={RelativeSource Self}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditors:XamCalendar}">
+					<Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True"
+						Padding="{TemplateBinding Padding}">
+						<Grid
+							Name="RootPanel"
+							igPrim:XamlHelper.SnapsToDevicePixels="{TemplateBinding igPrim:SnapsToDevicePixels}">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="*" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<Button
+								Grid.Row="1"
+								IsTabStop="False"
+								Content="{TemplateBinding igEditors:TodayButtonCaption}"
+								Style="{TemplateBinding igEditors:TodayButtonStyleResolved}"
+								Visibility="{TemplateBinding igEditors:TodayButtonVisibility}">
+								<ig:Commanding.Command>
+									<igEditorsPrim:CalendarCommandSource
+										ig:EventName="Click"
+										CommandType="Today" />
+								</ig:Commanding.Command>
+							</Button>
+							<igEditorsPrim:CalendarItemGroupPanel
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

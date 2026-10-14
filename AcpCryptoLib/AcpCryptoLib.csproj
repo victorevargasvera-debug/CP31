@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA633}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcpCryptoLib</RootNamespace>
+    <AssemblyName>AcpCryptoLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcpAssemblyIdentityValidator.cs" />
+    <Compile Include="AcpCryptoBase.cs" />
+    <Compile Include="AcpCryptoDefs.cs" />
+    <Compile Include="AcpCryptoHeader.cs" />
+    <Compile Include="AcpCryptoHeaderBase.cs" />
+    <Compile Include="AcpCryptoStream.cs" />
+    <Compile Include="AcpEncryptDecrypt.cs" />
+    <Compile Include="AcpEncryptionHeader.cs" />
+    <Compile Include="AcpIBtnEncyptDecrpt.cs" />
+    <Compile Include="AcpKeyManager.cs" />
+    <Compile Include="AcpRNGenerator.cs" />
+    <Compile Include="AcpSmartNetAlgorithm.cs" />
+    <Compile Include="AcpXMLEncryptDecrypt.cs" />
+    <Compile Include="AesCryptoUtil.cs" />
+    <Compile Include="Blowfish.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="FlashkeyCrypto.cs" />
+    <Compile Include="HashUtil.cs" />
+    <Compile Include="IAcpCryptoStream.cs" />
+    <Compile Include="IAcpEncryptDecrypt.cs" />
+    <Compile Include="IAcpXMLEncryptDecrypt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Rc4.cs" />
+    <Compile Include="RsaEncryptionUtil.cs" />
+    <Compile Include="XmlEncryptionUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Acpcrypto.def" />
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

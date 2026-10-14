@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSLMangrComp</RootNamespace>
+    <AssemblyName>SSLManagerComp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.2.cs" />
+    <Compile Include="a.cs" />
+    <Compile Include="b.cs" />
+    <Compile Include="CertificateLoader.cs" />
+    <Compile Include="CertificateValidator.cs" />
+    <Compile Include="ConnectionConfig.cs" />
+    <Compile Include="ConnectionLayer\a.cs" />
+    <Compile Include="ConnectionLayer\b.cs" />
+    <Compile Include="ConnectionLayer\c.cs" />
+    <Compile Include="ConnectionLayer\d.cs" />
+    <Compile Include="ConnectionLayer\e.cs" />
+    <Compile Include="ConnectionLayer\ErrorReceivedHandle.cs" />
+    <Compile Include="ConnectionLayer\f.cs" />
+    <Compile Include="ConnectionLayer\g.cs" />
+    <Compile Include="ConnectionLayer\h.cs" />
+    <Compile Include="ConnectionLayer\i.cs" />
+    <Compile Include="ConnectionLayer\IServerListener.cs" />
+    <Compile Include="ConnectionLayer\IServerWorker.cs" />
+    <Compile Include="ConnectionLayer\j.cs" />
+    <Compile Include="ConnectionLayer\PacketRecivedHandle.cs" />
+    <Compile Include="ConnectionLayer\ServerBase.cs" />
+    <Compile Include="ConnectionLayer\TCPWorker.cs" />
+    <Compile Include="ConnectionLayer\TlsClientConnector.cs" />
+    <Compile Include="ConnectionLayer\TLSServerListener.cs" />
+    <Compile Include="ConnectionLayer\UDPCConnector.cs" />
+    <Compile Include="ConnectionLayer\UDPClientConnector.cs" />
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="ConnectionManagerWatcher.cs" />
+    <Compile Include="Connectors\a.cs" />
+    <Compile Include="Connectors\b.cs" />
+    <Compile Include="Connectors\c.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ErrorCategory.cs" />
+    <Compile Include="ErrorReport.cs" />
+    <Compile Include="ErrorReporter.cs" />
+    <Compile Include="LinkManager.cs" />
+    <Compile Include="LinkManagerWatcher.cs" />
+    <Compile Include="Packets\AttributeTypes.cs" />
+    <Compile Include="Packets\EntitiesTypes.cs" />
+    <Compile Include="Packets\KeepAlive.cs" />
+    <Compile Include="Packets\KeepAliveType.cs" />
+    <Compile Include="Packets\Notify.cs" />
+    <Compile Include="Packets\NotifyAttribute.cs" />
+    <Compile Include="Packets\PacketBase.cs" />
+    <Compile Include="Packets\PacketFactory.cs" />
+    <Compile Include="Packets\ReliableSubscriptionPacket.cs" />
+    <Compile Include="Packets\SubscriptionPacket.cs" />
+    <Compile Include="Packets\SubscriptionState.cs" />
+    <Compile Include="Packets\SubscriptionType.cs" />
+    <Compile Include="Packets\UnreliableSubscriptionPacket.cs" />
+    <Compile Include="PNConnectionInfo.cs" />
+    <Compile Include="PNConstants.cs" />
+    <Compile Include="PresenceInfo.cs" />
+    <Compile Include="PresenceInfo_CallBack.cs" />
+    <Compile Include="PresenceNotification.cs" />
+    <Compile Include="PresenceState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportOnError_CallBack.cs" />
+    <Compile Include="RequestEvent.cs" />
+    <Compile Include="SecureClientConfiguration.cs" />
+    <Compile Include="SecureServerConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BouncyCastle.Crypto\BouncyCastle.Crypto.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64D}</Project>
+      <Name>BouncyCastle.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IACommonError\IACommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA678}</Project>
+      <Name>IACommonError</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

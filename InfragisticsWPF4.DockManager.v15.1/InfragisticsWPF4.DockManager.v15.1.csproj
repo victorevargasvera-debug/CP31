@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.DockManager.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationFramework.Luna" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\AutomationPeerHelper.cs" />
+    <Compile Include="AutomationPeers\ItemsControlPeerHelper.cs" />
+    <Compile Include="InternalDynamicResourceString.cs" />
+    <Compile Include="LocalizedCategoryAttribute.cs" />
+    <Compile Include="LocalizedDescriptionAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceCustomizerLocator.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\ContentPaneAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\DockedPaneSplitterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\DocumentContentHostAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\PaneSplitterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\PaneTabItemWrapperAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\SplitPaneAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\SplitPaneSplitterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\TabGroupPaneAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\UnpinnedTabFlyoutSplitterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DockManager\XamDockManagerAutomationPeer.cs" />
+    <Compile Include="Windows\DockManager\ActivePaneManager.cs" />
+    <Compile Include="Windows\DockManager\ContentPane.cs" />
+    <Compile Include="Windows\DockManager\ContentPaneCommands.cs" />
+    <Compile Include="Windows\DockManager\ContentPanePlaceholder.cs" />
+    <Compile Include="Windows\DockManager\ContentPaneStates.cs" />
+    <Compile Include="Windows\DockManager\ContentValidationConverter.cs" />
+    <Compile Include="Windows\DockManager\DockableAreas.cs" />
+    <Compile Include="Windows\DockManager\DockableState.cs" />
+    <Compile Include="Windows\DockManager\DockedLocationToSplitterOrientationConverter.cs" />
+    <Compile Include="Windows\DockManager\DockedPaneLayoutMode.cs" />
+    <Compile Include="Windows\DockManager\DockedPaneSplitter.cs" />
+    <Compile Include="Windows\DockManager\DockingIndicator.cs" />
+    <Compile Include="Windows\DockManager\DockingIndicatorPosition.cs" />
+    <Compile Include="Windows\DockManager\DockManagerBrushHelper.cs" />
+    <Compile Include="Windows\DockManager\DockManagerBrushKeys.cs" />
+    <Compile Include="Windows\DockManager\DockManagerCommands.cs" />
+    <Compile Include="Windows\DockManager\DockManagerKnownBoxes.cs" />
+    <Compile Include="Windows\DockManager\DockManagerPanel.cs" />
+    <Compile Include="Windows\DockManager\DockManagerStates.cs" />
+    <Compile Include="Windows\DockManager\DockManagerUtilities.cs" />
+    <Compile Include="Windows\DockManager\DocumentContentHost.cs" />
+    <Compile Include="Windows\DockManager\DocumentContentHostPanel.cs" />
+    <Compile Include="Windows\DockManager\DocumentTabPanel.cs" />
+    <Compile Include="Windows\DockManager\Dragging\AddToDocumentHostAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\AddToGroupAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\AddToGroupActionBase.cs" />
+    <Compile Include="Windows\DockManager\Dragging\AllowedDropLocations.cs" />
+    <Compile Include="Windows\DockManager\Dragging\DragActionComparer.cs" />
+    <Compile Include="Windows\DockManager\Dragging\DragManager.cs" />
+    <Compile Include="Windows\DockManager\Dragging\DragState.cs" />
+    <Compile Include="Windows\DockManager\Dragging\DropPreviewTabLocation.cs" />
+    <Compile Include="Windows\DockManager\Dragging\FloatPaneAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\InvalidDropLocation.cs" />
+    <Compile Include="Windows\DockManager\Dragging\MoveInGroupAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\MoveWindowAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\NewRootPaneAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\NewSplitPaneAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\NewTabGroupAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\PaneDragAction.cs" />
+    <Compile Include="Windows\DockManager\Dragging\RootSplitPaneLocation.cs" />
+    <Compile Include="Windows\DockManager\Events\FilesMenuOpeningEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\InitializePaneContentEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneClosedEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneClosingEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneDragEndedEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneDragOverEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneDragStartingEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneOptionsMenuOpeningEventArgs.cs" />
+    <Compile Include="Windows\DockManager\Events\PaneToolWindowEventArgs.cs" />
+    <Compile Include="Windows\DockManager\FloatingWindowCaptionSource.cs" />
+    <Compile Include="Windows\DockManager\FloatingWindowDoubleClickAction.cs" />
+    <Compile Include="Windows\DockManager\FloatingWindowDragMode.cs" />
+    <Compile Include="Windows\DockManager\FloatingWindowVisibility.cs" />
+    <Compile Include="Windows\DockManager\FocusWatcher.cs" />
+    <Compile Include="Windows\DockManager\HwndHostInfo.cs" />
+    <Compile Include="Windows\DockManager\IContentPaneContainer.cs" />
+    <Compile Include="Windows\DockManager\IHwndHostContainer.cs" />
+    <Compile Include="Windows\DockManager\IHwndHostInfoOwner.cs" />
+    <Compile Include="Windows\DockManager\InitialPaneLocation.cs" />
+    <Compile Include="Windows\DockManager\IPaneContainer.cs" />
+    <Compile Include="Windows\DockManager\ISplitElementCollectionOwner.cs" />
+    <Compile Include="Windows\DockManager\KeyEventFocusWatcher.cs" />
+    <Compile Include="Windows\DockManager\LayoutManager.cs" />
+    <Compile Include="Windows\DockManager\LogicalContainer.cs" />
+    <Compile Include="Windows\DockManager\MouseHoverService.cs" />
+    <Compile Include="Windows\DockManager\MovePaneHelper.cs" />
+    <Compile Include="Windows\DockManager\NativeWindowMethods.cs" />
+    <Compile Include="Windows\DockManager\ObservableSplitElementCollection.cs" />
+    <Compile Include="Windows\DockManager\PaneActionBehavior.cs" />
+    <Compile Include="Windows\DockManager\PaneCloseAction.cs" />
+    <Compile Include="Windows\DockManager\PaneFilterFlags.cs" />
+    <Compile Include="Windows\DockManager\PaneFlyoutAnimation.cs" />
+    <Compile Include="Windows\DockManager\PaneHeaderPresenter.cs" />
+    <Compile Include="Windows\DockManager\PaneLocation.cs" />
+    <Compile Include="Windows\DockManager\PaneMenuItem.cs" />
+    <Compile Include="Windows\DockManager\PaneNavigationOrder.cs" />
+    <Compile Include="Windows\DockManager\PaneNavigator.cs" />
+    <Compile Include="Windows\DockManager\PaneNavigatorButtonDisplayMode.cs" />
+    <Compile Include="Windows\DockManager\PaneNavigatorItemsPanel.cs" />
+    <Compile Include="Windows\DockManager\PaneNavigatorItemsPanelAdorner.cs" />
+    <Compile Include="Windows\DockManager\PaneNavigatorStartInfo.cs" />
+    <Compile Include="Windows\DockManager\PaneSplitter.cs" />
+    <Compile Include="Windows\DockManager\PaneSplitterMode.cs" />
+    <Compile Include="Windows\DockManager\PaneSplitterType.cs" />
+    <Compile Include="Windows\DockManager\PaneTabItem.cs" />
+    <Compile Include="Windows\DockManager\PaneToolWindow.cs" />
+    <Compile Include="Windows\DockManager\QueuedObservableCollection.cs" />
+    <Compile Include="Windows\DockManager\Resources.cs" />
+    <Compile Include="Windows\DockManager\ResourcesDockManager.cs" />
+    <Compile Include="Windows\DockManager\SplitPane.cs" />
+    <Compile Include="Windows\DockManager\SplitPaneSplitter.cs" />
+    <Compile Include="Windows\DockManager\TabGroupPane.cs" />
+    <Compile Include="Windows\DockManager\TabItemDragBehavior.cs" />
+    <Compile Include="Windows\DockManager\ThumbDragService.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedFlyoutState.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedTabArea.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedTabAreaInfo.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedTabFlyout.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedTabFlyoutSplitter.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedTabHoverAction.cs" />
+    <Compile Include="Windows\DockManager\UnpinnedTabItemPanel.cs" />
+    <Compile Include="Windows\DockManager\XamDockManager.cs" />
+    <Compile Include="Windows\Themes\DockManagerAero.cs" />
+    <Compile Include="Windows\Themes\DockManagerAeroBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerGeneric.cs" />
+    <Compile Include="Windows\Themes\DockManagerGenericBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerIGTheme.cs" />
+    <Compile Include="Windows\Themes\DockManagerLunaNormal.cs" />
+    <Compile Include="Windows\Themes\DockManagerLunaNormalBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerLunaOlive.cs" />
+    <Compile Include="Windows\Themes\DockManagerLunaOliveBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerLunaSilver.cs" />
+    <Compile Include="Windows\Themes\DockManagerLunaSilverBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerMetro.cs" />
+    <Compile Include="Windows\Themes\DockManagerMetroDark.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2010Blue.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2013.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2k7Black.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2k7BlackBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2k7Blue.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2k7BlueBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2k7Silver.cs" />
+    <Compile Include="Windows\Themes\DockManagerOffice2k7SilverBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerResourceSet.cs" />
+    <Compile Include="Windows\Themes\DockManagerRoyale.cs" />
+    <Compile Include="Windows\Themes\DockManagerRoyaleBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerWashBaseDark.cs" />
+    <Compile Include="Windows\Themes\DockManagerWashBaseDarkBrushes.cs" />
+    <Compile Include="Windows\Themes\DockManagerWashBaseLight.cs" />
+    <Compile Include="Windows\Themes\DockManagerWashBaseLightBrushes.cs" />
+    <Compile Include="Windows\Themes\Internal\DockManagerAssemblyResourceSetLoader.cs" />
+    <Compile Include="Windows\Themes\Internal\DockManagerThemeTypeConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows\DockManager\strings.resources" />
+    <EmbeddedResource Include="Windows\DockManager\ToolboxIcons\ContentPane\Icon\Small.png" />
+    <EmbeddedResource Include="Windows\DockManager\ToolboxIcons\DocumentContentHost\Icon\Small.png" />
+    <EmbeddedResource Include="Windows\DockManager\ToolboxIcons\SplitPane\Icon\Small.png" />
+    <EmbeddedResource Include="Windows\DockManager\ToolboxIcons\TabGroupPane\Icon\Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanageraero_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagergeneric_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerigtheme_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerlunanormal_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerlunaolive_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerlunasilver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagermetrodark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagermetro_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanageroffice2010blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanageroffice2013_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanageroffice2k7black_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanageroffice2k7blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanageroffice2k7silver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerroyale_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerwashbasedark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanagerbrushes\dockmanagerwashbaselight_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanageraero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagergeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerigtheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerlunanormal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerlunaolive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerlunasilver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagermetro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagermetrodark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanageroffice2010blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanageroffice2013.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanageroffice2k7black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanageroffice2k7blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanageroffice2k7silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerroyale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerwashbasedark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\dockmanager\dockmanagerwashbaselight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero2.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aerolite.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\royale.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\zune.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resourcesets\cursors\horizontalsplitter.cur" />
+    <Resource Include="resourcesets\cursors\verticalsplitter.cur" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

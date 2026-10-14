@@ -1,0 +1,238 @@
+<Window
+	x:Class="SpecialFeatures.DepotLabtool.DepotUpgradeCodeplugWnd" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="clr-namespace:SpecialFeatures.DepotLabtool" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	WindowStartupLocation="CenterOwner"
+	Title="{x:Static CommonResxNS:AppResources.Upgrade_Codeplug}"
+	Height="408"
+	Width="464"
+	ResizeMode="NoResize"
+	WindowStyle="ToolWindow"
+	ShowInTaskbar="False">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="ResourceSpecialFeatures.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<LinearGradientBrush
+				EndPoint="0.5,0.99"
+				StartPoint="0.5,0.105"
+				x:Key="BrushBackgroundSilver">
+				<GradientStop
+					Color="#FFA6A9AF"
+					Offset="0.545" />
+				<GradientStop
+					Color="#FFC2C5CC"
+					Offset="1" />
+				<GradientStop
+					Color="#FF8F939B"
+					Offset="0" />
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				StartPoint="0.0338026,-0.0020342"
+				EndPoint="0.0338026,0.998692"
+				x:Key="MyBrush1234">
+				<GradientStop
+					Color="#FF1C2027"
+					Offset="0" />
+				<GradientStop
+					Color="#FF5C626B"
+					Offset="0.0859826" />
+				<GradientStop
+					Color="#FF9CA4B0"
+					Offset="0.0863636" />
+				<GradientStop
+					Color="#FF5D636C"
+					Offset="0.462964" />
+				<GradientStop
+					Color="#FF1E2228"
+					Offset="0.463636" />
+				<GradientStop
+					Color="#FF4C4C4C"
+					Offset="1" />
+			</LinearGradientBrush>
+			<Style
+				TargetType="{x:Type TextBox}"
+				x:Key="textBoxInError">
+				<Style.Triggers>
+					<Trigger
+						Property="Validation.HasError"
+						Value="true">
+						<Setter
+							Property="FrameworkElement.ToolTip"
+							Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+					</Trigger>
+				</Style.Triggers>
+			</Style>
+			<d:DisableEncConverter
+				x:Key="DisableEncConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Background>
+		<LinearGradientBrush
+			EndPoint="0.5,0.99"
+			StartPoint="0.5,0.105">
+			<GradientStop
+				Color="#FFA6A9AF"
+				Offset="0.545" />
+			<GradientStop
+				Color="#FFC2C5CC"
+				Offset="1" />
+			<GradientStop
+				Color="#FF8F939B"
+				Offset="0" />
+		</LinearGradientBrush>
+	</Control.Background>
+	<Grid
+		Height="325"
+		Width="424">
+		<!--Unknown connection ID: 1-->
+		<GroupBox
+			Name="groupBox1"
+			Header="Codeplug Imformation"
+			Margin="12,12,12,0"
+			Height="208"
+			VerticalAlignment="Top"
+			Foreground="#FF0000FF">
+			<!--Unknown connection ID: 2-->
+			<Grid
+				Name="grid1"
+				Height="171"
+				Width="385">
+				<!--Unknown connection ID: 3-->
+				<Label
+					Name="label1"
+					HorizontalAlignment="Left"
+					Margin="12,13,0,0"
+					Width="109"
+					Height="26"
+					VerticalAlignment="Top"
+					Content="Model Number:" />
+				<!--Unknown connection ID: 4-->
+				<TextBox
+					Name="txtModelNumber"
+					Margin="142,13,0,0"
+					Height="26"
+					VerticalAlignment="Top"
+					IsReadOnly="True"
+					IsEnabled="False"
+					HorizontalAlignment="Left"
+					Width="161" />
+				<!--Unknown connection ID: 5-->
+				<Label
+					Name="label3"
+					HorizontalAlignment="Left"
+					Margin="12,68,0,0"
+					Width="109"
+					Height="26"
+					VerticalAlignment="Top"
+					Content="Serial Number:" />
+				<!--Unknown connection ID: 6-->
+				<TextBox
+					Name="txtSerNum"
+					Margin="142,68,0,0"
+					Height="26"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Width="161" />
+				<!--Unknown connection ID: 7-->
+				<Label
+					Name="label2"
+					HorizontalAlignment="Left"
+					Margin="12,120,0,0"
+					Width="83"
+					Height="23"
+					VerticalAlignment="Top"
+					Content="FLASHCode:" />
+				<!--Unknown connection ID: 8-->
+				<TextBox
+					Name="txtFlashCode1"
+					Margin="142,120,0,0"
+					Height="23"
+					MaxLength="6"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left">000001</TextBox>
+				<!--Unknown connection ID: 9-->
+				<Label
+					Name="label5"
+					Height="23"
+					Margin="194,116,0,0"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Width="17">-</Label>
+				<!--Unknown connection ID: 10-->
+				<TextBox
+					Name="txtFlashCode2"
+					Height="23"
+					Margin="214,118,0,0"
+					MaxLength="6"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Width="49">000000</TextBox>
+				<!--Unknown connection ID: 11-->
+				<Label
+					Name="label6"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="267,116,0,0"
+					VerticalAlignment="Top"
+					Width="17">-</Label>
+				<!--Unknown connection ID: 12-->
+				<TextBox
+					Name="txtFlashCodeCheckSum"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="284,118,0,0"
+					VerticalAlignment="Top"
+					Width="19">9</TextBox>
+			</Grid>
+		</GroupBox>
+		<!--Unknown connection ID: 13-->
+		<CheckBox
+			Name="cbDisableEnc"
+			Content="Disable Encryption"
+			Height="16"
+			HorizontalAlignment="Left"
+			Margin="171,240,0,0"
+			VerticalAlignment="Top"
+			IsChecked="False">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{StaticResource DisableEncConverter}">
+					<Binding
+						Path="Text"
+						ElementName="txtModelNumber" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</CheckBox>
+		<!--Unknown connection ID: 14-->
+		<Button
+			Name="btnOK"
+			Style="{StaticResource AnotherB}"
+			Background="{DynamicResource SilverButton}"
+			Foreground="#FFFF7F50"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="92,0,0,25"
+			VerticalAlignment="Bottom"
+			Width="75"
+			IsDefault="True">
+			<TextBlock
+				Text="OK" />
+		</Button>
+		<!--Unknown connection ID: 15-->
+		<Button
+			Name="button2"
+			Style="{StaticResource AnotherB}"
+			Background="{DynamicResource Brush1234}"
+			Foreground="#FFFF7F50"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,0,101,25"
+			VerticalAlignment="Bottom"
+			Width="75"
+			IsCancel="True">
+			<TextBlock
+				Text="Cancel" />
+		</Button>
+	</Grid>
+</Window>

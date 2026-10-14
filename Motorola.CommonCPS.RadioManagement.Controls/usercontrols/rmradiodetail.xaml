@@ -1,0 +1,427 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMRadioDetail" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:glob="clr-namespace:System.Globalization;assembly=mscorlib">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="R"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.RestoreRadioCommand}" />
+	</UIElement.InputBindings>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/UserControls/SetEditorInnerStyles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:BindingProxy
+				Data="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType={x:Type local:RMRadioDetail}}}"
+				x:Key="RadioDetails" />
+			<converters:JobStatusToStringConverter
+				x:Key="JobStatusToStringConverter" />
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:ProductFamilyIdentifierToVisibilityConverter
+				x:Key="ProductFamilyIdentifierToVisibilityConverter" />
+			<converters:GridViewSourceConverter
+				x:Key="GridViewSourceConverter" />
+			<converters:ProductFamilyToHeightConverter
+				x:Key="ProductFamilyToHeightConverter" />
+			<converters:JobTypeToUINameConverter
+				x:Key="JobTypeToUINameConverter" />
+			<converters:MNISAndCMSCToVisibilityConverter
+				x:Key="MNISAndCMSCToVisibilityConverter" />
+			<converters:ProductFamilyToInvisibleConverter
+				x:Key="ProductFamilyToInvisibleConverter" />
+			<converters:MCIFVisibilityConverter
+				x:Key="MCIFVisibilityConverter" />
+			<Style
+				TargetType="{x:Type Border}"
+				x:Key="BorderStyle">
+				<Setter
+					Property="BorderBrush"
+					Value="#FF808080" />
+				<Setter
+					Property="BorderThickness"
+					Value="1" />
+			</Style>
+			<Style
+				TargetType="{x:Type TextBlock}"
+				x:Key="TextBlockRightAligned">
+				<Setter
+					Property="HorizontalAlignment"
+					Value="Right" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="200"
+				MinWidth="150"
+				MaxWidth="300" />
+			<ColumnDefinition
+				Width="10" />
+			<ColumnDefinition
+				Width="*"
+				MinWidth="400" />
+		</Grid.ColumnDefinitions>
+		<Border
+			Grid.Column="0"
+			Style="{StaticResource BorderStyle}">
+			<!--Unknown connection ID: 1-->
+			<ListBox
+				Name="lsbGroup"
+				Style="{StaticResource IGListBoxStyle}"
+				SelectionMode="Single">
+				<!--Unknown connection ID: 2-->
+				<ListBoxItem
+					Name="lbRadioInfo"
+					Content="{x:Static resourceRepository:Resources.RMC_Title_RadioInfo}"
+					Visibility="{Binding Details.IsRadioInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+				<!--Unknown connection ID: 3-->
+				<ListBoxItem
+					Name="lbJobHistory"
+					IsSelected="True"
+					Content="{x:Static resourceRepository:Resources.RMC_Title_RadioJobHistory}"
+					Visibility="{Binding Details.ProductFamily, Converter={StaticResource ProductFamilyToInvisibleConverter}, ConverterParameter=MNIS}" />
+				<!--Unknown connection ID: 4-->
+				<ListBoxItem
+					Name="lbFeatures"
+					Content="{x:Static resourceRepository:Resources.RMC_Title_ShowFeatureSets}"
+					Visibility="{Binding Details.IsFeatureSetVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+			</ListBox>
+		</Border>
+		<GridSplitter
+			Grid.Column="1"
+			Width="10"
+			ResizeBehavior="PreviousAndNext"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch" />
+		<!--Unknown connection ID: 5-->
+		<Grid
+			Column="2"
+			Visibility="{Binding Converter={StaticResource BooleanToVisibilityConverter}, ElementName=lbJobHistory, Path=IsSelected}">
+			<!--Unknown connection ID: 6-->
+			<Border
+				Name="bdJobHistory"
+				Style="{StaticResource BorderStyle}">
+				<Grid
+					Margin="20"
+					HorizontalAlignment="Stretch">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="20" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="10" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<!--Unknown connection ID: 7-->
+					<Grid
+						Name="gridDetails"
+						Row="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="0.1*" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition
+								Height="{Binding Details.ProductFamily, Converter={StaticResource ProductFamilyToHeightConverter}, ConverterParameter=MNIS;DMR3Controller?0:Auto}" />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<local:RMAnchorNoExpander
+							Grid.Row="0"
+							Grid.ColumnSpan="3"
+							Margin="0,0,0,5"
+							Caption="{x:Static resourceRepository:Resources.RadioDetails_Title}" />
+						<!--Unknown connection ID: 8-->
+						<local:RMTextBlock
+							Name="lblRadioAlias"
+							Grid.Row="1"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_Alias}"
+							Style="{StaticResource TextBlockRightAligned}" />
+						<!--Unknown connection ID: 9-->
+						<local:RMTextBlock
+							Name="txtRadioAlias"
+							Grid.Row="1"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.RadioAlias}" />
+						<local:RMTextBlock
+							Grid.Row="2"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							AutomationProperties.AutomationId="SerialNumberLabel"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_SerialNumber}"
+							Style="{StaticResource TextBlockRightAligned}" />
+						<local:RMTextBlock
+							Grid.Row="2"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							AutomationProperties.AutomationId="SerialNumber"
+							Text="{Binding Details.SerialNumber}" />
+						<!--Unknown connection ID: 10-->
+						<local:RMTextBlock
+							Name="lblModelNumber"
+							Grid.Row="4"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_ModelNumber}"
+							Style="{StaticResource TextBlockRightAligned}"
+							Visibility="{Binding Details.Radio.ProductFamily, Converter={StaticResource MNISAndCMSCToVisibilityConverter}}" />
+						<!--Unknown connection ID: 11-->
+						<local:RMTextBlock
+							Name="txtModelNumber"
+							Grid.Row="4"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.ModelNumber}"
+							Visibility="{Binding Details.Radio.ProductFamily, Converter={StaticResource MNISAndCMSCToVisibilityConverter}}" />
+						<local:RMTextBlock
+							Grid.Row="5"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_MCIF_ProfileName}"
+							Style="{StaticResource TextBlockRightAligned}"
+							Visibility="{Binding Details.ProductIdentifier, Converter={StaticResource MCIFVisibilityConverter}}" />
+						<local:RMTextBlock
+							Grid.Row="5"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.MCIFProfileName}"
+							Visibility="{Binding Details.ProductIdentifier, Converter={StaticResource MCIFVisibilityConverter}}" />
+						<local:RMTextBlock
+							Grid.Row="6"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_MCIF_Version}"
+							Style="{StaticResource TextBlockRightAligned}"
+							Visibility="{Binding Details.ProductIdentifier, Converter={StaticResource MCIFVisibilityConverter}}" />
+						<local:RMTextBlock
+							Grid.Row="6"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.MCIFVersion}"
+							Visibility="{Binding Details.ProductIdentifier, Converter={StaticResource MCIFVisibilityConverter}}" />
+						<local:RMTextBlock
+							Grid.Row="7"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_LastProgrammedDate}"
+							Style="{StaticResource TextBlockRightAligned}" />
+						<local:RMTextBlock
+							Grid.Row="7"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.LastProgrammedDate, StringFormat=G, ConverterCulture={x:Static glob:CultureInfo.InvariantCulture}}" />
+						<local:RMTextBlock
+							Grid.Row="8"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_TemplateName}"
+							Style="{StaticResource TextBlockRightAligned}"
+							Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Template]}" />
+						<local:RMTextBlock
+							Grid.Row="8"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.TemplateName}"
+							Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Template]}" />
+						<!--Unknown connection ID: 12-->
+						<local:RMTextBlock
+							Name="lblConfiguration"
+							Grid.Row="8"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_ConfigurationName}"
+							Style="{StaticResource TextBlockRightAligned}" />
+						<!--Unknown connection ID: 13-->
+						<local:RMTextBlock
+							Name="txtConfiguration"
+							Grid.Row="8"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.ConfigurationName}" />
+						<local:RMTextBlock
+							Grid.Row="9"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_Comments}"
+							Style="{StaticResource TextBlockRightAligned}" />
+						<local:RMTextBlock
+							Grid.Row="9"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Details.Comments}" />
+						<local:RMTextBlock
+							Grid.Row="10"
+							Grid.Column="0"
+							Margin="0,5,0,5"
+							Text="{x:Static resourceRepository:Resources.RMC_Label_Radio_JobCount}"
+							Style="{StaticResource TextBlockRightAligned}" />
+						<local:RMTextBlock
+							Grid.Row="10"
+							Grid.Column="2"
+							Margin="0,5,0,5"
+							Text="{Binding Items.Count}" />
+					</Grid>
+					<local:RMAnchorNoExpander
+						Grid.Row="2"
+						Caption="{x:Static resourceRepository:Resources.RMC_Label_Radio_JobHistory}" />
+					<Grid
+						Row="4">
+						<!--Unknown connection ID: 14-->
+						<local:RMDataGrid
+							Name="dgrDetails"
+							Loaded="DgrDetails_OnLoaded"
+							igDP:GroupByAreaLocation="None"
+							igDP:DataSource="{Binding Items}"
+							SearchCommand="{Binding SearchCommand}">
+							<FrameworkElement.ContextMenu>
+								<ContextMenu>
+									<ItemsControl.Items>
+										<MenuItem
+											Header="{x:Static resourceRepository:Resources.RMC_Action_Radio_Restore}"
+											InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_R}"
+											Command="{Binding CommandProxy.RestoreRadioCommand, IsAsync=True}"
+											Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[EXCLFAMILY:AMP]}" />
+									</ItemsControl.Items>
+								</ContextMenu>
+							</FrameworkElement.ContextMenu>
+							<igDP:DataPresenterBase.FieldLayoutSettings>
+								<igDP:FieldLayoutSettings
+									HighlightAlternateRecords="True"
+									AllowClipboardOperations="Copy"
+									AutoFitMode="Always"
+									AutoGenerateFields="False"
+									CopyFieldLabelsToClipboard="False"
+									AllowDelete="False" />
+							</igDP:DataPresenterBase.FieldLayoutSettings>
+							<igDP:DataPresenterBase.FieldSettings>
+								<igDP:FieldSettings
+									AllowEdit="False"
+									CellClickAction="SelectRecord"
+									Width="Auto" />
+							</igDP:DataPresenterBase.FieldSettings>
+							<igDP:DataPresenterBase.FieldLayouts>
+								<igDP:FieldLayout>
+									<igDP:FieldLayout.Fields>
+										<igDP:Field
+											Name="SuperJobName"
+											Label="{x:Static resourceRepository:Resources.General_BatchJobName}" />
+										<igDP:Field
+											Name="ExecutedDate"
+											Label="{x:Static resourceRepository:Resources.JobHistory_ExecutedDate}">
+											<igDP:Field.Settings>
+												<igDP:FieldSettings
+													AllowEdit="false"
+													EditAsType="{x:Type sys:DateTime}" />
+											</igDP:Field.Settings>
+										</igDP:Field>
+										<igDP:Field
+											Name="JobStatus"
+											Label="{x:Static resourceRepository:Resources.JobHistory_Status}"
+											Column="1"
+											Converter="{StaticResource JobStatusToStringConverter}">
+											<igDP:Field.Settings>
+												<igDP:FieldSettings
+													AllowEdit="False"
+													EditAsType="{x:Type sys:String}" />
+											</igDP:Field.Settings>
+										</igDP:Field>
+										<igDP:Field
+											Name="JobType"
+											Label="{x:Static resourceRepository:Resources.RMC_JobContainer_Type}">
+											<igDP:Field.Settings>
+												<igDP:FieldSettings
+													AllowEdit="False"
+													EditAsType="{x:Type sys:String}">
+													<igDP:FieldSettings.EditorStyle>
+														<Style
+															TargetType="{x:Type igEditors:XamTextEditor}">
+															<Setter
+																Property="igEditors:ValueEditor.Text">
+																<Setter.Value>
+																	<MultiBinding
+																		Converter="{StaticResource JobTypeToUINameConverter}"
+																		Mode="OneWay">
+																		<Binding
+																			Path="DataItem.IsMigrationJob" />
+																		<Binding
+																			Path="DataItem.JobType" />
+																	</MultiBinding>
+																</Setter.Value>
+															</Setter>
+														</Style>
+													</igDP:FieldSettings.EditorStyle>
+												</igDP:FieldSettings>
+											</igDP:Field.Settings>
+										</igDP:Field>
+										<igDP:Field
+											Name="CreateDate"
+											Label="{x:Static resourceRepository:Resources.ShowJobComposite_CreationDate}">
+											<igDP:Field.Settings>
+												<igDP:FieldSettings
+													AllowEdit="false"
+													EditAsType="{x:Type sys:DateTime}" />
+											</igDP:Field.Settings>
+										</igDP:Field>
+										<igDP:Field
+											Name="StartDateTime"
+											Label="{x:Static resourceRepository:Resources.General_StartDate}">
+											<igDP:Field.Settings>
+												<igDP:FieldSettings
+													AllowEdit="false"
+													EditAsType="{x:Type sys:DateTime}" />
+											</igDP:Field.Settings>
+										</igDP:Field>
+										<igDP:Field
+											Name="EndDateTime"
+											Label="{x:Static resourceRepository:Resources.General_EndDate}">
+											<igDP:Field.Settings>
+												<igDP:FieldSettings
+													AllowEdit="false"
+													EditAsType="{x:Type sys:DateTime}" />
+											</igDP:Field.Settings>
+										</igDP:Field>
+										<igDP:Field
+											Name="CodeplugFileName"
+											Label="{x:Static resourceRepository:Resources.JobHistory_CpgFileName}" />
+										<igDP:Field
+											Name="SoftwareVersion"
+											Label="{x:Static resourceRepository:Resources.JobHistory_Firmware_SW_Version}" />
+										<igDP:Field
+											Name="CodeplugVersion"
+											Label="{x:Static resourceRepository:Resources.JobHistory_Codeplug_Version}" />
+										<igDP:Field
+											Name="Reason"
+											Label="{x:Static resourceRepository:Resources.RMC_Job_Reason}" />
+									</igDP:FieldLayout.Fields>
+								</igDP:FieldLayout>
+							</igDP:DataPresenterBase.FieldLayouts>
+						</local:RMDataGrid>
+					</Grid>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

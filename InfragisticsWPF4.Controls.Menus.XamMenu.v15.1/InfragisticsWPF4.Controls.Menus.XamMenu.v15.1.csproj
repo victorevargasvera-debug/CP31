@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA685}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.Controls.Menus.XamMenu.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\XamContextMenuAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\XamMenuAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\XamMenuItemAutomationPeer.cs" />
+    <Compile Include="Controls\Menus\ContextMenuManager.cs" />
+    <Compile Include="Controls\Menus\ContextMenuService.cs" />
+    <Compile Include="Controls\Menus\ItemClickedEventArgs.cs" />
+    <Compile Include="Controls\Menus\MenuItemPosition.cs" />
+    <Compile Include="Controls\Menus\MenuItemRole.cs" />
+    <Compile Include="Controls\Menus\OpenedEventArgs.cs" />
+    <Compile Include="Controls\Menus\OpeningEventArgs.cs" />
+    <Compile Include="Controls\Menus\OpenMode.cs" />
+    <Compile Include="Controls\Menus\PlacementMode.cs" />
+    <Compile Include="Controls\Menus\Primitives\CloseCommand.cs" />
+    <Compile Include="Controls\Menus\Primitives\IconContentControl.cs" />
+    <Compile Include="Controls\Menus\Primitives\OpenCommand.cs" />
+    <Compile Include="Controls\Menus\Primitives\XamContextMenuCommandBase.cs" />
+    <Compile Include="Controls\Menus\Primitives\XamHeaderedItemsControl.cs" />
+    <Compile Include="Controls\Menus\Properties\Resources.cs" />
+    <Compile Include="Controls\Menus\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\Menus\XamContextMenu.cs" />
+    <Compile Include="Controls\Menus\XamContextMenuCommand.cs" />
+    <Compile Include="Controls\Menus\XamContextMenuCommandSource.cs" />
+    <Compile Include="Controls\Menus\XamMenu.cs" />
+    <Compile Include="Controls\Menus\XamMenuBase.cs" />
+    <Compile Include="Controls\Menus\XamMenuItem.cs" />
+    <Compile Include="Controls\Menus\XamMenuSeparator.cs" />
+    <Compile Include="HeaderedItemContainerGenerator.cs" />
+    <Compile Include="IHeaderedItemContainerGenerator.cs" />
+    <Compile Include="INavigation.cs" />
+    <Compile Include="MenuNavigation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.cs" />
+    <Compile Include="SR.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Menus\Properties\Resources.resources" />
+    <EmbeddedResource Include="Controls\Menus\Strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Menus\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="themes\generic.2.xaml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

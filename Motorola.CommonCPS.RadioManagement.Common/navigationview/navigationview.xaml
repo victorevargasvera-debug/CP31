@@ -1,0 +1,435 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.NavigationView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:global="clr-namespace:Motorola.CommonCPS.RadioManagement.Global;assembly=Motorola.CommonCPS.RadioManagement.Global" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:RFResourceRepository="clr-namespace:RFResourceRepository;assembly=RFResourceRepository" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Common;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Common;component/NavigationView/CPS/CPSButtonStyles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:HideInCpsModeConverter
+				x:Key="HideInCpsModeConverter" />
+			<converters:ModuleNameToVisibilityConverter
+				x:Key="ModuleNameToVisibilityConverter" />
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:SetDebuggerToVisibilityConverter
+				x:Key="SetDebuggerToVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="15" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<!--Unknown connection ID: 1-->
+			<Grid
+				Name="ButtonBarIconMode"
+				Row="0"
+				Visibility="Visible">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<!--Unknown connection ID: 2-->
+				<controls:RMActionMenu
+					Name="tgbActions"
+					Grid.Column="0"
+					Style="{StaticResource ActionsButtonStyle}"
+					ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Actions}">
+					<ig:ContextMenuService.Manager>
+						<ig:ContextMenuManager
+							OpenMode="None">
+							<ig:ContextMenuManager.ContextMenu>
+								<!--Unknown connection ID: 3-->
+								<ig:XamContextMenu
+									Name="cmnActions"
+									Placement="AlignedBelow">
+									<!--Unknown connection ID: 4-->
+									<ig:XamMenuItem
+										Name="mniNewRadio"
+										Header="{x:Static resourceRepository:Resources.RMSU_Action_New_Radios}"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_N}"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareAddRadioCommand}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][MAINTENANCEMODE:TRUE][EXCLFAMILY:AMP]}" />
+									<!--Unknown connection ID: 5-->
+									<ig:XamMenuItem
+										Name="mniImport"
+										Header="{x:Static resourceRepository:Resources.RMC_Action_Import}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}">
+										<ItemsControl.Items>
+											<!--Unknown connection ID: 6-->
+											<ig:XamMenuItem
+												Name="mniImportRadios"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_I}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_Radios}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][MAINTENANCEMODE:TRUE][EXCLFAMILY:AMP]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportRadiosCommand}" />
+											<!--Unknown connection ID: 7-->
+											<ig:XamMenuItem
+												Name="mniImportFileToGridCommand"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_H}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_FileToGrid}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportFileToGridCommand}" />
+											<!--Unknown connection ID: 8-->
+											<ig:XamMenuItem
+												Name="mniImportFromConsole"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_C}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_FromConsole}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO][MODE:Configuration][EXCLFAMILY:AMP]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.ImportFromConsoleCommand}" />
+											<ig:XamMenuSeparator />
+											<!--Unknown connection ID: 9-->
+											<ig:XamMenuItem
+												Name="mniImportTemplates"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_T}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_Templates}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportTemplatesCommand}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Template]}" />
+											<ig:XamMenuSeparator
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+											<!--Unknown connection ID: 10-->
+											<ig:XamMenuItem
+												Name="mniImportFirmwares"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_M}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_Firmwares}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportFirmwaresCommand}" />
+											<!--Unknown connection ID: 11-->
+											<ig:XamMenuItem
+												Name="mniImporVoiceAnnoucements"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_V}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_VoiceAnnouncements}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportVoiceAnnouncementsCommand}" />
+											<!--Unknown connection ID: 12-->
+											<ig:XamMenuItem
+												Name="mniImportLanguagePacks"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_L}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_LanguagePacks}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][EXCLFAMILY:AMP]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportLanguagePacksCommand}" />
+											<!--Unknown connection ID: 13-->
+											<ig:XamMenuItem
+												Name="mniImportCACertificates"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_B}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_CACertificates}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportCACertificatesCommand}" />
+											<!--Unknown connection ID: 14-->
+											<ig:XamMenuItem
+												Name="mniImportDVRSFiles"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_U}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Import_DVRS_Files}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareImportDVRSFilesCommand}" />
+										</ItemsControl.Items>
+									</ig:XamMenuItem>
+									<!--Unknown connection ID: 15-->
+									<ig:XamMenuItem
+										Name="mniExport"
+										Header="{x:Static resourceRepository:Resources.RMC_Action_Export}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}">
+										<ItemsControl.Items>
+											<!--Unknown connection ID: 16-->
+											<ig:XamMenuItem
+												Name="mniExportRadio"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_R}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Export_Radio}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][MAINTENANCEMODE:TRUE][EXCLFAMILY:AMP]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.ExportRadioCommand}" />
+											<!--Unknown connection ID: 17-->
+											<ig:XamMenuItem
+												Name="mniExportDVRS"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_D}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Export_DVRS}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO][EXCLFAMILY:AMP]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.ExportDVRSCommand}" />
+											<!--Unknown connection ID: 18-->
+											<ig:XamMenuItem
+												Name="mniExportGirdToFile"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_S}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Export_GridToFile}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.ExportCurrentGridToFileCommand}" />
+										</ItemsControl.Items>
+									</ig:XamMenuItem>
+									<!--Unknown connection ID: 19-->
+									<ig:XamMenuItem
+										Name="mniPrint"
+										Header="{x:Static resourceRepository:Resources.General_Print}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}">
+										<ItemsControl.Items>
+											<!--Unknown connection ID: 20-->
+											<ig:XamMenuItem
+												Name="mniPrintViewPreview"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_Shift_P}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_PrintPreview}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrintViewPreviewCommand}" />
+											<!--Unknown connection ID: 21-->
+											<ig:XamMenuItem
+												Name="mniPrintView"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_P}"
+												Header="{x:Static resourceRepository:Resources.RMC_Action_Print}"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrintViewCommand}" />
+										</ItemsControl.Items>
+									</ig:XamMenuItem>
+									<!--Unknown connection ID: 22-->
+									<ig:XamMenuItem
+										Name="mniRestore"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_R}"
+										Header="{x:Static resourceRepository:Resources.RMC_Action_Radio_Restore}"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.RestoreRadioCommand}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+									<!--Unknown connection ID: 23-->
+									<ig:XamMenuItem
+										Name="mniResetIdentifiers"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_Shift_I}"
+										Header="{x:Static resourceRepository:Resources.RMC_Action_ResetIdentifiers}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][EXCLFAMILY:AMP]}"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.PrepareResetIdentifiersCommand}" />
+									<ig:XamMenuSeparator
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+									<!--Unknown connection ID: 24-->
+									<ig:XamMenuItem
+										Name="manageMenu"
+										Header="{x:Static resourceRepository:Resources.RMC_Navigation_Manage}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}">
+										<ItemsControl.Items>
+											<!--Unknown connection ID: 25-->
+											<ig:XamMenuItem
+												Name="mniSetDebugger"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_SetsDebugger}"
+												Visibility="{Binding Converter={StaticResource SetDebuggerToVisibilityConverter}, ConverterParameter=Configuration}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToSetDebuggerCommand}" />
+											<!--Unknown connection ID: 26-->
+											<ig:XamMenuItem
+												Name="mniTemplates"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_T}"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_Templates}"
+												infrastructure:MenuItemClick.CommandParameter="Template"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Template]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+											<!--Unknown connection ID: 27-->
+											<ig:XamMenuItem
+												Name="mniLicense"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_Licenses}">
+												<ItemsControl.Items>
+													<!--Unknown connection ID: 28-->
+													<ig:XamMenuItem
+														Name="mniRadioLicense"
+														InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_R}"
+														Header="{x:Static resourceRepository:Resources.RMC_Navigation_RadioLicenses}"
+														infrastructure:MenuItemClick.CommandParameter="RadioLicense"
+														Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}"
+														infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+													<!--Unknown connection ID: 29-->
+													<ig:XamMenuItem
+														Name="mniApplicationLicense"
+														InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_A}"
+														Header="{x:Static resourceRepository:Resources.RMC_Navigation_ApplicationLicenses}"
+														infrastructure:MenuItemClick.CommandParameter="ApplicationLicense"
+														Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[EXCLFAMILY:AMP]}"
+														infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+												</ItemsControl.Items>
+											</ig:XamMenuItem>
+											<ig:XamMenuSeparator />
+											<!--Unknown connection ID: 30-->
+											<ig:XamMenuItem
+												Name="mniFirmware"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_F}"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_Firmware}"
+												infrastructure:MenuItemClick.CommandParameter="Firmware"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+											<!--Unknown connection ID: 31-->
+											<ig:XamMenuItem
+												Name="mniLP"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_L}"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_LanguagePacks}"
+												infrastructure:MenuItemClick.CommandParameter="LanguagePack"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][EXCLFAMILY:AMP]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+											<!--Unknown connection ID: 32-->
+											<ig:XamMenuItem
+												Name="mniVA"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_V}"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_VoiceAnnouncements}"
+												infrastructure:MenuItemClick.CommandParameter="VoiceAnnouncement"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+											<!--Unknown connection ID: 33-->
+											<ig:XamMenuItem
+												Name="mniCertificates"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_B}"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_CACertificates}"
+												infrastructure:MenuItemClick.CommandParameter="CACertificates"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+											<!--Unknown connection ID: 34-->
+											<ig:XamMenuItem
+												Name="mniDVRSFiles"
+												InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_U}"
+												Header="{x:Static resourceRepository:Resources.RMC_Navigation_DVRS_Files}"
+												infrastructure:MenuItemClick.CommandParameter="DVRSFiles"
+												Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}"
+												infrastructure:MenuItemClick.Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+										</ItemsControl.Items>
+									</ig:XamMenuItem>
+									<ig:XamMenuSeparator
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+									<!--Unknown connection ID: 35-->
+									<ig:XamMenuItem
+										Name="mniRnCodeplugUploader"
+										Header="Upload codeplug..."
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.UploadMotorolaCodeplugCommand}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[FAMILY:AMP]}" />
+									<ig:XamMenuSeparator
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[FAMILY:AMP]}" />
+									<!--Unknown connection ID: 36-->
+									<ig:XamMenuItem
+										Name="mniSettings"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_E}"
+										Header="{x:Static resourceRepository:Resources.RMC_Navigation_Setting}"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.ShowSettingsCommand}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+									<!--Unknown connection ID: 37-->
+									<ig:XamMenuItem
+										Name="mniTasks"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_Ctrl_K}"
+										Header="{x:Static resourceRepository:Resources.RMC_Navigation_ViewTasks}"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.ViewTasksCommand}"
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+									<ig:XamMenuSeparator
+										Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR]}" />
+									<!--Unknown connection ID: 38-->
+									<ig:XamMenuItem
+										Name="mniHelp"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_F1}"
+										Header="{x:Static resourceRepository:Resources.RM_Help_Title}"
+										infrastructure:MenuItemClick.IsDelayExecuteCommand="True"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.HelpCommand}" />
+									<!--Unknown connection ID: 39-->
+									<ig:XamMenuItem
+										Name="mniAbout"
+										InputGestureText="{x:Static resourceRepository:Resources.Gesture_Alt_B}"
+										Header="{x:Static resourceRepository:Resources.RMC_Navigation_About}"
+										infrastructure:MenuItemClick.Command="{Binding CommandProxy.AboutCommand}" />
+								</ig:XamContextMenu>
+							</ig:ContextMenuManager.ContextMenu>
+						</ig:ContextMenuManager>
+					</ig:ContextMenuService.Manager>
+				</controls:RMActionMenu>
+				<!--Unknown connection ID: 40-->
+				<controls:RMButton
+					Name="btnScheduleJob"
+					Grid.Column="2"
+					Style="{StaticResource ScheduleJobButtonStyle}"
+					ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Scheduler}"
+					Command="{Binding CommandProxy.PrepareScheduleJobCommand}" />
+				<!--Unknown connection ID: 41-->
+				<controls:RMTabControl
+					Name="tbcMainModules"
+					AutomationProperties.AutomationId="MainModulesTabs"
+					HorizontalAlignment="Right"
+					Grid.Column="14"
+					Padding="0"
+					SelectedValuePath="Tag"
+					SelectedValue="{Binding ActiveMainModule}">
+					<!--Unknown connection ID: 42-->
+					<controls:RMTabItem
+						Name="tbiRadios"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						HeaderStyle="Icon"
+						Style="{StaticResource RadiosTabItemStyle}"
+						Tag="Radio"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Radios}"
+						AutomationProperties.AutomationId="{Binding Path=ToolTip, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+					<!--Unknown connection ID: 43-->
+					<controls:RMTabItem
+						Name="tbiASTROSystems"
+						HeaderStyle="Icon"
+						Style="{StaticResource ASTROSystemsTabItemStyle}"
+						Tag="ASTROSystem"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Systems}"
+						AutomationProperties.AutomationId="{Binding Path=ToolTip, Converter={StaticResource stringFormatConverter}, ConverterParameter=ASTRO_{0}, RelativeSource={RelativeSource Self}}"
+						Visibility="{Binding AstroSystemVisibility}" />
+					<!--Unknown connection ID: 44-->
+					<controls:RMTabItem
+						Name="tbiPCRSystems"
+						HeaderStyle="Icon"
+						Style="{StaticResource PCRSystemsTabItemStyle}"
+						Tag="PCRSystem"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Systems}"
+						AutomationProperties.AutomationId="{Binding Path=ToolTip, Converter={StaticResource stringFormatConverter}, ConverterParameter=PCR_{0}, RelativeSource={RelativeSource Self}}"
+						Visibility="{Binding PCRSystemVisibility}" />
+					<!--Unknown connection ID: 45-->
+					<controls:RMTabItem
+						Name="tbiASTROOtarProfiles"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						HeaderStyle="Icon"
+						Style="{StaticResource ASTROOtarProfileTabItemStyle}"
+						Tag="ASTROOtarProfile"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Otar_Profiles}"
+						AutomationProperties.AutomationId="{Binding Path=ToolTip, Converter={StaticResource stringFormatConverter}, ConverterParameter=ASTRO_{0}, RelativeSource={RelativeSource Self}}"
+						Visibility="{Binding AstroOtarProfileVisibility}" />
+					<!--Unknown connection ID: 46-->
+					<controls:RMTabItem
+						Name="tbiASTRODataProfiles"
+						HeaderStyle="Icon"
+						Style="{StaticResource ASTRODataProfilesTabItemStyle}"
+						Tag="ASTRODataProfile"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Data_Profiles}"
+						AutomationProperties.AutomationId="{Binding Path=ToolTip, Converter={StaticResource stringFormatConverter}, ConverterParameter=ASTRO_{0}, RelativeSource={RelativeSource Self}}"
+						Visibility="{Binding DataProfileVisibility}" />
+					<!--Unknown connection ID: 47-->
+					<controls:RMTabItem
+						Name="tbiJobs"
+						HeaderStyle="Icon"
+						Style="{StaticResource JobsTabItemStyle}"
+						Tag="Job"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Jobs}"
+						AutomationProperties.AutomationId="{Binding Path=ToolTip, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}"
+						IsEnabled="{Binding JobsClickable}" />
+				</controls:RMTabControl>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 48-->
+			<controls:RMPathNavigator
+				Name="pnvPathNavigator"
+				Margin="1,0,0,0"
+				PathSections="{Binding PathSections}"
+				Command="{Binding NavigateCommand}" />
+		</Grid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,172 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:dc="clr-namespace:DevComponents.WpfEditors" xmlns:dcp="clr-namespace:DevComponents.WpfEditors.Primitives" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="{x:Type dc:UpDownButton}"
+		x:Key="{x:Type dc:UpDownButton}">
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonNormalForeground}}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type dc:UpDownButton}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<RepeatButton
+							Name="ButtonUp"
+							Grid.Row="0"
+							IsEnabled="{TemplateBinding dc:IsUpEnabled}"
+							Focusable="{TemplateBinding dc:ButtonsFocusable}"
+							Interval="{TemplateBinding dc:Interval}"
+							Delay="{TemplateBinding dc:Delay}"
+							ClickMode="{TemplateBinding dc:ClickMode}"
+							Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dcp:EditorElement, ResourceId=RepeatButton}}">
+							<Path
+								Margin="3,0,3,0"
+								Data="M2.5,0 L0,3 L5,3"
+								Fill="{TemplateBinding Foreground}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center" />
+						</RepeatButton>
+						<RepeatButton
+							Name="ButtonDown"
+							Grid.Row="1"
+							IsEnabled="{TemplateBinding dc:IsDownEnabled}"
+							Focusable="{TemplateBinding dc:ButtonsFocusable}"
+							Interval="{TemplateBinding dc:Interval}"
+							Delay="{TemplateBinding dc:Delay}"
+							ClickMode="{TemplateBinding dc:ClickMode}"
+							Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dcp:EditorElement, ResourceId=RepeatButton}}">
+							<Path
+								Margin="3,0,3,0"
+								Data="M0,0 L2.5,3 L5,0"
+								Fill="{TemplateBinding Foreground}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center" />
+						</RepeatButton>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								Property="Foreground"
+								Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonDisabledForeground}}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="{ComponentResourceKey {x:Type dcp:EditorElement}, RepeatButton}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonNormalBackground}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonNormalBorder}}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonNormalForeground}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="MinWidth"
+			Value="12" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="Template"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dcp:EditorElement, ResourceId=RepeatEditorButton}}" />
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type ButtonBase}"
+		x:Key="{ComponentResourceKey {x:Type dcp:EditorElement}, RepeatEditorButton}">
+		<Border
+			Background="{TemplateBinding Background}"
+			BorderBrush="{TemplateBinding BorderBrush}"
+			BorderThickness="{TemplateBinding BorderThickness}">
+			<Border
+				Name="innerBorder"
+				BorderThickness="{TemplateBinding BorderThickness}"
+				BorderBrush="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonNormalBorderInner}}}">
+				<ContentPresenter
+					Margin="{TemplateBinding Padding}"
+					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+					Content="{TemplateBinding Content}"
+					TextElement.Foreground="{TemplateBinding Foreground}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+			</Border>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="true">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonHoverBackground}}}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonHoverBorder}}}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonHoverForeground}}}" />
+				<Setter
+					TargetName="innerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonHoverBorderInner}}}" />
+			</Trigger>
+			<Trigger
+				Property="IsPressed"
+				Value="true">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonPressedBackground}}}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonPressedBorder}}}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonPressedForeground}}}" />
+				<Setter
+					TargetName="innerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonPressedBorderInner}}}" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="false">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonDisabledBackground}}}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonDisabledBorder}}}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonDisabledForeground}}}" />
+				<Setter
+					TargetName="innerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:EditColors, ResourceId={x:Static dc:EditColors.ButtonDisabledBorderInner}}}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+</ResourceDictionary>

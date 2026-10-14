@@ -1,0 +1,2301 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.ASTROTalkgroupList.PageASTROTalkgroupList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:ASTROTalkgroupListRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ASTROTalkgroupList" xmlns:TalkgroupTableInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ASTROTalkgroupList"
+	Title="{Binding Path=UIName}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageASTROTalkgroupList"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2062</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2062</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2062</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10152</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+								MyBLObject="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBoxCustomDecHex
+								CustomValueMaskType="homeidHOMEID"
+								Text="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								HexText="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_HexUIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+								MyBLObject="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxDecHex.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxDecHex.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxDecHex.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxDecHex.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxCustomDecHex>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBoxCustomDecHex
+								CustomValueMaskType="homeidHOMEID"
+								Text="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								HexText="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_HexUIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+								MyBLObject="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxDecHex.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxDecHex.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxDecHex.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxDecHex.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxCustomDecHex>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AstTlkgrpLstTalkgroupListTalkgroupID_A9282CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableTextBoxSpinnerDecHex
+								Text="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								HexText="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_HexUIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+								MyBLObject="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinnerDecHex>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+								MyBLObject="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AstTlkgrpLstTalkgroupListKeySelectReference_A8366CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+								MyBLObject="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 9-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderASTROTalkgroupListGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 10-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderASTROTalkgroupListGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 11-->
+				<Hyperlink
+					Name="HLinkTalkgroupList"
+					Tag="ExpanderASTROTalkgroupListTalkgroupList">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_TALKGROUPLIST}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="TalkgroupList.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 12-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 13-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderASTROTalkgroupListGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderASTROTalkgroupListGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 14-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderASTROTalkgroupListGeneralPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 15-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnAstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									IsChecked="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpLabel
+									Name="LblAstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+									Content="{x:Static ResourceNS:AcgResources.ID_ASTROTALKGROUPLISTNAME}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_ASTROTALKGROUPLISTNAME}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									IsAcpValid="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 17-->
+								<AcpUINS:AcpTextBox
+									Name="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									Text="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665Value}"
+									MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListGeneral}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									IsAcpValid="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665_Valid}"
+									IsAcpApplicable="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665_Applicable}"
+									AreValuesEqual="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665_Editable" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBox.IsAcpEditable>
+									<AcpUINS:AcpTextBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBox.IsAcpVisible>
+								</AcpUINS:AcpTextBox>
+								<!--Unknown connection ID: 18-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnAstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									MyCompCtrl="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665Comp}"
+									AreValuesEqual="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 19-->
+								<AcpUINS:AcpLabel
+									Name="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKeyofASTROTalkgroupList_A12665"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 20-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnAstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									IsChecked="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 21-->
+								<AcpUINS:AcpLabel
+									Name="LblAstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+									Content="{x:Static ResourceNS:AcgResources.ID_ASTROTALKGROUPLASTUSERINDEX}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_ASTROTALKGROUPLASTUSERINDEX}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									IsAcpValid="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 22-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+									MaskTypeSpinner="{}{number:0-65535}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									Text="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListGeneral}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									IsAcpValid="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_Valid}"
+									IsAcpApplicable="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_Applicable}"
+									AreValuesEqual="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_Editable" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 23-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnAstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 24-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnAstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									MyCompCtrl="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780Comp}"
+									AreValuesEqual="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 25-->
+								<AcpUINS:AcpLabel
+									Name="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="1"
+									Grid.Column="5"
+									Content="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralASTROTalkgroupLastUserIndex_A19780"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 26-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnAstTlkgrpLstGeneralTalkgroupAlias_A9277"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									IsChecked="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 27-->
+								<AcpUINS:AcpLabel
+									Name="LblAstTlkgrpLstGeneralTalkgroupAlias_A9277"
+									Content="{x:Static ResourceNS:AcgResources.ID_TALKGROUPALIAS}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_TALKGROUPALIAS}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									IsAcpValid="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 28-->
+								<AcpUINS:AcpCheckBox
+									Name="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277Value}"
+									MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListGeneral}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									IsAcpValid="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277_Valid}"
+									IsAcpApplicable="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277_Applicable}"
+									AreValuesEqual="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralTalkgroupAlias_A9277_Editable" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralTalkgroupAlias_A9277" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralTalkgroupAlias_A9277_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 29-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnAstTlkgrpLstGeneralTalkgroupAlias_A9277"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 30-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnAstTlkgrpLstGeneralTalkgroupAlias_A9277"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									MyCompCtrl="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277Comp}"
+									AreValuesEqual="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 31-->
+								<AcpUINS:AcpCheckBox
+									Name="AstTlkgrpLstGeneralTalkgroupAlias_A9277Comp"
+									IsAcpEditable="false"
+									Grid.Row="2"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralTalkgroupAlias_A9277}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstGeneralTalkgroupAlias_A9277}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralTalkgroupAlias_A9277"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 32-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnAstTlkgrpLstGeneralKMFProfileIndex_A8380"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									IsChecked="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 33-->
+								<AcpUINS:AcpLabel
+									Name="LblAstTlkgrpLstGeneralKMFProfileIndex_A8380"
+									Content="{x:Static ResourceNS:AcgResources.ID_ASTROOTARPROFILEINDEX}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_ASTROOTARPROFILEINDEX}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									IsAcpValid="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 34-->
+								<AcpUINS:AcpComboBox
+									Name="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380.Items}"
+									SelectedValue="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListGeneral}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									IsAcpValid="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_Valid}"
+									IsAcpApplicable="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_Applicable}"
+									AreValuesEqual="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_Editable" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralKMFProfileIndex_A8380" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 35-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnAstTlkgrpLstGeneralKMFProfileIndex_A8380"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 36-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnAstTlkgrpLstGeneralKMFProfileIndex_A8380"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									MyCompCtrl="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380Comp}"
+									AreValuesEqual="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 37-->
+								<AcpUINS:AcpLabel
+									Name="AstTlkgrpLstGeneralKMFProfileIndex_A8380Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="3"
+									Grid.Column="5"
+									Content="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.AstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									MyParentCtrl="{Binding ElementName=AstTlkgrpLstGeneralKMFProfileIndex_A8380}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstGeneralKMFProfileIndex_A8380}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="AstTlkgrpLstGeneralKMFProfileIndex_A8380"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 38-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderASTROTalkgroupListTalkgroupList"
+					Width="Auto"
+					Header="{Binding Path=TalkgroupList.UIName}"
+					ShowDiffIcon="{Binding Path=TalkgroupList.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderASTROTalkgroupListTalkgroupTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderASTROTalkgroupListTalkgroupTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 39-->
+						<AcpUINS:AcpChildRecNavToolbar
+							Name="RecNavToolbarExpanderASTROTalkgroupListTalkgroupTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 40-->
+					<Grid
+						Name="ExpanderASTROTalkgroupListTalkgroupListGrid">
+						<!--Unknown connection ID: 41-->
+						<Grid
+							Name="ExpanderASTROTalkgroupListTalkgroupTableGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 42-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderASTROTalkgroupListTalkgroupTableTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderASTROTalkgroupListTalkgroupTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderASTROTalkgroupListTalkgroupTable"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 43-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderASTROTalkgroupListTalkgroupTable"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_TALKGROUPTABLE}"
+									MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/TalkgroupList.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 44-->
+												<igcontrols:UnboundField
+													x:Name="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_TALKGROUPALIASTEXT}"
+													BindingPath="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView}, Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 45-->
+												<igcontrols:UnboundField
+													x:Name="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_TGWACNID}"
+													BindingPath="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView}, Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource AstTlkgrpLstTalkgroupListDVRSWACNID_A40163CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 46-->
+												<igcontrols:UnboundField
+													x:Name="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_TGSYSTEMID}"
+													BindingPath="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView}, Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource AstTlkgrpLstTalkgroupListDVRSSystemID_A40162CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 47-->
+												<igcontrols:UnboundField
+													x:Name="AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_TALKGROUPID}"
+													BindingPath="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView}, Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource AstTlkgrpLstTalkgroupListTalkgroupID_A9282CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 48-->
+												<igcontrols:UnboundField
+													x:Name="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_VOICESECURECLEARSTRAPPING}"
+													BindingPath="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView}, Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 49-->
+												<igcontrols:UnboundField
+													x:Name="AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_KEYSELECT}"
+													BindingPath="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderASTROTalkgroupListTalkgroupTableTableView}, Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource AstTlkgrpLstTalkgroupListKeySelectReference_A8366CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 50-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderASTROTalkgroupListTalkgroupTableSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderASTROTalkgroupListTalkgroupTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 51-->
+								<Grid
+									Name="gridExpanderASTROTalkgroupListTalkgroupTableSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding TalkgroupList.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 52-->
+									<AcpUINS:AcpTextBox
+										Name="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278Value}"
+										MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										IsAcpValid="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Valid}"
+										IsAcpApplicable="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Applicable}"
+										AreValuesEqual="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Editable" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 53-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnAstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										IsChecked="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 54-->
+									<AcpUINS:AcpLabel
+										Name="LblAstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+										Content="{x:Static ResourceNS:AcgResources.ID_TALKGROUPALIASTEXT}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_TALKGROUPALIASTEXT}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										IsAcpValid="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 55-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnAstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										MyCompCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278Comp}"
+										AreValuesEqual="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 56-->
+									<AcpUINS:AcpLabel
+										Name="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupAliasText_A9278"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 57-->
+									<AcpUINS:AcpTextBoxCustomDecHex
+										Name="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+										CustomValueMaskType="homeidHOMEID"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_UIValue}"
+										HexText="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_HexUIValue}"
+										MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										IsAcpValid="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Valid}"
+										IsAcpApplicable="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Applicable}"
+										AreValuesEqual="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxDecHex.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Editable" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpEditable>
+										<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+									</AcpUINS:AcpTextBoxCustomDecHex>
+									<!--Unknown connection ID: 58-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnAstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										IsChecked="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 59-->
+									<AcpUINS:AcpLabel
+										Name="LblAstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+										Content="{x:Static ResourceNS:AcgResources.ID_TGWACNID}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_TGWACNID}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										IsAcpValid="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 60-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnAstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 61-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnAstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										MyCompCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163Comp}"
+										AreValuesEqual="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 62-->
+									<AcpUINS:AcpTextBoxCustomDecHex
+										Name="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163Comp"
+										CustomValueMaskType="homeidHOMEID"
+										IsAcpEditable="false"
+										Grid.Row="1"
+										Grid.Column="5"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_UIValue}"
+										HexText="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163_HexUIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSWACNID_A40163}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstTalkgroupListDVRSWACNID_A40163}">
+										<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSWACNID_A40163"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+									</AcpUINS:AcpTextBoxCustomDecHex>
+									<!--Unknown connection ID: 63-->
+									<AcpUINS:AcpTextBoxCustomDecHex
+										Name="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+										CustomValueMaskType="homeidHOMEID"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_UIValue}"
+										HexText="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_HexUIValue}"
+										MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										IsAcpValid="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Valid}"
+										IsAcpApplicable="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Applicable}"
+										AreValuesEqual="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxDecHex.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Editable" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpEditable>
+										<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+									</AcpUINS:AcpTextBoxCustomDecHex>
+									<!--Unknown connection ID: 64-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnAstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										IsChecked="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 65-->
+									<AcpUINS:AcpLabel
+										Name="LblAstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+										Content="{x:Static ResourceNS:AcgResources.ID_TGSYSTEMID}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_TGSYSTEMID}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										IsAcpValid="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 66-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnAstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 67-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnAstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										MyCompCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162Comp}"
+										AreValuesEqual="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 68-->
+									<AcpUINS:AcpTextBoxCustomDecHex
+										Name="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162Comp"
+										CustomValueMaskType="homeidHOMEID"
+										IsAcpEditable="false"
+										Grid.Row="2"
+										Grid.Column="5"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_UIValue}"
+										HexText="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162_HexUIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListDVRSSystemID_A40162}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstTalkgroupListDVRSSystemID_A40162}">
+										<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListDVRSSystemID_A40162"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+									</AcpUINS:AcpTextBoxCustomDecHex>
+									<!--Unknown connection ID: 69-->
+									<AcpUINS:AcpTextBoxSpinnerDecHex
+										Name="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="2"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_UIValue}"
+										HexText="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_HexUIValue}"
+										MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										IsAcpValid="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Valid}"
+										IsAcpApplicable="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Applicable}"
+										AreValuesEqual="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Editable" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinnerDecHex>
+									<!--Unknown connection ID: 70-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnAstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+										Margin="0,5,0,0"
+										Grid.Row="3"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										IsChecked="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 71-->
+									<AcpUINS:AcpLabel
+										Name="LblAstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+										Content="{x:Static ResourceNS:AcgResources.ID_TALKGROUPID}"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_TALKGROUPID}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										IsAcpValid="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 72-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnAstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+										Grid.Row="3"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 73-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnAstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+										Grid.Row="3"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										MyCompCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282Comp}"
+										AreValuesEqual="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 74-->
+									<AcpUINS:AcpTextBoxDecHex
+										Name="AstTlkgrpLstTalkgroupListTalkgroupID_A9282Comp"
+										IsAcpEditable="false"
+										Grid.Row="3"
+										Grid.Column="5"
+										Text="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_UIValue}"
+										HexText="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282_HexUIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListTalkgroupID_A9282}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstTalkgroupListTalkgroupID_A9282}">
+										<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListTalkgroupID_A9282"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+									</AcpUINS:AcpTextBoxDecHex>
+									<!--Unknown connection ID: 75-->
+									<AcpUINS:AcpComboBox
+										Name="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654.Items}"
+										SelectedValue="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										IsAcpValid="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Valid}"
+										IsAcpApplicable="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Applicable}"
+										AreValuesEqual="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Editable" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 76-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnAstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+										Margin="0,5,0,0"
+										Grid.Row="4"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										IsChecked="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 77-->
+									<AcpUINS:AcpLabel
+										Name="LblAstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+										Content="{x:Static ResourceNS:AcgResources.ID_VOICESECURECLEARSTRAPPING}"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_VOICESECURECLEARSTRAPPING}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										IsAcpValid="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 78-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnAstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+										Grid.Row="4"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 79-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnAstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+										Grid.Row="4"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										MyCompCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654Comp}"
+										AreValuesEqual="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 80-->
+									<AcpUINS:AcpLabel
+										Name="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="4"
+										Grid.Column="5"
+										Content="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 81-->
+									<AcpUINS:AcpComboBox
+										Name="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="5"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366.Items}"
+										SelectedValue="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderASTROTalkgroupListTalkgroupList}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										MyLabelCtrl="{Binding ElementName=LblAstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										IsAcpValid="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Valid}"
+										IsAcpApplicable="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Applicable}"
+										AreValuesEqual="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Editable" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 82-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnAstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+										Margin="0,5,0,0"
+										Grid.Row="5"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										IsChecked="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 83-->
+									<AcpUINS:AcpLabel
+										Name="LblAstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+										Content="{x:Static ResourceNS:AcgResources.ID_KEYSELECT}"
+										VerticalAlignment="Center"
+										Grid.Row="5"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_KEYSELECT}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										IsAcpValid="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 84-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnAstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+										Grid.Row="5"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 85-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnAstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+										Grid.Row="5"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										MyCompCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366Comp}"
+										AreValuesEqual="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 86-->
+									<AcpUINS:AcpLabel
+										Name="AstTlkgrpLstTalkgroupListKeySelectReference_A8366Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="5"
+										Grid.Column="5"
+										Content="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/TalkgroupList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=TalkgroupTableInnerSection.AstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										MyParentCtrl="{Binding ElementName=AstTlkgrpLstTalkgroupListKeySelectReference_A8366}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnAstTlkgrpLstTalkgroupListKeySelectReference_A8366}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="AstTlkgrpLstTalkgroupListKeySelectReference_A8366"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

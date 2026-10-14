@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA639}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcpUI</RootNamespace>
+    <AssemblyName>AcpUI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcpButton.cs" />
+    <Compile Include="AcpChannelNavToolBar.xaml.cs">
+      <DependentUpon>AcpChannelNavToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpCheckBox.cs" />
+    <Compile Include="AcpChildRecNavToolbar.cs" />
+    <Compile Include="AcpChildToolbarCollection.cs" />
+    <Compile Include="AcpColorKeyBrush.cs" />
+    <Compile Include="AcpColorKeys.cs" />
+    <Compile Include="AcpComboBox.cs" />
+    <Compile Include="AcpCommandParameter.cs" />
+    <Compile Include="AcpControlColor.cs" />
+    <Compile Include="AcpControlState.cs" />
+    <Compile Include="AcpCopyButton.cs" />
+    <Compile Include="AcpCustomViewCheckBox.cs" />
+    <Compile Include="AcpDockWindow.cs" />
+    <Compile Include="AcpExpander.cs" />
+    <Compile Include="AcpExpStatusManager.cs" />
+    <Compile Include="AcpFieldInfo.cs" />
+    <Compile Include="AcpFieldToTableCellPairingInfo.cs" />
+    <Compile Include="AcpFlyInButton.cs" />
+    <Compile Include="AcpGroupBox.cs" />
+    <Compile Include="AcpInvokeCommandAction.cs" />
+    <Compile Include="AcpIuiPage.cs" />
+    <Compile Include="AcpKeyCommand.cs" />
+    <Compile Include="AcpLabel.cs" />
+    <Compile Include="AcpListBox.cs" />
+    <Compile Include="AcpListBoxItem.cs" />
+    <Compile Include="AcpListBoxItemExp.cs" />
+    <Compile Include="AcpListBoxMruFiles.xaml.cs">
+      <DependentUpon>AcpListBoxMruFiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpMenuItems.xaml.cs">
+      <DependentUpon>AcpMenuItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpMouseLeftButtonDownCommand.cs" />
+    <Compile Include="AcpObjectDataProvider.cs" />
+    <Compile Include="AcpOrderableListBox.cs" />
+    <Compile Include="AcpPageFeature.cs" />
+    <Compile Include="AcpParentRecNavToolbar.cs" />
+    <Compile Include="AcpPasswordBox.xaml.cs">
+      <DependentUpon>AcpPasswordBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpPasswordEyeBox.xaml.cs">
+      <DependentUpon>AcpPasswordEyeBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpRecNavToolbar.xaml.cs">
+      <DependentUpon>AcpRecNavToolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpRtdButton.cs" />
+    <Compile Include="AcpTableCheckBox.cs" />
+    <Compile Include="AcpTableComboBox.cs" />
+    <Compile Include="AcpTablePasswordEyeBox.cs" />
+    <Compile Include="AcpTableTextBox.cs" />
+    <Compile Include="AcpTableTextBoxBase.cs" />
+    <Compile Include="AcpTableTextBoxCustomDecHex.cs" />
+    <Compile Include="AcpTableTextBoxDecHex.cs" />
+    <Compile Include="AcpTableTextBoxSpinner.cs" />
+    <Compile Include="AcpTableTextBoxSpinnerDecHex.cs" />
+    <Compile Include="AcpTableViewOnlyCtrl.cs" />
+    <Compile Include="AcpTextBox.cs" />
+    <Compile Include="AcpTextBoxCustomDecHex.cs" />
+    <Compile Include="AcpTextBoxDecHex.xaml.cs">
+      <DependentUpon>AcpTextBoxDecHex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpTextBoxFileBrowser.xaml.cs">
+      <DependentUpon>AcpTextBoxFileBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpTextBoxSlider.xaml.cs">
+      <DependentUpon>AcpTextBoxSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpTextBoxSpinner.xaml.cs">
+      <DependentUpon>AcpTextBoxSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpTextBoxSpinnerDecHex.xaml.cs">
+      <DependentUpon>AcpTextBoxSpinnerDecHex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpTextBoxSpinnerSlider.xaml.cs">
+      <DependentUpon>AcpTextBoxSpinnerSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AcpTreeView.cs" />
+    <Compile Include="AcpTreeViewItem.cs" />
+    <Compile Include="AcpUIDialogLauncher.cs" />
+    <Compile Include="AcpUIDialogLauncherReturnEventHandler.cs" />
+    <Compile Include="AcpUIDialogWindow.cs" />
+    <Compile Include="AcpUpDownCommand.cs" />
+    <Compile Include="AcpViewModel.cs" />
+    <Compile Include="AcpViewOnlyCtrl.cs" />
+    <Compile Include="AcpVoiceAnnRecNavToolBar.cs" />
+    <Compile Include="AcpXamDataPresenter.cs" />
+    <Compile Include="AddMode.cs" />
+    <Compile Include="CellPosition.cs" />
+    <Compile Include="Common\AcpCopyButtonVisibilityConverter.cs" />
+    <Compile Include="Common\AcpCustomViewCheckBoxVisibilityConverter.cs" />
+    <Compile Include="Common\AcpFlyInButtonVisibilityConverter.cs" />
+    <Compile Include="Common\AcpRecNavToolbarTableModeConverter.cs" />
+    <Compile Include="Common\AcpRecNavToolbarVisibilityConverter.cs" />
+    <Compile Include="Common\AcpRtdButtonVisibilityConverter.cs" />
+    <Compile Include="Common\AcpRtdInvalidsButtonVisibilityConverter.cs" />
+    <Compile Include="Common\AcpThemeBase.cs" />
+    <Compile Include="Common\AcpXamDataPresenterVisibilityConverter.cs" />
+    <Compile Include="Common\AcpXamDataPresenterVisibilityConverterForEmptyTbl.cs" />
+    <Compile Include="Common\BooleanToColorConverter.cs" />
+    <Compile Include="Common\CellVisibilityStausConverter.cs" />
+    <Compile Include="Common\ClmVisibilityStausConverter.cs" />
+    <Compile Include="Common\ComboBoxItemsWidthConverter.cs" />
+    <Compile Include="Common\ComparatorControlVisibilityConverter.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\CpgFieldNameEventHandler.cs" />
+    <Compile Include="Common\CpgFieldNameMouseEventArgs.cs" />
+    <Compile Include="Common\DateTimeFormatConverter.cs" />
+    <Compile Include="Common\DockWindowAutoRiseChangedEventArgs.cs" />
+    <Compile Include="Common\DockWindowAutoRiseChangedEventHandler.cs" />
+    <Compile Include="Common\DockWindowVisibilityChangedEventArgs.cs" />
+    <Compile Include="Common\DockWindowVisibilityChangedEventHandler.cs" />
+    <Compile Include="Common\DockWndType.cs" />
+    <Compile Include="Common\EditabilityConverter.cs" />
+    <Compile Include="Common\EditabilityInComparatorCustomModesConverter.cs" />
+    <Compile Include="Common\EditabilityToOpacityConverter.cs" />
+    <Compile Include="Common\ExpanderVisibilityConverterForEmptyTbl.cs" />
+    <Compile Include="Common\FieldItemSelectionEventArgs.cs" />
+    <Compile Include="Common\FieldReportItemSelectionEventHandler.cs" />
+    <Compile Include="Common\FieldReportUpdatedEventArgs.cs" />
+    <Compile Include="Common\FieldReportUpdatedEventHandler.cs" />
+    <Compile Include="Common\InvalidFieldsDockWndHeaderConverter.cs" />
+    <Compile Include="Common\MenuItemsAddBtnConverter.cs" />
+    <Compile Include="Common\MenuItemsHeightConverter.cs" />
+    <Compile Include="Common\MenuItemsRemoveBtnConverter.cs" />
+    <Compile Include="Common\MultiValueToColorConverter.cs" />
+    <Compile Include="Common\NativeMethods.cs" />
+    <Compile Include="Common\PageFieldsReport.xaml.cs">
+      <DependentUpon>PageFieldsReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PageFindResults.xaml.cs">
+      <DependentUpon>PageFindResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PageInvalidFieldsReport.xaml.cs">
+      <DependentUpon>PageInvalidFieldsReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PageOutputMessage.xaml.cs">
+      <DependentUpon>PageOutputMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PageReportSystemKeys.xaml.cs">
+      <DependentUpon>PageReportSystemKeys.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ParentContainerVisibilityConverter.cs" />
+    <Compile Include="Common\ParentControlVisibilityConverter.cs" />
+    <Compile Include="Common\RecordActivatedEventHandler.cs" />
+    <Compile Include="Common\RecordNavigationEventArgs.cs" />
+    <Compile Include="Common\RecordNavigationEventHandler.cs" />
+    <Compile Include="Common\RecordOperationEventArgs.cs" />
+    <Compile Include="Common\RecordOperationEventHandler.cs" />
+    <Compile Include="Common\RecordSelectionEventArgs.cs" />
+    <Compile Include="Common\RecordSelectionEventHandler.cs" />
+    <Compile Include="Common\SRecViewVisibilityConverter.cs" />
+    <Compile Include="Common\SRecViewVisibilityConverterForEmptyTbl.cs" />
+    <Compile Include="Common\StatusBarUpdatedEventArgs.cs" />
+    <Compile Include="Common\StepUpDownUtility.cs" />
+    <Compile Include="Common\substitutionValueConverter.cs" />
+    <Compile Include="Common\TableViewVisibilityConverter.cs" />
+    <Compile Include="Common\ThemeChangedEventArgs.cs" />
+    <Compile Include="Common\ThemeChangedEventHandler.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Comparator\ComparatorManager.cs" />
+    <Compile Include="CustomView\CustomViewCreationInfo.cs" />
+    <Compile Include="CustomView\PageCustomViewWelcome.xaml.cs">
+      <DependentUpon>PageCustomViewWelcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomView\PageFunctionCustomViewWizard.xaml.cs">
+      <DependentUpon>PageFunctionCustomViewWizard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomView\PageFunctionCustomViewWizardBase.cs" />
+    <Compile Include="d.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="DragDrop\DragDropAdvisor.cs" />
+    <Compile Include="DragDrop\DragDropEffectsUtilitie.cs" />
+    <Compile Include="DragDrop\DragDropManager.cs" />
+    <Compile Include="DragDrop\DropPreviewAdorner.cs" />
+    <Compile Include="DragDrop\IDragSourceAdvisor.cs" />
+    <Compile Include="DragDrop\IDropTargetAdvisor.cs" />
+    <Compile Include="DragDrop\ListBoxDragAdorner.cs" />
+    <Compile Include="DragDrop\ListBoxDragDropManager.cs" />
+    <Compile Include="DragDrop\ListBoxItemDragState.cs" />
+    <Compile Include="DragDrop\MouseUtilities.cs" />
+    <Compile Include="DragDrop\ProcessDropEventArgs.cs" />
+    <Compile Include="DraggingData.cs" />
+    <Compile Include="ExpanderCollection.cs" />
+    <Compile Include="HelpMapData.cs" />
+    <Compile Include="HelpMapProvider.cs" />
+    <Compile Include="ImportExport\ImportExportItem.cs" />
+    <Compile Include="ImportExport\ImportExportManager.cs" />
+    <Compile Include="ImportExport\PageFunctionImportExport.xaml.cs">
+      <DependentUpon>PageFunctionImportExport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\PageFunctionImportExportBase.cs" />
+    <Compile Include="ISupportsTextBoxMember.cs" />
+    <Compile Include="MaskedTableCellInfo.cs" />
+    <Compile Include="Masks\CommonMasks.cs" />
+    <Compile Include="Mru\MruFiles.cs" />
+    <Compile Include="PageReturnEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SelectedMruFileEventArgs.cs" />
+    <Compile Include="Styles\ListViewItemStyleSelector.cs" />
+    <Compile Include="TableCellInfo.cs" />
+    <Compile Include="ToolbarUpdateEventArgs.cs" />
+    <Compile Include="UndoRedo\a.cs" />
+    <Compile Include="UpdateToolbarEventType.cs" />
+    <Compile Include="XamDataGridDragDropBehavior.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dll.licenses" />
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpASKLib\AcpASKLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA62E}</Project>
+      <Name>AcpASKLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACPBrowser\ACPBrowser.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA62F}</Project>
+      <Name>ACPBrowser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpBusinessLayer\AcpBusinessLayer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA630}</Project>
+      <Name>AcpBusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonLib\AcpCommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</Project>
+      <Name>AcpCommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonResources\AcpCommonResources.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA632}</Project>
+      <Name>AcpCommonResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpFileHandlerLib\AcpFileHandlerLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA635}</Project>
+      <Name>AcpFileHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpSecurityLib\AcpSecurityLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA638}</Project>
+      <Name>AcpSecurityLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUILib\AcpUILib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63A}</Project>
+      <Name>AcpUILib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpWpfDock\AcpWpfDock.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63F}</Project>
+      <Name>AcpWpfDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v12.1\InfragisticsWPF4.DataPresenter.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA687}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DragDrop.v12.1\InfragisticsWPF4.DragDrop.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68B}</Project>
+      <Name>InfragisticsWPF4.DragDrop.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Editors.v12.1\InfragisticsWPF4.Editors.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68D}</Project>
+      <Name>InfragisticsWPF4.Editors.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v12.1\InfragisticsWPF4.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA690}</Project>
+      <Name>InfragisticsWPF4.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Interactivity\System.Windows.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E2}</Project>
+      <Name>System.Windows.Interactivity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AcpChannelNavToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpListBoxMruFiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpMenuItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpPasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpPasswordEyeBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpRecNavToolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpTextBoxDecHex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpTextBoxFileBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpTextBoxSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpTextBoxSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpTextBoxSpinnerDecHex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcpTextBoxSpinnerSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\PageFieldsReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\PageFindResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\PageInvalidFieldsReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\PageOutputMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\PageReportSystemKeys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomView\PageCustomViewWelcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomView\PageFunctionCustomViewWizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportExport\PageFunctionImportExport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\iconclick.ico" />
+    <Resource Include="icons\iconenabled.ico" />
+    <Resource Include="icons\iconrollover.ico" />
+    <Resource Include="icons\restoretodefault.png" />
+    <Resource Include="icons\spinnerarrowdown.png" />
+    <Resource Include="icons\spinnerarrowup.png" />
+    <Resource Include="icons\trash.gif" />
+    <Resource Include="images\appwindow.bmp" />
+    <Resource Include="images\copyicon.png" />
+    <Resource Include="images\find.png" />
+    <Resource Include="images\greencheckclipboard.png" />
+    <Resource Include="images\help.png" />
+    <Resource Include="images\invalid.ico" />
+    <Resource Include="images\newreport.png" />
+    <Resource Include="images\redxclipboard.png" />
+    <Resource Include="images\reportloadedsystemkeys.png" />
+    <Resource Include="images\sychronizelisthsrotated.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

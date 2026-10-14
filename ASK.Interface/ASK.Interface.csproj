@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASK.Interface</RootNamespace>
+    <AssemblyName>ASK.Interface</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="AccessElementIDType.cs" />
+    <Compile Include="AccessElementLegacyIDType.cs" />
+    <Compile Include="AccessLevelType.cs" />
+    <Compile Include="AskSystemSubType.cs" />
+    <Compile Include="AskSystemType.cs" />
+    <Compile Include="AskTrkSysCoverageType.cs" />
+    <Compile Include="ASK_COMMS_OP.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="FeatureCategoryRadioType.cs" />
+    <Compile Include="FeatureCategoryType.cs" />
+    <Compile Include="HardwareKeyFamily.cs" />
+    <Compile Include="HardwareKeyStatus.cs" />
+    <Compile Include="IAskSystem.cs" />
+    <Compile Include="IRadioAccessValidator.cs" />
+    <Compile Include="IRadioSecurityData.cs" />
+    <Compile Include="ISystemKeyData.cs" />
+    <Compile Include="ISystemKeyManager.cs" />
+    <Compile Include="KeyAccessLevelType.cs" />
+    <Compile Include="KeyExpirationType.cs" />
+    <Compile Include="KeySource.cs" />
+    <Compile Include="KeyType.cs" />
+    <Compile Include="OpenMode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtectionOption.cs" />
+    <Compile Include="SystemKeyPermissionData.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

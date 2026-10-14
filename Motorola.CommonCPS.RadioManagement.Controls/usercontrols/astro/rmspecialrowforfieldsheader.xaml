@@ -1,0 +1,36 @@
+<local:RMFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMSpecialRowForFieldsHeader" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<!--Unknown connection ID: 1-->
+	<Grid
+		Name="Grid1"
+		DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.1*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="20" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 2-->
+		<local:RMTextBlock
+			Name="TB1"
+			Grid.Column="0"
+			Margin="26,0,0,0"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Center"
+			Text="{Binding Header1}" />
+		<!--Unknown connection ID: 3-->
+		<local:RMTextBlock
+			Name="TB2"
+			Grid.Column="2"
+			Margin="26,0,0,0"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Text="{Binding Header2}" />
+	</Grid>
+</local:RMFieldEditor>

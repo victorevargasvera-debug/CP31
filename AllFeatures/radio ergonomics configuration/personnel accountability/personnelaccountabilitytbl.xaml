@@ -1,0 +1,149 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.PersonnelAccountability.PagePersonnelAccountabilityTbl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:PersonnelAccountabilityNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.PersonnelAccountability" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Title="{x:Static ResourceNS:AcgResources.ID_PERSONNELACCOUNTABILITYTABLEVIEW}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpRecNavToolbar
+			Name="RecNavToolbarPagePersonnelAccountability"
+			TableMode="True"
+			MyRecordsetDataSource="{Binding ElementName=PersonnelAccountabilityList, Path=DataSource}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4176</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4176</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetPersonnelAccountability"
+				ObjectType="{x:Type PersonnelAccountabilityNS:PersonnelAccountability}"
+				x:Key="GetFeatureNode" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadioErgoConfigACPAListAlertName_A42874CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderPersonnelAccountabilityGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.RadioErgoConfigACPAListAlertName_A42874_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 4-->
+		<AcpUINS:AcpXamDataPresenter
+			Name="PersonnelAccountabilityList"
+			KeyboardNavigation.AcceptsReturn="True"
+			Grid.Row="1">
+			<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+				<MultiBinding
+					Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+					Mode="OneWay">
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppMode" />
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppHideMatches" />
+					<Binding
+						Source="{StaticResource GetParentFeature}"
+						Path="_HasDiffs" />
+					<Binding
+						Path="IsAcpVisible"
+						RelativeSource="{RelativeSource Self}" />
+					<Binding
+						Path="FieldLayouts[0].Fields[0].Visibility"
+						RelativeSource="{RelativeSource Self}" />
+				</MultiBinding>
+			</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+			<igcontrols:DataPresenterBase.FieldLayouts>
+				<igcontrols:FieldLayout>
+					<igcontrols:FieldLayout.Fields>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_PERSONNELACCOUNTABILITYLISTNAME}"
+							BindingPath="General.RadioErgoConfigACPAListAlertName_A42874"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.RadioErgoConfigACPAListAlertName_A42874_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource RadioErgoConfigACPAListAlertName_A42874CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+					</igcontrols:FieldLayout.Fields>
+				</igcontrols:FieldLayout>
+			</igcontrols:DataPresenterBase.FieldLayouts>
+		</AcpUINS:AcpXamDataPresenter>
+	</Grid>
+</AcpUINS:AcpPageFeature>

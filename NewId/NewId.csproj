@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewId</RootNamespace>
+    <AssemblyName>NewId</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MassTransit\INewIdFormatter.cs" />
+    <Compile Include="MassTransit\INewIdGenerator.cs" />
+    <Compile Include="MassTransit\INewIdParser.cs" />
+    <Compile Include="MassTransit\IProcessIdProvider.cs" />
+    <Compile Include="MassTransit\ITickProvider.cs" />
+    <Compile Include="MassTransit\IWorkerIdProvider.cs" />
+    <Compile Include="MassTransit\NewId.cs" />
+    <Compile Include="MassTransit\NewIdExtensions.cs" />
+    <Compile Include="MassTransit\NewIdFormatters\Base32Formatter.cs" />
+    <Compile Include="MassTransit\NewIdFormatters\DashedHexFormatter.cs" />
+    <Compile Include="MassTransit\NewIdFormatters\HexFormatter.cs" />
+    <Compile Include="MassTransit\NewIdFormatters\ZBase32Formatter.cs" />
+    <Compile Include="MassTransit\NewIdGenerator.cs" />
+    <Compile Include="MassTransit\NewIdParsers\Base32Parser.cs" />
+    <Compile Include="MassTransit\NewIdParsers\ZBase32Parser.cs" />
+    <Compile Include="MassTransit\NewIdProviders\BestPossibleWorkerIdProvider.cs" />
+    <Compile Include="MassTransit\NewIdProviders\CurrentProcessIdProvider.cs" />
+    <Compile Include="MassTransit\NewIdProviders\DateTimeTickProvider.cs" />
+    <Compile Include="MassTransit\NewIdProviders\HostNameHashWorkerIdProvider.cs" />
+    <Compile Include="MassTransit\NewIdProviders\NetworkAddressWorkerIdProvider.cs" />
+    <Compile Include="MassTransit\NewIdProviders\StopwatchTickProvider.cs" />
+    <Compile Include="MassTransit\NewIdProviders\WmiNetworkAddressWorkerIdProvider.cs" />
+    <Compile Include="Microsoft\CodeAnalysis\EmbeddedAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Runtime\CompilerServices\IsReadOnlyAttribute.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

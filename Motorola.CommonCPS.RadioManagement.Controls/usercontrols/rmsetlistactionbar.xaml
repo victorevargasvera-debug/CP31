@@ -1,0 +1,77 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMSetListActionBar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls"
+	Height="38">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border
+		Background="{StaticResource BrushGray}"
+		BorderBrush="#535353"
+		BorderThickness="0,5,0,0"
+		CornerRadius="3,3,0,0"
+		Padding="10,0">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 1-->
+			<local:RMLinkButton
+				Name="lkbAdd"
+				Click="lkbAdd_Click"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_Action_AddSet}">
+				<Image
+					Source="/Motorola.CommonCPS.RadioManagement.Icons;component/AddExistingItem_6269.png"
+					Height="16"
+					Width="16" />
+			</local:RMLinkButton>
+			<!--Unknown connection ID: 2-->
+			<local:RMLinkButton
+				Name="lkbDuplicate"
+				Click="lkbDuplicate_Click"
+				Grid.Column="2"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_Action_DuplicateSet}">
+				<Image
+					Source="/Motorola.CommonCPS.RadioManagement.Icons;component/Copy_6524.png"
+					Height="16"
+					Width="16" />
+			</local:RMLinkButton>
+			<!--Unknown connection ID: 3-->
+			<local:RMLinkButton
+				Name="lkbDelete"
+				Click="lkbDelete_Click"
+				Grid.Column="4"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_Action_DeleteSets}">
+				<Image
+					Source="/Motorola.CommonCPS.RadioManagement.Icons;component/DeleteHS.png"
+					Height="16"
+					Width="16"
+					Margin="0,1,0,0" />
+			</local:RMLinkButton>
+			<!--Unknown connection ID: 4-->
+			<local:RMLinkButton
+				Name="lkbClearAll"
+				Click="lkbClearAll_Click"
+				Grid.Column="6"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_Action_ClearAllSets}">
+				<Image
+					Source="/Motorola.CommonCPS.RadioManagement.Icons;component/Clearwindowcontent_6304.png"
+					Height="16"
+					Width="16" />
+			</local:RMLinkButton>
+		</Grid>
+	</Border>
+</UserControl>

@@ -1,0 +1,4493 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igWindows="http://infragistics.com/Windows" xmlns:igThemes="http://infragistics.com/Themes" xmlns:igDp="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:themes="http://infragistics.com/Themes" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="DataPresenterGeneric_Express.xaml" />
+		<ResourceDictionary
+			Source="DataPresenterIGTheme_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="VerticalButtonDecrease">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Background="{StaticResource Brush_2000}">
+						<Path
+							Name="decreaseGlyph"
+							Width="8"
+							Height="4"
+							Data="M0,3 C0,3 0,4 0,4 C0,4 8,4 8,4 C8,4 8,3 8,3 C8,3 7,3 7,3 C7,3 7,2 7,2 C7,2 6,2 6,2 C6,2 6,1 6,1 C6,1 5,1 5,1 C5,1 5,0 5,0 C5,0 3,0 3,0 C3,0 3,1 3,1 C3,1 2,1 2,1 C2,1 2,2 2,2 C2,2 1,2 1,2 C1,2 1,3 1,3 C1,3 0,3 0,3"
+							Fill="{DynamicResource Brush_2018}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="decreaseGlyph"
+								Value="{DynamicResource ButtonGlyphHoverBrush}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="decreaseGlyph"
+								Value="{DynamicResource ButtonGlyphPressedBrush}"
+								Property="Fill" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="VerticalButtonIncrease">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Background="{DynamicResource Brush_2001}">
+						<Path
+							Name="increaseGlyph"
+							Width="8"
+							Height="4"
+							Data="M0,0 C0,0 0,1 0,1 C0,1 1,1 1,1 C1,1 1,2 1,2 C1,2 2,2 2,2 C2,2 2,3 2,3 C2,3 3,3 3,3 C3,3 3,4 3,4 C3,4 5,4 5,4 C5,4 5,3 5,3 C5,3 6,3 6,3 C6,3 6,2 6,2 C6,2 7,2 7,2 C7,2 7,1 7,1 C7,1 8,1 8,1 C8,1 8,0 8,0 C8,0 0,0 0,0"
+							Fill="{DynamicResource Brush_2019}"
+							Stretch="Fill" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="increaseGlyph"
+								Value="{DynamicResource ButtonGlyphHoverBrush}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="increaseGlyph"
+								Value="{DynamicResource ButtonGlyphPressedBrush}"
+								Property="Fill" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="HorizontalButtonDecrease">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Background="{DynamicResource Brush_2002}">
+						<Path
+							Name="horizontalDecreaseGlyph"
+							Width="4"
+							Height="8"
+							Data="M4,0 C4,0 3,0 3,0 C3,0 3,1 3,1 C3,1 2,1 2,1 C2,1 2,2 2,2 C2,2 1,2 1,2 C1,2 1,3 1,3 C1,3 0,3 0,3 C0,3 0,5 0,5 C0,5 1,5 1,5 C1,5 1,6 1,6 C1,6 2,6 2,6 C2,6 2,7 2,7 C2,7 3,7 3,7 C3,7 3,8 3,8 C3,8 4,8 4,8 C4,8 4,0 4,0"
+							Fill="{DynamicResource Brush_2020}"
+							Stretch="Fill" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="horizontalDecreaseGlyph"
+								Value="{DynamicResource ButtonGlyphHoverBrush}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="horizontalDecreaseGlyph"
+								Value="{DynamicResource ButtonGlyphPressedBrush}"
+								Property="Fill" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="HorizontalButtonIncrease">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Background="{DynamicResource Brush_2003}">
+						<Path
+							Name="horizontalIncreaseGlyph"
+							Width="4"
+							Height="8"
+							Data="M0,0 C0,0 1,0 1,0 C1,0 1,1 1,1 C1,1 2,1 2,1 C2,1 2,2 2,2 C2,2 3,2 3,2 C3,2 3,3 3,3 C3,3 4,3 4,3 C4,3 4,5 4,5 C4,5 3,5 3,5 C3,5 3,6 3,6 C3,6 2,6 2,6 C2,6 2,7 2,7 C2,7 1,7 1,7 C1,7 1,8 1,8 C1,8 0,8 0,8 C0,8 0,0 0,0"
+							Fill="{DynamicResource Brush_2021}"
+							Stretch="Fill" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="horizontalIncreaseGlyph"
+								Value="{DynamicResource ButtonGlyphHoverBrush}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="horizontalIncreaseGlyph"
+								Value="{DynamicResource ButtonGlyphPressedBrush}"
+								Property="Fill" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="VerticalScrollBarPageButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource Brush_2004}" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Rectangle
+						Fill="{TemplateBinding Background}"
+						Height="{TemplateBinding Height}"
+						Width="{TemplateBinding Width}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Thumb}"
+		x:Key="ScrollBarThumb">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Rectangle
+						Name="bd"
+						RadiusX="2"
+						RadiusY="2"
+						Fill="{DynamicResource ScrollbarThumbNormalBackgroundBrush}"
+						StrokeThickness="1"
+						Stroke="{DynamicResource ScrollBarThumbNormalBorderBrush}" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="bd"
+								Value="{DynamicResource ScrollBarThumbHoverBorderBrush}"
+								Property="Stroke" />
+							<Setter
+								TargetName="bd"
+								Value="{DynamicResource ScrollBarThumbHoverBackgroundBrush}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="Thumb.IsDragging"
+							Value="True">
+							<Setter
+								TargetName="bd"
+								Value="{DynamicResource ScrollBarThumbPressedBackgroundBrush}"
+								Property="Fill" />
+							<Setter
+								TargetName="bd"
+								Value="{DynamicResource ScrollBarThumbPressedBorderBrush}"
+								Property="Stroke" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Thumb}"
+		x:Key="HorizontalScrollBarThumb">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Rectangle
+						Name="bd"
+						RadiusX="2"
+						RadiusY="2"
+						StrokeThickness="1"
+						Fill="{StaticResource HorizontalScrollbarThumbNormalBackgroundBrush}"
+						Stroke="{StaticResource ScrollBarThumbNormalBorderBrush}" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="bd"
+								Property="Stroke"
+								Value="{StaticResource ScrollBarThumbHoverBorderBrush}" />
+							<Setter
+								TargetName="bd"
+								Property="Fill"
+								Value="{StaticResource HorizontalScrollBarThumbHoverBackgroundBrush}" />
+						</Trigger>
+						<Trigger
+							Property="Thumb.IsDragging"
+							Value="True">
+							<Setter
+								TargetName="bd"
+								Property="Fill"
+								Value="{StaticResource HorizontalScrollBarThumbPressedBackgroundBrush}" />
+							<Setter
+								TargetName="bd"
+								Property="Stroke"
+								Value="{StaticResource ScrollBarThumbPressedBorderBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="HorizontalScrollBarPageButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource Brush_2005}" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Rectangle
+						Fill="{TemplateBinding Background}"
+						Height="{TemplateBinding Height}"
+						Width="{TemplateBinding Width}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollBar}"
+		x:Key="{x:Type ScrollBar}">
+		<Setter
+			Property="Background"
+			Value="{StaticResource scrollBarTrackFill}" />
+		<Setter
+			Property="Stylus.IsPressAndHoldEnabled"
+			Value="False" />
+		<Setter
+			Property="Stylus.IsFlicksEnabled"
+			Value="False" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ControlTextBrushKey}" />
+		<Setter
+			Property="Width"
+			Value="{DynamicResource SystemParameters.VerticalScrollBarWidthKey}" />
+		<Setter
+			Property="MinWidth"
+			Value="{DynamicResource SystemParameters.VerticalScrollBarWidthKey}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollBar}">
+					<Grid
+						Name="Bg"
+						Background="{TemplateBinding Background}"
+						SnapsToDevicePixels="True">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								MaxHeight="{DynamicResource SystemParameters.VerticalScrollBarButtonHeightKey}" />
+							<RowDefinition
+								Height="0.00001*" />
+							<RowDefinition
+								MaxHeight="{DynamicResource SystemParameters.VerticalScrollBarButtonHeightKey}" />
+						</Grid.RowDefinitions>
+						<RepeatButton
+							Name="decreaseBtn"
+							Command="{x:Static ScrollBar.LineUpCommand}"
+							IsEnabled="{TemplateBinding IsMouseOver}"
+							Style="{StaticResource VerticalButtonDecrease}" />
+						<Track
+							Name="PART_Track"
+							IsDirectionReversed="True"
+							IsEnabled="{TemplateBinding IsMouseOver}"
+							Grid.Row="1">
+							<Track.DecreaseRepeatButton>
+								<RepeatButton
+									Command="{x:Static ScrollBar.PageUpCommand}"
+									Style="{StaticResource VerticalScrollBarPageButton}" />
+							</Track.DecreaseRepeatButton>
+							<Track.IncreaseRepeatButton>
+								<RepeatButton
+									Command="{x:Static ScrollBar.PageDownCommand}"
+									Style="{StaticResource VerticalScrollBarPageButton}" />
+							</Track.IncreaseRepeatButton>
+							<Track.Thumb>
+								<Thumb
+									Width="10"
+									Style="{StaticResource ScrollBarThumb}" />
+							</Track.Thumb>
+						</Track>
+						<RepeatButton
+							Name="increaseBtn"
+							Command="{x:Static ScrollBar.LineDownCommand}"
+							IsEnabled="{TemplateBinding IsMouseOver}"
+							Grid.Row="2"
+							Style="{StaticResource VerticalButtonIncrease}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="increaseBtn"
+								Property="UIElement.Opacity"
+								Value="0.1" />
+							<Setter
+								TargetName="decreaseBtn"
+								Property="UIElement.Opacity"
+								Value="0.1" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="ScrollBar.Orientation"
+				Value="Horizontal">
+				<Setter
+					Property="Width"
+					Value="Auto" />
+				<Setter
+					Property="MinWidth"
+					Value="0" />
+				<Setter
+					Property="Height"
+					Value="{DynamicResource SystemParameters.HorizontalScrollBarHeightKey}" />
+				<Setter
+					Property="MinHeight"
+					Value="{DynamicResource SystemParameters.HorizontalScrollBarHeightKey}" />
+				<Setter
+					Property="Background"
+					Value="{StaticResource horizontalScrollBarTrackFill}" />
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ScrollBar}">
+							<Grid
+								Name="Bg"
+								Background="{TemplateBinding Background}"
+								SnapsToDevicePixels="True">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										MaxWidth="{DynamicResource SystemParameters.HorizontalScrollBarButtonWidthKey}" />
+									<ColumnDefinition
+										Width="0.00001*" />
+									<ColumnDefinition
+										MaxWidth="{DynamicResource SystemParameters.HorizontalScrollBarButtonWidthKey}" />
+								</Grid.ColumnDefinitions>
+								<RepeatButton
+									Command="{x:Static ScrollBar.LineLeftCommand}"
+									IsEnabled="{TemplateBinding IsMouseOver}"
+									Style="{StaticResource HorizontalButtonDecrease}" />
+								<Track
+									Name="PART_Track"
+									Grid.Column="1"
+									IsEnabled="{TemplateBinding IsMouseOver}">
+									<Track.DecreaseRepeatButton>
+										<RepeatButton
+											Command="{x:Static ScrollBar.PageLeftCommand}"
+											Style="{StaticResource HorizontalScrollBarPageButton}" />
+									</Track.DecreaseRepeatButton>
+									<Track.IncreaseRepeatButton>
+										<RepeatButton
+											Command="{x:Static ScrollBar.PageRightCommand}"
+											Style="{StaticResource HorizontalScrollBarPageButton}" />
+									</Track.IncreaseRepeatButton>
+									<Track.Thumb>
+										<Thumb
+											Height="10"
+											Style="{StaticResource HorizontalScrollBarThumb}" />
+									</Track.Thumb>
+								</Track>
+								<RepeatButton
+									Grid.Column="2"
+									Command="{x:Static ScrollBar.LineRightCommand}"
+									IsEnabled="{TemplateBinding IsMouseOver}"
+									Style="{StaticResource HorizontalButtonIncrease}" />
+							</Grid>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="IsEnabled"
+									Value="False">
+									<Setter
+										TargetName="Bg"
+										Property="Background"
+										Value="{StaticResource ScrollBarDisabledBackground}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollViewer}"
+		x:Key="{x:Type ScrollViewer}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollViewer}">
+					<Grid
+						Name="Grid"
+						Background="{TemplateBinding Background}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<Rectangle
+							Name="Corner"
+							Grid.Column="1"
+							Grid.Row="1"
+							Fill="{StaticResource Brush_2022}" />
+						<ScrollContentPresenter
+							Name="PART_ScrollContentPresenter"
+							CanContentScroll="{TemplateBinding CanContentScroll}"
+							CanHorizontallyScroll="False"
+							CanVerticallyScroll="False"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							Content="{TemplateBinding Content}"
+							Grid.Column="0"
+							Margin="{TemplateBinding Padding}"
+							Grid.Row="0" />
+						<ScrollBar
+							Name="PART_VerticalScrollBar"
+							AutomationProperties.AutomationId="VerticalScrollBar"
+							Cursor="Arrow"
+							Grid.Column="1"
+							Maximum="{TemplateBinding ScrollableHeight}"
+							Minimum="0"
+							Grid.Row="0"
+							Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+							ViewportSize="{TemplateBinding ViewportHeight}"
+							Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<ScrollBar
+							Name="PART_HorizontalScrollBar"
+							AutomationProperties.AutomationId="HorizontalScrollBar"
+							Cursor="Arrow"
+							Grid.Column="0"
+							Maximum="{TemplateBinding ScrollableWidth}"
+							Minimum="0"
+							Orientation="Horizontal"
+							Grid.Row="1"
+							Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+							ViewportSize="{TemplateBinding ViewportWidth}"
+							Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<igWindows:StringFormatConverter
+		x:Key="StringFormatConverter" />
+	<Style
+		x:Key="{ComponentResourceKey {x:Type igDp:XamDataGrid}, GrayForegroundStyle}">
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource Brush_2023}" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey {x:Type igDp:XamDataGrid}, WhiteForegroundStyle}">
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource Brush_2028}" />
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="btnGroupByNavBase">
+		<Setter
+			Property="Stylus.IsPressAndHoldEnabled"
+			Value="False" />
+		<Setter
+			Property="Width"
+			Value="25" />
+		<Setter
+			Property="Height"
+			Value="16" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByNavBackground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByNavBorderBrush, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Name="grid">
+						<Border
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="2">
+							<ContentPresenter
+								Content="{TemplateBinding Content}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Margin="{TemplateBinding Padding}" />
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="grid"
+								Property="UIElement.Opacity"
+								Value="0.35" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByNavBackgroundHover, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByLabelHighlightBorder, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<DataTemplate
+		x:Key="groupByNavRightPath">
+		<Grid>
+			<Path
+				Width="6"
+				Height="10"
+				Data="M2,10 C2,10 2,9 2,9 C2,9 3,9 3,9 C3,9 3,8 3,8 C3,8 4,8 4,8 C4,8 4,7 4,7 C4,7 5,7 5,7 C5,7 5,6 5,6 C5,6 6,6 6,6 C6,6 6,4 6,4 C6,4 5,4 5,4 C5,4 5,3 5,3 C5,3 4,3 4,3 C4,3 4,2 4,2 C4,2 3,2 3,2 C3,2 3,1 3,1 C3,1 2,1 2,1 C2,1 2,0 2,0 C2,0 0,0 0,0 C0,0 0,10 0,10 C0,10 2,10 2,10"
+				Opacity="0.34"
+				Stretch="Fill"
+				Fill="{StaticResource Brush_2032}" />
+			<Path
+				Width="4"
+				Height="8"
+				Data="M1,8 C1,8 1,7 1,7 C1,7 2,7 2,7 C2,7 2,6 2,6 C2,6 3,6 3,6 C3,6 3,5 3,5 C3,5 4,5 4,5 C4,5 4,3 4,3 C4,3 3,3 3,3 C3,3 3,2 3,2 C3,2 2,2 2,2 C2,2 2,1 2,1 C2,1 1,1 1,1 C1,1 1,0 1,0 C1,0 0,0 0,0 C0,0 0,8 0,8 C0,8 1,8 1,8"
+				Opacity="1"
+				Stretch="Fill"
+				Fill="{StaticResource Brush_2034}" />
+		</Grid>
+	</DataTemplate>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		BasedOn="{StaticResource btnGroupByNavBase}"
+		x:Key="btnGroupByNavRight">
+		<Setter
+			Property="ContentTemplate"
+			Value="{StaticResource groupByNavRightPath}" />
+	</Style>
+	<DataTemplate
+		x:Key="groupByNavLeftPath">
+		<Grid>
+			<Path
+				Width="6"
+				Height="10"
+				Data="M4,10 C4,10 4,9 4,9 C4,9 3,9 3,9 C3,9 3,8 3,8 C3,8 2,8 2,8 C2,8 2,7 2,7 C2,7 1,7 1,7 C1,7 1,6 1,6 C1,6 0,6 0,6 C0,6 0,4 0,4 C0,4 1,4 1,4 C1,4 1,3 1,3 C1,3 2,3 2,3 C2,3 2,2 2,2 C2,2 3,2 3,2 C3,2 3,1 3,1 C3,1 4,1 4,1 C4,1 4,0 4,0 C4,0 6,0 6,0 C6,0 6,10 6,10 C6,10 4,10 4,10"
+				Opacity="0.34"
+				Stretch="Fill"
+				Fill="{StaticResource Brush_2033}" />
+			<Path
+				Width="4"
+				Height="8"
+				Data="M3,8 C3,8 3,7 3,7 C3,7 2,7 2,7 C2,7 2,6 2,6 C2,6 1,6 1,6 C1,6 1,5 1,5 C1,5 0,5 0,5 C0,5 0,3 0,3 C0,3 1,3 1,3 C1,3 1,2 1,2 C1,2 2,2 2,2 C2,2 2,1 2,1 C2,1 3,1 3,1 C3,1 3,0 3,0 C3,0 4,0 4,0 C4,0 4,8 4,8 C4,8 3,8 3,8"
+				Opacity="1"
+				Stretch="Fill"
+				Fill="{StaticResource Brush_2035}" />
+		</Grid>
+	</DataTemplate>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		BasedOn="{StaticResource btnGroupByNavBase}"
+		x:Key="btnGroupByNavLeft">
+		<Setter
+			Property="ContentTemplate"
+			Value="{StaticResource groupByNavLeftPath}" />
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollViewer}"
+		x:Key="customScrollViewer">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="HorizontalScrollBarVisibility"
+			Value="Auto" />
+		<Setter
+			Property="VerticalScrollBarVisibility"
+			Value="Disabled" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollViewer}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="34" />
+							<ColumnDefinition
+								Width="0.841*" />
+							<ColumnDefinition
+								MinWidth="36"
+								Width="30" />
+						</Grid.ColumnDefinitions>
+						<ScrollContentPresenter
+							Grid.Column="1"
+							CanContentScroll="False"
+							Content="{TemplateBinding Content}" />
+						<RepeatButton
+							Name="repeatButton"
+							Command="ScrollBar.LineLeftCommand"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+							Style="{StaticResource btnGroupByNavLeft}"
+							CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
+						<RepeatButton
+							Name="repeatButton1"
+							Command="ScrollBar.LineRightCommand"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Grid.Column="2"
+							Grid.Row="0"
+							Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+							Style="{StaticResource btnGroupByNavRight}"
+							CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:GroupByAreaFieldListBox}"
+		x:Key="{x:Type igDp:GroupByAreaFieldListBox}">
+		<Setter
+			Property="MinWidth"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0,0,0,3" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:GroupByAreaFieldListBox}">
+					<ScrollViewer
+						CanContentScroll="True"
+						Style="{StaticResource customScrollViewer}"
+						FocusVisualStyle="{x:Null}">
+						<VirtualizingStackPanel
+							IsItemsHost="True"
+							Orientation="Horizontal" />
+					</ScrollViewer>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="ItemsControl.HasItems"
+				Value="False">
+				<Setter
+					Property="Height"
+					Value="20" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:CellValuePresenter}"
+		x:Key="{x:Type igDp:CellValuePresenter}"
+		Triggers="">
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundActive"
+			Value="{StaticResource NewBrush1}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderActiveBrush"
+			Value="{StaticResource Brush_2036}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundHover"
+			Value="{StaticResource NewBrush2}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderHoverBrush"
+			Value="{StaticResource Brush_2037}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundSelected"
+			Value="{StaticResource NewBrush3}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderSelectedBrush"
+			Value="{StaticResource Brush_2040}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundFieldSelected"
+			Value="{StaticResource NewBrush4}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderFieldSelectedBrush"
+			Value="{StaticResource Brush_2041}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundPrimary"
+			Value="{StaticResource NewBrush5}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderPrimaryBrush"
+			Value="{StaticResource Brush_2045}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundActiveStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundAlternateStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundPrimaryStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundSelectedStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundFieldSelectedStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundHoverStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=WhiteForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:CellValuePresenter}">
+					<igWindows:CardPanel>
+						<Border
+							Name="MainBorder"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}" />
+						<Rectangle
+							Name="Active"
+							Fill="{TemplateBinding igDp:BackgroundActive}"
+							SnapsToDevicePixels="True"
+							Stroke="{TemplateBinding igDp:BorderActiveBrush}"
+							StrokeThickness="1"
+							Visibility="Collapsed" />
+						<ContentPresenter
+							Name="PART_EditorSite"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							Margin="{TemplateBinding Padding}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							Style="{TemplateBinding igDp:ForegroundStyle}" />
+					</igWindows:CardPanel>
+					<ControlTemplate.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsAlternate, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="DataRecord"
+									Binding="{Binding Path=Record.RecordType, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding Path=Record.IsAddRecord, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundAlternateStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiDataTrigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsMouseOverRecord"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundHover, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderHoverBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundHoverStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsMouseOverRecord, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="Horizontal"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource FindAncestor, {x:Type igDp:DataRecordPresenter}, 1}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="igDp:CellValuePresenter.ForegroundStyle"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="Horizontal"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource FindAncestor, {x:Type igDp:DataRecordPresenter}, 1}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="igDp:CellValuePresenter.ForegroundStyle"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						</MultiDataTrigger>
+						<Trigger
+							Property="igDp:DataItemPresenter.HighlightAsPrimary"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundPrimary, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderPrimaryBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundPrimaryStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsFieldSelected"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundFieldSelected, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderFieldSelectedBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundFieldSelectedStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsSelected"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundSelected, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderSelectedBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderThickness"
+								Value="1" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundSelectedStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsActive"
+							Value="True">
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="Active"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsSelected"
+									Value="False" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsActive"
+									Value="False" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsFieldSelected"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundHover, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderHoverBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundHoverStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:CellValuePresenter.IsMouseOverRecord"
+									Value="True" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsSelected"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:CellValuePresenter.IsMouseOverRecord"
+									Value="True" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsActive"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=Field.IsFixedStateChanging, RelativeSource={RelativeSource Self}}">
+							<Setter
+								Property="Background"
+								Value="{StaticResource Brush_2048}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{StaticResource Brush_2049}" />
+						</DataTrigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsDataErrorTemplateActive"
+							Value="True">
+							<Setter
+								TargetName="PART_EditorSite"
+								Value="{DynamicResource igDp:DataPresenterBase.DataErrorContentTemplateKey}"
+								Property="ContentTemplate" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:TreeCellValuePresenter}"
+		x:Key="{x:Type igDp:TreeCellValuePresenter}">
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundActive"
+			Value="{StaticResource NewBrush1}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderActiveBrush"
+			Value="{StaticResource Brush_2036}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundHover"
+			Value="{StaticResource NewBrush2}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderHoverBrush"
+			Value="{StaticResource Brush_2037}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundSelected"
+			Value="{StaticResource NewBrush3}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderSelectedBrush"
+			Value="{StaticResource Brush_2040}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundFieldSelected"
+			Value="{StaticResource NewBrush4}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderFieldSelectedBrush"
+			Value="{StaticResource Brush_2041}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundPrimary"
+			Value="{StaticResource NewBrush5}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderPrimaryBrush"
+			Value="{StaticResource Brush_2045}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundActiveStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundAlternateStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundPrimaryStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundSelectedStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundFieldSelectedStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundHoverStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=WhiteForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:TreeCellValuePresenter}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="{Binding Path=Indent, RelativeSource={RelativeSource TemplatedParent}}" />
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<Border
+							Name="MainBorder"
+							Grid.ColumnSpan="3"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}" />
+						<Rectangle
+							Name="Active"
+							Grid.ColumnSpan="3"
+							Fill="{TemplateBinding igDp:BackgroundActive}"
+							SnapsToDevicePixels="True"
+							Stroke="{TemplateBinding igDp:BorderActiveBrush}"
+							StrokeThickness="1"
+							Visibility="Collapsed" />
+						<igWindows:ExpansionIndicator
+							Name="PART_Expander"
+							Panel.ZIndex="1"
+							Grid.Column="1"
+							Command="{x:Static igDp:DataPresenterCommands.ToggleRecordIsExpanded}"
+							CommandParameter="{TemplateBinding igDp:Record}"
+							VerticalAlignment="Center"
+							ToggleMode="Manual"
+							Visibility="{Binding Path=ExpansionIndicatorVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+							IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<ContentPresenter
+							Name="PART_EditorSite"
+							Grid.Column="2"
+							IsEnabled="{TemplateBinding igDp:IsContentEnabled}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							Margin="{TemplateBinding Padding}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							Style="{TemplateBinding igDp:ForegroundStyle}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsAlternate, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="DataRecord"
+									Binding="{Binding Path=Record.RecordType, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="False"
+									Binding="{Binding Path=Record.IsAddRecord, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundAlternateStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiDataTrigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsMouseOverRecord"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundHover, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderHoverBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundHoverStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsMouseOverRecord, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="Horizontal"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource FindAncestor, {x:Type igDp:DataRecordPresenter}, 1}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="igDp:CellValuePresenter.ForegroundStyle"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="Horizontal"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource FindAncestor, {x:Type igDp:DataRecordPresenter}, 1}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="igDp:CellValuePresenter.ForegroundStyle"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						</MultiDataTrigger>
+						<Trigger
+							Property="igDp:DataItemPresenter.HighlightAsPrimary"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundPrimary, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderPrimaryBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundPrimaryStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsFieldSelected"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundFieldSelected, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderFieldSelectedBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundFieldSelectedStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsSelected"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundSelected, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderSelectedBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderThickness"
+								Value="1" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundSelectedStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsActive"
+							Value="True">
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="Active"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsSelected"
+									Value="False" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsActive"
+									Value="False" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsFieldSelected"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								Property="Background"
+								Value="{Binding Path=BackgroundHover, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{Binding Path=BorderHoverBrush, RelativeSource={RelativeSource Self}}" />
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundHoverStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:CellValuePresenter.IsMouseOverRecord"
+									Value="True" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsSelected"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:CellValuePresenter.IsMouseOverRecord"
+									Value="True" />
+								<Condition
+									Property="igDp:CellValuePresenter.IsActive"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="PART_EditorSite"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=Field.IsFixedStateChanging, RelativeSource={RelativeSource Self}}">
+							<Setter
+								Property="Background"
+								Value="{StaticResource Brush_2048}" />
+							<Setter
+								Property="BorderBrush"
+								Value="{StaticResource Brush_2049}" />
+						</DataTrigger>
+						<Trigger
+							Property="igDp:CellValuePresenter.IsDataErrorTemplateActive"
+							Value="True">
+							<Setter
+								TargetName="PART_EditorSite"
+								Value="{DynamicResource igDp:DataPresenterBase.DataErrorContentTemplateKey}"
+								Property="ContentTemplate" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:DataRecordPresenter}"
+		x:Key="{x:Type igDp:DataRecordPresenter}">
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="igDp:DataRecordPresenter.HeaderAreaBackground"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelBackground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="igDp:RecordPresenter.NestedContentBackground"
+			Value="{StaticResource Brush_2006}" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource Brush_2007}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2008}" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:DataRecordPresenter}">
+					<Border
+						Name="baseGrid"
+						RenderTransform="{TemplateBinding igDp:FixedNearElementTransform}"
+						Background="{TemplateBinding Background}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						BorderBrush="{TemplateBinding BorderBrush}">
+						<igWindows:CardPanel>
+							<Border
+								Name="addRowFooter"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								Visibility="Collapsed"
+								Background="{DynamicResource {ComponentResourceKey ResourceId=AddRowBackground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+							<Grid
+								RenderTransform="{TemplateBinding igDp:ScrollableElementTransform}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="*" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+								</Grid.RowDefinitions>
+								<Border
+									Name="OrientationHorizontalSep"
+									Grid.ColumnSpan="6"
+									BorderThickness="0,0,1,0"
+									Visibility="Collapsed"
+									Background="{StaticResource Brush_2050}"
+									BorderBrush="{StaticResource Brush_2051}" />
+								<igWindows:ExpansionIndicator
+									Name="ExpansionIndicator"
+									Grid.Column="1"
+									Grid.Row="3"
+									Panel.ZIndex="1"
+									Command="{x:Static igDp:DataPresenterCommands.ToggleRecordIsExpanded}"
+									CommandParameter="{TemplateBinding igDp:Record}"
+									RenderTransform="{TemplateBinding igDp:FixedNearElementTransform}"
+									ToggleMode="Manual"
+									IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+									Visibility="{Binding Path=ExpansionIndicatorVisibility, RelativeSource={RelativeSource TemplatedParent}}" />
+								<Border
+									Name="SpacerFill"
+									Grid.Column="1"
+									Grid.ColumnSpan="5"
+									Grid.Row="1"
+									RenderTransform="{TemplateBinding igDp:FixedNearElementTransform}"
+									Background="{TemplateBinding igDp:HeaderAreaBackground}" />
+								<ContentPresenter
+									Name="PART_HeaderContentSite"
+									Grid.Column="3"
+									Grid.Row="1"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Content="{TemplateBinding igDp:HeaderContent}"
+									Visibility="Visible" />
+								<Border
+									Name="RecordSeparator"
+									Grid.Column="1"
+									Grid.ColumnSpan="5"
+									Grid.Row="2"
+									RenderTransform="{TemplateBinding igDp:FixedNearElementTransform}"
+									Visibility="Collapsed"
+									Style="{DynamicResource {ComponentResourceKey ResourceId=RecordSeparatorStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+								<ContentPresenter
+									Name="PART_RecordContentSite"
+									Grid.Column="3"
+									Grid.Row="3"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Content="{TemplateBinding DataContext}"
+									ContentTemplate="{TemplateBinding igDp:RecordContentAreaTemplate}" />
+								<Border
+									Name="PART_NestedContentSite"
+									Grid.Column="3"
+									Grid.Row="5"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top"
+									Background="{TemplateBinding igDp:NestedContentBackground}"
+									RenderTransform="{TemplateBinding igDp:FixedNearElementTransform}"
+									Visibility="Visible">
+									<ContentControl
+										Name="contentControl"
+										Content="{TemplateBinding igDp:NestedContent}"
+										RenderTransform="{TemplateBinding igDp:ScrollableElementTransform}" />
+								</Border>
+							</Grid>
+						</igWindows:CardPanel>
+					</Border>
+					<ControlTemplate.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=FieldLayout.AutoFitToWidth, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="Vertical"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="ColumnSpan"
+								Value="3" />
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="ColumnSpan"
+								Value="3" />
+							<Setter
+								Property="HorizontalContentAlignment"
+								Value="Stretch" />
+						</MultiDataTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.Orientation"
+									Value="Vertical" />
+								<Condition
+									Property="igDp:RecordPresenter.IsHeaderRecord"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="SpacerFill"
+								Property="BorderBrush"
+								Value="{StaticResource Brush_2053}" />
+							<Setter
+								TargetName="SpacerFill"
+								Property="BorderThickness"
+								Value="0,1" />
+						</MultiTrigger>
+						<Trigger
+							Property="igDp:RecordPresenter.Orientation"
+							Value="Horizontal">
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="Row"
+								Value="3" />
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Row"
+								Value="3" />
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Column"
+								Value="5" />
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="VerticalAlignment"
+								Value="Top" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Row"
+								Value="1" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Margin"
+								Value="0,2" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Column"
+								Value="3" />
+							<Setter
+								TargetName="SpacerFill"
+								Property="ColumnSpan"
+								Value="1" />
+							<Setter
+								TargetName="SpacerFill"
+								Property="RowSpan"
+								Value="6" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Width"
+								Value="10" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Height"
+								Value="Auto" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="BorderThickness"
+								Value="1,0" />
+							<Setter
+								TargetName="OrientationHorizontalSep"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordPresenter.ShouldDisplayRecordContent"
+							Value="False">
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.ShouldDisplayRecordContent"
+									Value="False" />
+								<Condition
+									Property="igDp:RecordPresenter.IsHeaderRecord"
+									Value="False" />
+								<Condition
+									Property="igDp:RecordPresenter.ExpansionIndicatorVisibility"
+									Value="Visible" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Visibility"
+								Value="Hidden" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.Orientation"
+									Value="Horizontal" />
+								<Condition
+									Property="igDp:RecordPresenter.ShouldDisplayRecordContent"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Column"
+								Value="4" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.Orientation"
+									Value="Vertical" />
+								<Condition
+									Property="igDp:RecordPresenter.ShouldDisplayRecordContent"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Row"
+								Value="5" />
+						</MultiTrigger>
+						<Trigger
+							Property="igDp:RecordPresenter.IsHeaderRecord"
+							Value="True">
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Row"
+								Value="1" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Column"
+								Value="1" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.IsHeaderRecord"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordPresenter.ExpansionIndicatorVisibility"
+									Value="Visible" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Visibility"
+								Value="Hidden" />
+						</MultiTrigger>
+						<Trigger
+							Property="igDp:RecordPresenter.HasHeaderContent"
+							Value="False">
+							<Setter
+								TargetName="SpacerFill"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordPresenter.HasNestedContent"
+							Value="True">
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="baseGrid"
+								Property="Background"
+								Value="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordPresenter.HasNestedContent"
+							Value="False">
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="true"
+									Binding="{Binding Path=IsSpecialRecord}" />
+								<Condition
+									Value="true"
+									Binding="{Binding Path=IsFixedOnTop, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="addRowFooter"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="addRowFooter"
+								Property="Background"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=FixedRecord, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+							<Setter
+								TargetName="addRowFooter"
+								Property="BorderThickness"
+								Value="0,0,0,1" />
+							<Setter
+								Property="Margin"
+								Value="0,0,0,0" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="true"
+									Binding="{Binding Path=IsSpecialRecord}" />
+								<Condition
+									Value="true"
+									Binding="{Binding Path=IsFixedOnBottom, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="addRowFooter"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="addRowFooter"
+								Property="BorderThickness"
+								Value="0,1,0,0" />
+							<Setter
+								TargetName="addRowFooter"
+								Property="Background"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=FixedRecord, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+							<Setter
+								Property="Margin"
+								Value="0,1,0,0" />
+						</MultiDataTrigger>
+						<Trigger
+							Property="igDp:RecordPresenter.HasSeparatorBefore"
+							Value="True">
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.HasSeparatorAfter"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordPresenter.Orientation"
+									Value="Vertical" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Row"
+								Value="4" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.HasSeparatorAfter"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordPresenter.Orientation"
+									Value="Horizontal" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Column"
+								Value="4" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="ColumnSpan"
+								Value="1" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Row"
+								Value="1" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="RowSpan"
+								Value="6" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordPresenter.HasSeparatorBefore"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordPresenter.Orientation"
+									Value="Horizontal" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Column"
+								Value="2" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="ColumnSpan"
+								Value="1" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Row"
+								Value="1" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="RowSpan"
+								Value="6" />
+						</MultiTrigger>
+						<Trigger
+							Property="igDp:RecordPresenter.IsOpacityReduced"
+							Value="True">
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="UIElement.Opacity"
+								Value="0.35" />
+						</Trigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="BeforeParent"
+									Binding="{Binding Path=FieldLayout.ChildRecordsDisplayOrderResolved}" />
+								<Condition
+									Value="Vertical"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Row"
+								Value="0" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="BeforeParent"
+									Binding="{Binding Path=FieldLayout.ChildRecordsDisplayOrderResolved}" />
+								<Condition
+									Value="Horizontal"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Column"
+								Value="0" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="BeforeParentHeadersAttached"
+									Binding="{Binding Path=FieldLayout.ChildRecordsDisplayOrderResolved}" />
+								<Condition
+									Value="Vertical"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Row"
+								Value="0" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="BeforeParentHeadersAttached"
+									Binding="{Binding Path=FieldLayout.ChildRecordsDisplayOrderResolved}" />
+								<Condition
+									Value="Horizontal"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_NestedContentSite"
+								Property="Column"
+								Value="0" />
+						</MultiDataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igDp:RecordPresenter.TemplateCardView">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:DataRecordPresenter}">
+					<igWindows:CardPanel
+						Name="baseGrid"
+						Background="{TemplateBinding Background}">
+						<Rectangle
+							Fill="{DynamicResource {ComponentResourceKey ResourceId=CardBackground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						<ContentPresenter
+							Name="PART_RecordContentSite"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							Content="{TemplateBinding DataContext}"
+							ContentTemplate="{TemplateBinding igDp:RecordContentAreaTemplate}" />
+					</igWindows:CardPanel>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igDp:RecordPresenter.IsInCard"
+							Value="True">
+							<Setter
+								Property="VerticalContentAlignment"
+								Value="Top" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		BasedOn="{x:Static igThemes:DataPresenterGeneric.DataRecordCellArea}"
+		TargetType="{x:Type igDp:DataRecordCellArea}"
+		x:Key="{x:Type igDp:DataRecordCellArea}">
+		<Setter
+			Property="Background"
+			Value="{StaticResource Brush_2009}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2010}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BackgroundHover"
+			Value="{StaticResource NewBrush6}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BorderHoverBrush"
+			Value="{StaticResource Brush_2038}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BackgroundActive"
+			Value="{StaticResource Brush_2057}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BorderActiveBrush"
+			Value="{StaticResource Brush_2029}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BackgroundAlternate"
+			Value="{StaticResource Brush_2059}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BorderAlternateBrush"
+			Value="{StaticResource Brush_2011}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BackgroundSelected"
+			Value="{StaticResource Brush_2058}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.BorderSelectedBrush"
+			Value="{StaticResource Brush_2030}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource Brush_2024}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.ForegroundStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.ForegroundActiveStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:DataRecordCellArea.ForegroundAlternateStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:DataRecordCellArea}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="timelineIsActive">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="Active"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="timelineIsActive_off">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="Active"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="timelineIsSelected">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="Selected"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="timelineIsSelected_off">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="Selected"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="timelineHover">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="Hover"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="timelineHover_off">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="Hover"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<igWindows:CardPanel>
+						<Border
+							Name="Background"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}" />
+						<Border
+							Name="Alternate"
+							Background="{TemplateBinding igDp:BackgroundAlternate}"
+							BorderBrush="{TemplateBinding igDp:BorderAlternateBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}"
+							Opacity="1"
+							Visibility="Collapsed" />
+						<Border
+							Name="Selected"
+							Background="{TemplateBinding igDp:BackgroundSelected}"
+							BorderBrush="{TemplateBinding igDp:BorderSelectedBrush}"
+							BorderThickness="1"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}"
+							Opacity="0"
+							Visibility="Visible" />
+						<Border
+							Name="Hover"
+							Background="{TemplateBinding igDp:BackgroundHover}"
+							BorderBrush="{TemplateBinding igDp:BorderHoverBrush}"
+							BorderThickness="1"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}"
+							Opacity="0"
+							Visibility="Visible" />
+						<Border
+							Name="Active"
+							Background="{TemplateBinding igDp:BackgroundActive}"
+							BorderBrush="{TemplateBinding igDp:BorderActiveBrush}"
+							BorderThickness="1"
+							CornerRadius="{TemplateBinding igDp:CornerRadius}"
+							Visibility="Collapsed" />
+						<ContentPresenter
+							Name="CellContent"
+							Style="{TemplateBinding igDp:ForegroundStyle}" />
+					</igWindows:CardPanel>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:DataRecordCellArea.IsAlternate"
+									Value="True" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsFilterRecord"
+									Value="False" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsAddRecord"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="Alternate"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="CellContent"
+								Property="Style"
+								Value="{Binding Path=ForegroundAlternateStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:DataRecordCellArea.IsActive"
+									Value="True" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsFilterRecord"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="CellContent"
+								Property="Style"
+								Value="{Binding Path=ForegroundActiveStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="Active"
+								Property="Visibility"
+								Value="Visible" />
+						</MultiTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:DataRecordCellArea.HoverBegin">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource timelineHover}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:DataRecordCellArea.HoverEnd">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource timelineHover_off}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:DataRecordCellArea.Selected">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource timelineIsSelected}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:DataRecordCellArea.Deselected">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource timelineIsSelected_off}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<Trigger
+							Property="igDp:DataRecordCellArea.IsAddRecord"
+							Value="True">
+							<Setter
+								TargetName="Hover"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger
+							Property="igDp:DataRecordCellArea.IsFilterRecord"
+							Value="True">
+							<Setter
+								TargetName="Hover"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="Selected"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsActive"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="CellContent"
+								Property="Style"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=WhiteForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsSelected"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="CellContent"
+								Property="Style"
+								Value="{DynamicResource {ComponentResourceKey ResourceId=WhiteForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsActive"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="CellContent"
+								Property="Style"
+								Value="{Binding Path=ForegroundStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									Property="igDp:DataRecordCellArea.IsSelected"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="CellContent"
+								Property="Style"
+								Value="{Binding Path=ForegroundStyle, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:GroupByAreaFieldLabel}"
+		x:Key="{x:Type igDp:GroupByAreaFieldLabel}">
+		<Setter
+			Property="MinHeight"
+			Value="10" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource Brush_2031}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2054}" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource NewBrush7}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="6,3,6,3.5" />
+		<Setter
+			Property="Margin"
+			Value="0,0,1,0" />
+		<Setter
+			Property="FrameworkElement.LayoutTransform">
+			<Setter.Value>
+				<ScaleTransform
+					ScaleX="1"
+					ScaleY="1" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="RenderTransform">
+			<Setter.Value>
+				<ScaleTransform
+					ScaleX="1"
+					ScaleY="1" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:GroupByAreaFieldLabel}">
+					<Grid
+						Name="outerGrid"
+						SnapsToDevicePixels="True"
+						RenderTransformOrigin="0.5,0.5">
+						<Rectangle
+							Name="Bd"
+							Stroke="{TemplateBinding BorderBrush}"
+							StrokeThickness="1"
+							RadiusX="2"
+							RadiusY="2"
+							Fill="{TemplateBinding Background}" />
+						<ContentPresenter
+							Margin="{TemplateBinding Padding}"
+							Content="{Binding Path=(igDp:GroupByAreaFieldLabel.Field).Label, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByAreaFieldLabel.RemovedFromAvailableList">
+							<BeginStoryboard
+								Name="CollapseLabel_BeginStoryboard"
+								Storyboard="{StaticResource CollapseLabel}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByAreaFieldLabel.AddedToAvailableList">
+							<BeginStoryboard
+								Name="AddLabelToList_BeginStoryboard"
+								Storyboard="{StaticResource ExpandLabel}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByAreaFieldLabel.AddedToGroupedList">
+							<BeginStoryboard
+								Name="AddLabelToGroup_BeginStoryboard"
+								Storyboard="{StaticResource ExpandLabel}" />
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByLabelHighlight, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByLabelHighlightBorder, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:LabelPresenter}"
+		x:Key="{x:Type igDp:LabelPresenter}">
+		<Setter
+			Property="Padding"
+			Value="7,4" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelBackground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:LabelPresenter.LabelHighlight"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelHighlight, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,1,1,1" />
+		<Setter
+			Property="igDp:LabelPresenter.InnerBorderBrush"
+			Value="{StaticResource Brush_2060}" />
+		<Setter
+			Property="igDp:LabelPresenter.OuterBorderBrush"
+			Value="{StaticResource Brush_2055}" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelForeground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="{Binding Path=Field.LabelTextAlignmentResolved, RelativeSource={x:Static RelativeSource.Self}, Converter={StaticResource textAlignmentToHorizontalAlignmentConverter}}" />
+		<Setter
+			Property="FrameworkElement.ToolTip"
+			Value="{Binding Path=Field.ToolTip, RelativeSource={x:Static RelativeSource.Self}}" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:LabelPresenter}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="SigmaFadeInFilterButton">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="FilterButton"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2000000"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="SigmaFadeOutFilterButton">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="FilterButton"
+									Storyboard.TargetProperty="(UIElement.Opacity)"
+									FillBehavior="Stop">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2000000"
+										Value="0.4" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid
+						Name="labelCntr">
+						<Border
+							Name="background"
+							RenderTransformOrigin="0.5,0.5"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							SnapsToDevicePixels="True"
+							Background="{TemplateBinding Background}"
+							CornerRadius="{DynamicResource {ComponentResourceKey ResourceId=LabelCornerRadius, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}">
+							<Border
+								Name="lineInner"
+								BorderBrush="{TemplateBinding igDp:InnerBorderBrush}"
+								BorderThickness="1,0,0,0"
+								SnapsToDevicePixels="True" />
+						</Border>
+						<Border
+							Name="lineOuter"
+							BorderBrush="{TemplateBinding igDp:OuterBorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							SnapsToDevicePixels="True" />
+						<Grid
+							Name="sortIndicatorAndLabel"
+							Margin="5,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<ContentPresenter
+								Name="LabelContent"
+								Focusable="False"
+								Margin="{TemplateBinding Padding}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+							<igWindows:SortIndicator
+								Name="SortIndicator"
+								SortStatus="{TemplateBinding igDp:SortStatus}"
+								Visibility="Collapsed"
+								HorizontalAlignment="Right"
+								VerticalAlignment="Center"
+								Grid.Column="1"
+								Margin="5,0,0,0" />
+							<igDp:SummaryButton
+								Name="SummaryButton"
+								Field="{TemplateBinding Field}"
+								HorizontalAlignment="Right"
+								Grid.Column="2"
+								Margin="5,0,0,0"
+								Visibility="{Binding Path=Field.AllowSummariesResolved, Converter={StaticResource BoolToVisConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+							<igDp:FilterButton
+								Name="FilterButton"
+								Field="{TemplateBinding Field}"
+								Visibility="{TemplateBinding FilterButtonVisibility}"
+								HorizontalAlignment="Left"
+								Opacity="0.6"
+								Grid.Column="3"
+								Margin="5,0,0,0" />
+							<igDp:FixedFieldButton
+								Name="FixedButton"
+								Field="{TemplateBinding Field}"
+								Visibility="{TemplateBinding FixedButtonVisibility}"
+								HorizontalAlignment="Left"
+								Grid.Column="4"
+								Margin="2,0" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igDp:DataItemPresenter.HighlightAsPrimary"
+							Value="True">
+							<Setter
+								TargetName="background"
+								Property="Background"
+								Value="{Binding Path=LabelHighlight, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="HorizontalAlignment"
+							Value="Center">
+							<Setter
+								TargetName="SortIndicator"
+								Property="VerticalAlignment"
+								Value="Top" />
+							<Setter
+								TargetName="SortIndicator"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="SortIndicator"
+								Property="Margin"
+								Value="0,5,0,0" />
+						</Trigger>
+						<Trigger
+							Property="igDp:LabelPresenter.SortStatus"
+							Value="Ascending">
+							<Setter
+								TargetName="SortIndicator"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="igDp:LabelPresenter.SortStatus"
+							Value="Descending">
+							<Setter
+								TargetName="SortIndicator"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=IsInGroupByArea, RelativeSource={RelativeSource Self}}">
+							<Setter
+								TargetName="FixedButton"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="SummaryButton"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<Trigger
+							Property="igDp:LabelPresenter.IsInFieldChooser"
+							Value="True">
+							<Setter
+								TargetName="SortIndicator"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="FilterButton"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="FixedButton"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="SummaryButton"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="labelCntr"
+								Property="Margin"
+								Value="0,0,0,0" />
+						</Trigger>
+						<Trigger
+							Property="igDp:DataItemPresenter.IsDragIndicator"
+							Value="True">
+							<Setter
+								Property="Padding"
+								Value="7,4" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+								<Condition
+									SourceName="FilterButton"
+									Property="igDp:FilterButton.HasActiveFilters"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="background"
+								Property="Background"
+								Value="{Binding Path=LabelHighlight, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									SourceName="FilterButton"
+									Property="igDp:FilterButton.HasActiveFilters"
+									Value="True" />
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="background"
+								Property="Background"
+								Value="{Binding Path=LabelHighlight, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="FilterButton"
+								Property="UIElement.Opacity"
+								Value="1" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									SourceName="FilterButton"
+									Property="igDp:FilterButton.HasActiveFilters"
+									Value="True" />
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="FilterButton"
+								Property="UIElement.Opacity"
+								Value="1" />
+						</MultiTrigger>
+						<Trigger
+							SourceName="FilterButton"
+							Property="igDp:FilterButton.HasActiveFilters"
+							Value="True">
+							<Setter
+								TargetName="FilterButton"
+								Property="UIElement.Opacity"
+								Value="1" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:RecordSelector}"
+		x:Key="{x:Type igDp:RecordSelector}">
+		<Setter
+			Property="Background"
+			Value="{StaticResource Brush_2061}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2062}" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="3,3,3,3" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:RecordSelector}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="MouseEnter">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="selectorArrow"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="MouseLeave">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="selectorArrow"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0.05" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="RecordActiveTrue">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="selectorArrow_Active"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="FixedRecordBtn"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="RecordActiveFalse">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="selectorArrow_Active"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="FixedRecordBtn"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0.4" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="HideSelector">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="selectors"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="SigmaFadeIn">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="FixedRecordBtn"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="SigmaFadeOut">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="FixedRecordBtn"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0.4" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid
+						Name="MainBorder"
+						Cursor="{TemplateBinding Cursor}"
+						Background="{StaticResource Brush_2012}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Border
+							Name="errorBd"
+							Width="2"
+							Grid.ColumnSpan="4"
+							Visibility="Collapsed"
+							HorizontalAlignment="Right" />
+						<Grid
+							Name="selectors"
+							Height="16"
+							Width="16"
+							Opacity="1">
+							<Path
+								Name="selectorArrow"
+								RenderTransformOrigin="0.5,0.5"
+								Fill="{TemplateBinding Background}"
+								Stretch="Fill"
+								StrokeThickness="1"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Margin="{TemplateBinding Padding}"
+								Width="7"
+								Height="10"
+								Cursor="{TemplateBinding Cursor}"
+								Data="M60,40 L60,20 L70,30"
+								Visibility="Visible"
+								Opacity="0.05"
+								Stroke="{StaticResource Brush_2063}" />
+							<Path
+								Name="selectorDataChanged"
+								Margin="0,0,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="5.409"
+								Width="3.444"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M1,8.6568603515625 C1,8.6568603515625 1,1.3431400060653687 1,1.3431400060653687 C1,1.3431400060653687 5.656859874725342,5 5.656859874725342,5 C5.656859874725342,5 1,8.6568603515625 1,8.6568603515625"
+								Fill="{TemplateBinding Background}"
+								Visibility="Collapsed" />
+							<Path
+								Name="selectorAddRecord"
+								Margin="0,0,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="7.497498035430908"
+								Width="4.656859874725342"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M0,7.497498035430908 C0,7.497498035430908 0,0 0,0 C0,0 4.656859874725342,3.748749017715454 4.656859874725342,3.748749017715454 C4.656859874725342,3.748749017715454 0,7.497498035430908 0,7.497498035430908"
+								Fill="{TemplateBinding Background}"
+								Visibility="Collapsed"
+								RenderTransformOrigin="0.5,0.5" />
+							<Path
+								Name="selectorArrow_Active"
+								RenderTransformOrigin="0.5,0.5"
+								Fill="{TemplateBinding Background}"
+								Stretch="Fill"
+								StrokeThickness="1"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								Margin="4.5,3,4.5,3"
+								Width="7"
+								Height="10"
+								Cursor="{TemplateBinding Cursor}"
+								Data="M60,40 L60,20 L70,30"
+								Visibility="Visible"
+								Opacity="0"
+								Stroke="{StaticResource Brush_2064}" />
+							<Button
+								Name="ClearButton"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Style="{DynamicResource igDp:DataPresenterBase.FilterRecordClearButtonStyleKey}"
+								Visibility="{TemplateBinding igDp:FilterClearButtonVisibility}" />
+						</Grid>
+						<Grid
+							Name="icons"
+							Height="16"
+							Width="16"
+							HorizontalAlignment="Center"
+							Margin="0,0,0,0"
+							VerticalAlignment="Center">
+							<Path
+								Name="addRecordOuter"
+								Margin="3,3,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10"
+								Width="10"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M10,3 C10,3 6,3 6,3 C6,3 6,6 6,6 C6,6 3,6 3,6 C3,6 3,10 3,10 C3,10 6,10 6,10 C6,10 6,13 6,13 C6,13 10,13 10,13 C10,13 10,10 10,10 C10,10 13,10 13,10 C13,10 13,6 13,6 C13,6 10,6 10,6 C10,6 10,3 10,3"
+								Visibility="Collapsed"
+								SnapsToDevicePixels="True"
+								Fill="{StaticResource Brush_2065}" />
+							<Path
+								Name="addRecordInner"
+								Margin="4,4,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="8"
+								Width="8"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M9,4 C9,4 7,4 7,4 C7,4 7,7 7,7 C7,7 4,7 4,7 C4,7 4,9 4,9 C4,9 7,9 7,9 C7,9 7,12 7,12 C7,12 9,12 9,12 C9,12 9,9 9,9 C9,9 12,9 12,9 C12,9 12,7 12,7 C12,7 9,7 9,7 C9,7 9,4 9,4"
+								Visibility="Collapsed"
+								SnapsToDevicePixels="True"
+								Fill="{StaticResource Brush_2067}" />
+							<Path
+								Name="dataChangedActive"
+								Margin="4.510000228881836,4.190000057220459,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10.559999942779541"
+								Width="10.710000991821289"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M11.762499809265137,4.190000057220459 C11.762499809265137,4.190000057220459 13.622968673706055,5.4495320320129395 13.622968673706055,5.4495320320129395 C13.622968673706055,5.4495320320129395 10.8100004196167,8.90609359741211 10.8100004196167,8.90609359741211 C10.8100004196167,8.90609359741211 15.220001220703125,8.364218711853027 15.220001220703125,8.364218711853027 C15.220001220703125,8.364218711853027 15.220001220703125,10.575780868530273 15.220001220703125,10.575780868530273 C15.220001220703125,10.575780868530273 10.8100004196167,10.07796859741211 10.8100004196167,10.07796859741211 C10.8100004196167,10.07796859741211 13.622968673706055,13.51953125 13.622968673706055,13.51953125 C13.622968673706055,13.51953125 11.762499809265137,14.75 11.762499809265137,14.75 C11.762499809265137,14.75 9.842968940734863,10.575780868530273 9.842968940734863,10.575780868530273 C9.842968940734863,10.575780868530273 7.952969074249268,14.75 7.952969074249268,14.75 C7.952969074249268,14.75 6.09250020980835,13.51953125 6.09250020980835,13.51953125 C6.09250020980835,13.51953125 8.920000076293945,10.07796859741211 8.920000076293945,10.07796859741211 C8.920000076293945,10.07796859741211 4.510000228881836,10.575780868530273 4.510000228881836,10.575780868530273 C4.510000228881836,10.575780868530273 4.510000228881836,8.364218711853027 4.510000228881836,8.364218711853027 C4.510000228881836,8.364218711853027 8.920000076293945,8.90609359741211 8.920000076293945,8.90609359741211 C8.920000076293945,8.90609359741211 6.09250020980835,5.4495320320129395 6.09250020980835,5.4495320320129395 C6.09250020980835,5.4495320320129395 7.952969074249268,4.190000057220459 7.952969074249268,4.190000057220459 C7.952969074249268,4.190000057220459 9.842968940734863,8.247031211853027 9.842968940734863,8.247031211853027 C9.842968940734863,8.247031211853027 11.762499809265137,4.190000057220459 11.762499809265137,4.190000057220459"
+								Visibility="Collapsed"
+								Fill="{StaticResource NewBrush8}" />
+							<Path
+								Name="dataChanged"
+								Margin="2.509999990463257,2.690000057220459,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10.559999942779541"
+								Width="10.710001230239868"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M9.762499809265137,2.690000057220459 C9.762499809265137,2.690000057220459 11.622968673706055,3.9495320320129395 11.622968673706055,3.9495320320129395 C11.622968673706055,3.9495320320129395 8.8100004196167,7.406094074249268 8.8100004196167,7.406094074249268 C8.8100004196167,7.406094074249268 13.220001220703125,6.8642191886901855 13.220001220703125,6.8642191886901855 C13.220001220703125,6.8642191886901855 13.220001220703125,9.075780868530273 13.220001220703125,9.075780868530273 C13.220001220703125,9.075780868530273 8.8100004196167,8.57796859741211 8.8100004196167,8.57796859741211 C8.8100004196167,8.57796859741211 11.622968673706055,12.01953125 11.622968673706055,12.01953125 C11.622968673706055,12.01953125 9.762499809265137,13.25 9.762499809265137,13.25 C9.762499809265137,13.25 7.842968940734863,9.075780868530273 7.842968940734863,9.075780868530273 C7.842968940734863,9.075780868530273 5.952969074249268,13.25 5.952969074249268,13.25 C5.952969074249268,13.25 4.09250020980835,12.01953125 4.09250020980835,12.01953125 C4.09250020980835,12.01953125 6.920000076293945,8.57796859741211 6.920000076293945,8.57796859741211 C6.920000076293945,8.57796859741211 2.509999990463257,9.075780868530273 2.509999990463257,9.075780868530273 C2.509999990463257,9.075780868530273 2.509999990463257,6.8642191886901855 2.509999990463257,6.8642191886901855 C2.509999990463257,6.8642191886901855 6.920000076293945,7.406094074249268 6.920000076293945,7.406094074249268 C6.920000076293945,7.406094074249268 4.09250020980835,3.9495320320129395 4.09250020980835,3.9495320320129395 C4.09250020980835,3.9495320320129395 5.952969074249268,2.690000057220459 5.952969074249268,2.690000057220459 C5.952969074249268,2.690000057220459 7.842968940734863,6.747031211853027 7.842968940734863,6.747031211853027 C7.842968940734863,6.747031211853027 9.762499809265137,2.690000057220459 9.762499809265137,2.690000057220459"
+								Visibility="Collapsed"
+								Fill="{StaticResource NewBrush9}" />
+							<Path
+								Name="addRecordActiveOuter"
+								Margin="4,3.923218011856079,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10.076781988143921"
+								Width="10"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M10.990951538085938,3.923218011856079 C10.990951538085938,3.923218011856079 7,3.923218011856079 7,3.923218011856079 C7,3.923218011856079 7,7 7,7 C7,7 4,7 4,7 C4,7 4,11 4,11 C4,11 7,11 7,11 C7,11 7,14 7,14 C7,14 10.990951538085938,14 10.990951538085938,14 C10.990951538085938,14 10.989999771118164,11 10.989999771118164,11 C10.989999771118164,11 14,11 14,11 C14,11 14,7 14,7 C14,7 10.989999771118164,7 10.989999771118164,7 C10.989999771118164,7 10.990951538085938,3.923218011856079 10.990951538085938,3.923218011856079"
+								Visibility="Collapsed"
+								SnapsToDevicePixels="False"
+								Fill="{StaticResource Brush_2066}" />
+							<Path
+								Name="addRecordActiveInner"
+								Margin="5,5,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="8"
+								Width="8"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M10,5 C10,5 8,5 8,5 C8,5 8,8 8,8 C8,8 5,8 5,8 C5,8 5,10 5,10 C5,10 8,10 8,10 C8,10 8,13 8,13 C8,13 10,13 10,13 C10,13 10,10 10,10 C10,10 13,10 13,10 C13,10 13,8 13,8 C13,8 10,8 10,8 C10,8 10,5 10,5"
+								Visibility="Collapsed"
+								SnapsToDevicePixels="False"
+								Fill="{StaticResource Brush_2068}" />
+						</Grid>
+						<igDp:RecordSelectorNumber
+							Name="RecordNumber"
+							Grid.Column="1" />
+						<igDp:FixedRecordButton
+							Name="FixedRecordBtn"
+							Grid.Column="2"
+							IsFixedOnTopAllowed="{TemplateBinding IsFixedOnTopAllowed}"
+							IsFixedOnBottomAllowed="{TemplateBinding IsFixedOnBottomAllowed}"
+							Visibility="{TemplateBinding FixedButtonVisibility}"
+							VerticalAlignment="Center"
+							Opacity="0.4" />
+						<Rectangle
+							Name="OrientationHorizontalSep"
+							Width="1"
+							HorizontalAlignment="Right"
+							Visibility="Collapsed"
+							Grid.ColumnSpan="4"
+							Fill="{StaticResource Brush_2052}" />
+						<igWindows:AutomationControl
+							Name="errorIcon"
+							Grid.Column="3"
+							Visibility="Collapsed"
+							Margin="2,0,4,0"
+							Style="{DynamicResource igDp:DataPresenterBase.DataErrorIconStyleKey}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<EventTrigger
+							RoutedEvent="UIElement.MouseEnter">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource MouseEnter}" />
+								<BeginStoryboard
+									Storyboard="{StaticResource SigmaFadeIn}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="UIElement.MouseLeave">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource MouseLeave}" />
+								<BeginStoryboard
+									Storyboard="{StaticResource SigmaFadeOut}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:RecordSelector.Activated">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource RecordActiveTrue}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:RecordSelector.Deactivated">
+							<EventTrigger.Actions>
+								<BeginStoryboard
+									Storyboard="{StaticResource RecordActiveFalse}" />
+							</EventTrigger.Actions>
+						</EventTrigger>
+						<Trigger
+							Property="igDp:RecordSelector.IsFilterRecord"
+							Value="True">
+							<Setter
+								TargetName="selectorArrow"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="selectorArrow_Active"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordSelector.FilterClearButtonVisibility"
+							Value="Visible">
+							<Setter
+								TargetName="ClearButton"
+								Value="{x:Static igDp:DataPresenterCommands.ClearActiveRecordCellFilters}"
+								Property="Command" />
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordSelector.IsAddRecord"
+							Value="True">
+							<Setter
+								TargetName="addRecordOuter"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="addRecordInner"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="selectorAddRecord"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="selectorArrow"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="selectorArrow_Active"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordSelector.IsDataChanged"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordSelector.IsFilterRecord"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="dataChanged"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="selectorDataChanged"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="selectorArrow"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordSelector.IsAddRecord"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordSelector.IsDataChanged"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordSelector.IsFilterRecord"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="dataChanged"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="dataChangedActive"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordSelector.HasDataError"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordSelector.IsDataErrorDisplayModeIcon"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="errorIcon"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="errorIcon"
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}, Path=DataError}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordSelector.HasDataError"
+									Value="True" />
+								<Condition
+									Property="igDp:RecordSelector.IsDataErrorDisplayModeHighlight"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="errorBd"
+								Value="{DynamicResource igDp:DataPresenterBrushKeys.DataErrorHighlightBorderBrushKey}"
+								Property="Background" />
+							<Setter
+								TargetName="errorBd"
+								Property="Border.CornerRadius"
+								Value="1" />
+							<Setter
+								TargetName="errorBd"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="MainBorder"
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}, Path=DataError}" />
+						</MultiTrigger>
+						<Trigger
+							Property="igDp:RecordSelector.Location"
+							Value="AboveCellArea">
+							<Setter
+								TargetName="selectors"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="selectors"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="selectors"
+								Property="Margin"
+								Value="0,0,15,0" />
+							<Setter
+								TargetName="icons"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="RecordNumber"
+								Property="Column"
+								Value="0" />
+							<Setter
+								TargetName="icons"
+								Property="HorizontalAlignment"
+								Value="Left" />
+							<Setter
+								TargetName="errorIcon"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="errorIcon"
+								Property="HorizontalAlignment"
+								Value="Left" />
+							<Setter
+								TargetName="FixedRecordBtn"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="FixedRecordBtn"
+								Property="Margin"
+								Value="15,0,0,0" />
+							<Setter
+								TargetName="MainBorder"
+								Property="Background"
+								Value="{StaticResource Brush_2069}" />
+							<Setter
+								TargetName="OrientationHorizontalSep"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="errorBd"
+								Property="Width"
+								Value="Auto" />
+							<Setter
+								TargetName="errorBd"
+								Property="Height"
+								Value="2" />
+							<Setter
+								TargetName="errorBd"
+								Property="HorizontalAlignment"
+								Value="Stretch" />
+							<Setter
+								TargetName="errorBd"
+								Property="VerticalAlignment"
+								Value="Bottom" />
+							<Setter
+								TargetName="addRecordActiveOuter"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="addRecordActiveInner"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="addRecordOuter"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="addRecordInner"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="icons"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="icons"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="selectorArrow"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="90" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="selectorArrow_Active"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="90" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="selectorAddRecord"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="90" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordSelector.Location"
+							Value="BelowCellArea">
+							<Setter
+								TargetName="selectors"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="selectors"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="selectors"
+								Property="Margin"
+								Value="0,0,15,0" />
+							<Setter
+								TargetName="icons"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="icons"
+								Property="HorizontalAlignment"
+								Value="Left" />
+							<Setter
+								TargetName="errorIcon"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="RecordNumber"
+								Property="Column"
+								Value="0" />
+							<Setter
+								TargetName="icons"
+								Property="HorizontalAlignment"
+								Value="Left" />
+							<Setter
+								TargetName="errorIcon"
+								Property="HorizontalAlignment"
+								Value="Left" />
+							<Setter
+								TargetName="FixedRecordBtn"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="FixedRecordBtn"
+								Property="Margin"
+								Value="15,0,0,0" />
+							<Setter
+								TargetName="MainBorder"
+								Property="Background"
+								Value="{StaticResource Brush_2070}" />
+							<Setter
+								TargetName="OrientationHorizontalSep"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="errorBd"
+								Property="Width"
+								Value="Auto" />
+							<Setter
+								TargetName="errorBd"
+								Property="Height"
+								Value="2" />
+							<Setter
+								TargetName="errorBd"
+								Property="HorizontalAlignment"
+								Value="Stretch" />
+							<Setter
+								TargetName="errorBd"
+								Property="VerticalAlignment"
+								Value="Top" />
+							<Setter
+								TargetName="addRecordActiveOuter"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="addRecordActiveInner"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="addRecordOuter"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="addRecordInner"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="icons"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="icons"
+								Property="HorizontalAlignment"
+								Value="Center" />
+							<Setter
+								TargetName="selectorArrow"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="-90" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="selectorArrow_Active"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="-90" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="selectorAddRecord"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="-90" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="igDp:RecordSelector.Location"
+							Value="RightOfCellArea">
+							<Setter
+								TargetName="selectorArrow"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="180" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="selectorArrow_Active"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="180" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="selectorAddRecord"
+								Property="RenderTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform
+											Angle="180" />
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordSelector.FixedButtonVisibility"
+									Value="Collapsed" />
+								<Condition
+									Property="igDp:RecordSelector.Location"
+									Value="AboveCellArea" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="selectors"
+								Property="Margin"
+								Value="0" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:RecordSelector.FixedButtonVisibility"
+									Value="Collapsed" />
+								<Condition
+									Property="igDp:RecordSelector.Location"
+									Value="BelowCellArea" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="selectors"
+								Property="Margin"
+								Value="0" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		BasedOn="{x:Static igThemes:PrimitivesGeneric.ExpanderBar}"
+		TargetType="{x:Type igWindows:ExpanderBar}"
+		x:Key="ExpanderBarStyle">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.ExpanderBarBackgroundKey}" />
+		<Setter
+			Property="igWindows:ExpanderBar.BackgroundHover"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.ExpanderBarBackgroundHoverKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="igWindows:ExpanderBar.BorderHoverBrush"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.GroupByNavBorderBrushKey}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,1,0" />
+		<Setter
+			Property="MinHeight"
+			Value="10" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:SummaryCalculatorSelectionControl}"
+		x:Key="{x:Type igDp:SummaryCalculatorSelectionControl}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<DataTemplate
+					DataType="{x:Type igDp:SummaryCalculatorHolder}">
+					<igWindows:CardPanel
+						Name="mainPanel">
+						<Grid
+							Margin="0,0,0,5">
+							<CheckBox
+								Name="checkBox"
+								AutomationProperties.AutomationId="{Binding Path=Calculator.Name, ConverterParameter={}{0}_CheckBox, Converter={StaticResource StringFormatConverter}}"
+								IsChecked="{Binding Path=IsChecked, Mode=TwoWay}"
+								FocusVisualStyle="{x:Null}">
+								<StackPanel>
+									<Image
+										Margin="5,0,0,0"
+										Source="{Binding Path=Calculator.Image}" />
+									<TextBlock
+										Margin="5,0"
+										Text="{Binding Path=Calculator.DisplayName}"
+										Foreground="{DynamicResource {ComponentResourceKey ResourceId=SummaryCSCItemForeground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+								</StackPanel>
+							</CheckBox>
+						</Grid>
+						<Grid
+							Margin="0,0,0,10">
+							<RadioButton
+								Name="radioButton"
+								Visibility="Collapsed"
+								AutomationProperties.AutomationId="{Binding Path=Calculator.Name, ConverterParameter={}{0}_RadioButton, Converter={StaticResource StringFormatConverter}}"
+								IsChecked="{Binding Path=IsChecked, Mode=TwoWay}"
+								FocusVisualStyle="{x:Null}">
+								<StackPanel>
+									<Image
+										Margin="5,0,0,0"
+										Source="{Binding Path=Calculator.Image}" />
+									<TextBlock
+										Margin="5,0"
+										Text="{Binding Path=Calculator.DisplayName}"
+										Foreground="{DynamicResource {ComponentResourceKey ResourceId=SummaryCSCItemForeground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+								</StackPanel>
+							</RadioButton>
+						</Grid>
+						<Rectangle
+							Margin="17,0,0,3"
+							StrokeThickness="1"
+							StrokeDashArray="1 2"
+							Stroke="{StaticResource Brush_2071}"
+							Visibility="{Binding Path=IsKeyboardFocusWithin, ElementName=mainPanel, Converter={StaticResource BoolToVisConverter}}" />
+					</igWindows:CardPanel>
+					<DataTemplate.Triggers>
+						<DataTrigger
+							Value="False"
+							Binding="{Binding Path=SelectionControl.AllowMultipleSummaries}">
+							<Setter
+								TargetName="checkBox"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="radioButton"
+								Property="Visibility"
+								Value="Visible" />
+						</DataTrigger>
+					</DataTemplate.Triggers>
+				</DataTemplate>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.WindowBrushKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.WindowFrameBrushKey}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:SummaryCalculatorSelectionControl}">
+					<ItemsControl
+						ItemsSource="{TemplateBinding igDp:SummaryCalculatorHolders}"
+						KeyboardNavigation.DirectionalNavigation="Contained"
+						Focusable="False"
+						Margin="{TemplateBinding Padding}"
+						Foreground="{TemplateBinding Foreground}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,1,1" />
+		<Setter
+			Property="Padding"
+			Value="3,3,3,5" />
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:SummaryButton}"
+		x:Key="{x:Type igDp:SummaryButton}">
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Padding"
+			Value="3,0" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelForeground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:SummaryButton}">
+					<Grid
+						Background="{StaticResource Brush_2013}">
+						<Grid>
+							<Rectangle
+								Name="rectangle2"
+								Visibility="Collapsed"
+								Fill="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonBackgroundHover, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+							<Path
+								Name="path"
+								Margin="{TemplateBinding Padding}"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Stretch="Fill"
+								Data="M0,0 C0,0 5,0 5,0 C5,0 5,1 5,1 C5,1 2,1 2,1 C2,1 4,3.5 4,3.5 C4,3.5 2,6 2,6 C2,6 5,6 5,6 C5,6 5,7 5,7 C5,7 0,7 0,7 C0,7 0,6 0,6 C0,6 2,3.5625 2,3.5625 C2,3.5625 0,1 0,1 C0,1 0,0 0,0"
+								Fill="{TemplateBinding Foreground}"
+								Width="5"
+								Height="7" />
+						</Grid>
+						<Popup
+							Name="PART_Popup"
+							AllowsTransparency="True"
+							Placement="Bottom"
+							VerticalOffset="4"
+							HorizontalOffset="0"
+							StaysOpen="False"
+							PopupAnimation="None"
+							SnapsToDevicePixels="True"
+							IsOpen="{Binding Path=IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Border
+								Name="border"
+								KeyboardNavigation.DirectionalNavigation="Contained"
+								KeyboardNavigation.TabNavigation="Contained"
+								FocusManager.IsFocusScope="True"
+								BorderThickness="1"
+								BorderBrush="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonPopupBorder, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}"
+								Background="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonPopupBackground, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}">
+								<Grid>
+									<StackPanel
+										Margin="5,5,5,5">
+										<igDp:SummaryCalculatorSelectionControl
+											Name="CalculatorSelectionControl"
+											Field="{TemplateBinding Field}" />
+										<StackPanel
+											Orientation="Horizontal"
+											HorizontalAlignment="Right"
+											Margin="2">
+											<Button
+												Name="RowSummaryOkButton"
+												Content="Ok"
+												IsDefault="True"
+												Height="12"
+												Margin="0,0,5,0"
+												Width="13"
+												Style="{DynamicResource {ComponentResourceKey ResourceId=RowSummaryOkButton, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+											<Button
+												Name="RowSummaryCancelButton"
+												Content="Cancel"
+												IsCancel="True"
+												Height="12"
+												Width="13"
+												Style="{DynamicResource {ComponentResourceKey ResourceId=RowSummaryCancelButton, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+										</StackPanel>
+									</StackPanel>
+								</Grid>
+							</Border>
+						</Popup>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="rectangle2"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:GroupByArea}"
+		x:Key="{x:Type igDp:GroupByArea}">
+		<Setter
+			Property="igDp:GroupByAreaBase.Prompt1"
+			Value="{Binding Path=Value, Source={x:Static igDp:ResourcesDataPresenter.GroupByAreaPrompt1}}" />
+		<Setter
+			Property="igDp:GroupByAreaBase.Prompt2"
+			Value="{Binding Path=Value, Source={x:Static igDp:ResourcesDataPresenter.GroupByAreaPrompt2}}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource Brush_2025}" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.GroupByAreaMultiBackgroundBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:GroupByArea}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="TurnOnInsertionPoint">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="PART_InsertionPoint"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="TurnOffInsertionPoint">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="PART_InsertionPoint"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="ShowPrompts">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt1"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt2"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="HidePrompts">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt1"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt2"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<igWindows:ExpanderBar
+							Name="ExpanderBarButton"
+							Height="10"
+							Style="{StaticResource ExpanderBarStyle}" />
+						<igWindows:ExpanderDecorator
+							Grid.Row="1"
+							HorizontalAlignment="Stretch"
+							Orientation="Vertical"
+							IsExpanded="{Binding Path=IsExpanded, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Grid
+								Name="outerGrid"
+								SnapsToDevicePixels="True">
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+								</Grid.RowDefinitions>
+								<Grid
+									Row="0"
+									RowSpan="2">
+									<Rectangle
+										Name="Rectangle"
+										RenderTransformOrigin="0.5,0.5"
+										Fill="{TemplateBinding Background}" />
+									<Border
+										Name="Border"
+										HorizontalAlignment="Stretch"
+										Margin="3,3,3,0"
+										Width="Auto"
+										RenderTransformOrigin="0.5,0.5"
+										CornerRadius="4,4,0,0"
+										Background="{DynamicResource {ComponentResourceKey ResourceId=GroupByAreaBackgroundHighlight, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+								</Grid>
+								<StackPanel
+									Orientation="Horizontal"
+									Margin="6,12,0,0">
+									<ContentControl
+										Name="prompt1"
+										FontSize="24"
+										Content="{TemplateBinding igDp:Prompt1}"
+										ContentTemplate="{TemplateBinding igDp:Prompt1Template}" />
+									<ContentControl
+										Name="prompt2"
+										Margin="5,11.2,0,0"
+										Content="{TemplateBinding igDp:Prompt2}"
+										ContentTemplate="{TemplateBinding igDp:Prompt2Template}" />
+								</StackPanel>
+								<Grid
+									Name="PART_GroupedFieldLabelsArea"
+									Row="0"
+									Margin="0,12,0,0"
+									VerticalAlignment="Top">
+									<igDp:GroupByAreaFieldListBox
+										Name="GroupedFieldList"
+										ItemsSource="{TemplateBinding GroupedFieldLabels}"
+										AutomationProperties.Name="GroupedFieldsList"
+										Height="{Binding Path=ActualHeight, ElementName=AvailableFieldList}" />
+								</Grid>
+								<StackPanel
+									Orientation="Vertical"
+									Grid.Row="1">
+									<Grid
+										Name="PART_AvailableFieldLabelsArea"
+										Margin="0,4,0,3"
+										Visibility="Visible">
+										<igDp:GroupByAreaFieldListBox
+											Name="AvailableFieldList"
+											ItemsSource="{TemplateBinding AvailableFieldLabels}"
+											AutomationProperties.Name="AvailableFieldsList" />
+									</Grid>
+									<igWindows:ExpanderBar
+										Name="ExpanderBarButtonBottom"
+										Height="5"
+										Style="{StaticResource ExpanderBarStyle}" />
+								</StackPanel>
+								<Polygon
+									Name="PART_InsertionPoint"
+									Opacity="0"
+									Points="0,0 10,0 5,5"
+									StrokeEndLineCap="Round"
+									StrokeStartLineCap="Round"
+									StrokeLineJoin="Round"
+									HorizontalAlignment="Left"
+									Margin="0,12,0,0"
+									VerticalAlignment="Top"
+									Fill="{StaticResource Brush_2072}" />
+							</Grid>
+						</igWindows:ExpanderDecorator>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByArea.ShowInsertionPoint">
+							<BeginStoryboard
+								Name="TurnOnInsertionPoint_BeginStoryboard"
+								Storyboard="{StaticResource TurnOnInsertionPoint}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByArea.HideInsertionPoint">
+							<BeginStoryboard
+								Name="TurnOffInsertionPoint_BeginStoryboard"
+								Storyboard="{StaticResource TurnOffInsertionPoint}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByArea.ShowPrompts">
+							<BeginStoryboard
+								Name="ShowPrompts_BeginStoryboard"
+								Storyboard="{StaticResource ShowPrompts}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByArea.HidePrompts">
+							<BeginStoryboard
+								Name="HidePrompts_BeginStoryboard"
+								Storyboard="{StaticResource HidePrompts}" />
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:GroupByAreaMulti}"
+		x:Key="{x:Type igDp:GroupByAreaMulti}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<DataTemplate
+					DataType="{x:Type igDp:Field}">
+					<igDp:LabelPresenter
+						VerticalAlignment="Top"
+						IsInGroupByArea="True"
+						Field="{Binding}"
+						Margin="{Binding Path=(igDp:GroupByAreaMulti.Offset)}" />
+				</DataTemplate>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="igDp:GroupByAreaBase.Prompt1"
+			Value="{Binding Path=Value, Source={x:Static igDp:ResourcesDataPresenter.GroupByAreaPrompt1}}" />
+		<Setter
+			Property="igDp:GroupByAreaBase.Prompt2"
+			Value="{Binding Path=Value, Source={x:Static igDp:ResourcesDataPresenter.GroupByAreaPrompt2}}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.GroupByAreaMultiBackgroundBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,1,0" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2073}" />
+		<Setter
+			Property="Padding"
+			Value="0,5" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.FieldLayoutForeground}" />
+		<Setter
+			Property="igDp:GroupByAreaMulti.FieldLayoutDescriptionTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Border>
+						<TextBlock
+							Foreground="{DynamicResource igDp:DataPresenterBrushKeys.FieldLayoutForeground}"
+							Margin="4,2,4,2"
+							FontWeight="Bold"
+							VerticalAlignment="Center"
+							igDp:GroupByAreaMulti.IsConnectorLineTarget="False"
+							Text="{Binding Description}" />
+					</Border>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igDp:GroupByAreaMulti.ConnectorLinePen"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.ConnectorLinePen}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:GroupByAreaMulti}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ShowPrompts">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt1"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt2"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="HidePrompts">
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt1"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									Storyboard.TargetName="prompt2"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="0"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<igWindows:ExpanderBar
+							Name="ExpanderBarButton"
+							Height="10"
+							Style="{StaticResource ExpanderBarStyle}" />
+						<igWindows:ExpanderDecorator
+							Grid.Row="1"
+							Orientation="Vertical"
+							IsExpanded="{Binding Path=IsExpanded, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="Auto" />
+								</Grid.RowDefinitions>
+								<Border
+									Background="{TemplateBinding Background}"
+									BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition
+												MaxHeight="13" />
+											<RowDefinition
+												Height="*" />
+										</Grid.RowDefinitions>
+										<Rectangle
+											Fill="{DynamicResource igDp:DataPresenterBrushKeys.GroupByAreaMultiHighlightBrush}" />
+										<Rectangle
+											Height="1"
+											Grid.Row="1"
+											VerticalAlignment="Bottom"
+											Fill="{StaticResource Brush_2074}" />
+										<igWindows:CardPanel
+											Grid.Row="0"
+											Grid.RowSpan="2"
+											Margin="{TemplateBinding Padding}">
+											<StackPanel
+												Orientation="Horizontal"
+												HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+												VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+												<ContentControl
+													Name="prompt1"
+													Content="{TemplateBinding igDp:Prompt1}"
+													ContentTemplate="{TemplateBinding igDp:Prompt1Template}"
+													Margin="1,1,4,1"
+													FontSize="24"
+													VerticalAlignment="Center" />
+												<ContentControl
+													Name="prompt2"
+													Content="{TemplateBinding igDp:Prompt2}"
+													ContentTemplate="{TemplateBinding igDp:Prompt2Template}"
+													VerticalAlignment="Center" />
+											</StackPanel>
+											<ItemsControl
+												VerticalAlignment="Center"
+												ItemsSource="{Binding Path=FieldLayoutGroupByInfos, RelativeSource={RelativeSource TemplatedParent}}">
+												<Control.Template>
+													<ControlTemplate>
+														<ScrollViewer
+															CanContentScroll="False"
+															Style="{StaticResource customScrollViewer}">
+															<igDp:GroupByAreaMultiPanel
+																IsItemsHost="True"
+																Orientation="{Binding Path=FieldLayoutOrientation, RelativeSource={RelativeSource AncestorType={x:Type igDp:GroupByAreaMulti}}}"
+																ConnectorLinePen="{Binding Path=ConnectorLinePen, RelativeSource={RelativeSource AncestorType={x:Type igDp:GroupByAreaMulti}}}" />
+														</ScrollViewer>
+													</ControlTemplate>
+												</Control.Template>
+											</ItemsControl>
+										</igWindows:CardPanel>
+									</Grid>
+								</Border>
+							</Grid>
+						</igWindows:ExpanderDecorator>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByAreaMulti.ShowPrompts">
+							<BeginStoryboard
+								Name="ShowPrompts_BeginStoryboard"
+								Storyboard="{StaticResource ShowPrompts}" />
+							<StopStoryboard
+								BeginStoryboardName="HidePrompts_BeginStoryboard" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDp:GroupByAreaMulti.HidePrompts">
+							<BeginStoryboard
+								Name="HidePrompts_BeginStoryboard"
+								Storyboard="{StaticResource HidePrompts}" />
+							<StopStoryboard
+								BeginStoryboardName="ShowPrompts_BeginStoryboard" />
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="igDp:GroupByAreaMulti.FieldLayoutOrientation"
+				Value="Horizontal">
+				<Setter
+					Property="igDp:GroupByAreaMulti.ConnectorLinePen"
+					Value="{x:Null}" />
+				<Setter
+					Property="igDp:GroupByAreaMulti.FieldLayoutOffsetY"
+					Value="0" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type igDp:RecordScrollTip}"
+		x:Key="{x:Type igDp:RecordScrollTip}">
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Top" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource NewBrush10}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2046}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:RecordScrollTip}">
+					<Grid
+						SnapsToDevicePixels="True">
+						<Border
+							Name="outerBorder"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}" />
+						<ContentPresenter
+							Margin="5" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TreeView
+						ItemsSource="{Binding}">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type TreeView}">
+								<Setter
+									Property="Background"
+									Value="{StaticResource Brush_2014}" />
+								<Setter
+									Property="BorderThickness"
+									Value="0" />
+								<Setter
+									Property="VerticalContentAlignment"
+									Value="Top" />
+								<Setter
+									Property="Foreground"
+									Value="{StaticResource Brush_2026}" />
+							</Style>
+						</FrameworkElement.Style>
+						<ItemsControl.ItemContainerStyle>
+							<Style
+								TargetType="{x:Type TreeViewItem}">
+								<Setter
+									Property="TreeViewItem.IsExpanded"
+									Value="True" />
+								<Setter
+									Property="Focusable"
+									Value="False" />
+								<Setter
+									Property="Template">
+									<Setter.Value>
+										<ControlTemplate>
+											<StackPanel
+												Orientation="Vertical">
+												<ContentPresenter
+													Name="PART_Header"
+													ContentSource="Header"
+													HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+													ContentTemplate="{TemplateBinding HeaderTemplate}"
+													Content="{TemplateBinding Header}" />
+												<StackPanel
+													Name="ItemsHostPanel"
+													Orientation="Horizontal">
+													<FrameworkElement
+														MinWidth="10"
+														Height="0" />
+													<ItemsPresenter
+														Name="ItemsHost" />
+												</StackPanel>
+											</StackPanel>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ItemsControl.ItemContainerStyle>
+					</TreeView>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		BasedOn="{x:Static igThemes:DataPresenterGeneric.FilterCellValuePresenter}"
+		TargetType="{x:Type igDp:FilterCellValuePresenter}"
+		x:Key="{x:Type igDp:FilterCellValuePresenter}">
+		<Setter
+			Property="Background"
+			Value="{StaticResource Brush_2015}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource Brush_2016}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,0,1,1" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundHover"
+			Value="{StaticResource NewBrush11}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderHoverBrush"
+			Value="{StaticResource Brush_2039}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundActive"
+			Value="{StaticResource NewBrush12}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderActiveBrush"
+			Value="{StaticResource Brush_2042}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundSelected"
+			Value="{StaticResource NewBrush13}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderSelectedBrush"
+			Value="{StaticResource Brush_2043}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundFieldSelected"
+			Value="{StaticResource NewBrush14}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderFieldSelectedBrush"
+			Value="{StaticResource Brush_2044}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BackgroundPrimary"
+			Value="{StaticResource NewBrush15}" />
+		<Setter
+			Property="igDp:CellValuePresenter.BorderPrimaryBrush"
+			Value="{StaticResource Brush_2047}" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource Brush_2027}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundActiveStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundAlternateStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundPrimaryStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundSelectedStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundFieldSelectedStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.ForegroundHoverStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GrayForegroundStyle, TypeInTargetAssembly={x:Type igDp:XamDataGrid}}}" />
+		<Setter
+			Property="igDp:CellValuePresenter.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="Padding"
+			Value="2,0,0,0" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource FixedFieldSplitterBaseStyle}"
+		TargetType="{x:Type igDp:FixedFieldSplitter}"
+		x:Key="{x:Type igDp:FixedFieldSplitter}">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterStrokeBrush}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDp:FixedFieldSplitter}">
+					<Grid
+						Background="{StaticResource Brush_2017}">
+						<Border
+							Name="splitterMainBd"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Padding="{TemplateBinding Padding}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						<Border
+							Name="splitterHoverBd"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Opacity="0"
+							Padding="{TemplateBinding Padding}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							Background="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterVerticalHottrackFillBrush}" />
+						<Border
+							Name="gripperLinesVertical"
+							Visibility="Collapsed"
+							BorderThickness="0,1,1,0"
+							BorderBrush="{StaticResource Brush_2056}">
+							<Grid
+								HorizontalAlignment="Center">
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="0.15*" />
+									<RowDefinition
+										Height="0.7*" />
+									<RowDefinition
+										Height="0.15*" />
+								</Grid.RowDefinitions>
+								<Border
+									Width="2"
+									Grid.Row="1"
+									HorizontalAlignment="Center"
+									Margin="2,0"
+									VerticalAlignment="Stretch"
+									Background="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterGripperDarkLineBrush}"
+									BorderBrush="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterGripperLightLineBrush}"
+									BorderThickness="0,0,1,0" />
+							</Grid>
+						</Border>
+						<Grid
+							Name="gripperLinesHorizontal"
+							Visibility="Collapsed"
+							VerticalAlignment="Center"
+							Margin="0,1,0,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="0.15*" />
+								<ColumnDefinition
+									Width="0.7*" />
+								<ColumnDefinition
+									Width="0.15*" />
+							</Grid.ColumnDefinitions>
+							<Border
+								Height="2"
+								Grid.Column="1"
+								HorizontalAlignment="Stretch"
+								Margin="0,2"
+								VerticalAlignment="Center"
+								Background="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterGripperDarkLineBrush}"
+								BorderBrush="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterGripperLightLineBrush}"
+								BorderThickness="0,0,0,1" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igDp:FixedFieldSplitter.Orientation"
+							Value="Horizontal">
+							<Setter
+								TargetName="splitterHoverBd"
+								Value="{DynamicResource igDp:DataPresenterBrushKeys.FixedFieldsSplitterHorizontalHottrackFillBrush}"
+								Property="Background" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:FixedFieldSplitter.Orientation"
+									Value="Vertical" />
+								<Condition
+									Property="igDp:FixedFieldSplitter.IsInHeader"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="gripperLinesVertical"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="splitterMainBd"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:FixedFieldSplitter.Orientation"
+									Value="Horizontal" />
+								<Condition
+									Property="igDp:FixedFieldSplitter.IsInHeader"
+									Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="gripperLinesHorizontal"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="splitterMainBd"
+								Property="Visibility"
+								Value="Collapsed" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDp:FixedFieldSplitter.IsHighlighted"
+									Value="True" />
+								<Condition
+									Property="igDp:FixedFieldSplitter.IsInHeader"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="splitterHoverBd"
+								Property="UIElement.Opacity"
+								Value="1" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

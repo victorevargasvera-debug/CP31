@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace CefSharp.Wpf
+{
+	// Token: 0x0200000A RID: 10
+	public enum WM : uint
+	{
+		// Token: 0x04000071 RID: 113
+		KEYDOWN = 256U,
+		// Token: 0x04000072 RID: 114
+		KEYUP,
+		// Token: 0x04000073 RID: 115
+		CHAR,
+		// Token: 0x04000074 RID: 116
+		SYSKEYDOWN = 260U,
+		// Token: 0x04000075 RID: 117
+		SYSKEYUP,
+		// Token: 0x04000076 RID: 118
+		SYSCHAR,
+		// Token: 0x04000077 RID: 119
+		IME_CHAR = 646U,
+		// Token: 0x04000078 RID: 120
+		IME_STARTCOMPOSITION = 269U,
+		// Token: 0x04000079 RID: 121
+		IME_ENDCOMPOSITION,
+		// Token: 0x0400007A RID: 122
+		IME_COMPOSITION,
+		// Token: 0x0400007B RID: 123
+		IME_SETCONTEXT = 641U
+	}
+}

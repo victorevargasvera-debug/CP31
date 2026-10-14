@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common.Communication.TLS</RootNamespace>
+    <AssemblyName>TransportLayerSecurity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthenticationMaterials.cs" />
+    <Compile Include="CertificateUtilities.cs" />
+    <Compile Include="CommunicationPipeAdapter.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ITlsConnectClient.cs" />
+    <Compile Include="ITransportLayerSecurity.cs" />
+    <Compile Include="OpenSslCompatibility\TlsBlockCipher.cs" />
+    <Compile Include="Password.cs" />
+    <Compile Include="PreSharedKeysUtilities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityCipherMode.cs" />
+    <Compile Include="SecurityEndpointMode.cs" />
+    <Compile Include="TlsAdvPskIdentity.cs" />
+    <Compile Include="TlsAdvPskIdentityManager.cs" />
+    <Compile Include="TlsCipherFactory.cs" />
+    <Compile Include="TlsClient.cs" />
+    <Compile Include="TlsClientAuthentication.cs" />
+    <Compile Include="TlsClientProtocol.cs" />
+    <Compile Include="TlsProtocolVersion.cs" />
+    <Compile Include="TlsPskClient.cs" />
+    <Compile Include="TlsPskForAstro\AmpTlsHandler.cs" />
+    <Compile Include="TlsPskForAstro\HintOnlyTlsPskKeyExchange.cs" />
+    <Compile Include="TlsPskForAstro\Interfaces\IOnServerKeyExchangeSubscriber.cs" />
+    <Compile Include="TlsPskForAstro\ITlsConnectClientFactory.cs" />
+    <Compile Include="TlsPskForAstro\ITlsHandler.cs" />
+    <Compile Include="TlsPskForAstro\ITlsIdentityClient.cs" />
+    <Compile Include="TlsPskForAstro\TlsConnectClientFactory.cs" />
+    <Compile Include="TlsPskForAstro\TlsHandler.cs" />
+    <Compile Include="TlsPskForAstro\TlsIdentityClient.cs" />
+    <Compile Include="TlsPskForAstro\TlsPskClient.cs" />
+    <Compile Include="TlsPskIdentityHint.cs" />
+    <Compile Include="TlsRsaPskClient.cs" />
+    <Compile Include="TlsRsaPskServer.cs" />
+    <Compile Include="TlsServer.cs" />
+    <Compile Include="TlsServerProtocol.cs" />
+    <Compile Include="TransportLayerSecurityBouncyCastleAdapter.cs" />
+    <Compile Include="TransportLayerSecurityFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BouncyCastle.Crypto\BouncyCastle.Crypto.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64D}</Project>
+      <Name>BouncyCastle.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommonInterface\Common.Communication.CommonInterface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA656}</Project>
+      <Name>Common.Communication.CommonInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonCommunicationUtility\CommonCommunicationUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA665}</Project>
+      <Name>CommonCommunicationUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

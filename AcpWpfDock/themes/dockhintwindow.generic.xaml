@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dc="clr-namespace:DevComponents.WpfDock" xmlns:dcp="clr-namespace:DevComponents.WpfDock.Primitives">
+	<Style
+		TargetType="{x:Type dc:f}"
+		x:Key="{x:Type dc:f}">
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Window.SizeToContent"
+			Value="Manual" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border
+						Background="{TemplateBinding Background}">
+						<Grid>
+							<AdornerDecorator>
+								<ContentPresenter
+									Name="PART_ContentPresenter"
+									Focusable="False"
+									ContentTemplate="{TemplateBinding ContentTemplate}"
+									Content="{TemplateBinding Content}" />
+							</AdornerDecorator>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

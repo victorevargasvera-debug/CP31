@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Web.WebView2.Core</RootNamespace>
+    <AssemblyName>Microsoft.Web.WebView2.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="COMDotNetTypeConverter.cs" />
+    <Compile Include="COMStreamWrapper.cs" />
+    <Compile Include="CoreWebView2.cs" />
+    <Compile Include="CoreWebView2AcceleratorKeyPressedEventArgs.cs" />
+    <Compile Include="CoreWebView2AcceleratorKeyPressedEventHandler.cs" />
+    <Compile Include="CoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHand.cs" />
+    <Compile Include="CoreWebView2BoundsMode.cs" />
+    <Compile Include="CoreWebView2BytesReceivedChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2CallDevToolsProtocolMethodCompletedHandler.cs" />
+    <Compile Include="CoreWebView2CapturePreviewCompletedHandler.cs" />
+    <Compile Include="CoreWebView2CapturePreviewImageFormat.cs" />
+    <Compile Include="CoreWebView2Color.cs" />
+    <Compile Include="CoreWebView2CompositionController.cs" />
+    <Compile Include="CoreWebView2ContainsFullScreenElementChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2ContentLoadingEventArgs.cs" />
+    <Compile Include="CoreWebView2ContentLoadingEventHandler.cs" />
+    <Compile Include="CoreWebView2Controller.cs" />
+    <Compile Include="CoreWebView2Cookie.cs" />
+    <Compile Include="CoreWebView2CookieManager.cs" />
+    <Compile Include="CoreWebView2CookieSameSiteKind.cs" />
+    <Compile Include="CoreWebView2CreateCoreWebView2CompositionControllerCompleted.cs" />
+    <Compile Include="CoreWebView2CreateCoreWebView2ControllerCompletedHandler.cs" />
+    <Compile Include="CoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.cs" />
+    <Compile Include="CoreWebView2CursorChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2Deferral.cs" />
+    <Compile Include="CoreWebView2DevToolsProtocolEventReceivedEventArgs.cs" />
+    <Compile Include="CoreWebView2DevToolsProtocolEventReceivedEventHandler.cs" />
+    <Compile Include="CoreWebView2DevToolsProtocolEventReceiver.cs" />
+    <Compile Include="CoreWebView2DocumentTitleChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2DOMContentLoadedEventArgs.cs" />
+    <Compile Include="CoreWebView2DOMContentLoadedEventHandler.cs" />
+    <Compile Include="CoreWebView2DownloadInterruptReason.cs" />
+    <Compile Include="CoreWebView2DownloadOperation.cs" />
+    <Compile Include="CoreWebView2DownloadStartingEventArgs.cs" />
+    <Compile Include="CoreWebView2DownloadStartingEventHandler.cs" />
+    <Compile Include="CoreWebView2DownloadState.cs" />
+    <Compile Include="CoreWebView2Environment.cs" />
+    <Compile Include="CoreWebView2EnvironmentOptions.cs" />
+    <Compile Include="CoreWebView2EstimatedEndTimeChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2ExecuteScriptCompletedHandler.cs" />
+    <Compile Include="CoreWebView2FocusChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2Frame.cs" />
+    <Compile Include="CoreWebView2FrameCreatedEventArgs.cs" />
+    <Compile Include="CoreWebView2FrameCreatedEventHandler.cs" />
+    <Compile Include="CoreWebView2FrameDestroyedEventHandler.cs" />
+    <Compile Include="CoreWebView2FrameInfo.cs" />
+    <Compile Include="CoreWebView2FrameNameChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2GetCookiesCompletedHandler.cs" />
+    <Compile Include="CoreWebView2HistoryChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2HostObjectHelper.cs" />
+    <Compile Include="CoreWebView2HostResourceAccessKind.cs" />
+    <Compile Include="CoreWebView2HttpHeadersCollectionIterator.cs" />
+    <Compile Include="CoreWebView2HttpRequestHeaders.cs" />
+    <Compile Include="CoreWebView2HttpResponseHeaders.cs" />
+    <Compile Include="CoreWebView2InitializationCompletedEventArgs.cs" />
+    <Compile Include="CoreWebView2KeyEventKind.cs" />
+    <Compile Include="CoreWebView2MouseEventKind.cs" />
+    <Compile Include="CoreWebView2MouseEventVirtualKeys.cs" />
+    <Compile Include="CoreWebView2MoveFocusReason.cs" />
+    <Compile Include="CoreWebView2MoveFocusRequestedEventArgs.cs" />
+    <Compile Include="CoreWebView2MoveFocusRequestedEventHandler.cs" />
+    <Compile Include="CoreWebView2NavigationCompletedEventArgs.cs" />
+    <Compile Include="CoreWebView2NavigationCompletedEventHandler.cs" />
+    <Compile Include="CoreWebView2NavigationStartingEventArgs.cs" />
+    <Compile Include="CoreWebView2NavigationStartingEventHandler.cs" />
+    <Compile Include="CoreWebView2NewBrowserVersionAvailableEventHandler.cs" />
+    <Compile Include="CoreWebView2NewWindowRequestedEventArgs.cs" />
+    <Compile Include="CoreWebView2NewWindowRequestedEventHandler.cs" />
+    <Compile Include="CoreWebView2PermissionKind.cs" />
+    <Compile Include="CoreWebView2PermissionRequestedEventArgs.cs" />
+    <Compile Include="CoreWebView2PermissionRequestedEventHandler.cs" />
+    <Compile Include="CoreWebView2PermissionState.cs" />
+    <Compile Include="CoreWebView2PhysicalKeyStatus.cs" />
+    <Compile Include="CoreWebView2PointerEventKind.cs" />
+    <Compile Include="CoreWebView2PointerInfo.cs" />
+    <Compile Include="CoreWebView2ProcessFailedEventArgs.cs" />
+    <Compile Include="CoreWebView2ProcessFailedEventHandler.cs" />
+    <Compile Include="CoreWebView2ProcessFailedKind.cs" />
+    <Compile Include="CoreWebView2ProcessFailedReason.cs" />
+    <Compile Include="CoreWebView2RasterizationScaleChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2ScriptDialogKind.cs" />
+    <Compile Include="CoreWebView2ScriptDialogOpeningEventArgs.cs" />
+    <Compile Include="CoreWebView2ScriptDialogOpeningEventHandler.cs" />
+    <Compile Include="CoreWebView2Settings.cs" />
+    <Compile Include="CoreWebView2SourceChangedEventArgs.cs" />
+    <Compile Include="CoreWebView2SourceChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2StateChangedEventHandler.cs" />
+    <Compile Include="CoreWebView2TrySuspendCompletedHandler.cs" />
+    <Compile Include="CoreWebView2WebErrorStatus.cs" />
+    <Compile Include="CoreWebView2WebMessageReceivedEventArgs.cs" />
+    <Compile Include="CoreWebView2WebMessageReceivedEventHandler.cs" />
+    <Compile Include="CoreWebView2WebResourceContext.cs" />
+    <Compile Include="CoreWebView2WebResourceRequest.cs" />
+    <Compile Include="CoreWebView2WebResourceRequestedEventArgs.cs" />
+    <Compile Include="CoreWebView2WebResourceRequestedEventHandler.cs" />
+    <Compile Include="CoreWebView2WebResourceResponse.cs" />
+    <Compile Include="CoreWebView2WebResourceResponseReceivedEventArgs.cs" />
+    <Compile Include="CoreWebView2WebResourceResponseReceivedEventHandler.cs" />
+    <Compile Include="CoreWebView2WebResourceResponseView.cs" />
+    <Compile Include="CoreWebView2WebResourceResponseViewGetContentCompletedHandle.cs" />
+    <Compile Include="CoreWebView2WindowCloseRequestedEventHandler.cs" />
+    <Compile Include="CoreWebView2WindowFeatures.cs" />
+    <Compile Include="CoreWebView2ZoomFactorChangedEventHandler.cs" />
+    <Compile Include="HostObjectHelper.cs" />
+    <Compile Include="ManagedIStream.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raw\BrowserInfo.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_BOUNDS_MODE.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_COLOR.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_COOKIE_SAME_SITE_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_DOWNLOAD_STATE.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_KEY_EVENT_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_MOUSE_EVENT_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_MOVE_FOCUS_REASON.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_PERMISSION_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_PERMISSION_STATE.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_PHYSICAL_KEY_STATUS.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_POINTER_EVENT_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_PROCESS_FAILED_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_PROCESS_FAILED_REASON.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_SCRIPT_DIALOG_KIND.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_WEB_ERROR_STATUS.cs" />
+    <Compile Include="Raw\COREWEBVIEW2_WEB_RESOURCE_CONTEXT.cs" />
+    <Compile Include="Raw\EventRegistrationToken.cs" />
+    <Compile Include="Raw\ICoreWebView2.cs" />
+    <Compile Include="Raw\ICoreWebView2AcceleratorKeyPressedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2AcceleratorKeyPressedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHan.cs" />
+    <Compile Include="Raw\ICoreWebView2BytesReceivedChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2CapturePreviewCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2CompositionController.cs" />
+    <Compile Include="Raw\ICoreWebView2CompositionController2.cs" />
+    <Compile Include="Raw\ICoreWebView2ContainsFullScreenElementChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2ContentLoadingEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2ContentLoadingEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2Controller.cs" />
+    <Compile Include="Raw\ICoreWebView2Controller2.cs" />
+    <Compile Include="Raw\ICoreWebView2Controller3.cs" />
+    <Compile Include="Raw\ICoreWebView2Cookie.cs" />
+    <Compile Include="Raw\ICoreWebView2CookieList.cs" />
+    <Compile Include="Raw\ICoreWebView2CookieManager.cs" />
+    <Compile Include="Raw\ICoreWebView2CreateCoreWebView2CompositionControllerComplete.cs" />
+    <Compile Include="Raw\ICoreWebView2CreateCoreWebView2ControllerCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2CursorChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2Deferral.cs" />
+    <Compile Include="Raw\ICoreWebView2DevToolsProtocolEventReceivedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2DevToolsProtocolEventReceivedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2DevToolsProtocolEventReceiver.cs" />
+    <Compile Include="Raw\ICoreWebView2DocumentTitleChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2DOMContentLoadedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2DOMContentLoadedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2DownloadOperation.cs" />
+    <Compile Include="Raw\ICoreWebView2DownloadStartingEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2DownloadStartingEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2Environment.cs" />
+    <Compile Include="Raw\ICoreWebView2Environment2.cs" />
+    <Compile Include="Raw\ICoreWebView2Environment3.cs" />
+    <Compile Include="Raw\ICoreWebView2Environment4.cs" />
+    <Compile Include="Raw\ICoreWebView2EnvironmentOptions.cs" />
+    <Compile Include="Raw\ICoreWebView2EstimatedEndTimeChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2ExecuteScriptCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2FocusChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2Frame.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameCreatedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameCreatedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameDestroyedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameInfo.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameInfoCollection.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameInfoCollectionIterator.cs" />
+    <Compile Include="Raw\ICoreWebView2FrameNameChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2GetCookiesCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2HistoryChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2HttpHeadersCollectionIterator.cs" />
+    <Compile Include="Raw\ICoreWebView2HttpRequestHeaders.cs" />
+    <Compile Include="Raw\ICoreWebView2HttpResponseHeaders.cs" />
+    <Compile Include="Raw\ICoreWebView2MoveFocusRequestedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2MoveFocusRequestedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2NavigationCompletedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2NavigationCompletedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2NavigationStartingEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2NavigationStartingEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2NewBrowserVersionAvailableEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2NewWindowRequestedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2NewWindowRequestedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2PermissionRequestedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2PermissionRequestedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2PointerInfo.cs" />
+    <Compile Include="Raw\ICoreWebView2ProcessFailedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2ProcessFailedEventArgs2.cs" />
+    <Compile Include="Raw\ICoreWebView2ProcessFailedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2RasterizationScaleChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2ScriptDialogOpeningEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2ScriptDialogOpeningEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2Settings.cs" />
+    <Compile Include="Raw\ICoreWebView2Settings2.cs" />
+    <Compile Include="Raw\ICoreWebView2Settings3.cs" />
+    <Compile Include="Raw\ICoreWebView2Settings4.cs" />
+    <Compile Include="Raw\ICoreWebView2Settings5.cs" />
+    <Compile Include="Raw\ICoreWebView2SourceChangedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2SourceChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2Staging.cs" />
+    <Compile Include="Raw\ICoreWebView2StagingHostObjectHelper.cs" />
+    <Compile Include="Raw\ICoreWebView2StateChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2TrySuspendCompletedHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2WebMessageReceivedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2WebMessageReceivedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceRequest.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceRequestedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceRequestedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceResponse.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceResponseReceivedEventArgs.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceResponseReceivedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceResponseView.cs" />
+    <Compile Include="Raw\ICoreWebView2WebResourceResponseViewGetContentCompletedHandl.cs" />
+    <Compile Include="Raw\ICoreWebView2WindowCloseRequestedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2WindowFeatures.cs" />
+    <Compile Include="Raw\ICoreWebView2ZoomFactorChangedEventHandler.cs" />
+    <Compile Include="Raw\ICoreWebView2_2.cs" />
+    <Compile Include="Raw\ICoreWebView2_3.cs" />
+    <Compile Include="Raw\ICoreWebView2_4.cs" />
+    <Compile Include="Raw\tagPOINT.cs" />
+    <Compile Include="Raw\tagRECT.cs" />
+    <Compile Include="WebView2RuntimeNotFoundException.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

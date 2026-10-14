@@ -1,0 +1,67 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI">
+	<Style
+		TargetType="{x:Type AcpUINS:AcpFlyInButton}"
+		x:Key="{x:Type AcpUINS:AcpFlyInButton}">
+		<Style.Triggers>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="False"
+						Binding="{Binding Path=ShowDiffIcon, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding Path=ShowInvalidRecIcon, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpFlyInButton, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpFlyInButtonBackground}}}" />
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="False"
+						Binding="{Binding Path=ShowDiffIcon, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=ShowInvalidRecIcon, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpFlyInButton, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpFlyInButtonInvalidRecBackground}}}" />
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding Path=ShowDiffIcon, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding Path=ShowInvalidRecIcon, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpFlyInButton, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpFlyInButtonRecWithDiffBackground}}}" />
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding Path=ShowDiffIcon, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=ShowInvalidRecIcon, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpFlyInButton, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpFlyInButtonInvalidRecWithDiffBackground}}}" />
+			</MultiDataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,478 @@
+<local:XamGridContainer
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMZoneList1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:RFResourceRepository="clr-namespace:RFResourceRepository;assembly=RFResourceRepository" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters"
+	DataContextChanged="UserControl_DataContextChanged">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Themes/Generic.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:SetCategoryCanSaveDiscardConverter
+				x:Key="SetCategoryCanSaveDiscardConverter" />
+			<converters:HideInCpsModeConverter
+				x:Key="HideInCpsModeConverter" />
+			<local:SetCategoryAddMultipleSetsToVisibilityConverter
+				x:Key="SetCategoryAddMultipleSetsToVisibilityConverter" />
+			<local:SetCategoryAddTopSetCopiesToVisibilityConverter
+				x:Key="SetCategoryAddTopSetCopiesToVisibilityConverter" />
+			<local:SetCategoryAddSetCopiesToResourceConverter
+				x:Key="SetCategoryAddSetCopiesToResourceConverter" />
+			<local:ActiveCellToSetCategoryConverter
+				x:Key="ActiveCellToSetCategoryConverter" />
+			<local:ActiveFieldToChannelSetCategoryConveter
+				x:Key="ActiveFieldToChannelSetCategoryConveter" />
+			<local:ZoneChannelPositionConverter
+				x:Key="ZoneChannelPositionConverter" />
+			<local:BindingProxy
+				Data="{Binding Path=ActiveField, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="ActiveFieldProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.AddSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="AddSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.AddSetAndEditCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="AddSetAndEditProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.AddEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="AddEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.AddMultipleSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="AddMultipleEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="EditEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="DeleteEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareCopyEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="PrepareAddCopiesProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareShowEmbeddedSetRelatedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				x:Key="PrepareShowRelatedSetsProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=ActiveField, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}, Converter={StaticResource ActiveCellToSetCategoryConverter}}"
+				x:Key="SetCategoryProxy" />
+			<DataTemplate
+				x:Key="InvalidAndPositionCellColumnDataTemplate">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="2" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Image
+							MaxHeight="16"
+							MaxWidth="24"
+							Source="{Binding Path=RowData.ParentSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+						<Image
+							Grid.Column="1"
+							Margin="5,0,0,0"
+							Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+							Height="16"
+							Width="16"
+							ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+							Visibility="{Binding Path=RowData.ParentSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+					</Grid>
+					<TextBlock
+						Grid.Column="2"
+						Text="{Binding RowData.ParentSet.Position, Converter={StaticResource ZoneChannelPositionConverter}}" />
+				</Grid>
+			</DataTemplate>
+			<DataTemplate
+				x:Key="InvalidAndPositionMergedCellColumnDataTemplate">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="2" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Image
+							MaxHeight="16"
+							MaxWidth="24"
+							Source="{Binding Path=Value.ParentSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+						<Image
+							Grid.Column="1"
+							Margin="5,0,0,0"
+							Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+							Height="16"
+							Width="16"
+							ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+							Visibility="{Binding Path=Value.ParentSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+					</Grid>
+					<TextBlock
+						Grid.Column="2"
+						Text="{Binding Value.ParentSet.Position, Converter={StaticResource ZoneChannelPositionConverter}}" />
+				</Grid>
+			</DataTemplate>
+			<DataTemplate
+				x:Key="InvalidEmbeddedSetCellColumnDataTemplate">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Image
+						MaxHeight="16"
+						MaxWidth="24"
+						Source="{Binding Path=RowData.ChildSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+					<Image
+						Grid.Column="1"
+						Margin="5,0,0,0"
+						Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+						Height="16"
+						Width="16"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+						Visibility="{Binding Path=RowData.ChildSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+				</Grid>
+			</DataTemplate>
+			<DataTemplate
+				x:Key="PoistionEmbeddedSetCellColumnDataTemplate">
+				<TextBlock
+					Text="{Binding RowData.ChildSet.Position, Converter={StaticResource ZoneChannelPositionConverter}}" />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="PoistionEmbeddedSetMergedCellColumnDataTemplate">
+				<TextBlock
+					Text="{Binding Value.ChildSet.Position, Converter={StaticResource ZoneChannelPositionConverter}}" />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="InvalidEmbeddedSetMergedCellColumnDataTemplate">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Image
+						MaxHeight="16"
+						MaxWidth="24"
+						Source="{Binding Path=Value.ChildSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+					<Image
+						Grid.Column="1"
+						Margin="5,0,0,0"
+						Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+						Height="16"
+						Width="16"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+						Visibility="{Binding Path=Value.ChildSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="N"
+			Modifiers="Control"
+			Command="{Binding Path=SetPresenter.AddSetAndEditCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+		<KeyBinding
+			Gesture="Delete"
+			Command="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+			CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+		<KeyBinding
+			Key="E"
+			Modifiers="Control"
+			Command="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+			CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+	</UIElement.InputBindings>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<Grid
+			Margin="0,0,0,10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="2" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="2" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="2" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="2" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="2" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="40" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 1-->
+			<Button
+				Name="btnAdd"
+				Grid.Column="2"
+				Style="{StaticResource DataGridButtonStyle}"
+				Content="{StaticResource IconAdd}"
+				Padding="0"
+				ToolTip="{Binding Path=AddButtonToolTip, RelativeSource={RelativeSource AncestorType={x:Type local:RMSetPresenter}}}"
+				Command="{Binding Path=SetPresenter.AddSetAndEditCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}">
+				<UIElement.InputBindings>
+					<MouseBinding
+						Gesture="Ctrl+LeftClick"
+						Command="{Binding Path=SetPresenter.AddSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+				</UIElement.InputBindings>
+			</Button>
+			<!--Unknown connection ID: 2-->
+			<Button
+				Name="btnAdditional"
+				Grid.Column="6"
+				Style="{StaticResource DataGridButtonMoreStyle}"
+				Content="{StaticResource IconMore}"
+				Padding="0"
+				ContextMenuService.IsEnabled="False">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<local:BindingProxy
+							Data="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+							x:Key="buttonProxy" />
+						<local:BindingProxy
+							Data="{Binding Path=SetPresenter.AddMultipleSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+							x:Key="AddMultipleSetsCommandProxy" />
+						<local:BindingProxy
+							Data="{Binding Path=SetPresenter.SetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+							x:Key="TopSetCategoryProxy" />
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<FrameworkElement.ContextMenu>
+					<!--Unknown connection ID: 3-->
+					<ContextMenu
+						Name="ctmExtended"
+						Placement="Bottom"
+						PlacementTarget="{Binding Data, Source={StaticResource buttonProxy}}">
+						<!--Unknown connection ID: 4-->
+						<MenuItem
+							Name="mniAddSet"
+							Header="{x:Static resourceRepository:Resources.RMC_Title_AddSet}"
+							Command="{Binding Data, Source={StaticResource AddSetAndEditProxy}}" />
+						<!--Unknown connection ID: 5-->
+						<MenuItem
+							Name="mniAddMultipleSets"
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_AddMultipleSets}"
+							Command="{Binding Data, Source={StaticResource AddMultipleSetsCommandProxy}}"
+							CommandParameter="{Binding Data, Source={StaticResource TopSetCategoryProxy}}"
+							Visibility="{Binding Data, Source={StaticResource TopSetCategoryProxy}, Converter={StaticResource SetCategoryAddMultipleSetsToVisibilityConverter}}" />
+						<!--Unknown connection ID: 6-->
+						<MenuItem
+							Name="mniAddSetCopies"
+							Header="{Binding Data, Source={StaticResource SetCategoryProxy}, Converter={StaticResource SetCategoryAddSetCopiesToResourceConverter}}"
+							Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}}"
+							CommandParameter="{Binding Data, Source={StaticResource SetCategoryProxy}}" />
+					</ContextMenu>
+				</FrameworkElement.ContextMenu>
+			</Button>
+			<!--Unknown connection ID: 7-->
+			<Button
+				Name="btnEdit"
+				Grid.Column="0"
+				Style="{StaticResource DataGridButtonStyle}"
+				Content="{StaticResource IconEdit}"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Edit}"
+				Padding="0"
+				Command="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+			<!--Unknown connection ID: 8-->
+			<Button
+				Name="btnDelete"
+				Grid.Column="4"
+				Style="{StaticResource DataGridButtonStyle}"
+				Content="{StaticResource IconDelete}"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Delete}"
+				Padding="0"
+				Command="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+			<!--Unknown connection ID: 9-->
+			<Button
+				Name="btnUp"
+				Grid.Column="8"
+				Style="{StaticResource DataGridButtonStyle}"
+				Content="{StaticResource IconUp}"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_MoveUp}"
+				Padding="0"
+				Command="{Binding Path=SetPresenter.MoveEmbeddedSetUpCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+			<!--Unknown connection ID: 10-->
+			<Button
+				Name="btnDown"
+				Grid.Column="10"
+				Style="{StaticResource DataGridButtonStyle}"
+				Content="{StaticResource IconDown}"
+				ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_MoveDown}"
+				Padding="0"
+				Command="{Binding Path=SetPresenter.MoveEmbeddedSetDownCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+				CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+			<Grid
+				Column="12">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<!--Unknown connection ID: 11-->
+				<Grid
+					Name="gridVoiceFileCommand"
+					Column="1"
+					Margin="2,0,2,0"
+					Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}">
+					<WrapPanel
+						Orientation="Horizontal"
+						HorizontalAlignment="Right"
+						Margin="0,0,0,10">
+						<!--Unknown connection ID: 12-->
+						<Button
+							Name="btnSetVa"
+							Style="{StaticResource EditorButtonStyle}"
+							Content="{x:Static RFResourceRepository:RFResources.BTN_VASELECTIONSET}" />
+						<!--Unknown connection ID: 13-->
+						<Button
+							Name="btnClearVa"
+							Style="{StaticResource EditorButtonStyle}"
+							Content="{x:Static RFResourceRepository:RFResources.BTN_VASELECTIONCLEAN}" />
+					</WrapPanel>
+				</Grid>
+				<WrapPanel
+					Grid.Column="2"
+					Orientation="Horizontal"
+					HorizontalAlignment="Right"
+					Margin="0,0,0,10">
+					<!--Unknown connection ID: 14-->
+					<Button
+						Name="lnkSave"
+						Style="{StaticResource EditorButtonStyle}"
+						Content="{x:Static resourceRepository:Resources.RMC_Action_Save}"
+						Visibility="{Binding Path=SetPresenter.SetCategory, Converter={StaticResource SetCategoryCanSaveDiscardConverter}, ConverterParameter=Save, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+						Command="{Binding Path=SetPresenter.SaveSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+					<!--Unknown connection ID: 15-->
+					<Button
+						Name="lnkDiscard"
+						Style="{StaticResource EditorButtonStyle}"
+						Content="{x:Static resourceRepository:Resources.RMC_Action_Discard}"
+						Visibility="{Binding Path=SetPresenter.SetCategory, Converter={StaticResource SetCategoryCanSaveDiscardConverter}, ConverterParameter=Discard, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}"
+						Command="{Binding Path=SetPresenter.DiscardChangesCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMZoneList1}}}" />
+				</WrapPanel>
+			</Grid>
+		</Grid>
+		<!--Unknown connection ID: 16-->
+		<ig:XamGrid
+			Name="grdZones"
+			Grid.Row="1"
+			BorderThickness="0"
+			AutoGenerateColumns="False">
+			<ig:XamGrid.EditingSettings>
+				<ig:EditingSettings
+					AllowEditing="Cell"
+					IsMouseActionEditingEnabled="SingleClick"
+					IsEnterKeyEditingEnabled="True"
+					IsF2EditingEnabled="True"
+					IsOnCellActiveEditingEnabled="False" />
+			</ig:XamGrid.EditingSettings>
+			<ig:XamGrid.DeferredScrollingSettings>
+				<ig:DeferredScrollingSettings
+					AllowDeferredScrolling="Default" />
+			</ig:XamGrid.DeferredScrollingSettings>
+			<ig:XamGrid.ColumnResizingSettings>
+				<ig:ColumnResizingSettings
+					AllowCellAreaResizing="True"
+					AllowColumnResizing="Indicator"
+					AllowDoubleClickToSize="True"
+					AllowMultipleColumnResize="True" />
+			</ig:XamGrid.ColumnResizingSettings>
+			<ig:XamGrid.GroupBySettings>
+				<ig:GroupBySettings
+					AllowGroupByArea="Hidden"
+					GroupByOperation="MergeCells" />
+			</ig:XamGrid.GroupBySettings>
+			<ig:XamGrid.SortingSettings>
+				<ig:SortingSettings
+					AllowSorting="False"
+					ShowSortIndicator="False" />
+			</ig:XamGrid.SortingSettings>
+			<FrameworkElement.ContextMenu>
+				<ContextMenu>
+					<ItemsControl.Items>
+						<!--Unknown connection ID: 17-->
+						<MenuItem
+							Name="mniEdit"
+							Header="{x:Static resourceRepository:Resources.RMC_Action_EditSet}"
+							Command="{Binding Data, Source={StaticResource EditEmbeddedSetProxy}, IsAsync=True}"
+							CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+						<!--Unknown connection ID: 18-->
+						<MenuItem
+							Name="mniDelete"
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Delete}"
+							InputGestureText="{x:Static resourceRepository:Resources.Gesture_Delete}"
+							Command="{Binding Data, Source={StaticResource DeleteEmbeddedSetProxy}, IsAsync=True}"
+							CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+						<!--Unknown connection ID: 19-->
+						<MenuItem
+							Name="mniAddCopies"
+							Header="{Binding Data, Source={StaticResource SetCategoryProxy}, Converter={StaticResource SetCategoryAddSetCopiesToResourceConverter}}"
+							Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}, IsAsync=True}"
+							CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}"
+							Visibility="{Binding Data, Source={StaticResource SetCategoryProxy}, Converter={StaticResource SetCategoryAddTopSetCopiesToVisibilityConverter}, ConverterParameter=AddCopies}" />
+						<Separator
+							Visibility="{Binding Converter={StaticResource HideInCpsModeConverter}}" />
+						<!--Unknown connection ID: 20-->
+						<MenuItem
+							Name="mniShowRelatedSets"
+							Header="{x:Static resourceRepository:Resources.RMC_Action_ShowRelatedSets}"
+							Command="{Binding Data, Source={StaticResource PrepareShowRelatedSetsProxy}, IsAsync=True}"
+							CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}"
+							Visibility="{Binding Converter={StaticResource HideInCpsModeConverter}}" />
+						<Separator />
+						<!--Unknown connection ID: 21-->
+						<MenuItem
+							Name="mniAddChannel"
+							Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_AddChannel}"
+							Command="{Binding Data, Source={StaticResource AddEmbeddedSetProxy}, IsAsync=True}"
+							CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveFieldToChannelSetCategoryConveter}}" />
+					</ItemsControl.Items>
+				</ContextMenu>
+			</FrameworkElement.ContextMenu>
+		</ig:XamGrid>
+	</Grid>
+</local:XamGridContainer>

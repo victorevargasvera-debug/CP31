@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common</RootNamespace>
+    <AssemblyName>CommonLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="b.cs" />
+    <Compile Include="c.cs" />
+    <Compile Include="CommonLib\CombineTool.cs" />
+    <Compile Include="CommonLib\CombineToolEnh.cs" />
+    <Compile Include="CommonLib\DataCvt.cs" />
+    <Compile Include="CommonLib\EmbeddedResourceManager.cs" />
+    <Compile Include="CommonLib\EnDecryptStreamHelper.cs" />
+    <Compile Include="CommonLib\FlashcodeDecoder.cs" />
+    <Compile Include="CommonLib\FlashcodeFormatter.cs" />
+    <Compile Include="CommonLib\FlashcodeMapping.cs" />
+    <Compile Include="CommonLib\FlashDefinitions.cs" />
+    <Compile Include="CommonLib\MetaDataEnDecryptHelper.cs" />
+    <Compile Include="CommonLib\ObjectIdentifier.cs" />
+    <Compile Include="Communication\CommonUtil\ActiveTransRadioType.cs" />
+    <Compile Include="Communication\CommonUtil\AmpDeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\ARSServerList.cs" />
+    <Compile Include="Communication\CommonUtil\AstroDeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\ATChangeDMSCodeInfo.cs" />
+    <Compile Include="Communication\CommonUtil\ATDeviceMode.cs" />
+    <Compile Include="Communication\CommonUtil\ATEmergencyStatus.cs" />
+    <Compile Include="Communication\CommonUtil\ATRadioManuInfo.cs" />
+    <Compile Include="Communication\CommonUtil\AuthenticationInfo.cs" />
+    <Compile Include="Communication\CommonUtil\AuthenticationType.cs" />
+    <Compile Include="Communication\CommonUtil\BatteryStatus.cs" />
+    <Compile Include="Communication\CommonUtil\CommRC.cs" />
+    <Compile Include="Communication\CommonUtil\componet.cs" />
+    <Compile Include="Communication\CommonUtil\ConnectionInfo.cs" />
+    <Compile Include="Communication\CommonUtil\ConnectionType.cs" />
+    <Compile Include="Communication\CommonUtil\CopyrightHandler.cs" />
+    <Compile Include="Communication\CommonUtil\CustomerATMsg.cs" />
+    <Compile Include="Communication\CommonUtil\DataBlockItem.cs" />
+    <Compile Include="Communication\CommonUtil\DeviceEventArgs.cs" />
+    <Compile Include="Communication\CommonUtil\DeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\DeviceMode.cs" />
+    <Compile Include="Communication\CommonUtil\DFlagInfo.cs" />
+    <Compile Include="Communication\CommonUtil\DFlagType.cs" />
+    <Compile Include="Communication\CommonUtil\enumFirmwareFlavor.cs" />
+    <Compile Include="Communication\CommonUtil\enumGdsAction.cs" />
+    <Compile Include="Communication\CommonUtil\enumGdsQueuedJobType.cs" />
+    <Compile Include="Communication\CommonUtil\enumGdsState.cs" />
+    <Compile Include="Communication\CommonUtil\enumLanguagePack.cs" />
+    <Compile Include="Communication\CommonUtil\ExtendedDeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\Extensions\StringExtension.cs" />
+    <Compile Include="Communication\CommonUtil\FDTInfo.cs" />
+    <Compile Include="Communication\CommonUtil\FDTParameters.cs" />
+    <Compile Include="Communication\CommonUtil\FDTType.cs" />
+    <Compile Include="Communication\CommonUtil\FDT_CMD.cs" />
+    <Compile Include="Communication\CommonUtil\FeaturesExchangeData.cs" />
+    <Compile Include="Communication\CommonUtil\FlashMemoryUnit.cs" />
+    <Compile Include="Communication\CommonUtil\FlashOperationType.cs" />
+    <Compile Include="Communication\CommonUtil\FlashRegionOperation.cs" />
+    <Compile Include="Communication\CommonUtil\FpgaInfo.cs" />
+    <Compile Include="Communication\CommonUtil\FPGAStatus.cs" />
+    <Compile Include="Communication\CommonUtil\fp_any_pack_info_t.cs" />
+    <Compile Include="Communication\CommonUtil\FP_DEPENDENCE_E.cs" />
+    <Compile Include="Communication\CommonUtil\fp_font_pack_info_t.cs" />
+    <Compile Include="Communication\CommonUtil\fp_header_t.cs" />
+    <Compile Include="Communication\CommonUtil\fp_info_t.cs" />
+    <Compile Include="Communication\CommonUtil\fp_language_pack_info_t.cs" />
+    <Compile Include="Communication\CommonUtil\fp_lls_pack_info_t.cs" />
+    <Compile Include="Communication\CommonUtil\fp_pack_type_t.cs" />
+    <Compile Include="Communication\CommonUtil\fp_version_t.cs" />
+    <Compile Include="Communication\CommonUtil\FrodoDataBoxComponent.cs" />
+    <Compile Include="Communication\CommonUtil\GdgErrorResponseStates.cs" />
+    <Compile Include="Communication\CommonUtil\GdgFirmwareTypes.cs" />
+    <Compile Include="Communication\CommonUtil\GdgJobRadioState.cs" />
+    <Compile Include="Communication\CommonUtil\GdgJobRadioStatus.cs" />
+    <Compile Include="Communication\CommonUtil\GdgResponseStates.cs" />
+    <Compile Include="Communication\CommonUtil\GemstoneFlashType.cs" />
+    <Compile Include="Communication\CommonUtil\GemstoneFPInfo.cs" />
+    <Compile Include="Communication\CommonUtil\GemstoneRadioType.cs" />
+    <Compile Include="Communication\CommonUtil\HwConfigSection.cs" />
+    <Compile Include="Communication\CommonUtil\HwConfigSectionType.cs" />
+    <Compile Include="Communication\CommonUtil\IMemoryUnit.cs" />
+    <Compile Include="Communication\CommonUtil\InputParameterType.cs" />
+    <Compile Include="Communication\CommonUtil\IshHeader.cs" />
+    <Compile Include="Communication\CommonUtil\IshItem.cs" />
+    <Compile Include="Communication\CommonUtil\IshItemCollection.cs" />
+    <Compile Include="Communication\CommonUtil\LanguagePackParameters.cs" />
+    <Compile Include="Communication\CommonUtil\LocalPreSharedKey.cs" />
+    <Compile Include="Communication\CommonUtil\MemoryImage.cs" />
+    <Compile Include="Communication\CommonUtil\MetaDataPath.cs" />
+    <Compile Include="Communication\CommonUtil\MetaDataPathType.cs" />
+    <Compile Include="Communication\CommonUtil\MigrateFDTPatrameters.cs" />
+    <Compile Include="Communication\CommonUtil\ModelNumber.cs" />
+    <Compile Include="Communication\CommonUtil\ModelType.cs" />
+    <Compile Include="Communication\CommonUtil\OBConstants.cs" />
+    <Compile Include="Communication\CommonUtil\OBManifest.cs" />
+    <Compile Include="Communication\CommonUtil\OTAPConnectionType.cs" />
+    <Compile Include="Communication\CommonUtil\PackageHandler.cs" />
+    <Compile Include="Communication\CommonUtil\PackHeader.cs" />
+    <Compile Include="Communication\CommonUtil\PasswordPolicy.cs" />
+    <Compile Include="Communication\CommonUtil\PasswordStatus.cs" />
+    <Compile Include="Communication\CommonUtil\PBBDeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\PbbDeviceInfoConverters.cs" />
+    <Compile Include="Communication\CommonUtil\PBBDeviceTypeID.cs" />
+    <Compile Include="Communication\CommonUtil\PBBModelNumberConsts.cs" />
+    <Compile Include="Communication\CommonUtil\PBBProductIdentifierConst.cs" />
+    <Compile Include="Communication\CommonUtil\PCRDeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\PCRIPSystemInfo.cs" />
+    <Compile Include="Communication\CommonUtil\PCRIPSystemType.cs" />
+    <Compile Include="Communication\CommonUtil\PictureParameter.cs" />
+    <Compile Include="Communication\CommonUtil\PowerSupplyStatus.cs" />
+    <Compile Include="Communication\CommonUtil\ProductFamily.cs" />
+    <Compile Include="Communication\CommonUtil\ProductName.cs" />
+    <Compile Include="Communication\CommonUtil\ProgrammingStatus.cs" />
+    <Compile Include="Communication\CommonUtil\ProgressStatus.cs" />
+    <Compile Include="Communication\CommonUtil\ProxyStream.cs" />
+    <Compile Include="Communication\CommonUtil\RadioFPInfo.cs" />
+    <Compile Include="Communication\CommonUtil\RadioManuInfo.cs" />
+    <Compile Include="Communication\CommonUtil\RadioOperation.cs" />
+    <Compile Include="Communication\CommonUtil\RadioParameterPairs.cs" />
+    <Compile Include="Communication\CommonUtil\RadioParameterType.cs" />
+    <Compile Include="Communication\CommonUtil\RadioState.cs" />
+    <Compile Include="Communication\CommonUtil\RadioStorage.cs" />
+    <Compile Include="Communication\CommonUtil\RecordType.cs" />
+    <Compile Include="Communication\CommonUtil\ResetPasswordFileManager.cs" />
+    <Compile Include="Communication\CommonUtil\RPDeivceState.cs" />
+    <Compile Include="Communication\CommonUtil\RPLocalType.cs" />
+    <Compile Include="Communication\CommonUtil\RPProtocolVersion.cs" />
+    <Compile Include="Communication\CommonUtil\RPStatusIndicationInfo.cs" />
+    <Compile Include="Communication\CommonUtil\RPTerminalIDInfo.cs" />
+    <Compile Include="Communication\CommonUtil\RPTerminalStatus.cs" />
+    <Compile Include="Communication\CommonUtil\RPTerminalType.cs" />
+    <Compile Include="Communication\CommonUtil\RPVersionInfo.cs" />
+    <Compile Include="Communication\CommonUtil\RRPWorkMode.cs" />
+    <Compile Include="Communication\CommonUtil\RS232DevCreateUtility.cs" />
+    <Compile Include="Communication\CommonUtil\RS232DeviceCreateStatus.cs" />
+    <Compile Include="Communication\CommonUtil\SempraXmlHandler.cs" />
+    <Compile Include="Communication\CommonUtil\SequenceManagerResult.cs" />
+    <Compile Include="Communication\CommonUtil\SessionParameter.cs" />
+    <Compile Include="Communication\CommonUtil\StreamType.cs" />
+    <Compile Include="Communication\CommonUtil\SwitchOverEventArgs.cs" />
+    <Compile Include="Communication\CommonUtil\SwitchOverOption.cs" />
+    <Compile Include="Communication\CommonUtil\SwitchOverStatus.cs" />
+    <Compile Include="Communication\CommonUtil\TestFDTCmdInfo.cs" />
+    <Compile Include="Communication\CommonUtil\TetraDeviceInfo.cs" />
+    <Compile Include="Communication\CommonUtil\TetraGeneralCommandCode.cs" />
+    <Compile Include="Communication\CommonUtil\TetraRadioType.cs" />
+    <Compile Include="Communication\CommonUtil\UtilityMethods.cs" />
+    <Compile Include="Communication\CommonUtil\Validation\PskValidator.cs" />
+    <Compile Include="Communication\CommonUtil\WorkMode.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ProcessorType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

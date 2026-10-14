@@ -1,0 +1,1083 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:themes="http://infragistics.com/Themes" xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.BaseBackgroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, AddRowBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, FixedRecord}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelForeground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#44FFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelInnerBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#44000000"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelOuterBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#44102975"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, NestedContentBackgroundBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF3F4B52"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByNavBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF1F57A8"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByLabelHighlightBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, BreadcrumbItemForegroundHover}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFC6C6CA"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryRecordPresenterBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFCCCCCC"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupBorder}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF666666"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCSCItemForeground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF666666"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.SummaryCSCItemForegroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBackground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF666666"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBorder}" />
+	<CornerRadius
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, BreadcrumbCornerRadius}">0,0,0,0</CornerRadius>
+	<CornerRadius
+		TopLeft="2"
+		TopRight="2"
+		BottomRight="2"
+		BottomLeft="2"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelCornerRadius}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelBackground}">
+		<GradientStop
+			Offset="0"
+			Color="#FF828796" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FF424759" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FF303342" />
+		<GradientStop
+			Offset="1"
+			Color="#FF191925" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,1"
+		EndPoint="0,.5"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, LabelHighlight}">
+		<GradientStop
+			Offset="0"
+			Color="#FF102975" />
+		<GradientStop
+			Offset="0.25"
+			Color="#FF102975" />
+		<GradientStop
+			Offset="1"
+			Color="#00102975" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0,1"
+		StartPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, CardBackground}">
+		<GradientStop
+			Color="#FFEBEBEB"
+			Offset="0" />
+		<GradientStop
+			Color="#FFA2A7B6"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByNavBackground}">
+		<GradientStop
+			Color="#FFeeeff0"
+			Offset="0" />
+		<GradientStop
+			Color="#FFb4c0c9"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByNavBackgroundHover}">
+		<GradientStop
+			Color="#FFeeeff0"
+			Offset="0.165" />
+		<GradientStop
+			Color="#FF7B98AF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0.5"
+		EndPoint="1,0.5"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByAreaBackgroundHighlight}">
+		<GradientStop
+			Color="sc#1, 1, 1, 1"
+			Offset="0" />
+		<GradientStop
+			Color="sc#0, 1, 1, 1"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="True"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, GroupByLabelHighlight}">
+		<GradientStop
+			Offset="0.000000"
+			Color="#FFFFFFFF" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFCDF7FF" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FF8FDBFF" />
+		<GradientStop
+			Offset="1.000000"
+			Color="#FFBDFFFF" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0,1"
+		StartPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, CarouselItemExpansionIndicator}">
+		<GradientStop
+			Color="#FFDAE3FD"
+			Offset="0" />
+		<GradientStop
+			Color="#FFB7BDD2"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryRecordPresenterBackground}">
+		<GradientStop
+			Color="#FFEDEEEF"
+			Offset="0" />
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="0.595" />
+		<GradientStop
+			Color="#FFEFF0F1"
+			Offset="0.12" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonBackgroundHover}">
+		<GradientStop
+			Color="#FF747989"
+			Offset="0" />
+		<GradientStop
+			Color="#FF454A5C"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryButtonPopupInnerBackground}">
+		<GradientStop
+			Color="#00FFFFFF"
+			Offset="0.362" />
+		<GradientStop
+			Color="#FF9DA0AC"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, SummaryCommandButtonsBackgroundHover}">
+		<GradientStop
+			Offset="0.000000"
+			Color="#FF6F7484" />
+		<GradientStop
+			Offset="1.000000"
+			Color="#FF222330" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ExpanderBarBackgroundKey}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFFFFFF" />
+		<GradientStop
+			Offset=".06"
+			Color="#FFFFFFFF" />
+		<GradientStop
+			Offset=".37"
+			Color="#FFD0D0D0" />
+		<GradientStop
+			Offset=".61"
+			Color="#FFCCCCCC" />
+		<GradientStop
+			Offset=".63"
+			Color="#FFBDBDBD" />
+		<GradientStop
+			Offset=".71"
+			Color="#FFBDBDBD" />
+		<GradientStop
+			Offset=".74"
+			Color="#FFD0D0D0" />
+		<GradientStop
+			Offset="1"
+			Color="#FFCECECE" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF898C95"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.GroupByNavBorderBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ExpanderBarBackgroundHoverKey}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFFFFFF" />
+		<GradientStop
+			Offset=".06"
+			Color="#FFFFFFFF" />
+		<GradientStop
+			Offset=".37"
+			Color="#FFBED9EC" />
+		<GradientStop
+			Offset=".61"
+			Color="#FFC3DBED" />
+		<GradientStop
+			Offset=".63"
+			Color="#FFA4CDE9" />
+		<GradientStop
+			Offset=".71"
+			Color="#FF9DCAE9" />
+		<GradientStop
+			Offset=".74"
+			Color="#FFAED4ED" />
+		<GradientStop
+			Offset="1"
+			Color="#FFBADAF2" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF4DA2E4"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.SummaryCommandButtonsBorderKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFAECDF9"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuHighlightOuterBorderBrushFillKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0,1"
+		StartPoint="0,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuHighlightBackgroundBrushFillKey}">
+		<GradientStop
+			Offset="0"
+			Color="#FFD3F5FF" />
+		<GradientStop
+			Offset="1"
+			Color="#FFB9D8FF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF151C55"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuHighlightTextBrushFillKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF999999"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalOuterBorderBrush}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalInnerBorderBrush}">
+		<GradientStop
+			Color="#00FFFFFF"
+			Offset="0.75" />
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalCenterBrush}">
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="0" />
+		<GradientStop
+			Color="#FFE1E1E1"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF999999"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonHoverOuterBorderBrush}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonHoverInnerBorderBrush}">
+		<GradientStop
+			Color="#00FFFFFF"
+			Offset="0.75" />
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonHoverCenterBrush}">
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="0" />
+		<GradientStop
+			Color="#FFCCCCCC"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF999999"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonPressedOuterBorderBrush}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonPressedInnerBorderBrush}">
+		<GradientStop
+			Color="#00FFFFFF"
+			Offset="0.75" />
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonPressedCenterBrush}">
+		<GradientStop
+			Color="#FFBBBBBB"
+			Offset="0" />
+		<GradientStop
+			Color="#FFEEEEEE"
+			Offset="0.1" />
+		<GradientStop
+			Color="#FFEEEEEE"
+			Offset="0.9" />
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFDDDDDD"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledOuterBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="Transparent"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledInnerBorderBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledCenterBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlTextblockBrush}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlHeaderBrush}">
+		<GradientStop
+			Color="#FFEBEEF0"
+			Offset="0" />
+		<GradientStop
+			Color="#FFFFFFFF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0.5,1"
+		StartPoint="0.5,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlToolbarBrush}">
+		<GradientStop
+			Color="#FFf4f4f4"
+			Offset="0.019999999552965164" />
+		<GradientStop
+			Color="#FFe5e9ec"
+			Offset="0" />
+		<GradientStop
+			Color="#FFbec8d2"
+			Offset="0.48330000042915344" />
+		<GradientStop
+			Color="#FFb2bdc9"
+			Offset="0.4932999908924103" />
+		<GradientStop
+			Color="#FFced5dc"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF363949"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.AndLogicalOperatorBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFB5C2CC"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.OrLogicalOperatorBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFCCCCCC"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterStrokeBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFEEEEEE"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterVerticalFillBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFEEEEEE"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterHorizontalFillBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF1A1A26"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterHottrackStrokeBrush}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterVerticalHottrackFillBrush}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF333333" />
+				<GradientStop
+					Offset="1"
+					Color="#FF797e8d" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterHorizontalHottrackFillBrush}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF333333" />
+				<GradientStop
+					Offset="1"
+					Color="#FF797e8d" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#66000000"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterGripperDarkLineBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#66FFFFFF"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedFieldsSplitterGripperLightLineBrush}" />
+	<DrawingBrush
+		x:Freeze="true"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FFSplitterVerticalTileBrushKey}" />
+	<DrawingBrush
+		x:Freeze="true"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FFSplitterHorizontalTileBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0,1"
+		StartPoint="0,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.LabelPresenterFooterMid}">
+		<GradientStop
+			Color="#FFE2DECD"
+			Offset="0" />
+		<GradientStop
+			Color="#FFCBC7B8"
+			Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		EndPoint="0,1"
+		StartPoint="0,0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.GroupByAreaMultiBackgroundBrush}">
+		<GradientStop
+			Color="#FFEEEEEE"
+			Offset="0" />
+		<GradientStop
+			Color="#FFCCCCCC"
+			Offset="1" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#59FFFFFF"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.GroupByAreaMultiHighlightBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF555555"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ConnectorLinePenBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FieldLayoutForeground}" />
+	<Pen
+		x:Freeze="true"
+		Thickness="3"
+		DashStyle="{x:Static DashStyles.Dot}"
+		DashCap="Round"
+		StartLineCap="Round"
+		EndLineCap="Round"
+		LineJoin="Round"
+		Brush="{StaticResource {x:Static igDP:DataPresenterBrushKeys.ConnectorLinePenBrush}}"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ConnectorLinePen}" />
+	<Pen
+		x:Freeze="true"
+		Brush="#FF222222"
+		Thickness="1"
+		DashStyle="{x:Static DashStyles.Dot}"
+		DashCap="Round"
+		StartLineCap="Round"
+		EndLineCap="Round"
+		LineJoin="Round"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.TreeLinePen}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFECE6"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.DataErrorHighlightBackgroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF944E4E"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.DataErrorHighlightBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF944E4E"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.DataErrorIconForegroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FixedRecordGlyphBrush}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF99DEFD"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.FieldChooserDragBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCardGlyphNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCardGlyphPressedBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCardGlyphActiveBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCellGlyphCheckedStrokeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#66FFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CollapseCellGlyphCheckedBackgroundBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBackgroundHottrackBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF828796" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FF424759" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FF303342" />
+				<GradientStop
+					Offset="1"
+					Color="#FF191925" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBorderHottrackBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBackgroundPressedBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFFFFFFF" />
+				<GradientStop
+					Offset=".06"
+					Color="#FFFFFFFF" />
+				<GradientStop
+					Offset=".37"
+					Color="#FFBED9EC" />
+				<GradientStop
+					Offset=".61"
+					Color="#FFC3DBED" />
+				<GradientStop
+					Offset=".63"
+					Color="#FFA4CDE9" />
+				<GradientStop
+					Offset=".71"
+					Color="#FF9DCAE9" />
+				<GradientStop
+					Offset=".74"
+					Color="#FFAED4ED" />
+				<GradientStop
+					Offset="1"
+					Color="#FFBADAF2" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF1F57A8"
+		themes:ResourceWasher.WashGroup="HoverColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardButtonBorderPressedBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardBackgroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF343434"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF545454"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardChromeBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderTextNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderTextActiveBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardPanelBackgroundBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundNormalBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF828796" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FF424759" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FF303342" />
+				<GradientStop
+					Offset="1"
+					Color="#FF191925" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderBackgroundActiveBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF828796" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FF424759" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FF2e3145" />
+				<GradientStop
+					Offset="0.85"
+					Color="#FF102975" />
+				<GradientStop
+					Offset="1"
+					Color="#FF102975" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#44FFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderBorderNormalBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowHeaderTextBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowHeaderBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF1D1E2B" />
+				<GradientStop
+					Offset="1"
+					Color="#FF0000CC" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF0000CC"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderAddRowCardChromeBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderFilterRecordHeaderBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF85A2B2" />
+				<GradientStop
+					Offset="1"
+					Color="#FFFFFFFF" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ViewCardHeaderFilterRecordCardChromeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		Color="#ffF1CA58"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackOuterBorderBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0.5,0"
+		EndPoint="0.5,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackInnerBorderBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFfdf9e8" />
+				<GradientStop
+					Offset="0.51"
+					Color="#FFfdf4d7" />
+				<GradientStop
+					Offset="1"
+					Color="#FFfdfdeb" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0.5,0"
+		EndPoint="0.5,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackFillBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFfdeeb3" />
+				<GradientStop
+					Offset="0.30"
+					Color="#FFfde48a" />
+				<GradientStop
+					Offset="0.5"
+					Color="#FFfde488" />
+				<GradientStop
+					Offset="0.85"
+					Color="#FFfdfdeb" />
+				<GradientStop
+					Offset="1"
+					Color="#FFfdfdeb" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Text"
+		Color="#FF1E395B"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackForegroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="#ffffffff"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIconAreaBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FFE2E4E7"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIconAreaBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FF1E395B"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemCheckMarkStrokeBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="IsChecked"
+		Color="#ffF29536"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIsCheckedBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="IsChecked"
+		Color="#ffFCF1C2"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemIsCheckedFillBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		StartPoint="0,0"
+		EndPoint="1.01,1.06"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemDropDownArrowBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF827e69" />
+				<GradientStop
+					Offset="1"
+					Color="#FF5d5843" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0,0"
+		EndPoint="1.01,1.06"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemHotTrackDropDownArrowBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FF827e69" />
+				<GradientStop
+					Offset="1"
+					Color="#FF5d5843" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Text"
+		Color="#FF1E395B"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemForegroundBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Text"
+		Color="#FFE2E4E7"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemSeparatorBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FFFFFFFF"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemPopupFillBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FFA7ABB0"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.MenuItemPopupOuterBorderBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="BaseColor"
+		Color="#FF8393A4"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.RecordFilterTreeSearchBorderBrushKey}" />
+	<LinearGradientBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.RecordFilterTreeClearSearchFillBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFE3EFFF" />
+				<GradientStop
+					Offset="1"
+					Color="#FFADD1FF" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		x:Freeze="true"
+		themes:ResourceWasher.WashGroup="Hover"
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.RecordFilterTreeClearSearchHotTrackFillBrushKey}">
+		<GradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop
+					Offset="0"
+					Color="#FFFFFFDC" />
+				<GradientStop
+					Offset="1"
+					Color="#FFF7BE57" />
+			</GradientStopCollection>
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFCCCCCC"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonDisabledForegroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.ButtonNormalForegroundKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlHeaderForeground}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFDDDDDD"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlSummaryBorderKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFF6F7F8"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CustomFilterControlSummaryBrushKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="ThemeColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBorderKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="SelectedColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBorderPrimaryKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFFFFFFF"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBackgroundActiveKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="ActiveColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBorderActiveKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFDDDDDD"
+		themes:ResourceWasher.WashGroup="SelectedColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBackgroundSelectedKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="SelectedColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBorderSelectedKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FFCFCFCF"
+		themes:ResourceWasher.WashGroup="SelectedColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.cvpBackgroundFieldSelectedKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#FF000000"
+		themes:ResourceWasher.WashGroup="SelectedColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBorderFieldSelectedKey}" />
+	<SolidColorBrush
+		x:Freeze="true"
+		Color="#7FD3D3D3"
+		themes:ResourceWasher.WashGroup="SelectedColor"
+		x:Key="{x:Static igDP:DataPresenterBrushKeys.CVPBackgroundPrimaryKey}" />
+</ResourceDictionary>

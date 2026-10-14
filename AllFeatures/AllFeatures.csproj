@@ -1,0 +1,1910 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA645}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AllFeatures</RootNamespace>
+    <AssemblyName>AllFeatures</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeplugGuid.cs" />
+    <Compile Include="ConstraintHelper\ActiveChannelTableColumnInvisibleConverter.cs" />
+    <Compile Include="ConstraintHelper\AppMultiInstanceManager.cs" />
+    <Compile Include="ConstraintHelper\AppXamDataPresenterVisibilityConverter.cs" />
+    <Compile Include="ConstraintHelper\ConstraintHelper.cs" />
+    <Compile Include="ConstraintHelper\CustomViewCheckBoxVisibilityConverter_SimulateLabtoolFieldIn.cs" />
+    <Compile Include="ConstraintHelper\DynamicZoneXamDataPresenterVisibilityConverter.cs" />
+    <Compile Include="ConstraintHelper\ExpanderVisibilityConverterForEmptyTbl.cs" />
+    <Compile Include="ConstraintHelper\GraphicViewVisibilityConverter.cs" />
+    <Compile Include="ConstraintHelper\InvertBoolToVisibleConverter.cs" />
+    <Compile Include="ConstraintHelper\LabelBindingApplicabilityConverter.cs" />
+    <Compile Include="ConstraintHelper\LabelBindingConverter.cs" />
+    <Compile Include="ConstraintHelper\MultiInstanceHelper.cs" />
+    <Compile Include="ConstraintHelper\NewBandPlanXamDataPresenterVisibilityConverter.cs" />
+    <Compile Include="ConstraintHelper\ParentControlVisibilityConverter_SimulateLabtoolFieldInCusto.cs" />
+    <Compile Include="ConstraintHelper\ReverseConverter.cs" />
+    <Compile Include="ConstraintHelper\SparseConverter.cs" />
+    <Compile Include="ConstraintHelper\SRecViewVisibilityConverterForEmptyTbl.cs" />
+    <Compile Include="ConstraintHelper\ToUpperConverter.cs" />
+    <Compile Include="ConstraintHelper\TriggerValidOnLoading.cs" />
+    <Compile Include="ConstraintHelper\UtilityMack.cs" />
+    <Compile Include="ConstraintHelper\Validators\PasswordFieldValidator.cs" />
+    <Compile Include="ConstraintHelper\Validators\SsidFieldValidator.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Features\Converters\PackUnpackAsciiRegion.cs" />
+    <Compile Include="Features\Converters\PackUnpackBigEndianUUID.cs" />
+    <Compile Include="Features\Converters\UnpackAndPackAndInvertBooleanField.cs" />
+    <Compile Include="Features\Converters\UnpackAndPackPresetChannelFields.cs" />
+    <Compile Include="Features\Converters\UnpackAndPackRangeTextBoxSpinnerFields.cs" />
+    <Compile Include="Features\Converters\UnpackFactorDblAndPackFactorDblWith10ForCustomRange.cs" />
+    <Compile Include="Features\Converters\ZoneBankSparseConverter.cs" />
+    <Compile Include="Features\Radio_Ergonomics_Configuration\Display_and_Menu\TtsSpeaker.cs" />
+    <Compile Include="Features\Zone_Channel_Assignment\VoiceAnnouncementCollisionChecker.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\ActionConsolidation.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\ActionConsolidationConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\ActionConsolidationRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\ConsolidatedActionsInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\ConsolidatedActionsInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\ConsolidatedActionsInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\PackUnpackYesNoToTrueFalse.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\PageActionConsolidation.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\PageActionConsolidationTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigAC3rdPartyNotificationErrorStategy_A41516_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigAC3rdPartyNotification_A41510_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACActionID_A36590_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACActionType_A42871_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACAlertVisualResponse_A42878_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACGeneralErrStrategy_A36594_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACGeneralTxPowerChange__42916_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACGpsReportErrStrategy_A36588_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACRelayPatternErrStrategy_A36583_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACSirenTypeErrStrategy_A36585_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\RadioErgoConfigACSirenType_A36584_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ActionConsolidation\SirenTypeSparseConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\ASTROTalkgroupList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\ASTROTalkgroupListConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\ASTROTalkgroupListRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\AstTlkgrpLstTalkgroupListVoiceSecureClearStrapping_A9654_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\PageASTROTalkgroupList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\PageASTROTalkgroupListTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\TalkgroupList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\TalkgroupTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\TalkgroupTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ASTROTalkgroupList\TalkgroupTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnConventionalButtonDataButtonBCO_A22611_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnConventionalButtonDatatButtonFeature_A22610_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnGeneralConventionalBCO_A19543_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnGeneralConventionalFeature_A19544_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnSideUpDownArrowButtonMFBBCO_A41633_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnSideUpDownArrowButtonPrimaryFunction_A41568_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnSideUpDownArrowButtonSecondaryFunction_A41592_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnTrunkingButtonDataButtonBCO_A22609_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnTrunkingButtonDatatButtonFeature_A22608_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnTrunkingPortableButtonFeature_A19546_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\BtnTrunkingPortableTrunkingBCO_A19545_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\Buttons.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\ButtonsConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\ButtonsRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\DataButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\DataButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\DataButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\DataButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PageButtons.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PortableButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PortableButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PortableButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PortableSideUpDownArrowButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PortableSideUpDownArrowButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\PortableSideUpDownArrowButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Buttons\SideArrowButtons.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\CHE5EmergencyButtonBCO_43767_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\CHE5EmergencyButtonFeature_43768_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\ControlHeadE5.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\ControlHeadE5Constraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\ControlHeadE5Recset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5BottomFunctionButtonBCO_43757_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5BottomFunctionButtonExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5BottomFunctionButtonFeature_43758_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5BottomFunctionButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5BottomFunctionButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5BottomFunctionButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5GeneralExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5Inner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5InnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5InnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5NavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5NavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5NavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\E5NavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\PageControlHeadE5.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadE5\RadErgoControlE5UpDownButton_43752_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\CHO2EmergencyButtonBCO_A41271_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\CHO2EmergencyButtonFeature_A41272_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\ControlHeadO2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\ControlHeadO2Constraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\ControlHeadO2Recset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2GeneralExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2Inner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2InnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2InnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2MFKAssignmentControlInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2MFKAssignmentControlInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2MFKAssignmentControlInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2MultiFunctionKnob.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2NavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2NavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2NavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\O2NavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\PageControlHeadO2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\RadErgoControlO2MFKButtonPress_A42217_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\RadErgoControlO2MFKFeatureAssignment_A41275_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO2\RadErgoControlO2UpDownButton_A41278_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3ConventionalO3DataButtonBCO_A22592_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3ConventionalO3DatatButtonFeature_A22595_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3ConventionalO3HHCHButtonBCO_A19649_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3ConventionalO3HHCHButtonFeature_A19650_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3TrunkingO3DataButtonBCO_A22596_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3TrunkingO3DatatButtonFeature_A22597_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3TrunkingO3HHCHButtonBCO_A19749_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\CntrlHeadO3TrunkingO3HHCHButtonFeature_A19750_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\ControlHeadO3.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\ControlHeadO3Constraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\ControlHeadO3Recset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\Data.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\DataButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\DataButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\DataButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3HHCHButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3HHCHButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3HHCHButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3NavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3NavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3NavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\O3NavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\PageControlHeadO3.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO3\RadErgoControlO3NaviControlFeature_A41375_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\CntrlHeadO5SignalIndependentO5M5MXChiefCHButtonButtonBCO_A19.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\CntrlHeadO5SignalIndependentO5M5MXChiefCHButtonButtonFeature.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\ControlHeadO5.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\ControlHeadO5Constraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\ControlHeadO5Recset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5Inner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5InnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5InnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5NavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5NavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5NavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\O5NavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\PageControlHeadO5.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO5\RadErgoControlO5NaviControlFeature_A41379_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\CHO7EmergencyButtonBCO_A41290_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\CHO7EmergencyButtonFeature_A41291_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\ControlHeadO7.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\ControlHeadO7Constraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\ControlHeadO7Recset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7DataButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7DataButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7DataButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7DataButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7GeneralExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7Inner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7InnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7InnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7MFKAssignmentControlInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7MFKAssignmentControlInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7MFKAssignmentControlInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7MultiFunctionKnob.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7NavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7NavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7NavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\O7NavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\PageControlHeadO7.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgCtrlHeadO7DataButtonCnvBCO_A41300_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgCtrlHeadO7DataButtonCnvFeature_A41299_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgCtrlHeadO7DataButtonTrkBCO_A41298_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgCtrlHeadO7DataButtonTrkFeature_A41297_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgoControlO7MFKButtonPress_A42218_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgoControlO7MFKFeatureAssignment_A41295_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO7\RadErgoControlO7UpDownButton_A41293_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionButtonBCOListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionButtonBCOListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionButtonBCOListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionProgrammableButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionProgrammableButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionProgrammableButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\BottomFunctionProgrammableButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9BottomFunctionButtonBCO_A36660_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9BottomFunctionButtonBCO_A36827_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9BottomFunctionButtonFeature_A36664_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9BottomFunctionButtonFeature_A36826_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9EmergencyButtonBCO_A36681_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9EmergencyButtonFeature_A36682_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9PASirenButtonsBCO_A41538_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9PASirenButtonsFeature_A41540_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CHO9PursuitKnobAction_A36684_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\CnvTopFunctionButtonBCO_A36628_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ConsolidatedActionBCOList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ConsolidatedActionBCOListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ConsolidatedActionBCOListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ConsolidatedActionBCOListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ControlHeadO9.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ControlHeadO9Constraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ControlHeadO9Data.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ControlHeadO9Recset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\DirectionalButtons.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\DirectionalButtonsListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\DirectionalButtonsListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\DirectionalButtonsListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9CHCnvTopFunctionButtonFeature_A36629_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9CHTrkTopFunctionButtonBCO_A36636_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9CHTrkTopFunctionButtonFeature_A36637_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9DataButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9DataButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9DataButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9Inner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9InnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9InnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9NavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9NavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9NavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\O9NavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\PageControlHeadO9.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\PASirenButtons.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\PASirenButtonsListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\PASirenButtonsListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\PASirenButtonsListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgCtrlHeadO9DataButtonCnvBCO_A36529_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgCtrlHeadO9DataButtonCnvFeature_A36528_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgCtrlHeadO9DataButtonTrkBCO_A36527_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgCtrlHeadO9DataButtonTrkFeature_A36526_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgCtrlHeadO9DirLightBarBCO_A36559_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgCtrlHeadO9DirLightBarFeature_A36597_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgoControlO9ACBCOListBco_A36666_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RadErgoControlO9NaviControlFeature_A41371_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RdEgoO9DirLtbarPatternBcoListBco_A36661_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RelayPatternBCOList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RelayPatternBCOListListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RelayPatternBCOListListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\RelayPatternBCOListListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ResponseSelector.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ResponseSelectorListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ResponseSelectorListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\ResponseSelectorListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\TopFunctionProgrammableButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\TopFunctionProgrammableButtonListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\TopFunctionProgrammableButtonListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ControlHeadO9\TopFunctionProgrammableButtonListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\ConventionalAliasLists.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\ConventionalAliasListsRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\MessageAliasList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\MessageAliasTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\MessageAliasTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\MessageAliasTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\PageConventionalAliasLists.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\StatusAliasList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\StatusAliasTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\StatusAliasTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalAliasLists\StatusAliasTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\CnvEmerProfEmergencyHotAuxMic_A42296_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\CnvEmerProfGeneralEmergencyType_A7960_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\CnvEmerProfGeneralFactor_A9548_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\ConEmerProEmergencyAutoTransmitMode_A22532_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\ConventionalEmergencyProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\ConventionalEmergencyProfilesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\ConventionalEmergencyProfilesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmerAudioRouting_42049_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyCompatibilityOptionsConventional.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyExitControl_43344_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyToneList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyToneTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyToneTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyToneTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmergencyToneTrigger_42045_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\EmerTone_42046_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\MDC.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\PageConventionalEmergencyProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalEmergencyProfiles\PageConventionalEmergencyProfilesTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\Advanced.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\ASTROCall.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\ASTROTalkgroup.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerAdvancedAdvancedRFAGC_A7408_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerAGAGSecStrap_A40158_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerASTROCallCallAlertRxTx_A7586_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerASTROCallRadioUninhibitDecodeAction_A9045_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerASTROCallSelectiveCallRxTx_A9114_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerASTROCallTacticalServicesOperation_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerASTROTalkgroupOptionsSelectionType_A9112_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsPLDeviation_A8708_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsRxDPLCode_A8908_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsRxPLCode_A8917_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsRxPLFreq_A8918_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsRxSquelchType_A8919_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTADPLCode_A9256_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTAPLCode_A9261_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTAPLFreq_A9264_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTASquelchType_A9265_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTxDevChanSpacing_A23192_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTxDPLCode_A9409_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTxPLCode_A9418_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTxPLFreq_A9419_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsTxSquelchType_A9426_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerConventionalChannelOptionsUserSelectablePLMPLEnhance_4.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerFeatureRFModem_42485_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerFeaturesOTARadioAliasType_42784_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerFeaturesTxVoiceType_A9573_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerLabtoolSmartPTTType_A9164_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerNonASTROCallCallAlertRxTx_A7588_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerNonASTROCallRTTButtonAccess_A8493_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerNonASTROCallSelectiveCallRxTx_A9116_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerNonASTROCallUnmuteType_A9601_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerOneTouchFeature_A19662_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerPhonePhoneOperation_A8703_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRACAccessType_A7388_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRACCodeType1_A7680_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRACCodeType2_A8817_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRxOptionsHearClear_A36408_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRxOptionsRxUnmuteDelayms_A9033_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRxOptionsRxVoiceSignalType_A9044_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRxOptionsSquelchFineTune_A9176_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerRxOptionsUnmuteMuteType_A9602_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureKeyID_A8361_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureKeyStrapping_A8370_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureScanHoldoffStrapping_A9050_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureScanSelect_A9056_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureSecureClearStrapping1_A9090_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureSecureClearStrapping2_A9091_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSecureSecureVoiceSignalType_A9086_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSignalingASTRORxUnmuteRule_A9042_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSignalingDigitalModulatorType_A7857_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSignalingRevertTGSecClearStrap_A40153_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSignalingRevertType_A8953_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerSignalingSignalingType_A9129_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerTacticalInhibitKillOperation_A41553_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerTacticalInhibitStunOperation_A41557_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerTxOptionsTransmitPowerLevel_A9420_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\CnvPerTxOptionsTxVoiceSignalType_A9574_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\ConPerFeatureIncidentSignalingType_A41507_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\ConventionalPersonality.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\ConventionalPersonalityConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\ConventionalPersonalityRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\DVRS.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\FiregroundFixupSparseConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\FrequencyOptions.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\FrequencyOptionsInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\FrequencyOptionsInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\FrequencyOptionsInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\NonASTROCall.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\OneTouch.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\OneTouchInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\OneTouchInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\OneTouchInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\PageConventionalPersonality.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\PageConventionalPersonalityTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\Phone.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\RAC.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\RxOptions.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\Secure.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\Signaling.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalPersonality\TxOptions.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysDVRSTAAfterDVRSNoCommAttempts_A40125_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysFeatureCallType_A40147_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysFeaturesDOSOperation_A7891_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysFeaturesGroupTMSEable_42809_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysFeaturesRemoteRadioMode_A8935_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysFeaturesSelectCallInCallReset_A9102_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysGeneralPTTID_A8427_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysGeneralQc2CallFormat_A42230_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysGeneralQc2Code_A42234_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysGeneralSidetones_A8774_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysGeneralSystemType_A13262_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\CnvSysTalkaroundAudioModes_44812_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\ConventionalSystem.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\ConventionalSystemConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\ConventionalSystemRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\DataProfFeaturesTextMessagingService_A9372_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\DVRS.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\IndividualIDTonesInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\IndividualIDTonesInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\IndividualIDTonesInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\PageConventionalSystem.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\PageConventionalSystemTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\QuikCallII.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\Secure.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\UnpackAndpackPretimeAndPreambles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\UnpackAndpackRangeValueToLogicalIndexForTlkHangTime.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\UnpackDecToHexPackHexToDec.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalSystem\UnpackFactorAndpackFactorCPTotalPretimeWith25.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ASTROData.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ASTROGroupID.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ASTROGroupIDListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ASTROGroupIDListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ASTROGroupIDListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ASTROOTAC.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\CnvWideGeneralMonitorType_A8544_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\CnvWideGeneralMplRecallMode_A41698_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ConventionalWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ConventionalWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\ConventionalWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\OneTouch.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\OTACInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\OTACInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\OTACInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\PageConventionalWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\SmartPTT.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\UnpackAndpackRangeValueToLogicalIndexForLatchEnTime.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\UnpackDecToHexPackHexToDecStr4.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ConventionalWide\UnpackFactorAndpackStep100FactorWith25.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DAC.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DACListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DACListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DACListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataConigurationDataProfilePacketDataRegistrationVersion_A36.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfBroadbandSource_A42858_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfEIDByPassListAddrType_A36418_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfFeatureContxActivHldoffMode_A36469_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfFeaturesARSMode_A7465_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfGeneralDataProfileType_A21320_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfGeneralPacketDataMode_A8689_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfilesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfilesDACOperationalMode_A36199_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfilesDACSlotSize_A36203_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfilesGeneralBTDUNPeerIPAddressAssignmentType_A41128_L.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfilesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfLabtoolDATA_PROFDataDeliveryMode_A11468_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfNLSSecClrStrp_A36415_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataProfVPNSecClrStrp_A42120_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DataWideGeneralPeerIPAddressAssignmentType_A22263_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\DatProFeaturesPADMode_A20536_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\EIDBypassList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\EIDBypassListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\EIDBypassListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\EIDBypassListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\EnhancedData.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\LabtoolDATA_PROF.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\LTE.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\NetworkLayerSecurity.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\PageDataProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\PageDataProfilesTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\TrunkingGroupID.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\TrunkingGroupIDListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\TrunkingGroupIDListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataProfiles\TrunkingGroupIDListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\ConfiguredNetworksListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\ConfiguredNetworksListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\ConfiguredNetworksListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\ConvertSubnetAddress.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataModemPasswordEncryptDecryptConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataModemTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataModemTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataModemTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataProtocolConfiguration.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataUserList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataUserListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataUserListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataUserListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideExternalDataModemSecurityType_43360_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideExternalDataModemType_42843_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideExternalDataModemType_43362_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideGeneralBTDUNPeerIPAddressAssignmentType_A41124_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideGeneralPeerIPAddressAssignmentType1_A22376_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideGeneralPeerIPAddressAssignmentType2_A22377_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWidePOP25OTAPIndications_A8670_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\DataWideWiFiNetworkSecurityType_42516_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\ExternalDataModem.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\FriendlyNameValidator.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\LabtoolDATA_CFG.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\LTE.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\ModemConnectionType_43350_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\NATList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\NATListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\NATListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\NATListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\PageDataWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\POP25.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\PortConfiguration.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\QuickTextMessageList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\QuickTextMessageListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\QuickTextMessageListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\QuickTextMessageListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\WIFI.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DataWide\WiFiPasswordEncryptDecryptConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEK.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKButtonBCO_A21352_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKButtonFeature_A21353_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKDirectMessageBCO_A8506_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKDirectModeBCO_A8534_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKDirectStatusBCO_A9196_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKNumberofDEKBoxes_A8579_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIP.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPInputBCO_A21337_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPInputFeature_A21338_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPOutputBCO_A21347_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DEKVIPOutputFeature_A21346_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectMessage.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectMessageListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectMessageListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectMessageListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectMode.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectModeBCOListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectModeBCOListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectModeBCOListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectStatus.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectStatusBCOListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectStatusBCOListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\DirectStatusBCOListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DEK\PageDEK.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\Advanced.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\BacklightColorControl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\BacklightColorsInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\BacklightColorsInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\BacklightColorsInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DisplayAndMenu.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DisplayAndMenuConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DisplayAndMenuRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DispMenuAdvancedLanguageSelection_A8386_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DispMenuGeneralImbalancedCoverageIndicator_A8240_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DispMenuGeneralOutofRangeIndicator_A8678_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DispMenuGeneralSiteTrunkingIndicator_A7426_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DispMenuIDDisplayPTTIDDisplay_A8221_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DispMenuLabtoolCharacterEncodingType_A21738_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\DRSMFlipDisplayState_A24778_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\FlipDisplayState_A19471_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\IDDisplay.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\IDDisplayTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\IDDisplayTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\IDDisplayTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\PageDisplayAndMenu.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\RadErgoCfgDisplayGeneralLocalOnlyIndicator_A40160_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\RadErgoDisGeneralSysRegIndicator_A37603_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\RadErgoWideDispMenu_A21430_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\RadioErgDispAdvanceChannelColorBacklight_43747_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\RadioErgDispAdvanceStatusAutoExit_42158_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\TestMode.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\UnpackFactorAndpackFactorWith25.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DisplayAndMenu\UnpackNonListStringStripBlanksAndpackStringtoUpper.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\DVRSProfGeneralDVRSRemoteActivation_A41800_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\DVRSProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\DVRSProfilesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\DVRSProfilesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\PageDVRSProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSProfiles\PageDVRSProfilesTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\DVRSWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\DVRSWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\DVRSWideGeneralInCarMonitor_A41799_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\DVRSWideGeneralVIPCtrlofDVRS_A41798_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\DVRSWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\DVRSWide\PageDVRSWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmergencyToneTrigger.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmergencyWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmergencyWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmergencyWideImpactDetection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmergencyWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmerWideImpactDetectionConfigLevel_A43384_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmerWideImpactDetectionPreAlertTone_A43383_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmerWideManDownMotionlessSensitivity_A40002_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmerWideManDownTrigger_A40001_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\EmerWidePostAlertTone_A41191_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\ManDown.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\ManDownConfigurabilityGranularityLevel_42057_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EmergencyWide\PageEmergencyWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortList42005.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortListConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortListRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\EnhancedDataPortTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\PageEnhancedDataPortList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\EnhancedDataPortList\PageEnhancedDataPortListTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\ExternalMicNoiseReductionProfile.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\ExternalMicNoiseReductionProfileConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\ExternalMicNoiseReductionProfileRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\PageExternalMicNoiseReductionProfile.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ExternalMicNoiseReductionProfile\PageExternalMicNoiseReductionProfileTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FactoryOverrides.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FactoryOverridesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FactoryOverridesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FctOrdsRxSSIClockRateListRxSSIClockRateMHz_A42469_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FctOrdsRxSSIClockRateTxModeRxSSIClockRateMHz_A42780_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FctOrdsRxSynthesizerReferenceDividerListRxRefDivMHz_A8925_Lo.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FctOrdsRxSynthesizerReferenceDividerListTxRefDivMHz_A8924_Lo.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\FctOrdsTxSSIClockRateListTxSSIClockRateMHz_A36578_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\PageFactoryOverrides.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxFrequency.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxFrequencyListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxFrequencyListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxFrequencyListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateTXModeInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateTXModeInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIClockRateTXModeInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSSIRateTXMode.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSynthesizerReferenceDividerList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSynthesizerReferenceDividerListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSynthesizerReferenceDividerListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\RxSynthesizerReferenceDividerListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\SecondLOInjectionFrequency.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\SecondLOInjectionFrequencyListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\SecondLOInjectionFrequencyListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\SecondLOInjectionFrequencyListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSSIClockRateList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSSIClockRateListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSSIClockRateListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSSIClockRateListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSynthesizerReferenceDividerList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSynthesizerReferenceDividerListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSynthesizerReferenceDividerListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\FactoryOverrides\TxSynthesizerReferenceDividerListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\GlobalNoiseReductionList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\GlobalNoiseReductionListConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\GlobalNoiseReductionListRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\PageGlobalNoiseReductionList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\GlobalNoiseReductionList\PageGlobalNoiseReductionListTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\InternalMicNoiseReductionProfile.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\InternalMicNoiseReductionProfileConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\InternalMicNoiseReductionProfileRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\PageInternalMicNoiseReductionProfile.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\InternalMicNoiseReductionProfile\PageInternalMicNoiseReductionProfileTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\Data.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\DataButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\DataButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\DataButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KeypadMicAndAccessories.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KeypadMicAndAccessoriesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KeypadMicAndAccessoriesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMANavigationControlsExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMANavigationControlsTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMANavigationControlsTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMANavigationControlsTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\KMButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\PageKeypadMicAndAccessories.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMConventionalKMButtonBCO_A19643_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMConventionalKMButtonFeature_A19646_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMConventionalKMDataButtonBCO_A22602_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMConventionalKMDatatButtonFeature_A22603_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMTrunkingKMButtonBCO_A19745_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMTrunkingKMButtonFeature_A19746_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMTrunkingKMDataButtonBCO_A22604_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoCfgKMTrunkingKMDatatButtonFeature_A22605_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\KeypadMicAndAccessories\RadErgoControlKMAUpDownButton_41760_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\Keypad.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\KeypadButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\KeypadButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\KeypadButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\KeypadConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\KeypadRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\PageKeypad.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\RadErgCtrlKeypadGeneralKeypadBCO_A41070_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Keypad\RadErgCtrlKeypadGeneralKeypadButtonFeature_A41071_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\DispMenuConventionalAvailableMenuItems_A22666_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\DispMenuConventionalSelectedMenuItems_A21736_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\DispMenuTrunkingAvailableMenuItems_A22667_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\DispMenuTrunkingSelectedMenuItems_A21735_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\MenuItems.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\MenuItemsConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\MenuItemsRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MenuItems\PageMenuItems.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\ConvertCoorindates.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\CoordinatesInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\CoordinatesInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\CoordinatesInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\MissionCriticalGeofence.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\MissionCriticalGeofenceConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\MissionCriticalGeofenceRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\PageMissionCriticalGeofence.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MissionCriticalGeofence\PageMissionCriticalGeofenceTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgGeneralMPLSelectMode_A8549_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListRxDPLCode_A9008_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListRxDPLInvert_A9009_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListRxPLCode_A9026_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListRxPLFreq_A9027_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListRxSquelchType_A9028_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTADPLCode_A9257_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTADPLInvert_A9258_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTAPLCode_A9262_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTAPLFreq_A9263_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTASquelchType_A9266_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTxDPLCode_A9527_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTxDPLInvert_A9528_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTxPLCode_A9555_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTxPLFreq_A9556_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MplCfgMPLListTxSquelchType_A9567_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLConfiguration.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLConfigurationConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLConfigurationRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\MPLListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\PageMPLConfiguration.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\MPLConfiguration\PageMPLConfigurationTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\NonGUIFeature\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\NonGUIFeature\NonGUIFeature.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\NonGUIFeature\NonGUIFeatureRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\NonGUIFeature\NonGUISection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PagePersonnelAccountability.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PagePersonnelAccountabilityTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PerAccListTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PerAccListTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PerAccListTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PersonnelAccountability.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PersonnelAccountabilityConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PersonnelAccountability\PersonnelAccountabilityRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFCodes.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFCodesInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFCodesInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFCodesInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFTiming.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFTimingInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFTimingInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\DTMFTimingInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PackAndunpackPhoneDigitString.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PagePhoneWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PhnWideDialingASTRO25PhoneOverdialType_A7473_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PhnWideDialingPhoneDialing_A8700_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PhnWideGeneralDisplayFormat_A7874_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PhoneWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PhoneWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\PhoneWide\PhoneWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\Advanced.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\AuxControl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\AuxControlTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\AuxControlTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\AuxControlTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\ControlHead.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\ControlHeadAliasListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\ControlHeadAliasListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\ControlHeadAliasListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\HomeMode.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\HornAndLights.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\LogicalProfileConfiguration.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\PageRadioErgonomicsWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\PASiren.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\PresetZoneAndChannel.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\PresetZoneAndChannelTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\PresetZoneAndChannelTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\PresetZoneAndChannelTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedActiveMicForBTPTT_43051_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedActiveMicForIndirectPTT_44816_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedActiveMicForRadioPTT_A38766_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedActiveMicForRSMPTT_43050_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedBTReceiveAudio_43052_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedChannelControlLockoutWithRSMSelection_A22.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedDefaultCHHubState_A37222_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedKeypadControlsLockKeyPressType_A41569_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedLogicalSwitch2_A7756_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedSoftPowerOff_A9170_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedVolumeControlLockoutWithRSMSelection_A222.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideAdvancedZoneBankOperation_A37543_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideControlHeadAggregateCableLength_A38456_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideControlHeadExpectedNumofControlHeads_A7982_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideControlHeadMultipleControlHeadStyle_A8561_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWideHornandLightsAlarmType_A7424_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWidePASirenManualTone_A8464_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWidePASirenSirenOperation_A9139_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadErgoWidePASirenSirenPAAfterReset_A9140_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadioErgonomicsWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadioErgonomicsWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadioErgonomicsWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\RadWideNVGBacklightBrightnessLevel_A41616_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioErgonomicsWide\Stealth.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\AdvancedSystemKeyInfo.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\ASKProgrammingHistoryInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\ASKProgrammingHistoryInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\ASKProgrammingHistoryInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\DateTimeFormatConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\DepotKeyInfo.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\FLASHport.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\FrequencyRanges.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\MACAddressConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\OptionExpansionBoard.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\PackandunpackUUID.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\PageRadioInformation.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadInfoGeneralRegionalGovernance_A36710_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadInfoLabtoolGA04892_8900MHZ_A44827_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadInfoLabtoolMCHFamilyDifferntiator_A8482_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadInfoLabtoolPrimaryBands_A23987_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadInfoLabtoolQA00569_7800MHZ_A42596_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadInfoLabtoolSecondaryBands_A23988_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadioInformation.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadioInformationConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\RadioInformationRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\Tracking.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\UnpackAndpackExtProgmgSrc.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioInformation\WiFiMACAddressConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\AlertTones.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\AudioEqualizationGroupSettingAccessory_42605_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\AudioEqualizationGroupSettingAccessory_42614_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\AudioEqualizationGroupSettingRadio_42604_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\AudioEqualizationGroupSettingRadio_42613_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\AudioSettings.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\GainSensitivityGroupSettingAccessory_42610_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\GainSensitivityGroupSettingRadio_42608_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\LabtoolRAD_PROF_CDA.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\NewExpanderAndTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\NoiseReductionGroupSettingAccessory_42585_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\NoiseReductionGroupSettingRadio_42584_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\PageRadioProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\PageRadioProfilesTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadioProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadioProfilesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadioProfilesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAlertTonesAlertToneVolumeOffsetdB_A7427_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsExternalMicDirectivityMode_A21549_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsExternalMicGeneralNoiseReductionLevelSel.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsExternalMicOtherNoiseMode_A21551_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsExternalMicWindNoiseReductionMode_A21550.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsInternalMicDirectivityMode_A22195_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsInternalMicGeneralNoiseReductionLevelSel.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsInternalMicOtherNoiseMode_A22196_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsInternalMicSourceMode_A22193_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsInternalMicWindNoiseReductionLevelSelect.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfAudioSettingsInternalMicWindNoiseReductionMode_A22197.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfCustomSettingsAccessoryMicAutoMode_42674_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfCustomSettingsRadioMicAutoMode_42673_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfCustomSettingsRadioMicOverloadComp_42675_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfCustomSettingsRadioSAMMode_42672_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfExternalMicWindNoiseReductionLevelSelection_A21511_Lo.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfGeneralSpeakerAudioRouting_A19566_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\RadProfLabtoolExternalMicSourceMode_A21548_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\ReceiveAGCGroupSettingAccessory_42616_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioProfiles\ReceiveAGCGroupSettingInternal_42615_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\GCAI.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\GCAIVIPInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\GCAIVIPInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\GCAIVIPInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\GCAIVipInputBCO_42620_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\GCAIVipInputFeature_42623_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\PageRadioVIPs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadioVIPInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadioVIPInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadioVIPInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadioVIPs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadioVIPsConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadioVIPsRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadVipInputBCO_A21328_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadVipInputFeature_A21329_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadVipOutputBCO_A20946_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioVIPs\RadVipOutputFeature_A20947_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\AdvancedAuxTransmitSensitivity_A7530_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\AlertTones.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Bluetooth.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\ConvertTxPowerLevelValues.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Depot.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\DigitalAudioOptions.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\DualRadio.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\EncryptDecryptConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\FCCNarrowBandingFrequencySplit.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\FCCNarrowBandingFrequencySplitInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\FCCNarrowBandingFrequencySplitInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\FCCNarrowBandingFrequencySplitInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Fireground.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\GeneralLightbarPatternInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\GeneralLightbarPatternInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\GeneralLightbarPatternInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\GunLock.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\LightbarPattern.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Location.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\LTE.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\PageRadioWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadCfgLocationReporting_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadCfgVirtualPartnerMode_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadErgoWideAdvancedModeSelTxName_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadioErgoConfigACMissionCriticalGeofenceMode_42918_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadioWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadioWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadioWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadProfAlertTonesEnhancedMuteTonesOperation_A42150_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadProfAlertTonesMuteTonesOperation_A8562_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadProfAlertTonesNewMuteTonesOperation_A42149_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadProfAlertTonesRotaryAlert_A8983_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAdvancedAuxPTTAudioSource_A7529_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAdvancedMaximumTxDeviation_A8480_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAdvancedRecordAudio_A8922_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAdvancedRFModem_A8972_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAdvancedSmartLowBatteryAlert_A9165_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAdvancedUltraNarrowIntermediateFreqFilter_A9592_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideAudioConfigurationLevel_42740_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideBluetoothBluetoothDropTimer_A37038_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideBluetoothBluetoothPairingType_A37036_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideDualRadioEmergencyRadio_A42239_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideDualRadioSelection_A42236_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideDualRadioTalkgroupMuteOption_A42290_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideEmergencyRxTxAlertToneSet_A41508_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideFeaturesAccessoryCableConfiguration_41997_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideFeaturesExtRFRoute_A43020_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideFeaturesRadioCertificationType_43064_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideFeaturesRotarySwitchScanPrgm_A8986_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideFeaturesVLIFPLOSSFIELD_A9596_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideFiregroundPTTTransmission_A33515_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGeneralDateFormat_A7802_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGeneralOwnerAdvancedKeyType_A38663_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGeneralTimeFormat_A9377_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay10_A36516_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay1_A36506_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay2_A36507_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay3_A36508_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay4_A36509_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay5_A36510_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay6_A36511_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay7_A36512_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay8_A36513_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideGenLightBarPatternRelay9_A36515_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLabtoolControlHeadSelection_A7723_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLabtoolDigitalAnalogBalance_A7851_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLabtoolDisplayType_A7887_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLabtoolKeypadType_A8372_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLocationDisplayFormat_A41561_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLocationDistanceUnit_A13080_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideLocationGpsMode_A22627_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideOutOfRangeToneSelection_A42450_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideSmartMessagingMode_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTalkProhibitToneSelection_A42416_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTPSAudibleEmergencyBeaconRouting_A41972_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTPSEmergencyPTTTransmission_A41544_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTPSFiregroundEmergencyPTTTransmission_A33203_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTPSFiregroundEvacuationAcknowledgement_A33216_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTPSPTTTransmission_A41545_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTransmitPowerLevelsBandSplitOverride_A41064_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTransmitPowerLevelsTxPowerLevelConfigType_A41179_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideTxPowerLevelsNewBandPlan78MHzBandSelection_A41851_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideUserInformationandCachedCredentialsUserLoginMode_4130.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RadWideUserInformationandPasswordsUserLoginAuthenticationTyp.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RelockTimerInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RelockTimerInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RelockTimerInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RxFrequencySplit.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RxFrequencySplitFPPInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RxFrequencySplitFPPInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\RxFrequencySplitFPPInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\Sensor.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\SwitchConventionalSwitchesPosition1_A12643_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TPS.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TPSFireground.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TransmitPowerLevels.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxFrequencySplit.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxFrequencySplitFPPInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxFrequencySplitFPPInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxFrequencySplitFPPInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsByFrequencyRangeInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsByFrequencyRangeInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsByFrequencyRangeInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsByFrequencyRangeNewBandPlanInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsByFrequencyRangeNewBandPlanInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsByFrequencyRangeNewBandPlanInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\TxPowerLevelsNewBandPlan.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\UnpackNonListStringStripBlanksAndpackStringToMaxLength8AsCha.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RadioWide\UserInformationAndPasswords.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\PageRemoteSpeakerMic.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RadErgoCfgRSMConventionalBCO_A19639_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RadErgoCfgRSMlConventionalFeature_A19640_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RadErgoCfgRSMlTrunkingFeature_A19742_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RadErgoCfgRSMTrunkingBCO_A19741_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RemoteSpeakerMic.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RemoteSpeakerMicConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RemoteSpeakerMicRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RSMButtonInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RSMButtonInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RemoteSpeakerMic\RSMButtonInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\MDCRepeaterIDList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\MDCRepeaterIDTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\MDCRepeaterIDTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\MDCRepeaterIDTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\PageRepeaterIDList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\RepeaterIDList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\RepeaterIDListRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\SingletoneFrequencyList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\SingletoneFrequencyTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\SingletoneFrequencyTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\RepeaterIDList\SingletoneFrequencyTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\Advanced.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\PageScanList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\PageScanListTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanListConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanListMembers.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanListRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanLstGeneralDesignatedDataTxRxType_A21525_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanLstGeneralDesignatedVoiceTxMemberType_A21524_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanLstGeneralNonPriorityMembers_A8569_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanLstGeneralPriority1Type_A8745_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanLstGeneralPriority2Type_A8748_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanList\ScanLstGeneralScanType_A9058_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\Conventional.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\PageScanWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\ScanWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\ScanWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\ScanWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ScanWide\Trunking.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\ASTROOTARInformation.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\DataTransport.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\PageSecureKMFProfile.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\PageSecureKMFProfileTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecKmfProfASTROOTARInformationOTARRxSecurityLevel_A8674_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecKmfProfASTROOTARInformationOTARTxSecurityLevel_A8677_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecKmfProfASTROOTARInformationResponseKind_A8947_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecKmfProfDataTransportOTARTransport_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionIndependentKeyList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionIndependentKeyListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionIndependentKeyListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionIndependentKeyListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionKeyReferencesList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionKeyReferencesListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionKeyReferencesListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureHardwareEncryptionKeyReferencesListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureKMFProfile.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureKMFProfileConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureKMFProfileRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureKMFProfile\SecureProfileGUIDField.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\ASTROOTAR.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\EncryptionKeyList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\EncryptionKeyListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\EncryptionKeyListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\EncryptionKeyListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\MDCOTAR.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\Multikey.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\PageSecureWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecureWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecureWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecureWideKeyloadingSource_43204_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecureWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideFeaturesClearAlertTones_A9524_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideGeneralOTAROperation_43700_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideGeneralSecureOperation_A9067_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideMDCOTARMode_A8533_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideMDCOTARPowerUp_A8716_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideMultikeyDisplayOnModeChange_A7877_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideMultikeyDisplayOnPTT_A7879_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SecureWide\SecWideMultikeyDisplayOnSecureSwitchSelect_A7881_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalProductIndependentButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalProductIndependentButtonListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalProductIndependentButtonListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalProductIndependentButtonListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalShepherd.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalShepherdListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalShepherdListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ConventionalShepherdListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\GlobalShepherd.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\GlobalShepherdListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\GlobalShepherdListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\GlobalShepherdListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ModeUpDownSparseConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\PageShepherds.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgCnvBtnListType_A21164_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgSignalIndepBtnListType_A21172_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgSignalIndependentProductIndependentNonProgrammable.2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgSignalIndependentProductIndependentNonProgrammable.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgSignalIndependentProductIndependentProgrammableBut.2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgSignalIndependentProductIndependentProgrammableBut.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\RadErgoCfgTrkBtnListType_A21167_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\Shepherds.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\ShepherdsRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentNonProgrammableButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentNonProgrammableButtonList.2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentNonProgrammableButtonList.3.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentNonProgrammableButtonList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentProgrammableButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentProgrammableButtonListInn.2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentProgrammableButtonListInn.3.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\SignalIndependentProductIndependentProgrammableButtonListInn.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingProductIndependentButton.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingProductIndependentButtonListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingProductIndependentButtonListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingProductIndependentButtonListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingShepherd.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingShepherdListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingShepherdListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Shepherds\TrunkingShepherdListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\PageSmartKeyFob.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\RadErgoCfgFobConventionalBCO_A41577_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\RadErgoCfgFobConventionalFeature_A41574_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\RadErgoCfgFobTrunkingBCO_A41578_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\RadErgoCfgFobTrunkingFeature_A41575_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\SmartKeyFob.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\SmartKeyFobButtonTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\SmartKeyFobButtonTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\SmartKeyFobButtonTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\SmartKeyFobConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\SmartKeyFob\SmartKeyFobRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\ControlLockSparseConverter.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\ConventionalSwitches.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\ConventionalSwitchTable.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\ConventionalSwitchTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\ConventionalSwitchTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\ConventionalSwitchTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\MFKAssignmentControlInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\MFKAssignmentControlInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\MFKAssignmentControlInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\MultiFunctionKnob.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\PageSwitches.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\RadErgoControlSwitchsMFKFeatureAssignment_A38514_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\RotaryControlInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\RotaryControlInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\RotaryControlInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchesPosition1_A7734_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchesPosition2_A7735_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchesPosition3_A7737_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchesPosition4_A21530_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchesPosition5_A21531_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchTablePosition1Feature_A19655_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchTablePosition2Feature_A19656_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchTablePosition3Feature_A19657_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchTablePosition4Feature_A19658_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchTablePosition5Feature_A19717_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchConventionalSwitchTablePositionsQuantity_A19654_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\Switches.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchGeneralRotaryControl_A8984_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchRotaryControlButtonBCO_A22906_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchesPosition1_A9466_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchesPosition2_A9467_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchesPosition3_A9468_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchesPosition4_A21534_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchesPosition5_A21535_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchTablePosition1Feature_A21004_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchTablePosition2Feature_A21005_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchTablePosition3Feature_A21006_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchTablePosition4Feature_A21007_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchTablePosition5Feature_A21008_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\SwitchTrunkingSwitchTablePositionsQuantity_A21003_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\TrunkingSwitches.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\TrunkingSwitchTable.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\TrunkingSwitchTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\TrunkingSwitchTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Switches\TrunkingSwitchTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\AstroAlertingToneListExpander.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\AstroAlertingToneTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\AstroAlertingToneTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\AstroAlertingToneTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\PageToneSignalingList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\PageToneSignalingListTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\RadErgoAstroAlertingToneListType_A43068_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\RadErgoAstroAlertingToneTableAlertTone_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\RadErgoAstroAlertingToneTableExternalControl_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\ToneSignalingList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\ToneSignalingListConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ToneSignalingList\ToneSignalingListRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\EmergencyCompatibilityOptionsTrunking.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\EmergencyExitControl_43341_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\EmergencyToneTrigger_42107_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\PageTrunkingEmergencyProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\PageTrunkingEmergencyProfilesTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrkEmerAudioRouting_42111_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrkEmerProEmergencyAutoTransmitMode_A22567_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrkEmerProfEmergencyHotAuxMic_A42300_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrkEmerProfGeneralEmergencyOperation_A7926_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrkEmerProfGeneralEmergencyTalkback_A9268_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrkEmerTone_42108_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyProfiles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyProfilesConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyProfilesRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyToneList.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyToneTableInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyToneTableInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingEmergencyProfiles\TrunkingEmergencyToneTableInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\AnnouncementGroup.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\CallPage.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\PageTrunkingPersonality.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\PageTrunkingPersonalityTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\PreferredSites.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\PreferredSitesInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\PreferredSitesInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\PreferredSitesInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\Talkgroup.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TalkgroupInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TalkgroupInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TalkgroupInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkEmerProfGeneralSecureClearStrapping_A9092_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkEmerProfGeneralVoiceSignalType_A7500_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerAnnouncementGroupAGSecureClearStrapping_A9089_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerAnnouncementGroupAGVoiceSignalType_A7478_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerCallPageCallAlertPageOperation_A7597_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerCallPagePrivateCallOperation_A8759_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerCallPagePrivateCallType_A8760_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerFeatureBackupPTTOperation_A43628_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerFeaturesPhoneOperation_A8701_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerGeneralAdvancedRFAGC_A7409_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerGeneralConversationType_A7781_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerGeneralDisableTransmitMode_A41742_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerGeneralEmergencyRevertType_A41914_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerGeneralFailsoftType_A8599_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerGeneralProtocolType_A8767_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerPreferredSitesPreferredStatus_A8734_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerPreferredSitesSiteListType_A43581_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerPreferredSitesWildcard_A43586_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerTalkgroupSecureClearStrapping_A9095_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrkPerTalkgroupTxVoiceSignalType_A9575_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrunkingPersonality.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrunkingPersonalityConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingPersonality\TrunkingPersonalityRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ASTRO25ChannelID.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ASTRO25ChannelIDInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ASTRO25ChannelIDInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ASTRO25ChannelIDInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ASTRO26.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\Broadband.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ChannelRangesMHzInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ChannelRangesMHzInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ChannelRangesMHzInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ControlChannels.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ControlChannelsInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ControlChannelsInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\ControlChannelsInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\Digital.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\Features.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\MessageAlias.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\MessageAliasInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\MessageAliasInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\MessageAliasInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\OBTChannelAssignment.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\OneTouch.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\OneTouchInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\OneTouchInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\OneTouchInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\PageTrunkingSystem.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\PageTrunkingSystemTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\SecureMultikey.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\SiteAlias.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\SiteAliasInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\SiteAliasInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\SiteAliasInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\StatusAlias.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\StatusAliasInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\StatusAliasInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\StatusAliasInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkPerFeaturesOTARadioAliasType_42854_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysASTRO25ChannelIDChannelType_A1390_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysASTRO25ChannelIDTransmitOffsetSign_A9417_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysASTRO25GeoFenceMode_42322_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysDigitalDigitalModulatorType_A7858_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysFeaturesGroupTMSEable_42804_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysFeaturesHearClear_A36422_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysFeaturesICUAReset_A8249_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysFeaturesTextMessagingService_A9373_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysFeaturesTxBaseTimeSec_A9512_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysFeaturesTxPowerLevel_A9557_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysGeneralConnectToneHz_A7710_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysGeneralCoverageType_A7782_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysGeneralFailsoftConnectToneHz_A8007_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysGeneralSystemKeyType_A38853_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysGeneralSystemType_A9252_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysGeneralTypeIIFrequencyBand_A12491_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysOBTChannelAssignmentListRxSpacingKHz_A9004_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysOBTChannelAssignmentListTxSpacingKHz_A9520_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysOneTouchFeature_A8614_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysSecureMultikeyDynamicSecureClearStrapping_43489_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysSecureMultikeyFailsoftSecureClearStrapping_43479_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysSecureMultikeyInterconnectSecureClearStrapping_43478_L.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysSecureMultikeyPrivateCallSecureClearStrapping_43477_Lo.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysSecureMultikeyVirtualPartnerSecureClearStrapping_A4367.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysSiteAliasSiteAliasType_A41343_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysTypeIIChannelSetupChannelAssignmentType_A7652_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysTypeIIChannelSetupChannelBandwidthkHz_A7654_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrkSysTypeIIChannelSetupNPSPACChannelBandwidthkHz_A8571_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrunkingSystem.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrunkingSystemConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TrunkingSystemRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\TypeIIChannelSetup.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\UnpackAndpackRangeValueToLogicalIndexForMaxSlotSize.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\UnpackFactorAndpackFactorWith25AndImmediateFor0.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingSystem\UnpackInfiniteforZeroandPackZeroForInfinite.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\Advanced.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\CAIData.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\FilterConstants.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\PageTrunkingWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\RSSIThresholds.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\TrkWideAdvancedAffiliationHoldOffsec_A7412_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\TrunkingWide.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\TrunkingWideConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\TrunkingWide\TrunkingWideRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Tts\TTSAudioRepository\AudioSampleModel.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Tts\TTSAudioRepository\ISampleGenerator.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Tts\TTSAudioRepository\ITTSAudioRepository.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Tts\TTSAudioRepository\MVASampleGenerator.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Tts\TTSAudioRepository\TTSMemoryAudioRepository.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\Tts\TTSUtils.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\AlertListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\AlertListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\AlertListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\General.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\PageVirtualPartnerAlert.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\PageVirtualPartnerAlertTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\VirtualPartnerAlert.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\VirtualPartnerAlertRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\VirtualPartnerAlert\VirtualPartnerConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ChannelAssignmentListInner.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ChannelAssignmentListInnerRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ChannelAssignmentListInnerSection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\Channels.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\FPPProtection.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\Labtool.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\LegacyTitles.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\LOVs.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\PageZoneChannelAssignment.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\PageZoneChannelAssignmentTbl.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\RSI.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\UnpackDecToHexPackHexToDecStr2.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZnChanCfgChannelColorBacklightSelection_43749_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZnChanCfgChannelsChannelType_A22241_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZnChanCfgChannelsPersonalityType_A8699_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZnChanCfgChannelsWiFi_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZnChanCfgTopLightColor_A43173_Lov.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\Zone.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZoneChannelAssignment.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZoneChannelAssignmentConstraints.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZoneChannelAssignmentRecset.cs" />
+    <Compile Include="Motorola\MackinawCPS\CoreFeatures\ZoneChannelAssignment\ZoneChannelAssignmentRSIMode_A41831_Lov.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpBusinessLayer\AcpBusinessLayer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA630}</Project>
+      <Name>AcpBusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonLib\AcpCommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</Project>
+      <Name>AcpCommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpSecurityLib\AcpSecurityLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA638}</Project>
+      <Name>AcpSecurityLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUILib\AcpUILib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63A}</Project>
+      <Name>AcpUILib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUITTS\AcpUITTS.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63B}</Project>
+      <Name>AcpUITTS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUI\AcpUI.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA639}</Project>
+      <Name>AcpUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACPVoiceAnnouncementLib\ACPVoiceAnnouncementLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63D}</Project>
+      <Name>ACPVoiceAnnouncementLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonResources\CommonResources.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66A}</Project>
+      <Name>CommonResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA662}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfusabilityBridge\ConfusabilityBridge.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66D}</Project>
+      <Name>ConfusabilityBridge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlHeadGraphicView\ControlHeadGraphicView.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66E}</Project>
+      <Name>ControlHeadGraphicView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v12.1\InfragisticsWPF4.DataPresenter.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA687}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v12.1\InfragisticsWPF4.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA690}</Project>
+      <Name>InfragisticsWPF4.v12.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TTSBridge\TTSBridge.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E4}</Project>
+      <Name>TTSBridge</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="conventional configuration\astro talkgroup list\astrotalkgrouplist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\astro talkgroup list\astrotalkgrouplisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\conventional alias lists\conventionalaliaslists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\conventional personality\conventionalpersonality.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\conventional personality\conventionalpersonalitytbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\conventional system\conventionalsystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\conventional system\conventionalsystemtbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\conventional wide\conventionalwide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\mpl configuration\mplconfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\mpl configuration\mplconfigurationtbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conventional configuration\repeater id list\repeateridlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="data configuration\data profiles\dataprofiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="data configuration\data profiles\dataprofilestbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="data configuration\data wide\datawide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="data configuration\enhanced data port list\enhanceddataportlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="data configuration\enhanced data port list\enhanceddataportlisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dvrs configuration\dvrs profiles\dvrsprofiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dvrs configuration\dvrs profiles\dvrsprofilestbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dvrs configuration\dvrs wide\dvrswide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="emergency configuration\conventional emergency profiles\conventionalemergencyprofiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="emergency configuration\conventional emergency profiles\conventionalemergencyprofilestbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="emergency configuration\emergency wide\emergencywide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="emergency configuration\trunking emergency profiles\trunkingemergencyprofiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="emergency configuration\trunking emergency profiles\trunkingemergencyprofilestbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="factory overrides\factoryoverrides.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="phone wide\phonewide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\action consolidation\actionconsolidation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\action consolidation\actionconsolidationtbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\buttons\buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\control head - e5\controlheade5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\control head - o2\controlheado2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\control head - o3\controlheado3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\control head - o5\controlheado5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\control head - o7\controlheado7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\control head - o9\controlheado9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\dek\dek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\keypad mic and accessories\keypadmicandaccessories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\keypad\keypad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\menu items\menuitems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\radio vips\radiovips.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\remote speaker mic\remotespeakermic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\smart key fob\smartkeyfob.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\controls\switches\switches.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\display and menu\displayandmenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\mission critical geofence\missioncriticalgeofence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\mission critical geofence\missioncriticalgeofencetbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\noise reduction configuration\external mic noise reduction profile\externalmicnoisereductionprofile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\noise reduction configuration\external mic noise reduction profile\externalmicnoisereductionprofiletbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\noise reduction configuration\global noise reduction list\globalnoisereductionlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\noise reduction configuration\global noise reduction list\globalnoisereductionlisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\noise reduction configuration\internal mic noise reduction profile\internalmicnoisereductionprofile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\noise reduction configuration\internal mic noise reduction profile\internalmicnoisereductionprofiletbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\personnel accountability\personnelaccountability.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\personnel accountability\personnelaccountabilitytbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\radio ergonomics wide\radioergonomicswide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\radio profiles\radioprofiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\radio profiles\radioprofilestbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\shepherds\shepherds.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\tone signaling configuration\tone signaling list\tonesignalinglist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\tone signaling configuration\tone signaling list\tonesignalinglisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\virtual partner alert\virtualpartneralert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio ergonomics configuration\virtual partner alert\virtualpartneralerttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio information\radioinformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="radio wide\radiowide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="scan configuration\scan list\scanlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="scan configuration\scan list\scanlisttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="scan configuration\scan wide\scanwide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="secure configuration\secure kmf profile\securekmfprofile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="secure configuration\secure kmf profile\securekmfprofiletbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="secure configuration\secure wide\securewide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="trunking configuration\trunking personality\trunkingpersonality.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="trunking configuration\trunking personality\trunkingpersonalitytbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="trunking configuration\trunking system\trunkingsystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="trunking configuration\trunking system\trunkingsystemtbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="trunking configuration\trunking wide\trunkingwide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zone channel assignment\zonechannelassignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zone channel assignment\zonechannelassignmenttbl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\mapexport.png" />
+    <Resource Include="images\mapimport.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

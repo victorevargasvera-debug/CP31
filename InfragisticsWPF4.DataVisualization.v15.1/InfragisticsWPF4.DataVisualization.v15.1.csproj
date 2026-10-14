@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA689}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfragisticsWPF4.DataVisualization.v15.1</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.DataVisualization.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="Infragistics\AppearanceHelper.cs" />
+    <Compile Include="Infragistics\ArcSegmentData.cs" />
+    <Compile Include="Infragistics\ArrayUtil.cs" />
+    <Compile Include="Infragistics\AutomationPeers\XamDockAutomationPeer.cs" />
+    <Compile Include="Infragistics\AutomationPeers\XamZoombarAutomationPeer.cs" />
+    <Compile Include="Infragistics\AxisBase.cs" />
+    <Compile Include="Infragistics\BottomClipper.cs" />
+    <Compile Include="Infragistics\BrushAppearanceData.cs" />
+    <Compile Include="Infragistics\BrushCollection.cs" />
+    <Compile Include="Infragistics\BrushUtil.cs" />
+    <Compile Include="Infragistics\Clipper.cs" />
+    <Compile Include="Infragistics\Collections\AggregateValueCollection.cs" />
+    <Compile Include="Infragistics\Collections\AggregateValueEnumerator.cs" />
+    <Compile Include="Infragistics\Collections\AggregateValueSource.cs" />
+    <Compile Include="Infragistics\ColorConverter.cs" />
+    <Compile Include="Infragistics\ColorUtil.cs" />
+    <Compile Include="Infragistics\ColumnReference.cs" />
+    <Compile Include="Infragistics\ConcretePropertyInfo.cs" />
+    <Compile Include="Infragistics\Controls\AdjustmentPriority.cs" />
+    <Compile Include="Infragistics\Controls\Charts\TrendCalculators.cs" />
+    <Compile Include="Infragistics\Controls\Charts\TrendLineType.cs" />
+    <Compile Include="Infragistics\Controls\Charts\UnknownValuePlotting.cs" />
+    <Compile Include="Infragistics\Controls\Charts\Util\LeastSquaresFit.cs" />
+    <Compile Include="Infragistics\Controls\Charts\Util\Numeric.cs" />
+    <Compile Include="Infragistics\Controls\DockEdge.cs" />
+    <Compile Include="Infragistics\Controls\DraggingTool.cs" />
+    <Compile Include="Infragistics\Controls\HorizontalThumbNode.cs" />
+    <Compile Include="Infragistics\Controls\ICancelableTool.cs" />
+    <Compile Include="Infragistics\Controls\InteractionState.cs" />
+    <Compile Include="Infragistics\Controls\IOverviewPlusDetailControl.cs" />
+    <Compile Include="Infragistics\Controls\LayoutPriority.cs" />
+    <Compile Include="Infragistics\Controls\Maps\ArcGISOnlineTileSource.cs" />
+    <Compile Include="Infragistics\Controls\Maps\BingMapsTileSource.cs" />
+    <Compile Include="Infragistics\Controls\Maps\CloudMadeTileSource.cs" />
+    <Compile Include="Infragistics\Controls\Maps\DesignServices.cs" />
+    <Compile Include="Infragistics\Controls\Maps\ImageStreamValidEventArgs.cs" />
+    <Compile Include="Infragistics\Controls\Maps\ImageStreamValidEventHandler.cs" />
+    <Compile Include="Infragistics\Controls\Maps\IMapRenderDeferralHandler.cs" />
+    <Compile Include="Infragistics\Controls\Maps\LineCap.cs" />
+    <Compile Include="Infragistics\Controls\Maps\MapTileSource.cs" />
+    <Compile Include="Infragistics\Controls\Maps\OpenStreetMapTileSource.cs" />
+    <Compile Include="Infragistics\Controls\Maps\Pair.cs" />
+    <Compile Include="Infragistics\Controls\Maps\SpatialCache.cs" />
+    <Compile Include="Infragistics\Controls\Maps\Tile.cs" />
+    <Compile Include="Infragistics\Controls\Maps\TileSubstituteSpatialCache.cs" />
+    <Compile Include="Infragistics\Controls\Maps\XamMultiScaleImage.cs" />
+    <Compile Include="Infragistics\Controls\Maps\XamMultiScaleImageView.cs" />
+    <Compile Include="Infragistics\Controls\Maps\XamMultiScaleTileSource.cs" />
+    <Compile Include="Infragistics\Controls\NavigationSettings.cs" />
+    <Compile Include="Infragistics\Controls\OverviewPlusDetailPaneMode.cs" />
+    <Compile Include="Infragistics\Controls\PointCollectionUtil.cs" />
+    <Compile Include="Infragistics\Controls\Properties\Resources.cs" />
+    <Compile Include="Infragistics\Controls\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Infragistics\Controls\PropertyChangedEventArgs.cs" />
+    <Compile Include="Infragistics\Controls\Range.cs" />
+    <Compile Include="Infragistics\Controls\ResizePoint.cs" />
+    <Compile Include="Infragistics\Controls\ResizingTool.cs" />
+    <Compile Include="Infragistics\Controls\ScrollShape.cs" />
+    <Compile Include="Infragistics\Controls\SelectedCollectionBase.cs" />
+    <Compile Include="Infragistics\Controls\SurfaceViewer.cs" />
+    <Compile Include="Infragistics\Controls\ThumbNode.cs" />
+    <Compile Include="Infragistics\Controls\TrackbarTool.cs" />
+    <Compile Include="Infragistics\Controls\TrackShape.cs" />
+    <Compile Include="Infragistics\Controls\VerticalThumbNode.cs" />
+    <Compile Include="Infragistics\Controls\XamDock.cs" />
+    <Compile Include="Infragistics\Controls\XamOverviewPlusDetailPane.cs" />
+    <Compile Include="Infragistics\Controls\XamOverviewPlusDetailPaneView.cs" />
+    <Compile Include="Infragistics\Controls\XamZoombar.cs" />
+    <Compile Include="Infragistics\Controls\ZoomChangedEventArgs.cs" />
+    <Compile Include="Infragistics\Controls\ZoomChangeEventArgs.cs" />
+    <Compile Include="Infragistics\CultureInfoHelper.cs" />
+    <Compile Include="Infragistics\CursorTypeConverter.cs" />
+    <Compile Include="Infragistics\DataMapping.cs" />
+    <Compile Include="Infragistics\DataMappingPair.cs" />
+    <Compile Include="Infragistics\DateTimeConverter.cs" />
+    <Compile Include="Infragistics\DefaultTool.cs" />
+    <Compile Include="Infragistics\DoubleAnimator.cs" />
+    <Compile Include="Infragistics\EdgeClipper.cs" />
+    <Compile Include="Infragistics\EllipseGeometryData.cs" />
+    <Compile Include="Infragistics\EncodingsCollection.cs" />
+    <Compile Include="Infragistics\ErrorBarCalculatorReference.cs" />
+    <Compile Include="Infragistics\ErrorBarCalculatorType.cs" />
+    <Compile Include="Infragistics\ErrorMessageDisplayingEventArgs.cs" />
+    <Compile Include="Infragistics\Extensions.cs" />
+    <Compile Include="Infragistics\FastItemColumn.cs" />
+    <Compile Include="Infragistics\FastItemDateTimeColumn.cs" />
+    <Compile Include="Infragistics\FastItemIntColumn.cs" />
+    <Compile Include="Infragistics\FastItemObjectColumn.cs" />
+    <Compile Include="Infragistics\FastItemProxyColumn.cs" />
+    <Compile Include="Infragistics\FastItemsSource.cs" />
+    <Compile Include="Infragistics\FastItemsSourceEventAction.cs" />
+    <Compile Include="Infragistics\FastItemsSourceEventArgs.cs" />
+    <Compile Include="Infragistics\FastItemsSourceReference.cs" />
+    <Compile Include="Infragistics\FastReflectionHelper.cs" />
+    <Compile Include="Infragistics\Flattener.cs" />
+    <Compile Include="Infragistics\FontInfo.cs" />
+    <Compile Include="Infragistics\FontUtil.cs" />
+    <Compile Include="Infragistics\FrameworkElementExtensions.cs" />
+    <Compile Include="Infragistics\GeometryData.cs" />
+    <Compile Include="Infragistics\GeometryUtil.cs" />
+    <Compile Include="Infragistics\GetPointsSettings.cs" />
+    <Compile Include="Infragistics\GradientStopAppearanceData.cs" />
+    <Compile Include="Infragistics\Group.cs" />
+    <Compile Include="Infragistics\Groupable.cs" />
+    <Compile Include="Infragistics\GroupBy.cs" />
+    <Compile Include="Infragistics\GroupingBase.cs" />
+    <Compile Include="Infragistics\GroupingProxyHelper.cs" />
+    <Compile Include="Infragistics\HashPool.cs" />
+    <Compile Include="Infragistics\IEncoding.cs" />
+    <Compile Include="Infragistics\IErrorBarCalculator.cs" />
+    <Compile Include="Infragistics\IFastItemColumn.cs" />
+    <Compile Include="Infragistics\IFastItemColumnInternal.cs" />
+    <Compile Include="Infragistics\IFastItemColumnPropertyName.cs" />
+    <Compile Include="Infragistics\IFastItemsSource.cs" />
+    <Compile Include="Infragistics\IFastItemsSourceProvider.cs" />
+    <Compile Include="Infragistics\IHashPool.cs" />
+    <Compile Include="Infragistics\IIndexedPool.cs" />
+    <Compile Include="Infragistics\InputContext.cs" />
+    <Compile Include="Infragistics\InteractionHelper.cs" />
+    <Compile Include="Infragistics\InteractiveControl.cs" />
+    <Compile Include="Infragistics\InteractiveElement.cs" />
+    <Compile Include="Infragistics\InterpolationMode.cs" />
+    <Compile Include="Infragistics\InterpolationUtil.cs" />
+    <Compile Include="Infragistics\IPool.cs" />
+    <Compile Include="Infragistics\ISmartPlaceable.cs" />
+    <Compile Include="Infragistics\ItemSourceEventProxy.cs" />
+    <Compile Include="Infragistics\ITool.cs" />
+    <Compile Include="Infragistics\IUpdateVisualState.cs" />
+    <Compile Include="Infragistics\IVisualData.cs" />
+    <Compile Include="Infragistics\LabelAppearanceData.cs" />
+    <Compile Include="Infragistics\LabelAppearanceDataList.cs" />
+    <Compile Include="Infragistics\LeftClipper.cs" />
+    <Compile Include="Infragistics\LinearGradientBrushAppearanceData.cs" />
+    <Compile Include="Infragistics\LineGeometryData.cs" />
+    <Compile Include="Infragistics\LineSegmentData.cs" />
+    <Compile Include="Infragistics\LineVisualData.cs" />
+    <Compile Include="Infragistics\MarkBase.cs" />
+    <Compile Include="Infragistics\MathUtil.cs" />
+    <Compile Include="Infragistics\MatrixUtil.cs" />
+    <Compile Include="Infragistics\ObjectConverter.cs" />
+    <Compile Include="Infragistics\PathFigureData.cs" />
+    <Compile Include="Infragistics\PathFigureUtil.cs" />
+    <Compile Include="Infragistics\PathGeometryData.cs" />
+    <Compile Include="Infragistics\PathVisualData.cs" />
+    <Compile Include="Infragistics\Platform.cs" />
+    <Compile Include="Infragistics\PolyBezierSegmentData.cs" />
+    <Compile Include="Infragistics\PolygonUtil.cs" />
+    <Compile Include="Infragistics\PolygonVisualData.cs" />
+    <Compile Include="Infragistics\PolylineSegmentData.cs" />
+    <Compile Include="Infragistics\PolyLineVisualData.cs" />
+    <Compile Include="Infragistics\PolySimplification.cs" />
+    <Compile Include="Infragistics\Pool.cs" />
+    <Compile Include="Infragistics\PrimitiveAppearanceData.cs" />
+    <Compile Include="Infragistics\PrimitiveVisualData.cs" />
+    <Compile Include="Infragistics\PrimitiveVisualDataList.cs" />
+    <Compile Include="Infragistics\PriorityQueue.cs" />
+    <Compile Include="Infragistics\RearrangedList.cs" />
+    <Compile Include="Infragistics\RectangleGeometryData.cs" />
+    <Compile Include="Infragistics\RectangleVisualData.cs" />
+    <Compile Include="Infragistics\RectChangedEventArgs.cs" />
+    <Compile Include="Infragistics\RectChangedEventHandler.cs" />
+    <Compile Include="Infragistics\RectUtil.cs" />
+    <Compile Include="Infragistics\RightClipper.cs" />
+    <Compile Include="Infragistics\SafeSetter.cs" />
+    <Compile Include="Infragistics\SafeSetterCollection.cs" />
+    <Compile Include="Infragistics\SafeSetters.cs" />
+    <Compile Include="Infragistics\SegmentData.cs" />
+    <Compile Include="Infragistics\ShapeElement.cs" />
+    <Compile Include="Infragistics\ShapeTags.cs" />
+    <Compile Include="Infragistics\ShapeUtil.cs" />
+    <Compile Include="Infragistics\Silverlight\HalfEdge.cs" />
+    <Compile Include="Infragistics\Silverlight\HalfEdgeCollection.cs" />
+    <Compile Include="Infragistics\Silverlight\Triangle.cs" />
+    <Compile Include="Infragistics\Silverlight\TriangleMesh.cs" />
+    <Compile Include="Infragistics\SmartPlaceableWrapper.cs" />
+    <Compile Include="Infragistics\SmartPlacer.cs" />
+    <Compile Include="Infragistics\SmartPosition.cs" />
+    <Compile Include="Infragistics\SolidBrushAppearanceData.cs" />
+    <Compile Include="Infragistics\SolidBrushCollectionConverter.cs" />
+    <Compile Include="Infragistics\SpiralTodo.cs" />
+    <Compile Include="Infragistics\SRProvider.cs" />
+    <Compile Include="Infragistics\StackPool.cs" />
+    <Compile Include="Infragistics\StringFormatConverter.cs" />
+    <Compile Include="Infragistics\StringFormatter.cs" />
+    <Compile Include="Infragistics\StringFormatUtil.cs" />
+    <Compile Include="Infragistics\StripeBase.cs" />
+    <Compile Include="Infragistics\StripeGroupBase.cs" />
+    <Compile Include="Infragistics\TimeSpanConverter.cs" />
+    <Compile Include="Infragistics\Tool.cs" />
+    <Compile Include="Infragistics\TopClipper.cs" />
+    <Compile Include="Infragistics\TransformUtil.cs" />
+    <Compile Include="Infragistics\TypeUtil.cs" />
+    <Compile Include="Infragistics\VisualDataPixelScalingOptions.cs" />
+    <Compile Include="Infragistics\VisualElement.cs" />
+    <Compile Include="Infragistics\VisualStates.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="System\Runtime\CompilerServices\ClientNameAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\DontHideAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\DontObfuscateAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\JAVADontHideAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\JAVASuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\JAVASuppressWidgetMemberCopyAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\MainWidgetAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\MvcEnumSetStringEnumAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\SuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\SuppressWidgetMemberCopyAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WeakAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WFSuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WFSuppressWidgetMemberCopyAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetDefaultBooleanAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetDefaultNumberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetDefaultStringAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetIgnoreDependsAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetIncludeDependsAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetModuleAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetModuleExclusionParentAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\WidgetModuleParentAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamAndroidSuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamiOSEnumNameAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamiOSSuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamiOSTreatAsDoubleAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamiOSTreatAsFloatAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamSuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamWPSuppressWidgetMemberAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\XamWrapperSuppressWidgetMemberAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Infragistics\Controls\Properties\Resources.resources" />
+    <EmbeddedResource Include="Infragistics\Controls\Strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Infragistics\Controls\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="customdictionary.xml" />
+    <Resource Include="themes\generic.2.xaml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,1499 @@
+<AcpUINS:AcpPageFeature
+	x:Class="SpecialFeatures.VoiceAnnouncements.SiteSelectableAlertList.PageSiteSelectableAlertList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:SiteSelectableAlertListRecsetNS="clr-namespace:SpecialFeatures.VoiceAnnouncements.SiteSelectableAlertList" xmlns:SiteSelectableAlertTableInnerNS="clr-namespace:SpecialFeatures.VoiceAnnouncements.SiteSelectableAlertList"
+	Title="{Binding Path=UIName}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageSiteSelectableAlertList"
+			DockPanel.Dock="Top"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4145</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4145</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4145</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10765</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SSAFrontDisplayAlertAlias_A41987CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+								MyBLObject="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="SSAAlertFile_A41990CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+								MyBLObject="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="VASSAAlertPeriodSec_A41991CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-255}"
+								Text="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+								MyBLObject="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="VASSASubscriberEncodable_A41992CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpCheckBox
+								HorizontalAlignment="Center"
+								VerticalAlignment="Stretch"
+								Foreground="#FF000000"
+								IsChecked="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+								MyBLObject="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 7-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 8-->
+				<Hyperlink
+					Name="HLinkSiteSelectableAlertListSiteSelectableAlertList41985"
+					Tag="ExpanderSiteSelectableAlertListSiteSelectableAlertList41985">
+					<TextBlock
+						TextDecorations="Underline"
+						Text="{Binding Path=SiteSelectableAlertList41985.UIName}">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="SiteSelectableAlertList41985.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 9-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 10-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderSiteSelectableAlertListSiteSelectableAlertList41985"
+					Header="{Binding Path=SiteSelectableAlertList41985.UIName}"
+					ShowDiffIcon="{Binding Path=SiteSelectableAlertList41985.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderSiteSelectableAlertListSiteSelectableAlertTableSRecView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="GrpBoxExpanderSiteSelectableAlertListSiteSelectableAlertList41985Pseudo1"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 11-->
+						<AcpUINS:AcpChildRecNavToolbar
+							Name="RecNavToolbarExpanderSiteSelectableAlertListSiteSelectableAlertTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 12-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderSiteSelectableAlertListSiteSelectableAlertList41985Pseudo1"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource groupboxVisibilityConverter}">
+										<Binding
+											ElementName="SiteSelectableAlertListAlias_A41993"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="SiteSelectableAlertListConfigurationType_A42058"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="230" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 13-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnSiteSelectableAlertListAlias_A41993"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListAlias_A41993}"
+										IsChecked="{Binding ElementName=SiteSelectableAlertListAlias_A41993, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="SiteSelectableAlertListAlias_A41993"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 14-->
+									<AcpUINS:AcpLabel
+										Name="LblSiteSelectableAlertListAlias_A41993"
+										Content="{x:Static ResourceNS:AppResources.ID_SITESELECTABLEALERTLISTNAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AppResources.ID_SITESELECTABLEALERTLISTNAME}"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListAlias_A41993}"
+										IsAcpValid="{Binding ElementName=SiteSelectableAlertListAlias_A41993, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=SiteSelectableAlertListAlias_A41993, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=SiteSelectableAlertListAlias_A41993, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 15-->
+									<AcpUINS:AcpTextBox
+										Name="SiteSelectableAlertListAlias_A41993"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993Value}"
+										MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+										MyBLObject="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993}"
+										MyLabelCtrl="{Binding ElementName=LblSiteSelectableAlertListAlias_A41993}"
+										IsAcpValid="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993_Valid}"
+										IsAcpApplicable="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993_Applicable}"
+										AreValuesEqual="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993_Editable" />
+												<Binding
+													Path="SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 16-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnSiteSelectableAlertListAlias_A41993"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListAlias_A41993}"
+										MyCompCtrl="{Binding ElementName=SiteSelectableAlertListAlias_A41993Comp}"
+										AreValuesEqual="{Binding ElementName=SiteSelectableAlertListAlias_A41993, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="SiteSelectableAlertListAlias_A41993"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="SiteSelectableAlertListAlias_A41993"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="SiteSelectableAlertListAlias_A41993"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 17-->
+									<AcpUINS:AcpViewOnlyCtrl
+										Name="SiteSelectableAlertListAlias_A41993Comp"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListAlias_A41993}"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListAlias_A41993}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnSiteSelectableAlertListAlias_A41993}">
+										<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="SiteSelectableAlertListAlias_A41993"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+									</AcpUINS:AcpViewOnlyCtrl>
+									<!--Unknown connection ID: 18-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnSiteSelectableAlertListConfigurationType_A42058"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058}"
+										IsChecked="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 19-->
+									<AcpUINS:AcpLabel
+										Name="LblSiteSelectableAlertListConfigurationType_A42058"
+										Content="{x:Static ResourceNS:AppResources.ID_SSA_LIST_CFG_TYPE}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AppResources.ID_SSA_LIST_CFG_TYPE}"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058}"
+										IsAcpValid="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 20-->
+									<AcpUINS:AcpComboBox
+										Name="SiteSelectableAlertListConfigurationType_A42058"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058.Items}"
+										SelectedValue="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+										MyBLObject="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058}"
+										MyLabelCtrl="{Binding ElementName=LblSiteSelectableAlertListConfigurationType_A42058}"
+										IsAcpValid="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_Valid}"
+										IsAcpApplicable="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_Applicable}"
+										AreValuesEqual="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_Editable" />
+												<Binding
+													Path="SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 21-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnSiteSelectableAlertListConfigurationType_A42058"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 22-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnSiteSelectableAlertListConfigurationType_A42058"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058}"
+										MyCompCtrl="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058Comp}"
+										AreValuesEqual="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 23-->
+									<AcpUINS:AcpViewOnlyCtrl
+										Name="SiteSelectableAlertListConfigurationType_A42058Comp"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=SiteSelectableAlertList41985.SiteSelectableAlertListConfigurationType_A42058}"
+										MyParentCtrl="{Binding ElementName=SiteSelectableAlertListConfigurationType_A42058}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnSiteSelectableAlertListConfigurationType_A42058}">
+										<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="SiteSelectableAlertListConfigurationType_A42058"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+									</AcpUINS:AcpViewOnlyCtrl>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 24-->
+						<Grid
+							Name="ExpanderSiteSelectableAlertListSiteSelectableAlertList41985Grid">
+							<!--Unknown connection ID: 25-->
+							<Grid
+								Name="ExpanderSiteSelectableAlertListSiteSelectableAlertTableGrid"
+								Row="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 26-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderSiteSelectableAlertListSiteSelectableAlertTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="ExpanderSiteSelectableAlertListSiteSelectableAlertTable"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 27-->
+									<AcpUINS:AcpXamDataPresenter
+										Name="ExpanderSiteSelectableAlertListSiteSelectableAlertTable"
+										KeyboardNavigation.AcceptsReturn="True"
+										Header="{x:Static ResourceNS:AppResources.ID_SITESELECTABLEALERTTABLE}"
+										MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+										igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}">
+										<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="DataSource.HasDiffs"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="IsAcpVisible"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													ElementName="SSAFrontDisplayAlertAlias_A41987_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="SSAAlertFile_A41990_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="VASSAAlertPeriodSec_A41991_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="VASSASubscriberEncodable_A41992_Col"
+													Path="Visibility" />
+											</MultiBinding>
+										</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<igcontrols:DataPresenterBase.FieldLayouts>
+											<igcontrols:FieldLayout>
+												<igcontrols:FieldLayout.Fields>
+													<!--Unknown connection ID: 28-->
+													<igcontrols:UnboundField
+														x:Name="SSAFrontDisplayAlertAlias_A41987_Col"
+														Label="{x:Static ResourceNS:AppResources.ID_ALERTALIAS}"
+														BindingPath="SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987"
+														BindingMode="OneWay"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView}, Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource SSAFrontDisplayAlertAlias_A41987CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 29-->
+													<igcontrols:UnboundField
+														x:Name="SSAAlertFile_A41990_Col"
+														Label="{x:Static ResourceNS:AppResources.ID_ALERTFILE}"
+														BindingPath="SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990"
+														BindingMode="OneWay"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView}, Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource SSAAlertFile_A41990CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 30-->
+													<igcontrols:UnboundField
+														x:Name="VASSAAlertPeriodSec_A41991_Col"
+														Label="{x:Static ResourceNS:AppResources.ID_ALERTPERIODSEC}"
+														BindingPath="SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991"
+														BindingMode="OneWay"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView}, Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource VASSAAlertPeriodSec_A41991CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 31-->
+													<igcontrols:UnboundField
+														x:Name="VASSASubscriberEncodable_A41992_Col"
+														Label="{x:Static ResourceNS:AppResources.ID_SUBSCRIBERENCODABLE}"
+														BindingPath="SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992"
+														BindingMode="OneWay"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderSiteSelectableAlertListSiteSelectableAlertTableTableView}, Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource VASSASubscriberEncodable_A41992CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+												</igcontrols:FieldLayout.Fields>
+											</igcontrols:FieldLayout>
+										</igcontrols:DataPresenterBase.FieldLayouts>
+									</AcpUINS:AcpXamDataPresenter>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 32-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderSiteSelectableAlertListSiteSelectableAlertTableSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderSiteSelectableAlertListSiteSelectableAlertTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="SSAFrontDisplayAlertAlias_A41987"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="SSAAlertFile_A41990"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="VASSAAlertPeriodSec_A41991"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="VASSASubscriberEncodable_A41992"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 33-->
+									<Grid
+										Name="gridExpanderSiteSelectableAlertListSiteSelectableAlertTableSRecView"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding SiteSelectableAlertList41985.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="170" />
+											<ColumnDefinition
+												Width="225" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="180" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 34-->
+										<AcpUINS:AcpTextBox
+											Name="SSAFrontDisplayAlertAlias_A41987"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="2"
+											Text="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987Value}"
+											MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987}"
+											MyLabelCtrl="{Binding ElementName=LblSSAFrontDisplayAlertAlias_A41987}"
+											IsAcpValid="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Valid}"
+											IsAcpApplicable="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Applicable}"
+											AreValuesEqual="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Editable" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpEditable>
+											<AcpUINS:AcpTextBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpVisible>
+										</AcpUINS:AcpTextBox>
+										<!--Unknown connection ID: 35-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnSSAFrontDisplayAlertAlias_A41987"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987}"
+											IsChecked="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 36-->
+										<AcpUINS:AcpLabel
+											Name="LblSSAFrontDisplayAlertAlias_A41987"
+											Content="{x:Static ResourceNS:AppResources.ID_ALERTALIAS}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AppResources.ID_ALERTALIAS}"
+											MyParentCtrl="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987}"
+											IsAcpValid="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 37-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnSSAFrontDisplayAlertAlias_A41987"
+											Grid.Row="0"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 38-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnSSAFrontDisplayAlertAlias_A41987"
+											Grid.Row="0"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987}"
+											MyCompCtrl="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987Comp}"
+											AreValuesEqual="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 39-->
+										<AcpUINS:AcpViewOnlyCtrl
+											Name="SSAFrontDisplayAlertAlias_A41987Comp"
+											Grid.Row="0"
+											Grid.Column="5"
+											Content="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987Value}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.SSAFrontDisplayAlertAlias_A41987}"
+											MyParentCtrl="{Binding ElementName=SSAFrontDisplayAlertAlias_A41987}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnSSAFrontDisplayAlertAlias_A41987}">
+											<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="SSAFrontDisplayAlertAlias_A41987"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+										</AcpUINS:AcpViewOnlyCtrl>
+										<!--Unknown connection ID: 40-->
+										<AcpUINS:AcpComboBox
+											Name="SSAAlertFile_A41990"
+											DisplayMemberPath="ItemName"
+											SelectedValuePath="ItemName"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="2"
+											ItemsSource="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990.Items}"
+											SelectedValue="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990}"
+											MyLabelCtrl="{Binding ElementName=LblSSAAlertFile_A41990}"
+											IsAcpValid="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Valid}"
+											IsAcpApplicable="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Applicable}"
+											AreValuesEqual="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpComboBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Editable" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990" />
+												</MultiBinding>
+											</AcpUINS:AcpComboBox.IsAcpEditable>
+											<AcpUINS:AcpComboBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpComboBox.IsAcpVisible>
+										</AcpUINS:AcpComboBox>
+										<!--Unknown connection ID: 41-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnSSAAlertFile_A41990"
+											Margin="0,5,0,0"
+											Grid.Row="1"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=SSAAlertFile_A41990}"
+											IsChecked="{Binding ElementName=SSAAlertFile_A41990, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 42-->
+										<AcpUINS:AcpLabel
+											Name="LblSSAAlertFile_A41990"
+											Content="{x:Static ResourceNS:AppResources.ID_ALERTFILE}"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AppResources.ID_ALERTFILE}"
+											MyParentCtrl="{Binding ElementName=SSAAlertFile_A41990}"
+											IsAcpValid="{Binding ElementName=SSAAlertFile_A41990, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=SSAAlertFile_A41990, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=SSAAlertFile_A41990, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 43-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnSSAAlertFile_A41990"
+											Grid.Row="1"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=SSAAlertFile_A41990}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 44-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnSSAAlertFile_A41990"
+											Grid.Row="1"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=SSAAlertFile_A41990}"
+											MyCompCtrl="{Binding ElementName=SSAAlertFile_A41990Comp}"
+											AreValuesEqual="{Binding ElementName=SSAAlertFile_A41990, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 45-->
+										<AcpUINS:AcpViewOnlyCtrl
+											Name="SSAAlertFile_A41990Comp"
+											Grid.Row="1"
+											Grid.Column="5"
+											Content="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.SSAAlertFile_A41990}"
+											MyParentCtrl="{Binding ElementName=SSAAlertFile_A41990}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnSSAAlertFile_A41990}">
+											<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="SSAAlertFile_A41990"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+										</AcpUINS:AcpViewOnlyCtrl>
+										<!--Unknown connection ID: 46-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="VASSAAlertPeriodSec_A41991"
+											MaskTypeSpinner="{}{number:0-255}"
+											VerticalAlignment="Center"
+											Grid.Row="2"
+											Grid.Column="2"
+											Text="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991}"
+											MyLabelCtrl="{Binding ElementName=LblVASSAAlertPeriodSec_A41991}"
+											IsAcpValid="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Valid}"
+											IsAcpApplicable="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Applicable}"
+											AreValuesEqual="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Editable" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 47-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnVASSAAlertPeriodSec_A41991"
+											Margin="0,5,0,0"
+											Grid.Row="2"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=VASSAAlertPeriodSec_A41991}"
+											IsChecked="{Binding ElementName=VASSAAlertPeriodSec_A41991, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 48-->
+										<AcpUINS:AcpLabel
+											Name="LblVASSAAlertPeriodSec_A41991"
+											Content="{x:Static ResourceNS:AppResources.ID_ALERTPERIODSEC}"
+											VerticalAlignment="Center"
+											Grid.Row="2"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AppResources.ID_ALERTPERIODSEC}"
+											MyParentCtrl="{Binding ElementName=VASSAAlertPeriodSec_A41991}"
+											IsAcpValid="{Binding ElementName=VASSAAlertPeriodSec_A41991, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=VASSAAlertPeriodSec_A41991, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=VASSAAlertPeriodSec_A41991, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 49-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnVASSAAlertPeriodSec_A41991"
+											Grid.Row="2"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=VASSAAlertPeriodSec_A41991}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 50-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnVASSAAlertPeriodSec_A41991"
+											Grid.Row="2"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=VASSAAlertPeriodSec_A41991}"
+											MyCompCtrl="{Binding ElementName=VASSAAlertPeriodSec_A41991Comp}"
+											AreValuesEqual="{Binding ElementName=VASSAAlertPeriodSec_A41991, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 51-->
+										<AcpUINS:AcpViewOnlyCtrl
+											Name="VASSAAlertPeriodSec_A41991Comp"
+											Grid.Row="2"
+											Grid.Column="5"
+											Content="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.VASSAAlertPeriodSec_A41991}"
+											MyParentCtrl="{Binding ElementName=VASSAAlertPeriodSec_A41991}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnVASSAAlertPeriodSec_A41991}">
+											<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VASSAAlertPeriodSec_A41991"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+										</AcpUINS:AcpViewOnlyCtrl>
+										<!--Unknown connection ID: 52-->
+										<AcpUINS:AcpCheckBox
+											Name="VASSASubscriberEncodable_A41992"
+											VerticalAlignment="Center"
+											Grid.Row="3"
+											Grid.Column="2"
+											IsChecked="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992Value}"
+											MyExpander="{Binding ElementName=ExpanderSiteSelectableAlertListSiteSelectableAlertList41985}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992}"
+											MyLabelCtrl="{Binding ElementName=LblVASSASubscriberEncodable_A41992}"
+											IsAcpValid="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Valid}"
+											IsAcpApplicable="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Applicable}"
+											AreValuesEqual="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpCheckBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Editable" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992" />
+												</MultiBinding>
+											</AcpUINS:AcpCheckBox.IsAcpEditable>
+											<AcpUINS:AcpCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCheckBox>
+										<!--Unknown connection ID: 53-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnVASSASubscriberEncodable_A41992"
+											Margin="0,5,0,0"
+											Grid.Row="3"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=VASSASubscriberEncodable_A41992}"
+											IsChecked="{Binding ElementName=VASSASubscriberEncodable_A41992, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 54-->
+										<AcpUINS:AcpLabel
+											Name="LblVASSASubscriberEncodable_A41992"
+											Content="{x:Static ResourceNS:AppResources.ID_SUBSCRIBERENCODABLE}"
+											VerticalAlignment="Center"
+											Grid.Row="3"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AppResources.ID_SUBSCRIBERENCODABLE}"
+											MyParentCtrl="{Binding ElementName=VASSASubscriberEncodable_A41992}"
+											IsAcpValid="{Binding ElementName=VASSASubscriberEncodable_A41992, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=VASSASubscriberEncodable_A41992, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=VASSASubscriberEncodable_A41992, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 55-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnVASSASubscriberEncodable_A41992"
+											Grid.Row="3"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=VASSASubscriberEncodable_A41992}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 56-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnVASSASubscriberEncodable_A41992"
+											Grid.Row="3"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=VASSASubscriberEncodable_A41992}"
+											MyCompCtrl="{Binding ElementName=VASSASubscriberEncodable_A41992Comp}"
+											AreValuesEqual="{Binding ElementName=VASSASubscriberEncodable_A41992, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 57-->
+										<AcpUINS:AcpCheckBox
+											Name="VASSASubscriberEncodable_A41992Comp"
+											IsAcpEditable="false"
+											Grid.Row="3"
+											Grid.Column="5"
+											IsChecked="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992Value}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/SiteSelectableAlertList41985.EmbeddedRecset}"
+											MyBLObject="{Binding Path=SiteSelectableAlertTableInnerSection.VASSASubscriberEncodable_A41992}"
+											MyParentCtrl="{Binding ElementName=VASSASubscriberEncodable_A41992}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnVASSASubscriberEncodable_A41992}">
+											<AcpUINS:AcpCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VASSASubscriberEncodable_A41992"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCheckBox>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

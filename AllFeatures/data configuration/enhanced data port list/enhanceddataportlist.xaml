@@ -1,0 +1,673 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.EnhancedDataPortList.PageEnhancedDataPortList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:EnhancedDataPortListRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.EnhancedDataPortList" xmlns:EnhancedDataPortTableInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.EnhancedDataPortList"
+	Title="{Binding Path=UIName}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageEnhancedDataPortList"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4148</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4148</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderEnhancedDataPortListEnhancedDataPortTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4148</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10767</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DataWideEnhDataPortListPortNum_A42008CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:1-65535}"
+								Text="{Binding Path=Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderEnhancedDataPortListEnhancedDataPortList42005}"
+								MyBLObject="{Binding Path=Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 4-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderEnhancedDataPortListEnhancedDataPortList42005, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 5-->
+				<Hyperlink
+					Name="HLinkEnhancedDataPortList42005"
+					Tag="ExpanderEnhancedDataPortListEnhancedDataPortList42005">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_ENHANCEDDATAPORTLIST}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="EnhancedDataPortList42005.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 6-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 7-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderEnhancedDataPortListEnhancedDataPortList42005"
+					Width="Auto"
+					Header="{Binding Path=EnhancedDataPortList42005.UIName}"
+					ShowDiffIcon="{Binding Path=EnhancedDataPortList42005.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderEnhancedDataPortListEnhancedDataPortList42005Pseudo0"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderEnhancedDataPortListEnhancedDataPortTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderEnhancedDataPortListEnhancedDataPortTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 8-->
+						<AcpUINS:AcpChildRecNavToolbar
+							Name="RecNavToolbarExpanderEnhancedDataPortListEnhancedDataPortTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/EnhancedDataPortList42005.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderEnhancedDataPortListEnhancedDataPortTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/EnhancedDataPortList42005.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderEnhancedDataPortListEnhancedDataPortList42005Pseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource groupboxVisibilityConverter}">
+										<Binding
+											ElementName="DataCfgEnhDataPortListAlias_A42007"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="230" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 10-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnDataCfgEnhDataPortListAlias_A42007"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007}"
+										IsChecked="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="DataCfgEnhDataPortListAlias_A42007"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 11-->
+									<AcpUINS:AcpLabel
+										Name="LblDataCfgEnhDataPortListAlias_A42007"
+										Content="{x:Static ResourceNS:AcgResources.ID_PORTLISTALIAS}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_PORTLISTALIAS}"
+										MyParentCtrl="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007}"
+										IsAcpValid="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 12-->
+									<AcpUINS:AcpTextBox
+										Name="DataCfgEnhDataPortListAlias_A42007"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007Value}"
+										MyExpander="{Binding ElementName=ExpanderEnhancedDataPortListEnhancedDataPortList42005}"
+										MyBLObject="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007}"
+										MyLabelCtrl="{Binding ElementName=LblDataCfgEnhDataPortListAlias_A42007}"
+										IsAcpValid="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007_Valid}"
+										IsAcpApplicable="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007_Applicable}"
+										AreValuesEqual="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007_Editable" />
+												<Binding
+													Path="EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 13-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnDataCfgEnhDataPortListAlias_A42007"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007}"
+										MyCompCtrl="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007Comp}"
+										AreValuesEqual="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="DataCfgEnhDataPortListAlias_A42007"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="DataCfgEnhDataPortListAlias_A42007"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="DataCfgEnhDataPortListAlias_A42007"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 14-->
+									<AcpUINS:AcpLabel
+										Name="DataCfgEnhDataPortListAlias_A42007Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=EnhancedDataPortList42005.DataCfgEnhDataPortListAlias_A42007}"
+										MyParentCtrl="{Binding ElementName=DataCfgEnhDataPortListAlias_A42007}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnDataCfgEnhDataPortListAlias_A42007}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="DataCfgEnhDataPortListAlias_A42007"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 15-->
+						<Grid
+							Name="ExpanderEnhancedDataPortListEnhancedDataPortList42005Grid">
+							<!--Unknown connection ID: 16-->
+							<Grid
+								Name="ExpanderEnhancedDataPortListEnhancedDataPortTableGrid"
+								Row="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 17-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderEnhancedDataPortListEnhancedDataPortTableTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderEnhancedDataPortListEnhancedDataPortTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="ExpanderEnhancedDataPortListEnhancedDataPortTable"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 18-->
+									<AcpUINS:AcpXamDataPresenter
+										Name="ExpanderEnhancedDataPortListEnhancedDataPortTable"
+										KeyboardNavigation.AcceptsReturn="True"
+										Header="{x:Static ResourceNS:AcgResources.ID_ENHANCEDDATAPORTTABLE}"
+										MyExpander="{Binding ElementName=ExpanderEnhancedDataPortListEnhancedDataPortList42005}"
+										igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/EnhancedDataPortList42005.EmbeddedRecset}">
+										<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="DataSource.HasDiffs"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="IsAcpVisible"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													ElementName="DataWideEnhDataPortListPortNum_A42008_Col"
+													Path="Visibility" />
+											</MultiBinding>
+										</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<igcontrols:DataPresenterBase.FieldLayouts>
+											<igcontrols:FieldLayout>
+												<igcontrols:FieldLayout.Fields>
+													<!--Unknown connection ID: 19-->
+													<igcontrols:UnboundField
+														x:Name="DataWideEnhDataPortListPortNum_A42008_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_PORTNUMBER}"
+														BindingPath="EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderEnhancedDataPortListEnhancedDataPortTableTableView}, Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource DataWideEnhDataPortListPortNum_A42008CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+												</igcontrols:FieldLayout.Fields>
+											</igcontrols:FieldLayout>
+										</igcontrols:DataPresenterBase.FieldLayouts>
+									</AcpUINS:AcpXamDataPresenter>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 20-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderEnhancedDataPortListEnhancedDataPortTableSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderEnhancedDataPortListEnhancedDataPortTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="DataWideEnhDataPortListPortNum_A42008"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 21-->
+									<Grid
+										Name="gridExpanderEnhancedDataPortListEnhancedDataPortTableSRecView"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding EnhancedDataPortList42005.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="170" />
+											<ColumnDefinition
+												Width="225" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="180" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 22-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="DataWideEnhDataPortListPortNum_A42008"
+											MaskTypeSpinner="{}{number:1-65535}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="2"
+											Text="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderEnhancedDataPortListEnhancedDataPortList42005}"
+											MyBLObject="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008}"
+											MyLabelCtrl="{Binding ElementName=LblDataWideEnhDataPortListPortNum_A42008}"
+											IsAcpValid="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Valid}"
+											IsAcpApplicable="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Applicable}"
+											AreValuesEqual="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Editable" />
+													<Binding
+														Path="EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 23-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnDataWideEnhDataPortListPortNum_A42008"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008}"
+											IsChecked="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 24-->
+										<AcpUINS:AcpLabel
+											Name="LblDataWideEnhDataPortListPortNum_A42008"
+											Content="{x:Static ResourceNS:AcgResources.ID_PORTNUMBER}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_PORTNUMBER}"
+											MyParentCtrl="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008}"
+											IsAcpValid="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 25-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnDataWideEnhDataPortListPortNum_A42008"
+											Grid.Row="0"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 26-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnDataWideEnhDataPortListPortNum_A42008"
+											Grid.Row="0"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008}"
+											MyCompCtrl="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008Comp}"
+											AreValuesEqual="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 27-->
+										<AcpUINS:AcpLabel
+											Name="DataWideEnhDataPortListPortNum_A42008Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="0"
+											Grid.Column="5"
+											Content="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/EnhancedDataPortList42005.EmbeddedRecset}"
+											MyBLObject="{Binding Path=EnhancedDataPortTableInnerSection.DataWideEnhDataPortListPortNum_A42008}"
+											MyParentCtrl="{Binding ElementName=DataWideEnhDataPortListPortNum_A42008}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnDataWideEnhDataPortListPortNum_A42008}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="DataWideEnhDataPortListPortNum_A42008"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

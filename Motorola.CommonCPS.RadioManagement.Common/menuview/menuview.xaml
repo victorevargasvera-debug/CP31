@@ -1,0 +1,219 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.MenuView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:global="clr-namespace:Motorola.CommonCPS.RadioManagement.Global;assembly=Motorola.CommonCPS.RadioManagement.Global" xmlns:rr="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Common;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:FilePathToFilePathWithEllipsisConverter
+				x:Key="FilePathToFilePathWithEllipsisConverter" />
+			<converters:ZeroBasedAccessTextToOneBasedAccessText
+				x:Key="ZeroBasedAccessTextToOneBasedAccessText" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<!--Unknown connection ID: 1-->
+	<ig:XamMenu
+		Name="mniCPS"
+		Background="#00FFFFFF"
+		FontSize="12">
+		<ItemsControl.Items>
+			<!--Unknown connection ID: 2-->
+			<ig:XamMenuItem
+				Name="mniFile"
+				Header="{x:Static rr:Resources.CPS2_Menu_File}"
+				AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}">
+				<ItemsControl.Items>
+					<ig:XamMenuItem
+						Header="{x:Static rr:Resources.CPS2_Menu_File_Open}"
+						InputGestureText="{x:Static rr:Resources.Gesture_Ctrl_O}"
+						Command="{Binding CommandProxy.PrepareOpenArchiveCommand}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+					<ig:XamMenuItem
+						Header="{x:Static rr:Resources.CPS2_Menu_File_Save}"
+						InputGestureText="{x:Static rr:Resources.CPS2_Gesture_Ctrl_S}"
+						CommandParameter="Save"
+						Command="{Binding CommandProxy.SaveArchiveCommand}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+					<ig:XamMenuItem
+						Header="{x:Static rr:Resources.CPS2_Menu_File_Save_As}"
+						CommandParameter="SaveAs"
+						Command="{Binding CommandProxy.PrepareSaveAsArchiveCommand}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+					<ig:XamMenuSeparator />
+					<ig:XamMenuItem
+						Header="{x:Static rr:Resources.CPS2_Menu_File_Reports}"
+						Command="{Binding CommandProxy.PrepareReportsCommand}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+					<ig:XamMenuSeparator />
+					<ig:XamMenuItem
+						Header="{x:Static rr:Resources.CPS2_Menu_File_Close}"
+						Command="{Binding CommandProxy.PrepareCloseArchiveCommand}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+					<ig:XamMenuSeparator />
+					<ig:XamMenuItem
+						Header="{x:Static rr:Resources.CPS2_Menu_File_Recent_Files}"
+						ItemsSource="{Binding Source={x:Static global:UserConfig.Settings}, Path=Recently_Opened_Files}"
+						AlternationCount="{Binding Source={x:Static global:UserConfig.Settings}, Path=Recently_Opened_Files.Count}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}">
+						<ItemsControl.ItemContainerStyle>
+							<Style
+								TargetType="{x:Type ig:XamMenuItem}">
+								<Setter
+									Property=":XamHeaderedItemsControl.HeaderTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<AccessText>
+												<AccessText.Text>
+													<MultiBinding
+														StringFormat="{}{0}. {1}">
+														<Binding
+															Path="(ItemsControl.AlternationIndex)"
+															Converter="{StaticResource ZeroBasedAccessTextToOneBasedAccessText}"
+															RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ig:XamMenuItem}}" />
+														<Binding
+															Path="Header"
+															Converter="{StaticResource FilePathToFilePathWithEllipsisConverter}"
+															ConverterParameter="70"
+															RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ig:XamMenuItem}}" />
+													</MultiBinding>
+												</AccessText.Text>
+											</AccessText>
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									Property="ig:XamMenuItem.Command"
+									Value="{Binding Path=DataContext.CommandProxy.OpenArchiveCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+								<Setter
+									Property="ig:XamMenuItem.CommandParameter"
+									Value="{Binding}" />
+								<Setter
+									Property="AutomationProperties.AutomationId"
+									Value="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+							</Style>
+						</ItemsControl.ItemContainerStyle>
+					</ig:XamMenuItem>
+					<ig:XamMenuSeparator />
+					<!--Unknown connection ID: 3-->
+					<ig:XamMenuItem
+						p15:Header="{x:Static rr:Resources.CPS2_Menu_File_Exit}"
+						AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" xmlns:p15="http://schemas.infragistics.com/xaml/primitives" />
+				</ItemsControl.Items>
+			</ig:XamMenuItem>
+			<!--Unknown connection ID: 4-->
+			<ig:XamMenuItem
+				Name="mniDevice"
+				p13:Header="{x:Static rr:Resources.CPS2_Menu_Device}"
+				AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" xmlns:p13="http://schemas.infragistics.com/xaml/primitives">
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Device_Read}"
+					InputGestureText="{x:Static rr:Resources.Gesture_Ctrl_R}"
+					Command="{Binding CommandProxy.PrepareReadDeviceCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Device_Write}"
+					InputGestureText="{x:Static rr:Resources.Gesture_Ctrl_W}"
+					Command="{Binding CommandProxy.WriteDeviceCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Device_Clone}"
+					InputGestureText="{x:Static rr:Resources.Gesture_Ctrl_F3}"
+					Command="{Binding CommandProxy.PrepareCloneDeviceCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Device_Clone_Express}"
+					InputGestureText="{x:Static rr:Resources.Gesture_Ctrl_F4}"
+					Command="{Binding CommandProxy.PrepareCloneExpressCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuSeparator />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Device_Update}"
+					InputGestureText="{x:Static rr:Resources.Gesture_Ctrl_U}"
+					Command="{Binding CommandProxy.PrepareUpdateDeviceCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Device_Recover}"
+					Command="{Binding CommandProxy.PrepareRecoverDeviceCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+			</ig:XamMenuItem>
+			<!--Unknown connection ID: 5-->
+			<ig:XamMenuItem
+				Name="mniLicenses"
+				p13:Header="{x:Static rr:Resources.CPS2_Menu_Licenses}"
+				AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" xmlns:p13="http://schemas.infragistics.com/xaml/primitives">
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Register_Device_Licenses}"
+					Command="{Binding CommandProxy.ShowCpsQueryFeaturesCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Activate_Device_Licenses}"
+					Command="{Binding CommandProxy.ShowCpsActivateDevicesCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_View_Registered_Device_Licenses}"
+					Command="{Binding CommandProxy.ShowCpsViewRegisteredDevicesCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Recover_Device_Licenses}"
+					Command="{Binding CommandProxy.ShowCpsAddLicensingDevicesCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuSeparator />
+				<!--Unknown connection ID: 6-->
+				<ig:XamMenuItem
+					Name="mniRegAppFeatures"
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Register_Application_Licenses}"
+					Command="{Binding CommandProxy.ShowCpsRegisterAppLicenseCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<!--Unknown connection ID: 7-->
+				<ig:XamMenuItem
+					Name="mniViewAppFeatures"
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_View_Application_Licenses}"
+					Command="{Binding CommandProxy.ShowCpsAppLicenseCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<!--Unknown connection ID: 8-->
+				<ig:XamMenuItem
+					Name="mniRecoverAppFeatures"
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Recover_Application_Licenses}"
+					Command="{Binding CommandProxy.RecoverCpsAppLicensesCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+			</ig:XamMenuItem>
+			<!--Unknown connection ID: 9-->
+			<ig:XamMenuItem
+				Name="mniTools"
+				p13:Header="{x:Static rr:Resources.CPS2_Menu_Tools}"
+				AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" xmlns:p13="http://schemas.infragistics.com/xaml/primitives">
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Tools_Import_VA}"
+					Command="{Binding CommandProxy.PrepareImportVoiceAnnouncementCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Tools_PreSharedKeys}"
+					Command="{Binding CommandProxy.ShowCpsPreSharedKeysCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuSeparator />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Tools_Settings}"
+					Command="{Binding CommandProxy.CpsSettingsCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+			</ig:XamMenuItem>
+			<!--Unknown connection ID: 10-->
+			<ig:XamMenuItem
+				Name="mniHelp"
+				p13:Header="{x:Static rr:Resources.CPS2_Menu_Help}"
+				AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" xmlns:p13="http://schemas.infragistics.com/xaml/primitives">
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Help_Contents}"
+					InputGestureText="{x:Static rr:Resources.Gesture_F1}"
+					Command="{Binding CommandProxy.HelpCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+				<ig:XamMenuItem
+					p13:Header="{x:Static rr:Resources.CPS2_Menu_Help_About}"
+					Command="{Binding CommandProxy.CpsAboutCommand}"
+					AutomationProperties.AutomationId="{Binding Path=Header, Converter={StaticResource stringFormatConverter}, ConverterParameter={}{0}, RelativeSource={RelativeSource Self}}" />
+			</ig:XamMenuItem>
+		</ItemsControl.Items>
+	</ig:XamMenu>
+</UserControl>

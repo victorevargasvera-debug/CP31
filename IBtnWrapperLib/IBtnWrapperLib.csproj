@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA679}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IBtnWrapperLib</RootNamespace>
+    <AssemblyName>IBtnWrapperLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="Cntr_Alarm.cs" />
+    <Compile Include="CommonDefs.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="f.cs" />
+    <Compile Include="IBtnCommon.cs" />
+    <Compile Include="IBtnWrapperBase.cs" />
+    <Compile Include="IIBtnWrapper.cs" />
+    <Compile Include="MultiBtnWrapper.cs" />
+    <Compile Include="OffsetFormat.cs" />
+    <Compile Include="Port_Type.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterType.cs" />
+    <Compile Include="SglBtnWrapper.cs" />
+    <Compile Include="timedate.cs" />
+    <Compile Include="TimerType.cs" />
+    <Compile Include="TMEXAPI.cs" />
+    <Compile Include="TMEXConstants.cs" />
+    <Compile Include="TMEXException.cs" />
+    <Compile Include="TMEX_API_CODE.cs" />
+    <Compile Include="TMEX_API_LAYERS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpCryptoLib\AcpCryptoLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA633}</Project>
+      <Name>AcpCryptoLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

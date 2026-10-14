@@ -1,0 +1,329 @@
+<AcpUINS:AcpPageFeature
+	x:Class="SpecialFeatures.VoiceAnnouncements.List.VoiceAnnouncementListPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:VoiceAnnouncementRecSetNS="clr-namespace:SpecialFeatures.VoiceAnnouncements.List" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper;assembly=AllFeatures" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	Title="{x:Static CommonResxNS:AppResources.Voice_Announcement_List}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageVoiceAnnouncementList"
+			DockPanel.Dock="Top"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<VoiceAnnouncementRecSetNS:VAParentControlVisibilityConverter
+				x:Key="vAParentControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpFlyInButtonVisibilityConverter
+				x:Key="flyInVisibilityConverter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="parentContainerVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2301</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2301</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 3-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderVoiceAnnouncementGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 4-->
+				<Hyperlink
+					Name="HLinkVoiceAnnouncementGeneral"
+					Tag="ExpanderVoiceAnnouncementGeneral">
+					<TextBlock
+						Text="{x:Static CommonResxNS:AppResources.General_Id}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Source="false" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 5-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 6-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderVoiceAnnouncementGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource parentContainerVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderVoiceAnnouncementListGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<StackPanel>
+						<!--Unknown connection ID: 7-->
+						<Grid
+							Name="ExpanderVoiceAnnouncementGeneralGrid">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderVoiceAnnouncementListGeneralPseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource parentContainerVisibilityConverter}">
+										<Binding
+											ElementName="VoiceFileName_A21220"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<!--Unknown connection ID: 9-->
+									<Grid
+										Name="StdGrpBoxExpanderVoiceAnnouncementGeneralPseudo0"
+										Column="0">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="150" />
+											<ColumnDefinition
+												Width="300" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 10-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnVoiceFileName_A21220"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=VoiceFileName_A21220}"
+											IsChecked="{Binding ElementName=VoiceFileName_A21220, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VoiceFileName_A21220"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 11-->
+										<AcpUINS:AcpLabel
+											Name="LblVoiceFileName_A21220"
+											Content="{x:Static CommonResxNS:AppResources.Voice_Filename}"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static CommonResxNS:AppResources.Voice_Filename}"
+											MyParentCtrl="{Binding ElementName=VoiceFileName_A21220}"
+											IsAcpValid="{Binding ElementName=VoiceFileName_A21220, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=VoiceFileName_A21220, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=VoiceFileName_A21220, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 12-->
+										<AcpUINS:AcpTextBoxFileBrowser
+											Name="VoiceFileName_A21220"
+											Width="Auto"
+											Grid.Row="0"
+											Grid.Column="2"
+											Text="{Binding Path=General.VoiceFileName_A21220Value}"
+											MyParentCtrl="{Binding ElementName=StdGrpBoxExpanderVoiceAnnouncementGeneralPseudo0}"
+											MyExpander="{Binding ElementName=ExpanderVoiceAnnouncementGeneral}"
+											MyBLObject="{Binding Path=General.VoiceFileName_A21220Object}"
+											MyLabelCtrl="{Binding ElementName=LblVoiceFileName_A21220}"
+											IsAcpValid="{Binding Path=General.VoiceFileName_A21220_Valid}"
+											IsAcpApplicable="{Binding Path=General.VoiceFileName_A21220_Applicable}"
+											AreValuesEqual="{Binding Path=General.VoiceFileName_A21220_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxFileBrowser.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="General.VoiceFileName_A21220_Editable" />
+													<Binding
+														Path="General.VoiceFileName_A21220Object" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxFileBrowser.IsAcpEditable>
+											<AcpUINS:AcpTextBoxFileBrowser.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource vAParentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="General.VoiceFileName_A21220_Visible" />
+													<Binding
+														Path="General.VoiceFileDataInfo_A21213_HasDiffs" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxFileBrowser.IsAcpVisible>
+										</AcpUINS:AcpTextBoxFileBrowser>
+									</Grid>
+									<!--Unknown connection ID: 13-->
+									<Grid
+										Name="CompGrpBoxExpanderVoiceAnnouncementGeneralPseudo0"
+										Column="1"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 14-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnVoiceFileName_A21220"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=VoiceFileName_A21220}"
+											MyCompCtrl="{Binding ElementName=VoiceFileName_A21220Comp}"
+											AreValuesEqual="{Binding ElementName=VoiceFileName_A21220, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VoiceFileName_A21220"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="VoiceFileName_A21220"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="VoiceFileName_A21220"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 15-->
+										<AcpUINS:AcpViewOnlyCtrl
+											Name="VoiceFileName_A21220Comp"
+											Width="Auto"
+											Grid.Row="0"
+											Grid.Column="1"
+											Content="{Binding Path=General.VoiceFileName_A21220Value}"
+											MyBLObject="{Binding Path=General.VoiceFileName_A21220Object}"
+											MyParentCtrl="{Binding ElementName=VoiceFileName_A21220}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnVoiceFileName_A21220}">
+											<AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="VoiceFileName_A21220"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpViewOnlyCtrl.IsAcpVisible>
+										</AcpUINS:AcpViewOnlyCtrl>
+									</Grid>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

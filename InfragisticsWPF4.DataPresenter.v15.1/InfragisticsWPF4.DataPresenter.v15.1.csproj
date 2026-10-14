@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.DataPresenter.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="mscorlib" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Classic" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\AutomationPeerHelper.cs" />
+    <Compile Include="AutomationPeers\ItemsControlPeerHelper.cs" />
+    <Compile Include="InternalDynamicResourceString.cs" />
+    <Compile Include="LocalizedCategoryAttribute.cs" />
+    <Compile Include="LocalizedDescriptionAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceCustomizerLocator.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\CardHeaderPresenterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\CardViewCardAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\CarouselBreadcrumbAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\CellAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\CellAutomationPeerNameSource.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\CellValuePresenterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\DataPresenterBaseAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\FieldMenuItemAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\FixedFieldButtonAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\FixedFieldSplitterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\FixedRecordButtonAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\GroupByAreaAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\GroupByAreaBaseAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\GroupByAreaFieldLabelAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\GroupByAreaFieldListBoxAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\GroupByAreaMultiAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\HeaderAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\HeaderPresenterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\ILabelPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\IRecordListAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\LabelAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\LabelPatternProvider.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\LabelPresenterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\ListAutomationPeerHelper.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordExportStatusControlAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordFilterTreeControlAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordListControlAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordListGroup.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordListGroupAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordPresenterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\RecordSelectorAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\SummaryResultPresenterAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\Peers\DataPresenter\ViewableRecordCollectionAutomationPeer.cs" />
+    <Compile Include="Windows\CollectionViewWrapper.cs" />
+    <Compile Include="Windows\DataPresenter\AddNewRecordLocation.cs" />
+    <Compile Include="Windows\DataPresenter\AllowClipboardOperations.cs" />
+    <Compile Include="Windows\DataPresenter\AllowFieldFixing.cs" />
+    <Compile Include="Windows\DataPresenter\AllowFieldHiding.cs" />
+    <Compile Include="Windows\DataPresenter\AllowFieldMoving.cs" />
+    <Compile Include="Windows\DataPresenter\AllowRecordFixing.cs" />
+    <Compile Include="Windows\DataPresenter\AutoArrangeCells.cs" />
+    <Compile Include="Windows\DataPresenter\AutoArrangePrimaryFieldReservation.cs" />
+    <Compile Include="Windows\DataPresenter\AutoFitCards.cs" />
+    <Compile Include="Windows\DataPresenter\AutoFitMode.cs" />
+    <Compile Include="Windows\DataPresenter\AutoFitState.cs" />
+    <Compile Include="Windows\DataPresenter\AutoSizeCalculationFlags.cs" />
+    <Compile Include="Windows\DataPresenter\AutoSizeFieldHelper.cs" />
+    <Compile Include="Windows\DataPresenter\AutoSizeFieldLayoutInfo.cs" />
+    <Compile Include="Windows\DataPresenter\AutoSizeFieldSettings.cs" />
+    <Compile Include="Windows\DataPresenter\AverageSummaryCalculator.cs" />
+    <Compile Include="Windows\DataPresenter\BindingRetentionMode.cs" />
+    <Compile Include="Windows\DataPresenter\BindingType.cs" />
+    <Compile Include="Windows\DataPresenter\CalcSizeLayoutContainer.cs" />
+    <Compile Include="Windows\DataPresenter\CalculationScope.cs" />
+    <Compile Include="Windows\DataPresenter\Calculations\DataPresenterCalculationSettingsBase.cs" />
+    <Compile Include="Windows\DataPresenter\Calculations\FieldCalculationSettings.cs" />
+    <Compile Include="Windows\DataPresenter\Calculations\IDataPresenterCalculationAdapter.cs" />
+    <Compile Include="Windows\DataPresenter\Calculations\IDataPresenterCalculationAdapterInternal.cs" />
+    <Compile Include="Windows\DataPresenter\Calculations\SummaryCalculationSettings.cs" />
+    <Compile Include="Windows\DataPresenter\CardHeaderPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\CardView.cs" />
+    <Compile Include="Windows\DataPresenter\CardViewCard.cs" />
+    <Compile Include="Windows\DataPresenter\CardViewFieldLayoutTemplateGenerator.cs" />
+    <Compile Include="Windows\DataPresenter\CardViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\CardViewSettings.cs" />
+    <Compile Include="Windows\DataPresenter\CarouselBreadcrumb.cs" />
+    <Compile Include="Windows\DataPresenter\CarouselBreadcrumbCollection.cs" />
+    <Compile Include="Windows\DataPresenter\CarouselBreadcrumbControl.cs" />
+    <Compile Include="Windows\DataPresenter\CarouselItem.cs" />
+    <Compile Include="Windows\DataPresenter\CarouselView.cs" />
+    <Compile Include="Windows\DataPresenter\CarouselViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\Cell.cs" />
+    <Compile Include="Windows\DataPresenter\CellBinding.cs" />
+    <Compile Include="Windows\DataPresenter\CellBindingCollection.cs" />
+    <Compile Include="Windows\DataPresenter\CellBindingTarget.cs" />
+    <Compile Include="Windows\DataPresenter\CellClickAction.cs" />
+    <Compile Include="Windows\DataPresenter\CellCollection.cs" />
+    <Compile Include="Windows\DataPresenter\CellContainerGenerationMode.cs" />
+    <Compile Include="Windows\DataPresenter\CellContentAlignment.cs" />
+    <Compile Include="Windows\DataPresenter\CellElementKey.cs" />
+    <Compile Include="Windows\DataPresenter\CellKey.cs" />
+    <Compile Include="Windows\DataPresenter\CellLayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\CellPageSpanStrategy.cs" />
+    <Compile Include="Windows\DataPresenter\CellPlaceholder.cs" />
+    <Compile Include="Windows\DataPresenter\CellPresentation.cs" />
+    <Compile Include="Windows\DataPresenter\CellPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\CellPresenterBase.cs" />
+    <Compile Include="Windows\DataPresenter\CellPresenterLayoutElement.cs" />
+    <Compile Include="Windows\DataPresenter\CellPresenterLayoutElementBase.cs" />
+    <Compile Include="Windows\DataPresenter\CellRange.cs" />
+    <Compile Include="Windows\DataPresenter\CellRangeValueProvider.cs" />
+    <Compile Include="Windows\DataPresenter\CellTemplateType.cs" />
+    <Compile Include="Windows\DataPresenter\CellTextConverterInfo.cs" />
+    <Compile Include="Windows\DataPresenter\CellValueHolder.cs" />
+    <Compile Include="Windows\DataPresenter\CellValueHolderCollection.cs" />
+    <Compile Include="Windows\DataPresenter\CellValuePresenter.cs" />
+    <Compile Include="Windows\DataPresenter\CellValueProviderSource.cs" />
+    <Compile Include="Windows\DataPresenter\CellValueType.cs" />
+    <Compile Include="Windows\DataPresenter\CellVisiblePositionComparer.cs" />
+    <Compile Include="Windows\DataPresenter\CheckBoxField.cs" />
+    <Compile Include="Windows\DataPresenter\ChildRecordsDisplayOrder.cs" />
+    <Compile Include="Windows\DataPresenter\ClearFilterAction.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardCellValueHolder.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardCellValueHolderCollection.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardData.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardEncoding.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardEncodingFactory.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardError.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardErrorAction.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardFieldArrayProvider.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardOperation.cs" />
+    <Compile Include="Windows\DataPresenter\ClipboardOperationInfo.cs" />
+    <Compile Include="Windows\DataPresenter\CollectionViewGroupInfo.cs" />
+    <Compile Include="Windows\DataPresenter\ComboBoxField.cs" />
+    <Compile Include="Windows\DataPresenter\CompletedAction.cs" />
+    <Compile Include="Windows\DataPresenter\ConditionFilterCommand.cs" />
+    <Compile Include="Windows\DataPresenter\ConditionInfo.cs" />
+    <Compile Include="Windows\DataPresenter\ConditionInfoCollection.cs" />
+    <Compile Include="Windows\DataPresenter\ConditionInfoGroup.cs" />
+    <Compile Include="Windows\DataPresenter\CountSummaryCalculator.cs" />
+    <Compile Include="Windows\DataPresenter\CPGridBagLayoutManager.cs" />
+    <Compile Include="Windows\DataPresenter\CurrencyField.cs" />
+    <Compile Include="Windows\DataPresenter\CustomFilterAction.cs" />
+    <Compile Include="Windows\DataPresenter\CustomFilterSelectionControl.cs" />
+    <Compile Include="Windows\DataPresenter\CustomizationsManager.cs" />
+    <Compile Include="Windows\DataPresenter\CustomizationType.cs" />
+    <Compile Include="Windows\DataPresenter\CustomPropertyDescriptor.cs" />
+    <Compile Include="Windows\DataPresenter\DataChangeType.cs" />
+    <Compile Include="Windows\DataPresenter\DataDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\DataErrorDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\DataErrorInfo.cs" />
+    <Compile Include="Windows\DataPresenter\DataErrorOperation.cs" />
+    <Compile Include="Windows\DataPresenter\DataItemPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\DataItemRecordMap.cs" />
+    <Compile Include="Windows\DataPresenter\DataItemUpdateTrigger.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterAction.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterBase.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterBrushKeys.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterClipboardEncoding.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterCommands.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterCompositeAction.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterExportControl.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterExportControlBase.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterHistory.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterObjectSerializer.cs" />
+    <Compile Include="Windows\DataPresenter\DataPresenterReportControl.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecord.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecordAction.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecordCellArea.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecordCollection.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecordPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecordSizingMode.cs" />
+    <Compile Include="Windows\DataPresenter\DataRecordsSynchronizer.cs" />
+    <Compile Include="Windows\DataPresenter\DataSourceResetBehavior.cs" />
+    <Compile Include="Windows\DataPresenter\DataValueChangedScope.cs" />
+    <Compile Include="Windows\DataPresenter\DataValueInfo.cs" />
+    <Compile Include="Windows\DataPresenter\DataValueInfoHistory.cs" />
+    <Compile Include="Windows\DataPresenter\DateTimeField.cs" />
+    <Compile Include="Windows\DataPresenter\DelegateCommand.cs" />
+    <Compile Include="Windows\DataPresenter\DeleteRecordsAction.cs" />
+    <Compile Include="Windows\DataPresenter\DependencyObjectSerializationInfo.cs" />
+    <Compile Include="Windows\DataPresenter\DescendantRecordInfo.cs" />
+    <Compile Include="Windows\DataPresenter\Disposable.cs" />
+    <Compile Include="Windows\DataPresenter\DragToolWindow.cs" />
+    <Compile Include="Windows\DataPresenter\DropIndicatorClipBehavior.cs" />
+    <Compile Include="Windows\DataPresenter\DynamicResourceTracker.cs" />
+    <Compile Include="Windows\DataPresenter\EditModeBehaviorOnDataUpdate.cs" />
+    <Compile Include="Windows\DataPresenter\EditModeEndingReason.cs" />
+    <Compile Include="Windows\DataPresenter\EditModeHelper.cs" />
+    <Compile Include="Windows\DataPresenter\EqualityComparerWrapper.cs" />
+    <Compile Include="Windows\DataPresenter\Events\AssigningFieldLayoutToItemEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CarouselBreadcrumbClickEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellActivatedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellActivatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellDeactivatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellsInViewChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellUpdatedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CellUpdatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\ClipboardCopyingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\ClipboardOperationErrorEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\ClipboardOperationEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\ClipboardPastingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\CustomFilterSelectionControlOpeningEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\DataErrorEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\DataValueChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\EditModeEndedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\EditModeEndingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\EditModeEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\EditModeStartedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\EditModeStartingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\EditModeValidationErrorEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\FieldChooserOpeningEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\FieldLayoutInitializedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\FieldLayoutInitializingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\FieldPositionChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\FieldPositionChangingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\GroupedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\GroupingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\InitializeCellValuePresenterEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\InitializeRecordEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\InitializeTemplateAddRecordEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\QuerySummaryResultEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordActivatedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordActivatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordAddedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordAddingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordCollapsedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordCollapsingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordDeactivatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordExpandedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordExpandingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFilterChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFilterChangingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFilterDropDownItemInitializingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFilterDropDownOpeningEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFilterDropDownPopulatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFixedLocationChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordFixedLocationChangingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordsDeletedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordsDeletingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordsInViewChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordUpdateCanceledEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordUpdateCancelingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordUpdatedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\RecordUpdatingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SelectedItemsChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SelectedItemsChangingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SortedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SortingEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SummaryResultChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SummarySelectionControlClosedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\SummarySelectionControlOpeningEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\Events\ViewStateChangedEventArgs.cs" />
+    <Compile Include="Windows\DataPresenter\ExcelStyleFilterSearchOperator.cs" />
+    <Compile Include="Windows\DataPresenter\ExpandableFieldRecord.cs" />
+    <Compile Include="Windows\DataPresenter\ExpandableFieldRecordCollection.cs" />
+    <Compile Include="Windows\DataPresenter\ExpandableFieldRecordExpansionMode.cs" />
+    <Compile Include="Windows\DataPresenter\ExpandableFieldRecordHeaderDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\ExpandableFieldRecordPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\ExpandedCellPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\ExpansionIndicatorDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\ExportHelper.cs" />
+    <Compile Include="Windows\DataPresenter\ExportInfo.cs" />
+    <Compile Include="Windows\DataPresenter\ExportProcessResult.cs" />
+    <Compile Include="Windows\DataPresenter\ExportRecordEnumerator.cs" />
+    <Compile Include="Windows\DataPresenter\ExportRecordEnumeratorBase.cs" />
+    <Compile Include="Windows\DataPresenter\ExportSourceRecordEnumerator.cs" />
+    <Compile Include="Windows\DataPresenter\Field.cs" />
+    <Compile Include="Windows\DataPresenter\FieldAutoSizeOptions.cs" />
+    <Compile Include="Windows\DataPresenter\FieldAutoSizeScope.cs" />
+    <Compile Include="Windows\DataPresenter\FieldBinding.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooser.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserCommands.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserDisplayOrder.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserDropType.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserEntry.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserFilter.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserGroup.cs" />
+    <Compile Include="Windows\DataPresenter\FieldChooserStates.cs" />
+    <Compile Include="Windows\DataPresenter\FieldCollection.cs" />
+    <Compile Include="Windows\DataPresenter\FieldDragIndicator.cs" />
+    <Compile Include="Windows\DataPresenter\FieldDragManager.cs" />
+    <Compile Include="Windows\DataPresenter\FieldGridBagLayoutManager.cs" />
+    <Compile Include="Windows\DataPresenter\FieldGroupByMode.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayout.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutCollection.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutGroupByInfo.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutGroupByInfoCollection.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutItemBase.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutSettings.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLayoutTemplateGenerator.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLength.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLengthConverter.cs" />
+    <Compile Include="Windows\DataPresenter\FieldLengthUnitType.cs" />
+    <Compile Include="Windows\DataPresenter\FieldMenuDataItem.cs" />
+    <Compile Include="Windows\DataPresenter\FieldMenuItem.cs" />
+    <Compile Include="Windows\DataPresenter\FieldMenuItemProvider.cs" />
+    <Compile Include="Windows\DataPresenter\FieldNavigationIndexComparer.cs" />
+    <Compile Include="Windows\DataPresenter\FieldPosition.cs" />
+    <Compile Include="Windows\DataPresenter\FieldPositionAction.cs" />
+    <Compile Include="Windows\DataPresenter\FieldPositionChangeReason.cs" />
+    <Compile Include="Windows\DataPresenter\FieldRectsLayoutContainer.cs" />
+    <Compile Include="Windows\DataPresenter\FieldResizeInfoAction.cs" />
+    <Compile Include="Windows\DataPresenter\FieldResizingArea.cs" />
+    <Compile Include="Windows\DataPresenter\FieldSettings.cs" />
+    <Compile Include="Windows\DataPresenter\FieldSize.cs" />
+    <Compile Include="Windows\DataPresenter\FieldSortComparisonType.cs" />
+    <Compile Include="Windows\DataPresenter\FieldSortDescription.cs" />
+    <Compile Include="Windows\DataPresenter\FieldSortDescriptionCollection.cs" />
+    <Compile Include="Windows\DataPresenter\FilterButton.cs" />
+    <Compile Include="Windows\DataPresenter\FilterCell.cs" />
+    <Compile Include="Windows\DataPresenter\FilterCellCollection.cs" />
+    <Compile Include="Windows\DataPresenter\FilterCellElementKey.cs" />
+    <Compile Include="Windows\DataPresenter\FilterCellValuePresenter.cs" />
+    <Compile Include="Windows\DataPresenter\FilterClearButtonLocation.cs" />
+    <Compile Include="Windows\DataPresenter\FilterConditionEvaluationContext.cs" />
+    <Compile Include="Windows\DataPresenter\FilterConditionEvaluationContextBase.cs" />
+    <Compile Include="Windows\DataPresenter\FilterDropDownConditionEvaluationContext.cs" />
+    <Compile Include="Windows\DataPresenter\FilterDropDownItem.cs" />
+    <Compile Include="Windows\DataPresenter\FilterDropDownItemsType.cs" />
+    <Compile Include="Windows\DataPresenter\FilteredDataItemsCollection.cs" />
+    <Compile Include="Windows\DataPresenter\FilterEvaluationMode.cs" />
+    <Compile Include="Windows\DataPresenter\FilterEvaluationTrigger.cs" />
+    <Compile Include="Windows\DataPresenter\FilterLabelIconDropDownType.cs" />
+    <Compile Include="Windows\DataPresenter\FilterOperandUIType.cs" />
+    <Compile Include="Windows\DataPresenter\FilterRecord.cs" />
+    <Compile Include="Windows\DataPresenter\FilterRecordLocation.cs" />
+    <Compile Include="Windows\DataPresenter\FilterUIType.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFarConverter.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFieldButton.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFieldInfo.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFieldLocation.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFieldSplitter.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFieldSplitterType.cs" />
+    <Compile Include="Windows\DataPresenter\FixedFieldUIType.cs" />
+    <Compile Include="Windows\DataPresenter\FixedRecordButton.cs" />
+    <Compile Include="Windows\DataPresenter\FixedRecordLocation.cs" />
+    <Compile Include="Windows\DataPresenter\FixedRecordLocationInternal.cs" />
+    <Compile Include="Windows\DataPresenter\FixedRecordSortOrder.cs" />
+    <Compile Include="Windows\DataPresenter\FixedRecordUIType.cs" />
+    <Compile Include="Windows\DataPresenter\FlatScrollRecordsCollection.cs" />
+    <Compile Include="Windows\DataPresenter\GridBagConstraint.cs" />
+    <Compile Include="Windows\DataPresenter\GridCellRange.cs" />
+    <Compile Include="Windows\DataPresenter\GridCellRangeValueProvider.cs" />
+    <Compile Include="Windows\DataPresenter\GridDefinitionLayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\GridFieldMap.cs" />
+    <Compile Include="Windows\DataPresenter\GridUtilities.cs" />
+    <Compile Include="Windows\DataPresenter\GridView.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewBase.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewFieldLayoutTemplateGenerator.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewPanelAdorner.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewPanelFlat.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewPanelNested.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewSettings.cs" />
+    <Compile Include="Windows\DataPresenter\GridViewSettingsBase.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAction.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByArea.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaBase.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaFieldLabel.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaFieldLabelCollection.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaFieldListBox.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaLocation.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaMode.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaMulti.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaMultiDropType.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByAreaMultiPanel.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByEvaluationMode.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByEvaluatorFactory.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByFieldCollection.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByRecord.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByRecordCollection.cs" />
+    <Compile Include="Windows\DataPresenter\GroupByRecordPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\GroupBySummariesPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\GroupBySummaryDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\GroupInfo.cs" />
+    <Compile Include="Windows\DataPresenter\GroupingHelper.cs" />
+    <Compile Include="Windows\DataPresenter\GroupNumberManager.cs" />
+    <Compile Include="Windows\DataPresenter\GroupsSynchronizer.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderedGridViewFieldLayoutTemplateGenerator.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderLabelArea.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderPlacement.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderPlacementInGroupBy.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderPrefixArea.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderPrefixAreaDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\HeaderRecord.cs" />
+    <Compile Include="Windows\DataPresenter\HighlightPrimaryField.cs" />
+    <Compile Include="Windows\DataPresenter\HtmlClipboardEncoding.cs" />
+    <Compile Include="Windows\DataPresenter\ICellValueProvider.cs" />
+    <Compile Include="Windows\DataPresenter\IDataPresenterExporter.cs" />
+    <Compile Include="Windows\DataPresenter\IDataPresenterExporterAsync.cs" />
+    <Compile Include="Windows\DataPresenter\IExportOptions.cs" />
+    <Compile Include="Windows\DataPresenter\IGroupByEvaluator.cs" />
+    <Compile Include="Windows\DataPresenter\Internal\ExportLayoutInformation.cs" />
+    <Compile Include="Windows\DataPresenter\Internal\FixedFieldLayoutInfo.cs" />
+    <Compile Include="Windows\DataPresenter\Internal\RecordListItemContainer.cs" />
+    <Compile Include="Windows\DataPresenter\Internal\ReportLayoutInfo.cs" />
+    <Compile Include="Windows\DataPresenter\Internal\RoutedCommandProxy.cs" />
+    <Compile Include="Windows\DataPresenter\Internal\TemplateDataRecordCache.cs" />
+    <Compile Include="Windows\DataPresenter\IRecordPresenterContainer.cs" />
+    <Compile Include="Windows\DataPresenter\ItemLayoutInfo.cs" />
+    <Compile Include="Windows\DataPresenter\ItemLayoutInfoLayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\ItemSizeType.cs" />
+    <Compile Include="Windows\DataPresenter\IViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\IViewPanelInfo.cs" />
+    <Compile Include="Windows\DataPresenter\IWrapperLayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\LabelClickAction.cs" />
+    <Compile Include="Windows\DataPresenter\LabelElementKey.cs" />
+    <Compile Include="Windows\DataPresenter\LabelLocation.cs" />
+    <Compile Include="Windows\DataPresenter\LabelPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\LayoutInfo.cs" />
+    <Compile Include="Windows\DataPresenter\LayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\LayoutItemSize.cs" />
+    <Compile Include="Windows\DataPresenter\LayoutManagerType.cs" />
+    <Compile Include="Windows\DataPresenter\LinqQueryManager.cs" />
+    <Compile Include="Windows\DataPresenter\ListKey.cs" />
+    <Compile Include="Windows\DataPresenter\ListSynchronizer.cs" />
+    <Compile Include="Windows\DataPresenter\MainRecordSparseArray.cs" />
+    <Compile Include="Windows\DataPresenter\MaskedTextField.cs" />
+    <Compile Include="Windows\DataPresenter\MaximumSummaryCalculator.cs" />
+    <Compile Include="Windows\DataPresenter\MinimumSummaryCalculator.cs" />
+    <Compile Include="Windows\DataPresenter\MultipleCellValuesAction.cs" />
+    <Compile Include="Windows\DataPresenter\NegateConverter.cs" />
+    <Compile Include="Windows\DataPresenter\NonSpecificNotificationBehavior.cs" />
+    <Compile Include="Windows\DataPresenter\NumericField.cs" />
+    <Compile Include="Windows\DataPresenter\PanelLayoutStyle.cs" />
+    <Compile Include="Windows\DataPresenter\PanelNavigationDirection.cs" />
+    <Compile Include="Windows\DataPresenter\PanelNavigationScrollType.cs" />
+    <Compile Include="Windows\DataPresenter\PanelSiblingNavigationStyle.cs" />
+    <Compile Include="Windows\DataPresenter\PlaceholderField.cs" />
+    <Compile Include="Windows\DataPresenter\PlainTextClipboardEncoding.cs" />
+    <Compile Include="Windows\DataPresenter\ProcessRecordParams.cs" />
+    <Compile Include="Windows\DataPresenter\Record.cs" />
+    <Compile Include="Windows\DataPresenter\RecordAndField.cs" />
+    <Compile Include="Windows\DataPresenter\RecordCellAreaBase.cs" />
+    <Compile Include="Windows\DataPresenter\RecordCellRange.cs" />
+    <Compile Include="Windows\DataPresenter\RecordCellRangeValueProvider.cs" />
+    <Compile Include="Windows\DataPresenter\RecordCollection.cs" />
+    <Compile Include="Windows\DataPresenter\RecordCollectionBase.cs" />
+    <Compile Include="Windows\DataPresenter\RecordContainerRetentionMode.cs" />
+    <Compile Include="Windows\DataPresenter\RecordExpansionAction.cs" />
+    <Compile Include="Windows\DataPresenter\RecordExportCancellationInfo.cs" />
+    <Compile Include="Windows\DataPresenter\RecordExportCancellationReason.cs" />
+    <Compile Include="Windows\DataPresenter\RecordExportStatus.cs" />
+    <Compile Include="Windows\DataPresenter\RecordExportStatusControl.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilter.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterAction.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterActionTypeConverter.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterCollection.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterCommandBase.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterFieldInfo.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFiltersAction.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterScope.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeControl.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeItem.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeItemEx.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeItemParent.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeItemProvider.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeItemType.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFilterTreeSearchScope.cs" />
+    <Compile Include="Windows\DataPresenter\RecordFixedStateAction.cs" />
+    <Compile Include="Windows\DataPresenter\RecordListControl.cs" />
+    <Compile Include="Windows\DataPresenter\RecordLoadMode.cs" />
+    <Compile Include="Windows\DataPresenter\RecordManager.cs" />
+    <Compile Include="Windows\DataPresenter\RecordPrefixArea.cs" />
+    <Compile Include="Windows\DataPresenter\RecordPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\RecordResizingArea.cs" />
+    <Compile Include="Windows\DataPresenter\RecordScrollTip.cs" />
+    <Compile Include="Windows\DataPresenter\RecordScrollTipInfo.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSelector.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSelectorLocation.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSelectorNumber.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSelectorNumberFormat.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSelectorNumberType.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSeparatorLocation.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSeparatorVisibility.cs" />
+    <Compile Include="Windows\DataPresenter\RecordsInViewHelper.cs" />
+    <Compile Include="Windows\DataPresenter\RecordSparseArrayBase.cs" />
+    <Compile Include="Windows\DataPresenter\RecordType.cs" />
+    <Compile Include="Windows\DataPresenter\RecordUpdatingAction.cs" />
+    <Compile Include="Windows\DataPresenter\RecordVisibleIndexComparer.cs" />
+    <Compile Include="Windows\DataPresenter\RecordVisiblePositionComparer.cs" />
+    <Compile Include="Windows\DataPresenter\RecursiveRecordsEnumerator.cs" />
+    <Compile Include="Windows\DataPresenter\ReferenceEqualityComparer.cs" />
+    <Compile Include="Windows\DataPresenter\ReflectionSerializationInfo.cs" />
+    <Compile Include="Windows\DataPresenter\ReportRecordEnumerator.cs" />
+    <Compile Include="Windows\DataPresenter\ReportViewBase.cs" />
+    <Compile Include="Windows\DataPresenter\ResizeRecordAction.cs" />
+    <Compile Include="Windows\DataPresenter\ResolvedRecordFilterCollection.cs" />
+    <Compile Include="Windows\DataPresenter\Resources.cs" />
+    <Compile Include="Windows\DataPresenter\ResourcesDataPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\RoutedEventWrapper.cs" />
+    <Compile Include="Windows\DataPresenter\RowColumnIndex.cs" />
+    <Compile Include="Windows\DataPresenter\ScheduleUtilities.cs" />
+    <Compile Include="Windows\DataPresenter\ScrollBehaviorOnListChange.cs" />
+    <Compile Include="Windows\DataPresenter\ScrollingMode.cs" />
+    <Compile Include="Windows\DataPresenter\SelectedCellCollection.cs" />
+    <Compile Include="Windows\DataPresenter\SelectedDataItemsScope.cs" />
+    <Compile Include="Windows\DataPresenter\SelectedFieldCollection.cs" />
+    <Compile Include="Windows\DataPresenter\SelectedItemCollectionBase.cs" />
+    <Compile Include="Windows\DataPresenter\SelectedRecordCollection.cs" />
+    <Compile Include="Windows\DataPresenter\SelectionDepthMode.cs" />
+    <Compile Include="Windows\DataPresenter\SimpleValueHolder.cs" />
+    <Compile Include="Windows\DataPresenter\SingleCellAction.cs" />
+    <Compile Include="Windows\DataPresenter\SingleCellValueAction.cs" />
+    <Compile Include="Windows\DataPresenter\SortedFieldsToCollectionViewSynchronizer.cs" />
+    <Compile Include="Windows\DataPresenter\SortEvaluationMode.cs" />
+    <Compile Include="Windows\DataPresenter\SortingAction.cs" />
+    <Compile Include="Windows\DataPresenter\SparseList.cs" />
+    <Compile Include="Windows\DataPresenter\SpecialFilterOperandCommand.cs" />
+    <Compile Include="Windows\DataPresenter\SpecialRecordOrder.cs" />
+    <Compile Include="Windows\DataPresenter\States.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryAction.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryButton.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryCalculator.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryCalculatorHolder.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryCalculatorSelectionControl.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryCellPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryCellPresenterLayoutElement.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryDefinition.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryDefinitionCollection.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryDisplayAreaContext.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryDisplayAreas.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryEvaluationMode.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryPosition.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryPositionContext.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryRecord.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryRecordCellArea.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryRecordContentArea.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryRecordHeaderPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryRecordPrefixArea.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryRecordPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryResult.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryResultCollection.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryResultEntry.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryResultPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryResultsPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryStringFormatsParser.cs" />
+    <Compile Include="Windows\DataPresenter\SummaryUIType.cs" />
+    <Compile Include="Windows\DataPresenter\SumSummaryCalculator.cs" />
+    <Compile Include="Windows\DataPresenter\SupportDataErrorInfo.cs" />
+    <Compile Include="Windows\DataPresenter\SuppressedEventsCollection.cs" />
+    <Compile Include="Windows\DataPresenter\TabularReportView.cs" />
+    <Compile Include="Windows\DataPresenter\TabularReportViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\TabularReportViewPanelBase.cs" />
+    <Compile Include="Windows\DataPresenter\TemplateDataRecord.cs" />
+    <Compile Include="Windows\DataPresenter\TemplateField.cs" />
+    <Compile Include="Windows\DataPresenter\TextAlignmentToHorizontalAlignmentConverter.cs" />
+    <Compile Include="Windows\DataPresenter\TextField.cs" />
+    <Compile Include="Windows\DataPresenter\TextFieldBase.cs" />
+    <Compile Include="Windows\DataPresenter\TreeCellValuePresenter.cs" />
+    <Compile Include="Windows\DataPresenter\TreeCellVisiblePositionComparer.cs" />
+    <Compile Include="Windows\DataPresenter\TreeLineRenderer.cs" />
+    <Compile Include="Windows\DataPresenter\TreeReportView.cs" />
+    <Compile Include="Windows\DataPresenter\TreeReportViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\TreeView.cs" />
+    <Compile Include="Windows\DataPresenter\TreeViewFilterResultsDisplayMode.cs" />
+    <Compile Include="Windows\DataPresenter\TreeViewPanel.cs" />
+    <Compile Include="Windows\DataPresenter\TreeViewSettings.cs" />
+    <Compile Include="Windows\DataPresenter\UIOperation.cs" />
+    <Compile Include="Windows\DataPresenter\UnboundCell.cs" />
+    <Compile Include="Windows\DataPresenter\UnboundField.cs" />
+    <Compile Include="Windows\DataPresenter\UndeleteRecordsAction.cs" />
+    <Compile Include="Windows\DataPresenter\UndeleteRecordsStrategy.cs" />
+    <Compile Include="Windows\DataPresenter\UnsortedRecordSparseArray.cs" />
+    <Compile Include="Windows\DataPresenter\UpdateMode.cs" />
+    <Compile Include="Windows\DataPresenter\ViewableRecordCollection.cs" />
+    <Compile Include="Windows\DataPresenter\ViewBase.cs" />
+    <Compile Include="Windows\DataPresenter\ViewStateChangedAction.cs" />
+    <Compile Include="Windows\DataPresenter\VirtualCellInfo.cs" />
+    <Compile Include="Windows\DataPresenter\VirtualizingDataRecordCellPanel.cs" />
+    <Compile Include="Windows\DataPresenter\VirtualizingSummaryCellPanel.cs" />
+    <Compile Include="Windows\DataPresenter\VisibleDataBlock.cs" />
+    <Compile Include="Windows\DataPresenter\VUtils.cs" />
+    <Compile Include="Windows\DataPresenter\WrapperLayoutItem.cs" />
+    <Compile Include="Windows\DataPresenter\XamDataCards.cs" />
+    <Compile Include="Windows\DataPresenter\XamDataCarousel.cs" />
+    <Compile Include="Windows\DataPresenter\XamDataGrid.cs" />
+    <Compile Include="Windows\DataPresenter\XamDataPresenter.cs" />
+    <Compile Include="Windows\DataPresenter\XamTreeGrid.cs" />
+    <Compile Include="Windows\EditableCollectionViewProxy.cs" />
+    <Compile Include="Windows\Helpers\SafeSystemInformation.cs" />
+    <Compile Include="Windows\NewItemPlaceholderPositionProxy.cs" />
+    <Compile Include="Windows\Themes\DataPresenterAero.cs" />
+    <Compile Include="Windows\Themes\DataPresenterAeroBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterGeneric.cs" />
+    <Compile Include="Windows\Themes\DataPresenterIGTheme.cs" />
+    <Compile Include="Windows\Themes\DataPresenterIGThemeBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterLunaNormal.cs" />
+    <Compile Include="Windows\Themes\DataPresenterLunaNormalBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterLunaOlive.cs" />
+    <Compile Include="Windows\Themes\DataPresenterLunaOliveBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterLunaSilver.cs" />
+    <Compile Include="Windows\Themes\DataPresenterLunaSilverBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterMetro.cs" />
+    <Compile Include="Windows\Themes\DataPresenterMetroDark.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2010Blue.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2010BlueBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2013.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2013Brushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2k7Black.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2k7BlackBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2k7Blue.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2k7BlueBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2k7Silver.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOffice2k7SilverBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOnyx.cs" />
+    <Compile Include="Windows\Themes\DataPresenterOnyxBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterPrintBasic.cs" />
+    <Compile Include="Windows\Themes\DataPresenterPrintBasicBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterResourceSet.cs" />
+    <Compile Include="Windows\Themes\DataPresenterRoyale.cs" />
+    <Compile Include="Windows\Themes\DataPresenterRoyaleBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterRoyaleStrong.cs" />
+    <Compile Include="Windows\Themes\DataPresenterRoyaleStrongBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterWashBaseDark.cs" />
+    <Compile Include="Windows\Themes\DataPresenterWashBaseDarkBrushes.cs" />
+    <Compile Include="Windows\Themes\DataPresenterWashBaseLight.cs" />
+    <Compile Include="Windows\Themes\DataPresenterWashBaseLightBrushes.cs" />
+    <Compile Include="Windows\Themes\Internal\DataPresenterAssemblyResourceSetLoader.cs" />
+    <Compile Include="Windows\Themes\Internal\DataPresenterThemeTypeConverter.cs" />
+    <Compile Include="Windows\UndoManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows\Properties\Resources.resources" />
+    <EmbeddedResource Include="Windows\strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.Editors.v15.1\InfragisticsWPF4.Editors.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68E}</Project>
+      <Name>InfragisticsWPF4.Editors.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteraero_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresentergeneric_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterigtheme_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterlunanormal_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterlunaolive_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterlunasilver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresentermetrodark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresentermetro_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteroffice2010blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteroffice2013_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteroffice2k7black_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteroffice2k7blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteroffice2k7silver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenteronyx_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterprintbasic_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterroyalestrong_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterroyale_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterwashbasedark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenterbrushes\datapresenterwashbaselight_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteraero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteraero_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresentergeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresentergeneric_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterigtheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterigtheme_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterlunanormal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterlunanormal_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterlunaolive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterlunaolive_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterlunasilver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterlunasilver_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresentermetro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresentermetrodark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresentermetrodark_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresentermetro_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2010blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2010blue_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2013.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2013_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2k7black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2k7black_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2k7blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2k7blue_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2k7silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteroffice2k7silver_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteronyx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenteronyx_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterprintbasic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterroyale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterroyalestrong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterroyalestrong_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterroyale_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterwashbasedark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\datapresenter\datapresenterwashbaselight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero2.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aerolite.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\royale.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\zune.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cursors\hidefield.cur" />
+    <Resource Include="cursors\ungroup.cur" />
+    <Resource Include="images\andgroupicon.png" />
+    <Resource Include="images\filter.png" />
+    <Resource Include="images\filterclearbutton.png" />
+    <Resource Include="images\filterclearmenu.png" />
+    <Resource Include="images\fixedbuttonwhenfixed.png" />
+    <Resource Include="images\fixedbuttonwhenunfixed.png" />
+    <Resource Include="images\iconadd.png" />
+    <Resource Include="images\iconsubtract.png" />
+    <Resource Include="images\magnifyingglass.png" />
+    <Resource Include="images\orgroupicon.png" />
+    <Resource Include="images\summary.png" />
+    <Resource Include="images\togglecardcollapsedstate_collapsed.png" />
+    <Resource Include="images\togglecardcollapsedstate_notcollapsed.png" />
+    <Resource Include="images\toggleemptycardcellscollapsedstate_collapsed.png" />
+    <Resource Include="images\toggleemptycardcellscollapsedstate_notcollapsed.png" />
+    <Resource Include="images\togglegroupicon.png" />
+    <Resource Include="images\ungroupgroupicon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

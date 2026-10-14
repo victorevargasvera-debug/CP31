@@ -1,0 +1,129 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:dc="clr-namespace:DevComponents.WpfRibbon" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Geometry
+		x:Key="DownArrow">M0,0 L1,0 0.5,1Z</Geometry>
+	<Geometry
+		x:Key="UpArrow">M0,1 L1,1 0.5,0Z</Geometry>
+	<Geometry
+		x:Key="RightArrow">M0,0 L1,0.5 0,1Z</Geometry>
+	<Geometry
+		x:Key="LeftArrow">M0,0.5 L1,1 1,0Z</Geometry>
+	<Style
+		TargetType="{x:Type dc:ExpandDecorator}"
+		x:Key="{x:Type dc:ExpandDecorator}">
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:Ribbon, ResourceId={x:Static dc:RibbonColors.ExpandBackground}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="#E0FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type dc:ExpandDecorator}">
+					<Grid>
+						<Path
+							Name="PART_Shadow"
+							Width="{TemplateBinding dc:ExpanderWidth}"
+							Height="{TemplateBinding dc:ExpanderHeight}"
+							Stretch="Fill"
+							Fill="{TemplateBinding BorderBrush}"
+							StrokeThickness="0.5"
+							Stroke="{TemplateBinding BorderBrush}"
+							Margin="0,3,0,0"
+							Data="{StaticResource DownArrow}" />
+						<Path
+							Name="PART_Arrow"
+							Width="{TemplateBinding dc:ExpanderWidth}"
+							Height="{TemplateBinding dc:ExpanderHeight}"
+							Stretch="Fill"
+							Fill="{TemplateBinding Background}"
+							StrokeThickness="0.5"
+							Stroke="{TemplateBinding Background}"
+							Data="{StaticResource DownArrow}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="dc:ExpandDecorator.PopupPlacement"
+							Value="Left">
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Data"
+								Value="{StaticResource LeftArrow}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Data"
+								Value="{StaticResource LeftArrow}" />
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Width"
+								Value="{Binding Path=ExpanderHeight, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Height"
+								Value="{Binding Path=ExpanderWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Width"
+								Value="{Binding Path=ExpanderHeight, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Height"
+								Value="{Binding Path=ExpanderWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="dc:ExpandDecorator.PopupPlacement"
+							Value="Right">
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Data"
+								Value="{StaticResource RightArrow}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Data"
+								Value="{StaticResource RightArrow}" />
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Width"
+								Value="{Binding Path=ExpanderHeight, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Height"
+								Value="{Binding Path=ExpanderWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Width"
+								Value="{Binding Path=ExpanderHeight, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Height"
+								Value="{Binding Path=ExpanderWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="dc:ExpandDecorator.PopupPlacement"
+							Value="Top">
+							<Setter
+								TargetName="PART_Shadow"
+								Property="Data"
+								Value="{StaticResource UpArrow}" />
+							<Setter
+								TargetName="PART_Arrow"
+								Property="Data"
+								Value="{StaticResource UpArrow}" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								Property="Background"
+								Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:Ribbon, ResourceId={x:Static dc:RibbonColors.ButtonDisabledForeground}}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

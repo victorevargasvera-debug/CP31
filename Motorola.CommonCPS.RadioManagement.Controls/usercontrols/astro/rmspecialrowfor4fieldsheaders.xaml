@@ -1,0 +1,39 @@
+<local:RMSpecialEditorHeader
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMSpecialRowFor4FieldsHeaders" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<UniformGrid
+		Rows="1"
+		DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}">
+		<!--Unknown connection ID: 1-->
+		<local:RMTextBlock
+			Name="TB1"
+			Margin="26,0,0,0"
+			TextWrapping="Wrap"
+			Text="{Binding Header1}" />
+		<!--Unknown connection ID: 2-->
+		<local:RMTextBlock
+			Name="TB2"
+			Margin="26,0,0,0"
+			TextWrapping="Wrap"
+			Text="{Binding Header2}" />
+		<!--Unknown connection ID: 3-->
+		<local:RMTextBlock
+			Name="TB3"
+			Margin="26,0,0,0"
+			TextWrapping="Wrap"
+			Text="{Binding Header3}" />
+		<!--Unknown connection ID: 4-->
+		<local:RMTextBlock
+			Name="TB4"
+			Margin="26,0,0,0"
+			TextWrapping="Wrap"
+			Text="{Binding Header4}"
+			Visibility="{Binding Header4Visibility}" />
+		<!--Unknown connection ID: 5-->
+		<local:RMTextBlock
+			Name="TB5"
+			Margin="26,0,0,0"
+			TextWrapping="Wrap"
+			Text="{Binding Header5}"
+			Visibility="{Binding Header5Visibility}" />
+	</UniformGrid>
+</local:RMSpecialEditorHeader>

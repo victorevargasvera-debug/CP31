@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.IdentityModel.Tokens.Jwt</RootNamespace>
+    <AssemblyName>System.IdentityModel.Tokens.Jwt</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClaimTypeMapping.cs" />
+    <Compile Include="Deserializer.cs" />
+    <Compile Include="JsonClaimValueTypes.cs" />
+    <Compile Include="JsonExtensions.cs" />
+    <Compile Include="JwtConstants.cs" />
+    <Compile Include="JwtHeader.cs" />
+    <Compile Include="JwtHeaderParameterNames.cs" />
+    <Compile Include="JwtPayload.cs" />
+    <Compile Include="JwtRegisteredClaimNames.cs" />
+    <Compile Include="JwtSecurityToken.cs" />
+    <Compile Include="JwtSecurityTokenHandler.cs" />
+    <Compile Include="LogMessages.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.IdentityModel.JsonWebTokens\Microsoft.IdentityModel.JsonWebTokens.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA697}</Project>
+      <Name>Microsoft.IdentityModel.JsonWebTokens</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.IdentityModel.Logging\Microsoft.IdentityModel.Logging.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA698}</Project>
+      <Name>Microsoft.IdentityModel.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.IdentityModel.Tokens\Microsoft.IdentityModel.Tokens.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA699}</Project>
+      <Name>Microsoft.IdentityModel.Tokens</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C8}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

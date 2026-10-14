@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Icons</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Icons</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="-Module-.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="action_cancel_16xlg.png" />
+    <Resource Include="addexistingitem_6269.png" />
+    <Resource Include="canvaselement_10701_24.bmp" />
+    <Resource Include="clearwindowcontent_6304.png" />
+    <Resource Include="closedfolder.png" />
+    <Resource Include="config.png" />
+    <Resource Include="config_lock.png" />
+    <Resource Include="copy_6524.png" />
+    <Resource Include="deletehs.png" />
+    <Resource Include="gear_32xlg.png" />
+    <Resource Include="group.bmp" />
+    <Resource Include="lens.png" />
+    <Resource Include="magnifier_16xlg.png" />
+    <Resource Include="magnify.cur" />
+    <Resource Include="more.png" />
+    <Resource Include="multisets.png" />
+    <Resource Include="multisets_nonshareable.png" />
+    <Resource Include="notification_error.png" />
+    <Resource Include="notification_erroraswarning.png" />
+    <Resource Include="notification_information.png" />
+    <Resource Include="notification_success.png" />
+    <Resource Include="notification_warning.png" />
+    <Resource Include="openfolder.png" />
+    <Resource Include="radio.png" />
+    <Resource Include="reset.png" />
+    <Resource Include="rm.ico" />
+    <Resource Include="rmc\ps_rm.ico" />
+    <Resource Include="rmc\rm.ico" />
+    <Resource Include="rm_large_shadow.png" />
+    <Resource Include="rm_reflection.png" />
+    <Resource Include="sets.png" />
+    <Resource Include="sets_nonshareable.png" />
+    <Resource Include="singleset.ico" />
+    <Resource Include="statusannotations_stop_16xlg_color.png" />
+    <Resource Include="symbols_pause_16xlg.png" />
+    <Resource Include="symbols_play_16xlg.png" />
+    <Resource Include="symbols_stop_16xlg.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

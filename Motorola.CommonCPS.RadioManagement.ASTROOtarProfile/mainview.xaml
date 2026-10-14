@@ -1,0 +1,81 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.ASTROOtarProfile.ASTROOtarProfileMainView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://www.codeplex.com/prism" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.ASTROOtarProfile" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.ASTROOtarProfile;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:d
+				x:Key="FilterOptionToBoolConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border
+		BorderBrush="#FFD3D3D3"
+		BorderThickness="1">
+		<Grid
+			Margin="10">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="1" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid
+				Margin="0,0,0,10"
+				Visibility="{Binding Path=FilterOptionVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_ViewBy}" />
+				<!--Unknown connection ID: 1-->
+				<controls:RMRadioButton
+					Name="rbtAll"
+					Grid.Column="2"
+					Content="{x:Static resourceRepository:Resources.RMC_Filter_All}"
+					IsChecked="{Binding Path=FilterOption, Converter={StaticResource FilterOptionToBoolConverter}, ConverterParameter=All}" />
+				<!--Unknown connection ID: 2-->
+				<controls:RMRadioButton
+					Name="rbtRadios"
+					Grid.Column="4"
+					Content="{x:Static resourceRepository:Resources.RMC_Filter_Radios}"
+					IsChecked="{Binding Path=FilterOption, Converter={StaticResource FilterOptionToBoolConverter}, ConverterParameter=Radios}" />
+				<!--Unknown connection ID: 3-->
+				<controls:RMRadioButton
+					Name="rbtOtarProfiles"
+					Grid.Column="6"
+					Content="{x:Static resourceRepository:Resources.RMC_Filter_OtarProfiles}"
+					IsChecked="{Binding Path=FilterOption, Converter={StaticResource FilterOptionToBoolConverter}, ConverterParameter=OtarProfiles}" />
+			</Grid>
+			<Grid
+				Row="1"
+				Background="{StaticResource BrushAccent}"
+				Visibility="{Binding Path=FilterOptionVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+			<ContentControl
+				Margin="0,10,0,0"
+				Grid.Row="2"
+				prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.ASTROOtarProfileMainRegion}">
+				<UIElement.InputBindings>
+					<KeyBinding
+						Key="F5"
+						Command="{Binding RefreshCommand}" />
+				</UIElement.InputBindings>
+			</ContentControl>
+		</Grid>
+	</Border>
+</UserControl>

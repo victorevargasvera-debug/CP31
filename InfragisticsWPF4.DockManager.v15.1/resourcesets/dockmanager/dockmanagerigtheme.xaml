@@ -1,0 +1,617 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igWindows="http://infragistics.com/Windows" xmlns:igDock="clr-namespace:Infragistics.Windows.DockManager" xmlns:luna="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:igThemes="clr-namespace:Infragistics.Windows.Themes">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="DockManagerGeneric.xaml" />
+		<ResourceDictionary
+			Source="../DockManagerBrushes/DockManagerIGTheme_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		TargetType="{x:Type Button}"
+		BasedOn="{StaticResource ButtonStyleBase}"
+		x:Key="{x:Static igDock:TabGroupPane.DocumentPaneNavigatorButtonStyleKey}">
+		<Setter
+			Property="FrameworkElement.ToolTip"
+			Value="{StaticResource showNavigatorToolTip}" />
+		<Setter
+			Property="Width"
+			Value="16" />
+		<Setter
+			Property="Height"
+			Value="15" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Background="{TemplateBinding Background}"
+						CornerRadius="{TemplateBinding CornerRadius}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="True">
+						<Path
+							Margin="2,4,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="8"
+							Width="10"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M4,6 C4,6 12,6 12,6 C12,6 12,11 12,11 C12,11 4,11 4,11 C4,11 4,6 4,6 M3,4 C3,4 3,12 3,12 C3,12 13,12 13,12 C13,12 13,4 13,4 C13,4 3,4 3,4 M9,7 C9,7 9,10 9,10 C9,10 11,10 11,10 C11,10 11,7 11,7 C11,7 9,7 9,7 M7,9 C7,9 7,10 7,10 C7,10 8,10 8,10 C8,10 8,9 8,9 C8,9 7,9 7,9 M7,7 C7,7 7,8 7,8 C7,8 8,8 8,8 C8,8 8,7 8,7 C8,7 7,7 7,7 M5,7 C5,7 5,8 5,8 C5,8 6,8 6,8 C6,8 6,7 6,7 C6,7 5,7 5,7 M5,9 C5,9 5,10 5,10 C5,10 6,10 6,10 C6,10 6,9 6,9 C6,9 5,9 5,9"
+							Fill="{TemplateBinding Foreground}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsMouseOver, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackOuterBorderFillKey}" />
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackCenterFillKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsPressed, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonPressedOuterBorderFillKey}" />
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonPressedCenterFillKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" />
+			</DataTrigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type MenuItem}"
+		BasedOn="{StaticResource TopLevelHeaderMenuItemStyleBase}"
+		x:Key="{x:Static igDock:TabGroupPane.DocumentFilesMenuItemStyleKey}">
+		<Setter
+			Property="FrameworkElement.ToolTip"
+			Value="{StaticResource filesToolTip}" />
+		<Setter
+			Property="Width"
+			Value="14" />
+		<Setter
+			Property="Height"
+			Value="13" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphFillKey}" />
+		<Setter
+			Property="Margin"
+			Value="0,3,0,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type MenuItem}">
+					<igWindows:CardPanel>
+						<Border
+							Background="{TemplateBinding Background}"
+							CornerRadius="{TemplateBinding CornerRadius}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							SnapsToDevicePixels="True">
+							<Grid
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch">
+								<Path
+									Name="AllItemsInViewGlyph"
+									Margin="2,4,0,0"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top"
+									Height="4"
+									Width="9"
+									Stretch="Fill"
+									Opacity="1"
+									Data="M3,4 C3,4 7.5,7.5 7.5,7.5 C7.5,7.5 12,4 12,4 C12,4 3,4 3,4"
+									Fill="{TemplateBinding Foreground}" />
+								<Path
+									Name="HasItemsOutOfViewGlyph"
+									Visibility="Collapsed"
+									Margin="2,3,0,0"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top"
+									Height="7"
+									Width="9"
+									Stretch="Fill"
+									Opacity="1"
+									Data="M0,3 C0,3 9,3 9,3 C9,3 4.5,7.5 4.5,7.5 C4.5,7.5 0,3 0,3 M0,0 L9,0 L9,2 L0,2 L0,0"
+									Fill="{TemplateBinding Foreground}" />
+							</Grid>
+						</Border>
+						<Popup
+							Name="PART_Popup"
+							AllowsTransparency="True"
+							Placement="Bottom"
+							PopupAnimation="{DynamicResource SystemParameters.MenuPopupAnimationKey}"
+							IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+							<luna:SystemDropShadowChrome
+								Name="Shdw"
+								Color="{StaticResource Color_050}">
+								<Grid
+									Name="MenuItem"
+									Height="Auto"
+									Width="Auto">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="27" />
+										<ColumnDefinition
+											Width="*" />
+									</Grid.ColumnDefinitions>
+									<Rectangle
+										Grid.ColumnSpan="2"
+										Opacity="1"
+										HorizontalAlignment="Stretch"
+										VerticalAlignment="Stretch"
+										Margin="0,0,0,0"
+										Stroke="{DynamicResource igDock:DockManagerBrushKeys.MenuItemOuterBorderFillKey}"
+										StrokeThickness="1"
+										Fill="{DynamicResource igDock:DockManagerBrushKeys.MenuItemCenterFillKey}"
+										SnapsToDevicePixels="True" />
+									<ScrollViewer
+										Grid.ColumnSpan="2"
+										CanContentScroll="True"
+										Margin="3"
+										Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+										<ItemsPresenter
+											KeyboardNavigation.TabNavigation="Cycle"
+											KeyboardNavigation.DirectionalNavigation="Cycle"
+											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									</ScrollViewer>
+								</Grid>
+							</luna:SystemDropShadowChrome>
+						</Popup>
+					</igWindows:CardPanel>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}"
+								Property="Foreground" />
+						</Trigger>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding Path=(igDock:DocumentTabPanel.HasItemsOutOfView), RelativeSource={RelativeSource AncestorType={x:Type igDock:TabGroupPane}}}">
+							<Setter
+								TargetName="HasItemsOutOfViewGlyph"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="AllItemsInViewGlyph"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsHighlighted, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackOuterBorderFillKey}" />
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackCenterFillKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsSubmenuOpen, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonPressedOuterBorderFillKey}" />
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonPressedCenterFillKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" />
+			</DataTrigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		BasedOn="{StaticResource ButtonStyleBase}"
+		x:Key="{x:Static igDock:TabGroupPane.DocumentCloseButtonStyleKey}">
+		<Setter
+			Property="FrameworkElement.ToolTip"
+			Value="{StaticResource closeToolTip}" />
+		<Setter
+			Property="Width"
+			Value="14" />
+		<Setter
+			Property="Height"
+			Value="13" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphFillKey}" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="Margin"
+			Value="0,3,0,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Background="{TemplateBinding Background}"
+						CornerRadius="{TemplateBinding CornerRadius}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="True">
+						<Path
+							Margin="2,1,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="8"
+							Width="8"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M1244,87 C1244,87 1243,88 1243,88 C1243,88 1246,91 1246,91 C1246,91 1243,94 1243,94 C1243,94 1244,95 1244,95 C1244,95 1247,92 1247,92 C1247,92 1250,95 1250,95 C1250,95 1251,94 1251,94 C1251,94 1248,91 1248,91 C1248,91 1251,88 1251,88 C1251,88 1250,87 1250,87 C1250,87 1247,90 1247,90 C1247,90 1244,87 1244,87"
+							Fill="{TemplateBinding Foreground}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}"
+								Property="Foreground" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsMouseOver, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackOuterBorderFillKey}" />
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackCenterFillKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsPressed, RelativeSource={x:Static RelativeSource.Self}}">
+				<Setter
+					Property="BorderBrush"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonPressedOuterBorderFillKey}" />
+				<Setter
+					Property="Background"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.PaneCaptionButtonPressedCenterFillKey}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" />
+			</DataTrigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type igDock:PaneTabItem}"
+		x:Key="{x:Static igDock:PaneTabItem.UnpinnedTabItemTemplateKey}">
+		<Border
+			SnapsToDevicePixels="True">
+			<igWindows:CardPanel>
+				<igWindows:CardPanel
+					Name="Background">
+					<Grid>
+						<Border
+							Name="OuterBorder"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}"
+							SnapsToDevicePixels="True"
+							BorderThickness="0,1,1,1" />
+						<Border
+							Name="InnerBorder"
+							BorderThickness="0,1,1,1"
+							BorderBrush="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemHighlightFillKey}"
+							SnapsToDevicePixels="True" />
+					</Grid>
+				</igWindows:CardPanel>
+				<Border
+					Name="Content"
+					BorderThickness="{TemplateBinding BorderThickness}"
+					Padding="{TemplateBinding Padding}">
+					<DockPanel>
+						<igWindows:AutoDisabledImage
+							DockPanel.Dock="Left"
+							Margin="0,0,5,0"
+							Stretch="None"
+							Visibility="{Binding Path=Pane.HasImage, RelativeSource={x:Static RelativeSource.TemplatedParent}, Converter={StaticResource BoolToVisConverter}}"
+							Source="{Binding Path=Pane.Image, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+						<ContentPresenter
+							Name="contentHeader"
+							ContentSource="Header"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							RecognizesAccessKey="True"
+							igWindows:ClippedTextToolTipService.ShowToolTipWhenClipped="True"
+							igWindows:ClippedTextToolTipService.ToolTipStyleKey="{x:Static igDock:XamDockManager.ToolTipStyleKey}"
+							TextElement.Foreground="{DynamicResource igDock:DockManagerBrushKeys.ThemeColorTextFillKey}"
+							igWindows:ClippedTextToolTipService.AncestorTypeForToolTip="{x:Type ContentControl}"
+							HorizontalAlignment="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+							VerticalAlignment="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+					</DockPanel>
+				</Border>
+			</igWindows:CardPanel>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="igWindows:TabItemEx.IsMouseOverTab"
+				Value="True">
+				<Setter
+					TargetName="InnerBorder"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackHighlightFillKey}"
+					Property="BorderBrush" />
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackTextFillKey}"
+					Property="Foreground" />
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Top">
+				<Setter
+					Property="Padding"
+					Value="3,4,4,3" />
+				<Setter
+					Property="Margin"
+					Value="-1,0,0,0" />
+				<Setter
+					TargetName="OuterBorder"
+					Property="BorderThickness"
+					Value="1,1,1,0" />
+				<Setter
+					TargetName="InnerBorder"
+					Property="BorderThickness"
+					Value="1,1,1,0" />
+				<Setter
+					TargetName="InnerBorder"
+					Property="Margin"
+					Value="1,1,1,0" />
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Bottom">
+				<Setter
+					Property="Padding"
+					Value="3,4,4,4" />
+				<Setter
+					Property="Margin"
+					Value="-1,0,0,0" />
+				<Setter
+					TargetName="OuterBorder"
+					Property="BorderThickness"
+					Value="1,0,1,1" />
+				<Setter
+					TargetName="InnerBorder"
+					Property="BorderThickness"
+					Value="1,0,1,1" />
+				<Setter
+					TargetName="InnerBorder"
+					Property="Margin"
+					Value="1,0,1,1" />
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Left">
+				<Setter
+					Property="Padding"
+					Value="4,5,4,3" />
+				<Setter
+					Property="Margin"
+					Value="0,-1,0,0" />
+				<Setter
+					TargetName="OuterBorder"
+					Property="BorderThickness"
+					Value="1,1,0,1" />
+				<Setter
+					TargetName="InnerBorder"
+					Property="BorderThickness"
+					Value="1,1,0,1" />
+				<Setter
+					TargetName="InnerBorder"
+					Property="Margin"
+					Value="1,1,0,1" />
+				<Setter
+					TargetName="Content"
+					Property="FrameworkElement.LayoutTransform">
+					<Setter.Value>
+						<RotateTransform
+							Angle="90" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Right">
+				<Setter
+					Property="Padding"
+					Value="4,5,4,3" />
+				<Setter
+					Property="Margin"
+					Value="0,-1,0,0" />
+				<Setter
+					TargetName="Content"
+					Property="FrameworkElement.LayoutTransform">
+					<Setter.Value>
+						<RotateTransform
+							Angle="90" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}"
+					Property="Foreground" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Top" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemTopHottrackCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Bottom" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemBottomHottrackCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Left" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemRightHottrackCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Right" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemLeftHottrackCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Bottom" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Margin"
+					Value="15,0,0,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Top" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Margin"
+					Value="15,0,0,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Left" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Margin"
+					Value="0,15,0,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Right" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Margin"
+					Value="0,15,0,0" />
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+</ResourceDictionary>

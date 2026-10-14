@@ -1,0 +1,349 @@
+<Window
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.SplashWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls"
+	Title="{x:Static resourceRepository:Resources.Feature_Radio_Management}"
+	WindowStyle="None"
+	ResizeMode="NoResize"
+	SizeToContent="WidthAndHeight"
+	WindowStartupLocation="CenterScreen" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<SolidColorBrush
+				Color="#FFB3B3B3"
+				x:Key="GrayTone" />
+			<Style
+				TargetType="{x:Type ProgressBar}"
+				x:Key="ProgressBarStyleRMC">
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ProgressBar}">
+							<Grid
+								Background="{TemplateBinding Background}">
+								<VisualStateManager.VisualStateGroups>
+									<VisualStateGroup
+										x:Name="CommonStates">
+										<VisualState
+											x:Name="Determinate" />
+										<VisualState
+											x:Name="Indeterminate" />
+									</VisualStateGroup>
+								</VisualStateManager.VisualStateGroups>
+								<Border
+									Name="PART_Track"
+									CornerRadius="0"
+									BorderThickness="1"
+									BorderBrush="#FFFFFFFF" />
+								<Border
+									Name="PART_Indicator"
+									CornerRadius="0"
+									BorderThickness="1"
+									HorizontalAlignment="Left"
+									Background="#FFFFFFFF" />
+							</Grid>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="Background"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Foreground"
+					Value="#FFFFFFFF" />
+				<Setter
+					Property="BorderBrush"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Canvas.Top"
+					Value="325" />
+				<Setter
+					Property="Canvas.Left"
+					Value="156" />
+				<Setter
+					Property="Width"
+					Value="350" />
+				<Setter
+					Property="Height"
+					Value="16" />
+				<Setter
+					Property="RangeBase.Minimum"
+					Value="0" />
+				<Setter
+					Property="RangeBase.Maximum"
+					Value="100" />
+			</Style>
+			<Style
+				TargetType="{x:Type ProgressBar}"
+				BasedOn="{StaticResource ProgressBarStyleRMC}"
+				x:Key="ProgressBarStyleRadioCentral">
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ProgressBar}">
+							<Grid
+								Background="{TemplateBinding Background}">
+								<VisualStateManager.VisualStateGroups>
+									<VisualStateGroup
+										x:Name="CommonStates">
+										<VisualState
+											x:Name="Determinate" />
+										<VisualState
+											x:Name="Indeterminate" />
+									</VisualStateGroup>
+								</VisualStateManager.VisualStateGroups>
+								<Border
+									Name="PART_Track"
+									CornerRadius="0"
+									BorderThickness="1"
+									BorderBrush="{StaticResource GrayTone}" />
+								<Border
+									Name="PART_Indicator"
+									CornerRadius="0"
+									BorderThickness="1"
+									HorizontalAlignment="Left"
+									Background="{StaticResource GrayTone}" />
+							</Grid>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayTone}" />
+				<Setter
+					Property="Canvas.Top"
+					Value="250" />
+				<Setter
+					Property="Canvas.Left"
+					Value="123" />
+				<Setter
+					Property="Width"
+					Value="416" />
+			</Style>
+			<Style
+				TargetType="{x:Type Label}"
+				x:Key="LabelStatusStyle">
+				<Setter
+					Property="HorizontalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="Canvas.Left"
+					Value="10" />
+				<Setter
+					Property="Canvas.Top"
+					Value="350" />
+				<Setter
+					Property="Height"
+					Value="Auto" />
+				<Setter
+					Property="Width"
+					Value="642" />
+				<Setter
+					Property="FontSize"
+					Value="15" />
+				<Setter
+					Property="Foreground"
+					Value="#FFFFFFFF" />
+			</Style>
+			<Style
+				TargetType="{x:Type Label}"
+				BasedOn="{StaticResource LabelStatusStyle}"
+				x:Key="LabelStatusStyleRadioCentral">
+				<Setter
+					Property="Canvas.Top"
+					Value="285" />
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayTone}" />
+			</Style>
+			<Style
+				TargetType="{x:Type Image}"
+				x:Key="ImageStyle">
+				<Setter
+					Property="Width"
+					Value="660" />
+				<Setter
+					Property="Height"
+					Value="495" />
+			</Style>
+			<Style
+				TargetType="{x:Type Image}"
+				BasedOn="{StaticResource ImageStyle}"
+				x:Key="ImageStyleRadioCentral">
+				<Setter
+					Property="Canvas.Top"
+					Value="1" />
+				<Setter
+					Property="Canvas.Left"
+					Value="1" />
+			</Style>
+			<Style
+				TargetType="{x:Type Rectangle}"
+				x:Key="rectStyleRadioCentral">
+				<Setter
+					Property="Width"
+					Value="660" />
+				<Setter
+					Property="Height"
+					Value="495" />
+				<Setter
+					Property="Canvas.Top"
+					Value="0" />
+				<Setter
+					Property="Canvas.Left"
+					Value="0" />
+				<Setter
+					Property="Stroke"
+					Value="{StaticResource GrayTone}" />
+				<Setter
+					Property="StrokeThickness"
+					Value="1" />
+			</Style>
+			<Style
+				TargetType="{x:Type Label}"
+				x:Key="LabelVersionStyle">
+				<Setter
+					Property="FontSize"
+					Value="10" />
+				<Setter
+					Property="HorizontalContentAlignment"
+					Value="Right" />
+				<Setter
+					Property="Canvas.Left"
+					Value="468" />
+				<Setter
+					Property="Canvas.Top"
+					Value="457" />
+				<Setter
+					Property="Width"
+					Value="184" />
+				<Setter
+					Property="Height"
+					Value="28" />
+				<Setter
+					Property="Foreground"
+					Value="#FFFFFFFF" />
+			</Style>
+			<Style
+				TargetType="{x:Type Label}"
+				x:Key="LabelInfoStyle">
+				<Setter
+					Property="HorizontalContentAlignment"
+					Value="Left" />
+				<Setter
+					Property="FontSize"
+					Value="10" />
+				<Setter
+					Property="Foreground"
+					Value="#FFFFFFFF" />
+				<Setter
+					Property="Height"
+					Value="28" />
+				<Setter
+					Property="Canvas.Left"
+					Value="10" />
+				<Setter
+					Property="Canvas.Top"
+					Value="457" />
+				<Setter
+					Property="Width"
+					Value="Auto" />
+			</Style>
+			<Style
+				TargetType="{x:Type Label}"
+				x:Key="LabelProductNameStyle">
+				<Setter
+					Property="HorizontalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="Canvas.Left"
+					Value="10" />
+				<Setter
+					Property="Canvas.Top"
+					Value="325" />
+				<Setter
+					Property="Height"
+					Value="Auto" />
+				<Setter
+					Property="Width"
+					Value="642" />
+				<Setter
+					Property="FontSize"
+					Value="15" />
+				<Setter
+					Property="Foreground"
+					Value="#FF000000" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<!--Unknown connection ID: 1-->
+	<Canvas
+		Name="splashCanvas"
+		Width="660"
+		Height="495">
+		<!--Unknown connection ID: 2-->
+		<Image
+			Name="imgSplashImage"
+			Source="pack://application:,,,/Motorola.CommonCPS.RadioManagement.Common;component/SplashView/rm-cc-splash.png"
+			Style="{StaticResource ImageStyle}"
+			Visibility="Visible" />
+		<!--Unknown connection ID: 3-->
+		<Image
+			Name="cps2SplashImage"
+			Source="pack://application:,,,/Motorola.CommonCPS.RadioManagement.Common;component/SplashView/cps2-cc-splash.png"
+			Style="{StaticResource ImageStyle}"
+			Visibility="Hidden" />
+		<!--Unknown connection ID: 4-->
+		<Image
+			Name="radiocentralPSImage"
+			Source="pack://application:,,,/Motorola.CommonCPS.RadioManagement.Common;component/SplashView/radiocentral-ps-cc-splash.png"
+			Style="{StaticResource ImageStyleRadioCentral}"
+			Visibility="Hidden" />
+		<!--Unknown connection ID: 5-->
+		<Rectangle
+			Name="rectRadioCentralBorder"
+			Style="{StaticResource rectStyleRadioCentral}"
+			Visibility="Hidden" />
+		<!--Unknown connection ID: 6-->
+		<Image
+			Name="imgSplashImage_Vertex"
+			Source="pack://application:,,,/Motorola.CommonCPS.RadioManagement.Common;component/SplashView/vertex-cc-splash.png"
+			Style="{StaticResource ImageStyle}"
+			Visibility="Hidden" />
+		<!--Unknown connection ID: 7-->
+		<controls:ProgressIndicator
+			Name="progressIndicator"
+			Visibility="Collapsed"
+			HorizontalContentAlignment="Center"
+			Canvas.Left="271"
+			Canvas.Top="325"
+			Height="29"
+			Width="120" />
+		<!--Unknown connection ID: 8-->
+		<Label
+			Name="lblProductName"
+			Style="{StaticResource LabelProductNameStyle}"
+			Visibility="Hidden"
+			Content="{Binding ProductName}" />
+		<!--Unknown connection ID: 9-->
+		<ProgressBar
+			Name="pbStatus"
+			Style="{StaticResource ProgressBarStyleRMC}"
+			Value="{Binding Progress}" />
+		<!--Unknown connection ID: 10-->
+		<Label
+			Name="lblStatus"
+			Style="{StaticResource LabelStatusStyle}"
+			Content="{Binding Status}" />
+		<!--Unknown connection ID: 11-->
+		<Label
+			Name="lblVersion"
+			Style="{StaticResource LabelVersionStyle}"
+			Content="{Binding Version}" />
+		<!--Unknown connection ID: 12-->
+		<Label
+			Name="lblInfo"
+			Content="{x:Static resourceRepository:Resources.RMC_RMC_All_Rights_Reserved}"
+			Style="{StaticResource LabelInfoStyle}" />
+	</Canvas>
+</Window>

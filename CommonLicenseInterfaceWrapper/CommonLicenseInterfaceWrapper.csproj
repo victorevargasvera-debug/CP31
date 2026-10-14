@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA669}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonLicenseInterfaceWrapper</RootNamespace>
+    <AssemblyName>CommonLicenseInterfaceWrapper</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CLRCommonClientLicensingManager_v120" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="ActivationInfo.cs" />
+    <Compile Include="CllCode.cs" />
+    <Compile Include="CommonClientLicensingInterface.cs" />
+    <Compile Include="CommonLicenseInterfaceDllLoader.cs" />
+    <Compile Include="ConfigInfo.cs" />
+    <Compile Include="DeviceCapabilityResponse.cs" />
+    <Compile Include="DeviceInfo.cs" />
+    <Compile Include="DeviceRequest.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="EntitlementResponse.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="FeatureInfo.cs" />
+    <Compile Include="FeatureInfoCount.cs" />
+    <Compile Include="FeatureProperties.cs" />
+    <Compile Include="GetEntitlementResponse.cs" />
+    <Compile Include="LineItem.cs" />
+    <Compile Include="ProductInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyInfo.cs" />
+    <Compile Include="QueryFeatureResponse.cs" />
+    <Compile Include="SSLTypeCode.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

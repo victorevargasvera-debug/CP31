@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonUtility</RootNamespace>
+    <AssemblyName>CommonUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASTROLanguageSelection.cs" />
+    <Compile Include="ASTROLanguageUtility.cs" />
+    <Compile Include="BundleNameUtility.cs" />
+    <Compile Include="CFSUtility.cs" />
+    <Compile Include="Crc32.cs" />
+    <Compile Include="CustomBitmap.cs" />
+    <Compile Include="DataModelVersionUtility.cs" />
+    <Compile Include="DBUpgradeUtility.cs" />
+    <Compile Include="DesignPattern\Singleton.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="e.cs" />
+    <Compile Include="f.cs" />
+    <Compile Include="FeatureNoticeUtility.cs" />
+    <Compile Include="FileIO.cs" />
+    <Compile Include="LPVAUtitity.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\a.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\AccessorFactory.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\b.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\CSV\CsvFile.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\CSV\CsvReader.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\CSV\CsvRecord.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\CSV\CsvRecords.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\CSV\CsvWriter.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\DBNode_Utility.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\ExcelFile\ExcelFile.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\IAccessor.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\JobErrorParameterConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\LINQUtility.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\ObjectSeralizeUtility.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\PropertyHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\Utility.cs" />
+    <Compile Include="Motorola\CommonCPS\Common\CommonUtility\WarningMessageConverter.cs" />
+    <Compile Include="NameUtility.cs" />
+    <Compile Include="PBBXmlUtility.cs" />
+    <Compile Include="PCRKeyConstants.cs" />
+    <Compile Include="PCRKeyUtility.cs" />
+    <Compile Include="PCRLanguageUtility.cs" />
+    <Compile Include="ProductFamilyConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioSummaryConverter.cs" />
+    <Compile Include="RadioSummaryDataContext.cs" />
+    <Compile Include="SMAConverter.cs" />
+    <Compile Include="SMAUtility.cs" />
+    <Compile Include="SpecialFeatures\Flashport\FlashRadio\ApxNext\MetadataFileParser.cs" />
+    <Compile Include="SpecialFeatures\Flashport\FlashRadio\ApxNext\ReleaseToCodeplugMapper.cs" />
+    <Compile Include="SpecialFeatures\Flashport\FlashRadio\MetadataFile.cs" />
+    <Compile Include="TlsPskConstants.cs" />
+    <Compile Include="TlsPskHashManager.cs" />
+    <Compile Include="TlsPskUtility.cs" />
+    <Compile Include="VersionUtility.cs" />
+    <Compile Include="WelcomeBitmap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewId\NewId.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C7}</Project>
+      <Name>NewId</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C8}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NPOI.OOXML\NPOI.OOXML.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6CB}</Project>
+      <Name>NPOI.OOXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NPOI\NPOI.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6CA}</Project>
+      <Name>NPOI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pba\Pba.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D1}</Project>
+      <Name>Pba</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

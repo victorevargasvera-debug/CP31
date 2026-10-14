@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Controls</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="mscorlib" />
+    <Reference Include="PresentationFramework.Aero" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\SetsImportExport\SetExportArgs.cs" />
+    <Compile Include="Controls\SetsImportExport\SetImportArgs.cs" />
+    <Compile Include="Controls\SetsImportExport\SetPortationArgsBase.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ActionBarCommandToIsEnabledConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ActiveCellToContactSetCategoryConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ActiveCellToSetCategoryConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ActiveFieldToChannelSetCategoryConveter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\AndOperationConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ArrowSelector.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ASTROContactNameSortComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ASTROTopContactNameSortComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Behaviors\Automation.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Behaviors\DataTree\CustomRightMouseDown.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Behaviors\DataTree\CustomRightMouseDownBehaviour.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Behaviors\RmDataGridBehavior.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BinaryNumberToIsCheckedConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BindingProxy.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BitmapToBitmapSourceConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BoolToLockIconPathConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BoolToSelectionModeConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BoolToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\BoolToWidthConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\CallIdHexStringConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\CallTypeSortComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ConfigurationListWorkMode.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ConfigurationListWorkModeToBoolConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ContextErrorToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ControlTypeToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Converters\EmbeddedSetCategoryNameToImportExportButtonVisibility.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Converters\MultiBindingToSetExportArgsConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Converters\MultiBindingToSetImportArgsConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\CustomControls\XamGridHelpers\a.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\CustomControls\XamGridHelpers\b.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\CustomValueEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DatagridFieldCreator.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DataGridPropertiesToStatusTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DecimalComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DecimalToHexConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DecimalToOctConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DefaultDragHandler.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DefaultDropHandler.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DMR3XamMaskedEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DragDropExtention.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DragInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DragWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DropInfo.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DropTargetAdorner.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DropTargetAdorners.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DropTargetHighlightAdorner.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\DropTargetInsertionAdorner.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\EmbeddedSetCategorImportToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\EmbeddedSetCategorImportXMLToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\EventHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FieldGroupByCompare.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FieldItemTemplateSelector.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FieldPropertiesToIsEnableConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FieldPropertiesToIsReadOnlyConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FieldsToIsValidConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FontSizeConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FreezableBinding.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\FrequencyRangeConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\GlueWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Helpers.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\HyperlinkEditorTemplateVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IDragSource.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IDropTarget.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IsApplicableAndIsEditableToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IsCheckedToIconConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IsCheckedToTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IsValidToBroderBrushConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IsValidToTextForegroundConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\IsValidToTextForegroundMultiConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ItemsMoverFieldInfoToIconVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ItemsMoverIsCanSetPriorityToIconWidthConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\LastItemToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ListFieldItemToForegroundConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\LpErrorToForegroundConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\MaxLengthInsertedToNumberEditorMaskConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\MaxValueToMaxLengthConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\MenuItemClick.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\MenuItemClickCommandBehavior.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\MultiFieldsIsVisibleConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\MultiFieldsVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NavigateToFieldEditorCommandParameterConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NumericFieldInfoInsertedToMaskConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NumericFieldInfoToTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NumericFieldToBitmapItemSrouceConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NumericRangeToMaskConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NumericToCustomTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\NumericToCustomTextWithFillZeroConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\OutputPaneTwinklingExtension.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PasswordToTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PasswordWithCopyToTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PathContainer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PathNavigatorSectionClickEventArgs.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PathSelector.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PeudoCallIdFieldToDatacontextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PeudoCallIdSortComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PopupNonTopmost.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PositionSortComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ProgressIndicator.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Properties\Resources.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PushBinding.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PushBindingCollection.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\PushBindingManager.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RangeFieldComparer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RelativeInsertPosition.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Reports.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RM2ColumnListFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMActionMenu.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMAnchor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMAnchorNoExpander.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMASTROContactList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMBitmapFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMBoolFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMButton.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMCellPresentableFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMCheckBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMCollectionSelector.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMComboBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMComboBoxItem.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMConfirmationWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMContactList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RmcPasswordStringConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMDataGrid.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMDataTree.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMDateInput.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMDisableMinimalizeButtonWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMDisplayList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMEmbeddedSetFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMErrorBar.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMExtendedFeatureSetsEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMFeatureSetsEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMFieldEditorHeader.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMGroupBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMGroupList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMHeaderContentControl.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMHomeSetList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMHyperlink.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMIPAddressInput.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMItemsMover.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMItemsPositionMover.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMLabelFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMLinkButton.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMLinkFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMListBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMListBoxFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMListFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMMaskedInput.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMMaskedInputTextBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMMultiTextFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMNodesPanel.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMNotificationWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMNumericFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMNumericInput.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMPasswordBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMPasswordEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMPasswordFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMPathNavigator.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMProgressBar.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMRadioButton.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMRadioDetail.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMRelocatableFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMRetryWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSaveFileDialog.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMScanList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSealedFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSearchBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSetEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSetListActionBar.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSetPicker.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSetPresenter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialEditorFor2Fields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialEditorHeader.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialNumericFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor1ComboBox1TextBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor2BoolFields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor2Fields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor2FieldsHeaders.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor2ListFields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor2NumericFields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor3Fields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor4Fields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor4FieldsHeaders.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor4FieldswithSpinner.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor7Fields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowFor7FieldsHeaders.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowForFieldsHeader.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMSpecialRowForListFields.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMStringFieldEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMStringFieldPresenter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTabControl.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTabHeaderStyle.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTabItem.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTemplateList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTextBlock.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTextBox.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMToggleButton.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMTreeComboEditor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMWaitingIndicator.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMWiFiPasswordList.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMYesNoCancelWindow.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RMZoneList1.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\RxGrouplistToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SectionClickEventHandler.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategorImportToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategoryAddMultipleSetsToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategoryAddSetCopiesToResourceConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategoryAddTopSetCopiesToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategoryCanCloseConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategoryEmbeddedDropDownButtonToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetCategoryTopDropDownButtonToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetEditorClosingRoutedEventArgs.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetEditorItemStyleSelector.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetEditorLibrary.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetEditorStyles.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetPresenterWorkMode.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetsCountToVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SetToSetCategoryConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\SharedResourceDictionary.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\StringFieldInfoInsertedToMaskConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Styles.xaml.cs">
+      <DependentUpon>Styles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\TemplateListWorkMode.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\TemplateListWorkModeToBoolConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\TruncatePathStringConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\TruncatePrefix4StartPathSectionConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UiHelpers\ExtensionMethods.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UiHelpers\RMDataTreeAutomationPeerManager.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UiHelpers\UiHelper.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UnboundColumnDataContextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UnboundColumnPoisitionValueConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UnboundColumnValueConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\UnsafeNativeMethods.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\Utility.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ViewCacheFieldsToPrecentageConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ViewCacheFieldsToProgressBarTextConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ViewCacheToProgressBarVisibilityConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\VisibilityToGridWidthConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\WaitCursor.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\WebBrowserUtility.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\WindowExtensions.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\XamGridContainer.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Controls\ZoneChannelPositionConverter.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\Infrastructure\Dialogs\PrintPreviewWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Motorola\CommonCPS\RadioManagement\Controls\Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Editors.XamDateTimeInput.v15.1\InfragisticsWPF4.Controls.Editors.XamDateTimeInput.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA680}</Project>
+      <Name>InfragisticsWPF4.Controls.Editors.XamDateTimeInput.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Editors.XamMaskedInput.v15.1\InfragisticsWPF4.Controls.Editors.XamMaskedInput.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA682}</Project>
+      <Name>InfragisticsWPF4.Controls.Editors.XamMaskedInput.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Grids.XamGrid.v15.1\InfragisticsWPF4.Controls.Grids.XamGrid.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA683}</Project>
+      <Name>InfragisticsWPF4.Controls.Grids.XamGrid.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1\InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA684}</Project>
+      <Name>InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Menus.XamMenu.v15.1\InfragisticsWPF4.Controls.Menus.XamMenu.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA685}</Project>
+      <Name>InfragisticsWPF4.Controls.Menus.XamMenu.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataManager.v15.1\InfragisticsWPF4.DataManager.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA686}</Project>
+      <Name>InfragisticsWPF4.DataManager.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v15.1\InfragisticsWPF4.DataPresenter.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DockManager.v15.1\InfragisticsWPF4.DockManager.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68A}</Project>
+      <Name>InfragisticsWPF4.DockManager.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DragDrop.v15.1\InfragisticsWPF4.DragDrop.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68C}</Project>
+      <Name>InfragisticsWPF4.DragDrop.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Editors.v15.1\InfragisticsWPF4.Editors.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68E}</Project>
+      <Name>InfragisticsWPF4.Editors.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Reporting.v15.1\InfragisticsWPF4.Reporting.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68F}</Project>
+      <Name>InfragisticsWPF4.Reporting.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.Interactivity\Microsoft.Practices.Prism.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69B}</Project>
+      <Name>Microsoft.Practices.Prism.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.ServiceLocation\Microsoft.Practices.ServiceLocation.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69D}</Project>
+      <Name>Microsoft.Practices.ServiceLocation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Converters\Motorola.CommonCPS.RadioManagement.Converters.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AC}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Events\Motorola.CommonCPS.RadioManagement.Events.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AF}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.LocalService\Motorola.CommonCPS.RadioManagement.LocalService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B7}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.LocalService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.SharedService\Motorola.CommonCPS.RadioManagement.SharedService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.SharedService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Interactivity\System.Windows.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E2}</Project>
+      <Name>System.Windows.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TTSBridge\TTSBridge.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E4}</Project>
+      <Name>TTSBridge</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Motorola\CommonCPS\RadioManagement\Controls\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="assets\buttonicons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\datapresentergeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\datapresentergeneric_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\datapresentergeneric_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\datapresenterigtheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\datapresenterigtheme_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\datapresenterigtheme_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.chartbrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.controlsstyles.shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.controlsstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.xamdatatree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.xamdatetimeinput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.xamgrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\ig.xammaskedinput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\styles.shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\styles.wpf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infragistics\theme.colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Motorola\CommonCPS\RadioManagement\Controls\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\arrowselector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmastrocontactlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialnumericfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor1combobox1textbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor2boolfields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor2fields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor2fieldsheaders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor2listfields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor2numericfields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor3fields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor4fields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor4fieldsheaders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor4fieldswithspinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor7fields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowfor7fieldsheaders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowforfieldsheader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmspecialrowforlistfields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\astro\rmwifipasswordlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rm2columnlistfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmbitmapfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmboolfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmcollectionselector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmembeddedsetfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmextendedfeatureseditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmfeaturesetseditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmlabelfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmlinkfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmlistboxfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmlistfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmmultitextfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmnumericfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmpasswordeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmpasswordfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmscanlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmstringfieldeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\fieldeditors\rmstringfieldpresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\pathcontainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\pathnavigator\rmpathnavigator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\pathselector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\progressindicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\reports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmanchornoexpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmdisplaylist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmerrorbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmgrouplist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmhomesetlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmitemsmover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmitemspositionmover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmpasswordbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmradiodetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmsetlistactionbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmsetpicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmsetpresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmtemplatelist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmwaitingindicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\rmzonelist 1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usercontrols\seteditorinnerstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\printpreviewwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\rmconfirmationwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\rmdisableminimalizebuttonwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\rmnotificationwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\rmretrywindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\rmyesnocancelwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\collapse_24x24.png" />
+    <Resource Include="icons\error_red_16x16.png" />
+    <Resource Include="icons\expand_24x24.png" />
+    <Resource Include="icons\lock-closed-gray_20x20.png" />
+    <Resource Include="icons\lock-closed_20x20.png" />
+    <Resource Include="icons\lock-open-gray_20x20.png" />
+    <Resource Include="icons\lock-open_20x20.png" />
+    <Resource Include="icons\not_applicable_20x20.png" />
+    <Resource Include="infragistics\images\andgroupicon.png" />
+    <Resource Include="infragistics\images\filter.png" />
+    <Resource Include="infragistics\images\filterclearbutton.png" />
+    <Resource Include="infragistics\images\filterclearmenu.png" />
+    <Resource Include="infragistics\images\fixedbuttonwhenfixed.png" />
+    <Resource Include="infragistics\images\fixedbuttonwhenunfixed.png" />
+    <Resource Include="infragistics\images\iconadd.png" />
+    <Resource Include="infragistics\images\iconsubtract.png" />
+    <Resource Include="infragistics\images\magnifyingglass.png" />
+    <Resource Include="infragistics\images\orgroupicon.png" />
+    <Resource Include="infragistics\images\summary.png" />
+    <Resource Include="infragistics\images\togglecardcollapsedstate_collapsed.png" />
+    <Resource Include="infragistics\images\togglecardcollapsedstate_notcollapsed.png" />
+    <Resource Include="infragistics\images\toggleemptycardcellscollapsedstate_collapsed.png" />
+    <Resource Include="infragistics\images\toggleemptycardcellscollapsedstate_notcollapsed.png" />
+    <Resource Include="infragistics\images\togglegroupicon.png" />
+    <Resource Include="infragistics\images\ungroupgroupicon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

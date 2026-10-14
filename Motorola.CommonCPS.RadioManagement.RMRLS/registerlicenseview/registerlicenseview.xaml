@@ -1,0 +1,795 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.RadioLicense.RegisterLicenseView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	Name="EIDView"
+	HorizontalAlignment="Stretch"
+	VerticalAlignment="Stretch" xmlns:radiolicense="clr-namespace:Motorola.CommonCPS.RadioManagement.RadioLicense">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.RMRLS;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:VisibilityByRecordCountConverter
+				x:Key="VisibilityByRecordCountConverter" />
+			<converters:RegionToStringConverter
+				x:Key="RegionToStringConverter" />
+			<converters:BoolToInverseConverter
+				x:Key="BoolToInverseConverter" />
+			<converters:GridViewSourceConverter
+				x:Key="GridViewSourceConverter" />
+			<Style
+				TargetType="{x:Type igDP:CellValuePresenter}"
+				x:Key="ASTROFlashCodeStyle">
+				<Setter
+					Property="Background"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="BorderBrush"
+					Value="#FFD3D3D3" />
+				<Setter
+					Property="BorderThickness"
+					Value="0,0,1,0" />
+				<Setter
+					Property="igDP:CellValuePresenter.BackgroundActive"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Height"
+					Value="25" />
+				<Setter
+					Property="FrameworkElement.ToolTip">
+					<Setter.Value>
+						<Grid>
+							<DataGrid
+								Background="#00FFFFFF"
+								HeadersVisibility="Column"
+								RowBackground="#00FFFFFF"
+								CanUserAddRows="False"
+								SelectionUnit="FullRow"
+								AutoGenerateColumns="False"
+								BorderThickness="0"
+								GridLinesVisibility="None"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Panel.ZIndex="2"
+								ItemsSource="{Binding DataItem.LicensedFeatureList}"
+								Visibility="{Binding Path=Items.Count, RelativeSource={RelativeSource Self}, Converter={StaticResource VisibilityByRecordCountConverter}}">
+								<DataGrid.ColumnHeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="Background"
+											Value="#FFD3D3D3" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+										<Setter
+											Property="FontWeight"
+											Value="Bold" />
+										<Setter
+											Property="BorderThickness"
+											Value="0,0,0,1" />
+										<Setter
+											Property="BorderBrush"
+											Value="#FF000000" />
+										<Setter
+											Property="Padding"
+											Value="5,2,5,2" />
+									</Style>
+								</DataGrid.ColumnHeaderStyle>
+								<DataGrid.Columns>
+									<DataGridTextColumn
+										Width="Auto"
+										Header="{x:Static resourceRepository:Resources.Licenses_Features_To_Add}"
+										Binding="{Binding FeatureName}" />
+								</DataGrid.Columns>
+							</DataGrid>
+							<Label
+								Content="{x:Static resourceRepository:Resources.Not_Applicable}"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Panel.ZIndex="0" />
+						</Grid>
+					</Setter.Value>
+				</Setter>
+				<Style.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding Record.IsSelected, RelativeSource={RelativeSource Self}}">
+						<Setter
+							Property="igDP:CellValuePresenter.ForegroundStyle">
+							<Setter.Value>
+								<Style>
+									<Setter
+										Property="FontWeight"
+										Value="Bold" />
+									<Setter
+										Property="Foreground"
+										Value="{DynamicResource SelectedRowForegroundBrush}" />
+								</Style>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Background"
+							Value="{DynamicResource SelectedRowBackgroundBrush}" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid
+			IsEnabled="{Binding RegistRadioLicenseContext.MainViewEnable}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="20" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<!--Unknown connection ID: 2-->
+			<Grid
+				Name="licenseGrid"
+				Row="0"
+				Margin="20,20,20,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="0.2*"
+						MinWidth="200"
+						MaxWidth="300" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="0.8*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Border
+					BorderBrush="#FFD3D3D3"
+					BorderThickness="1"
+					Grid.Column="0">
+					<!--Unknown connection ID: 3-->
+					<controls:RMGroupList
+						Name="gplGroup"
+						AutomationProperties.AutomationId="gplGroupsRegLicense"
+						Margin="10"
+						AllowEdit="False"
+						AllowRestoreExpandedNodes="False"
+						SelectedGroupChangedCommad="{Binding SelectedGroupChangedCommad}" />
+				</Border>
+				<GridSplitter
+					Width="10"
+					Grid.Column="1"
+					ResizeBehavior="PreviousAndNext"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch" />
+				<Border
+					Grid.Column="2"
+					BorderBrush="#FFD3D3D3"
+					BorderThickness="1">
+					<Grid
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Grid.Row="0"
+							Margin="0,10"
+							Caption="{x:Static resourceRepository:Resources.RMC_License_EID}" />
+						<Grid
+							Row="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Grid.Column="0"
+								VerticalAlignment="Center"
+								Text="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_EnterEID}" />
+							<!--Unknown connection ID: 4-->
+							<controls:RMTextBox
+								Name="msiEID"
+								TabIndex="0"
+								Grid.Column="1"
+								Margin="5,3,0,3"
+								VerticalAlignment="Center"
+								Text="{Binding RegistRadioLicenseContext.EIDString, UpdateSourceTrigger=PropertyChanged}" />
+							<!--Unknown connection ID: 5-->
+							<controls:RMButton
+								Name="btnQuery"
+								Grid.Column="2"
+								Margin="10,0,10,0"
+								Content="{x:Static resourceRepository:Resources.RMC_Action_Query}"
+								Command="{Binding QueryEIDCommand}" />
+							<!--Unknown connection ID: 6-->
+							<controls:RMButton
+								Name="btnClearAll"
+								Grid.Column="3"
+								Margin="10,0,10,0"
+								Content="{x:Static resourceRepository:Resources.RMC_Action_ClearAll}"
+								Command="{Binding ClearAllEIDHistroyCommand}" />
+						</Grid>
+						<Grid
+							Row="2"
+							Height="250">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="*" />
+							</Grid.RowDefinitions>
+							<controls:RMAnchorNoExpander
+								Grid.Row="0"
+								Margin="0,10"
+								Caption="{x:Static resourceRepository:Resources.RMC_License_Results}" />
+							<!--Unknown connection ID: 7-->
+							<controls:RMDataGrid
+								Name="dgrASTROEIDDetails"
+								Grid.Row="1"
+								igDP:GroupByAreaLocation="None"
+								StatusbarVisibility="Collapsed"
+								igDP:DataSource="{Binding RegistRadioLicenseContext.UIEIDDetails}"
+								Visibility="{Binding RegistRadioLicenseContext.AstroVisibility}"
+								SearchCommand="{Binding SearchCommand}">
+								<igDP:DataPresenterBase.FieldSettings>
+									<igDP:FieldSettings
+										CellClickAction="SelectRecord"
+										Width="Auto" />
+								</igDP:DataPresenterBase.FieldSettings>
+								<igDP:DataPresenterBase.FieldLayouts>
+									<igDP:FieldLayout>
+										<igDP:FieldLayout.Fields>
+											<igDP:Field
+												Name="IsSelected"
+												Width="Auto"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_RadioLicense_Selected}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellClickAction="EnterEditModeIfAllowed"
+														EditAsType="{x:Type sys:Boolean}">
+														<igDP:FieldSettings.EditorStyle>
+															<!--Unknown connection ID: 8-->
+															<Style
+																TargetType="{x:Type igEditors:XamCheckEditor}">
+																<Setter
+																	Property="infrastructure:FieldCheckChanged.Command"
+																	Value="{Binding ElementName=EIDView, Path=DataContext.FieldCheckChangedCommand}" />
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="{Binding Path=DataItem.IsEditable, Converter={StaticResource BoolToInverseConverter}}" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="EntitlementID"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROEIDDetail_EntitlementID}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellValuePresenterStyle="{StaticResource LongFieldToolTip}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="SourceModelNumber"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROEIDDetail_ModelNumber}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="SourceFlashcode"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROEIDDetail_CurrentFLASHcode}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellValuePresenterStyle="{StaticResource ASTROFlashCodeStyle}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="TargetFlashcode"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROEIDDetail_NewFLASHcode}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellValuePresenterStyle="{StaticResource ASTROFlashCodeStyle}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="AvailableCount"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROEIDDetail_Available}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														EditAsType="{x:Type sys:Int32}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="PurchasedCount"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROEIDDetail_Purchased}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														EditAsType="{x:Type sys:Int32}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+										</igDP:FieldLayout.Fields>
+									</igDP:FieldLayout>
+								</igDP:DataPresenterBase.FieldLayouts>
+							</controls:RMDataGrid>
+							<!--Unknown connection ID: 9-->
+							<controls:RMDataGrid
+								Name="dgrPCREIDDetails"
+								Grid.Row="1"
+								igDP:GroupByAreaLocation="None"
+								StatusbarVisibility="Collapsed"
+								igDP:DataSource="{Binding RegistRadioLicenseContext.UIEIDDetails}"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}"
+								SearchCommand="{Binding SearchCommand}">
+								<igDP:DataPresenterBase.FieldSettings>
+									<igDP:FieldSettings
+										CellClickAction="SelectRecord"
+										Width="Auto" />
+								</igDP:DataPresenterBase.FieldSettings>
+								<igDP:DataPresenterBase.FieldLayouts>
+									<igDP:FieldLayout>
+										<igDP:FieldLayout.Fields>
+											<igDP:Field
+												Name="IsSelected"
+												Width="Auto"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_RadioLicense_Selected}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellClickAction="EnterEditModeIfAllowed">
+														<igDP:FieldSettings.EditorStyle>
+															<!--Unknown connection ID: 10-->
+															<Style
+																TargetType="{x:Type igEditors:XamCheckEditor}">
+																<Setter
+																	Property="infrastructure:FieldCheckChanged.Command"
+																	Value="{Binding ElementName=EIDView, Path=DataContext.FieldCheckChangedCommand}" />
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="{Binding Path=DataItem.IsEditable, Converter={StaticResource BoolToInverseConverter}}" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="EntitlementID"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_PCREIDDetail_EntitlementID}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellValuePresenterStyle="{StaticResource LongFieldToolTip}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="FeatureDisplayName"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_PCREIDDetail_FeatureName}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														CellValuePresenterStyle="{StaticResource LongFieldToolTip}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="Region"
+												Label="{x:Static resourceRepository:Resources.RMC_Region_Title}"
+												Converter="{StaticResource RegionToStringConverter}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="AvailableCount"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_PCREIDDetail_Available}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														EditAsType="{x:Type sys:Int32}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="PurchasedCount"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_PCREIDDetail_Purchased}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings
+														EditAsType="{x:Type sys:Int32}">
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+										</igDP:FieldLayout.Fields>
+									</igDP:FieldLayout>
+								</igDP:DataPresenterBase.FieldLayouts>
+							</controls:RMDataGrid>
+						</Grid>
+						<Grid
+							Row="4"
+							Height="300">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="*" />
+							</Grid.RowDefinitions>
+							<controls:RMAnchorNoExpander
+								Grid.Row="0"
+								Margin="0,10"
+								Grid.Column="0"
+								Caption="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_AvailableRadios}" />
+							<controls:RMAnchorNoExpander
+								Grid.Row="0"
+								Margin="0,10"
+								Grid.Column="2"
+								Caption="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_SelectedRadios}" />
+							<!--Unknown connection ID: 11-->
+							<controls:RMDataGrid
+								Name="dgrAvailableDevices"
+								Grid.Row="1"
+								Grid.Column="0"
+								igDP:GroupByAreaLocation="None"
+								ToolbarVisibility="Collapsed"
+								IsBindingViewCache="False"
+								igDP:DataSource="{Binding RegistRadioLicenseContext.AvailableDevices}"
+								infrastructure:DataGridSelectedItemsChanged.Command="{Binding AvailableSelectionChangedCommand}"
+								Visibility="{Binding RegistRadioLicenseContext.AstroPCRVisibility}">
+								<igDP:DataPresenterBase.FieldSettings>
+									<igDP:FieldSettings
+										AllowEdit="False"
+										CellClickAction="SelectRecord"
+										Width="Auto" />
+								</igDP:DataPresenterBase.FieldSettings>
+								<igDP:DataPresenterBase.FieldLayouts>
+									<igDP:FieldLayout>
+										<igDP:FieldLayout.Fields>
+											<igDP:Field
+												Name="SerialNumber"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTRORadioLicense_SerialNumber}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="RadioAlias"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTRORadioLicense_RadioAlias}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="ModelNumber"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_PCRRadioLicenseRadioView_ModelNumber}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+										</igDP:FieldLayout.Fields>
+									</igDP:FieldLayout>
+								</igDP:DataPresenterBase.FieldLayouts>
+							</controls:RMDataGrid>
+							<controls:RMTextBlock
+								Grid.Row="1"
+								Grid.Column="0"
+								Foreground="#FFFF0000"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Text="{Binding RegistRadioLicenseContext.NoDeviceWarning}" />
+							<Grid
+								Row="1"
+								Column="1"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"
+								Margin="5,0,5,0">
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="10" />
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="10" />
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="10" />
+									<RowDefinition
+										Height="Auto" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<!--Unknown connection ID: 12-->
+								<controls:RMButton
+									Name="btnAddAll"
+									Grid.Row="0"
+									Content="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_AddAll}"
+									Command="{Binding AddAllRadiosCommand}" />
+								<!--Unknown connection ID: 13-->
+								<controls:RMButton
+									Name="btnAdd"
+									Grid.Row="2"
+									Content="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_Add}"
+									Command="{Binding AddRadiosCommand}" />
+								<!--Unknown connection ID: 14-->
+								<controls:RMButton
+									Name="btnRemove"
+									Grid.Row="4"
+									Content="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_Remove}"
+									Command="{Binding RemoveRadiosCommand}" />
+								<!--Unknown connection ID: 15-->
+								<controls:RMButton
+									Name="btnRemoveAll"
+									Grid.Row="6"
+									Content="{x:Static resourceRepository:Resources.RMC_Views_RegisterRadioLicense_RemoveAll}"
+									Command="{Binding RemoveAllRadiosCommand}" />
+							</Grid>
+							<!--Unknown connection ID: 16-->
+							<controls:RMDataGrid
+								Name="dgrSelectedDevices"
+								Grid.Row="1"
+								Grid.Column="2"
+								igDP:GroupByAreaLocation="None"
+								ToolbarVisibility="Collapsed"
+								IsBindingViewCache="False"
+								igDP:DataSource="{Binding RegistRadioLicenseContext.SelectedDevices}"
+								infrastructure:DataGridSelectedItemsChanged.Command="{Binding SelectedSelectionChangedCommand}"
+								Visibility="{Binding RegistRadioLicenseContext.AstroPCRVisibility}">
+								<igDP:DataPresenterBase.FieldSettings>
+									<igDP:FieldSettings
+										AllowEdit="False"
+										CellClickAction="SelectRecord"
+										Width="Auto" />
+								</igDP:DataPresenterBase.FieldSettings>
+								<igDP:DataPresenterBase.FieldLayouts>
+									<igDP:FieldLayout>
+										<igDP:FieldLayout.Fields>
+											<igDP:Field
+												Name="SerialNumber"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTRORadioLicense_SerialNumber}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="RadioAlias"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_ASTRORadioLicense_RadioAlias}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+											<igDP:Field
+												Name="ModelNumber"
+												Label="{x:Static resourceRepository:Resources.RMC_Model_PCRRadioLicenseRadioView_ModelNumber}">
+												<igDP:Field.Settings>
+													<igDP:FieldSettings>
+														<igDP:FieldSettings.EditorStyle>
+															<Style
+																TargetType="{x:Type igEditors:XamTextEditor}">
+																<Setter
+																	Property="igEditors:ValueEditor.IsReadOnly"
+																	Value="True" />
+															</Style>
+														</igDP:FieldSettings.EditorStyle>
+													</igDP:FieldSettings>
+												</igDP:Field.Settings>
+											</igDP:Field>
+										</igDP:FieldLayout.Fields>
+									</igDP:FieldLayout>
+								</igDP:DataPresenterBase.FieldLayouts>
+							</controls:RMDataGrid>
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Row="2"
+				HorizontalAlignment="Right"
+				Width="200"
+				Margin="0,0,20,20">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<!--Unknown connection ID: 17-->
+				<controls:RMButton
+					Name="btnRegister"
+					Content="{x:Static resourceRepository:Resources.RMC_Action_Register}"
+					MinWidth="95"
+					Command="{Binding RegisterRadioLicenseCommand}" />
+				<!--Unknown connection ID: 18-->
+				<controls:RMButton
+					Name="btnClose"
+					Grid.Column="2"
+					Content="{x:Static resourceRepository:Resources.RMC_Action_Close}"
+					IsCancel="True" />
+			</Grid>
+			<!--Unknown connection ID: 19-->
+			<controls:RMErrorBar
+				Name="errorBar"
+				Grid.Row="3"
+				Error="{Binding RegistRadioLicenseContext.ExceptionMessage}" />
+		</Grid>
+		<!--Unknown connection ID: 20-->
+		<controls:RMWaitingIndicator
+			Name="roundProgressCtrl"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Margin="0"
+			ProgressBrush="#FF808080"
+			PercentVisibility="Hidden"
+			Visibility="{Binding RegistRadioLicenseContext.WaitingIndicatorVisibility}" />
+	</Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿using System;
+
+namespace ACPVoiceAnnouncementLib
+{
+	// Token: 0x0200001E RID: 30
+	public enum WaveFileExceptionCodes
+	{
+		// Token: 0x0400007F RID: 127
+		UNKNOWN_FILE_FORMAT,
+		// Token: 0x04000080 RID: 128
+		MALFORMED_WAV_FILE,
+		// Token: 0x04000081 RID: 129
+		WRONG_NUMBER_OF_CHANNELS,
+		// Token: 0x04000082 RID: 130
+		WRONG_SAMPLE_RATE,
+		// Token: 0x04000083 RID: 131
+		WRONG_BITS_PER_SAMPLE,
+		// Token: 0x04000084 RID: 132
+		WRONG_FORMAT_TAG,
+		// Token: 0x04000085 RID: 133
+		WRONG_DATA_FORMAT,
+		// Token: 0x04000086 RID: 134
+		CHUNK_DATA_TOO_LARGE
+	}
+}

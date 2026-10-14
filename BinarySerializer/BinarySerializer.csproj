@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BinarySerializer</RootNamespace>
+    <AssemblyName>BinarySerializer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Microsoft\CodeAnalysis\a.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\a.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ArrayInfo.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ArraySingleObject.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ArraySinglePrimitive.2.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ArraySinglePrimitive.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ArraySingleString.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\b.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinaryArray.2.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinaryArray.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinaryArrayTypeEnumeration.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinaryLibrary.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinaryObjectString.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinarySerializer.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinarySerializerTypeInfo.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinarySerializerVerificationResult.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\BinaryTypeEnumeration.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ClassInfo.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ClassTypeInfo.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ClassWithId.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ClassWithMembersAndTypes.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\IBinarySerializerRecord.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\MemberPrimitiveTyped.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\MemberReference.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\MemberTypeInfo.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\MessageEnd.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\ObjectNullMultiple.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\PrimitiveTypeEnumeration.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\RecordTypeEnumeration.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\SerializationHeaderRecord.cs" />
+    <Compile Include="Motorola\Common\BinarySerializer\SystemClassWithMembersAndTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Runtime\CompilerServices\a.cs" />
+    <Compile Include="System\Runtime\CompilerServices\b.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

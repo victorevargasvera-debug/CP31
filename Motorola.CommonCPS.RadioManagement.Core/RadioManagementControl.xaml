@@ -1,0 +1,957 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Core.RadioManagementControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://www.codeplex.com/prism" xmlns:igDock="http://infragistics.com/DockManager" xmlns:igWindows="http://infragistics.com/Windows" xmlns:astroSystem="clr-namespace:Motorola.CommonCPS.RadioManagement.ASTROSystem;assembly=Motorola.CommonCPS.RadioManagement.ASTROSystem" xmlns:astroDataProfile="clr-namespace:Motorola.CommonCPS.RadioManagement.ASTRODataProfile;assembly=Motorola.CommonCPS.RadioManagement.ASTRODataProfile" xmlns:astroOtarProfile="clr-namespace:Motorola.CommonCPS.RadioManagement.ASTROOtarProfile;assembly=Motorola.CommonCPS.RadioManagement.ASTROOtarProfile" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common;assembly=Motorola.CommonCPS.RadioManagement.Common" xmlns:oauthOidc="clr-namespace:Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect;assembly=Motorola.CommonCPS.RadioManagement.OAuthOpenIDConnect" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:radio="clr-namespace:Motorola.CommonCPS.RadioManagement.Radio;assembly=Motorola.CommonCPS.RadioManagement.Radio" xmlns:template="clr-namespace:Motorola.CommonCPS.RadioManagement.Template;assembly=Motorola.CommonCPS.RadioManagement.Template" xmlns:rr="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Core" xmlns:clr="clr-namespace:System;assembly=mscorlib"
+	Name="uscCore"
+	SnapsToDevicePixels="True"
+	UseLayoutRounding="True">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:QueryToPaneHeaderConverter
+				x:Key="QueryToPaneHeaderConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BoolToVisConverter" />
+			<converters:AstroPcrSystemNameConverter
+				x:Key="AstroPcrSystemNameConverter" />
+			<clr:String
+				x:Key="AstroPcrSystemModuleName">System</clr:String>
+			<ControlTemplate
+				TargetType="{x:Type igDock:PaneHeaderPresenter}"
+				x:Key="Template4PaneHeaderPresenterRemoveActiveBackground">
+				<Grid>
+					<Border
+						Background="{TemplateBinding Background}"
+						SnapsToDevicePixels="True"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}">
+						<DockPanel
+							Margin="{TemplateBinding Padding}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+							<Button
+								Name="closeBtn"
+								DockPanel.Dock="Right"
+								Command="{x:Static igDock:ContentPaneCommands.Close}"
+								CommandParameter="{TemplateBinding igDock:Pane}"
+								Style="{StaticResource {x:Static igDock:PaneHeaderPresenter.CloseButtonStyleKey}}"
+								Visibility="{Binding Path=Pane.CloseButtonVisibility, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Button
+								Name="unpinBtn"
+								DockPanel.Dock="Right"
+								Command="{x:Static igDock:ContentPaneCommands.TogglePinnedState}"
+								CommandParameter="{TemplateBinding igDock:Pane}"
+								Style="{StaticResource {x:Static igDock:PaneHeaderPresenter.PinButtonStyleKey}}"
+								Visibility="{Binding Path=Pane.PinButtonVisibility, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Menu
+								Name="positionMenu"
+								DockPanel.Dock="Right"
+								Style="{StaticResource RootMenuStyle}"
+								Visibility="{Binding Path=Pane.WindowPositionMenuVisibility, RelativeSource={RelativeSource TemplatedParent}}">
+								<MenuItem
+									Name="PART_PositionMenuItem"
+									Style="{StaticResource {x:Static igDock:PaneHeaderPresenter.PositionMenuItemStyleKey}}" />
+							</Menu>
+							<ContentPresenter
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						</DockPanel>
+					</Border>
+					<Border
+						Name="innerBorderHighlight"
+						BorderThickness="1,1,1,0"
+						BorderBrush="{StaticResource {x:Static igDock:DockManagerBrushKeys.PaneNotActiveCaptionInnerBorderFillKey}}" />
+				</Grid>
+				<ControlTemplate.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding Path=Pane.IsActivePane, RelativeSource={x:Static RelativeSource.Self}}">
+						<Setter
+							TargetName="innerBorderHighlight"
+							Property="BorderBrush"
+							Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.PaneActiveCaptionInnerBorderFillKey}}" />
+					</DataTrigger>
+					<Trigger
+						Property="igDock:XamDockManager.PaneLocation"
+						Value="FloatingOnly">
+						<Setter
+							TargetName="unpinBtn"
+							Property="Visibility"
+							Value="Collapsed" />
+					</Trigger>
+					<Trigger
+						Property="igDock:XamDockManager.PaneLocation"
+						Value="Floating">
+						<Setter
+							TargetName="unpinBtn"
+							Property="Visibility"
+							Value="Collapsed" />
+					</Trigger>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition
+								Value="True"
+								Binding="{Binding Path=Pane.IsProvidingFloatingWindowCaption, RelativeSource={x:Static RelativeSource.Self}}" />
+							<Condition
+								Value="Minimized"
+								Binding="{Binding Path=(igWindows:ToolWindow.ToolWindow).WindowState, RelativeSource={x:Static RelativeSource.Self}}" />
+						</MultiDataTrigger.Conditions>
+						<Setter
+							TargetName="closeBtn"
+							Property="VerticalAlignment"
+							Value="Center" />
+						<Setter
+							TargetName="unpinBtn"
+							Property="VerticalAlignment"
+							Value="Center" />
+						<Setter
+							TargetName="positionMenu"
+							Property="VerticalAlignment"
+							Value="Center" />
+						<Setter
+							TargetName="positionMenu"
+							Property="Visibility"
+							Value="Collapsed" />
+					</MultiDataTrigger>
+				</ControlTemplate.Triggers>
+			</ControlTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="N"
+			Modifiers="Alt"
+			Command="{Binding CommandProxy.PrepareAddRadioCommand}" />
+		<KeyBinding
+			Key="I"
+			Modifiers="Ctrl"
+			Command="{Binding CommandProxy.PrepareImportRadiosCommand}" />
+		<KeyBinding
+			Key="H"
+			Modifiers="Ctrl"
+			Command="{Binding CommandProxy.PrepareImportFileToGridCommand}" />
+		<KeyBinding
+			Key="C"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.ImportFromConsoleCommand}" />
+		<KeyBinding
+			Key="T"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportTemplatesCommand}" />
+		<KeyBinding
+			Key="O"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportConfigurationsCommand}" />
+		<KeyBinding
+			Key="M"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportFirmwaresCommand}" />
+		<KeyBinding
+			Key="A"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportAPPPackagesCommand}" />
+		<KeyBinding
+			Key="P"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportGeneralPackagesCommand}" />
+		<KeyBinding
+			Key="V"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportVoiceAnnouncementsCommand}" />
+		<KeyBinding
+			Key="B"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportCACertificatesCommand}" />
+		<KeyBinding
+			Key="U"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportDVRSFilesCommand}" />
+		<KeyBinding
+			Key="Q"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportTextToSpeechsCommand}" />
+		<KeyBinding
+			Key="L"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareImportLanguagePacksCommand}" />
+		<KeyBinding
+			Key="R"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.ExportRadioCommand}" />
+		<KeyBinding
+			Key="D"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.ExportDVRSCommand}" />
+		<KeyBinding
+			Key="S"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.ExportGridToFileCommand}" />
+		<KeyBinding
+			Key="F"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.ExportConfigurationCommand}" />
+		<KeyBinding
+			Key="P"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrintViewPreviewCommand}" />
+		<KeyBinding
+			Key="P"
+			Modifiers="Ctrl"
+			Command="{Binding CommandProxy.PrintViewCommand}" />
+		<KeyBinding
+			Key="E"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareSelectCertificatesCommand}" />
+		<KeyBinding
+			Key="R"
+			Modifiers="Ctrl"
+			Command="{Binding CommandProxy.RestoreRadioCommand}" />
+		<KeyBinding
+			Key="I"
+			Modifiers="Ctrl+Shift"
+			Command="{Binding CommandProxy.PrepareResetIdentifiersCommand}" />
+		<KeyBinding
+			Key="Q"
+			Modifiers="Alt+Shift"
+			Command="{Binding CommandProxy.PrepareGenerateQRCodeCommand}" />
+		<KeyBinding
+			Key="T"
+			Modifiers="Alt"
+			CommandParameter="Template"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="R"
+			Modifiers="Alt"
+			CommandParameter="RadioLicense"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="A"
+			Modifiers="Alt"
+			CommandParameter="ApplicationLicense"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="D1"
+			Modifiers="Alt"
+			CommandParameter="Radio"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="D2"
+			Modifiers="Alt"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}"
+			CommandParameter="{Binding Source={StaticResource AstroPcrSystemModuleName}, Converter={StaticResource AstroPcrSystemNameConverter}}" />
+		<KeyBinding
+			Key="D3"
+			Modifiers="Alt"
+			CommandParameter="ASTRODataProfile"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="D4"
+			Modifiers="Alt"
+			CommandParameter="Job"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="F"
+			Modifiers="Alt"
+			CommandParameter="Firmware"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="V"
+			Modifiers="Alt"
+			CommandParameter="VoiceAnnouncement"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="B"
+			Modifiers="Ctrl"
+			CommandParameter="CACertificates"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="L"
+			Modifiers="Alt"
+			CommandParameter="LanguagePack"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="U"
+			Modifiers="Alt"
+			CommandParameter="DVRSFiles"
+			Command="{Binding CommandProxy.NavigateToMainModuleCommand}" />
+		<KeyBinding
+			Key="E"
+			Modifiers="Alt"
+			Command="{Binding CommandProxy.ShowSettingsCommand}" />
+		<KeyBinding
+			Key="K"
+			Modifiers="Control"
+			Command="{Binding CommandProxy.ViewTasksCommand}" />
+		<KeyBinding
+			Key="B"
+			Modifiers="Alt"
+			Command="{Binding CommandProxy.AboutCommand}" />
+		<KeyBinding
+			Key="F1"
+			Command="{Binding CommandProxy.HelpCommand}" />
+	</UIElement.InputBindings>
+	<i:Interaction.Triggers>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowConfirmationDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCentered="True" />
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowNotificationDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCentered="True" />
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowStartUpNotificationDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsTopMost="True"
+				IsModal="True"
+				IsCentered="True" />
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowProgressRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsBorderless="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:ProgressView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowProgressDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:ProgressView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowRetryDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCentered="True" />
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSaveTemplateAsDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<template:SaveTemplateAsView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSettingsDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:SettingsView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowDBMigrationDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCloseable="False">
+				<infrastructure:PopupWindowAction.Content>
+					<common:DBMigrationView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowClearDataDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCloseable="False">
+				<infrastructure:PopupWindowAction.Content>
+					<common:ClearDataView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowRadioConversionDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCloseable="False">
+				<infrastructure:PopupWindowAction.Content>
+					<common:RadioConversionView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectModifiedRadiosDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsCloseable="False">
+				<infrastructure:PopupWindowAction.Content>
+					<common:SelectModifiedRadioView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowAboutDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:AboutView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding UserLoginDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:UserLoginView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ChangePasswordDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:ChangePasswordView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowTasksWindowRequest}">
+			<infrastructure:PopupWindowAction>
+				<infrastructure:PopupWindowAction.Content>
+					<common:TasksView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding OAuthLoginDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<oauthOidc:OAuthLoginView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding SelectAgencyDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<oauthOidc:SelectAgencyView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowUpdateLogSettingRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:UpdateLogSettingView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowErrorMessageRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<common:ErrorMessageView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+	</i:Interaction.Triggers>
+	<Grid
+		Background="{StaticResource MainWindowBackgroundColor}">
+		<Grid
+			IsEnabled="{Binding MainViewEnable}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="15" />
+				<RowDefinition />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<!--Unknown connection ID: 2-->
+			<ContentControl
+				Name="ctcNavigation"
+				BorderBrush="#00FFFFFF"
+				prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.NavigationRegion}"
+				Margin="15,15,15,0" />
+			<!--Unknown connection ID: 3-->
+			<igDock:XamDockManager
+				Name="dmgDockManager"
+				Grid.Row="2"
+				FlyoutAnimation="None"
+				Background="#00FFFFFF"
+				Margin="10,0,10,0"
+				Theme="IGTheme"
+				UnpinnedTabHoverAction="None">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							TargetType="{x:Type igDock:PaneTabItem}"
+							x:Key="{x:Type igDock:PaneTabItem}">
+							<Setter
+								Property="controls:OutputPaneTwinklingExtension.IsRegisterTwinklingForContentPane"
+								Value="True" />
+							<Style.Triggers>
+								<DataTrigger
+									Value="ItemChanged"
+									Binding="{Binding Path=Pane.Tag, RelativeSource={RelativeSource Self}}">
+									<Setter
+										Property="Template">
+										<Setter.Value>
+											<ControlTemplate
+												TargetType="{x:Type igDock:PaneTabItem}">
+												<Border
+													SnapsToDevicePixels="True">
+													<igWindows:CardPanel>
+														<igWindows:CardPanel
+															Name="Background">
+															<Grid
+																HorizontalAlignment="Stretch"
+																VerticalAlignment="Stretch"
+																Width="Auto"
+																Height="Auto">
+																<Border
+																	Name="OuterBorder"
+																	BorderBrush="{TemplateBinding BorderBrush}"
+																	Background="{TemplateBinding Background}"
+																	SnapsToDevicePixels="True"
+																	BorderThickness="0,1,1,1" />
+																<Border
+																	Name="InnerBorder"
+																	Margin="0,1,1,1"
+																	BorderThickness="0,1,1,1"
+																	SnapsToDevicePixels="True"
+																	BorderBrush="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHighlightFillKey}}" />
+															</Grid>
+														</igWindows:CardPanel>
+														<Border
+															Name="Content"
+															BorderThickness="{TemplateBinding BorderThickness}"
+															Padding="{TemplateBinding Padding}"
+															Background="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemBottomHottrackCenterFillKey}}">
+															<DockPanel>
+																<igWindows:AutoDisabledImage
+																	DockPanel.Dock="Left"
+																	Margin="0,0,5,0"
+																	Stretch="None"
+																	Visibility="{Binding Path=Pane.HasImage, RelativeSource={x:Static RelativeSource.TemplatedParent}, Converter={StaticResource BoolToVisConverter}}"
+																	Source="{Binding Path=Pane.Image, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+																<ContentPresenter
+																	Name="contentHeader"
+																	ContentSource="Header"
+																	SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+																	RecognizesAccessKey="True"
+																	igWindows:ClippedTextToolTipService.ToolTipStyleKey="{x:Static igDock:XamDockManager.ToolTipStyleKey}"
+																	ToolTip="{x:Static rr:Resources.DockPanelTabItemToolTip}"
+																	TextElement.Foreground="{StaticResource {x:Static igDock:DockManagerBrushKeys.TabbedListHottrackTextFillKey}}"
+																	HorizontalAlignment="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+																	VerticalAlignment="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+															</DockPanel>
+														</Border>
+													</igWindows:CardPanel>
+												</Border>
+												<ControlTemplate.Triggers>
+													<Trigger
+														Property="igWindows:TabItemEx.IsMouseOverTab"
+														Value="True">
+														<Setter
+															TargetName="InnerBorder"
+															Property="BorderBrush"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackHighlightFillKey}}" />
+														<Setter
+															TargetName="contentHeader"
+															Property="Foreground"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}}" />
+													</Trigger>
+													<Trigger
+														Property="TabItem.TabStripPlacement"
+														Value="Top">
+														<Setter
+															Property="Padding"
+															Value="3,4,4,3" />
+														<Setter
+															Property="Margin"
+															Value="-1,0,0,0" />
+														<Setter
+															TargetName="OuterBorder"
+															Property="BorderThickness"
+															Value="1,1,1,0" />
+														<Setter
+															TargetName="InnerBorder"
+															Property="BorderThickness"
+															Value="1,1,1,0" />
+														<Setter
+															TargetName="InnerBorder"
+															Property="Margin"
+															Value="1,1,1,0" />
+													</Trigger>
+													<Trigger
+														Property="TabItem.TabStripPlacement"
+														Value="Bottom">
+														<Setter
+															Property="Padding"
+															Value="3,4,4,4" />
+														<Setter
+															Property="Margin"
+															Value="-1,0,0,0" />
+														<Setter
+															TargetName="OuterBorder"
+															Property="BorderThickness"
+															Value="1,0,1,1" />
+														<Setter
+															TargetName="InnerBorder"
+															Property="BorderThickness"
+															Value="1,0,1,1" />
+														<Setter
+															TargetName="InnerBorder"
+															Property="Margin"
+															Value="1,0,1,1" />
+													</Trigger>
+													<Trigger
+														Property="TabItem.TabStripPlacement"
+														Value="Left">
+														<Setter
+															Property="Padding"
+															Value="4,5,4,3" />
+														<Setter
+															Property="Margin"
+															Value="0,-1,0,0" />
+														<Setter
+															TargetName="OuterBorder"
+															Property="BorderThickness"
+															Value="1,1,0,1" />
+														<Setter
+															TargetName="InnerBorder"
+															Property="BorderThickness"
+															Value="1,1,0,1" />
+														<Setter
+															TargetName="InnerBorder"
+															Property="Margin"
+															Value="1,1,0,1" />
+														<Setter
+															TargetName="Content"
+															Property="FrameworkElement.LayoutTransform">
+															<Setter.Value>
+																<RotateTransform
+																	Angle="90" />
+															</Setter.Value>
+														</Setter>
+													</Trigger>
+													<Trigger
+														Property="TabItem.TabStripPlacement"
+														Value="Right">
+														<Setter
+															Property="Padding"
+															Value="4,5,4,3" />
+														<Setter
+															Property="Margin"
+															Value="0,-1,0,0" />
+														<Setter
+															TargetName="Content"
+															Property="FrameworkElement.LayoutTransform">
+															<Setter.Value>
+																<RotateTransform
+																	Angle="90" />
+															</Setter.Value>
+														</Setter>
+													</Trigger>
+													<Trigger
+														Property="IsEnabled"
+														Value="False">
+														<Setter
+															Property="Foreground"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.GrayTextBrushKey}}" />
+													</Trigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="UIElement.IsMouseOver"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Top" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Background"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemTopHottrackCenterFillKey}}" />
+														<Setter
+															Property="BorderBrush"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}}" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="UIElement.IsMouseOver"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Bottom" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Background"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemBottomHottrackCenterFillKey}}" />
+														<Setter
+															Property="BorderBrush"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}}" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="UIElement.IsMouseOver"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Left" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Background"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemRightHottrackCenterFillKey}}" />
+														<Setter
+															Property="BorderBrush"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}}" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="UIElement.IsMouseOver"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Right" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Background"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemLeftHottrackCenterFillKey}}" />
+														<Setter
+															Property="BorderBrush"
+															Value="{StaticResource {x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}}" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Bottom" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Margin"
+															Value="15,0,0,0" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Top" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Margin"
+															Value="15,0,0,0" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Left" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Margin"
+															Value="0,15,0,0" />
+													</MultiTrigger>
+													<MultiTrigger>
+														<MultiTrigger.Conditions>
+															<Condition
+																Property="igDock:UnpinnedTabItemPanel.IsFirstInGroup"
+																Value="True" />
+															<Condition
+																Property="TabItem.TabStripPlacement"
+																Value="Right" />
+														</MultiTrigger.Conditions>
+														<Setter
+															Property="Margin"
+															Value="0,15,0,0" />
+													</MultiTrigger>
+												</ControlTemplate.Triggers>
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<igDock:XamDockManager.Panes>
+					<igDock:SplitPane
+						XamDockManager.InitialLocation="DockedBottom"
+						Height="300">
+						<!--Unknown connection ID: 4-->
+						<igDock:ContentPane
+							Name="cpnTasks"
+							AllowClose="False"
+							CloseButtonVisibility="Collapsed"
+							Header="{x:Static rr:Resources.RMC_RMControl_Tasks}"
+							IsPinned="False"
+							Margin="5,0,5,5"
+							AllowFloatingOnly="False">
+							<!--Unknown connection ID: 5-->
+							<common:TasksView
+								Name="tvwTasks" />
+						</igDock:ContentPane>
+					</igDock:SplitPane>
+					<igDock:SplitPane
+						XamDockManager.InitialLocation="DockedBottom"
+						Height="300">
+						<igDock:TabGroupPane>
+							<!--Unknown connection ID: 6-->
+							<igDock:ContentPane
+								Name="cpnHelpView"
+								AllowClose="False"
+								AllowFloatingOnly="False"
+								CloseButtonVisibility="Collapsed"
+								Header="{x:Static rr:Resources.RM_Help_Title}"
+								IsPinned="False"
+								Margin="5,0,5,5"
+								WindowPositionMenuVisibility="Collapsed">
+								<WindowsFormsHost>
+									<!--Unknown connection ID: 7-->
+									<wf:WebBrowser
+										x:Name="helpView"
+										AllowNavigation="True"
+										AllowWebBrowserDrop="False" />
+								</WindowsFormsHost>
+							</igDock:ContentPane>
+						</igDock:TabGroupPane>
+					</igDock:SplitPane>
+					<igDock:SplitPane
+						Width="180"
+						MaxWidth="600"
+						MinWidth="250">
+						<!--Unknown connection ID: 8-->
+						<igDock:ContentPane
+							Name="cpnASTROSystemGroups"
+							Header="{x:Static rr:Resources.RMC_RMControl_Group}"
+							AllowClose="False"
+							AllowDocking="False"
+							AllowFloatingOnly="False"
+							CloseButtonVisibility="Collapsed"
+							Margin="5,0,5,5"
+							WindowPositionMenuVisibility="Collapsed">
+							<astroSystem:GroupsView
+								Padding="10"
+								DataContext="{Binding ElementName=ctcMain, Path=Content.Content.DataContext}" />
+						</igDock:ContentPane>
+						<!--Unknown connection ID: 9-->
+						<igDock:ContentPane
+							Name="cpnASTRODataProfileGroups"
+							Header="{x:Static rr:Resources.RMC_RMControl_Group}"
+							AllowClose="False"
+							AllowDocking="False"
+							AllowFloatingOnly="False"
+							CloseButtonVisibility="Collapsed"
+							Margin="5,0,5,5"
+							WindowPositionMenuVisibility="Collapsed">
+							<astroDataProfile:GroupsView
+								Padding="10"
+								DataContext="{Binding ElementName=ctcMain, Path=Content.Content.DataContext}" />
+						</igDock:ContentPane>
+						<!--Unknown connection ID: 10-->
+						<igDock:ContentPane
+							Name="cpnASTROOtarProfileGroups"
+							Header="{x:Static rr:Resources.RMC_RMControl_Group}"
+							AllowClose="False"
+							AllowDocking="False"
+							AllowFloatingOnly="False"
+							CloseButtonVisibility="Collapsed"
+							Margin="5,0,5,5"
+							WindowPositionMenuVisibility="Collapsed">
+							<astroOtarProfile:GroupsView
+								Padding="10"
+								DataContext="{Binding ElementName=ctcMain, Path=Content.Content.DataContext}" />
+						</igDock:ContentPane>
+						<!--Unknown connection ID: 11-->
+						<igDock:ContentPane
+							Name="cpnRadioGroups"
+							Header="{x:Static rr:Resources.RMC_RMControl_Group}"
+							AllowClose="False"
+							AllowDocking="False"
+							AllowFloatingOnly="False"
+							CloseButtonVisibility="Collapsed"
+							Margin="5,0,5,5"
+							WindowPositionMenuVisibility="Collapsed">
+							<!--Unknown connection ID: 12-->
+							<radio:GroupsView
+								Name="gvwGroups"
+								Padding="10"
+								DataContext="{Binding ElementName=ctcMain, Path=Content.Content.Content.DataContext}" />
+						</igDock:ContentPane>
+						<!--Unknown connection ID: 13-->
+						<igDock:ContentPane
+							Name="cpnResources"
+							Header="{x:Static rr:Resources.RMC_RMControl_Resources}"
+							ToolTip="{x:Static rr:Resources.RMC_RMControl_Resources}"
+							AllowClose="False"
+							AllowDocking="False"
+							AllowFloatingOnly="False"
+							CloseButtonVisibility="Collapsed"
+							Margin="5,0,5,5"
+							WindowPositionMenuVisibility="Collapsed">
+							<common:ResourceGroupView
+								Padding="10" />
+						</igDock:ContentPane>
+					</igDock:SplitPane>
+					<igDock:SplitPane
+						Width="350"
+						MaxWidth="600"
+						MinWidth="250" />
+				</igDock:XamDockManager.Panes>
+				<!--Unknown connection ID: 14-->
+				<igDock:XamDockManager
+					Name="dmgDockManagerInner"
+					Background="#00FFFFFF"
+					Theme="IGTheme"
+					UnpinnedTabHoverAction="None">
+					<Border
+						Margin="5,0,5,5"
+						Background="{StaticResource DetailsAreaBackgroundColor}">
+						<!--Unknown connection ID: 15-->
+						<ContentControl
+							Name="ctcMain"
+							prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.MainRegion}" />
+					</Border>
+				</igDock:XamDockManager>
+			</igDock:XamDockManager>
+			<!--Unknown connection ID: 16-->
+			<ContentControl
+				Name="ctcStatus"
+				Grid.Row="3"
+				prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.StatusRegion}" />
+		</Grid>
+		<!--Unknown connection ID: 17-->
+		<controls:RMWaitingIndicator
+			Name="roundProgressCtrl"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Margin="0"
+			PercentVisibility="Hidden"
+			Visibility="{Binding WaitingIndicatorVisibility}" />
+	</Grid>
+</UserControl>

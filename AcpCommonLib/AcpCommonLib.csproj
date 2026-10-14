@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcpCommonLib</RootNamespace>
+    <AssemblyName>AcpCommonLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcpAppInfoHelper.cs" />
+    <Compile Include="AppInfoManager.cs" />
+    <Compile Include="ApplicationMode.cs" />
+    <Compile Include="ApplicationType.cs" />
+    <Compile Include="ConstraintManager.cs" />
+    <Compile Include="DifferentiatedUserViewType.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="DocumentType.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="DragDropVersionManager.cs" />
+    <Compile Include="Exceptions\AcpSecurityException.cs" />
+    <Compile Include="FeatureManager.cs" />
+    <Compile Include="FeatureNodeConstraint.cs" />
+    <Compile Include="FieldInfo.cs" />
+    <Compile Include="FieldInfoType.cs" />
+    <Compile Include="FieldReportType.cs" />
+    <Compile Include="FieldsReport\FieldsReportInfo.cs" />
+    <Compile Include="FieldsReport\FieldsReportManager.cs" />
+    <Compile Include="FieldsReport\NotifyFieldsReportChangedEventArgs.cs" />
+    <Compile Include="FieldsReport\NotifyFieldsReportChangedEventHandler.cs" />
+    <Compile Include="FillOperation.cs" />
+    <Compile Include="FindResult\FindResultInfo.cs" />
+    <Compile Include="FindResult\FindResultsManager.cs" />
+    <Compile Include="FindResult\NotifyFindResultChangedEventArgs.cs" />
+    <Compile Include="FindResult\NotifyFindResultChangedEventHandler.cs" />
+    <Compile Include="IAcpBatchOperation.cs" />
+    <Compile Include="IAcpCommon.cs" />
+    <Compile Include="IAcpConstraints.cs" />
+    <Compile Include="IAcpFeatureNode.cs" />
+    <Compile Include="IAcpFeatureNodeCallList.cs" />
+    <Compile Include="IAcpFeatureSection.cs" />
+    <Compile Include="IAcpField.cs" />
+    <Compile Include="IAcpListField.cs" />
+    <Compile Include="IAcpModelTiering.cs" />
+    <Compile Include="IAcpModelTieringData.cs" />
+    <Compile Include="IAcpModelTieringEngine.cs" />
+    <Compile Include="IAcpPointerField.cs" />
+    <Compile Include="IAcpRangeField.cs" />
+    <Compile Include="IAcpRecordset.cs" />
+    <Compile Include="InternalConstraint.cs" />
+    <Compile Include="LaunchSection.cs" />
+    <Compile Include="ListItemImageConstraint.cs" />
+    <Compile Include="ListItemStateConstraint.cs" />
+    <Compile Include="Permission.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchMode.cs" />
+    <Compile Include="StateConstraint.cs" />
+    <Compile Include="StatusMessage\NotifyMsgListChangedEventArgs.cs" />
+    <Compile Include="StatusMessage\NotifyMsgListChangedEventHandler.cs" />
+    <Compile Include="StatusMessage\StatusMessageInfo.cs" />
+    <Compile Include="StatusMessage\StatusMessagesManager.cs" />
+    <Compile Include="StatusMsgType.cs" />
+    <Compile Include="UndoRedo\AcpUndoHelper.cs" />
+    <Compile Include="UndoRedo\ContainerTask.cs" />
+    <Compile Include="UndoRedo\UndoableTask.cs" />
+    <Compile Include="UndoRedo\UndoManager.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="ValueSetterConstraint.cs" />
+    <Compile Include="XmlFileType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpCommonResources\AcpCommonResources.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA632}</Project>
+      <Name>AcpCommonResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCryptoLib\AcpCryptoLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA633}</Project>
+      <Name>AcpCryptoLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

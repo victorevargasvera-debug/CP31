@@ -1,0 +1,586 @@
+<ResourceDictionary
+	x:Class="BusyIndicator" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:local="clr-namespace:SpecialFeatures.FileOperations" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:global="clr-namespace:">
+	<Style
+		TargetType="{x:Type local:BusyIndicator}"
+		x:Key="SingleSpin">
+		<Style.Resources>
+			<ResourceDictionary />
+		</Style.Resources>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<SolidColorBrush
+								x:Key="Brush1134"
+								Color="#FF424242" />
+							<SolidColorBrush
+								x:Key="Brush1"
+								Color="#FF987656" />
+							<SolidColorBrush
+								x:Key="Brush2"
+								Color="#FFCC8644" />
+							<SolidColorBrush
+								x:Key="Brush3"
+								Color="#FFFF9632" />
+							<SolidColorBrush
+								x:Key="Brush4"
+								Color="#FFFEBF5D" />
+							<SolidColorBrush
+								x:Key="Brush5"
+								Color="#FFFCE787" />
+							<LinearGradientBrush
+								x:Key="Brush6"
+								StartPoint="-6.48161e-007,0.500002"
+								EndPoint="0.999999,0.500002">
+								<GradientStop
+									Color="#FF424242"
+									Offset="0" />
+								<GradientStop
+									Color="#FF987656"
+									Offset="0.217623" />
+								<GradientStop
+									Color="#FFAD755E"
+									Offset="0.424577" />
+								<GradientStop
+									Color="#FFFF9632"
+									Offset="0.622333" />
+								<GradientStop
+									Color="#FFFEBF5D"
+									Offset="0.815489" />
+								<GradientStop
+									Color="#FFFCE787"
+									Offset="1" />
+							</LinearGradientBrush>
+							<RadialGradientBrush
+								x:Key="Brush7">
+								<GradientStop
+									Color="#FF000000"
+									Offset="0" />
+								<GradientStop
+									Color="#FF464646"
+									Offset="0.996" />
+								<GradientStop
+									Color="#FF202020"
+									Offset="0.523" />
+								<GradientStop
+									Color="#FF909090"
+									Offset="0.757" />
+								<GradientStop
+									Color="#FF898989"
+									Offset="0.835" />
+							</RadialGradientBrush>
+							<Storyboard
+								x:Key="DualSpinAction"
+								RepeatBehavior="3x">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="ring"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:03"
+										Value="-720" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="viewbox2"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="-360" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:03"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="viewbox1"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="-360" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:03"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="SmallGoldSpin"
+								RepeatBehavior="Forever">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="SpinnerCanvas"
+									Storyboard.TargetProperty="Opacity">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="path12"
+									Storyboard.TargetProperty="Opacity">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="path12"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.5000000"
+										Value="360" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="Go Green"
+								RepeatBehavior="1x">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="Green_Glow_large"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:04"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:05"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="Check"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:04.7000000"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:05.3000000"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="GoGreen Small">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="SpinnerCanvas"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.0000000"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.7000000"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="Check_Copy"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.5000000"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.7000000"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="GoRed">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="Red_Glow_large"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:03"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:04"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+								<ColorAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="X"
+									Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+									<SplineColorKeyFrame
+										KeyTime="00:00:04.4000000"
+										Value="#FF220000" />
+								</ColorAnimationUsingKeyFrames>
+								<ColorAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="X"
+									Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+									<SplineColorKeyFrame
+										KeyTime="00:00:04.4000000"
+										Value="#FF980000" />
+								</ColorAnimationUsingKeyFrames>
+								<PointAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="X"
+									Storyboard.TargetProperty="(Shape.Fill).(LinearGradientBrush.StartPoint)">
+									<SplinePointKeyFrame
+										KeyTime="00:00:04.4000000"
+										Value="0.5,1" />
+								</PointAnimationUsingKeyFrames>
+								<PointAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="X"
+									Storyboard.TargetProperty="(Shape.Fill).(LinearGradientBrush.EndPoint)">
+									<SplinePointKeyFrame
+										KeyTime="00:00:04.4000000"
+										Value="0.5,0" />
+								</PointAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="X"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:03"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:04.4000000"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="GoRedsmall">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="SpinnerCanvas"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.0000000"
+										Value="1" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.7000000"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="X_Copy"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.5000000"
+										Value="0" />
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.7000000"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid
+						Name="LayoutRoot"
+						Background="{x:Null}">
+						<FrameworkElement.Resources>
+							<ResourceDictionary />
+						</FrameworkElement.Resources>
+						<Path
+							Name="X"
+							Stretch="Fill"
+							StrokeLineJoin="Round"
+							Data="F1 M485.1,174.645 L507.815,197.361 L530.531,174.645 L543.259,187.373 L520.543,210.089 L543.259,232.805 L530.531,245.533 L507.815,222.817 L485.1,245.533 L472.372,232.805 L495.087,210.089 L472.372,187.373 L485.1,174.645"
+							Width="17.746"
+							Height="17.746"
+							Opacity="0"
+							Visibility="Visible"
+							Stroke="{x:Null}">
+							<Shape.Fill>
+								<LinearGradientBrush
+									EndPoint="0.5,1"
+									StartPoint="0.5,0">
+									<GradientStop
+										Color="#FF7E1515"
+										Offset="0" />
+									<GradientStop
+										Color="#FFFF0505"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Name="Check"
+							Stretch="Fill"
+							StrokeThickness="1.33031"
+							StrokeLineJoin="Round"
+							Fill="#FF5FFF25"
+							Data="F1 M517.334,151.745 L534.246,168.657 L570.69,132.213 L582.239,143.762 L534.246,191.755 L533.951,191.461 L522.696,180.206 L505.785,163.294 L517.334,151.745"
+							Width="30.502"
+							Height="23.87"
+							Opacity="0"
+							Visibility="Visible"
+							Stroke="{x:Null}">
+							<UIElement.BitmapEffect>
+								<DropShadowBitmapEffect
+									Opacity="0.8"
+									ShadowDepth="2"
+									Softness="0.345" />
+							</UIElement.BitmapEffect>
+						</Path>
+						<Viewbox
+							Width="{TemplateBinding Width}"
+							Height="{TemplateBinding Height}">
+							<Canvas
+								Name="SpinnerCanvas"
+								Width="69.3333"
+								Height="69.4792"
+								Opacity=".5">
+								<Path
+									Width="66.6641"
+									Height="66.6641"
+									Canvas.Left="1.33459"
+									Canvas.Top="1.40753"
+									Stretch="Fill"
+									Data="F1 M34.6653,68.0717 C16.2864,68.0717 1.33459,53.1198 1.33459,34.7383 C1.33459,16.3594 16.2864,1.40753 34.6653,1.40753 C53.0469,1.40753 67.9987,16.3594 67.9987,34.7383 C67.9987,53.1198 53.0469,68.0717 34.6653,68.0717 M34.6653,16.5299 C24.6276,16.5299 16.4609,24.6966 16.4609,34.7383 C16.4609,44.7761 24.6276,52.9427 34.6653,52.9427 C44.7057,52.9427 52.8724,44.7761 52.8724,34.7383 C52.8724,24.6966 44.7057,16.5299 34.6653,16.5299">
+									<UIElement.BitmapEffect>
+										<DropShadowBitmapEffect />
+									</UIElement.BitmapEffect>
+									<Shape.Fill>
+										<LinearGradientBrush
+											EndPoint="0.5,1"
+											StartPoint="0.5,0">
+											<GradientStop
+												Color="#FF262626"
+												Offset="0" />
+											<GradientStop
+												Color="#FF8C8C8C"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path12"
+									Width="66.6641"
+									Height="66.664"
+									Canvas.Left="1.33459"
+									Canvas.Top="1.40759"
+									Stretch="Fill"
+									Data="F1 M34.6653,1.40759 C34.5664,1.40759 34.47,1.41412 34.3711,1.41528 L34.3711,16.5443 C34.47,16.543 34.5664,16.53 34.6653,16.53 C44.7057,16.53 52.8724,24.6967 52.8724,34.7382 C52.8724,44.7761 44.7057,52.9427 34.6653,52.9427 C24.6315,52.9427 16.4688,44.7825 16.4622,34.7513 L1.33459,34.7513 C1.34241,53.1263 16.2903,68.0716 34.6653,68.0716 C53.0469,68.0716 67.9987,53.1198 67.9987,34.7382 C67.9987,16.3594 53.0469,1.40759 34.6653,1.40759"
+									RenderTransformOrigin="0.5,0.5"
+									Opacity="0">
+									<UIElement.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform
+												ScaleX="1"
+												ScaleY="1" />
+											<SkewTransform
+												AngleX="0"
+												AngleY="0" />
+											<RotateTransform
+												Angle="0" />
+											<TranslateTransform
+												X="0"
+												Y="0" />
+										</TransformGroup>
+									</UIElement.RenderTransform>
+									<UIElement.OpacityMask>
+										<LinearGradientBrush
+											EndPoint="0.192,0.502"
+											StartPoint="0.481,0.23">
+											<GradientStop
+												Color="#00000000"
+												Offset="0" />
+											<GradientStop
+												Color="#FF000000"
+												Offset="1" />
+										</LinearGradientBrush>
+									</UIElement.OpacityMask>
+									<Shape.Fill>
+										<RadialGradientBrush
+											RadiusX="0.5"
+											RadiusY="0.5"
+											Center="0.499998,0.5"
+											GradientOrigin="0.499998,0.5">
+											<Brush.RelativeTransform>
+												<TransformGroup />
+											</Brush.RelativeTransform>
+											<GradientStop
+												Color="#FF424242"
+												Offset="0" />
+											<GradientStop
+												Color="#FF987656"
+												Offset="0.217623" />
+											<GradientStop
+												Color="#FFAD755E"
+												Offset="0.424577" />
+											<GradientStop
+												Color="#FFFF9632"
+												Offset="0.516556" />
+											<GradientStop
+												Color="#FFFFB039"
+												Offset="0.568442" />
+											<GradientStop
+												Color="#FFFFCA41"
+												Offset="0.7695" />
+											<GradientStop
+												Color="#FFF4A126"
+												Offset="0.905378" />
+											<GradientStop
+												Color="#FFE9780C"
+												Offset="0.999448" />
+										</RadialGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Viewbox
+									Width="69.3333"
+									Height="69.4792"
+									Canvas.Left="0"
+									Canvas.Top="0">
+									<Canvas
+										Width="69.3333"
+										Height="69.4792">
+										<Path
+											Width="69.3333"
+											Height="69.4792"
+											Canvas.Left="0"
+											Canvas.Top="0"
+											Stretch="Fill"
+											Fill="#FF404142"
+											Data="F1 M34.6666,0 C15.5208,0 0,15.5533 0,34.7396 C0,53.9257 15.5208,69.4792 34.6666,69.4792 C53.8125,69.4792 69.3333,53.9257 69.3333,34.7396 C69.3333,15.5533 53.8125,0 34.6666,0 M34.6653,68.1459 C16.2864,68.1459 1.33459,53.194 1.33459,34.8125 C1.33459,16.4336 16.2864,1.48169 34.6653,1.48169 C53.0469,1.48169 67.9987,16.4336 67.9987,34.8125 C67.9987,53.194 53.0469,68.1459 34.6653,68.1459" />
+										<Path
+											Width="36.4114"
+											Height="36.4128"
+											Canvas.Left="16.4609"
+											Canvas.Top="16.6041"
+											Stretch="Fill"
+											Fill="#FF404142"
+											Data="F1 M34.6653,16.6041 C24.6276,16.6041 16.4609,24.7708 16.4609,34.8125 C16.4609,44.8502 24.6276,53.0169 34.6653,53.0169 C44.7057,53.0169 52.8724,44.8502 52.8724,34.8125 C52.8724,24.7708 44.7057,16.6041 34.6653,16.6041 M34.6666,51.6459 C25.3489,51.6459 17.7943,44.0768 17.7943,34.7396 C17.7943,25.4022 25.3489,17.832 34.6666,17.832 C43.9844,17.832 51.5391,25.4022 51.5391,34.7396 C51.5391,44.0768 43.9844,51.6459 34.6666,51.6459" />
+									</Canvas>
+								</Viewbox>
+								<Path
+									Name="highlight"
+									Stretch="Fill"
+									Fill="#FFFFFFFF"
+									Data="F1 M939.79,486.728 C939.79,488.514 935.438,484.409 921.336,484.409 C907.236,484.409 902.883,488.514 902.883,486.728 C902.883,484.941 911.146,480.094 921.336,480.094 C931.528,480.094 939.79,484.941 939.79,486.728"
+									Opacity="0.41"
+									RenderTransformOrigin="0.5,0.5"
+									Margin="0,0,0,0"
+									Width="27.616"
+									Height="8.48"
+									Canvas.Top="52"
+									Canvas.Left="21.25">
+									<UIElement.BitmapEffect>
+										<BlurBitmapEffect
+											Radius="1" />
+									</UIElement.BitmapEffect>
+									<UIElement.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform
+												ScaleX="1"
+												ScaleY="-1" />
+											<SkewTransform
+												AngleX="0"
+												AngleY="0" />
+											<RotateTransform
+												Angle="360" />
+											<TranslateTransform
+												X="-5.5511151231257827E-17"
+												Y="3.5527136788005009E-15" />
+										</TransformGroup>
+									</UIElement.RenderTransform>
+								</Path>
+							</Canvas>
+						</Viewbox>
+						<Ellipse
+							Name="SmallGreen"
+							Width="{TemplateBinding Width}"
+							Height="{TemplateBinding Height}"
+							Opacity="0"
+							Visibility="Collapsed"
+							Stroke="{x:Null}">
+							<Shape.Fill>
+								<RadialGradientBrush>
+									<GradientStop
+										Color="#00000000"
+										Offset="0.465" />
+									<GradientStop
+										Color="#FF12880D"
+										Offset="0.942" />
+									<GradientStop
+										Color="#FF2FC728"
+										Offset="0.527" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Path
+							Name="Check_Copy"
+							Stretch="Fill"
+							StrokeThickness="1.33031"
+							StrokeLineJoin="Round"
+							Data="F1 M517.334,151.745 L534.246,168.657 L570.69,132.213 L582.239,143.762 L534.246,191.755 L533.951,191.461 L522.696,180.206 L505.785,163.294 L517.334,151.745"
+							Width="{TemplateBinding Width}"
+							Height="{TemplateBinding Height}"
+							Opacity="0"
+							Visibility="Visible"
+							Stroke="{x:Null}">
+							<Shape.Fill>
+								<LinearGradientBrush
+									EndPoint="0.5,1"
+									StartPoint="0.5,0">
+									<GradientStop
+										Color="#FF8BFF00"
+										Offset="0" />
+									<GradientStop
+										Color="#FF48C104"
+										Offset="0.992" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Ellipse
+							Name="SmallRed"
+							Width="{TemplateBinding Width}"
+							Height="{TemplateBinding Height}"
+							Opacity="0"
+							Visibility="Collapsed"
+							Stroke="{x:Null}">
+							<Shape.Fill>
+								<RadialGradientBrush>
+									<GradientStop
+										Color="#FF880D0D"
+										Offset="1" />
+									<GradientStop
+										Color="#FFC72828"
+										Offset="0" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Path
+							Name="X_Copy"
+							Stretch="Fill"
+							StrokeLineJoin="Round"
+							Data="F1 M485.1,174.645 L507.815,197.361 L530.531,174.645 L543.259,187.373 L520.543,210.089 L543.259,232.805 L530.531,245.533 L507.815,222.817 L485.1,245.533 L472.372,232.805 L495.087,210.089 L472.372,187.373 L485.1,174.645"
+							Opacity="0"
+							Width="{TemplateBinding Width}"
+							Height="{TemplateBinding Height}"
+							Visibility="Visible"
+							Stroke="{x:Null}">
+							<Shape.Fill>
+								<LinearGradientBrush
+									EndPoint="0.5,1"
+									StartPoint="0.5,0">
+									<GradientStop
+										Color="#FF9E0101"
+										Offset="1" />
+									<GradientStop
+										Color="#FFFC0000"
+										Offset="0" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

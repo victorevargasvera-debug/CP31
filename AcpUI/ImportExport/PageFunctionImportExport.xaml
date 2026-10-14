@@ -1,0 +1,63 @@
+<z:PageFunctionImportExportBase
+	x:Class="AcpUI.ImportExport.PageFunctionImportExport" xmlns:z="clr-namespace:AcpUI.ImportExport" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpCommonResources="clr-namespace:AcpCommonResources;assembly=AcpCommonResources"
+	Title="PageFunctionImportExport"
+	ShowsNavigationUI="False"
+	Height="293"
+	Width="465">
+	<Grid>
+		<!--Unknown connection ID: 1-->
+		<ListBox
+			Name="ListBoxImportExport"
+			SelectionMode="Multiple"
+			Margin="14,22,152,18"
+			DisplayMemberPath="RecsetName" />
+		<!--Unknown connection ID: 2-->
+		<Button
+			Name="BtnSelectAll"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,22,10,0"
+			VerticalAlignment="Top"
+			Width="125"
+			Content="{x:Static AcpCommonResources:AcpResources.Select_All}" />
+		<!--Unknown connection ID: 3-->
+		<Button
+			Name="BtnCancel"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,0,10,20"
+			VerticalAlignment="Bottom"
+			Width="125"
+			IsCancel="True"
+			Content="{x:Static AcpCommonResources:AcpResources.Cancel_Id}" />
+		<!--Unknown connection ID: 4-->
+		<Button
+			Name="BtnImportExport"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,0,10,46"
+			VerticalAlignment="Bottom"
+			Width="125"
+			IsEnabled="False"
+			Content="{x:Static AcpCommonResources:AcpResources.Import_Export}" />
+		<!--Unknown connection ID: 5-->
+		<Button
+			Name="BtnUnselectAll"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,46,10,0"
+			VerticalAlignment="Top"
+			Width="125"
+			Content="{x:Static AcpCommonResources:AcpResources.Unselect_All}" />
+		<!--Unknown connection ID: 6-->
+		<Button
+			Name="BtnCopy"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,0,10,71"
+			VerticalAlignment="Bottom"
+			Width="125"
+			Visibility="Hidden"
+			Content="{x:Static AcpCommonResources:AcpResources.Copy_Id}" />
+	</Grid>
+</z:PageFunctionImportExportBase>

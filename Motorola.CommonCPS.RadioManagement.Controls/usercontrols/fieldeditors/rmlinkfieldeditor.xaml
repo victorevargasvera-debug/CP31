@@ -1,0 +1,52 @@
+<local:RMFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMLinkFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Height="24">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<local:SharedResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:BoolToLockIconPathConverter
+				x:Key="BoolToLockIconPathConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition
+				Width="22" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="20" />
+		</Grid.ColumnDefinitions>
+		<!--Unknown connection ID: 1-->
+		<local:RMTextBlock
+			Name="tblLabel"
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Right"
+			Text="{Binding Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+		<TextBlock
+			Grid.Column="2"
+			Text="è"
+			FontFamily="Wingdings"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			ToolTip="{x:Static resourceRepository:Resources.RMC_LinkFieldToolTip}" />
+		<!--Unknown connection ID: 2-->
+		<local:RMButton
+			Name="btnRelocate"
+			Click="btnRelocate_Click"
+			Grid.Column="3">
+			<StackPanel
+				Orientation="Horizontal">
+				<TextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_DetailForItem}" />
+			</StackPanel>
+		</local:RMButton>
+	</Grid>
+</local:RMFieldEditor>

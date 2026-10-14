@@ -1,0 +1,22 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.SearchView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<Grid>
+		<!--Unknown connection ID: 1-->
+		<controls:RMMaskedInput
+			Name="msiKeyWords"
+			Padding="2,2,21,2"
+			PromptChar=""
+			Width="300"
+			infrastructure:MaskedInputEnterKeyDown.Command="{Binding SearchCommand}" />
+		<!--Unknown connection ID: 2-->
+		<controls:RMLinkButton
+			Name="lbtSearch"
+			HorizontalAlignment="Right">
+			<Image
+				Source="/Motorola.CommonCPS.RadioManagement.Icons;component/magnifier_16xLG.png"
+				Height="16"
+				Width="16"
+				Margin="0,2,3,0" />
+		</controls:RMLinkButton>
+	</Grid>
+</UserControl>

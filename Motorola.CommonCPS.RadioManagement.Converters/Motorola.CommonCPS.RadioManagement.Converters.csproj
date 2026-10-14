@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Converters</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Converters</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgencySelectionComboBoxSizeConverter.cs" />
+    <Compile Include="AndOrsToItemsResourceConverter.cs" />
+    <Compile Include="AndOrToStringConverter.cs" />
+    <Compile Include="AstroPcrSystemNameConverter.cs" />
+    <Compile Include="AuthenticationMethodToIntConverter.cs" />
+    <Compile Include="BatchJobTypeConverter.cs" />
+    <Compile Include="BoolToBrushConverter.cs" />
+    <Compile Include="BoolToGridRowHeightConverter.cs" />
+    <Compile Include="BoolToInverseConverter.cs" />
+    <Compile Include="BoolToThicknessConverter.cs" />
+    <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="BoolToVisibilityHiddenConverter.cs" />
+    <Compile Include="BoolToVisibilityHiddenInverseConverter.cs" />
+    <Compile Include="BoolToVisibilityInverseConverter.cs" />
+    <Compile Include="ButtonBarModesToItemsSourceConverter.cs" />
+    <Compile Include="ButtonBarModeToStringConverter.cs" />
+    <Compile Include="CBChannelToEnableConverter.cs" />
+    <Compile Include="ChangeIndivatorConverter.cs" />
+    <Compile Include="CheckforPasswordCollectionConverter.cs" />
+    <Compile Include="CheckforPasswordInApplicableConverter.cs" />
+    <Compile Include="CheckforPasswordtoStringConverter.cs" />
+    <Compile Include="ConditionsToVisibilityConverter.cs" />
+    <Compile Include="ConfigurePasswordPerDeviceInApplicableConverter.cs" />
+    <Compile Include="ConnectionMethodToBoolConverter.cs" />
+    <Compile Include="ContextMenuInRootNodeVisibilityConverter.cs" />
+    <Compile Include="CountToVisibilityConverter.cs" />
+    <Compile Include="DebugModeToVisibilityConverter.cs" />
+    <Compile Include="DisplayTextConverter.cs" />
+    <Compile Include="DisplayToUpperConverter.cs" />
+    <Compile Include="DMR3InfoToVisibilityConverter.cs" />
+    <Compile Include="DMR3ProductFamilyToVALPEnable.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="EditCharacterConverter.cs" />
+    <Compile Include="EmptyStringToNullValueConverter.cs" />
+    <Compile Include="EmptyStringToZeroConverter.cs" />
+    <Compile Include="ExtendedFeatureStatusConverter.cs" />
+    <Compile Include="FilePathToFilePathWithEllipsisConverter.cs" />
+    <Compile Include="FirmwareInfoConverter.cs" />
+    <Compile Include="FlashCodeIndicatorVisibilityConverter.cs" />
+    <Compile Include="GetConfigurationNameConverter.cs" />
+    <Compile Include="GridViewSourceConverter.cs" />
+    <Compile Include="GroupboxForegroudConverter.cs" />
+    <Compile Include="HideInCpsModeConverter.cs" />
+    <Compile Include="i.cs" />
+    <Compile Include="ImportRadiosOverrideOptionToBoolConverter.cs" />
+    <Compile Include="InverseBoolsToVisibilityConverter.cs" />
+    <Compile Include="IPAddressDisplayTextConverter.cs" />
+    <Compile Include="IPAddressEditCharacterConverter.cs" />
+    <Compile Include="IPProgramSystemTypeToIntConverter.cs" />
+    <Compile Include="IPProgramSystemTypeToStringConverter.cs" />
+    <Compile Include="IsCpsModeConverter.cs" />
+    <Compile Include="IsMismatchAndDelaySyncNeedFixToBorderBrushConverter.cs" />
+    <Compile Include="IsMismatchAndDelaySyncNeedFixToForegroundConverter.cs" />
+    <Compile Include="IsMismatchAndDelaySyncNeedFixToToolTipConverter.cs" />
+    <Compile Include="IsMismatchNeedFixToBorderThicknessConverter.cs" />
+    <Compile Include="IsUnloadedSetToForegroundConverter.cs" />
+    <Compile Include="IViewCacheToStopDownloadingCommandConverter.cs" />
+    <Compile Include="JobContainerHasJobFailedToolTipConverter.cs" />
+    <Compile Include="JobContainerProgressSummaryToVisibilityConverter.cs" />
+    <Compile Include="JobContainerStatusToStringConverter.cs" />
+    <Compile Include="JobContainerStatusToVisibilityConverter.cs" />
+    <Compile Include="JobStatusToStringConverter.cs" />
+    <Compile Include="JobTypeToUINameConverter.cs" />
+    <Compile Include="KeyAccessLevelTypeToStringConverter.cs" />
+    <Compile Include="KeyTypesToItemsSourceConverter.cs" />
+    <Compile Include="KeyTypeToStringConverter.cs" />
+    <Compile Include="LeaveSetOptionToBoolConverter.cs" />
+    <Compile Include="LEInfoToVisibilityConverter.cs" />
+    <Compile Include="LinkTypeToIntConverter.cs" />
+    <Compile Include="LoadingStatusToVisibilityConverter.cs" />
+    <Compile Include="MCIFVisibilityConverter.cs" />
+    <Compile Include="MDCRadioIDEntryFormatToHexConverter.cs" />
+    <Compile Include="MFKColorConverter.cs" />
+    <Compile Include="MigrateHistoryPBAConverter.cs" />
+    <Compile Include="MigrationCompleteVisibiltyConverter.cs" />
+    <Compile Include="MigrationJobContainerStateIconConverter.cs" />
+    <Compile Include="MigrationJobContainerStateVisibilyConverter.cs" />
+    <Compile Include="MigrationJobContainerStatusTooptipConverter.cs" />
+    <Compile Include="MigrationStatusDisplayConverter.cs" />
+    <Compile Include="MNISAndCMSCToVisibilityConverter.cs" />
+    <Compile Include="MNISRegionToNAConverter.cs" />
+    <Compile Include="ModeIdentifierToDiscardChangesVisibilityConverter.cs" />
+    <Compile Include="ModeIdentifierToVisibilityConverter.cs" />
+    <Compile Include="ModifyPasswordToVisibilityConverter.cs" />
+    <Compile Include="ModifyPasswordVisibilityForPACConverter.cs" />
+    <Compile Include="ModifyPasswordVisibilityForRepeaterConverter.cs" />
+    <Compile Include="ModuleNameToVisibilityConverter.cs" />
+    <Compile Include="MultiBindingToObjectParamsConverter.cs" />
+    <Compile Include="MultiBoolsToBoolConverter.cs" />
+    <Compile Include="MultiBoolsToGridWidthConverter.cs" />
+    <Compile Include="MultiBoolsToVisibilityConverter.cs" />
+    <Compile Include="MultiIsVisibleToVisibilityConverter.cs" />
+    <Compile Include="MultiPasswordBoxConverter.cs" />
+    <Compile Include="MultiVisibility_Visibility_Converter.cs" />
+    <Compile Include="OnlyApxNextRadiosToVisibilityConverter.cs" />
+    <Compile Include="OnlySingleApxNextRadioToVisibilityConverter.cs" />
+    <Compile Include="OperatorsToItemsSourceConverter.cs" />
+    <Compile Include="OperatorToStringConverter.cs" />
+    <Compile Include="PasswordMaxAttemptConverter.cs" />
+    <Compile Include="PasswordNullValueConverter.cs" />
+    <Compile Include="PasswordVisibilityConverter.cs" />
+    <Compile Include="PCRFiveToneIdToMaskConverter.cs" />
+    <Compile Include="PCRRadioIDToMaskConverter.cs" />
+    <Compile Include="PCRRadioIDToStringConverter.cs" />
+    <Compile Include="PCRRadioIPToStringConverter.cs" />
+    <Compile Include="PCRSACDeviceTypeConverter.cs" />
+    <Compile Include="PCRSubSystemTypeConverter.cs" />
+    <Compile Include="PlanNameConverter.cs" />
+    <Compile Include="PostitionConverter.cs" />
+    <Compile Include="PreferenceLevelToStringConverter.cs" />
+    <Compile Include="PrintPreviewIDToNAConverter.cs" />
+    <Compile Include="ProductFamilyIdentifierToVisibilityConverter.cs" />
+    <Compile Include="ProductFamilyToHeightConverter.cs" />
+    <Compile Include="ProductFamilyToIntConverter.cs" />
+    <Compile Include="ProductFamilyToInvisibleConverter.cs" />
+    <Compile Include="ProductFamilyToStringConvertor.cs" />
+    <Compile Include="ProgressToVisibilityConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QueryConditionToAndOrVisibilityConverter.cs" />
+    <Compile Include="QueryGroupInfoToItemsSourceConverter.cs" />
+    <Compile Include="QueryGroupInfoToVisibility.cs" />
+    <Compile Include="QueryToPaneHeaderConverter.cs" />
+    <Compile Include="QueryTypesToItemsSourceConverter.cs" />
+    <Compile Include="QueryTypeToStringConverter.cs" />
+    <Compile Include="QueryTypeToVisibilityConverter.cs" />
+    <Compile Include="RadioChangeIndicatorToBoolConverter.cs" />
+    <Compile Include="RadioIDEntryFormatConverter.cs" />
+    <Compile Include="RadiosChangeIndicatorToVisibilityConverter.cs" />
+    <Compile Include="RadiosCountToVisibilityConverter.cs" />
+    <Compile Include="RadioStatusToStringConverter.cs" />
+    <Compile Include="ReadOnlyToCellBackGroundConverter.cs" />
+    <Compile Include="ReduceShareableSetModeResetAllToVisibilityConverter.cs" />
+    <Compile Include="RegionCollectionConverter.cs" />
+    <Compile Include="RegionToStringConverter.cs" />
+    <Compile Include="RuntimeIdentifiersToVisibilityConverter.cs" />
+    <Compile Include="SACDeviceTypeToIntConverter.cs" />
+    <Compile Include="ScheduledJobTypeToBoolConverter.cs" />
+    <Compile Include="ScheduleJobViewOKButtonEnableConverter.cs" />
+    <Compile Include="SelectAllParameterConverter.cs" />
+    <Compile Include="SelectedPasswordPolicyToMaxAttemptsEnable.cs" />
+    <Compile Include="SerialNoToHeaderConverter.cs" />
+    <Compile Include="SetCategoryCanSaveDiscardConverter.cs" />
+    <Compile Include="SetDebuggerToVisibilityConverter.cs" />
+    <Compile Include="ShowCheckBoxConverter.cs" />
+    <Compile Include="ShowInCpsModeConverter.cs" />
+    <Compile Include="SizeLongToString.cs" />
+    <Compile Include="SmaDateToStringConverter.cs" />
+    <Compile Include="StringFormatConverter.cs" />
+    <Compile Include="StringValueToVisibilityConverter.cs" />
+    <Compile Include="SubSystemTypeConverter.cs" />
+    <Compile Include="SystemTypeConverter.cs" />
+    <Compile Include="TextToSpeechPackageNameConverter.cs" />
+    <Compile Include="TitleConverter.cs" />
+    <Compile Include="TreeNodeNameToAutomationIdConverter.cs" />
+    <Compile Include="TrimValueConverter.cs" />
+    <Compile Include="UserOperationToUiTextConverter.cs" />
+    <Compile Include="ValueEditTypeToVisibilityConverter.cs" />
+    <Compile Include="VisibilityByRecordCountConverter.cs" />
+    <Compile Include="VisibilityInverseConverter.cs" />
+    <Compile Include="VRIDEntryFormatConverter.cs" />
+    <Compile Include="WiFiEncryptionModeConverter.cs" />
+    <Compile Include="WiFiPasswordEnabledConverter.cs" />
+    <Compile Include="WiFiPasswordLabelForgroundConverter.cs" />
+    <Compile Include="ZeroBasedAccessTextToOneBasedAccessText.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v15.1\InfragisticsWPF4.DataPresenter.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.ModelConvertor\Motorola.CommonCPS.RadioManagement.ModelConvertor.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.ModelConvertor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewCache\ViewCache.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E5}</Project>
+      <Name>ViewCache</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

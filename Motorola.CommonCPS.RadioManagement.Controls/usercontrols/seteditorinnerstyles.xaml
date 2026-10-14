@@ -1,0 +1,77 @@
+<ResourceDictionary
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.SetEditorStyles" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<Style
+		TargetType="{x:Type local:RMAnchor}"
+		x:Key="AnchorItemStyle">
+		<Setter
+			Property="Margin"
+			Value="0,9,0,0" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:RMGroupBox}"
+		x:Key="GroupItemStyle">
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="Margin"
+			Value="20" />
+		<Setter
+			Property="Padding"
+			Value="13,9,13,3" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:RMHeaderContentControl}"
+		x:Key="ContentHeaderItemStyle">
+		<Setter
+			Property="FontWeight"
+			Value="Normal" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:RMFieldEditorHeader}"
+		x:Key="FieldEditorHeaderItemStyle">
+		<Setter
+			Property="FontWeight"
+			Value="Normal" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:RMFieldEditor}"
+		x:Key="InnerItemStyle">
+		<Setter
+			Property="FontWeight"
+			Value="Normal" />
+		<Setter
+			Property="Margin"
+			Value="0,3,0,3" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:RMFieldEditor}"
+		x:Key="NormalItemStyle">
+		<Setter
+			Property="Margin"
+			Value="39,3,39,3" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:RMEmbeddedSetFieldEditor}"
+		x:Key="EmbeddedItemStyle">
+		<Setter
+			Property="Margin"
+			Value="45,3,45,3" />
+	</Style>
+	<Style
+		TargetType="{x:Type ItemsControl}"
+		x:Key="{x:Type ItemsControl}">
+		<Setter
+			Property="ItemContainerStyleSelector">
+			<Setter.Value>
+				<local:SetEditorItemStyleSelector
+					AnchorItemStyle="{StaticResource AnchorItemStyle}"
+					ContentHeaderItemStyle="{StaticResource ContentHeaderItemStyle}"
+					FieldEditorHeaderItemStyle="{StaticResource FieldEditorHeaderItemStyle}"
+					GroupItemStyle="{StaticResource GroupItemStyle}"
+					InnerItemStyle="{StaticResource InnerItemStyle}"
+					NormalItemStyle="{StaticResource NormalItemStyle}" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

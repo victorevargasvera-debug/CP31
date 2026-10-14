@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA681}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.Controls.Editors.XamMaskedInput.v12.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\ValueInputAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\XamMaskedInputAutomationPeer.cs" />
+    <Compile Include="Controls\Editors\AlphaChar.cs" />
+    <Compile Include="Controls\Editors\AlphanumericChar.cs" />
+    <Compile Include="Controls\Editors\AMPMSection.cs" />
+    <Compile Include="Controls\Editors\AutoFillDate.cs" />
+    <Compile Include="Controls\Editors\CharacterSet.cs" />
+    <Compile Include="Controls\Editors\DaySection.cs" />
+    <Compile Include="Controls\Editors\DecimalSeperatorChar.cs" />
+    <Compile Include="Controls\Editors\DigitChar.cs" />
+    <Compile Include="Controls\Editors\DisplayCharBase.cs" />
+    <Compile Include="Controls\Editors\DisplayCharIncludeMethod.cs" />
+    <Compile Include="Controls\Editors\DisplayCharsCollection.cs" />
+    <Compile Include="Controls\Editors\DisplayCharsEditSection.cs" />
+    <Compile Include="Controls\Editors\DropDownButtonDisplayMode.cs" />
+    <Compile Include="Controls\Editors\EditInfo.cs" />
+    <Compile Include="Controls\Editors\EditModeValidationErrorEventArgs.cs" />
+    <Compile Include="Controls\Editors\EditOrientation.cs" />
+    <Compile Include="Controls\Editors\EditSectionBase.cs" />
+    <Compile Include="Controls\Editors\FilterType.cs" />
+    <Compile Include="Controls\Editors\FractionPart.cs" />
+    <Compile Include="Controls\Editors\FractionPartContinuous.cs" />
+    <Compile Include="Controls\Editors\HexDigitChar.cs" />
+    <Compile Include="Controls\Editors\HourSection.cs" />
+    <Compile Include="Controls\Editors\InputCharBase.cs" />
+    <Compile Include="Controls\Editors\InputMaskMode.cs" />
+    <Compile Include="Controls\Editors\InvalidCharEventArgs.cs" />
+    <Compile Include="Controls\Editors\InvalidOperationEventArgs.cs" />
+    <Compile Include="Controls\Editors\InvalidValueBehavior.cs" />
+    <Compile Include="Controls\Editors\ISupportsSelectableText.cs" />
+    <Compile Include="Controls\Editors\KeyboardAndForeignChar.cs" />
+    <Compile Include="Controls\Editors\LiteralChar.cs" />
+    <Compile Include="Controls\Editors\LiteralSection.cs" />
+    <Compile Include="Controls\Editors\MaskedEditTabNavigation.cs" />
+    <Compile Include="Controls\Editors\MaskedInputDefaultConverter.cs" />
+    <Compile Include="Controls\Editors\MaskInfo.cs" />
+    <Compile Include="Controls\Editors\MaskParser.cs" />
+    <Compile Include="Controls\Editors\MaskSelectAllBehavior.cs" />
+    <Compile Include="Controls\Editors\MinuteSection.cs" />
+    <Compile Include="Controls\Editors\MonthSection.cs" />
+    <Compile Include="Controls\Editors\NumberSection.cs" />
+    <Compile Include="Controls\Editors\ParsedMask.cs" />
+    <Compile Include="Controls\Editors\Primitives\HorizontalToTextAlignmentConverter.cs" />
+    <Compile Include="Controls\Editors\Primitives\IRaiseEventDefinition.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskCharConverter.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskedInputCommand.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskedInputCommandId.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskedInputCommandsHelper.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskedInputCommandSource.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskedInputStates.cs" />
+    <Compile Include="Controls\Editors\Primitives\MaskedInputTextBox.cs" />
+    <Compile Include="Controls\Editors\Primitives\RaiseEventDefinition.cs" />
+    <Compile Include="Controls\Editors\Primitives\SpinInfo.cs" />
+    <Compile Include="Controls\Editors\Primitives\Utils.cs" />
+    <Compile Include="Controls\Editors\Primitives\ValidatedObservableCollection.cs" />
+    <Compile Include="Controls\Editors\Properties\Resources.cs" />
+    <Compile Include="Controls\Editors\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\Editors\SecondSection.cs" />
+    <Compile Include="Controls\Editors\SectionBase.cs" />
+    <Compile Include="Controls\Editors\SectionsCollection.cs" />
+    <Compile Include="Controls\Editors\SignDisplayType.cs" />
+    <Compile Include="Controls\Editors\SpinButtonDisplayMode.cs" />
+    <Compile Include="Controls\Editors\State.cs" />
+    <Compile Include="Controls\Editors\TextInputBase.cs" />
+    <Compile Include="Controls\Editors\ValidateAsType.cs" />
+    <Compile Include="Controls\Editors\ValidationErrorInfo.cs" />
+    <Compile Include="Controls\Editors\ValueConstraint.cs" />
+    <Compile Include="Controls\Editors\ValueConstraintFlags.cs" />
+    <Compile Include="Controls\Editors\ValueInput.cs" />
+    <Compile Include="Controls\Editors\ValueInputDefaultConverter.cs" />
+    <Compile Include="Controls\Editors\XamCurrencyInput.cs" />
+    <Compile Include="Controls\Editors\XamMaskedInput.cs" />
+    <Compile Include="Controls\Editors\XamNumericInput.cs" />
+    <Compile Include="Controls\Editors\YearSection.cs" />
+    <Compile Include="Controls\Primitives\CommandsHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="TypeResolverUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Editors\Properties\Resources.resources" />
+    <EmbeddedResource Include="Controls\Editors\strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v12.1\InfragisticsWPF4.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA690}</Project>
+      <Name>InfragisticsWPF4.v12.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Editors\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.wpf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\royale.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\zune.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

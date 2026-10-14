@@ -1,0 +1,130 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.RadioLicense.RadioLicenseMainView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://www.codeplex.com/prism" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.RadioLicense" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters">
+	<i:Interaction.Triggers>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowRegistRadioLicenseDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsMaximizationEnabled="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:RegisterLicenseView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+		<prism:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowSelectASKForCFSDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:SelectASKView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+	</i:Interaction.Triggers>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:a
+				x:Key="FilterOptionToBoolConverter" />
+			<converters:BoolToInverseConverter
+				x:Key="BoolToInverseConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="200"
+				MaxWidth="400"
+				MinWidth="100" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Border
+			Style="{StaticResource WindowBorderStyle}">
+			<!--Unknown connection ID: 1-->
+			<controls:RMGroupList
+				Name="gplGroup"
+				AutomationProperties.AutomationId="gplGroupsLicense"
+				Margin="10"
+				Grid.Column="0"
+				AllowEdit="False"
+				Groups="{Binding Groups}"
+				SelectedGroup="{Binding Path=SelectedGroup, Mode=TwoWay}"
+				IsEnabled="{Binding Path=IsSelectedNavigationItemLocked, Converter={StaticResource BoolToInverseConverter}}" />
+		</Border>
+		<!--Unknown connection ID: 2-->
+		<GridSplitter
+			Name="gspSplitter"
+			Width="10" />
+		<Border
+			Grid.Column="1"
+			Style="{StaticResource WindowBorderStyle}">
+			<Grid
+				Margin="10">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="24" />
+					<RowDefinition
+						Height="1" />
+					<RowDefinition
+						Height="15" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid
+					VerticalAlignment="Center"
+					Visibility="{Binding Path=FilterOptionVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="10" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="10" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="10" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<controls:RMTextBlock
+						Text="{x:Static resourceRepository:Resources.RMC_FilterBy}" />
+					<!--Unknown connection ID: 3-->
+					<controls:RMRadioButton
+						Name="rbtAll"
+						Grid.Column="2"
+						Content="{x:Static resourceRepository:Resources.RMC_Filter_All}"
+						IsChecked="{Binding Path=FilterOption, Converter={StaticResource FilterOptionToBoolConverter}, ConverterParameter=All}" />
+					<!--Unknown connection ID: 4-->
+					<controls:RMRadioButton
+						Name="rbtFeatures"
+						Grid.Column="4"
+						Content="{x:Static resourceRepository:Resources.RMC_Filter_Features}"
+						IsChecked="{Binding Path=FilterOption, Converter={StaticResource FilterOptionToBoolConverter}, ConverterParameter=Features}" />
+					<!--Unknown connection ID: 5-->
+					<controls:RMRadioButton
+						Name="rbtRadios"
+						Grid.Column="6"
+						Content="{x:Static resourceRepository:Resources.RMC_Filter_Radios}"
+						IsChecked="{Binding Path=FilterOption, Converter={StaticResource FilterOptionToBoolConverter}, ConverterParameter=Radios}" />
+				</Grid>
+				<Grid
+					Row="1"
+					Background="{StaticResource BrushAccent}" />
+				<ContentControl
+					Grid.Row="3"
+					prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.RadioLicenseMainRegion}">
+					<UIElement.InputBindings>
+						<KeyBinding
+							Key="F5"
+							Command="{Binding RefreshCommand}" />
+					</UIElement.InputBindings>
+				</ContentControl>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

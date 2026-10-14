@@ -1,0 +1,624 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.GlobalNoiseReductionList.PageGlobalNoiseReductionListTbl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:GlobalNoiseReductionListNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.GlobalNoiseReductionList" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Title="{x:Static ResourceNS:AcgResources.ID_GLOBALNOISEREDUCTIONLISTTABLEVIEW}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpRecNavToolbar
+			Name="RecNavToolbarPageGlobalNoiseReductionList"
+			TableMode="True"
+			MyRecordsetDataSource="{Binding ElementName=GlobalNoiseReductionListList, Path=DataSource}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2131</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2131</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetGlobalNoiseReductionList"
+				ObjectType="{x:Type GlobalNoiseReductionListNS:GlobalNoiseReductionList}"
+				x:Key="GetFeatureNode" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<src:ToUpperConverter
+				x:Key="toUpperConverter" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCSPATIALEQ1VECTOR_A21553CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:248:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ1VECTOR_A21553_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCSPATIALEQ1VECTORCONT_A37716CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:16:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ1VECTORCONT_A37716_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCSPATIALEQ2VECTOR_A21556CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:248:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ2VECTOR_A21556_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCSPATIALEQ2VECTORCONT_A37717CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:16:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCSPATIALEQ2VECTORCONT_A37717_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCBFEQVECTOR_A21557CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:124:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCBFEQVECTOR_A21557Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCBFEQVECTOR_A21557, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCBFEQVECTOR_A21557_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCBFEQVECTOR_A21557_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCBFEQVECTOR_A21557"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCBFEQVECTOR_A21557_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCBFEQVECTOR_A21557_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCOUTPUTEQVECTOR_A21558CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:124:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCOUTPUTEQVECTOR_A21558_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCELKOVECTOR_A21561CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{char:64:0-9a-fA-F}"
+								Text="{Binding Path=Record.DataItem.General.DINCELKOVECTOR_A21561Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}, Converter={StaticResource toUpperConverter}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCELKOVECTOR_A21561, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCELKOVECTOR_A21561_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCELKOVECTOR_A21561_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCELKOVECTOR_A21561"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCELKOVECTOR_A21561_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCELKOVECTOR_A21561_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCHOTBEAMHYSTERESIS_A21559CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableTextBoxSpinnerDecHex
+								Text="{Binding Path=Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								HexText="{Binding Path=Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559_HexUIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCHOTBEAMHYSTERESIS_A21559_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinnerDecHex>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DINCBADMICHYSTERESIS_A21560CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 11-->
+							<AcpUINS:AcpTableTextBoxSpinnerDecHex
+								Text="{Binding Path=Record.DataItem.General.DINCBADMICHYSTERESIS_A21560_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								HexText="{Binding Path=Record.DataItem.General.DINCBADMICHYSTERESIS_A21560_HexUIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderGlobalNoiseReductionListGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.General.DINCBADMICHYSTERESIS_A21560, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.General.DINCBADMICHYSTERESIS_A21560_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.General.DINCBADMICHYSTERESIS_A21560_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.General.DINCBADMICHYSTERESIS_A21560"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.General.DINCBADMICHYSTERESIS_A21560_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.General.DINCBADMICHYSTERESIS_A21560_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinnerDecHex>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 12-->
+		<AcpUINS:AcpXamDataPresenter
+			Name="GlobalNoiseReductionListList"
+			KeyboardNavigation.AcceptsReturn="True"
+			Grid.Row="1">
+			<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+				<MultiBinding
+					Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+					Mode="OneWay">
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppMode" />
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppHideMatches" />
+					<Binding
+						Source="{StaticResource GetParentFeature}"
+						Path="_HasDiffs" />
+					<Binding
+						Path="IsAcpVisible"
+						RelativeSource="{RelativeSource Self}" />
+					<Binding
+						Path="FieldLayouts[0].Fields[0].Visibility"
+						RelativeSource="{RelativeSource Self}" />
+				</MultiBinding>
+			</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+			<igcontrols:DataPresenterBase.FieldLayouts>
+				<igcontrols:FieldLayout>
+					<igcontrols:FieldLayout.Fields>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCSPATIALEQ1VECTOR}"
+							BindingPath="General.DINCSPATIALEQ1VECTOR_A21553"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCSPATIALEQ1VECTOR_A21553_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCSPATIALEQ1VECTOR_A21553CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCSPATIALEQ1VECTORCONT}"
+							BindingPath="General.DINCSPATIALEQ1VECTORCONT_A37716"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCSPATIALEQ1VECTORCONT_A37716_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCSPATIALEQ1VECTORCONT_A37716CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCSPATIALEQ2VECTOR}"
+							BindingPath="General.DINCSPATIALEQ2VECTOR_A21556"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCSPATIALEQ2VECTOR_A21556_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCSPATIALEQ2VECTOR_A21556CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCSPATIALEQ2VECTORCONT}"
+							BindingPath="General.DINCSPATIALEQ2VECTORCONT_A37717"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCSPATIALEQ2VECTORCONT_A37717_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCSPATIALEQ2VECTORCONT_A37717CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCBFEQVECTOR}"
+							BindingPath="General.DINCBFEQVECTOR_A21557"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCBFEQVECTOR_A21557_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCBFEQVECTOR_A21557CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCOUTPUTEQVECTOR}"
+							BindingPath="General.DINCOUTPUTEQVECTOR_A21558"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCOUTPUTEQVECTOR_A21558_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCOUTPUTEQVECTOR_A21558CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCELKOVECTOR}"
+							BindingPath="General.DINCELKOVECTOR_A21561"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCELKOVECTOR_A21561_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCELKOVECTOR_A21561CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCHOTBEAMHYSTERESIS}"
+							BindingPath="General.DINCHOTBEAMHYSTERESIS_A21559"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCHOTBEAMHYSTERESIS_A21559_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCHOTBEAMHYSTERESIS_A21559CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DINCBADMICHYSTERESIS}"
+							BindingPath="General.DINCBADMICHYSTERESIS_A21560"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=General.DINCBADMICHYSTERESIS_A21560_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource DINCBADMICHYSTERESIS_A21560CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+					</igcontrols:FieldLayout.Fields>
+				</igcontrols:FieldLayout>
+			</igcontrols:DataPresenterBase.FieldLayouts>
+		</AcpUINS:AcpXamDataPresenter>
+	</Grid>
+</AcpUINS:AcpPageFeature>

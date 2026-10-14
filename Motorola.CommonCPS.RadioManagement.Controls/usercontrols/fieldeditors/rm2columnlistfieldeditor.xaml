@@ -1,0 +1,111 @@
+<local:RMCellPresentableFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RM2ColumnListFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Height="Auto">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<local:SharedResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:BoolToLockIconPathConverter
+				x:Key="BoolToLockIconPathConverter" />
+			<local:FieldPropertiesToIsEnableConverter
+				x:Key="FieldPropertiesToIsEnableConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="21" />
+		</Grid.ColumnDefinitions>
+		<!--Unknown connection ID: 1-->
+		<local:RMTextBlock
+			Name="tblLabel"
+			Grid.Column="0"
+			VerticalAlignment="Center"
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			Text="{Binding Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}"
+			AutomationProperties.ItemStatus="{Binding Path=Foreground, RelativeSource={RelativeSource Self}}" />
+		<Grid
+			Column="2">
+			<!--Unknown connection ID: 2-->
+			<local:RMComboBox
+				Name="cbbList"
+				SelectionChanged="cbbList_SelectionChanged"
+				ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
+				Style="{StaticResource FieldEditorComboBoxStyle}"
+				ItemsSource="{Binding Items}"
+				SelectedIndex="{Binding SelectedIndex}"
+				AutomationProperties.ItemStatus="{Binding IsValid}">
+				<UIElement.IsEnabled>
+					<MultiBinding
+						Converter="{StaticResource FieldPropertiesToIsEnableConverter}">
+						<Binding
+							Path="IsEditable" />
+						<Binding
+							Path="IsMVODynamic" />
+						<Binding
+							Path="UseMVODefault" />
+					</MultiBinding>
+				</UIElement.IsEnabled>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<local:RMTextBlock
+							Name="ListItem"
+							Text="{Binding Name}" />
+						<DataTemplate.Triggers>
+							<DataTrigger
+								Value="False"
+								Binding="{Binding IsValid}">
+								<Setter
+									TargetName="ListItem"
+									Value="{StaticResource BrushInvalid}"
+									Property="Foreground" />
+							</DataTrigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</local:RMComboBox>
+			<Border
+				Background="{StaticResource BrushGray}"
+				Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+				<local:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+			</Border>
+		</Grid>
+		<!--Unknown connection ID: 3-->
+		<local:RMButton
+			Name="btnLock"
+			Click="btnLock_Click"
+			Grid.Column="3"
+			Margin="1,0,0,0"
+			Width="20"
+			IsEnabled="{Binding IsEditable}"
+			Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}"
+			Tag="{Binding UseMVODefault, Mode=TwoWay}">
+			<Control.Template>
+				<ControlTemplate>
+					<Image>
+						<Image.Source>
+							<MultiBinding
+								Converter="{StaticResource BoolToLockIconPathConverter}">
+								<Binding
+									Path="UseMVODefault" />
+								<Binding
+									Path="IsEditable" />
+								<Binding
+									RelativeSource="{RelativeSource Self}" />
+							</MultiBinding>
+						</Image.Source>
+					</Image>
+				</ControlTemplate>
+			</Control.Template>
+		</local:RMButton>
+	</Grid>
+</local:RMCellPresentableFieldEditor>

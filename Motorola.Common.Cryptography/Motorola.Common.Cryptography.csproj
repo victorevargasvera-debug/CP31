@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common.Cryptography</RootNamespace>
+    <AssemblyName>Motorola.Common.Cryptography</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Discovery" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="Autofac\AutofacExtensions.cs" />
+    <Compile Include="Autofac\CryptographyModule.cs" />
+    <Compile Include="CertificateType.cs" />
+    <Compile Include="Configuration\AppConfig\a.cs" />
+    <Compile Include="Configuration\AppConfig\CertificateElement.cs" />
+    <Compile Include="Configuration\AppConfig\CertificateElements.cs" />
+    <Compile Include="Configuration\AppConfig\CertificateGroup.cs" />
+    <Compile Include="Configuration\AppConfig\CertificateSection.cs" />
+    <Compile Include="Configuration\AppConfig\CertificateSectionProvider.cs" />
+    <Compile Include="Configuration\AppConfig\ICertificateSection.cs" />
+    <Compile Include="Configuration\AppConfig\RelyingPartiesSection.cs" />
+    <Compile Include="Configuration\AppConfig\RelyingPartyCollection.cs" />
+    <Compile Include="Configuration\AppConfig\RelyingPartyElement.cs" />
+    <Compile Include="Configuration\CertificateConfiguration.cs" />
+    <Compile Include="Configuration\ICertificateConfiguration.cs" />
+    <Compile Include="Configuration\PortBinding\IPortBindingConfiguration.cs" />
+    <Compile Include="Configuration\PortBinding\PortBindingConfiguration.cs" />
+    <Compile Include="Configuration\Registry\a.cs" />
+    <Compile Include="Configuration\Registry\IRegistryConfig.cs" />
+    <Compile Include="Configuration\Registry\RegistryConfig.cs" />
+    <Compile Include="Configuration\Registry\RegistryConfigExtensions.cs" />
+    <Compile Include="CryptographyFacade.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Exceptions\CertificateGroupNotFoundException.cs" />
+    <Compile Include="Exceptions\ConfigSectionNotFoundException.cs" />
+    <Compile Include="Exceptions\CryptographyException.cs" />
+    <Compile Include="Exceptions\IdentityNotFoundException.cs" />
+    <Compile Include="Exceptions\NoCertificatesFoundException.cs" />
+    <Compile Include="Exceptions\PortBindingException.cs" />
+    <Compile Include="Exceptions\ToManyCertificatesException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CertificateProvider.cs" />
+    <Compile Include="Providers\CertificateRemover.cs" />
+    <Compile Include="Providers\CertificateStore.cs" />
+    <Compile Include="Providers\ICertificateProvider.cs" />
+    <Compile Include="Providers\ICertificateRemover.cs" />
+    <Compile Include="Providers\ICertificateStore.cs" />
+    <Compile Include="Providers\IdentityProvider.cs" />
+    <Compile Include="Providers\IIdentityProvider.cs" />
+    <Compile Include="WcfExtensions.cs" />
+    <Compile Include="X509Certificate2Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64A}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

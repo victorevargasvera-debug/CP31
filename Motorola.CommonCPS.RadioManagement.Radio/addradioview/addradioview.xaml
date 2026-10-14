@@ -1,0 +1,502 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Radio.AddRadioView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Width="400" xmlns:radio="clr-namespace:Motorola.CommonCPS.RadioManagement.Radio">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:EmptyStringToNullValueConverter
+				x:Key="EmptyStringToNullValueConverter" />
+			<converters:BoolToVisibilityConverter
+				x:Key="BoolToVisibilityConverter" />
+			<converters:BoolToGridRowHeightConverter
+				x:Key="BoolToGridRowHeightConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="24">
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type controls:RMTextBlock}"
+					x:Key="{x:Type controls:RMTextBlock}">
+					<Setter
+						Property="Margin"
+						Value="0,0,25,0" />
+				</Style>
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="20" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="{Binding Path=IsOtarIdVisible, Converter={StaticResource BoolToGridRowHeightConverter}, ConverterParameter=10}" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+			</Grid.RowDefinitions>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_Serial_Number}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 1-->
+				<controls:RMTextBox
+					Name="msiSerialNumber"
+					Grid.Column="1"
+					InputMethod.IsInputMethodEnabled="False"
+					MaxLength="10"
+					Text="{Binding Path=AddRadioContext.Radio.SerialNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_Serial_ReadWritePassword}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 2-->
+				<controls:RMPasswordBox
+					Name="msiPassword"
+					Grid.Column="1"
+					Password="{Binding Path=AddRadioContext.Radio.PassWord, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="4">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_RadioAlias}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 3-->
+				<controls:RMTextBox
+					Name="msiAlias"
+					Grid.Column="1"
+					MaxLength="14"
+					Text="{Binding Path=AddRadioContext.Radio.RadioAlias, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="6"
+				Visibility="{Binding Path=IsOtarIdVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_OTARID}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 4-->
+				<controls:RMMaskedInput
+					Name="msiOTARID"
+					Grid.Column="1"
+					Mask="nnnnnnn"
+					p12:Text="{Binding Path=AddRadioContext.Radio.OtarID, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource EmptyStringToNullValueConverter}}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="8">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_SubscriberIP}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 5-->
+				<controls:RMIPAddressInput
+					Name="iaiSubsciberIP"
+					Grid.Column="1"
+					p12:Text="{Binding Path=AddRadioContext.Radio.SubscriberIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_PeerIP}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 6-->
+				<controls:RMIPAddressInput
+					Name="iaiPeerIP"
+					Grid.Column="1"
+					p12:Text="{Binding Path=AddRadioContext.Radio.PeerIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="12">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_BluetoothDUNSubscriberIP}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 7-->
+				<controls:RMIPAddressInput
+					Name="iaiBDSIP"
+					Grid.Column="1"
+					p12:Text="{Binding Path=AddRadioContext.Radio.BluetoothDUNSubscriberIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="14">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_BluetoothDUNPeerIP}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 8-->
+				<controls:RMIPAddressInput
+					Name="iaiBDPI"
+					Grid.Column="1"
+					p12:Text="{Binding Path=AddRadioContext.Radio.BluetoothDUNPeerIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="16">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_BluetoothFriendlyName}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 9-->
+				<controls:RMTextBox
+					Name="msiBFName"
+					Grid.Column="1"
+					MaxLength="14"
+					Text="{Binding Path=AddRadioContext.Radio.BluetoothFriendlyName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="18">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_UserName}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 10-->
+				<controls:RMMaskedInput
+					Name="msiUserName"
+					Grid.Column="1"
+					Mask="{}{char:20:0-9A-Za-z\s*/#/$/&amp;/%/*/ /\-/+///}"
+					p12:Text="{Binding Path=AddRadioContext.Radio.UserName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="20">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_UserPIN}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 11-->
+				<controls:RMPasswordBox
+					Name="msiUserPIN"
+					Grid.Column="1"
+					Mask="{}{char:20:0-9A-Za-z\s*/#/$/&amp;/%/*/ /\-/+///}"
+					Password="{Binding Path=AddRadioContext.Radio.UserPIN, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="22">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_UserLoginUnitID}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 12-->
+				<controls:RMMaskedInput
+					Name="msiULUID"
+					Grid.Column="1"
+					Mask="{}{char:20:0-9a-zA-Z #$%&amp;*+-/}"
+					p12:Text="{Binding Path=AddRadioContext.Radio.UserLoginUnitID, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="24">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_ForeignIP}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 13-->
+				<controls:RMIPAddressInput
+					Name="iaiOTAIP"
+					Grid.Column="1"
+					p12:Text="{Binding Path=AddRadioContext.Radio.ForeignIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="26">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_VRID}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 14-->
+				<controls:RMMaskedInput
+					Name="msiVRID"
+					Grid.Column="1"
+					Mask="nnnnnnnn"
+					p12:Text="{Binding Path=AddRadioContext.Radio.VRID, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource EmptyStringToNullValueConverter}}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+		</Grid>
+		<Grid
+			Row="1"
+			Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+			</Grid.RowDefinitions>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_Serial_Number}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 15-->
+				<controls:RMTextBox
+					Name="msiPCRSerialNumber"
+					Grid.Column="1"
+					InputMethod.IsInputMethodEnabled="False"
+					MaxLength="10"
+					Text="{Binding Path=AddRadioContext.Radio.SerialNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_RadioId}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 16-->
+				<controls:RMMaskedInput
+					Name="msiPCRRadioID"
+					Grid.Column="1"
+					Mask="nnnnnnnn"
+					p12:Text="{Binding Path=AddRadioContext.Radio.RadioId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource EmptyStringToNullValueConverter}}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="4">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_CAI}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 17-->
+				<controls:RMMaskedInput
+					Name="msiPCRCAI"
+					Grid.Column="1"
+					Mask="nnn"
+					p12:Text="{Binding Path=AddRadioContext.Radio.CAI, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource EmptyStringToNullValueConverter}}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="6">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_RadioAlias}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 18-->
+				<controls:RMTextBox
+					Name="msiPCRRadioAlias"
+					Grid.Column="1"
+					MaxLength="16"
+					Text="{Binding Path=AddRadioContext.Radio.RadioAlias, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+			<Grid
+				Row="8">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_RadioIP}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 19-->
+				<controls:RMIPAddressInput
+					Name="iaiPCRRadioIP"
+					Grid.Column="1"
+					p12:Text="{Binding Path=AddRadioContext.Radio.SubscriberIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" xmlns:p12="http://schemas.infragistics.com/xaml" />
+			</Grid>
+			<Grid
+				Row="10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="170" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.General_Serial_ReadWritePassword}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 20-->
+				<controls:RMPasswordBox
+					Name="msiPCRPassword"
+					Grid.Column="1"
+					Password="{Binding Path=AddRadioContext.Radio.CodeplugPassword, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			</Grid>
+		</Grid>
+		<Grid
+			Row="3"
+			HorizontalAlignment="Right"
+			Width="170">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 21-->
+			<controls:RMButton
+				Name="btnOK"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_OK}"
+				IsDefault="True"
+				Command="{Binding AddRadioCommand}" />
+			<!--Unknown connection ID: 22-->
+			<controls:RMButton
+				Name="btnCancel"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Cancel}"
+				IsCancel="True" />
+		</Grid>
+		<controls:RMErrorBar
+			Grid.Row="4"
+			Error="{Binding AddRadioContext.ExceptionMessage}" />
+	</Grid>
+</UserControl>

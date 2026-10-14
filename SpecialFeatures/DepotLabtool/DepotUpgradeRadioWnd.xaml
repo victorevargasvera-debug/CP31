@@ -1,0 +1,294 @@
+<Window
+	x:Class="SpecialFeatures.DepotLabtool.DepotUpgradeRadioWnd" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	WindowStartupLocation="CenterOwner"
+	Title="{x:Static CommonResxNS:AppResources.Upgrade_Radio}"
+	Height="393"
+	Width="446"
+	ResizeMode="NoResize"
+	WindowStyle="ToolWindow"
+	ShowInTaskbar="False" xmlns:depotlabtool="clr-namespace:SpecialFeatures.DepotLabtool">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="ResourceSpecialFeatures.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<LinearGradientBrush
+				EndPoint="0.5,0.99"
+				StartPoint="0.5,0.105"
+				x:Key="BrushBackgroundSilver">
+				<GradientStop
+					Color="#FFA6A9AF"
+					Offset="0.545" />
+				<GradientStop
+					Color="#FFC2C5CC"
+					Offset="1" />
+				<GradientStop
+					Color="#FF8F939B"
+					Offset="0" />
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				StartPoint="0.0338026,-0.0020342"
+				EndPoint="0.0338026,0.998692"
+				x:Key="MyBrush1234">
+				<GradientStop
+					Color="#FF1C2027"
+					Offset="0" />
+				<GradientStop
+					Color="#FF5C626B"
+					Offset="0.0859826" />
+				<GradientStop
+					Color="#FF9CA4B0"
+					Offset="0.0863636" />
+				<GradientStop
+					Color="#FF5D636C"
+					Offset="0.462964" />
+				<GradientStop
+					Color="#FF1E2228"
+					Offset="0.463636" />
+				<GradientStop
+					Color="#FF4C4C4C"
+					Offset="1" />
+			</LinearGradientBrush>
+			<Style
+				TargetType="{x:Type TextBox}"
+				x:Key="textBoxInError">
+				<Style.Triggers>
+					<Trigger
+						Property="Validation.HasError"
+						Value="true">
+						<Setter
+							Property="FrameworkElement.ToolTip"
+							Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+					</Trigger>
+				</Style.Triggers>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Background>
+		<LinearGradientBrush
+			EndPoint="0.5,0.99"
+			StartPoint="0.5,0.105">
+			<GradientStop
+				Color="#FFA6A9AF"
+				Offset="0.545" />
+			<GradientStop
+				Color="#FFC2C5CC"
+				Offset="1" />
+			<GradientStop
+				Color="#FF8F939B"
+				Offset="0" />
+		</LinearGradientBrush>
+	</Control.Background>
+	<Grid
+		Height="353"
+		Width="424">
+		<!--Unknown connection ID: 1-->
+		<GroupBox
+			Name="groupBox1"
+			Header="{x:Static CommonResxNS:AppResources.Radio_Information}"
+			Margin="12,12,12,0"
+			Height="104"
+			VerticalAlignment="Top"
+			Foreground="#FF0000FF">
+			<!--Unknown connection ID: 2-->
+			<Grid
+				Name="grid1"
+				Height="78"
+				Width="385">
+				<!--Unknown connection ID: 3-->
+				<Label
+					Name="label1"
+					HorizontalAlignment="Left"
+					Margin="12,9,0,0"
+					Width="109"
+					Height="26"
+					VerticalAlignment="Top"
+					Content="{x:Static CommonResxNS:AppResources.Model_Number_Colon}" />
+				<!--Unknown connection ID: 4-->
+				<TextBox
+					Name="txtModelNumber"
+					Margin="142,9,82,0"
+					Height="26"
+					VerticalAlignment="Top"
+					IsReadOnly="True"
+					IsEnabled="False" />
+				<!--Unknown connection ID: 5-->
+				<Label
+					Name="label2"
+					HorizontalAlignment="Left"
+					Margin="12,0,0,14"
+					Width="83"
+					Height="23"
+					VerticalAlignment="Bottom"
+					Content="{x:Static CommonResxNS:AppResources.FLASHcode_colon}" />
+				<!--Unknown connection ID: 6-->
+				<TextBox
+					Name="txtFlashCode1"
+					Margin="142,0,0,14"
+					Height="23"
+					MaxLength="6"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Left"
+					Width="49"
+					IsReadOnly="True"
+					IsEnabled="False">000001</TextBox>
+				<!--Unknown connection ID: 7-->
+				<Label
+					Name="label5"
+					Height="23"
+					Margin="195,0,0,16"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Left"
+					Width="17">-</Label>
+				<!--Unknown connection ID: 8-->
+				<TextBox
+					Name="txtFlashCode2"
+					Height="23"
+					Margin="0,0,123,15"
+					MaxLength="6"
+					VerticalAlignment="Bottom"
+					IsReadOnly="True"
+					IsEnabled="False"
+					HorizontalAlignment="Right"
+					Width="49">000000</TextBox>
+				<!--Unknown connection ID: 9-->
+				<Label
+					Name="label6"
+					Height="23"
+					HorizontalAlignment="Right"
+					Margin="0,0,104,18"
+					VerticalAlignment="Bottom"
+					Width="17">-</Label>
+				<!--Unknown connection ID: 10-->
+				<TextBox
+					Name="txtFlashCodeCheckSum"
+					Height="23"
+					HorizontalAlignment="Right"
+					Margin="0,0,82,15"
+					VerticalAlignment="Bottom"
+					Width="19"
+					IsReadOnly="True"
+					IsEnabled="False">9</TextBox>
+			</Grid>
+		</GroupBox>
+		<!--Unknown connection ID: 11-->
+		<GroupBox
+			Name="groupBox2"
+			Header="{x:Static CommonResxNS:AppResources.FLASHport_Upgrade}"
+			Margin="12,136,12,143"
+			Foreground="#FF0000FF">
+			<Grid
+				Height="49"
+				Width="381">
+				<!--Unknown connection ID: 12-->
+				<Label
+					Name="label3"
+					HorizontalAlignment="Left"
+					Margin="10,12,0,13"
+					Width="158"
+					Content="{x:Static CommonResxNS:AppResources.FLASHport_Upgrade_File}" />
+				<!--Unknown connection ID: 13-->
+				<TextBox
+					Name="txtFlashUpgradeFile"
+					Margin="0,11,39,16.362"
+					HorizontalAlignment="Right"
+					Width="181" />
+				<!--Unknown connection ID: 14-->
+				<Button
+					Name="btnBrowse"
+					HorizontalAlignment="Right"
+					Margin="0,9.638,10,16.362"
+					Width="23">...</Button>
+			</Grid>
+		</GroupBox>
+		<!--Unknown connection ID: 15-->
+		<GroupBox
+			Name="groupBox3"
+			Header="{x:Static CommonResxNS:AppResources.New_FLASHcode_colon}"
+			Height="63"
+			Margin="12,0,12,60"
+			VerticalAlignment="Bottom"
+			Foreground="#FF0000FF">
+			<Grid
+				Width="383">
+				<!--Unknown connection ID: 16-->
+				<Label
+					Name="label4"
+					HorizontalAlignment="Left"
+					Margin="6,10,0,0"
+					Width="120">
+					<TextBlock
+						Text="{x:Static CommonResxNS:AppResources.New_FLASHcode_colon}" />
+				</Label>
+				<!--Unknown connection ID: 17-->
+				<TextBox
+					Name="txtNewFlashCode1"
+					HorizontalAlignment="Left"
+					Margin="141,9,193,6"
+					Width="49"
+					MaxLength="6">050000</TextBox>
+				<!--Unknown connection ID: 18-->
+				<TextBox
+					Name="txtNewFlashCode2"
+					Margin="212,9,122,6"
+					MaxLength="6">000000</TextBox>
+				<!--Unknown connection ID: 19-->
+				<TextBox
+					Name="txtNewFlashCodeCheckSum"
+					Margin="283,9,81,6"
+					HorizontalAlignment="Right"
+					Width="19"
+					IsReadOnly="True">5</TextBox>
+				<!--Unknown connection ID: 20-->
+				<Label
+					Name="label7"
+					Content="-"
+					Height="23"
+					HorizontalAlignment="Right"
+					Margin="0,0,100,9"
+					VerticalAlignment="Bottom"
+					Width="17" />
+				<!--Unknown connection ID: 21-->
+				<Label
+					Name="label8"
+					Content="-"
+					Height="23"
+					HorizontalAlignment="Right"
+					Margin="0,0,172,9"
+					VerticalAlignment="Bottom"
+					Width="17" />
+			</Grid>
+		</GroupBox>
+		<!--Unknown connection ID: 22-->
+		<Button
+			Name="btnOK"
+			Style="{StaticResource AnotherB}"
+			Background="{DynamicResource SilverButton}"
+			Foreground="#FFFF7F50"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="82.5,0,0,14"
+			VerticalAlignment="Bottom"
+			Width="75"
+			IsDefault="True">
+			<TextBlock
+				Text="{x:Static CommonResxNS:AppResources.OK_Id}" />
+		</Button>
+		<!--Unknown connection ID: 23-->
+		<Button
+			Name="button2"
+			Style="{StaticResource AnotherB}"
+			Background="{DynamicResource Brush1234}"
+			Foreground="#FFFF7F50"
+			Height="23"
+			HorizontalAlignment="Right"
+			Margin="0,0,108.5,14"
+			VerticalAlignment="Bottom"
+			Width="75"
+			IsCancel="True">
+			<TextBlock
+				Text="{x:Static CommonResxNS:AppResources.Cancel_Id}" />
+		</Button>
+	</Grid>
+</Window>

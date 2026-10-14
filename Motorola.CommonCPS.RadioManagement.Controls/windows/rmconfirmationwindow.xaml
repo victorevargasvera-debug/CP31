@@ -1,0 +1,40 @@
+<Window
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMConfirmationWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls"
+	SizeToContent="WidthAndHeight">
+	<Grid
+		Margin="24">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="20" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<local:RMTextBlock
+			Text="{Binding Content}" />
+		<Grid
+			Row="2"
+			HorizontalAlignment="Right"
+			Width="200">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 2-->
+			<local:RMButton
+				Name="btnYes"
+				Click="btnYes_Click"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Yes}"
+				IsDefault="True" />
+			<!--Unknown connection ID: 3-->
+			<local:RMButton
+				Name="btnNo"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_No}"
+				IsCancel="True" />
+		</Grid>
+	</Grid>
+</Window>

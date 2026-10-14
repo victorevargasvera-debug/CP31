@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI">
+	<Style
+		TargetType="{x:Type AcpUINS:AcpRecNavToolbar}"
+		x:Key="{x:Type AcpUINS:AcpRecNavToolbar}">
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpChildRecNavToolbar}"
+		x:Key="{x:Type AcpUINS:AcpChildRecNavToolbar}">
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

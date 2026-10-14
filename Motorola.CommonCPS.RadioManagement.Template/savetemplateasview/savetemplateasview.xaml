@@ -1,0 +1,182 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Template.SaveTemplateAsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDp="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	Name="SaveTemplateView"
+	Width="600" xmlns:template="clr-namespace:Motorola.CommonCPS.RadioManagement.Template">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:GridViewSourceConverter
+				x:Key="GridViewSourceConverter" />
+			<converters:SelectAllParameterConverter
+				x:Key="SelectAllParameterConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="24">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition
+				Height="20" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="5" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="5" />
+				<RowDefinition
+					Height="200" />
+			</Grid.RowDefinitions>
+			<controls:RMTextBlock
+				Text="{x:Static resourceRepository:Resources.RMC_SaveTemplate_Name}"
+				VerticalAlignment="Center" />
+			<!--Unknown connection ID: 2-->
+			<controls:RMTextBox
+				Name="msiName"
+				Grid.Row="2"
+				MaxLength="320"
+				Text="{Binding Path=SaveTemplateAsContext.DefaultTemplateName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+			<controls:RMTextBlock
+				Grid.Row="4"
+				Text="{x:Static resourceRepository:Resources.RMC_SaveTemplate_SelectRadio}"
+				VerticalAlignment="Center" />
+			<Grid
+				Row="6">
+				<!--Unknown connection ID: 3-->
+				<controls:RMDataGrid
+					Name="dgrRadios"
+					igDp:GroupByAreaLocation="None"
+					CustomizedSelectedCount="{Binding SaveTemplateAsContext.SelectedRadiosCount}"
+					igDp:DataSource="{Binding SaveTemplateAsContext.RadioOptions, Converter={StaticResource GridViewSourceConverter}}"
+					SearchCommand="{Binding SearchCommand}">
+					<igDp:DataPresenterBase.FieldSettings>
+						<igDp:FieldSettings
+							CellClickAction="SelectRecord"
+							Width="Auto" />
+					</igDp:DataPresenterBase.FieldSettings>
+					<igDp:DataPresenterBase.FieldLayouts>
+						<igDp:FieldLayout>
+							<igDp:FieldLayout.Fields>
+								<igDp:Field
+									Name="Option"
+									Width="Auto">
+									<igDp:Field.Settings>
+										<igDp:FieldSettings
+											CellClickAction="EnterEditModeIfAllowed"
+											LabelClickAction="Nothing"
+											AllowResize="False"
+											EditAsType="{x:Type sys:Boolean}">
+											<igDp:FieldSettings.EditorStyle>
+												<!--Unknown connection ID: 4-->
+												<Style
+													BasedOn="{StaticResource CheckFieldStyle}"
+													TargetType="{x:Type igEditors:XamCheckEditor}">
+													<Setter
+														Property="infrastructure:FieldCheckChanged.Command"
+														Value="{Binding ElementName=SaveTemplateView, Path=DataContext.FieldCheckChangedCommand}" />
+												</Style>
+											</igDp:FieldSettings.EditorStyle>
+											<igDp:FieldSettings.LabelPresenterStyle>
+												<Style
+													TargetType="{x:Type igDp:LabelPresenter}">
+													<Setter
+														Property="Template">
+														<Setter.Value>
+															<ControlTemplate
+																TargetType="{x:Type igDp:LabelPresenter}">
+																<!--Unknown connection ID: 5-->
+																<CheckBox
+																	Name="HeaderCheckBox"
+																	HorizontalAlignment="Center"
+																	VerticalAlignment="Center"
+																	IsThreeState="False"
+																	Command="{Binding ElementName=SaveTemplateView, Path=DataContext.SelectedAllCheckChangedCommand}"
+																	IsChecked="{Binding Path=IsSelectAll, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+																	<ButtonBase.CommandParameter>
+																		<MultiBinding
+																			Converter="{StaticResource SelectAllParameterConverter}">
+																			<MultiBinding.Bindings>
+																				<Binding
+																					Path="IsSelectAll"
+																					RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+																				<Binding
+																					ElementName="dgrRadios"
+																					Path="Records" />
+																			</MultiBinding.Bindings>
+																		</MultiBinding>
+																	</ButtonBase.CommandParameter>
+																</CheckBox>
+															</ControlTemplate>
+														</Setter.Value>
+													</Setter>
+												</Style>
+											</igDp:FieldSettings.LabelPresenterStyle>
+										</igDp:FieldSettings>
+									</igDp:Field.Settings>
+								</igDp:Field>
+								<igDp:Field
+									Name="SerialNumber"
+									Label="{x:Static resourceRepository:Resources.General_Serial_Number}">
+									<igDp:Field.Settings>
+										<igDp:FieldSettings>
+											<igDp:FieldSettings.EditorStyle>
+												<Style
+													TargetType="{x:Type igEditors:XamTextEditor}">
+													<Setter
+														Property="igEditors:ValueEditor.IsReadOnly"
+														Value="True" />
+												</Style>
+											</igDp:FieldSettings.EditorStyle>
+										</igDp:FieldSettings>
+									</igDp:Field.Settings>
+								</igDp:Field>
+							</igDp:FieldLayout.Fields>
+						</igDp:FieldLayout>
+					</igDp:DataPresenterBase.FieldLayouts>
+				</controls:RMDataGrid>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="2"
+			HorizontalAlignment="Right"
+			Width="200">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 6-->
+			<controls:RMButton
+				Name="btnOK"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_OK}"
+				IsDefault="True"
+				Command="{Binding SaveTemplateAsCommand}" />
+			<!--Unknown connection ID: 7-->
+			<controls:RMButton
+				Name="btnCancel"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Cancel}"
+				IsCancel="True"
+				Command="{Binding CancelSaveTemplateAsCommand}" />
+		</Grid>
+		<controls:RMErrorBar
+			Grid.Row="3"
+			Error="{Binding SaveTemplateAsContext.ExceptionMessage}" />
+	</Grid>
+</UserControl>

@@ -1,0 +1,44 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		BasedOn="{StaticResource CellValuePresenterStyle}"
+		x:Key="ShowDetailsStyle">
+		<Style.Setters>
+			<Setter
+				Property="Visibility"
+				Value="Hidden" />
+			<Setter
+				Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+							<controls:RMLinkButton
+								Name="lbtDetails"
+								ToolTip="{x:Static resourceRepository:Resources.RMC_Action_ShowDetails_Tooltip}"
+								Content="è"
+								FontFamily="Wingdings"
+								Command="{Binding Path=DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+								CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}" />
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style.Setters>
+		<Style.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+				<Setter
+					Property="Visibility"
+					Value="Visible" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

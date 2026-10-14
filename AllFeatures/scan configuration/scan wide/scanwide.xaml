@@ -1,0 +1,2808 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.ScanWide.PageScanWide" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:ScanWideRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ScanWide"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2023</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2023</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 2-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderScanWideGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 3-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderScanWideGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderScanWideConventional, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 4-->
+				<Hyperlink
+					Name="HLinkConventional"
+					Tag="ExpanderScanWideConventional">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_CONVENTIONAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="Conventional.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderScanWideTrunking, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 5-->
+				<Hyperlink
+					Name="HLinkTrunking"
+					Tag="ExpanderScanWideTrunking">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_TRUNKING}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="Trunking.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderScanWideLabtool, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 6-->
+				<Hyperlink
+					Name="HLinkLabtool"
+					Tag="ExpanderScanWideLabtool">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_LABTOOL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="Labtool.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 7-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 8-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderScanWideGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderScanWideGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 9-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderScanWideGeneralPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 10-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideRadioWidePriorityScanAlert_A8752"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752}"
+									IsChecked="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 11-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideRadioWidePriorityScanAlert_A8752"
+									Content="{x:Static ResourceNS:AcgResources.ID_PRIORITYSCANALERT}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PRIORITYSCANALERT}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752}"
+									IsAcpValid="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 12-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideRadioWidePriorityScanAlert_A8752"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752Value}"
+									MyExpander="{Binding ElementName=ExpanderScanWideGeneral}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideRadioWidePriorityScanAlert_A8752}"
+									IsAcpValid="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752_Valid}"
+									IsAcpApplicable="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752_Applicable}"
+									AreValuesEqual="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.ScanWideRadioWidePriorityScanAlert_A8752_Editable" />
+											<Binding
+												Path="General.ScanWideRadioWidePriorityScanAlert_A8752" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.ScanWideRadioWidePriorityScanAlert_A8752_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 13-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideRadioWidePriorityScanAlert_A8752"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 14-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideRadioWidePriorityScanAlert_A8752"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752}"
+									MyCompCtrl="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 15-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideRadioWidePriorityScanAlert_A8752Comp"
+									IsAcpEditable="false"
+									Grid.Row="0"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWidePriorityScanAlert_A8752}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWidePriorityScanAlert_A8752}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideRadioWidePriorityScanAlert_A8752}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWidePriorityScanAlert_A8752"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideRadioWideHUBSuspendsScan_A8216"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216}"
+									IsChecked="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 17-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideRadioWideHUBSuspendsScan_A8216"
+									Content="{x:Static ResourceNS:AcgResources.ID_HUBSUSPENDSSCAN}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_HUBSUSPENDSSCAN}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216}"
+									IsAcpValid="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 18-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideRadioWideHUBSuspendsScan_A8216"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216Value}"
+									MyExpander="{Binding ElementName=ExpanderScanWideGeneral}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideRadioWideHUBSuspendsScan_A8216}"
+									IsAcpValid="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216_Valid}"
+									IsAcpApplicable="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216_Applicable}"
+									AreValuesEqual="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.ScanWideRadioWideHUBSuspendsScan_A8216_Editable" />
+											<Binding
+												Path="General.ScanWideRadioWideHUBSuspendsScan_A8216" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.ScanWideRadioWideHUBSuspendsScan_A8216_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 19-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideRadioWideHUBSuspendsScan_A8216"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 20-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideRadioWideHUBSuspendsScan_A8216"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216}"
+									MyCompCtrl="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 21-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideRadioWideHUBSuspendsScan_A8216Comp"
+									IsAcpEditable="false"
+									Grid.Row="1"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideHUBSuspendsScan_A8216}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideHUBSuspendsScan_A8216}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideRadioWideHUBSuspendsScan_A8216}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideHUBSuspendsScan_A8216"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 22-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideRadioWideSuspendAllScan_A9232"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232}"
+									IsChecked="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 23-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideRadioWideSuspendAllScan_A9232"
+									Content="{x:Static ResourceNS:AcgResources.ID_SUSPENDALLSCAN}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_SUSPENDALLSCAN}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232}"
+									IsAcpValid="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 24-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideRadioWideSuspendAllScan_A9232"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232Value}"
+									MyExpander="{Binding ElementName=ExpanderScanWideGeneral}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideRadioWideSuspendAllScan_A9232}"
+									IsAcpValid="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232_Valid}"
+									IsAcpApplicable="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232_Applicable}"
+									AreValuesEqual="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.ScanWideRadioWideSuspendAllScan_A9232_Editable" />
+											<Binding
+												Path="General.ScanWideRadioWideSuspendAllScan_A9232" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.ScanWideRadioWideSuspendAllScan_A9232_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 25-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideRadioWideSuspendAllScan_A9232"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 26-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideRadioWideSuspendAllScan_A9232"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232}"
+									MyCompCtrl="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 27-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideRadioWideSuspendAllScan_A9232Comp"
+									IsAcpEditable="false"
+									Grid.Row="2"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideSuspendAllScan_A9232}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideSuspendAllScan_A9232}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideRadioWideSuspendAllScan_A9232}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideSuspendAllScan_A9232"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 28-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									IsChecked="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 29-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+									Content="{x:Static ResourceNS:AcgResources.ID_VOICERXTXHOLDTIMESEC}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_VOICERXTXHOLDTIMESEC}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									IsAcpValid="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 30-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+									MaskTypeSpinner="{}{number:0-255}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									Text="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideGeneral}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									IsAcpValid="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_Valid}"
+									IsAcpApplicable="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_Applicable}"
+									AreValuesEqual="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_Editable" />
+											<Binding
+												Path="General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 31-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 32-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									MyCompCtrl="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 33-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="3"
+									Grid.Column="5"
+									Content="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideRadioWideVoiceRxTxHoldTimeSec_A9653}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideVoiceRxTxHoldTimeSec_A9653"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 34-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideRadioWideDataRxTxHoldTimesec_A7797"
+									Margin="0,5,0,0"
+									Grid.Row="4"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									IsChecked="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 35-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideRadioWideDataRxTxHoldTimesec_A7797"
+									Content="{x:Static ResourceNS:AcgResources.ID_DATARXTXHOLDTIMESEC}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DATARXTXHOLDTIMESEC}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									IsAcpValid="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 36-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+									MaskTypeSpinner="{}{number:0-255}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="2"
+									Text="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideGeneral}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									IsAcpValid="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_Valid}"
+									IsAcpApplicable="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_Applicable}"
+									AreValuesEqual="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_Editable" />
+											<Binding
+												Path="General.ScanWideRadioWideDataRxTxHoldTimesec_A7797" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 37-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideRadioWideDataRxTxHoldTimesec_A7797"
+									Grid.Row="4"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 38-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideRadioWideDataRxTxHoldTimesec_A7797"
+									Grid.Row="4"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									MyCompCtrl="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 39-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideRadioWideDataRxTxHoldTimesec_A7797Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="4"
+									Grid.Column="5"
+									Content="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.ScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									MyParentCtrl="{Binding ElementName=ScanWideRadioWideDataRxTxHoldTimesec_A7797}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideRadioWideDataRxTxHoldTimesec_A7797}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideRadioWideDataRxTxHoldTimesec_A7797"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 40-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderScanWideConventional"
+					Width="Auto"
+					Header="{Binding Path=Conventional.UIName}"
+					ShowDiffIcon="{Binding Path=Conventional.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderScanWideConventionalPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 41-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderScanWideConventionalPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 42-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideConventionalCarrierDetectRequired_A7611"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611}"
+									IsChecked="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 43-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideConventionalCarrierDetectRequired_A7611"
+									Content="{x:Static ResourceNS:AcgResources.ID_CARRIERDETECTREQUIRED}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_CARRIERDETECTREQUIRED}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611}"
+									IsAcpValid="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 44-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideConventionalCarrierDetectRequired_A7611"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									IsChecked="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611Value}"
+									MyExpander="{Binding ElementName=ExpanderScanWideConventional}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideConventionalCarrierDetectRequired_A7611}"
+									IsAcpValid="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611_Valid}"
+									IsAcpApplicable="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611_Applicable}"
+									AreValuesEqual="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Conventional.ScanWideConventionalCarrierDetectRequired_A7611_Editable" />
+											<Binding
+												Path="Conventional.ScanWideConventionalCarrierDetectRequired_A7611" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Conventional.ScanWideConventionalCarrierDetectRequired_A7611_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 45-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideConventionalCarrierDetectRequired_A7611"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 46-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideConventionalCarrierDetectRequired_A7611"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611}"
+									MyCompCtrl="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 47-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideConventionalCarrierDetectRequired_A7611Comp"
+									IsAcpEditable="false"
+									Grid.Row="0"
+									Grid.Column="5"
+									IsChecked="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalCarrierDetectRequired_A7611}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalCarrierDetectRequired_A7611}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideConventionalCarrierDetectRequired_A7611}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalCarrierDetectRequired_A7611"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 48-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideConventionalPriorityChannelMarking_A8750"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750}"
+									IsChecked="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 49-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideConventionalPriorityChannelMarking_A8750"
+									Content="{x:Static ResourceNS:AcgResources.ID_PRIORITYCHANNELMARKING}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PRIORITYCHANNELMARKING}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750}"
+									IsAcpValid="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 50-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideConventionalPriorityChannelMarking_A8750"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									IsChecked="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750Value}"
+									MyExpander="{Binding ElementName=ExpanderScanWideConventional}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideConventionalPriorityChannelMarking_A8750}"
+									IsAcpValid="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750_Valid}"
+									IsAcpApplicable="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750_Applicable}"
+									AreValuesEqual="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Conventional.ScanWideConventionalPriorityChannelMarking_A8750_Editable" />
+											<Binding
+												Path="Conventional.ScanWideConventionalPriorityChannelMarking_A8750" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Conventional.ScanWideConventionalPriorityChannelMarking_A8750_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 51-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideConventionalPriorityChannelMarking_A8750"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 52-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideConventionalPriorityChannelMarking_A8750"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750}"
+									MyCompCtrl="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 53-->
+								<AcpUINS:AcpCheckBox
+									Name="ScanWideConventionalPriorityChannelMarking_A8750Comp"
+									IsAcpEditable="false"
+									Grid.Row="1"
+									Grid.Column="5"
+									IsChecked="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalPriorityChannelMarking_A8750}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalPriorityChannelMarking_A8750}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideConventionalPriorityChannelMarking_A8750}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalPriorityChannelMarking_A8750"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 54-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideConventionalMonitorHoldTimesec_A8543"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543}"
+									IsChecked="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 55-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideConventionalMonitorHoldTimesec_A8543"
+									Content="{x:Static ResourceNS:AcgResources.ID_MONITORHOLDTIMESEC}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_MONITORHOLDTIMESEC}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543}"
+									IsAcpValid="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 56-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideConventionalMonitorHoldTimesec_A8543"
+									MaskTypeSpinner="{}{number:0-255}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									Text="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideConventional}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideConventionalMonitorHoldTimesec_A8543}"
+									IsAcpValid="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_Valid}"
+									IsAcpApplicable="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_Applicable}"
+									AreValuesEqual="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_Editable" />
+											<Binding
+												Path="Conventional.ScanWideConventionalMonitorHoldTimesec_A8543" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 57-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideConventionalMonitorHoldTimesec_A8543"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 58-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideConventionalMonitorHoldTimesec_A8543"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543}"
+									MyCompCtrl="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 59-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideConventionalMonitorHoldTimesec_A8543Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="2"
+									Grid.Column="5"
+									Content="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalMonitorHoldTimesec_A8543}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalMonitorHoldTimesec_A8543}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideConventionalMonitorHoldTimesec_A8543}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalMonitorHoldTimesec_A8543"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 60-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									IsChecked="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 61-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+									Content="{x:Static ResourceNS:AcgResources.ID_TIMEBETWEENPRIORITYSAMPLESMS}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_TIMEBETWEENPRIORITYSAMPLESMS}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									IsAcpValid="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 62-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+									MaskTypeSpinner="{}{number:0-6375}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									Text="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideConventional}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									IsAcpValid="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_Valid}"
+									IsAcpApplicable="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_Applicable}"
+									AreValuesEqual="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_Editable" />
+											<Binding
+												Path="Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 63-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 64-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									MyCompCtrl="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 65-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="3"
+									Grid.Column="5"
+									Content="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalTimeBetweenPrioritySamplesms_A9376}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideConventionalTimeBetweenPrioritySamplesms_A9376}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalTimeBetweenPrioritySamplesms_A9376"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 66-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideConventionalRSSIVotingThreshold_A8997"
+									Margin="0,5,0,0"
+									Grid.Row="4"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997}"
+									IsChecked="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 67-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideConventionalRSSIVotingThreshold_A8997"
+									Content="{x:Static ResourceNS:AcgResources.ID_RSSIVOTINGTHRESHOLD}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_RSSIVOTINGTHRESHOLD}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997}"
+									IsAcpValid="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 68-->
+								<AcpUINS:AcpTextBoxSpinnerDecHex
+									Name="ScanWideConventionalRSSIVotingThreshold_A8997"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="2"
+									Text="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_UIValue}"
+									HexText="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_HexUIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideConventional}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideConventionalRSSIVotingThreshold_A8997}"
+									IsAcpValid="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_Valid}"
+									IsAcpApplicable="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_Applicable}"
+									AreValuesEqual="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_Editable" />
+											<Binding
+												Path="Conventional.ScanWideConventionalRSSIVotingThreshold_A8997" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinnerDecHex>
+								<!--Unknown connection ID: 69-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideConventionalRSSIVotingThreshold_A8997"
+									Grid.Row="4"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 70-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideConventionalRSSIVotingThreshold_A8997"
+									Grid.Row="4"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997}"
+									MyCompCtrl="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 71-->
+								<AcpUINS:AcpTextBoxDecHex
+									Name="ScanWideConventionalRSSIVotingThreshold_A8997Comp"
+									IsAcpEditable="false"
+									Grid.Row="4"
+									Grid.Column="5"
+									Text="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_UIValue}"
+									HexText="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997_HexUIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Conventional.ScanWideConventionalRSSIVotingThreshold_A8997}"
+									MyParentCtrl="{Binding ElementName=ScanWideConventionalRSSIVotingThreshold_A8997}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideConventionalRSSIVotingThreshold_A8997}">
+									<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideConventionalRSSIVotingThreshold_A8997"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+								</AcpUINS:AcpTextBoxDecHex>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 72-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderScanWideTrunking"
+					Width="Auto"
+					Header="{Binding Path=Trunking.UIName}"
+					ShowDiffIcon="{Binding Path=Trunking.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderScanWideTrunkingPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 73-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderScanWideTrunkingPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 74-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideTrunkingFailsoftHoldTimesec_A8009"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									IsChecked="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 75-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideTrunkingFailsoftHoldTimesec_A8009"
+									Content="{x:Static ResourceNS:AcgResources.ID_FAILSOFTHOLDTIMESEC}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_FAILSOFTHOLDTIMESEC}"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									IsAcpValid="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 76-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+									MaskTypeSpinner="{}{char:8:0-9disableDISABLE}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									Text="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideTrunking}"
+									MyBLObject="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									IsAcpValid="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_Valid}"
+									IsAcpApplicable="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_Applicable}"
+									AreValuesEqual="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_Editable" />
+											<Binding
+												Path="Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 77-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideTrunkingFailsoftHoldTimesec_A8009"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 78-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideTrunkingFailsoftHoldTimesec_A8009"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									MyCompCtrl="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 79-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideTrunkingFailsoftHoldTimesec_A8009Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Trunking.ScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingFailsoftHoldTimesec_A8009}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideTrunkingFailsoftHoldTimesec_A8009}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideTrunkingFailsoftHoldTimesec_A8009"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 80-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideTrunkingSystemSearchTimesec_A9250"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250}"
+									IsChecked="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 81-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideTrunkingSystemSearchTimesec_A9250"
+									Content="{x:Static ResourceNS:AcgResources.ID_SYSTEMSEARCHTIMESEC}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_SYSTEMSEARCHTIMESEC}"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250}"
+									IsAcpValid="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 82-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideTrunkingSystemSearchTimesec_A9250"
+									MaskTypeSpinner="{}{number:0-255}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									Text="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideTrunking}"
+									MyBLObject="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideTrunkingSystemSearchTimesec_A9250}"
+									IsAcpValid="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_Valid}"
+									IsAcpApplicable="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_Applicable}"
+									AreValuesEqual="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_Editable" />
+											<Binding
+												Path="Trunking.ScanWideTrunkingSystemSearchTimesec_A9250" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 83-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideTrunkingSystemSearchTimesec_A9250"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 84-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideTrunkingSystemSearchTimesec_A9250"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250}"
+									MyCompCtrl="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 85-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideTrunkingSystemSearchTimesec_A9250Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="1"
+									Grid.Column="5"
+									Content="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Trunking.ScanWideTrunkingSystemSearchTimesec_A9250}"
+									MyParentCtrl="{Binding ElementName=ScanWideTrunkingSystemSearchTimesec_A9250}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideTrunkingSystemSearchTimesec_A9250}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideTrunkingSystemSearchTimesec_A9250"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 86-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderScanWideLabtool"
+					Width="Auto"
+					Header="{Binding Path=Labtool.UIName}"
+					ShowDiffIcon="{Binding Path=Labtool.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderScanWideLabtoolPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 87-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderScanWideLabtoolPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ScanWideLabtoolLookbackTime_A8454"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 88-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideLabtoolScanDetectTimeForPL_A9049"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049}"
+									IsChecked="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 89-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideLabtoolScanDetectTimeForPL_A9049"
+									Content="{x:Static ResourceNS:AcgResources.ID_SCANDETECTTIMEFORPLMS}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_SCANDETECTTIMEFORPLMS}"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049}"
+									IsAcpValid="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 90-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideLabtoolScanDetectTimeForPL_A9049"
+									MaskTypeSpinner="{}{number:0-6375}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									Text="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideLabtool}"
+									MyBLObject="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideLabtoolScanDetectTimeForPL_A9049}"
+									IsAcpValid="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_Valid}"
+									IsAcpApplicable="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_Applicable}"
+									AreValuesEqual="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_Editable" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 91-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideLabtoolScanDetectTimeForPL_A9049"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 92-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideLabtoolScanDetectTimeForPL_A9049"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049}"
+									MyCompCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 93-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideLabtoolScanDetectTimeForPL_A9049Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForPL_A9049}"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForPL_A9049}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideLabtoolScanDetectTimeForPL_A9049}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForPL_A9049"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 94-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									IsChecked="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 95-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+									Content="{x:Static ResourceNS:AcgResources.ID_SCANDETECTTIMEFORCARRIERSQUELCHMS}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_SCANDETECTTIMEFORCARRIERSQUELCHMS}"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									IsAcpValid="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 96-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+									MaskTypeSpinner="{}{number:0-6375}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									Text="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideLabtool}"
+									MyBLObject="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									IsAcpValid="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_Valid}"
+									IsAcpApplicable="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_Applicable}"
+									AreValuesEqual="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_Editable" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 97-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 98-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									MyCompCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 99-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="1"
+									Grid.Column="5"
+									Content="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Labtool.ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolScanDetectTimeForCarrierSquelch_A9048"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 100-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnScanWideLabtoolLookbackTime_A8454"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454}"
+									IsChecked="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 101-->
+								<AcpUINS:AcpLabel
+									Name="LblScanWideLabtoolLookbackTime_A8454"
+									Content="{x:Static ResourceNS:AcgResources.ID_LOOKBACKTIMEMS}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_LOOKBACKTIMEMS}"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454}"
+									IsAcpValid="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 102-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="ScanWideLabtoolLookbackTime_A8454"
+									MaskTypeSpinner="{}{number:0-255}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									Text="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderScanWideLabtool}"
+									MyBLObject="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454}"
+									MyLabelCtrl="{Binding ElementName=LblScanWideLabtoolLookbackTime_A8454}"
+									IsAcpValid="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454_Valid}"
+									IsAcpApplicable="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454_Applicable}"
+									AreValuesEqual="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolLookbackTime_A8454_Editable" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolLookbackTime_A8454" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="Labtool.ScanWideLabtoolLookbackTime_A8454_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 103-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnScanWideLabtoolLookbackTime_A8454"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 104-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnScanWideLabtoolLookbackTime_A8454"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454}"
+									MyCompCtrl="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454Comp}"
+									AreValuesEqual="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 105-->
+								<AcpUINS:AcpLabel
+									Name="ScanWideLabtoolLookbackTime_A8454Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="2"
+									Grid.Column="5"
+									Content="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=Labtool.ScanWideLabtoolLookbackTime_A8454}"
+									MyParentCtrl="{Binding ElementName=ScanWideLabtoolLookbackTime_A8454}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnScanWideLabtoolLookbackTime_A8454}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ScanWideLabtoolLookbackTime_A8454"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

@@ -1,0 +1,848 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.SettingsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:RFResourceRepository="clr-namespace:RFResourceRepository;assembly=RFResourceRepository" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters"
+	Width="600"
+	Height="420" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Common;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:ButtonBarModeToStringConverter
+				x:Key="ButtonBarModeToStringConverter" />
+			<converters:ButtonBarModesToItemsSourceConverter
+				x:Key="ButtonBarModesToItemsSourceConverter" />
+			<converters:SizeLongToString
+				x:Key="SizeLongToString" />
+			<converters:BoolToVisibilityConverter
+				x:Key="BoolToVisibilityConverter" />
+			<Style
+				TargetType="{x:Type Border}"
+				x:Key="BorderStyle">
+				<Setter
+					Property="BorderBrush"
+					Value="#FF808080" />
+				<Setter
+					Property="BorderThickness"
+					Value="1" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0"
+			Margin="20,20,20,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition
+					Width="2*" />
+			</Grid.ColumnDefinitions>
+			<Border
+				Style="{StaticResource BorderStyle}"
+				Grid.Column="0">
+				<!--Unknown connection ID: 2-->
+				<ListBox
+					Name="listBox"
+					VerticalAlignment="Stretch"
+					Style="{StaticResource IGListBoxStyle}">
+					<!--Unknown connection ID: 3-->
+					<ListBoxItem
+						Name="lbConnection"
+						IsSelected="True"
+						Content="{x:Static resourceRepository:Resources.RMC_Common_Connection}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[EXCLFAMILY:AMP]}" />
+					<!--Unknown connection ID: 4-->
+					<ListBoxItem
+						Name="lbLicenses"
+						Content="{x:Static resourceRepository:Resources.RMC_Common_Licenses}" />
+					<!--Unknown connection ID: 5-->
+					<ListBoxItem
+						Name="lbUser"
+						Content="{x:Static resourceRepository:Resources.RMC_Common_User}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[EXCLFAMILY:AMP]}" />
+					<!--Unknown connection ID: 6-->
+					<ListBoxItem
+						Name="lbLanguage"
+						Content="{x:Static resourceRepository:Resources.RMC_Common_Language}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration][EXCLFAMILY:AMP]}" />
+					<!--Unknown connection ID: 7-->
+					<ListBoxItem
+						Name="lbDealer"
+						Content="{x:Static resourceRepository:Resources.RMC_Common_DealerInfo}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR][MODE:Configuration]}" />
+					<!--Unknown connection ID: 8-->
+					<ListBoxItem
+						Name="lbButtonbarMode"
+						Visibility="Collapsed"
+						Content="{x:Static resourceRepository:Resources.RMC_Common_ButtonbarMode}" />
+					<!--Unknown connection ID: 9-->
+					<ListBoxItem
+						Name="lbDatabaseSizeInfo"
+						Content="{x:Static resourceRepository:Resources.RMC_DatabaseSizeInfo}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration][EXCLFAMILY:AMP]}" />
+					<!--Unknown connection ID: 10-->
+					<ListBoxItem
+						Name="lbHiddenMessage"
+						Content="{x:Static resourceRepository:Resources.RMC_HiddenMessage}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR][MODE:Configuration]}" />
+					<!--Unknown connection ID: 11-->
+					<ListBoxItem
+						Name="lbiLogging"
+						Content="{x:Static resourceRepository:Resources.CPS2_Log}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[MODE:Configuration]}" />
+				</ListBox>
+			</Border>
+			<GridSplitter
+				Grid.Column="1"
+				Width="10"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				ResizeBehavior="PreviousAndNext"
+				IsEnabled="False" />
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbConnection, Path=IsSelected}">
+				<!--Unknown connection ID: 12-->
+				<Border
+					Name="bdConnection"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_Connection_ServerDetails}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_Connection_Address}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 13-->
+							<controls:RMTextBox
+								Name="rtbAddress"
+								Grid.Column="2"
+								Text="{Binding Path=SettingsContext.Connection.Address, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+						<Grid
+							Row="4">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_Connection_Port}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 14-->
+							<controls:RMTextBox
+								Name="rtbPort"
+								Grid.Column="2"
+								Text="{Binding Path=SettingsContext.Connection.Port, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbLicenses, Path=IsSelected}">
+				<!--Unknown connection ID: 15-->
+				<Border
+					Name="bdLicenses"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_Settings_Licenses_RecoverLicenses}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<controls:RMTextBlock
+								Grid.Row="0"
+								Grid.Column="0"
+								Style="{StaticResource FieldLabelStyle}"
+								Margin="0,0,0,20"
+								Text="{x:Static resourceRepository:Resources.RMC_Settings_Licenses_RecoverApplicationLicenses}"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[EXCLFAMILY:AMP]}" />
+							<!--Unknown connection ID: 16-->
+							<controls:RMButton
+								Name="btnRecoverAPPLicense"
+								Grid.Row="0"
+								Grid.Column="2"
+								Margin="0,0,0,20"
+								Padding="20,0"
+								Content="{x:Static resourceRepository:Resources.RMC_Action_Recover}"
+								VerticalAlignment="Center"
+								MinWidth="100"
+								Command="{Binding RecoverApplicationLicensesCommand}"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[EXCLFAMILY:AMP]}" />
+							<!--Unknown connection ID: 17-->
+							<controls:RMTextBlock
+								Name="txtBlockRecoverRadioLicense"
+								Grid.Row="1"
+								Grid.Column="0"
+								Margin="0,0,0,20"
+								Style="{StaticResource FieldLabelStyle}"
+								Text="{x:Static resourceRepository:Resources.RMC_Settings_Licenses_RecoverRadioLicenses}" />
+							<!--Unknown connection ID: 18-->
+							<controls:RMButton
+								Name="btnRecoverRadioLicense"
+								Grid.Row="1"
+								Grid.Column="2"
+								Margin="0,0,0,20"
+								Padding="20,0"
+								Content="{x:Static resourceRepository:Resources.RMC_Action_Recover}"
+								VerticalAlignment="Center"
+								MinWidth="100"
+								Command="{Binding RecoverRadioLicensesCommand}" />
+							<!--Unknown connection ID: 19-->
+							<controls:RMTextBlock
+								Name="txtBlockRecoverCMSCLicense"
+								Grid.Row="2"
+								Grid.Column="0"
+								Margin="0,0,0,20"
+								Style="{StaticResource FieldLabelStyle}"
+								Text="{x:Static resourceRepository:Resources.RMC_Settings_Licenses_RecoverCMSCLicenses}"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR][MODE:Configuration]}" />
+							<!--Unknown connection ID: 20-->
+							<controls:RMButton
+								Name="btnRecoverCMSCLicense"
+								Grid.Row="2"
+								Grid.Column="2"
+								Margin="0,0,0,20"
+								HorizontalAlignment="Left"
+								Content="{x:Static resourceRepository:Resources.RMC_Action_Recover}"
+								VerticalAlignment="Center"
+								MinWidth="100"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR][MODE:Configuration]}"
+								Command="{Binding RecoverCMSCLicensesCommand}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbUser, Path=IsSelected}">
+				<!--Unknown connection ID: 21-->
+				<Border
+					Name="bdUser"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10"
+						AllowDrop="True"
+						Focusable="True">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_User_ChangePassword}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<controls:RMTextBlock
+								Grid.Row="0"
+								Grid.Column="0"
+								Text="{x:Static resourceRepository:Resources.RMC_Connection_Address}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<controls:RMTextBlock
+								Grid.Row="2"
+								Grid.Column="0"
+								Text="{x:Static resourceRepository:Resources.RMC_Connection_Port}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<controls:RMTextBlock
+								Grid.Row="4"
+								Grid.Column="0"
+								Text="{x:Static resourceRepository:Resources.RMC_User_Name}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<controls:RMTextBlock
+								Grid.Row="6"
+								Grid.Column="0"
+								Text="{x:Static resourceRepository:Resources.General_CurrentPassword}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<controls:RMTextBlock
+								Grid.Row="8"
+								Grid.Column="0"
+								Text="{x:Static resourceRepository:Resources.General_NewPassword}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<controls:RMTextBlock
+								Grid.Row="10"
+								Grid.Column="0"
+								Text="{x:Static resourceRepository:Resources.RMC_Confirmed_Password}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<controls:RMTextBlock
+								Grid.Column="2"
+								Grid.Row="0"
+								IsEnabled="{Binding Path=SettingsContext.ServerConnectedWithUserName}"
+								Text="{Binding Path=SettingsContext.RMUserPassword.ServerAddress, UpdateSourceTrigger=PropertyChanged}" />
+							<controls:RMTextBlock
+								Grid.Column="2"
+								Grid.Row="2"
+								IsEnabled="{Binding Path=SettingsContext.ServerConnectedWithUserName}"
+								Text="{Binding Path=SettingsContext.RMUserPassword.ServerPort, UpdateSourceTrigger=PropertyChanged}" />
+							<controls:RMTextBlock
+								Grid.Column="2"
+								Grid.Row="4"
+								IsEnabled="{Binding Path=SettingsContext.ServerConnectedWithUserName}"
+								Text="{Binding Path=SettingsContext.RMUserPassword.UserName, UpdateSourceTrigger=PropertyChanged}" />
+							<!--Unknown connection ID: 22-->
+							<PasswordBox
+								Name="OldPasswordBox"
+								Grid.Row="6"
+								Grid.Column="2"
+								Style="{StaticResource WPFPasswordBoxStyle}"
+								IsEnabled="{Binding Path=SettingsContext.ServerConnectedWithUserName}" />
+							<!--Unknown connection ID: 23-->
+							<PasswordBox
+								Name="NewPasswordBox"
+								Grid.Row="8"
+								Grid.Column="2"
+								Style="{StaticResource WPFPasswordBoxStyle}"
+								IsEnabled="{Binding Path=SettingsContext.ServerConnectedWithUserName}" />
+							<!--Unknown connection ID: 24-->
+							<PasswordBox
+								Name="ConfirmedPasswordBox"
+								Grid.Row="10"
+								Grid.Column="2"
+								Style="{StaticResource WPFPasswordBoxStyle}"
+								IsEnabled="{Binding Path=SettingsContext.ServerConnectedWithUserName}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbLanguage, Path=IsSelected}">
+				<!--Unknown connection ID: 25-->
+				<Border
+					Name="bdLanguage"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_Connection_Language}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_Connection_Language}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 26-->
+							<controls:RMComboBox
+								Name="rcbLanguage"
+								Grid.Column="2"
+								IsEnabled="True"
+								ItemsSource="{Binding Path=SettingsContext.Language.SupportedLanguages, UpdateSourceTrigger=PropertyChanged}"
+								SelectedItem="{Binding SettingsContext.Language.SelectedLanguage, Mode=TwoWay}" />
+						</Grid>
+						<Grid
+							Row="4">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="200" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbDealer, Path=IsSelected}">
+				<!--Unknown connection ID: 27-->
+				<Border
+					Name="bdDealer"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_Connection_DealerInfo}" />
+						<Grid
+							Row="2">
+							<TextBox
+								VerticalAlignment="Stretch"
+								TextWrapping="Wrap"
+								AcceptsReturn="True"
+								VerticalScrollBarVisibility="Visible"
+								Text="{Binding Path=SettingsContext.DealerInfo.Left, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+						<Grid
+							Row="4">
+							<TextBox
+								TextWrapping="Wrap"
+								AcceptsReturn="True"
+								VerticalScrollBarVisibility="Visible"
+								Text="{Binding Path=SettingsContext.DealerInfo.Center, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+						<Grid
+							Row="6">
+							<TextBox
+								TextWrapping="Wrap"
+								AcceptsReturn="True"
+								VerticalScrollBarVisibility="Visible"
+								Text="{Binding Path=SettingsContext.DealerInfo.Right, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbButtonbarMode, Path=IsSelected}">
+				<!--Unknown connection ID: 28-->
+				<Border
+					Name="bdButtonBarMode"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_Common_ButtonbarMode}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_Common_ButtonbarMode}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 29-->
+							<controls:RMComboBox
+								Name="rcbButtonBarMode"
+								Grid.Column="2"
+								ItemsSource="{Binding Path=SettingsContext.ButtonBarMode.SupportedMode, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ButtonBarModesToItemsSourceConverter}}"
+								SelectedItem="{Binding SettingsContext.ButtonBarMode.SelectedMode, Converter={StaticResource ButtonBarModeToStringConverter}, Mode=TwoWay}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbDatabaseSizeInfo, Path=IsSelected}">
+				<!--Unknown connection ID: 30-->
+				<Border
+					Name="bdDatabaseSizeInfo"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_DatabaseSizeInfo}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_DatabaseSize}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 31-->
+							<controls:RMTextBlock
+								Name="TotalUsedSpace"
+								Grid.Column="2"
+								Text="{Binding Path=SettingsContext.DBSizeInfo.DBSize, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SizeLongToString}}" />
+						</Grid>
+						<!--Unknown connection ID: 32-->
+						<Grid
+							Name="setSizeGrid"
+							Row="4">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_SetSize}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 33-->
+							<controls:RMTextBlock
+								Name="SetSize"
+								Grid.Column="2"
+								Text="{Binding Path=SettingsContext.DBSizeInfo.SetSize, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SizeLongToString}}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbHiddenMessage, Path=IsSelected}">
+				<!--Unknown connection ID: 34-->
+				<Border
+					Name="bdHiddenMessage"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="80" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.RMC_HiddenMessage}" />
+						<Grid
+							Row="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="10" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static resourceRepository:Resources.RMC_HiddenCapMaxRegisterWarningMessage}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 35-->
+							<controls:RMCheckBox
+								Name="chkHiddenWarningMessageCapMaxRegister"
+								Grid.Column="2"
+								IsChecked="{Binding Path=SettingsContext.HiddenMessage.HiddenCapMaxRegisterWarningMessage, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+						<Grid
+							Row="4">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="10" />
+							</Grid.ColumnDefinitions>
+							<controls:RMTextBlock
+								Text="{x:Static RFResourceRepository:PCRRFResources.RMC_HiddenWarningMessageTemplateRadios}"
+								Style="{StaticResource FieldLabelStyle}" />
+							<!--Unknown connection ID: 36-->
+							<controls:RMCheckBox
+								Name="chkHiddenWarningMessageTemplateRadios"
+								Grid.Column="2"
+								IsChecked="{Binding Path=SettingsContext.HiddenMessage.HiddenWarningMessageTemplateRadios, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+						<Grid
+							Row="6">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="70" />
+								<ColumnDefinition
+									Width="10" />
+							</Grid.ColumnDefinitions>
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+			<Grid
+				Column="2"
+				Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, ElementName=lbiLogging, Path=IsSelected}">
+				<!--Unknown connection ID: 37-->
+				<Border
+					Name="bdLogging"
+					Style="{StaticResource BorderStyle}">
+					<Grid
+						TextElement.FontSize="12"
+						Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="20" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<controls:RMAnchorNoExpander
+							Caption="{x:Static resourceRepository:Resources.CPS2_Log}" />
+						<Grid
+							Row="2"
+							Margin="40,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="20" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="20" />
+							</Grid.RowDefinitions>
+							<controls:RMTextBlock
+								Grid.Row="0"
+								Grid.Column="0"
+								Style="{StaticResource FieldLabelStyle}"
+								Text="{x:Static resourceRepository:Resources.CPS2_UploadLog}" />
+							<!--Unknown connection ID: 38-->
+							<controls:RMCheckBox
+								Name="chkLogging"
+								Grid.Column="2"
+								Margin="5,0,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Center"
+								IsChecked="{Binding SettingsContext.LogSetting.UploadToServer, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+					</Grid>
+				</Border>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="1"
+			HorizontalAlignment="Right"
+			Margin="20"
+			Width="Auto">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition
+					Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 39-->
+			<controls:RMButton
+				Name="btnOK"
+				Padding="20,0"
+				Content="{x:Static resourceRepository:Resources.RMC_Setting_Connect}"
+				IsDefault="True"
+				Width="Auto"
+				Command="{Binding SaveSettingsCommand}" />
+			<!--Unknown connection ID: 40-->
+			<controls:RMButton
+				Name="btnCancel"
+				Padding="20,0"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Cancel}"
+				IsCancel="True"
+				Command="{Binding CloseCommand}" />
+		</Grid>
+		<controls:RMErrorBar
+			Grid.Row="2"
+			Error="{Binding SettingsContext.ExceptionMessage}" />
+	</Grid>
+</UserControl>

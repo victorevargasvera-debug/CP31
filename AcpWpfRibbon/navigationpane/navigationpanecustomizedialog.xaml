@@ -1,0 +1,78 @@
+<Window
+	x:Class="DevComponents.WpfRibbon.NavigationPaneCustomizeDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Height="220"
+	Width="320"
+	ShowInTaskbar="False"
+	ResizeMode="NoResize"
+	WindowStyle="SingleBorderWindow"
+	WindowStartupLocation="CenterOwner"
+	Background="{DynamicResource SystemColors.ControlBrushKey}" xmlns:wpfribbon="clr-namespace:DevComponents.WpfRibbon"
+	Title="{Binding Path=NavigationPane.SystemText.CustomizeDialogTitle, RelativeSource={RelativeSource self}}"
+	Icon="{x:Null}">
+	<DockPanel
+		LastChildFill="True"
+		Margin="4,2,9,9">
+		<Label
+			DockPanel.Dock="Top"
+			Content="{Binding Path=NavigationPane.SystemText.CustomizeDialogLabel, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+		<StackPanel
+			DockPanel.Dock="Bottom"
+			Orientation="Horizontal"
+			HorizontalAlignment="Right">
+			<!--Unknown connection ID: 1-->
+			<Button
+				MinWidth="73"
+				IsDefault="True"
+				Content="{Binding Path=NavigationPane.SystemText.CustomizeDialogButtonOk, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+			<Button
+				MinWidth="73"
+				Margin="11,0,0,0"
+				IsCancel="True"
+				Content="{Binding Path=NavigationPane.SystemText.CustomizeDialogButtonCancel, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+		</StackPanel>
+		<DockPanel
+			LastChildFill="True"
+			Margin="15,0,0,9">
+			<StackPanel
+				DockPanel.Dock="Right">
+				<!--Unknown connection ID: 2-->
+				<Button
+					Name="ButtonMoveUp"
+					Margin="10,0,0,8"
+					MinWidth="73"
+					Content="{Binding Path=NavigationPane.SystemText.CustomizeDialogButtonMoveUp, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+				<!--Unknown connection ID: 3-->
+				<Button
+					Name="ButtonMoveDown"
+					Margin="10,0,0,8"
+					MinWidth="73"
+					Content="{Binding Path=NavigationPane.SystemText.CustomizeDialogButtonMoveDown, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+				<!--Unknown connection ID: 4-->
+				<Button
+					Margin="10,9,0,8"
+					MinWidth="73"
+					Content="{Binding Path=NavigationPane.SystemText.CustomizeDialogButtonReset, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+			</StackPanel>
+			<!--Unknown connection ID: 5-->
+			<ListBox
+				Name="PaneItems">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel
+							Orientation="Horizontal">
+							<CheckBox
+								Margin="0,0,4,0"
+								VerticalAlignment="Center"
+								IsChecked="{Binding Path=IsVisible}" />
+							<TextBlock>
+								<TextBlock
+									TextTrimming="CharacterEllipsis"
+									Text="{Binding Path=Header}" />
+							</TextBlock>
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ListBox>
+		</DockPanel>
+	</DockPanel>
+</Window>

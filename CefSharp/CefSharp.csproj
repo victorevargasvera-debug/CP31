@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CefSharp</RootNamespace>
+    <AssemblyName>CefSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressChangedEventArgs.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="AsyncExtensions.cs" />
+    <Compile Include="BindingOptions.cs" />
+    <Compile Include="ByteArrayResourceHandler.cs" />
+    <Compile Include="Callback\IDevToolsMessageObserver.cs" />
+    <Compile Include="Callback\IResourceReadCallback.cs" />
+    <Compile Include="Callback\IResourceSkipCallback.cs" />
+    <Compile Include="Callback\IRunFileDialogCallback.cs" />
+    <Compile Include="Callback\NoOpCompletionCallback.cs" />
+    <Compile Include="CefCustomScheme.cs" />
+    <Compile Include="CefErrorCode.cs" />
+    <Compile Include="CefEventFlags.cs" />
+    <Compile Include="CefFileDialogMode.cs" />
+    <Compile Include="CefFocusSource.cs" />
+    <Compile Include="CefJsDialogType.cs" />
+    <Compile Include="CefLibraryHandle.cs" />
+    <Compile Include="CefMenuCommand.cs" />
+    <Compile Include="CefPdfPrintMarginType.cs" />
+    <Compile Include="CefReturnValue.cs" />
+    <Compile Include="CefRuntime.cs" />
+    <Compile Include="CefSharpSettings.cs" />
+    <Compile Include="CefState.cs" />
+    <Compile Include="CefTerminationStatus.cs" />
+    <Compile Include="CefThreadIds.cs" />
+    <Compile Include="CertStatus.cs" />
+    <Compile Include="ConsoleMessageEventArgs.cs" />
+    <Compile Include="ContextMenuEditState.cs" />
+    <Compile Include="ContextMenuMediaState.cs" />
+    <Compile Include="ContextMenuMediaType.cs" />
+    <Compile Include="ContextMenuType.cs" />
+    <Compile Include="Cookie.cs" />
+    <Compile Include="DefaultApp.cs" />
+    <Compile Include="DependencyChecker.cs" />
+    <Compile Include="DomNode.cs" />
+    <Compile Include="DownloadItem.cs" />
+    <Compile Include="DraggableRegion.cs" />
+    <Compile Include="Enums\AlphaType.cs" />
+    <Compile Include="Enums\ChannelLayout.cs" />
+    <Compile Include="Enums\ColorType.cs" />
+    <Compile Include="Enums\CompositionUnderlineStyle.cs" />
+    <Compile Include="Enums\CookiePriority.cs" />
+    <Compile Include="Enums\CookieSameSite.cs" />
+    <Compile Include="Enums\CursorType.cs" />
+    <Compile Include="Enums\DragOperationsMask.cs" />
+    <Compile Include="Enums\PointerType.cs" />
+    <Compile Include="Enums\SchemeOptions.cs" />
+    <Compile Include="Enums\TextInputMode.cs" />
+    <Compile Include="Enums\TouchEventType.cs" />
+    <Compile Include="Enums\ValueType.cs" />
+    <Compile Include="Event\JavascriptBindingCompleteEventArgs.cs" />
+    <Compile Include="Event\JavascriptBindingEventArgs.cs" />
+    <Compile Include="Event\JavascriptBindingMultipleCompleteEventArgs.cs" />
+    <Compile Include="FileResourceHandler.cs" />
+    <Compile Include="FilterStatus.cs" />
+    <Compile Include="FrameLoadEndEventArgs.cs" />
+    <Compile Include="FrameLoadStartEventArgs.cs" />
+    <Compile Include="Handler\AccessibilityHandler.cs" />
+    <Compile Include="Handler\AudioHandler.cs" />
+    <Compile Include="Handler\BrowserProcessHandler.cs" />
+    <Compile Include="Handler\ContextMenuHandler.cs" />
+    <Compile Include="Handler\CookieAccessFilter.cs" />
+    <Compile Include="Handler\DialogHandler.cs" />
+    <Compile Include="Handler\DisplayHandler.cs" />
+    <Compile Include="Handler\DownloadHandler.cs" />
+    <Compile Include="Handler\DragHandler.cs" />
+    <Compile Include="Handler\ExtensionHandler.cs" />
+    <Compile Include="Handler\FindHandler.cs" />
+    <Compile Include="Handler\FocusHandler.cs" />
+    <Compile Include="Handler\FrameHandler.cs" />
+    <Compile Include="Handler\JsDialogHandler.cs" />
+    <Compile Include="Handler\KeyboardHandler.cs" />
+    <Compile Include="Handler\LifeSpanHandler.cs" />
+    <Compile Include="Handler\LoadHandler.cs" />
+    <Compile Include="Handler\PermissionHandler.cs" />
+    <Compile Include="Handler\RequestContextHandler.cs" />
+    <Compile Include="Handler\RequestHandler.cs" />
+    <Compile Include="Handler\ResourceRequestHandler.cs" />
+    <Compile Include="IAccessibilityHandler.cs" />
+    <Compile Include="IApp.cs" />
+    <Compile Include="IAudioHandler.cs" />
+    <Compile Include="IAuthCallback.cs" />
+    <Compile Include="IBeforeDownloadCallback.cs" />
+    <Compile Include="IBrowser.cs" />
+    <Compile Include="IBrowserHost.cs" />
+    <Compile Include="IBrowserProcessHandler.cs" />
+    <Compile Include="IBrowserSettings.cs" />
+    <Compile Include="ICallback.cs" />
+    <Compile Include="IChromiumWebBrowserBase.cs" />
+    <Compile Include="ICompletionCallback.cs" />
+    <Compile Include="IContextMenuHandler.cs" />
+    <Compile Include="IContextMenuParams.cs" />
+    <Compile Include="ICookieAccessFilter.cs" />
+    <Compile Include="ICookieManager.cs" />
+    <Compile Include="ICookieVisitor.cs" />
+    <Compile Include="IDeleteCookiesCallback.cs" />
+    <Compile Include="IDialogHandler.cs" />
+    <Compile Include="IDisplayHandler.cs" />
+    <Compile Include="IDomNode.cs" />
+    <Compile Include="IDownloadHandler.cs" />
+    <Compile Include="IDownloadItemCallback.cs" />
+    <Compile Include="IDragData.cs" />
+    <Compile Include="IDragHandler.cs" />
+    <Compile Include="IExtension.cs" />
+    <Compile Include="IExtensionHandler.cs" />
+    <Compile Include="IFileDialogCallback.cs" />
+    <Compile Include="IFindHandler.cs" />
+    <Compile Include="IFocusHandler.cs" />
+    <Compile Include="IFrame.cs" />
+    <Compile Include="IFrameHandler.cs" />
+    <Compile Include="IGetExtensionResourceCallback.cs" />
+    <Compile Include="IImage.cs" />
+    <Compile Include="IJavascriptCallback.cs" />
+    <Compile Include="IJavascriptObjectRepository.cs" />
+    <Compile Include="IJsDialogCallback.cs" />
+    <Compile Include="IJsDialogHandler.cs" />
+    <Compile Include="IKeyboardHandler.cs" />
+    <Compile Include="ILifeSpanHandler.cs" />
+    <Compile Include="ILoadHandler.cs" />
+    <Compile Include="IMediaAccessCallback.cs" />
+    <Compile Include="IMenuModel.cs" />
+    <Compile Include="INavigationEntryVisitor.cs" />
+    <Compile Include="Internals\BaseTimeConverter.cs" />
+    <Compile Include="Internals\BrowserRefCounter.cs" />
+    <Compile Include="Internals\CefSharpArguments.cs" />
+    <Compile Include="Internals\CefThread.cs" />
+    <Compile Include="Internals\CefTimeUtils.cs" />
+    <Compile Include="Internals\CommandLineArgDictionary.cs" />
+    <Compile Include="Internals\CommandLineArgsParser.cs" />
+    <Compile Include="Internals\ConcurrentMethodRunnerQueue.cs" />
+    <Compile Include="Internals\CookieManagerDecorator.cs" />
+    <Compile Include="Internals\FreezableBase.cs" />
+    <Compile Include="Internals\GlobalContextInitialized.cs" />
+    <Compile Include="Internals\HeaderNameValueCollection.cs" />
+    <Compile Include="Internals\IBaseTimeConverter.cs" />
+    <Compile Include="Internals\IBrowserAdapter.cs" />
+    <Compile Include="Internals\IBrowserRefCounter.cs" />
+    <Compile Include="Internals\IJavascriptCallbackFactory.cs" />
+    <Compile Include="Internals\IJavascriptObjectRepositoryInternal.cs" />
+    <Compile Include="Internals\IMethodRunnerQueue.cs" />
+    <Compile Include="Internals\InitializeAsyncBrowserProcessHandler.cs" />
+    <Compile Include="Internals\InMemoryResourceRequestHandler.cs" />
+    <Compile Include="Internals\IntPtrExtensions.cs" />
+    <Compile Include="Internals\IRenderWebBrowser.cs" />
+    <Compile Include="Internals\ITaskScheduler.cs" />
+    <Compile Include="Internals\IWebBrowserInternal.cs" />
+    <Compile Include="Internals\JavascriptCallback.cs" />
+    <Compile Include="Internals\JavascriptMethod.cs" />
+    <Compile Include="Internals\JavascriptObject.cs" />
+    <Compile Include="Internals\JavascriptObjectRepository.cs" />
+    <Compile Include="Internals\JavascriptProperty.cs" />
+    <Compile Include="Internals\MethodInvocation.cs" />
+    <Compile Include="Internals\MethodInvocationCompleteArgs.cs" />
+    <Compile Include="Internals\MethodInvocationResult.cs" />
+    <Compile Include="Internals\MethodParameter.cs" />
+    <Compile Include="Internals\MethodRunnerQueue.cs" />
+    <Compile Include="Internals\MimeTypeMapping.cs" />
+    <Compile Include="Internals\NoFocusHandler.cs" />
+    <Compile Include="Internals\NoOpBrowserRefCounter.cs" />
+    <Compile Include="Internals\ParentProcessMonitor.cs" />
+    <Compile Include="Internals\PathCheck.cs" />
+    <Compile Include="Internals\PendingTaskRepository.cs" />
+    <Compile Include="Internals\ReflectionUtils.cs" />
+    <Compile Include="Internals\RenderprocessClientFactory.cs" />
+    <Compile Include="Internals\StringCheck.cs" />
+    <Compile Include="Internals\TaskExtensions.cs" />
+    <Compile Include="Internals\Tasks\LimitedConcurrencyLevelTaskScheduler.cs" />
+    <Compile Include="Internals\Tasks\SyncContextTaskCompletionSource.cs" />
+    <Compile Include="Internals\TaskTimeoutExtensions.cs" />
+    <Compile Include="Internals\TryCallMethodResult.cs" />
+    <Compile Include="Internals\Wcf\BrowserProcessResponse.cs" />
+    <Compile Include="Internals\Wcf\BrowserProcessService.cs" />
+    <Compile Include="Internals\Wcf\BrowserProcessServiceHost.cs" />
+    <Compile Include="Internals\Wcf\IBrowserProcess.cs" />
+    <Compile Include="Internals\Wcf\JavascriptCallbackEndpointBehavior.cs" />
+    <Compile Include="Internals\Wcf\JavascriptCallbackSurrogate.cs" />
+    <Compile Include="Internals\Wcf\WcfExtensions.cs" />
+    <Compile Include="IPermissionHandler.cs" />
+    <Compile Include="IPermissionPromptCallback.cs" />
+    <Compile Include="IPopupFeatures.cs" />
+    <Compile Include="IPostData.cs" />
+    <Compile Include="IPostDataElement.cs" />
+    <Compile Include="IPrintToPdfCallback.cs" />
+    <Compile Include="IRegistration.cs" />
+    <Compile Include="IRenderProcessMessageHandler.cs" />
+    <Compile Include="IRequest.cs" />
+    <Compile Include="IRequestCallback.cs" />
+    <Compile Include="IRequestContext.cs" />
+    <Compile Include="IRequestContextHandler.cs" />
+    <Compile Include="IRequestHandler.cs" />
+    <Compile Include="IResolveCallback.cs" />
+    <Compile Include="IResourceHandler.cs" />
+    <Compile Include="IResourceRequestHandler.cs" />
+    <Compile Include="IResourceRequestHandlerFactory.cs" />
+    <Compile Include="IResponse.cs" />
+    <Compile Include="IResponseFilter.cs" />
+    <Compile Include="IRunContextMenuCallback.cs" />
+    <Compile Include="ISchemeHandlerFactory.cs" />
+    <Compile Include="ISchemeRegistrar.cs" />
+    <Compile Include="ISelectClientCertificateCallback.cs" />
+    <Compile Include="ISetCookieCallback.cs" />
+    <Compile Include="ISslInfo.cs" />
+    <Compile Include="IStringVisitor.cs" />
+    <Compile Include="IUrlRequest.cs" />
+    <Compile Include="IUrlRequestClient.cs" />
+    <Compile Include="IValue.cs" />
+    <Compile Include="IWebBrowser.cs" />
+    <Compile Include="IWindowInfo.cs" />
+    <Compile Include="JavascriptBindingExtensions.cs" />
+    <Compile Include="JavascriptBinding\CamelCaseJavascriptNameConverter.cs" />
+    <Compile Include="JavascriptBinding\IJavascriptNameConverter.cs" />
+    <Compile Include="JavascriptBinding\JavascriptBindingSettings.cs" />
+    <Compile Include="JavascriptBinding\LegacyCamelCaseJavascriptNameConverter.cs" />
+    <Compile Include="JavascriptException.cs" />
+    <Compile Include="JavascriptIgnoreAttribute.cs" />
+    <Compile Include="JavascriptMessageReceivedEventArgs.cs" />
+    <Compile Include="JavascriptResponse.cs" />
+    <Compile Include="JavascriptStackFrame.cs" />
+    <Compile Include="KeyEvent.cs" />
+    <Compile Include="KeyEventType.cs" />
+    <Compile Include="KeyType.cs" />
+    <Compile Include="Lagacy\ResourceHandler.cs" />
+    <Compile Include="LoadErrorEventArgs.cs" />
+    <Compile Include="LoadingStateChangedEventArgs.cs" />
+    <Compile Include="LoadUrlAsyncResponse.cs" />
+    <Compile Include="LogSeverity.cs" />
+    <Compile Include="MediaAccessPermissionType.cs" />
+    <Compile Include="MenuItemType.cs" />
+    <Compile Include="ModelBinding\BindingMemberInfo.cs" />
+    <Compile Include="ModelBinding\DefaultBinder.cs" />
+    <Compile Include="ModelBinding\IAsyncMethodInterceptor.cs" />
+    <Compile Include="ModelBinding\IBinder.cs" />
+    <Compile Include="ModelBinding\IMethodInterceptor.cs" />
+    <Compile Include="ModelBinding\IPropertyInterceptor.cs" />
+    <Compile Include="ModelBinding\ModelBindingExtensions.cs" />
+    <Compile Include="MouseButtonType.cs" />
+    <Compile Include="MouseEvent.cs" />
+    <Compile Include="NavigationEntry.cs" />
+    <Compile Include="PaintElementType.cs" />
+    <Compile Include="PdfPrintSettings.cs" />
+    <Compile Include="PermissionRequestResult.cs" />
+    <Compile Include="PermissionRequestType.cs" />
+    <Compile Include="PostDataElementType.cs" />
+    <Compile Include="PostDataExtensions.cs" />
+    <Compile Include="Preferences\SetPreferenceResponse.cs" />
+    <Compile Include="Preferences\SetProxyResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyOptions.cs" />
+    <Compile Include="ReferrerPolicy.cs" />
+    <Compile Include="RenderProcess\IRenderProcessHandler.cs" />
+    <Compile Include="RenderProcess\IV8Context.cs" />
+    <Compile Include="RenderProcess\V8Exception.cs" />
+    <Compile Include="RequestContextExtensions.cs" />
+    <Compile Include="ResolveCallbackResult.cs" />
+    <Compile Include="ResourceHandler.cs" />
+    <Compile Include="ResourceRequestHandlerFactory.cs" />
+    <Compile Include="ResourceRequestHandlerFactoryItem.cs" />
+    <Compile Include="ResourceType.cs" />
+    <Compile Include="ResponseFilter\StreamResponseFilter.cs" />
+    <Compile Include="SchemeHandler\FolderSchemeHandlerFactory.cs" />
+    <Compile Include="SchemeHandler\OwinResourceHandler.cs" />
+    <Compile Include="SchemeHandler\OwinSchemeHandlerFactory.cs" />
+    <Compile Include="SslContentStatus.cs" />
+    <Compile Include="SslStatus.cs" />
+    <Compile Include="SslVersion.cs" />
+    <Compile Include="StatusMessageEventArgs.cs" />
+    <Compile Include="Structs\AudioParameters.cs" />
+    <Compile Include="Structs\CompositionUnderline.cs" />
+    <Compile Include="Structs\CursorInfo.cs" />
+    <Compile Include="Structs\DomRect.cs" />
+    <Compile Include="Structs\Point.cs" />
+    <Compile Include="Structs\Range.cs" />
+    <Compile Include="Structs\Rect.cs" />
+    <Compile Include="Structs\ScreenInfo.cs" />
+    <Compile Include="Structs\Size.cs" />
+    <Compile Include="Structs\TouchEvent.cs" />
+    <Compile Include="TaskCompletionCallback.cs" />
+    <Compile Include="TaskCookieVisitor.cs" />
+    <Compile Include="TaskDeleteCookiesCallback.cs" />
+    <Compile Include="TaskNavigationEntryVisitor.cs" />
+    <Compile Include="TaskPrintToPdfCallback.cs" />
+    <Compile Include="TaskResolveCallback.cs" />
+    <Compile Include="TaskSetCookieCallback.cs" />
+    <Compile Include="TaskStringVisitor.cs" />
+    <Compile Include="TitleChangedEventArgs.cs" />
+    <Compile Include="TransitionType.cs" />
+    <Compile Include="UrlParts.cs" />
+    <Compile Include="UrlRequestClient.cs" />
+    <Compile Include="UrlRequestFlags.cs" />
+    <Compile Include="UrlRequestStatus.cs" />
+    <Compile Include="WaitForNavigationAsyncResponse.cs" />
+    <Compile Include="WaitForSelectorAsyncResponse.cs" />
+    <Compile Include="WebBrowserExtensions.cs" />
+    <Compile Include="Web\HtmlString.cs" />
+    <Compile Include="Web\JsonString.cs" />
+    <Compile Include="WindowOpenDisposition.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

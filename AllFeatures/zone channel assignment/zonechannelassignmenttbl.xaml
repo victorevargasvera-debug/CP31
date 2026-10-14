@@ -1,0 +1,1453 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.ZoneChannelAssignment.PageZoneChannelAssignmentTbl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:AcpUITTSNS="clr-namespace:AcpUITTS;assembly=AcpUITTS" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:igwindows="http://infragistics.com/Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:ZoneChannelAssignmentNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ZoneChannelAssignment" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Title="{x:Static ResourceNS:AcgResources.ID_ZONECHANNELASSIGNMENTTABLEVIEW}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpRecNavToolbar
+			Name="RecNavToolbarPageZoneChannelAssignment"
+			TableMode="True"
+			MyRecordsetDataSource="{Binding ElementName=ZoneChannelAssignmentList, Path=DataSource}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2051</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2051</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetZoneChannelAssignment"
+				ObjectType="{x:Type ZoneChannelAssignmentNS:ZoneChannelAssignment}"
+				x:Key="GetFeatureNode" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="PositionStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{number:0-2147483647}"
+								Text="{Binding Path=Value.Parent.Position, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpEditable="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Mode=OneWay, Converter={StaticResource editabilityInComparatorCustomModesConverter}}" />
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgZoneZoneName_A9724CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentZone}"
+								MyBLObject="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneZoneName_A9724_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="VCZoneAnnouncement_A21515CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUITTSNS:AcpTTSTextBox
+								MaxLengthTts="35"
+								Text="{Binding Path=Record.DataItem.Zone.VCZoneAnnouncement_A21515Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								TargetSpeaker="{Binding Path=Record.DataItem.Zone.TTSTargetSpeaker, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsEnabled="{Binding Path=Record.DataItem.Zone.VCZoneAnnouncement_A21515_Applicable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentZone}"
+								MyBLObject="{Binding Path=Record.DataItem.Zone.VCZoneAnnouncement_A21515, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Zone.VCZoneAnnouncement_A21515_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUITTSNS:AcpTTSTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Zone.VCZoneAnnouncement_A21515_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Zone.VCZoneAnnouncement_A21515"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUITTSNS:AcpTTSTextBox.IsAcpEditable>
+								<AcpUITTSNS:AcpTTSTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Zone.VCZoneAnnouncement_A21515_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Zone.VCZoneAnnouncement_A21515_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUITTSNS:AcpTTSTextBox.IsAcpApplicable>
+							</AcpUITTSNS:AcpTTSTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgZoneTopDisplayZone_A19772CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentZone}"
+								MyBLObject="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneTopDisplayZone_A19772_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneVoiceAnnouncementID_A21514CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentZone}"
+								MyBLObject="{Binding Path=Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Zone.ZoneVoiceAnnouncementID_A21514_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgZoneDynamicZoneEnable_A41257CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneDynamicZoneEnable_A41257Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentZone}"
+								MyBLObject="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneDynamicZoneEnable_A41257, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneDynamicZoneEnable_A41257_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneDynamicZoneEnable_A41257_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneDynamicZoneEnable_A41257"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneDynamicZoneEnable_A41257_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.                                                                                          ZnChanCfgZoneDynamicZoneEnable_A41257_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgZoneZoneCloningEnable_43119CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentZone}"
+								MyBLObject="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Zone.ZnChanCfgZoneZoneCloningEnable_43119_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneChannelAssignmentRSIMode_A41831CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIMode_A41831_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneChannelAssignmentRSITransmitIndication_A41834CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITransmitIndication_A41834_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneChannelAssignmentRSISiteNumber_A41833CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 11-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-96}"
+								Text="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSISiteNumber_A41833_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="MainComparatorHostname_43796CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 12-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.RSI.MainComparatorHostname_43796Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.MainComparatorHostname_43796, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.MainComparatorHostname_43796_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.MainComparatorHostname_437967_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.MainComparatorHostname_43796"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.MainComparatorHostname_43796_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.MainComparatorHostname_43796_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AlternateComparatorHostname_43797CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 13-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.RSI.AlternateComparatorHostname_43797Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.AlternateComparatorHostname_43797, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.AlternateComparatorHostname_43797_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.AlternateComparatorHostname_437977_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.AlternateComparatorHostname_43797"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.AlternateComparatorHostname_43797_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.AlternateComparatorHostname_43797_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="MainComparatorDTLSPortNumber_43798CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 14-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:1-65535}"
+								Text="{Binding Path=Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.MainComparatorDTLSPortNumber_43798_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="AlternateComparatorDTLSPortNumber_43801CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 15-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:1-65535}"
+								Text="{Binding Path=Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.AlternateComparatorDTLSPortNumber_43801_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ComparatorChannelNumber_43800CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 16-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:1-255}"
+								Text="{Binding Path=Record.DataItem.RSI.ComparatorChannelNumber_43800_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ComparatorChannelNumber_43800, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ComparatorChannelNumber_43800_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ComparatorChannelNumber_43800_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ComparatorChannelNumber_43800"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ComparatorChannelNumber_43800_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ComparatorChannelNumber_43800_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneChannelAssignmentRSIAutoDial_A41832CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 17-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIAutoDial_A41832_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneChannelAssignmentRSITimeDialAtt_A41835CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 18-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-3600}"
+								Text="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZoneChannelAssignmentRSIDTRTogTime_A41836CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 19-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-30}"
+								Text="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentRSI}"
+								MyBLObject="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgFPPProtectionProtectedZone_A8765CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 20-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentFPPProtection}"
+								MyBLObject="{Binding Path=Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgFPPProtectionFPPEnable_A19562CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 21-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentFPPProtection}"
+								MyBLObject="{Binding Path=Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="ZnChanCfgLabtoolLastSelectedChnl_A41075CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 22-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderZoneChannelAssignmentLabtool}"
+								MyBLObject="{Binding Path=Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 23-->
+		<AcpUINS:AcpXamDataPresenter
+			Name="ZoneChannelAssignmentList"
+			KeyboardNavigation.AcceptsReturn="True"
+			Grid.Row="1">
+			<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+				<MultiBinding
+					Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+					Mode="OneWay">
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppMode" />
+					<Binding
+						Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+						Path="AppHideMatches" />
+					<Binding
+						Source="{StaticResource GetParentFeature}"
+						Path="_HasDiffs" />
+					<Binding
+						Path="IsAcpVisible"
+						RelativeSource="{RelativeSource Self}" />
+					<Binding
+						Path="FieldLayouts[0].Fields[0].Visibility"
+						RelativeSource="{RelativeSource Self}" />
+				</MultiBinding>
+			</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+			<igcontrols:DataPresenterBase.FieldLayouts>
+				<igcontrols:FieldLayout>
+					<igcontrols:FieldLayout.Fields>
+						<igcontrols:UnboundField
+							Name="Position"
+							Label="{x:Static ResourceNS:AcgResources.ID_POSITION}"
+							BindingPath="Zone"
+							BindingMode="OneWay"
+							DataType="{x:Type AcpBLNS:FeatureSection}"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource PositionStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ZONENAME}"
+							BindingPath="Zone.ZnChanCfgZoneZoneName_A9724"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Zone.ZnChanCfgZoneZoneName_A9724_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgZoneZoneName_A9724CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_TOPDISPLAYZONE}"
+							BindingPath="Zone.ZnChanCfgZoneTopDisplayZone_A19772"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Zone.ZnChanCfgZoneTopDisplayZone_A19772_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgZoneTopDisplayZone_A19772CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ZONEANNOUNCEMENT}"
+							BindingPath="Zone.ZoneVoiceAnnouncementID_A21514"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Zone.ZoneVoiceAnnouncementID_A21514_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneVoiceAnnouncementID_A21514CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_VC_Zone_TTSANNOUNCEMENT}"
+							BindingPath="Zone.VCZoneAnnouncement_A21515"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Zone.VCZoneAnnouncement_A21515_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource VCZoneAnnouncement_A21515CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DYNAMICZONEENABLE}"
+							BindingPath="Zone.ZnChanCfgZoneDynamicZoneEnable_A41257"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Zone.ZnChanCfgZoneDynamicZoneEnable_A41257_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgZoneDynamicZoneEnable_A41257CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_CLONEENABLE}"
+							BindingPath="Zone.ZnChanCfgZoneZoneCloningEnable_43119"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Zone.ZnChanCfgZoneZoneCloningEnable_43119_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgZoneZoneCloningEnable_43119CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_RSIMODE}"
+							BindingPath="RSI.ZoneChannelAssignmentRSIMode_A41831"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSIMode_A41831" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSIMode_A41831_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneChannelAssignmentRSIMode_A41831CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_TRANSMITINDICATION}"
+							BindingPath="RSI.ZoneChannelAssignmentRSITransmitIndication_A41834"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSITransmitIndication_A41834" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSITransmitIndication_A41834_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneChannelAssignmentRSITransmitIndication_A41834CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_SITENUMBER}"
+							BindingPath="RSI.ZoneChannelAssignmentRSISiteNumber_A41833"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSISiteNumber_A41833" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSISiteNumber_A41833_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneChannelAssignmentRSISiteNumber_A41833CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_MAINCOMPARATORHOSTNAME}"
+							BindingPath="RSI.MainComparatorHostname_43796"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.MainComparatorHostname_43796" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.MainComparatorHostname_43796_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource MainComparatorHostname_43796CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_MAINCOMPARATORDTLSPORTNUMBER}"
+							BindingPath="RSI.MainComparatorDTLSPortNumber_43798"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.MainComparatorDTLSPortNumber_43798" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.MainComparatorDTLSPortNumber_43798_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource MainComparatorDTLSPortNumber_43798CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ALTERNATECOMPARATORHOSTNAME}"
+							BindingPath="RSI.AlternateComparatorHostname_43797"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.AlternateComparatorHostname_43797" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.AlternateComparatorHostname_43797_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource AlternateComparatorHostname_43797CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ALTERNATECOMPARATORDTLSPORTNUMBER}"
+							BindingPath="RSI.AlternateComparatorDTLSPortNumber_43801"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.AlternateComparatorDTLSPortNumber_43801" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.AlternateComparatorDTLSPortNumber_43801_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource AlternateComparatorDTLSPortNumber_43801CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_COMPARATORCHANNELNUMBER}"
+							BindingPath="RSI.ComparatorChannelNumber_43800"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ComparatorChannelNumber_43800" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ComparatorChannelNumber_43800_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ComparatorChannelNumber_43800CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_ENABLE}"
+							BindingPath="RSI.ZoneChannelAssignmentRSIAutoDial_A41832"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSIAutoDial_A41832" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSIAutoDial_A41832_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneChannelAssignmentRSIAutoDial_A41832CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_TIMEBETWEENDIALATTEMPTSSEC}"
+							BindingPath="RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSITimeDialAtt_A41835_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneChannelAssignmentRSITimeDialAtt_A41835CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_DTRTOGGLETIMESEC}"
+							BindingPath="RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="RSI.ZoneChannelAssignmentRSIDTRTogTime_A41836_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZoneChannelAssignmentRSIDTRTogTime_A41836CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_PROTECTEDZONE}"
+							BindingPath="FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="FPPProtection.ZnChanCfgFPPProtectionProtectedZone_A8765_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgFPPProtectionProtectedZone_A8765CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_FPPENABLE}"
+							BindingPath="FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}">
+							<igcontrols:Field.Visibility>
+								<MultiBinding
+									Converter="{StaticResource ClmVisibilityStatus}">
+									<MultiBinding.Bindings>
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562" />
+										<Binding
+											Source="{StaticResource GetFeatureNode}"
+											Path="FPPProtection.ZnChanCfgFPPProtectionFPPEnable_A19562_Visible" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</igcontrols:Field.Visibility>
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgFPPProtectionFPPEnable_A19562CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+						<igcontrols:UnboundField
+							Name="{x:Static ResourceNS:AcgResources.ID_LASTSELECTEDCHANNEL}"
+							BindingPath="Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075"
+							BindingMode="OneWay"
+							ToolTip="{Binding Path=Name, RelativeSource={RelativeSource Self}}"
+							Visibility="{Binding Source={StaticResource GetFeatureNode}, Path=Labtool.ZnChanCfgLabtoolLastSelectedChnl_A41075_Visible, Converter={StaticResource BooleanToVisibility}}">
+							<igcontrols:Field.Settings>
+								<igcontrols:FieldSettings
+									CellValuePresenterStyle="{StaticResource ZnChanCfgLabtoolLastSelectedChnl_A41075CellStyle}" />
+							</igcontrols:Field.Settings>
+						</igcontrols:UnboundField>
+					</igcontrols:FieldLayout.Fields>
+				</igcontrols:FieldLayout>
+			</igcontrols:DataPresenterBase.FieldLayouts>
+		</AcpUINS:AcpXamDataPresenter>
+	</Grid>
+</AcpUINS:AcpPageFeature>

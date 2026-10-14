@@ -1,0 +1,191 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igwindows="http://infragistics.com/Windows" xmlns:igEditors="clr-namespace:Infragistics.Windows.Editors" xmlns:luna="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:igThemes="clr-namespace:Infragistics.Windows.Themes" xmlns:themesEd="clr-namespace:Infragistics.Windows.Themes">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="../EditorsBrushes/EditorsAero_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		BasedOn="{x:Static igThemes:EditorsGeneric.XamTextEditor}"
+		TargetType="{x:Type igEditors:XamTextEditor}"
+		x:Key="{x:Type igEditors:XamTextEditor}" />
+	<Style
+		TargetType="{x:Type igEditors:XamCheckEditor}"
+		x:Key="{x:Type igEditors:XamCheckEditor}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type igEditors:ValueEditorCheckBox}"
+					x:Key="{x:Type igEditors:ValueEditorCheckBox}">
+					<Setter
+						Property="BorderThickness"
+						Value="0" />
+					<Setter
+						Property="Background"
+						Value="#00FFFFFF" />
+					<Setter
+						Property="Template">
+						<Setter.Value>
+							<ControlTemplate
+								TargetType="{x:Type igEditors:ValueEditorCheckBox}">
+								<Border
+									Name="MainBorder"
+									BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}">
+									<Grid
+										Name="CheckBox"
+										VerticalAlignment="Center"
+										Column="1"
+										Margin="3,0,3,0">
+										<Rectangle
+											Name="CheckBox_OuterBox"
+											Fill="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxNormalOuterBoxCenterFillKey}"
+											Stroke="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxNormalOuterBoxBorderFillKey}"
+											HorizontalAlignment="Left"
+											VerticalAlignment="Top"
+											Width="13"
+											Height="13"
+											SnapsToDevicePixels="True" />
+										<Rectangle
+											Name="CheckBox_InnerBox"
+											Fill="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxNormalInnerBoxCenterFillKey}"
+											Stroke="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxNormalInnerBoxBorderFillKey}"
+											HorizontalAlignment="Left"
+											Margin="2,2,0,0"
+											VerticalAlignment="Top"
+											Width="9"
+											Height="9"
+											SnapsToDevicePixels="True" />
+										<Grid
+											Name="CheckMark"
+											Visibility="Collapsed"
+											Margin="0,0,0,0">
+											<Path
+												Name="Background"
+												Height="9.661"
+												Width="10.137"
+												Stretch="Fill"
+												Opacity="0.8"
+												Data="M2.6673452,7.8617508 C2.6673452,7.8617508 5.817048,10.192734 5.817048,10.192734 C5.817048,10.192734 9.5967099,4.4942121 9.5967099,4.4942121"
+												Stroke="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxCheckmarkBackgroundFillKey}"
+												StrokeThickness="3"
+												SnapsToDevicePixels="True"
+												HorizontalAlignment="Left"
+												Margin="1.138,0.965,0,0"
+												VerticalAlignment="Top" />
+											<Path
+												Name="Foreground"
+												Height="8.915"
+												Width="8.66"
+												Stretch="Fill"
+												Opacity="1"
+												Data="M1.6839831,7.7438574 C1.6839831,7.7438574 5.8697866,10.85053 5.8697866,10.85053 C5.8697866,10.85053 10.540217,1.6301305 10.540217,1.6301305"
+												Stroke="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxCheckmarkNormalForegroundFillKey}"
+												StrokeThickness="1.75"
+												SnapsToDevicePixels="True"
+												HorizontalAlignment="Left"
+												Margin="1.855,1.465,0,0"
+												VerticalAlignment="Top" />
+										</Grid>
+									</Grid>
+								</Border>
+								<ControlTemplate.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											TargetName="CheckBox_InnerBox"
+											Value="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxHottrackInnerBoxCenterFillKey}"
+											Property="Fill" />
+										<Setter
+											TargetName="CheckBox_OuterBox"
+											Value="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxHottrackOuterBoxBorderFillKey}"
+											Property="Stroke" />
+										<Setter
+											TargetName="CheckBox_InnerBox"
+											Value="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxHottrackInnerBoxBorderFillKey}"
+											Property="Stroke" />
+										<Setter
+											TargetName="Foreground"
+											Value="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxCheckmarkHottrackForegroundFillKey}"
+											Property="Stroke" />
+									</Trigger>
+									<Trigger
+										Property="ToggleButton.IsChecked"
+										Value="True">
+										<Setter
+											TargetName="CheckMark"
+											Property="Visibility"
+											Value="Visible" />
+									</Trigger>
+									<Trigger
+										Property="ToggleButton.IsChecked"
+										Value="{x:Null}">
+										<Setter
+											TargetName="CheckBox_InnerBox"
+											Value="{DynamicResource igEditors:EditorsBrushKeys.CheckBoxCheckmarkNormalForegroundFillKey}"
+											Property="Fill" />
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="Padding"
+			Value="4" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igEditors:XamCheckEditor}">
+					<igEditors:ValueEditorCheckBox
+						Name="PART_FocusSite"
+						IsThreeState="{TemplateBinding IsThreeState}"
+						HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+						Margin="{TemplateBinding Padding}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						IsChecked="{Binding Path=IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource TemplatedParent}}" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igEditors:ValueEditor.ReadOnly"
+							Value="True">
+							<Setter
+								TargetName="PART_FocusSite"
+								Property="IsEnabled"
+								Value="False" />
+						</Trigger>
+						<Trigger
+							Property="igEditors:ValueEditor.IsEmbedded"
+							Value="True">
+							<Setter
+								TargetName="PART_FocusSite"
+								Property="FrameworkElement.FocusVisualStyle"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="igEditors:ValueEditor.IsEmbedded"
+				Value="False">
+				<Setter
+					Property="BorderThickness"
+					Value="1" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="UIElement.Opacity"
+					Value="0.35" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

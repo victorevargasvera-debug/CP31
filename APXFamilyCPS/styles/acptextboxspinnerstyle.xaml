@@ -1,0 +1,644 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonResources="clr-namespace:AcpCommonResources;assembly=AcpCommonResources" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:sysGlobal="clr-namespace:System.Globalization;assembly=mscorlib">
+	<AcpUICommonNS:EditabilityToOpacityConverter
+		x:Key="editabilityToOpacity" />
+	<Style
+		x:Key="MyFocusVisual">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Rectangle
+						Margin="-2"
+						StrokeThickness="1"
+						Stroke="#FF000000"
+						StrokeDashArray="1 2" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTextBoxSpinner}"
+		x:Key="{x:Type AcpUINS:AcpTextBoxSpinner}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<AcpUICommonNS:substitutionValueConverter
+					x:Key="mySubstitutionConverter" />
+			</ResourceDictionary>
+		</Style.Resources>
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTextBoxSpinner, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTextBoxSpinnerInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTableTextBoxSpinner}"
+		x:Key="{x:Type AcpUINS:AcpTableTextBoxSpinner}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type AcpUINS:AcpTableTextBoxSpinner}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="5*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<AcpUINS:AcpTableTextBoxBase
+							Name="AcpTextBoxMember"
+							TabIndex="0"
+							Grid.Row="0"
+							Grid.Column="0"
+							Grid.RowSpan="2"
+							FocusVisualStyle="{DynamicResource MyFocusVisual}"
+							MaskType="{Binding Path=MaskTypeSpinner, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Text="{Binding Path=Text, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpValid="{Binding Path=IsAcpValid, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpApplicable="{Binding Path=IsAcpApplicable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpEditable="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="PreviewKeyDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=KeyCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+								<i:EventTrigger
+									EventName="PreviewMouseLeftButtonDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=MouseLeftButtonDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</AcpUINS:AcpTableTextBoxBase>
+						<RepeatButton
+							Name="UpClick"
+							KeyboardNavigation.IsTabStop="false"
+							Opacity="0"
+							Grid.Column="1"
+							Height="11.63833333333335"
+							Width="20"
+							Delay="500"
+							Interval="10"
+							HorizontalAlignment="Right"
+							VerticalAlignment="Top"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Increment_Id}"
+							IsEnabled="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Image
+								Source="../icons/SpinnerArrowUp.png"
+								Opacity="{Binding ElementName=UpClick, Path=IsEnabled, Mode=Oneway, Converter={StaticResource editabilityToOpacity}}" />
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="Click">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=UpDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=MyBLObject, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</RepeatButton>
+						<RepeatButton
+							Name="DownClick"
+							KeyboardNavigation.IsTabStop="false"
+							Opacity="0"
+							Grid.Row="1"
+							Grid.Column="1"
+							Height="11.63833333333335"
+							Width="20"
+							Delay="500"
+							Interval="10"
+							HorizontalAlignment="Right"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Decrement_Id}"
+							IsEnabled="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Image
+								Source="../icons/SpinnerArrowDown.png"
+								Opacity="{Binding ElementName=DownClick, Path=IsEnabled, Mode=Oneway, Converter={StaticResource editabilityToOpacity}}" />
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="Click">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=UpDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=MyBLObject, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</RepeatButton>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="true" />
+								<Condition
+									Property="AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable"
+									Value="true" />
+								<Condition
+									Property="AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable"
+									Value="true" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.Setters>
+								<Setter
+									TargetName="UpClick"
+									Property="UIElement.Opacity"
+									Value="1" />
+								<Setter
+									TargetName="DownClick"
+									Property="UIElement.Opacity"
+									Value="1" />
+							</MultiTrigger.Setters>
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Resources>
+			<ResourceDictionary>
+				<AcpUICommonNS:substitutionValueConverter
+					x:Key="mySubstitutionConverter" />
+			</ResourceDictionary>
+		</Style.Resources>
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTextBoxSpinner, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTextBoxSpinnerInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTableTextBoxSpinnerDecHex}"
+		x:Key="{x:Type AcpUINS:AcpTableTextBoxSpinnerDecHex}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<AcpUICommonNS:substitutionValueConverter
+					x:Key="mySubstitutionConverter" />
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="NumberSubstitution.Substitution"
+			Value="{Binding Source={x:Static sysGlobal:CultureInfo.CurrentCulture}, Path=IetfLanguageTag, Converter={StaticResource mySubstitutionConverter}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type AcpUINS:AcpTableTextBoxSpinnerDecHex}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="5*" />
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="5*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<AcpUINS:AcpTableTextBoxBase
+							Name="AcpTextBoxMemberDec"
+							TabIndex="0"
+							Grid.Row="0"
+							Grid.Column="0"
+							FocusVisualStyle="{DynamicResource MyFocusVisual}"
+							Grid.RowSpan="2"
+							MaskType="{}{number:0-268435455}"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Decimal_Value}"
+							Text="{Binding Path=Text, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpEditable="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpValid="{Binding Path=IsAcpValid, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpApplicable="{Binding Path=IsAcpApplicable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="PreviewKeyDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=KeyCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+								<i:EventTrigger
+									EventName="PreviewMouseLeftButtonDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=MouseLeftButtonDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</AcpUINS:AcpTableTextBoxBase>
+						<AcpUINS:AcpLabel
+							Grid.Row="0"
+							Grid.Column="1"
+							Grid.RowSpan="2"
+							ContextMenu="{x:Null}">-</AcpUINS:AcpLabel>
+						<AcpUINS:AcpTableTextBoxBase
+							Name="AcpTextBoxMemberHex"
+							TabIndex="1"
+							Grid.Row="0"
+							Grid.Column="2"
+							FocusVisualStyle="{DynamicResource MyFocusVisual}"
+							Grid.RowSpan="2"
+							MaskType="{}{char:7:0-9a-fA-F}"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Hexadecimal_Value}"
+							Text="{Binding Path=HexText, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpEditable="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpValid="{Binding Path=IsAcpValid, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpApplicable="{Binding Path=IsAcpApplicable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="PreviewKeyDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=KeyCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+								<i:EventTrigger
+									EventName="PreviewMouseLeftButtonDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=MouseLeftButtonDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</AcpUINS:AcpTableTextBoxBase>
+						<RepeatButton
+							Name="UpClick"
+							KeyboardNavigation.IsTabStop="false"
+							Opacity="0"
+							Grid.Row="0"
+							Grid.Column="3"
+							Height="11.63833333333335"
+							Width="20"
+							Delay="500"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Increment_Id}"
+							Interval="10"
+							HorizontalAlignment="Right"
+							IsEnabled="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Image
+								Source="../icons/SpinnerArrowUp.png"
+								Opacity="{Binding ElementName=UpClick, Path=IsEnabled, Mode=Oneway, Converter={StaticResource editabilityToOpacity}}" />
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="Click">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=UpDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=MyBLObject, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</RepeatButton>
+						<RepeatButton
+							Name="DownClick"
+							KeyboardNavigation.IsTabStop="false"
+							Opacity="0"
+							Grid.Row="1"
+							Grid.Column="3"
+							Height="11.63833333333335"
+							Width="20"
+							Delay="500"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Decrement_Id}"
+							Interval="10"
+							HorizontalAlignment="Right"
+							IsEnabled="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Image
+								Source="../icons/SpinnerArrowDown.png"
+								Opacity="{Binding ElementName=DownClick, Path=IsEnabled, Mode=Oneway, Converter={StaticResource editabilityToOpacity}}" />
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="Click">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=UpDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=MyBLObject, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</RepeatButton>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="UIElement.IsMouseOver"
+									Value="true" />
+								<Condition
+									Property="AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpEditable"
+									Value="true" />
+								<Condition
+									Property="AcpUINS:AcpTableTextBoxSpinnerDecHex.IsAcpApplicable"
+									Value="true" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.Setters>
+								<Setter
+									TargetName="UpClick"
+									Property="UIElement.Opacity"
+									Value="1" />
+								<Setter
+									TargetName="DownClick"
+									Property="UIElement.Opacity"
+									Value="1" />
+							</MultiTrigger.Setters>
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTextBoxSpinnerDecHex, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTextBoxSpinnerInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTableTextBoxDecHex}"
+		x:Key="AcpTableTextBoxDecHexBase">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type AcpUINS:AcpTableTextBoxDecHex}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="5*" />
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="5*" />
+						</Grid.ColumnDefinitions>
+						<AcpUINS:AcpTableTextBoxBase
+							Name="AcpTextBoxMemberDec"
+							TabIndex="0"
+							Grid.Row="0"
+							Grid.Column="0"
+							FocusVisualStyle="{DynamicResource MyFocusVisual}"
+							MaskType="{}{number:0-268435455}"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Decimal_Value}"
+							Text="{Binding Path=Text, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpEditable="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpValid="{Binding Path=IsAcpValid, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpApplicable="{Binding Path=IsAcpApplicable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="PreviewKeyDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=KeyCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+								<i:EventTrigger
+									EventName="PreviewMouseLeftButtonDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=MouseLeftButtonDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</AcpUINS:AcpTableTextBoxBase>
+						<AcpUINS:AcpLabel
+							Grid.Row="0"
+							Grid.Column="1"
+							ContextMenu="{x:Null}">-</AcpUINS:AcpLabel>
+						<AcpUINS:AcpTableTextBoxBase
+							Name="AcpTextBoxMemberHex"
+							TabIndex="1"
+							Grid.Row="0"
+							Grid.Column="2"
+							FocusVisualStyle="{DynamicResource MyFocusVisual}"
+							MaskType="{}{char:7:0-9a-fA-F}"
+							ToolTip="{x:Static AcpCommonResources:AcpResources.Hexadecimal_Value}"
+							Text="{Binding Path=HexText, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpEditable="{Binding Path=IsAcpEditable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpValid="{Binding Path=IsAcpValid, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							IsAcpApplicable="{Binding Path=IsAcpApplicable, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger
+									EventName="PreviewKeyDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=KeyCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+								<i:EventTrigger
+									EventName="PreviewMouseLeftButtonDown">
+									<AcpUINS:AcpInvokeCommandAction
+										Command="{Binding Path=MouseLeftButtonDownCommand, Source={StaticResource viewModel}}"
+										CommandParameter="{Binding Path=., Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</AcpUINS:AcpTableTextBoxBase>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTableTextBoxDecHex}"
+		BasedOn="{StaticResource AcpTableTextBoxDecHexBase}"
+		x:Key="{x:Type AcpUINS:AcpTableTextBoxDecHex}" />
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTableTextBoxCustomDecHex}"
+		BasedOn="{StaticResource AcpTableTextBoxDecHexBase}"
+		x:Key="{x:Type AcpUINS:AcpTableTextBoxCustomDecHex}" />
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTextBoxSpinnerDecHex}"
+		x:Key="{x:Type AcpUINS:AcpTextBoxSpinnerDecHex}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<AcpUICommonNS:substitutionValueConverter
+					x:Key="mySubstitutionConverter" />
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="NumberSubstitution.Substitution"
+			Value="{Binding Source={x:Static sysGlobal:CultureInfo.CurrentCulture}, Path=IetfLanguageTag, Converter={StaticResource mySubstitutionConverter}}" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTextBoxSpinnerDecHex, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTextBoxSpinnerInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTextBoxDecHex}"
+		x:Key="{x:Type AcpUINS:AcpTextBoxDecHex}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<AcpUICommonNS:substitutionValueConverter
+					x:Key="mySubstitutionConverter" />
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="NumberSubstitution.Substitution"
+			Value="{Binding Source={x:Static sysGlobal:CultureInfo.CurrentCulture}, Path=IetfLanguageTag, Converter={StaticResource mySubstitutionConverter}}" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTextBoxDecHex, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTextBoxSpinnerInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type AcpUINS:AcpTextBoxCustomDecHex}"
+		x:Key="{x:Type AcpUINS:AcpTextBoxCustomDecHex}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<AcpUICommonNS:substitutionValueConverter
+					x:Key="mySubstitutionConverter" />
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="NumberSubstitution.Substitution"
+			Value="{Binding Source={x:Static sysGlobal:CultureInfo.CurrentCulture}, Path=IetfLanguageTag, Converter={StaticResource mySubstitutionConverter}}" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpTextBoxCustomDecHex, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpTextBoxSpinnerInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

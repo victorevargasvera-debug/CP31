@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA699}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.IdentityModel.Tokens</RootNamespace>
+    <AssemblyName>Microsoft.IdentityModel.Tokens</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsymmetricSecurityKey.cs" />
+    <Compile Include="AsymmetricSignatureProvider.cs" />
+    <Compile Include="AudienceValidator.cs" />
+    <Compile Include="AuthenticatedEncryptionProvider.cs" />
+    <Compile Include="AuthenticatedEncryptionResult.cs" />
+    <Compile Include="Base64UrlEncoder.cs" />
+    <Compile Include="CryptoProviderCache.cs" />
+    <Compile Include="CryptoProviderFactory.cs" />
+    <Compile Include="DateTimeUtil.cs" />
+    <Compile Include="ECDsaAlgorithm.cs" />
+    <Compile Include="ECDsaSecurityKey.cs" />
+    <Compile Include="EncryptingCredentials.cs" />
+    <Compile Include="EpochTime.cs" />
+    <Compile Include="ICryptoProvider.cs" />
+    <Compile Include="InMemoryCryptoProviderCache.cs" />
+    <Compile Include="ISecurityTokenValidator.cs" />
+    <Compile Include="IssuerSigningKeyResolver.cs" />
+    <Compile Include="IssuerSigningKeyValidator.cs" />
+    <Compile Include="IssuerValidator.cs" />
+    <Compile Include="ITokenReplayCache.cs" />
+    <Compile Include="JsonWebAlgorithmsKeyTypes.cs" />
+    <Compile Include="JsonWebKey.cs" />
+    <Compile Include="JsonWebKeyConverter.cs" />
+    <Compile Include="JsonWebKeyECTypes.cs" />
+    <Compile Include="JsonWebKeyParameterNames.cs" />
+    <Compile Include="JsonWebKeySet.cs" />
+    <Compile Include="JsonWebKeySetParameterNames.cs" />
+    <Compile Include="JsonWebKeyUseNames.cs" />
+    <Compile Include="KeyWrapProvider.cs" />
+    <Compile Include="LifetimeValidator.cs" />
+    <Compile Include="LogMessages.cs" />
+    <Compile Include="PrivateKeyStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RsaAlgorithm.cs" />
+    <Compile Include="RsaCngAdapter.cs" />
+    <Compile Include="RSACryptoServiceProviderProxy.cs" />
+    <Compile Include="RsaKeyWrapProvider.cs" />
+    <Compile Include="RsaSecurityKey.cs" />
+    <Compile Include="SecurityAlgorithms.cs" />
+    <Compile Include="SecurityKey.cs" />
+    <Compile Include="SecurityKeyIdentifierClause.cs" />
+    <Compile Include="SecurityToken.cs" />
+    <Compile Include="SecurityTokenDecryptionFailedException.cs" />
+    <Compile Include="SecurityTokenDescriptor.cs" />
+    <Compile Include="SecurityTokenEncryptionFailedException.cs" />
+    <Compile Include="SecurityTokenEncryptionKeyNotFoundException.cs" />
+    <Compile Include="SecurityTokenException.cs" />
+    <Compile Include="SecurityTokenExpiredException.cs" />
+    <Compile Include="SecurityTokenHandler.cs" />
+    <Compile Include="SecurityTokenInvalidAudienceException.cs" />
+    <Compile Include="SecurityTokenInvalidIssuerException.cs" />
+    <Compile Include="SecurityTokenInvalidLifetimeException.cs" />
+    <Compile Include="SecurityTokenInvalidSignatureException.cs" />
+    <Compile Include="SecurityTokenInvalidSigningKeyException.cs" />
+    <Compile Include="SecurityTokenKeyWrapException.cs" />
+    <Compile Include="SecurityTokenNoExpirationException.cs" />
+    <Compile Include="SecurityTokenNotYetValidException.cs" />
+    <Compile Include="SecurityTokenReplayAddFailedException.cs" />
+    <Compile Include="SecurityTokenReplayDetectedException.cs" />
+    <Compile Include="SecurityTokenSignatureKeyNotFoundException.cs" />
+    <Compile Include="SecurityTokenValidationException.cs" />
+    <Compile Include="SignatureProvider.cs" />
+    <Compile Include="SignatureValidator.cs" />
+    <Compile Include="SigningCredentials.cs" />
+    <Compile Include="SymmetricKeyWrapProvider.cs" />
+    <Compile Include="SymmetricSecurityKey.cs" />
+    <Compile Include="SymmetricSignatureProvider.cs" />
+    <Compile Include="TokenDecryptionKeyResolver.cs" />
+    <Compile Include="TokenReader.cs" />
+    <Compile Include="TokenReplayValidator.cs" />
+    <Compile Include="TokenValidationParameters.cs" />
+    <Compile Include="UniqueId.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Validators.cs" />
+    <Compile Include="X509SecurityKey.cs" />
+    <Compile Include="X509SigningCredentials.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.IdentityModel.Logging\Microsoft.IdentityModel.Logging.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA698}</Project>
+      <Name>Microsoft.IdentityModel.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C8}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

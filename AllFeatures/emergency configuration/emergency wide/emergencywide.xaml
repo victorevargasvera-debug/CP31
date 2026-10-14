@@ -1,0 +1,4108 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.EmergencyWide.PageEmergencyWide" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:EmergencyWideRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.EmergencyWide"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2032</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2032</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 2-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderEmergencyWideGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 3-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderEmergencyWideGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderEmergencyWideManDown, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 4-->
+				<Hyperlink
+					Name="HLinkManDown"
+					Tag="ExpanderEmergencyWideManDown">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_MANDOWN}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="ManDown.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderEmergencyWideEmergencyToneTrigger, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 5-->
+				<Hyperlink
+					Name="HLinkEmergencyToneTrigger"
+					Tag="ExpanderEmergencyWideEmergencyToneTrigger">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_CUSTOMIZABLEEMERGENCYTONES}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="EmergencyToneTrigger.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 6-->
+				<Hyperlink
+					Name="HLinkEmergencyWideImpactDetection"
+					Tag="ExpanderEmergencyWideEmergencyWideImpactDetection">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_IMPACTDETECTION}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="EmergencyWideImpactDetection.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 7-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 8-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderEmergencyWideGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderEmergencyWideGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 9-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderEmergencyWideGeneralPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralKeepAlive_A8360"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralSilentAlarm_A9130"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralUnmuteOption_A9598"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralChannelDelaysec_A7657"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 10-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									IsChecked="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 11-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+									Content="{x:Static ResourceNS:AcgResources.ID_EMERGENCYALARMRXINDICATORTYPE}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_EMERGENCYALARMRXINDICATORTYPE}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 12-->
+								<AcpUINS:AcpComboBox
+									Name="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933.Items}"
+									SelectedValue="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 13-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 14-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 15-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralEmergencyAlarmRxIndicatorType_A7933}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyAlarmRxIndicatorType_A7933"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralKeepAlive_A8360"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralKeepAlive_A8360}"
+									IsChecked="{Binding ElementName=EmerWideGeneralKeepAlive_A8360, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 17-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralKeepAlive_A8360"
+									Content="{x:Static ResourceNS:AcgResources.ID_KEEPALIVE}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_KEEPALIVE}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralKeepAlive_A8360}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralKeepAlive_A8360, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralKeepAlive_A8360, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralKeepAlive_A8360, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 18-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralKeepAlive_A8360"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralKeepAlive_A8360Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralKeepAlive_A8360}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralKeepAlive_A8360}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralKeepAlive_A8360_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralKeepAlive_A8360_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralKeepAlive_A8360_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralKeepAlive_A8360_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralKeepAlive_A8360" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralKeepAlive_A8360_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 19-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralKeepAlive_A8360"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralKeepAlive_A8360}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 20-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralKeepAlive_A8360"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralKeepAlive_A8360}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralKeepAlive_A8360Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralKeepAlive_A8360, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 21-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralKeepAlive_A8360Comp"
+									IsAcpEditable="false"
+									Grid.Row="1"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralKeepAlive_A8360Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralKeepAlive_A8360}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralKeepAlive_A8360}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralKeepAlive_A8360}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralKeepAlive_A8360"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 22-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralSilentAlarm_A9130"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130}"
+									IsChecked="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 23-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralSilentAlarm_A9130"
+									Content="{x:Static ResourceNS:AcgResources.ID_SILENTALARM}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_SILENTALARM}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 24-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralSilentAlarm_A9130"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralSilentAlarm_A9130}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralSilentAlarm_A9130_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralSilentAlarm_A9130" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralSilentAlarm_A9130_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 25-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralSilentAlarm_A9130"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 26-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralSilentAlarm_A9130"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 27-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralSilentAlarm_A9130Comp"
+									IsAcpEditable="false"
+									Grid.Row="2"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralSilentAlarm_A9130}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSilentAlarm_A9130}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralSilentAlarm_A9130}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralSilentAlarm_A9130"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 28-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralSuppressEmergencyCall_A42142"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142}"
+									IsChecked="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 29-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralSuppressEmergencyCall_A42142"
+									Content="{x:Static ResourceNS:AcgResources.ID_DISABLEEMERGENCYCALLINDICATIONS}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DISABLEEMERGENCYCALLINDICATIONS}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 30-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralSuppressEmergencyCall_A42142"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralSuppressEmergencyCall_A42142}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralSuppressEmergencyCall_A42142_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralSuppressEmergencyCall_A42142" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralSuppressEmergencyCall_A42142_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 31-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralSuppressEmergencyCall_A42142"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 32-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralSuppressEmergencyCall_A42142"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 33-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralSuppressEmergencyCall_A42142Comp"
+									IsAcpEditable="false"
+									Grid.Row="3"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralSuppressEmergencyCall_A42142}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralSuppressEmergencyCall_A42142}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralSuppressEmergencyCall_A42142}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralSuppressEmergencyCall_A42142"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 34-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralUnmuteOption_A9598"
+									Margin="0,5,0,0"
+									Grid.Row="4"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598}"
+									IsChecked="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 35-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralUnmuteOption_A9598"
+									Content="{x:Static ResourceNS:AcgResources.ID_UNMUTEOPTION}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_UNMUTEOPTION}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 36-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralUnmuteOption_A9598"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralUnmuteOption_A9598}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralUnmuteOption_A9598_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralUnmuteOption_A9598" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralUnmuteOption_A9598_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 37-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralUnmuteOption_A9598"
+									Grid.Row="4"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 38-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralUnmuteOption_A9598"
+									Grid.Row="4"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 39-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralUnmuteOption_A9598Comp"
+									IsAcpEditable="false"
+									Grid.Row="4"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralUnmuteOption_A9598}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralUnmuteOption_A9598}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralUnmuteOption_A9598}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralUnmuteOption_A9598"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 40-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralChannelDelaysec_A7657"
+									Margin="0,5,0,0"
+									Grid.Row="5"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657}"
+									IsChecked="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 41-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralChannelDelaysec_A7657"
+									Content="{x:Static ResourceNS:AcgResources.ID_CHANNELDELAYSEC}"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_CHANNELDELAYSEC}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 42-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideGeneralChannelDelaysec_A7657"
+									MaskTypeSpinner="{}{number:0-7}"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="2"
+									Text="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralChannelDelaysec_A7657}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralChannelDelaysec_A7657_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralChannelDelaysec_A7657" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralChannelDelaysec_A7657_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 43-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralChannelDelaysec_A7657"
+									Grid.Row="5"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 44-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralChannelDelaysec_A7657"
+									Grid.Row="5"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 45-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideGeneralChannelDelaysec_A7657Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="5"
+									Grid.Column="5"
+									Content="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralChannelDelaysec_A7657}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralChannelDelaysec_A7657}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralChannelDelaysec_A7657}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralChannelDelaysec_A7657"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 46-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralEmergencyPowerUp_A7942"
+									Margin="0,5,0,0"
+									Grid.Row="6"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942}"
+									IsChecked="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 47-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralEmergencyPowerUp_A7942"
+									Content="{x:Static ResourceNS:AcgResources.ID_EMERGENCYPOWERUP}"
+									VerticalAlignment="Center"
+									Grid.Row="6"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_EMERGENCYPOWERUP}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 48-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralEmergencyPowerUp_A7942"
+									VerticalAlignment="Center"
+									Grid.Row="6"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralEmergencyPowerUp_A7942}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyPowerUp_A7942_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyPowerUp_A7942" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyPowerUp_A7942_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 49-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralEmergencyPowerUp_A7942"
+									Grid.Row="6"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 50-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralEmergencyPowerUp_A7942"
+									Grid.Row="6"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 51-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralEmergencyPowerUp_A7942Comp"
+									IsAcpEditable="false"
+									Grid.Row="6"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralEmergencyPowerUp_A7942}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyPowerUp_A7942}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralEmergencyPowerUp_A7942}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyPowerUp_A7942"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 52-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralEmergencyCallReceive_A7937"
+									Margin="0,5,0,0"
+									Grid.Row="7"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937}"
+									IsChecked="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 53-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralEmergencyCallReceive_A7937"
+									Content="{x:Static ResourceNS:AcgResources.ID_EMERGENCYCALLRECEIVE}"
+									VerticalAlignment="Center"
+									Grid.Row="7"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_EMERGENCYCALLRECEIVE}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 54-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralEmergencyCallReceive_A7937"
+									VerticalAlignment="Center"
+									Grid.Row="7"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralEmergencyCallReceive_A7937}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyCallReceive_A7937_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyCallReceive_A7937" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralEmergencyCallReceive_A7937_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 55-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralEmergencyCallReceive_A7937"
+									Grid.Row="7"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 56-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralEmergencyCallReceive_A7937"
+									Grid.Row="7"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 57-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralEmergencyCallReceive_A7937Comp"
+									IsAcpEditable="false"
+									Grid.Row="7"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralEmergencyCallReceive_A7937}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralEmergencyCallReceive_A7937}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralEmergencyCallReceive_A7937}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralEmergencyCallReceive_A7937"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 58-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideGeneralDistinguishEmergencyType_43546"
+									Margin="0,5,0,0"
+									Grid.Row="8"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546}"
+									IsChecked="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 59-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideGeneralDistinguishEmergencyType_43546"
+									Content="{x:Static ResourceNS:AcgResources.ID_DISTINGUISHEMERGENCYTYPE}"
+									VerticalAlignment="Center"
+									Grid.Row="8"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DISTINGUISHEMERGENCYTYPE}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546}"
+									IsAcpValid="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 60-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralDistinguishEmergencyType_43546"
+									VerticalAlignment="Center"
+									Grid.Row="8"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideGeneral}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideGeneralDistinguishEmergencyType_43546}"
+									IsAcpValid="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546_Valid}"
+									IsAcpApplicable="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546_Applicable}"
+									AreValuesEqual="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.EmerWideGeneralDistinguishEmergencyType_43546_Editable" />
+											<Binding
+												Path="General.EmerWideGeneralDistinguishEmergencyType_43546" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.EmerWideGeneralDistinguishEmergencyType_43546_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 61-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideGeneralDistinguishEmergencyType_43546"
+									Grid.Row="8"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 62-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideGeneralDistinguishEmergencyType_43546"
+									Grid.Row="8"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546}"
+									MyCompCtrl="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 63-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideGeneralDistinguishEmergencyType_43546Comp"
+									IsAcpEditable="false"
+									Grid.Row="8"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.EmerWideGeneralDistinguishEmergencyType_43546}"
+									MyParentCtrl="{Binding ElementName=EmerWideGeneralDistinguishEmergencyType_43546}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideGeneralDistinguishEmergencyType_43546}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideGeneralDistinguishEmergencyType_43546"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 64-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderEmergencyWideManDown"
+					Width="Auto"
+					Header="{Binding Path=ManDown.UIName}"
+					ShowDiffIcon="{Binding Path=ManDown.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderEmergencyWideManDownPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 65-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderEmergencyWideManDownPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="EmerWideManDownTrigger_A40001"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideManDownPreAlertTimer_A40003"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideManDownPostAlertTimer_A40004"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWidePostAlertTone_A41191"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="ManDownConfigurabilityGranularityLevel_42057"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 66-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideManDownTrigger_A40001"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownTrigger_A40001}"
+									IsChecked="{Binding ElementName=EmerWideManDownTrigger_A40001, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 67-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideManDownTrigger_A40001"
+									Content="{x:Static ResourceNS:AcgResources.ID_MANDOWNTRIGGER}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_MANDOWNTRIGGER}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownTrigger_A40001}"
+									IsAcpValid="{Binding ElementName=EmerWideManDownTrigger_A40001, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideManDownTrigger_A40001, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideManDownTrigger_A40001, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 68-->
+								<AcpUINS:AcpComboBox
+									Name="EmerWideManDownTrigger_A40001"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=ManDown.EmerWideManDownTrigger_A40001.Items}"
+									SelectedValue="{Binding Path=ManDown.EmerWideManDownTrigger_A40001_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideManDown}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownTrigger_A40001}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideManDownTrigger_A40001}"
+									IsAcpValid="{Binding Path=ManDown.EmerWideManDownTrigger_A40001_Valid}"
+									IsAcpApplicable="{Binding Path=ManDown.EmerWideManDownTrigger_A40001_Applicable}"
+									AreValuesEqual="{Binding Path=ManDown.EmerWideManDownTrigger_A40001_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="ManDown.EmerWideManDownTrigger_A40001_Editable" />
+											<Binding
+												Path="ManDown.EmerWideManDownTrigger_A40001" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="ManDown.EmerWideManDownTrigger_A40001_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 69-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideManDownTrigger_A40001"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownTrigger_A40001}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 70-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideManDownTrigger_A40001"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownTrigger_A40001}"
+									MyCompCtrl="{Binding ElementName=EmerWideManDownTrigger_A40001Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideManDownTrigger_A40001, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 71-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideManDownTrigger_A40001Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=ManDown.EmerWideManDownTrigger_A40001_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownTrigger_A40001}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownTrigger_A40001}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideManDownTrigger_A40001}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownTrigger_A40001"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 72-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideManDownMotionlessSensitivity_A40002"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002}"
+									IsChecked="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 73-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideManDownMotionlessSensitivity_A40002"
+									Content="{x:Static ResourceNS:AcgResources.ID_MOTIONSENSITIVITY}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_MOTIONSENSITIVITY}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002}"
+									IsAcpValid="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 74-->
+								<AcpUINS:AcpComboBox
+									Name="EmerWideManDownMotionlessSensitivity_A40002"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002.Items}"
+									SelectedValue="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideManDown}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideManDownMotionlessSensitivity_A40002}"
+									IsAcpValid="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002_Valid}"
+									IsAcpApplicable="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002_Applicable}"
+									AreValuesEqual="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="ManDown.EmerWideManDownMotionlessSensitivity_A40002_Editable" />
+											<Binding
+												Path="ManDown.EmerWideManDownMotionlessSensitivity_A40002" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="ManDown.EmerWideManDownMotionlessSensitivity_A40002_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 75-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideManDownMotionlessSensitivity_A40002"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 76-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideManDownMotionlessSensitivity_A40002"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002}"
+									MyCompCtrl="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 77-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideManDownMotionlessSensitivity_A40002Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="1"
+									Grid.Column="5"
+									Content="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownMotionlessSensitivity_A40002}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownMotionlessSensitivity_A40002}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideManDownMotionlessSensitivity_A40002}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownMotionlessSensitivity_A40002"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 78-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideManDownPreAlertTimer_A40003"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003}"
+									IsChecked="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 79-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideManDownPreAlertTimer_A40003"
+									Content="{x:Static ResourceNS:AcgResources.ID_PREALERTTIMERSEC}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PREALERTTIMERSEC}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003}"
+									IsAcpValid="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 80-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideManDownPreAlertTimer_A40003"
+									MaskTypeSpinner="{}{number:0-120}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									Text="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideManDown}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideManDownPreAlertTimer_A40003}"
+									IsAcpValid="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003_Valid}"
+									IsAcpApplicable="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003_Applicable}"
+									AreValuesEqual="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="ManDown.EmerWideManDownPreAlertTimer_A40003_Editable" />
+											<Binding
+												Path="ManDown.EmerWideManDownPreAlertTimer_A40003" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="ManDown.EmerWideManDownPreAlertTimer_A40003_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 81-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideManDownPreAlertTimer_A40003"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 82-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideManDownPreAlertTimer_A40003"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003}"
+									MyCompCtrl="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 83-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideManDownPreAlertTimer_A40003Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="2"
+									Grid.Column="5"
+									Content="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownPreAlertTimer_A40003}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPreAlertTimer_A40003}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideManDownPreAlertTimer_A40003}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownPreAlertTimer_A40003"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 84-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideManDownPostAlertTimer_A40004"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004}"
+									IsChecked="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 85-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideManDownPostAlertTimer_A40004"
+									Content="{x:Static ResourceNS:AcgResources.ID_POSTALERTTIMERSEC}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_POSTALERTTIMERSEC}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004}"
+									IsAcpValid="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 86-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideManDownPostAlertTimer_A40004"
+									MaskTypeSpinner="{}{number:0-120}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									Text="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideManDown}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideManDownPostAlertTimer_A40004}"
+									IsAcpValid="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004_Valid}"
+									IsAcpApplicable="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004_Applicable}"
+									AreValuesEqual="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="ManDown.EmerWideManDownPostAlertTimer_A40004_Editable" />
+											<Binding
+												Path="ManDown.EmerWideManDownPostAlertTimer_A40004" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="ManDown.EmerWideManDownPostAlertTimer_A40004_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 87-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideManDownPostAlertTimer_A40004"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 88-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideManDownPostAlertTimer_A40004"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004}"
+									MyCompCtrl="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 89-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideManDownPostAlertTimer_A40004Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="3"
+									Grid.Column="5"
+									Content="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=ManDown.EmerWideManDownPostAlertTimer_A40004}"
+									MyParentCtrl="{Binding ElementName=EmerWideManDownPostAlertTimer_A40004}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideManDownPostAlertTimer_A40004}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideManDownPostAlertTimer_A40004"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 90-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWidePostAlertTone_A41191"
+									Margin="0,5,0,0"
+									Grid.Row="4"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWidePostAlertTone_A41191}"
+									IsChecked="{Binding ElementName=EmerWidePostAlertTone_A41191, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 91-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWidePostAlertTone_A41191"
+									Content="{x:Static ResourceNS:AcgResources.ID_PREALERTTONE}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PREALERTTONE}"
+									MyParentCtrl="{Binding ElementName=EmerWidePostAlertTone_A41191}"
+									IsAcpValid="{Binding ElementName=EmerWidePostAlertTone_A41191, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWidePostAlertTone_A41191, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWidePostAlertTone_A41191, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 92-->
+								<AcpUINS:AcpComboBox
+									Name="EmerWidePostAlertTone_A41191"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=ManDown.EmerWidePostAlertTone_A41191.Items}"
+									SelectedValue="{Binding Path=ManDown.EmerWidePostAlertTone_A41191_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideManDown}"
+									MyBLObject="{Binding Path=ManDown.EmerWidePostAlertTone_A41191}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWidePostAlertTone_A41191}"
+									IsAcpValid="{Binding Path=ManDown.EmerWidePostAlertTone_A41191_Valid}"
+									IsAcpApplicable="{Binding Path=ManDown.EmerWidePostAlertTone_A41191_Applicable}"
+									AreValuesEqual="{Binding Path=ManDown.EmerWidePostAlertTone_A41191_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="ManDown.EmerWidePostAlertTone_A41191_Editable" />
+											<Binding
+												Path="ManDown.EmerWidePostAlertTone_A41191" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="ManDown.EmerWidePostAlertTone_A41191_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 93-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWidePostAlertTone_A41191"
+									Grid.Row="4"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWidePostAlertTone_A41191}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 94-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWidePostAlertTone_A41191"
+									Grid.Row="4"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWidePostAlertTone_A41191}"
+									MyCompCtrl="{Binding ElementName=EmerWidePostAlertTone_A41191Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWidePostAlertTone_A41191, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 95-->
+								<AcpUINS:AcpLabel
+									Name="EmerWidePostAlertTone_A41191Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="4"
+									Grid.Column="5"
+									Content="{Binding Path=ManDown.EmerWidePostAlertTone_A41191_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=ManDown.EmerWidePostAlertTone_A41191}"
+									MyParentCtrl="{Binding ElementName=EmerWidePostAlertTone_A41191}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWidePostAlertTone_A41191}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWidePostAlertTone_A41191"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 96-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnManDownConfigurabilityGranularityLevel_42057"
+									Margin="0,5,0,0"
+									Grid.Row="5"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057}"
+									IsChecked="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 97-->
+								<AcpUINS:AcpLabel
+									Name="LblManDownConfigurabilityGranularityLevel_42057"
+									Content="{x:Static ResourceNS:AcgResources.ID_MANDOWNCONFIGURABILITYLEVEL}"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_MANDOWNCONFIGURABILITYLEVEL}"
+									MyParentCtrl="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057}"
+									IsAcpValid="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 98-->
+								<AcpUINS:AcpComboBox
+									Name="ManDownConfigurabilityGranularityLevel_42057"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057.Items}"
+									SelectedValue="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideManDown}"
+									MyBLObject="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057}"
+									MyLabelCtrl="{Binding ElementName=LblManDownConfigurabilityGranularityLevel_42057}"
+									IsAcpValid="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057_Valid}"
+									IsAcpApplicable="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057_Applicable}"
+									AreValuesEqual="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="ManDown.ManDownConfigurabilityGranularityLevel_42057_Editable" />
+											<Binding
+												Path="ManDown.ManDownConfigurabilityGranularityLevel_42057" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="ManDown.ManDownConfigurabilityGranularityLevel_42057_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 99-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnManDownConfigurabilityGranularityLevel_42057"
+									Grid.Row="5"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 100-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnManDownConfigurabilityGranularityLevel_42057"
+									Grid.Row="5"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057}"
+									MyCompCtrl="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057Comp}"
+									AreValuesEqual="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 101-->
+								<AcpUINS:AcpLabel
+									Name="ManDownConfigurabilityGranularityLevel_42057Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="5"
+									Grid.Column="5"
+									Content="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=ManDown.ManDownConfigurabilityGranularityLevel_42057}"
+									MyParentCtrl="{Binding ElementName=ManDownConfigurabilityGranularityLevel_42057}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnManDownConfigurabilityGranularityLevel_42057}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="ManDownConfigurabilityGranularityLevel_42057"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 102-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderEmergencyWideEmergencyToneTrigger"
+					Width="Auto"
+					Header="{Binding Path=EmergencyToneTrigger.UIName}"
+					ShowDiffIcon="{Binding Path=EmergencyToneTrigger.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderEmergencyWideEmergencyToneTriggerCustomizableTonesPerEmergencyProfile"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 103-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderEmergencyWideEmergencyToneTriggerCustomizableTonesPerEmergencyProfile"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="TriggedByManDown_42135"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<HeaderedContentControl.Header>
+								<Label
+									Content="{x:Static ResourceNS:AcgResources.ID_CUSTOMIZABLETONESPEREMERGENCYPROFILE}" />
+							</HeaderedContentControl.Header>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 104-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnTriggedByManDown_42135"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=TriggedByManDown_42135}"
+									IsChecked="{Binding ElementName=TriggedByManDown_42135, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 105-->
+								<AcpUINS:AcpLabel
+									Name="LblTriggedByManDown_42135"
+									Content="{x:Static ResourceNS:AcgResources.ID_MANDOWNEMERGENCYTONETRIGGER}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_MANDOWNEMERGENCYTONETRIGGER}"
+									MyParentCtrl="{Binding ElementName=TriggedByManDown_42135}"
+									IsAcpValid="{Binding ElementName=TriggedByManDown_42135, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=TriggedByManDown_42135, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=TriggedByManDown_42135, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 106-->
+								<AcpUINS:AcpCheckBox
+									Name="TriggedByManDown_42135"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									IsChecked="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyToneTrigger}"
+									MyBLObject="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135}"
+									MyLabelCtrl="{Binding ElementName=LblTriggedByManDown_42135}"
+									IsAcpValid="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyToneTrigger.TriggedByManDown_42135_Editable" />
+											<Binding
+												Path="EmergencyToneTrigger.TriggedByManDown_42135" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyToneTrigger.TriggedByManDown_42135_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 107-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnTriggedByManDown_42135"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=TriggedByManDown_42135}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 108-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnTriggedByManDown_42135"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=TriggedByManDown_42135}"
+									MyCompCtrl="{Binding ElementName=TriggedByManDown_42135Comp}"
+									AreValuesEqual="{Binding ElementName=TriggedByManDown_42135, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 109-->
+								<AcpUINS:AcpCheckBox
+									Name="TriggedByManDown_42135Comp"
+									IsAcpEditable="false"
+									Grid.Row="0"
+									Grid.Column="5"
+									IsChecked="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyToneTrigger.TriggedByManDown_42135}"
+									MyParentCtrl="{Binding ElementName=TriggedByManDown_42135}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnTriggedByManDown_42135}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="TriggedByManDown_42135"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 110-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderEmergencyWideEmergencyWideImpactDetection"
+					Width="Auto"
+					Header="{Binding Path=EmergencyWideImpactDetection.UIName}"
+					ShowDiffIcon="{Binding Path=EmergencyWideImpactDetection.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderEmergencyWideEmergencyWideImpactDetectionPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 111-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderEmergencyWideEmergencyWideImpactDetectionPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideImpDectToneTrigger_A43386"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideImpactDetectionEventDuration_A43427"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="EmerWideImpactDetectionEventForce_A43428"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 112-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpactDetectionConfigLevel_A43384"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384}"
+									IsChecked="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 113-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpactDetectionConfigLevel_A43384"
+									Content="{x:Static ResourceNS:AcgResources.ID_CONFIGURABILITYLEVEL}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_CONFIGURABILITYLEVEL}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384}"
+									IsAcpValid="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 114-->
+								<AcpUINS:AcpComboBox
+									Name="EmerWideImpactDetectionConfigLevel_A43384"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384.Items}"
+									SelectedValue="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpactDetectionConfigLevel_A43384}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 115-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpactDetectionConfigLevel_A43384"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 116-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpactDetectionConfigLevel_A43384"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 117-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideImpactDetectionConfigLevel_A43384Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="0"
+									Grid.Column="5"
+									Content="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionConfigLevel_A43384}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionConfigLevel_A43384}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpactDetectionConfigLevel_A43384}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionConfigLevel_A43384"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 118-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpDectToneTrigger_A43386"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpDectToneTrigger_A43386}"
+									IsChecked="{Binding ElementName=EmerWideImpDectToneTrigger_A43386, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 119-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpDectToneTrigger_A43386"
+									Content="{x:Static ResourceNS:AcgResources.ID_EMERGENCYTONETRIGGER}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_EMERGENCYTONETRIGGER}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpDectToneTrigger_A43386}"
+									IsAcpValid="{Binding ElementName=EmerWideImpDectToneTrigger_A43386, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpDectToneTrigger_A43386, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpDectToneTrigger_A43386, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 120-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideImpDectToneTrigger_A43386"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									IsChecked="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386Value}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpDectToneTrigger_A43386}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 121-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpDectToneTrigger_A43386"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpDectToneTrigger_A43386}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 122-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpDectToneTrigger_A43386"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpDectToneTrigger_A43386}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpDectToneTrigger_A43386Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpDectToneTrigger_A43386, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 123-->
+								<AcpUINS:AcpCheckBox
+									Name="EmerWideImpDectToneTrigger_A43386Comp"
+									IsAcpEditable="false"
+									Grid.Row="1"
+									Grid.Column="5"
+									IsChecked="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpDectToneTrigger_A43386}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpDectToneTrigger_A43386}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpDectToneTrigger_A43386}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpDectToneTrigger_A43386"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 124-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpactDetectionPreAlertTimer_A43381"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381}"
+									IsChecked="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 125-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpactDetectionPreAlertTimer_A43381"
+									Content="{x:Static ResourceNS:AcgResources.ID_PREALERTTIMERSEC}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PREALERTTIMERSEC}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381}"
+									IsAcpValid="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 126-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideImpactDetectionPreAlertTimer_A43381"
+									MaskTypeSpinner="{}{number:0-120}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									Text="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpactDetectionPreAlertTimer_A43381}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 127-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpactDetectionPreAlertTimer_A43381"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 128-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpactDetectionPreAlertTimer_A43381"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 129-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideImpactDetectionPreAlertTimer_A43381Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="2"
+									Grid.Column="5"
+									Content="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTimer_A43381}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTimer_A43381}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpactDetectionPreAlertTimer_A43381}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTimer_A43381"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 130-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpactDetectionPostAlertTimer_A43382"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382}"
+									IsChecked="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 131-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpactDetectionPostAlertTimer_A43382"
+									Content="{x:Static ResourceNS:AcgResources.ID_POSTALERTTIMERSEC}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_POSTALERTTIMERSEC}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382}"
+									IsAcpValid="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 132-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideImpactDetectionPostAlertTimer_A43382"
+									MaskTypeSpinner="{}{number:0-120}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									Text="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpactDetectionPostAlertTimer_A43382}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 133-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpactDetectionPostAlertTimer_A43382"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 134-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpactDetectionPostAlertTimer_A43382"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 135-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideImpactDetectionPostAlertTimer_A43382Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="3"
+									Grid.Column="5"
+									Content="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPostAlertTimer_A43382}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPostAlertTimer_A43382}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpactDetectionPostAlertTimer_A43382}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPostAlertTimer_A43382"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 136-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpactDetectionPreAlertTone_A43383"
+									Margin="0,5,0,0"
+									Grid.Row="4"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383}"
+									IsChecked="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 137-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpactDetectionPreAlertTone_A43383"
+									Content="{x:Static ResourceNS:AcgResources.ID_PREALERTTONE}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_PREALERTTONE}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383}"
+									IsAcpValid="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 138-->
+								<AcpUINS:AcpComboBox
+									Name="EmerWideImpactDetectionPreAlertTone_A43383"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383.Items}"
+									SelectedValue="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpactDetectionPreAlertTone_A43383}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 139-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpactDetectionPreAlertTone_A43383"
+									Grid.Row="4"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 140-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpactDetectionPreAlertTone_A43383"
+									Grid.Row="4"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 141-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideImpactDetectionPreAlertTone_A43383Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="4"
+									Grid.Column="5"
+									Content="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionPreAlertTone_A43383}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionPreAlertTone_A43383}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpactDetectionPreAlertTone_A43383}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionPreAlertTone_A43383"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 142-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpactDetectionEventDuration_A43427"
+									Margin="0,5,0,0"
+									Grid.Row="5"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427}"
+									IsChecked="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 143-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpactDetectionEventDuration_A43427"
+									Content="{x:Static ResourceNS:AcgResources.ID_EVENTDURATIONMSEC}"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_EVENTDURATIONMSEC}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427}"
+									IsAcpValid="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 144-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideImpactDetectionEventDuration_A43427"
+									MaskTypeSpinner="{}{number:0-100}"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="2"
+									Text="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpactDetectionEventDuration_A43427}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 145-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpactDetectionEventDuration_A43427"
+									Grid.Row="5"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 146-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpactDetectionEventDuration_A43427"
+									Grid.Row="5"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 147-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideImpactDetectionEventDuration_A43427Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="5"
+									Grid.Column="5"
+									Content="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventDuration_A43427}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventDuration_A43427}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpactDetectionEventDuration_A43427}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventDuration_A43427"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 148-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnEmerWideImpactDetectionEventForce_A43428"
+									Margin="0,5,0,0"
+									Grid.Row="6"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428}"
+									IsChecked="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 149-->
+								<AcpUINS:AcpLabel
+									Name="LblEmerWideImpactDetectionEventForce_A43428"
+									Content="{x:Static ResourceNS:AcgResources.ID_EVENTFORCE}"
+									VerticalAlignment="Center"
+									Grid.Row="6"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_EVENTFORCE}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428}"
+									IsAcpValid="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 150-->
+								<AcpUINS:AcpTextBoxSpinner
+									Name="EmerWideImpactDetectionEventForce_A43428"
+									MaskTypeSpinner="{}{number:0-100}"
+									VerticalAlignment="Center"
+									Grid.Row="6"
+									Grid.Column="2"
+									Text="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderEmergencyWideEmergencyWideImpactDetection}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428}"
+									MyLabelCtrl="{Binding ElementName=LblEmerWideImpactDetectionEventForce_A43428}"
+									IsAcpValid="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_Valid}"
+									IsAcpApplicable="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_Applicable}"
+									AreValuesEqual="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_Editable" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinner>
+								<!--Unknown connection ID: 151-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnEmerWideImpactDetectionEventForce_A43428"
+									Grid.Row="6"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 152-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnEmerWideImpactDetectionEventForce_A43428"
+									Grid.Row="6"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428}"
+									MyCompCtrl="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428Comp}"
+									AreValuesEqual="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 153-->
+								<AcpUINS:AcpLabel
+									Name="EmerWideImpactDetectionEventForce_A43428Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="6"
+									Grid.Column="5"
+									Content="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=EmergencyWideImpactDetection.EmerWideImpactDetectionEventForce_A43428}"
+									MyParentCtrl="{Binding ElementName=EmerWideImpactDetectionEventForce_A43428}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnEmerWideImpactDetectionEventForce_A43428}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="EmerWideImpactDetectionEventForce_A43428"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

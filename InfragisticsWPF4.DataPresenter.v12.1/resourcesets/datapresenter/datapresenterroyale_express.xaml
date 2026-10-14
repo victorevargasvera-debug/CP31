@@ -1,0 +1,2044 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:igWindows="http://infragistics.com/Windows" xmlns:editors="http://infragistics.com/Editors" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter" xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:themes="clr-namespace:Infragistics.Windows.Themes">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="DataPresenterGeneric_Express.xaml" />
+		<ResourceDictionary
+			Source="DataPresenterLunaNormal_Express.xaml" />
+		<ResourceDictionary
+			Source="../DataPresenterBrushes/DataPresenterRoyale_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<igDP:TextAlignmentToHorizontalAlignmentConverter
+		x:Key="textAlignmentToHorizontalAlignmentConverter" />
+	<BooleanToVisibilityConverter
+		x:Key="BoolToVisConverter" />
+	<igWindows:StringFormatConverter
+		x:Key="stringFormatConverter" />
+	<Storyboard
+		x:Freeze="true"
+		x:Key="ExpandLabel">
+		<DoubleAnimationUsingKeyFrames
+			Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleX)"
+			BeginTime="0:0:0">
+			<DiscreteDoubleKeyFrame
+				KeyTime="0:0:0"
+				Value="1" />
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+	<Storyboard
+		x:Freeze="true"
+		x:Key="CollapseLabel">
+		<DoubleAnimationUsingKeyFrames
+			Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleX)"
+			BeginTime="0:0:00">
+			<DiscreteDoubleKeyFrame
+				KeyTime="0:0:0"
+				Value="0" />
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="VerticalScrollBarButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Background="#00FFFFFF">
+						<Border
+							Name="ButtonBackground"
+							Visibility="Collapsed"
+							BorderThickness="1"
+							CornerRadius="1"
+							Background="{StaticResource RepeatBtnHoverBackgroundBrush}"
+							BorderBrush="{StaticResource RepeatBtnHoverBorderBrush}" />
+						<ContentPresenter />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="ButtonBackground"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="ButtonBackground"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="ButtonBackground"
+								Property="Background"
+								Value="{StaticResource RepeatBtnPressedBackgroundBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="HorizScrollBarButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Grid
+						Background="#00FFFFFF">
+						<Border
+							Name="ButtonBackground"
+							Visibility="Collapsed"
+							BorderThickness="1"
+							CornerRadius="1"
+							Background="{StaticResource HorizRepeatBtnHoverBackgroundBrush}"
+							BorderBrush="{StaticResource HorizRepeatBtnHoverBorderBrush}" />
+						<ContentPresenter />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="ButtonBackground"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="ButtonBackground"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="ButtonBackground"
+								Property="Background"
+								Value="{StaticResource HorizRepeatBtnPressedBackgroundBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="VerticalScrollBarPageButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Rectangle
+						Fill="{TemplateBinding Background}"
+						Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Thumb}"
+		x:Key="HorizontalScrollBarThumb">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Grid
+						Width="Auto"
+						Height="Auto">
+						<Rectangle
+							Name="ThumbBackground"
+							RadiusX="1"
+							RadiusY="1"
+							Margin="0"
+							Stroke="{StaticResource RepeatBtnBorderBrush}"
+							Fill="{StaticResource HorizRepeatBtnNormalBackgroundBrush}" />
+						<Path
+							Width="7"
+							Height="8"
+							Data="M0,6 C0,6 0,7 0,7 C0,7 8,7 8,7 C8,7 8,6 8,6 C8,6 0,6 0,6 M0,4 C0,4 0,5 0,5 C0,5 8,5 8,5 C8,5 8,4 8,4 C8,4 0,4 0,4 M0,2 C0,2 0,3 0,3 C0,3 8,3 8,3 C8,3 8,2 8,2 C8,2 0,2 0,2 M0,0 C0,0 0,1 0,1 C0,1 8,1 8,1 C8,1 8,0 8,0 C8,0 0,0 0,0"
+							RenderTransformOrigin="0.5,0.5"
+							Stretch="Uniform"
+							Fill="{StaticResource ScrollBarThumbGlyphDarkBrush}">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="90" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Path>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Fill"
+								Value="{StaticResource HorizRepeatBtnHoverBackgroundBrush}" />
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Stroke"
+								Value="{StaticResource HorizRepeatBtnHoverBorderBrush}" />
+						</Trigger>
+						<Trigger
+							Property="Thumb.IsDragging"
+							Value="True">
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Fill"
+								Value="{StaticResource HorizRepeatBtnPressedBackgroundBrush}" />
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Stroke"
+								Value="{StaticResource HorizRepeatBtnHoverBorderBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Thumb}"
+		x:Key="VerticalScrollBarThumb">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Grid
+						Width="Auto"
+						Height="Auto">
+						<Rectangle
+							Name="ThumbBackground"
+							RadiusX="1"
+							RadiusY="1"
+							Margin="0"
+							Stroke="{StaticResource RepeatBtnBorderBrush}"
+							Fill="{StaticResource RepeatBtnNormalBackgroundBrush}" />
+						<Path
+							Width="7"
+							Height="8"
+							Data="M0,6 C0,6 0,7 0,7 C0,7 8,7 8,7 C8,7 8,6 8,6 C8,6 0,6 0,6 M0,4 C0,4 0,5 0,5 C0,5 8,5 8,5 C8,5 8,4 8,4 C8,4 0,4 0,4 M0,2 C0,2 0,3 0,3 C0,3 8,3 8,3 C8,3 8,2 8,2 C8,2 0,2 0,2 M0,0 C0,0 0,1 0,1 C0,1 8,1 8,1 C8,1 8,0 8,0 C8,0 0,0 0,0"
+							RenderTransformOrigin="0.5,0.5"
+							Stretch="Uniform"
+							Fill="{StaticResource ScrollBarThumbGlyphDarkBrush}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Fill"
+								Value="{StaticResource RepeatBtnHoverBackgroundBrush}" />
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Stroke"
+								Value="{StaticResource RepeatBtnHoverBorderBrush}" />
+						</Trigger>
+						<Trigger
+							Property="Thumb.IsDragging"
+							Value="True">
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Fill"
+								Value="{StaticResource RepeatBtnPressedBackgroundBrush}" />
+							<Setter
+								TargetName="ThumbBackground"
+								Property="Stroke"
+								Value="{StaticResource RepeatBtnHoverBorderBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type RepeatButton}"
+		x:Key="HorizontalScrollBarPageButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RepeatButton}">
+					<Rectangle
+						Fill="{TemplateBinding Background}"
+						Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollBar}"
+		x:Key="RoyaleScrollbar">
+		<Setter
+			Property="Background"
+			Value="{StaticResource ScrollBarTrackBrush}" />
+		<Setter
+			Property="Stylus.IsPressAndHoldEnabled"
+			Value="False" />
+		<Setter
+			Property="Stylus.IsFlicksEnabled"
+			Value="False" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ControlTextBrushKey}" />
+		<Setter
+			Property="Width"
+			Value="{DynamicResource SystemParameters.VerticalScrollBarWidthKey}" />
+		<Setter
+			Property="MinWidth"
+			Value="{DynamicResource SystemParameters.VerticalScrollBarWidthKey}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollBar}">
+					<Grid
+						Name="Bg"
+						SnapsToDevicePixels="True">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								MaxHeight="{DynamicResource SystemParameters.VerticalScrollBarButtonHeightKey}" />
+							<RowDefinition
+								Height="0.00001*" />
+							<RowDefinition
+								MaxHeight="{DynamicResource SystemParameters.VerticalScrollBarButtonHeightKey}" />
+						</Grid.RowDefinitions>
+						<Rectangle
+							Grid.RowSpan="3"
+							StrokeThickness="1"
+							Margin="0"
+							Fill="{StaticResource ScrollBarTrackBrush}"
+							Stroke="{StaticResource ScrollBarTrackBorderBrush}" />
+						<RepeatButton
+							IsEnabled="{TemplateBinding IsMouseOver}"
+							Command="{x:Static ScrollBar.LineUpCommand}"
+							Style="{StaticResource VerticalScrollBarButton}">
+							<Path
+								Width="8"
+								Height="4"
+								Data="M0,3 C0,3 0,4 0,4 C0,4 8,4 8,4 C8,4 8,3 8,3 C8,3 7,3 7,3 C7,3 7,2 7,2 C7,2 6,2 6,2 C6,2 6,1 6,1 C6,1 5,1 5,1 C5,1 5,0 5,0 C5,0 3,0 3,0 C3,0 3,1 3,1 C3,1 2,1 2,1 C2,1 2,2 2,2 C2,2 1,2 1,2 C1,2 1,3 1,3 C1,3 0,3 0,3"
+								Fill="{StaticResource ScrollBarGlyphFillBrush}" />
+						</RepeatButton>
+						<Track
+							Name="PART_Track"
+							IsEnabled="{TemplateBinding IsMouseOver}"
+							Grid.Row="1"
+							IsDirectionReversed="True">
+							<Track.DecreaseRepeatButton>
+								<RepeatButton
+									Command="{x:Static ScrollBar.PageUpCommand}"
+									Style="{StaticResource VerticalScrollBarPageButton}" />
+							</Track.DecreaseRepeatButton>
+							<Track.IncreaseRepeatButton>
+								<RepeatButton
+									Command="{x:Static ScrollBar.PageDownCommand}"
+									Style="{StaticResource VerticalScrollBarPageButton}" />
+							</Track.IncreaseRepeatButton>
+							<Track.Thumb>
+								<Thumb
+									Style="{StaticResource VerticalScrollBarThumb}" />
+							</Track.Thumb>
+						</Track>
+						<RepeatButton
+							IsEnabled="{TemplateBinding IsMouseOver}"
+							Grid.Row="2"
+							Command="{x:Static ScrollBar.LineDownCommand}"
+							Style="{StaticResource VerticalScrollBarButton}">
+							<Path
+								Width="8"
+								Height="4"
+								Data="M0,0 C0,0 0,1 0,1 C0,1 1,1 1,1 C1,1 1,2 1,2 C1,2 2,2 2,2 C2,2 2,3 2,3 C2,3 3,3 3,3 C3,3 3,4 3,4 C3,4 5,4 5,4 C5,4 5,3 5,3 C5,3 6,3 6,3 C6,3 6,2 6,2 C6,2 7,2 7,2 C7,2 7,1 7,1 C7,1 8,1 8,1 C8,1 8,0 8,0 C8,0 0,0 0,0"
+								Fill="{StaticResource ScrollBarGlyphFillBrush}" />
+						</RepeatButton>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="Bg"
+								Property="Background"
+								Value="{StaticResource ScrollBarDisabledBackground}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="ScrollBar.Orientation"
+				Value="Horizontal">
+				<Setter
+					Property="Width"
+					Value="Auto" />
+				<Setter
+					Property="MinWidth"
+					Value="0" />
+				<Setter
+					Property="Height"
+					Value="{DynamicResource SystemParameters.HorizontalScrollBarHeightKey}" />
+				<Setter
+					Property="MinHeight"
+					Value="{DynamicResource SystemParameters.HorizontalScrollBarHeightKey}" />
+				<Setter
+					Property="Background"
+					Value="{StaticResource HorizontalScrollBarTrackBrush}" />
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ScrollBar}">
+							<Grid
+								Name="Bg"
+								SnapsToDevicePixels="True">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										MaxWidth="{DynamicResource SystemParameters.HorizontalScrollBarButtonWidthKey}" />
+									<ColumnDefinition
+										Width="0.00001*" />
+									<ColumnDefinition
+										MaxWidth="{DynamicResource SystemParameters.HorizontalScrollBarButtonWidthKey}" />
+								</Grid.ColumnDefinitions>
+								<Rectangle
+									StrokeThickness="1"
+									Margin="0"
+									Grid.ColumnSpan="3"
+									Fill="{StaticResource ScrollBarTrackBrush}"
+									Stroke="{StaticResource ScrollBarTrackBorderBrush}" />
+								<RepeatButton
+									IsEnabled="{TemplateBinding IsMouseOver}"
+									Command="{x:Static ScrollBar.LineLeftCommand}"
+									Style="{StaticResource HorizScrollBarButton}">
+									<Path
+										Width="4"
+										Height="8"
+										Data="M4,0 C4,0 3,0 3,0 C3,0 3,1 3,1 C3,1 2,1 2,1 C2,1 2,2 2,2 C2,2 1,2 1,2 C1,2 1,3 1,3 C1,3 0,3 0,3 C0,3 0,5 0,5 C0,5 1,5 1,5 C1,5 1,6 1,6 C1,6 2,6 2,6 C2,6 2,7 2,7 C2,7 3,7 3,7 C3,7 3,8 3,8 C3,8 4,8 4,8 C4,8 4,0 4,0"
+										Stretch="Fill"
+										Fill="{StaticResource ScrollBarGlyphFillBrush}" />
+								</RepeatButton>
+								<Track
+									Name="PART_Track"
+									IsEnabled="{TemplateBinding IsMouseOver}"
+									Grid.Column="1">
+									<Track.DecreaseRepeatButton>
+										<RepeatButton
+											Command="{x:Static ScrollBar.PageLeftCommand}"
+											Style="{StaticResource HorizontalScrollBarPageButton}" />
+									</Track.DecreaseRepeatButton>
+									<Track.IncreaseRepeatButton>
+										<RepeatButton
+											Command="{x:Static ScrollBar.PageRightCommand}"
+											Style="{StaticResource HorizontalScrollBarPageButton}" />
+									</Track.IncreaseRepeatButton>
+									<Track.Thumb>
+										<Thumb
+											Style="{StaticResource HorizontalScrollBarThumb}" />
+									</Track.Thumb>
+								</Track>
+								<RepeatButton
+									IsEnabled="{TemplateBinding IsMouseOver}"
+									Grid.Column="2"
+									Command="{x:Static ScrollBar.LineRightCommand}"
+									Style="{StaticResource HorizScrollBarButton}">
+									<Path
+										Width="4"
+										Height="8"
+										Stretch="Fill"
+										Data="M0,0 C0,0 1,0 1,0 C1,0 1,1 1,1 C1,1 2,1 2,1 C2,1 2,2 2,2 C2,2 3,2 3,2 C3,2 3,3 3,3 C3,3 4,3 4,3 C4,3 4,5 4,5 C4,5 3,5 3,5 C3,5 3,6 3,6 C3,6 2,6 2,6 C2,6 2,7 2,7 C2,7 1,7 1,7 C1,7 1,8 1,8 C1,8 0,8 0,8 C0,8 0,0 0,0"
+										Fill="{StaticResource ScrollBarGlyphFillBrush}" />
+								</RepeatButton>
+							</Grid>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="IsEnabled"
+									Value="False">
+									<Setter
+										TargetName="Bg"
+										Property="Background"
+										Value="{StaticResource ScrollBarDisabledBackground}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollBar}"
+		BasedOn="{StaticResource RoyaleScrollbar}"
+		x:Key="{x:Type ScrollBar}" />
+	<Style
+		TargetType="{x:Type ScrollViewer}"
+		x:Key="RoyaleScrollViewer">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ScrollViewer}">
+					<Grid
+						Name="Grid"
+						Background="{TemplateBinding Background}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<Rectangle
+							Name="Corner"
+							Grid.Column="1"
+							Grid.Row="1"
+							Fill="{StaticResource HorizontalScrollBarTrackBrush}" />
+						<ScrollContentPresenter
+							Name="PART_ScrollContentPresenter"
+							CanContentScroll="{TemplateBinding CanContentScroll}"
+							CanHorizontallyScroll="False"
+							CanVerticallyScroll="False"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							Content="{TemplateBinding Content}"
+							Grid.Column="0"
+							Margin="{TemplateBinding Padding}"
+							Grid.Row="0" />
+						<ScrollBar
+							Name="PART_VerticalScrollBar"
+							AutomationProperties.AutomationId="VerticalScrollBar"
+							Cursor="Arrow"
+							Grid.Column="1"
+							Maximum="{TemplateBinding ScrollableHeight}"
+							Minimum="0"
+							Grid.Row="0"
+							Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+							ViewportSize="{TemplateBinding ViewportHeight}"
+							Style="{StaticResource RoyaleScrollbar}"
+							Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<ScrollBar
+							Name="PART_HorizontalScrollBar"
+							AutomationProperties.AutomationId="HorizontalScrollBar"
+							Cursor="Arrow"
+							Grid.Column="0"
+							Maximum="{TemplateBinding ScrollableWidth}"
+							Minimum="0"
+							Orientation="Horizontal"
+							Grid.Row="1"
+							Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+							ViewportSize="{TemplateBinding ViewportWidth}"
+							Style="{StaticResource RoyaleScrollbar}"
+							Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ScrollViewer}"
+		BasedOn="{StaticResource RoyaleScrollViewer}"
+		x:Key="{x:Type ScrollViewer}" />
+	<Style
+		TargetType="{x:Type ContentControl}"
+		x:Key="LabelContentStyle">
+		<Setter
+			Property="Padding"
+			Value="0,3,0,3" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ContentControl}">
+					<ContentPresenter
+						Margin="{TemplateBinding Padding}"
+						ContentTemplate="{TemplateBinding ContentTemplate}"
+						ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+						Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, BlackForegroundStyle}">
+		<Setter
+			Property="Foreground"
+			Value="#FF000000" />
+	</Style>
+	<Style
+		TargetType="{x:Type Border}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, RecordSeparatorStyle}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonPopupBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="Height"
+			Value="6" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,1,0,1" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonPopupBorder, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+	</Style>
+	<Style
+		BasedOn="{x:Static themes:DataPresenterGeneric.CellValuePresenter}"
+		TargetType="{x:Type igDP:CellValuePresenter}"
+		x:Key="{x:Type igDP:CellValuePresenter}">
+		<Setter
+			Property="igDP:CellValuePresenter.BackgroundActive">
+			<Setter.Value>
+				<LinearGradientBrush
+					EndPoint="0,1"
+					StartPoint="0,0">
+					<GradientStop
+						Color="#59FFFFFF"
+						Offset="0" />
+					<GradientStop
+						Color="#00FFFFFF"
+						Offset="1" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igDP:CellValuePresenter.BorderActiveBrush"
+			Value="#00335EA8" />
+		<Setter
+			Property="igDP:CellValuePresenter.BackgroundSelected"
+			Value="#BF335EA8" />
+		<Setter
+			Property="igDP:CellValuePresenter.BorderSelectedBrush"
+			Value="#FFF7F7F7" />
+		<Setter
+			Property="igDP:CellValuePresenter.BackgroundFieldSelected"
+			Value="#FFF7F7F7" />
+		<Setter
+			Property="igDP:CellValuePresenter.BorderFieldSelectedBrush"
+			Value="#FFF7F7F7" />
+		<Setter
+			Property="igDP:CellValuePresenter.ForegroundAlternateStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="igDP:CellValuePresenter.ForegroundPrimaryStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="igDP:CellValuePresenter.ForegroundHoverStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="Padding"
+			Value="0,0,0,0" />
+		<Style.Triggers>
+			<Trigger
+				Property="igDP:CellValuePresenter.IsRecordSelected"
+				Value="True">
+				<Setter
+					Property="igDP:CellValuePresenter.ForegroundStyle"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+			</Trigger>
+			<Trigger
+				Property="igDP:CellValuePresenter.IsMouseOverRecord"
+				Value="True">
+				<Setter
+					Property="igDP:CellValuePresenter.ForegroundStyle"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		BasedOn="{x:Static themes:DataPresenterGeneric.DataRecordPresenter}"
+		TargetType="{x:Type igDP:DataRecordPresenter}"
+		x:Key="{x:Type igDP:DataRecordPresenter}">
+		<Setter
+			Property="igDP:DataRecordPresenter.HeaderAreaBackground"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="Margin"
+			Value="0,0,0,0" />
+	</Style>
+	<Style
+		BasedOn="{x:Static themes:DataPresenterGeneric.DataRecordCellArea}"
+		TargetType="{x:Type igDP:DataRecordCellArea}"
+		x:Key="{x:Type igDP:DataRecordCellArea}">
+		<Setter
+			Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush
+					StartPoint="0,0"
+					EndPoint="0,1">
+					<GradientStop
+						Color="#00FFFFFF"
+						Offset="0" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igDP:DataRecordCellArea.BackgroundHover"
+			Value="#E5335EA8" />
+		<Setter
+			Property="igDP:DataRecordCellArea.BorderHoverBrush"
+			Value="#FF335EA8" />
+		<Setter
+			Property="igDP:DataRecordCellArea.BackgroundActive"
+			Value="#60335EA8" />
+		<Setter
+			Property="igDP:DataRecordCellArea.BorderActiveBrush"
+			Value="#FF335EA8" />
+		<Setter
+			Property="igDP:DataRecordCellArea.BackgroundAlternate"
+			Value="#FFCCCCCC" />
+		<Setter
+			Property="igDP:DataRecordCellArea.BackgroundSelected"
+			Value="#7F335EA8" />
+		<Setter
+			Property="igDP:DataRecordCellArea.BorderSelectedBrush"
+			Value="#00000000" />
+		<Setter
+			Property="igDP:DataRecordCellArea.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Foreground"
+			Value="#FF000000" />
+		<Setter
+			Property="igDP:DataRecordCellArea.ForegroundStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="igDP:DataRecordCellArea.ForegroundAlternateStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="igDP:DataRecordCellArea.ForegroundHoverStyle"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=BlackForegroundStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+	</Style>
+	<Style
+		BasedOn="{x:Static themes:DataPresenterGeneric.GroupByArea}"
+		TargetType="{x:Type igDP:GroupByArea}"
+		x:Key="{x:Type igDP:GroupByArea}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=GroupByAreaBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:GroupByArea}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="TurnOnInsertionPoint">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="PART_InsertionPoint"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2500000"
+										Value="1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="TurnOffInsertionPoint">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="PART_InsertionPoint"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2500000"
+										Value="0" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="ShowPrompts">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="prompt1"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2000000"
+										Value="0.5" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="prompt2"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2500000"
+										Value="0.8" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard
+								x:Key="HidePrompts">
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="prompt1"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2000000"
+										Value="0.2" />
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames
+									BeginTime="00:00:00"
+									Storyboard.TargetName="prompt2"
+									Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame
+										KeyTime="00:00:00.2500000"
+										Value="0.1" />
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<igWindows:ExpanderBar
+							Name="ExpanderBarButton"
+							Grid.Row="0"
+							Height="10" />
+						<igWindows:ExpanderDecorator
+							Grid.Row="1"
+							HorizontalAlignment="Stretch"
+							Orientation="Vertical"
+							IsExpanded="{Binding Path=IsExpanded, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Grid
+								Name="outerGrid"
+								SnapsToDevicePixels="True">
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="Auto" />
+									<RowDefinition
+										Height="Auto" />
+								</Grid.RowDefinitions>
+								<Grid
+									Background="{TemplateBinding Background}"
+									VerticalAlignment="Stretch">
+									<Path
+										Stretch="Fill"
+										Stroke="#FFDFDFDF"
+										Width="Auto"
+										Height="1"
+										Data="M5,46.333333 L49.333333,45.666667"
+										VerticalAlignment="Bottom"
+										Fill="{x:Null}" />
+								</Grid>
+								<StackPanel
+									Orientation="Horizontal"
+									Margin="6,13,0,1">
+									<ContentControl
+										Name="prompt1"
+										FontSize="24"
+										Content="{TemplateBinding igDP:Prompt1}"
+										ContentTemplate="{TemplateBinding igDP:Prompt1Template}"
+										Opacity="0.5"
+										Foreground="#FF909A9B" />
+									<ContentControl
+										Name="prompt2"
+										Opacity="0.7"
+										Margin="5,11,0,0"
+										Content="{TemplateBinding igDP:Prompt2}"
+										ContentTemplate="{TemplateBinding igDP:Prompt2Template}"
+										Foreground="#FF909A9B" />
+								</StackPanel>
+								<Grid
+									Name="PART_GroupedFieldLabelsArea"
+									Margin="0,12,0,0"
+									VerticalAlignment="Top">
+									<igDP:GroupByAreaFieldListBox
+										Name="GroupedFieldList"
+										ItemsSource="{TemplateBinding GroupedFieldLabels}"
+										AutomationProperties.Name="GroupedFieldsList"
+										Height="{Binding Path=ActualHeight, ElementName=AvailableFieldList}" />
+								</Grid>
+								<Border
+									Grid.Row="1"
+									BorderBrush="#FFA7A6AA"
+									BorderThickness="0,1,0,1">
+									<Border.Background>
+										<LinearGradientBrush
+											EndPoint="0,1"
+											StartPoint="0,0">
+											<GradientStop
+												Color="#FFFFFFFF"
+												Offset="0" />
+											<GradientStop
+												Color="#FFE9E7EB"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Border.Background>
+									<Grid
+										Name="PART_AvailableFieldLabelsArea"
+										Margin="0,4,0,3"
+										Visibility="Visible">
+										<igDP:GroupByAreaFieldListBox
+											Name="AvailableFieldList"
+											ItemsSource="{TemplateBinding AvailableFieldLabels}"
+											VerticalAlignment="Stretch"
+											AutomationProperties.Name="AvailableFieldsList" />
+									</Grid>
+								</Border>
+								<Polygon
+									Name="PART_InsertionPoint"
+									Opacity="0"
+									Fill="#FF151C55"
+									Points="0,0 10,0 5,5"
+									StrokeEndLineCap="Round"
+									StrokeStartLineCap="Round"
+									StrokeLineJoin="Round"
+									HorizontalAlignment="Left"
+									Margin="0,12,0,0"
+									VerticalAlignment="Top" />
+							</Grid>
+						</igWindows:ExpanderDecorator>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByArea.ShowInsertionPoint">
+							<BeginStoryboard
+								Name="TurnOnInsertionPoint_BeginStoryboard"
+								Storyboard="{StaticResource TurnOnInsertionPoint}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByArea.HideInsertionPoint">
+							<BeginStoryboard
+								Name="TurnOffInsertionPoint_BeginStoryboard"
+								Storyboard="{StaticResource TurnOffInsertionPoint}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByArea.ShowPrompts">
+							<BeginStoryboard
+								Name="ShowPrompts_BeginStoryboard"
+								Storyboard="{StaticResource ShowPrompts}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByArea.HidePrompts">
+							<BeginStoryboard
+								Name="HidePrompts_BeginStoryboard"
+								Storyboard="{StaticResource HidePrompts}" />
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		BasedOn="{x:Static themes:DataPresenterGeneric.GroupByAreaFieldLabel}"
+		TargetType="{x:Type igDP:GroupByAreaFieldLabel}"
+		x:Key="{x:Type igDP:GroupByAreaFieldLabel}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:GroupByAreaFieldLabel}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="sbHighlightOn">
+								<DoubleAnimation
+									Storyboard.TargetName="labelHighlight"
+									Storyboard.TargetProperty="Opacity"
+									BeginTime="00:00:00"
+									Duration="00:00:00.15"
+									To="1"
+									FillBehavior="HoldEnd" />
+							</Storyboard>
+							<Storyboard
+								x:Key="sbHighlightOff">
+								<DoubleAnimation
+									Storyboard.TargetName="labelHighlight"
+									Storyboard.TargetProperty="Opacity"
+									BeginTime="00:00:00"
+									Duration="00:00:01.25"
+									To="0"
+									FillBehavior="HoldEnd" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Grid
+						Name="RoyaleButton">
+						<Rectangle
+							Name="_base1"
+							Stroke="#FF2D5082"
+							RadiusX="3"
+							RadiusY="3"
+							Margin="0,0,0,0">
+							<Shape.Fill>
+								<LinearGradientBrush
+									EndPoint="0,1"
+									StartPoint="0,0">
+									<GradientStop
+										Color="#FFFFFFFF"
+										Offset="0" />
+									<GradientStop
+										Color="#FFE3EBF3"
+										Offset="0.50" />
+									<GradientStop
+										Color="#FFD0DCEB"
+										Offset="0.50" />
+									<GradientStop
+										Color="#FFABBDD3"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Rectangle>
+						<Border
+							Name="whiteBorder"
+							Margin="1,3.5,1,3.5"
+							BorderThickness="1,0,1,0">
+							<Border.BorderBrush>
+								<LinearGradientBrush
+									EndPoint="0,1"
+									StartPoint="0,0">
+									<GradientStop
+										Color="#26FFFFFF"
+										Offset="0" />
+									<GradientStop
+										Color="#26FFFFFF"
+										Offset="1" />
+									<GradientStop
+										Color="#FFFFFFFF"
+										Offset="0.5" />
+								</LinearGradientBrush>
+							</Border.BorderBrush>
+						</Border>
+						<Grid
+							Name="hightlight1"
+							Margin="1,1,1,1"
+							Visibility="Collapsed">
+							<Rectangle
+								Name="outter"
+								RadiusX="2"
+								RadiusY="2"
+								StrokeThickness="1"
+								Margin="0,0,0,0"
+								Fill="{x:Null}">
+								<Shape.Stroke>
+									<LinearGradientBrush
+										EndPoint="0,1"
+										StartPoint="0,0">
+										<GradientStop
+											Color="#FFF5E8A1"
+											Offset="0" />
+										<GradientStop
+											Color="#FFDA7926"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Shape.Stroke>
+							</Rectangle>
+							<Rectangle
+								Name="inner"
+								RadiusX="1"
+								RadiusY="1"
+								StrokeThickness="1"
+								Margin="1,1,1,1"
+								Fill="{x:Null}">
+								<Shape.Stroke>
+									<LinearGradientBrush
+										EndPoint="0,1"
+										StartPoint="0,0">
+										<GradientStop
+											Color="#FFEFCF86"
+											Offset="0" />
+										<GradientStop
+											Color="#FFF1B860"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Shape.Stroke>
+							</Rectangle>
+						</Grid>
+						<ContentPresenter
+							Margin="{TemplateBinding Padding}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							Content="{Binding Path=(igDP:GroupByAreaFieldLabel.Field).Label, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="hightlight1"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByAreaFieldLabel.RemovedFromAvailableList">
+							<BeginStoryboard
+								Name="CollapseLabel_BeginStoryboard"
+								Storyboard="{StaticResource CollapseLabel}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByAreaFieldLabel.AddedToAvailableList">
+							<BeginStoryboard
+								Name="AddLabelToList_BeginStoryboard"
+								Storyboard="{StaticResource ExpandLabel}" />
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="igDP:GroupByAreaFieldLabel.AddedToGroupedList">
+							<BeginStoryboard
+								Name="AddLabelToGroup_BeginStoryboard"
+								Storyboard="{StaticResource ExpandLabel}" />
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igWindows:SortIndicator}"
+		x:Key="{x:Type igWindows:SortIndicator}">
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="MinHeight"
+			Value="3.5" />
+		<Setter
+			Property="MinWidth"
+			Value="7" />
+		<Setter
+			Property="Visibility"
+			Value="Visible" />
+		<Setter
+			Property="Background"
+			Value="#FF0000" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igWindows:SortIndicator}">
+					<Polygon
+						Name="Arrow"
+						Points="0,0 10,0 5,5"
+						StrokeEndLineCap="Round"
+						StrokeStartLineCap="Round"
+						StrokeLineJoin="Round"
+						Fill="#FFA7A6AA"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Stretch"
+						Width="Auto"
+						Height="Auto" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="igWindows:SortIndicator.SortStatus"
+							Value="Descending">
+							<Setter
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="igWindows:SortIndicator.SortStatus"
+							Value="Ascending">
+							<Setter
+								TargetName="Arrow"
+								Property="Polygon.Points"
+								Value="0,5 10,5 5,0" />
+							<Setter
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryRecordPresenter}"
+		x:Key="{x:Type igDP:SummaryRecordPresenter}">
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="igDP:SummaryRecordPresenter.HeaderAreaBackground"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=LabelBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryRecordPresenterBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryRecordPresenterBorder, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="Margin"
+			Value="0,0,0,2" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryRecordPresenter}">
+					<igWindows:CardPanel
+						Name="baseGrid">
+						<Border
+							Name="Background"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="0,1,0,1"
+							Background="{TemplateBinding Background}"
+							RenderTransform="{TemplateBinding igDP:FixedNearElementTransform}" />
+						<Grid
+							Margin="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<Border
+								Name="OrientationHorizontalSep"
+								BorderThickness="0,0,1,0"
+								Grid.ColumnSpan="5"
+								Background="#FFFAFAFA"
+								BorderBrush="#FFE7E7E7"
+								Visibility="Collapsed" />
+							<igWindows:ExpansionIndicator
+								Name="ExpansionIndicator"
+								Grid.Row="2"
+								Grid.Column="0"
+								Command="{x:Static igDP:DataPresenterCommands.ToggleRecordIsExpanded}"
+								CommandParameter="{TemplateBinding igDP:Record}"
+								ToggleMode="Manual"
+								Visibility="{Binding Path=ExpansionIndicatorVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+								IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+							<igWindows:CardPanel
+								Name="SpacerFill"
+								RenderTransform="{TemplateBinding igDP:FixedNearElementTransform}"
+								Grid.Row="0"
+								Grid.Column="0"
+								Grid.ColumnSpan="5"
+								Visibility="Visible">
+								<Rectangle
+									Name="fill"
+									Margin="0,0,0,0"
+									Fill="{TemplateBinding igDP:HeaderAreaBackground}" />
+								<Rectangle
+									Name="lightLine"
+									Fill="#3FFFFFFF"
+									VerticalAlignment="Top"
+									Margin="0,1,0,0"
+									Width="Auto"
+									Height="1" />
+								<Rectangle
+									Name="darkLine"
+									Fill="#66000000"
+									VerticalAlignment="Top"
+									Margin="0,0,0,0"
+									Width="Auto"
+									Height="1" />
+							</igWindows:CardPanel>
+							<ContentPresenter
+								Name="PART_HeaderContentSite"
+								Grid.Row="0"
+								Grid.Column="2"
+								Content="{TemplateBinding igDP:HeaderContent}"
+								Visibility="Visible"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+							<Border
+								Name="RecordSeparator"
+								Grid.Row="1"
+								Grid.Column="0"
+								Grid.ColumnSpan="5"
+								Visibility="Collapsed"
+								RenderTransform="{TemplateBinding igDP:FixedNearElementTransform}"
+								Style="{DynamicResource {ComponentResourceKey ResourceId=RecordSeparatorStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+							<ContentPresenter
+								Name="PART_RecordContentSite"
+								Grid.Row="2"
+								Grid.Column="2"
+								Content="{TemplateBinding DataContext}"
+								ContentTemplate="{TemplateBinding igDP:RecordContentAreaTemplate}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Margin="{TemplateBinding igDP:ContentAreaMargins}" />
+						</Grid>
+					</igWindows:CardPanel>
+					<ControlTemplate.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding Path=FieldLayout.AutoFitToWidth, RelativeSource={RelativeSource Self}}" />
+								<Condition
+									Value="Vertical"
+									Binding="{Binding Path=Orientation, RelativeSource={RelativeSource Self}}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="ColumnSpan"
+								Value="3" />
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="ColumnSpan"
+								Value="3" />
+							<Setter
+								Property="HorizontalContentAlignment"
+								Value="Stretch" />
+						</MultiDataTrigger>
+						<Trigger
+							Property="igDP:RecordPresenter.Orientation"
+							Value="Horizontal">
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="Row"
+								Value="2" />
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="Column"
+								Value="0" />
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="VerticalAlignment"
+								Value="Top" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Row"
+								Value="0" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Margin"
+								Value="0,2" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Column"
+								Value="2" />
+							<Setter
+								TargetName="SpacerFill"
+								Property="ColumnSpan"
+								Value="1" />
+							<Setter
+								TargetName="SpacerFill"
+								Property="RowSpan"
+								Value="5" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Row"
+								Value="2" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Width"
+								Value="10" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Height"
+								Value="Auto" />
+							<Setter
+								TargetName="OrientationHorizontalSep"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="igDP:RecordPresenter.ShouldDisplayRecordContent"
+							Value="False">
+							<Setter
+								TargetName="PART_RecordContentSite"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDP:RecordPresenter.Orientation"
+									Value="Horizontal" />
+								<Condition
+									Property="igDP:RecordPresenter.ShouldDisplayRecordContent"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Column"
+								Value="3" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDP:RecordPresenter.Orientation"
+									Value="Vertical" />
+								<Condition
+									Property="igDP:RecordPresenter.ShouldDisplayRecordContent"
+									Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Row"
+								Value="3" />
+						</MultiTrigger>
+						<Trigger
+							Property="igDP:RecordPresenter.IsHeaderRecord"
+							Value="True">
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Row"
+								Value="0" />
+							<Setter
+								TargetName="ExpansionIndicator"
+								Property="Column"
+								Value="0" />
+						</Trigger>
+						<Trigger
+							Property="igDP:RecordPresenter.HasHeaderContent"
+							Value="False">
+							<Setter
+								TargetName="SpacerFill"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="PART_HeaderContentSite"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger
+							Property="igDP:RecordPresenter.IsFixedOnBottom"
+							Value="True">
+							<Setter
+								Property="Margin"
+								Value="0,2,0,0" />
+							<Setter
+								TargetName="Background"
+								Property="BorderThickness"
+								Value="0,1,0,0" />
+						</Trigger>
+						<Trigger
+							Property="igDP:RecordPresenter.HasSeparatorBefore"
+							Value="True">
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDP:RecordPresenter.HasSeparatorAfter"
+									Value="True" />
+								<Condition
+									Property="igDP:RecordPresenter.Orientation"
+									Value="Vertical" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Row"
+								Value="3" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="igDP:RecordPresenter.HasSeparatorAfter"
+									Value="True" />
+								<Condition
+									Property="igDP:RecordPresenter.Orientation"
+									Value="Horizontal" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="RecordSeparator"
+								Property="Column"
+								Value="3" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="igDP:RecordPresenter.TemplateCardView">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryRecordPresenter}">
+					<igWindows:CardPanel
+						Name="baseGrid"
+						Background="{TemplateBinding Background}">
+						<Rectangle
+							Fill="{DynamicResource {ComponentResourceKey ResourceId=CardBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+						<ContentPresenter
+							Name="PART_RecordContentSite"
+							Content="{TemplateBinding DataContext}"
+							ContentTemplate="{TemplateBinding igDP:RecordContentAreaTemplate}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</igWindows:CardPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryRecordPrefixArea}"
+		x:Key="{x:Type igDP:SummaryRecordPrefixArea}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryRecordPrefixArea}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}">
+						<ContentPresenter
+							Content="{TemplateBinding Content}"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryRecordCellArea}"
+		x:Key="{x:Type igDP:SummaryRecordCellArea}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryRecordCellArea}">
+					<igWindows:CardPanel>
+						<Border
+							BorderThickness="0,1,0,1">
+							<ContentPresenter
+								Content="{TemplateBinding Content}"
+								ContentTemplate="{TemplateBinding ContentTemplate}" />
+						</Border>
+					</igWindows:CardPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryResultPresenter}"
+		x:Key="{x:Type igDP:SummaryResultPresenter}">
+		<Setter
+			Property="Padding"
+			Value="1,1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryResultPresenter}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="1"
+						Padding="{TemplateBinding Padding}"
+						ToolTip="{Binding Path=SummaryResult.ToolTipResolved, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock
+							Text="{Binding Path=SummaryResult.DisplayTextAsync, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryCellPresenter}"
+		x:Key="{x:Type igDP:SummaryCellPresenter}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryCellPresenter}">
+					<igDP:SummaryCellPresenterLayoutElement />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryButton}"
+		x:Key="{x:Type igDP:SummaryButton}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryButton}">
+					<Grid
+						Name="grid"
+						Visibility="Visible">
+						<StackPanel
+							Name="stackPanel"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Stretch"
+							Orientation="Horizontal"
+							Margin="0,0,3,0"
+							Background="#00FFFFFF"
+							Visibility="Visible">
+							<Path
+								Name="path"
+								Stretch="Fill"
+								Data="M0,0 C0,0 5,0 5,0 C5,0 5,1 5,1 C5,1 2,1 2,1 C2,1 4,3.5 4,3.5 C4,3.5 2,6 2,6 C2,6 5,6 5,6 C5,6 5,7 5,7 C5,7 0,7 0,7 C0,7 0,6 0,6 C0,6 2,3.5625 2,3.5625 C2,3.5625 0,1 0,1 C0,1 0,0 0,0"
+								Fill="{TemplateBinding Foreground}"
+								Width="5"
+								Height="7"
+								HorizontalAlignment="Stretch"
+								StrokeThickness="0"
+								Margin="3,0,0,0"
+								Stroke="{x:Null}" />
+						</StackPanel>
+						<Popup
+							Name="PART_Popup"
+							AllowsTransparency="True"
+							Placement="Bottom"
+							VerticalOffset="1"
+							HorizontalOffset="0"
+							StaysOpen="False"
+							PopupAnimation="{DynamicResource SystemParameters.ComboBoxPopupAnimationKey}"
+							SnapsToDevicePixels="True"
+							IsOpen="{Binding Path=IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+							<Border
+								Name="border"
+								KeyboardNavigation.DirectionalNavigation="Contained"
+								KeyboardNavigation.TabNavigation="Contained"
+								FocusManager.IsFocusScope="True"
+								BorderThickness="1,1,1,1"
+								CornerRadius="0,0,0,0"
+								BorderBrush="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonPopupBorder, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}"
+								Background="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonPopupBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}">
+								<Grid
+									Width="Auto"
+									Height="Auto">
+									<Border
+										Width="28"
+										HorizontalAlignment="Left"
+										BorderThickness="0,0,1,0"
+										Background="#FFF7F7F7"
+										BorderBrush="#FFE0E0E0"
+										CornerRadius="3,0,0,0" />
+									<Rectangle
+										HorizontalAlignment="Left"
+										Margin="28,0,0,0"
+										Width="1"
+										Fill="#FFFFFFFF"
+										StrokeThickness="0"
+										Stroke="{x:Null}" />
+									<StackPanel
+										Margin="5,5,5,5">
+										<igDP:SummaryCalculatorSelectionControl
+											Name="CalculatorSelectionControl"
+											Field="{TemplateBinding Field}" />
+										<Grid
+											Width="Auto"
+											Height="Auto">
+											<Border
+												Margin="-5,0,-5,-5"
+												Background="#FFFFFFFF"
+												CornerRadius="0,0,3,3" />
+											<Rectangle
+												Name="rectangle1"
+												Fill="#FFE0E0E0"
+												Width="Auto"
+												Height="1"
+												Margin="-5,0,-5,0"
+												VerticalAlignment="Top"
+												Stroke="{x:Null}" />
+											<StackPanel
+												Orientation="Horizontal"
+												HorizontalAlignment="Right"
+												Margin="0,5,0,0">
+												<Button
+													Name="RowSummaryOkButton"
+													Content="Ok"
+													IsDefault="True"
+													Height="12"
+													Margin="0,0,5,0"
+													Width="13"
+													Style="{DynamicResource {ComponentResourceKey ResourceId=RowSummaryOkButton, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+												<Button
+													Name="RowSummaryCancelButton"
+													Content="Cancel"
+													IsCancel="True"
+													Height="12"
+													Width="13"
+													Style="{DynamicResource {ComponentResourceKey ResourceId=RowSummaryCancelButton, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+											</StackPanel>
+										</Grid>
+									</StackPanel>
+								</Grid>
+							</Border>
+						</Popup>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryButtonForeground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:SummaryCalculatorSelectionControl}"
+		x:Key="{x:Type igDP:SummaryCalculatorSelectionControl}">
+		<Style.Resources>
+			<ResourceDictionary>
+				<DataTemplate
+					DataType="{x:Type igDP:SummaryCalculatorHolder}">
+					<igWindows:CardPanel
+						Name="mainPanel">
+						<Grid
+							Margin="0,0,0,5">
+							<CheckBox
+								Name="checkBox"
+								Style="{DynamicResource OfficeCheckBox}"
+								Visibility="Visible"
+								Grid.Column="0"
+								AutomationProperties.AutomationId="{Binding Path=Calculator.Name, ConverterParameter={}{0}_CheckBox, Converter={StaticResource stringFormatConverter}}"
+								FocusVisualStyle="{x:Null}"
+								IsChecked="{Binding Path=IsChecked, Mode=TwoWay}">
+								<StackPanel
+									Margin="5,0,0,0">
+									<Image
+										Margin="5,0,0,0"
+										Source="{Binding Path=Calculator.Image}" />
+									<TextBlock
+										Margin="5,0"
+										Text="{Binding Path=Calculator.DisplayName}"
+										Foreground="{DynamicResource {ComponentResourceKey ResourceId=SummaryCSCItemForeground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+								</StackPanel>
+							</CheckBox>
+						</Grid>
+						<Grid
+							Margin="0,0,0,5">
+							<RadioButton
+								Name="radioButton"
+								Visibility="Collapsed"
+								Grid.Column="0"
+								AutomationProperties.AutomationId="{Binding Path=Calculator.Name, ConverterParameter={}{0}_RadioButton, Converter={StaticResource stringFormatConverter}}"
+								FocusVisualStyle="{x:Null}"
+								IsChecked="{Binding Path=IsChecked, Mode=TwoWay}">
+								<StackPanel
+									Margin="5,0,0,0">
+									<Image
+										Margin="5,0,0,0"
+										Source="{Binding Path=Calculator.Image}" />
+									<TextBlock
+										Margin="5,0"
+										Text="{Binding Path=Calculator.DisplayName}"
+										Foreground="{DynamicResource {ComponentResourceKey ResourceId=SummaryCSCItemForeground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+								</StackPanel>
+							</RadioButton>
+						</Grid>
+						<Rectangle
+							Margin="17,0,0,3"
+							Stroke="#D0000000"
+							StrokeThickness="1"
+							StrokeDashArray="1 2"
+							Visibility="{Binding Path=IsKeyboardFocusWithin, ElementName=mainPanel, Converter={StaticResource BoolToVisConverter}}" />
+					</igWindows:CardPanel>
+					<DataTemplate.Triggers>
+						<DataTrigger
+							Value="False"
+							Binding="{Binding Path=SelectionControl.AllowMultipleSummaries}">
+							<Setter
+								TargetName="checkBox"
+								Property="Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="radioButton"
+								Property="Visibility"
+								Value="Visible" />
+						</DataTrigger>
+					</DataTemplate.Triggers>
+				</DataTemplate>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.WindowBrushKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.WindowFrameBrushKey}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:SummaryCalculatorSelectionControl}">
+					<ItemsControl
+						ItemsSource="{TemplateBinding igDP:SummaryCalculatorHolders}"
+						KeyboardNavigation.DirectionalNavigation="Contained"
+						Focusable="False"
+						Margin="{TemplateBinding Padding}"
+						Foreground="{TemplateBinding Foreground}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,1,1" />
+		<Setter
+			Property="Padding"
+			Value="3,3,3,5" />
+	</Style>
+	<Style
+		TargetType="{x:Type igDP:GroupBySummariesPresenter}"
+		x:Key="{x:Type igDP:GroupBySummariesPresenter}">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type igDP:GroupBySummariesPresenter}">
+					<Border
+						Margin="{TemplateBinding igDP:ContentAreaMargins}"
+						Background="{TemplateBinding Background}">
+						<igDP:SummaryRecordContentArea />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		BasedOn="{x:Null}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, RowSummaryOkButton}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid>
+						<Path
+							Name="path"
+							Opacity="1"
+							Stretch="Fill"
+							Stroke="{TemplateBinding BorderBrush}"
+							StrokeThickness="0.5"
+							Data="M11.44970703125,-0.32843017578125 C11.44970703125,-0.32843017578125 5.0858154296875,6.0355224609375 5.0858154296875,6.0355224609375 C5.0858154296875,6.0355224609375 2.55023193359375,3.5 2.55023193359375,3.5 C2.55023193359375,3.5 0.13604736328125,5.914215087890625 0.13604736328125,5.914215087890625 C0.13604736328125,5.914215087890625 5.0858154296875,10.86395263671875 5.0858154296875,10.86395263671875 C5.0858154296875,10.86395263671875 13.86395263671875,2.085784912109375 13.86395263671875,2.085784912109375 C13.86395263671875,2.085784912109375 11.44970703125,-0.32843017578125 11.44970703125,-0.32843017578125"
+							Fill="{TemplateBinding Background}" />
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							RecognizesAccessKey="True" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="Button.IsDefaulted"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.5,1"
+										StartPoint="0.5,0">
+										<GradientStop
+											Color="#FF99FF00"
+											Offset="0" />
+										<GradientStop
+											Color="#FF0A9F00"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path"
+								Property="Stroke"
+								Value="#FF336C03" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True" />
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Foreground"
+			Value="{x:Null}" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryCommandButtonsBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryCommandButtonsBorder, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		BasedOn="{x:Null}"
+		x:Key="{ComponentResourceKey {x:Type igDP:XamDataGrid}, RowSummaryCancelButton}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid>
+						<Path
+							Name="path"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							Height="Auto"
+							Width="Auto"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M561.3890991210938,474.9895935058594 C561.3890991210938,474.9895935058594 557.5,478.8799743652344 557.5,478.8799743652344 C557.5,478.8799743652344 553.6109008789062,474.9895935058594 553.6109008789062,474.9895935058594 C553.6109008789062,474.9895935058594 551.4895629882812,477.11090087890625 551.4895629882812,477.11090087890625 C551.4895629882812,477.11090087890625 555.3800048828125,481 555.3800048828125,481 C555.3800048828125,481 551.4895629882812,484.88909912109375 551.4895629882812,484.88909912109375 C551.4895629882812,484.88909912109375 553.6109008789062,487.0104064941406 553.6109008789062,487.0104064941406 C553.6109008789062,487.0104064941406 557.5,483.1199951171875 557.5,483.1199951171875 C557.5,483.1199951171875 561.3890991210938,487.0104064941406 561.3890991210938,487.0104064941406 C561.3890991210938,487.0104064941406 563.5104370117188,484.88909912109375 563.5104370117188,484.88909912109375 C563.5104370117188,484.88909912109375 559.6199951171875,481 559.6199951171875,481 C559.6199951171875,481 563.5104370117188,477.11090087890625 563.5104370117188,477.11090087890625 C563.5104370117188,477.11090087890625 561.3890991210938,474.9895935058594 561.3890991210938,474.9895935058594"
+							Stroke="{TemplateBinding BorderBrush}"
+							StrokeThickness=".5"
+							Fill="{TemplateBinding Background}" />
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							RecognizesAccessKey="True" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="Button.IsDefaulted"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Stroke"
+								Value="#FFA41818" />
+							<Setter
+								TargetName="path"
+								Property="Fill"
+								Value="#FFF83737" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True" />
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Foreground"
+			Value="{x:Null}" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryCommandButtonsBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SummaryCommandButtonsBorder, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" />
+	</Style>
+</ResourceDictionary>

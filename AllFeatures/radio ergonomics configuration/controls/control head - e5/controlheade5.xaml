@@ -1,0 +1,2737 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.ControlHeadE5.PageControlHeadE5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:ControlHeadE5RecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ControlHeadE5" xmlns:E5InnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ControlHeadE5" xmlns:E5MFKAssignmentControlInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ControlHeadE5" xmlns:BottomFunctionProgrammableButtonInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ControlHeadE5" xmlns:E5NavigationControlsTableInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ControlHeadE5" xmlns:E5GraphicViewNS="clr-namespace:ControlHeadGraphicView;assembly=ControlHeadGraphicView"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<src:ExpanderVisibilityConverterForEmptyTbl
+				x:Key="expanderVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:SRecViewVisibilityConverterForEmptyTbl
+				x:Key="sRecViewVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverterForEmptyTbl
+				x:Key="acpXamDataPresenterVisibilityConverterForEmptyTbl" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderControlHeadE5E5TableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10902</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderControlHeadE5E5NavigationControlsTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10896</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10903</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<src:GraphicViewVisibilityConverter
+				x:Key="graphicViewVisibilityConverter" />
+			<ObjectDataProvider
+				MethodName="GetNode"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetE5EmergencyTableRow0">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10902</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Boolean>false</sys:Boolean>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetMenuItem">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2088</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetNode"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetE5NavigationControlsTableRow0">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10896</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Boolean>false</sys:Boolean>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetNode"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetE5NavigationControlsTableRow1">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10896</sys:Int32>
+					<sys:Int32>1</sys:Int32>
+					<sys:Boolean>false</sys:Boolean>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetNode"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetE5BottomButtonTableRow0">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4236</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10903</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Boolean>false</sys:Boolean>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CHE5EmergencyButtonName_43766CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 2-->
+							<AcpUINS:AcpTableViewOnlyCtrl
+								Content="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonName_43766_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+							</AcpUINS:AcpTableViewOnlyCtrl>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CHE5EmergencyButtonBCO_43767CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonBCO_43767_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CHE5EmergencyButtonFeature_43768CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5InnerSection.CHE5EmergencyButtonFeature_43768_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="E5BottomFunctionButtonName_43756CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableViewOnlyCtrl
+								Content="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+								MyBLObject="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+							</AcpUINS:AcpTableViewOnlyCtrl>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="E5BottomFunctionButtonBCO_43757CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+								MyBLObject="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="E5BottomFunctionButtonFeature_43758CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+								MyBLObject="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="E5BottomFunctionButtonIndex_43759CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+								MyBLObject="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="E5UpDownButtonName_43753CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableViewOnlyCtrl
+								Content="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpEditable>
+								<AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpViewOnlyCtrl.IsAcpApplicable>
+							</AcpUINS:AcpTableViewOnlyCtrl>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoControlE5UpDownButton_43752CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 11-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderControlHeadE5GraphicalView, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 12-->
+				<Hyperlink
+					Name="HLinkControlHeadE5GraphicalView"
+					Tag="ExpanderControlHeadE5GraphicalView">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GRAPHICALVIEW}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="ExpanderControlHeadE5GraphicalView.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderControlHeadE5General, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 13-->
+				<Hyperlink
+					Name="HLinkE5GeneralExpander"
+					Tag="ExpanderControlHeadE5General">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="ExpanderControlHeadE5General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 14-->
+				<Hyperlink
+					Name="HLinkE5BottomFunctionProgrammableButtonExpander_43754"
+					Tag="ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_BOTTOMFUNCTIONPROGRAMMABLEBUTTON}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="BottomFunctionProgrammableButton.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsExpander, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 15-->
+				<Hyperlink
+					Name="HLinkE5NavigationControlsExpander"
+					Tag="ExpanderControlHeadE5E5NavigationControlsExpander">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_NAVIGATIONCONTROLS}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="E5NavigationControlsExpander.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 16-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 17-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderControlHeadE5GraphicalView"
+					Width="Auto"
+					Header="{x:Static ResourceNS:AcgResources.ID_GRAPHICALVIEW}"
+					IsAcpVisible="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource graphicViewVisibilityConverter}, Mode=OneWay}">
+					<!--Unknown connection ID: 18-->
+					<E5GraphicViewNS:E5GraphicView
+						Name="myE5GraphicView"
+						EmergencyButtonFeatureIsAcpValid="{Binding Source={StaticResource GetE5EmergencyTableRow0}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Valid, Mode=TwoWay}"
+						EmergencyButtonFeatureIsAcpApplicable="{Binding Source={StaticResource GetE5EmergencyTableRow0}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Applicable, Mode=TwoWay}"
+						EmergencyButtonFeatureIsAcpVisible="{Binding Source={StaticResource GetE5EmergencyTableRow0}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Visible, Mode=TwoWay}"
+						EmergencyButtonFeatureIsAcpEditable="{Binding Source={StaticResource GetE5EmergencyTableRow0}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Editable, Mode=TwoWay}"
+						EmergencyButtonFeatureList="{Binding Source={StaticResource GetE5EmergencyTableRow0}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768, Mode=OneWay}"
+						EmergencyButtonFeatureUIValue="{Binding Source={StaticResource GetE5EmergencyTableRow0}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_UIValue, Mode=TwoWay}"
+						MenuItemsConventionalSelectedList="{Binding Source={StaticResource GetMenuItem}, Path=General.DispMenuConventionalSelectedMenuItems_A21736, Mode=OneWay}"
+						MenuItemsTrunkingSelectedList="{Binding Source={StaticResource GetMenuItem}, Path=General.DispMenuTrunkingSelectedMenuItems_A21735, Mode=OneWay}"
+						MenuItemsConventionalSelectedListVisibility="{Binding Source={StaticResource GetMenuItem}, Path=General.DispMenuConventionalSelectedMenuItems_A21736_Visible, Mode=TwoWay}"
+						MenuItemsTrunkingSelectedListVisibility="{Binding Source={StaticResource GetMenuItem}, Path=General.DispMenuTrunkingSelectedMenuItems_A21735_Visible, Mode=TwoWay}"
+						UpButtonIsAcpValid="{Binding Source={StaticResource GetE5NavigationControlsTableRow0}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Valid, Mode=TwoWay}"
+						UpButtonIsAcpApplicable="{Binding Source={StaticResource GetE5NavigationControlsTableRow0}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Applicable, Mode=TwoWay}"
+						UpButtonIsAcpVisible="{Binding Source={StaticResource GetE5NavigationControlsTableRow0}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Visible, Mode=TwoWay}"
+						UpButtonIsAcpEditable="{Binding Source={StaticResource GetE5NavigationControlsTableRow0}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Editable, Mode=TwoWay}"
+						UpButtonList="{Binding Source={StaticResource GetE5NavigationControlsTableRow0}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752, Mode=OneWay}"
+						UpButtonUIValue="{Binding Source={StaticResource GetE5NavigationControlsTableRow0}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_UIValue, Mode=TwoWay}"
+						DownButtonIsAcpValid="{Binding Source={StaticResource GetE5NavigationControlsTableRow1}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Valid, Mode=TwoWay}"
+						DownButtonIsAcpApplicable="{Binding Source={StaticResource GetE5NavigationControlsTableRow1}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Applicable, Mode=TwoWay}"
+						DownButtonIsAcpVisible="{Binding Source={StaticResource GetE5NavigationControlsTableRow1}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Visible, Mode=TwoWay}"
+						DownButtonIsAcpEditable="{Binding Source={StaticResource GetE5NavigationControlsTableRow1}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Editable, Mode=TwoWay}"
+						DownButtonList="{Binding Source={StaticResource GetE5NavigationControlsTableRow1}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752, Mode=OneWay}"
+						DownButtonUIValue="{Binding Source={StaticResource GetE5NavigationControlsTableRow1}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_UIValue, Mode=TwoWay}"
+						BottomButtonFeatureIsAcpValid="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Valid, Mode=TwoWay}"
+						BottomButtonFeatureIsAcpApplicable="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Applicable, Mode=TwoWay}"
+						BottomButtonFeatureIsAcpVisible="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758Visible, Mode=TwoWay}"
+						BottomButtonFeatureIsAcpEditable="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Editable, Mode=TwoWay}"
+						BottomButtonFeatureList="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758, Mode=OneWay}"
+						BottomButtonFeatureUIValue="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_UIValue, Mode=TwoWay}"
+						BottomButtonIndexIsAcpValid="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Valid, Mode=TwoWay}"
+						BottomButtonIndexIsAcpApplicable="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Applicable, Mode=TwoWay}"
+						BottomButtonIndexIsAcpVisible="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Visible, Mode=TwoWay}"
+						BottomButtonIndexIsAcpEditable="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Editable, Mode=TwoWay}"
+						BottomButtonIndexList="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759, Mode=OneWay}"
+						BottomButtonIndexUIValue="{Binding Source={StaticResource GetE5BottomButtonTableRow0}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_UIValue, Mode=TwoWay}" />
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 19-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderControlHeadE5E5GeneralExpander"
+					Width="Auto"
+					Header="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+					ShowDiffIcon="{Binding Path=E5GeneralExpander.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderControlHeadE5E5TableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderControlHeadE5E5SRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 20-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderControlHeadE5E5"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/E5GeneralExpander.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderControlHeadE5E5, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5GeneralExpander.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 21-->
+					<Grid
+						Name="ExpanderControlHeadE5E5GeneralExpanderGrid">
+						<!--Unknown connection ID: 22-->
+						<Grid
+							Name="ExpanderControlHeadE5E5Grid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 23-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderControlHeadE5E5TableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderControlHeadE5E5"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderControlHeadE5E5"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 24-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderControlHeadE5E5"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_E5}"
+									MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/E5GeneralExpander.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="CHE5EmergencyButtonName_43766_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="CHE5EmergencyButtonBCO_43767_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="CHE5EmergencyButtonFeature_43768_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 25-->
+												<igcontrols:UnboundField
+													x:Name="CHE5EmergencyButtonName_437666_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_NAME}"
+													BindingPath="E5InnerSection.CHE5EmergencyButtonName_43766"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5E5TableView}, Path=E5InnerSection.CHE5EmergencyButtonName_43766_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CHE5EmergencyButtonName_43766CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 26-->
+												<igcontrols:UnboundField
+													x:Name="CHE5EmergencyButtonBCO_43767_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_BCO}"
+													BindingPath="E5InnerSection.CHE5EmergencyButtonBCO_43767"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5E5TableView}, Path=E5InnerSection.CHE5EmergencyButtonBCO_43767_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CHE5EmergencyButtonBCO_43767CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 27-->
+												<igcontrols:UnboundField
+													x:Name="CHE5EmergencyButtonFeature_43768_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+													BindingPath="E5InnerSection.CHE5EmergencyButtonFeature_43768"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5E5TableView}, Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CHE5EmergencyButtonFeature_43768CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 28-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderControlHeadE5E5SRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderControlHeadE5E5"
+											Path="TableMode" />
+										<Binding
+											ElementName="CHE5EmergencyButtonName_43766"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="CHE5EmergencyButtonBCO_43767"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="CHE5EmergencyButtonFeature_43768"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 29-->
+								<Grid
+									Name="gridExpanderControlHeadE5E5SRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding E5GeneralExpander.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 30-->
+									<AcpUINS:AcpLabel
+										Name="CHE5EmergencyButtonName_43766"
+										AcpLabelFromViewOnlyCtrl="True"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Content="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766Value}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+										MyBLObject="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766}"
+										MyLabelCtrl="{Binding ElementName=LblCHE5EmergencyButtonName_43766}"
+										IsAcpValid="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766_Valid}"
+										IsAcpApplicable="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766_Applicable}"
+										AreValuesEqual="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonName_43766_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 31-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCHE5EmergencyButtonName_43766"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonName_43766}"
+										IsChecked="{Binding ElementName=CHE5EmergencyButtonName_43766, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 32-->
+									<AcpUINS:AcpLabel
+										Name="LblCHE5EmergencyButtonName_43766"
+										Content="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonName_43766}"
+										IsAcpValid="{Binding ElementName=CHE5EmergencyButtonName_43766, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CHE5EmergencyButtonName_43766, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CHE5EmergencyButtonName_43766, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 33-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnCHE5EmergencyButtonName_43766"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonName_43766}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 34-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCHE5EmergencyButtonName_43766"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonName_43766}"
+										MyCompCtrl="{Binding ElementName=CHE5EmergencyButtonName_43766Comp}"
+										AreValuesEqual="{Binding ElementName=CHE5EmergencyButtonName_43766, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 35-->
+									<AcpUINS:AcpLabel
+										Name="CHE5EmergencyButtonName_43766Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5GeneralExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5InnerSection.CHE5EmergencyButtonName_43766}"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonName_43766}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCHE5EmergencyButtonName_43766}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonName_43766"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 36-->
+									<AcpUINS:AcpComboBox
+										Name="CHE5EmergencyButtonBCO_43767"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767.Items}"
+										SelectedValue="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+										MyBLObject="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767}"
+										MyLabelCtrl="{Binding ElementName=LblCHE5EmergencyButtonBCO_43767}"
+										IsAcpValid="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767_Valid}"
+										IsAcpApplicable="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767_Applicable}"
+										AreValuesEqual="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonBCO_43767_Editable" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonBCO_43767" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonBCO_43767_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 37-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCHE5EmergencyButtonBCO_43767"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonBCO_43767}"
+										IsChecked="{Binding ElementName=CHE5EmergencyButtonBCO_43767, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 38-->
+									<AcpUINS:AcpLabel
+										Name="LblCHE5EmergencyButtonBCO_43767"
+										Content="{x:Static ResourceNS:AcgResources.ID_BCO}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_BCO}"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonBCO_43767}"
+										IsAcpValid="{Binding ElementName=CHE5EmergencyButtonBCO_43767, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CHE5EmergencyButtonBCO_43767, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CHE5EmergencyButtonBCO_43767, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 39-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnCHE5EmergencyButtonBCO_43767"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonBCO_43767}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 40-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCHE5EmergencyButtonBCO_43767"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonBCO_43767}"
+										MyCompCtrl="{Binding ElementName=CHE5EmergencyButtonBCO_43767Comp}"
+										AreValuesEqual="{Binding ElementName=CHE5EmergencyButtonBCO_43767, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 41-->
+									<AcpUINS:AcpLabel
+										Name="CHE5EmergencyButtonBCO_43767Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5GeneralExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5InnerSection.CHE5EmergencyButtonBCO_43767}"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonBCO_43767}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCHE5EmergencyButtonBCO_43767}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonBCO_43767"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 42-->
+									<AcpUINS:AcpComboBox
+										Name="CHE5EmergencyButtonFeature_43768"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768.Items}"
+										SelectedValue="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5GeneralExpander}"
+										MyBLObject="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768}"
+										MyLabelCtrl="{Binding ElementName=LblCHE5EmergencyButtonFeature_43768}"
+										IsAcpValid="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Valid}"
+										IsAcpApplicable="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_Applicable}"
+										AreValuesEqual="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonFeature_43768_Editable" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonFeature_43768" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5InnerSection.CHE5EmergencyButtonFeature_43768_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 43-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCHE5EmergencyButtonFeature_43768"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonFeature_43768}"
+										IsChecked="{Binding ElementName=CHE5EmergencyButtonFeature_43768, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 44-->
+									<AcpUINS:AcpLabel
+										Name="LblCHE5EmergencyButtonFeature_43768"
+										Content="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonFeature_43768}"
+										IsAcpValid="{Binding ElementName=CHE5EmergencyButtonFeature_43768, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CHE5EmergencyButtonFeature_43768, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CHE5EmergencyButtonFeature_43768, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 45-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnCHE5EmergencyButtonFeature_43768"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonFeature_43768}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 46-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCHE5EmergencyButtonFeature_43768"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonFeature_43768}"
+										MyCompCtrl="{Binding ElementName=CHE5EmergencyButtonFeature_43768Comp}"
+										AreValuesEqual="{Binding ElementName=CHE5EmergencyButtonFeature_43768, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 47-->
+									<AcpUINS:AcpLabel
+										Name="CHE5EmergencyButtonFeature_43768Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="2"
+										Grid.Column="5"
+										Content="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5GeneralExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5InnerSection.CHE5EmergencyButtonFeature_43768}"
+										MyParentCtrl="{Binding ElementName=CHE5EmergencyButtonFeature_43768}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCHE5EmergencyButtonFeature_43768}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CHE5EmergencyButtonFeature_43768"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 48-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754"
+					Width="Auto"
+					Header="{Binding Path=E5BottomFunctionButtonExpander.UIName}"
+					ShowDiffIcon="{Binding Path=E5BottomFunctionButtonExpander.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderControlHeadE5BottomFunctionProgrammableButtonTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 49-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderControlHeadE5BottomFunctionProgrammableButtonTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButton_43755, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 50-->
+					<Grid
+						Name="ExpanderControlHeadE5BottomFunctionProgrammableButtonGrid">
+						<!--Unknown connection ID: 51-->
+						<Grid
+							Name="ExpanderControlHeadE5BottomFunctionProgrammableButtonTableGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 52-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderControlHeadE5BottomFunctionProgrammableButtonTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderControlHeadE5E5BottomFunctionProgrammableButton_43755"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 53-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderControlHeadE5E5BottomFunctionProgrammableButton_43755"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_BOTTOMFUNCTIONPROGRAMMABLEBUTTON}"
+									MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="E5BottomFunctionButtonName_43756_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="E5BottomFunctionButtonBCO_43757_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="E5BottomFunctionButtonFeature_43758_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="E5BottomFunctionButtonIndex_43759_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 54-->
+												<igcontrols:UnboundField
+													x:Name="E5BottomFunctionButtonName_43756_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_NAME}"
+													BindingPath="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource E5BottomFunctionButtonName_43756CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 55-->
+												<igcontrols:UnboundField
+													x:Name="E5BottomFunctionButtonBCO_43757_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_BCO}"
+													BindingPath="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource E5BottomFunctionButtonBCO_43757CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 56-->
+												<igcontrols:UnboundField
+													x:Name="E5BottomFunctionButtonFeature_43758_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+													BindingPath="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource E5BottomFunctionButtonFeature_43758CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 57-->
+												<igcontrols:UnboundField
+													x:Name="E5BottomFunctionButtonIndex_43759_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_INDEX}"
+													BindingPath="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5BottomFunctionProgrammableButtonTableTableView}, Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource E5BottomFunctionButtonIndex_43759CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 58-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderControlHeadE5BottomFunctionProgrammableButtonTableSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderControlHeadE5BottomFunctionProgrammableButtonTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="E5BottomFunctionButtonName_43756"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="E5BottomFunctionButtonBCO_43757"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="E5BottomFunctionButtonFeature_43758"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="E5BottomFunctionButtonIndex_43759"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 59-->
+								<Grid
+									Name="gridExpanderControlHeadE5BottomFunctionProgrammableButtonTableSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding E5BottomFunctionButtonExpander.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 60-->
+									<AcpUINS:AcpLabel
+										Name="E5BottomFunctionButtonName_43756"
+										AcpLabelFromViewOnlyCtrl="True"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Content="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756Value}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756}"
+										MyLabelCtrl="{Binding ElementName=LblE5BottomFunctionButtonName_43756}"
+										IsAcpValid="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Valid}"
+										IsAcpApplicable="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Applicable}"
+										AreValuesEqual="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 61-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnE5BottomFunctionButtonName_43756"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonName_43756}"
+										IsChecked="{Binding ElementName=E5BottomFunctionButtonName_43756, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 62-->
+									<AcpUINS:AcpLabel
+										Name="LblE5BottomFunctionButtonName_43756"
+										Content="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonName_43756}"
+										IsAcpValid="{Binding ElementName=E5BottomFunctionButtonName_43756, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=E5BottomFunctionButtonName_43756, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=E5BottomFunctionButtonName_43756, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 63-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnE5BottomFunctionButtonName_43756"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonName_43756}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 64-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnE5BottomFunctionButtonName_43756"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonName_43756}"
+										MyCompCtrl="{Binding ElementName=E5BottomFunctionButtonName_43756Comp}"
+										AreValuesEqual="{Binding ElementName=E5BottomFunctionButtonName_43756, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 65-->
+									<AcpUINS:AcpLabel
+										Name="E5BottomFunctionButtonName_43756Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonName_43756}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonName_43756}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnE5BottomFunctionButtonName_43756}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonName_43756"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 66-->
+									<AcpUINS:AcpComboBox
+										Name="E5BottomFunctionButtonBCO_43757"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757.Items}"
+										SelectedValue="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757}"
+										MyLabelCtrl="{Binding ElementName=LblE5BottomFunctionButtonBCO_43757}"
+										IsAcpValid="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Valid}"
+										IsAcpApplicable="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Applicable}"
+										AreValuesEqual="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Editable" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 67-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnE5BottomFunctionButtonBCO_43757"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonBCO_43757}"
+										IsChecked="{Binding ElementName=E5BottomFunctionButtonBCO_43757, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 68-->
+									<AcpUINS:AcpLabel
+										Name="LblE5BottomFunctionButtonBCO_43757"
+										Content="{x:Static ResourceNS:AcgResources.ID_BCO}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_BCO}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonBCO_43757}"
+										IsAcpValid="{Binding ElementName=E5BottomFunctionButtonBCO_43757, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=E5BottomFunctionButtonBCO_43757, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=E5BottomFunctionButtonBCO_43757, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 69-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnE5BottomFunctionButtonBCO_43757"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonBCO_43757}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 70-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnE5BottomFunctionButtonBCO_43757"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonBCO_43757}"
+										MyCompCtrl="{Binding ElementName=E5BottomFunctionButtonBCO_43757Comp}"
+										AreValuesEqual="{Binding ElementName=E5BottomFunctionButtonBCO_43757, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 71-->
+									<AcpUINS:AcpLabel
+										Name="E5BottomFunctionButtonBCO_43757Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonBCO_43757}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonBCO_43757}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnE5BottomFunctionButtonBCO_43757}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonBCO_43757"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 72-->
+									<AcpUINS:AcpComboBox
+										Name="E5BottomFunctionButtonFeature_43758"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758.Items}"
+										SelectedValue="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758}"
+										MyLabelCtrl="{Binding ElementName=LblE5BottomFunctionButtonFeature_43758}"
+										IsAcpValid="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Valid}"
+										IsAcpApplicable="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Applicable}"
+										AreValuesEqual="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Editable" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 73-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnE5BottomFunctionButtonFeature_43758"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonFeature_43758}"
+										IsChecked="{Binding ElementName=E5BottomFunctionButtonFeature_43758, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 74-->
+									<AcpUINS:AcpLabel
+										Name="LblE5BottomFunctionButtonFeature_43758"
+										Content="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonFeature_43758}"
+										IsAcpValid="{Binding ElementName=E5BottomFunctionButtonFeature_43758, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=E5BottomFunctionButtonFeature_43758, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=E5BottomFunctionButtonFeature_43758, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 75-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnE5BottomFunctionButtonFeature_43758"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonFeature_43758}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 76-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnE5BottomFunctionButtonFeature_43758"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonFeature_43758}"
+										MyCompCtrl="{Binding ElementName=E5BottomFunctionButtonFeature_43758Comp}"
+										AreValuesEqual="{Binding ElementName=E5BottomFunctionButtonFeature_43758, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 77-->
+									<AcpUINS:AcpLabel
+										Name="E5BottomFunctionButtonFeature_43758Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="2"
+										Grid.Column="5"
+										Content="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonFeature_43758}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonFeature_43758}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnE5BottomFunctionButtonFeature_43758}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonFeature_43758"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 78-->
+									<AcpUINS:AcpComboBox
+										Name="E5BottomFunctionButtonIndex_43759"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759.Items}"
+										SelectedValue="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5BottomFunctionProgrammableButtonExpander_43754}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759}"
+										MyLabelCtrl="{Binding ElementName=LblE5BottomFunctionButtonIndex_43759}"
+										IsAcpValid="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Valid}"
+										IsAcpApplicable="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Applicable}"
+										AreValuesEqual="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Editable" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 79-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnE5BottomFunctionButtonIndex_43759"
+										Margin="0,5,0,0"
+										Grid.Row="3"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonIndex_43759}"
+										IsChecked="{Binding ElementName=E5BottomFunctionButtonIndex_43759, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 80-->
+									<AcpUINS:AcpLabel
+										Name="LblE5BottomFunctionButtonIndex_43759"
+										Content="{x:Static ResourceNS:AcgResources.ID_INDEX}"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_INDEX}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonIndex_43759}"
+										IsAcpValid="{Binding ElementName=E5BottomFunctionButtonIndex_43759, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=E5BottomFunctionButtonIndex_43759, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=E5BottomFunctionButtonIndex_43759, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 81-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnE5BottomFunctionButtonIndex_43759"
+										Grid.Row="3"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonIndex_43759}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 82-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnE5BottomFunctionButtonIndex_43759"
+										Grid.Row="3"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonIndex_43759}"
+										MyCompCtrl="{Binding ElementName=E5BottomFunctionButtonIndex_43759Comp}"
+										AreValuesEqual="{Binding ElementName=E5BottomFunctionButtonIndex_43759, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 83-->
+									<AcpUINS:AcpLabel
+										Name="E5BottomFunctionButtonIndex_43759Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="3"
+										Grid.Column="5"
+										Content="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5BottomFunctionButtonExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5BottomFunctionButtonInnerSection.E5BottomFunctionButtonIndex_43759}"
+										MyParentCtrl="{Binding ElementName=E5BottomFunctionButtonIndex_43759}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnE5BottomFunctionButtonIndex_43759}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5BottomFunctionButtonIndex_43759"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 84-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderControlHeadE5E5NavigationControlsExpander"
+					Width="Auto"
+					Header="{Binding Path=E5NavigationControlsExpander.UIName}"
+					ShowDiffIcon="{Binding Path=E5NavigationControlsExpander.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderControlHeadE5E5NavigationControlsTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderControlHeadE5E5NavigationControlsTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 85-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderControlHeadE5E5NavigationControlsTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/E5NavigationControlsExpander.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5NavigationControlsExpander.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 86-->
+					<Grid
+						Name="ExpanderControlHeadE5E5NavigationControlsExpanderGrid">
+						<!--Unknown connection ID: 87-->
+						<Grid
+							Name="ExpanderControlHeadE5E5NavigationControlsTableGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 88-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderControlHeadE5E5NavigationControlsTableTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderControlHeadE5E5NavigationControlsTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderControlHeadE5E5NavigationControlsTable"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 89-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderControlHeadE5E5NavigationControlsTable"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_NAVIGATIONCONTROLS}"
+									MyExpander="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsExpander}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/E5NavigationControlsExpander.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="E5UpDownButtonName_43753_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="RadErgoControlE5UpDownButton_43752_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 90-->
+												<igcontrols:UnboundField
+													x:Name="E5UpDownButtonName_43753_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_NAME}"
+													BindingPath="E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5E5NavigationControlsTableTableView}, Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource E5UpDownButtonName_43753CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 91-->
+												<igcontrols:UnboundField
+													x:Name="RadErgoControlE5UpDownButton_43752_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+													BindingPath="E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderControlHeadE5E5NavigationControlsTableTableView}, Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource RadErgoControlE5UpDownButton_43752CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 92-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderControlHeadE5E5NavigationControlsTableSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderControlHeadE5E5NavigationControlsTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="E5UpDownButtonName_43753"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadErgoControlE5UpDownButton_43752"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 93-->
+								<Grid
+									Name="gridExpanderControlHeadE5E5NavigationControlsTableSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding E5NavigationControlsExpander.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 94-->
+									<AcpUINS:AcpLabel
+										Name="E5UpDownButtonName_43753"
+										AcpLabelFromViewOnlyCtrl="True"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Content="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753Value}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsExpander}"
+										MyBLObject="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753}"
+										MyLabelCtrl="{Binding ElementName=LblE5UpDownButtonName_43753}"
+										IsAcpValid="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Valid}"
+										IsAcpApplicable="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Applicable}"
+										AreValuesEqual="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 95-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnE5UpDownButtonName_43753"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=E5UpDownButtonName_43753}"
+										IsChecked="{Binding ElementName=E5UpDownButtonName_43753, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 96-->
+									<AcpUINS:AcpLabel
+										Name="LblE5UpDownButtonName_43753"
+										Content="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_NAME}"
+										MyParentCtrl="{Binding ElementName=E5UpDownButtonName_43753}"
+										IsAcpValid="{Binding ElementName=E5UpDownButtonName_43753, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=E5UpDownButtonName_43753, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=E5UpDownButtonName_43753, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 97-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnE5UpDownButtonName_43753"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=E5UpDownButtonName_43753}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 98-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnE5UpDownButtonName_43753"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=E5UpDownButtonName_43753}"
+										MyCompCtrl="{Binding ElementName=E5UpDownButtonName_43753Comp}"
+										AreValuesEqual="{Binding ElementName=E5UpDownButtonName_43753, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 99-->
+									<AcpUINS:AcpLabel
+										Name="E5UpDownButtonName_43753Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5NavigationControlsExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5NavigationControlsTableInnerSection.E5UpDownButtonName_43753}"
+										MyParentCtrl="{Binding ElementName=E5UpDownButtonName_43753}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnE5UpDownButtonName_43753}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="E5UpDownButtonName_43753"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 100-->
+									<AcpUINS:AcpComboBox
+										Name="RadErgoControlE5UpDownButton_43752"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752.Items}"
+										SelectedValue="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderControlHeadE5E5NavigationControlsExpander}"
+										MyBLObject="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752}"
+										MyLabelCtrl="{Binding ElementName=LblRadErgoControlE5UpDownButton_43752}"
+										IsAcpValid="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Valid}"
+										IsAcpApplicable="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Applicable}"
+										AreValuesEqual="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Editable" />
+												<Binding
+													Path="E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 101-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadErgoControlE5UpDownButton_43752"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadErgoControlE5UpDownButton_43752}"
+										IsChecked="{Binding ElementName=RadErgoControlE5UpDownButton_43752, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 102-->
+									<AcpUINS:AcpLabel
+										Name="LblRadErgoControlE5UpDownButton_43752"
+										Content="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_FEATURE}"
+										MyParentCtrl="{Binding ElementName=RadErgoControlE5UpDownButton_43752}"
+										IsAcpValid="{Binding ElementName=RadErgoControlE5UpDownButton_43752, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadErgoControlE5UpDownButton_43752, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadErgoControlE5UpDownButton_43752, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 103-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadErgoControlE5UpDownButton_43752"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadErgoControlE5UpDownButton_43752}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 104-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadErgoControlE5UpDownButton_43752"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadErgoControlE5UpDownButton_43752}"
+										MyCompCtrl="{Binding ElementName=RadErgoControlE5UpDownButton_43752Comp}"
+										AreValuesEqual="{Binding ElementName=RadErgoControlE5UpDownButton_43752, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 105-->
+									<AcpUINS:AcpLabel
+										Name="RadErgoControlE5UpDownButton_43752Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/E5NavigationControlsExpander.EmbeddedRecset}"
+										MyBLObject="{Binding Path=E5NavigationControlsTableInnerSection.RadErgoControlE5UpDownButton_43752}"
+										MyParentCtrl="{Binding ElementName=RadErgoControlE5UpDownButton_43752}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoControlE5UpDownButton_43752}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoControlE5UpDownButton_43752"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

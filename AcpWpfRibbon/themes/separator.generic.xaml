@@ -1,0 +1,147 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:DevCo="clr-namespace:DevComponents.WpfRibbon">
+	<Style
+		TargetType="{x:Type Separator}"
+		x:Key="{x:Type Separator}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.SeparatorBackground}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.SeparatorBorder}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,1,0,0" />
+		<Setter
+			Property="MinHeight"
+			Value="2" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="true" />
+		<Setter
+			Property="Padding"
+			Value="30,0,1,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Separator}">
+					<Border
+						Margin="{TemplateBinding Padding}"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="True" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="DevCo:Ribbon.ElementRole"
+							Value="AppMenuDocumentCommand">
+							<Setter
+								Property="Padding"
+								Value="40,0,0,0" />
+						</Trigger>
+						<Trigger
+							Property="DevCo:Ribbon.ElementRole"
+							Value="AppMenuMruItem">
+							<Setter
+								Property="Margin"
+								Value="0,0,0,0" />
+							<Setter
+								Property="Padding"
+								Value="0" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Separator}"
+		x:Key="{ComponentResourceKey {x:Type DevCo:Ribbon}, StatusBarSeparator}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.StatusBarSeparatorBackground}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.StatusBarSeparatorBorder}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,0,1,0" />
+		<Setter
+			Property="MinWidth"
+			Value="2" />
+		<Setter
+			Property="MinHeight"
+			Value="6" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="true" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0,0,0,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Separator}">
+					<Border
+						Margin="{TemplateBinding Padding}"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="True" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Separator}"
+		x:Key="{ComponentResourceKey {x:Type DevCo:Ribbon}, VerticalSeparator}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.StatusBarSeparatorBackground}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.StatusBarSeparatorBorder}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,0,1,0" />
+		<Setter
+			Property="MinWidth"
+			Value="2" />
+		<Setter
+			Property="MinHeight"
+			Value="6" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="true" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0,0,0,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Separator}">
+					<Border
+						Margin="{TemplateBinding Padding}"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="True" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

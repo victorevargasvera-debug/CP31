@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA663}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonASK</RootNamespace>
+    <AssemblyName>CommonASK</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="MockSystemKeyData.cs" />
+    <Compile Include="MockSystemKeyManager.cs" />
+    <Compile Include="MockSystemKeyObj.cs" />
+    <Compile Include="NoAccessField.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeField.cs" />
+    <Compile Include="SpecialKeyData.cs" />
+    <Compile Include="SystemKey.cs" />
+    <Compile Include="SystemKeyData.cs" />
+    <Compile Include="SystemKeyHelper.cs" />
+    <Compile Include="SystemKeyManagerFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASK.Core\ASK.Core.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA647}</Project>
+      <Name>ASK.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASKLib\ASKLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA649}</Project>
+      <Name>ASKLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:dc="clr-namespace:DevComponents.WpfEditors" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="{x:Type dc:ColorBlender}"
+		x:Key="{x:Type dc:ColorBlender}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type dc:ColorBlender}">
+					<Grid>
+						<Image
+							Name="PART_Image"
+							Stretch="None"
+							SnapsToDevicePixels="True" />
+						<Canvas>
+							<Border
+								Name="PART_Marker"
+								Width="10"
+								Height="10"
+								Visibility="Hidden">
+								<Border.Background>
+									<DrawingBrush>
+										<DrawingBrush.Drawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<GeometryGroup>
+														<RectangleGeometry
+															Rect="6, 0, 3, 5" />
+														<RectangleGeometry
+															Rect="6, 10, 3, 5" />
+														<RectangleGeometry
+															Rect="0, 6, 5, 3" />
+														<RectangleGeometry
+															Rect="10, 6, 5, 3" />
+													</GeometryGroup>
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingBrush.Drawing>
+									</DrawingBrush>
+								</Border.Background>
+							</Border>
+						</Canvas>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

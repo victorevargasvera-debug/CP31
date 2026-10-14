@@ -1,0 +1,92 @@
+<local:RMSealedFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMMultiTextFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igEditors="http://schemas.infragistics.com/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Name="fedString">
+	<!--Unknown connection ID: 2-->
+	<Grid
+		Name="grdMain">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="21" />
+		</Grid.ColumnDefinitions>
+		<local:RMTextBlock
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			Text="{Binding Path=Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}"
+			IsEnabled="{Binding IsApplicable}" />
+		<!--Unknown connection ID: 3-->
+		<Border
+			Name="borderInvalid"
+			Grid.Column="2"
+			BorderThickness="1"
+			Style="{StaticResource InvalidBorderStyle}">
+			<Grid>
+				<!--Unknown connection ID: 4-->
+				<local:RMTextBox
+					Name="txbText"
+					MinHeight="22"
+					Height="Auto"
+					Style="{StaticResource FieldEditorTextBoxtyle}"
+					Text="{Binding Path=Text, UpdateSourceTrigger=LostFocus}">
+					<TextBoxBase.IsReadOnly>
+						<MultiBinding
+							Converter="{StaticResource FieldPropertiesToIsReadOnlyConverter}">
+							<Binding
+								Path="IsEditable" />
+							<Binding
+								Path="IsMVODynamic" />
+							<Binding
+								Path="UseMVODefault" />
+							<Binding
+								Path="IsApplicable" />
+						</MultiBinding>
+					</TextBoxBase.IsReadOnly>
+				</local:RMTextBox>
+				<!--Unknown connection ID: 5-->
+				<Border
+					Name="borderfreeze"
+					Background="#00FFFFFF"
+					Visibility="Collapsed" />
+				<Border
+					Background="{StaticResource BrushGray}"
+					Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+					<TextBlock
+						Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center" />
+				</Border>
+			</Grid>
+		</Border>
+		<!--Unknown connection ID: 6-->
+		<local:RMButton
+			Name="btnLock"
+			Click="btnLock_Click"
+			Grid.Column="3"
+			Margin="1,0,0,0"
+			Width="20"
+			IsEnabled="{Binding IsEditable}"
+			Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}"
+			Tag="{Binding UseMVODefault, Mode=TwoWay}">
+			<Control.Template>
+				<ControlTemplate>
+					<Image>
+						<Image.Source>
+							<MultiBinding
+								Converter="{StaticResource BoolToLockIconPathConverter}">
+								<Binding
+									Path="UseMVODefault" />
+								<Binding
+									Path="IsEditable" />
+								<Binding
+									RelativeSource="{RelativeSource Self}" />
+							</MultiBinding>
+						</Image.Source>
+					</Image>
+				</ControlTemplate>
+			</Control.Template>
+		</local:RMButton>
+	</Grid>
+</local:RMSealedFieldEditor>

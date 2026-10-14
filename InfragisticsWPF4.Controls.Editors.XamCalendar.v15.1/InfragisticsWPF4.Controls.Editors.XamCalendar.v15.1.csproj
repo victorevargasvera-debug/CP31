@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA67F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.Controls.Editors.XamCalendar.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\CalendarBaseAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\CalendarItemAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\CalendarItemGroupAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\CalendarItemGroupTitleAutomationPeer.cs" />
+    <Compile Include="AutomationPeers\PeerProxy.cs" />
+    <Compile Include="AutomationPeers\SelectedDateAutomationPeer.cs" />
+    <Compile Include="Controls\Editors\CalendarAnimation.cs" />
+    <Compile Include="Controls\Editors\CalendarBase.cs" />
+    <Compile Include="Controls\Editors\CalendarChange.cs" />
+    <Compile Include="Controls\Editors\CalendarCommandType.cs" />
+    <Compile Include="Controls\Editors\CalendarDateSelectionMode.cs" />
+    <Compile Include="Controls\Editors\CalendarItemChange.cs" />
+    <Compile Include="Controls\Editors\CalendarManager.cs" />
+    <Compile Include="Controls\Editors\CalendarResourceId.cs" />
+    <Compile Include="Controls\Editors\CalendarResourceProvider.cs" />
+    <Compile Include="Controls\Editors\CalendarResourceSet.cs" />
+    <Compile Include="Controls\Editors\CalendarStates.cs" />
+    <Compile Include="Controls\Editors\CalendarUtilities.cs" />
+    <Compile Include="Controls\Editors\CalendarZoomMode.cs" />
+    <Compile Include="Controls\Editors\DayOfWeekHeaderFormat.cs" />
+    <Compile Include="Controls\Editors\HorizontalToTextAlignmentConverter.cs" />
+    <Compile Include="Controls\Editors\ITimeRange.cs" />
+    <Compile Include="Controls\Editors\ITimeRangePresenter.cs" />
+    <Compile Include="Controls\Editors\NonHiddenVisibilityConverter.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarCommand.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarCommandSource.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarDateRangeCollection.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarDay.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarDayOfWeek.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarDayOfWeekPanel.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarDimensions.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarDimensionsConverter.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarItem.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarItemArea.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarItemAreaPanel.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarItemGroup.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarItemGroupPanel.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarItemGroupTitle.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarResourceString.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarWeekNumber.cs" />
+    <Compile Include="Controls\Editors\Primitives\CalendarWeekNumberPanel.cs" />
+    <Compile Include="Controls\Editors\Primitives\ICalendarElement.cs" />
+    <Compile Include="Controls\Editors\Primitives\ICalendarItemArea.cs" />
+    <Compile Include="Controls\Editors\Primitives\SelectedDateCollection.cs" />
+    <Compile Include="Controls\Editors\Properties\Resources.cs" />
+    <Compile Include="Controls\Editors\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\Editors\SelectedDatesChangedEventArgs.cs" />
+    <Compile Include="Controls\Editors\TimeRangeKind.cs" />
+    <Compile Include="Controls\Editors\ValidatedObservableCollection.cs" />
+    <Compile Include="Controls\Editors\XamCalendar.cs" />
+    <Compile Include="Controls\Primitives\AutoScrollInfo.cs" />
+    <Compile Include="Controls\Primitives\CurrentTime.cs" />
+    <Compile Include="Controls\Primitives\ISelectableElement.cs" />
+    <Compile Include="Controls\Primitives\ISelectableItem.cs" />
+    <Compile Include="Controls\Primitives\ISelectionHost.cs" />
+    <Compile Include="Controls\Primitives\ISelectionStrategyFilter.cs" />
+    <Compile Include="Controls\Primitives\ScrollDirection.cs" />
+    <Compile Include="Controls\Primitives\ScrollOrientation.cs" />
+    <Compile Include="Controls\Primitives\ScrollSpeed.cs" />
+    <Compile Include="Controls\Primitives\SelectionController.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategyBase.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategyContiguous.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategyExtended.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategyExtendedAutoDrag.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategyNone.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategySingle.cs" />
+    <Compile Include="Controls\Primitives\SelectionStrategySingleAutoDrag.cs" />
+    <Compile Include="Controls\Primitives\SelectionType.cs" />
+    <Compile Include="Controls\Primitives\TimeManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Editors\Properties\Resources.resources" />
+    <EmbeddedResource Include="Controls\Editors\strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Editors\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_highcontrast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_igtheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_office2007black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_office2007blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_office2007silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_office2010black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_office2010blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\resourcesets\resourceset_office2010silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\royale.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\zune.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="themes\generic.2.xaml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,169 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMHomeSetList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<!--Unknown connection ID: 1-->
+		<local:RMDataGrid
+			Name="dgrHomeSets"
+			BorderThickness="0"
+			igDP:GroupByAreaLocation="None"
+			igDP:DataSource="{Binding Path=Radios, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+			SearchCommand="{Binding SearchCommand}">
+			<igDP:DataPresenterBase.FieldLayoutSettings>
+				<igDP:FieldLayoutSettings
+					HighlightAlternateRecords="True"
+					AllowClipboardOperations="Copy"
+					AllowDelete="False"
+					AllowFieldMoving="WithinLogicalRow"
+					AutoGenerateFields="False"
+					CopyFieldLabelsToClipboard="False"
+					DataErrorDisplayMode="ErrorIconAndHighlight"
+					SupportDataErrorInfo="CellsOnly"
+					SelectionTypeRecord="Single" />
+			</igDP:DataPresenterBase.FieldLayoutSettings>
+			<igDP:DataPresenterBase.FieldSettings>
+				<igDP:FieldSettings
+					CellClickAction="SelectRecord"
+					Width="Auto" />
+			</igDP:DataPresenterBase.FieldSettings>
+			<igDP:DataPresenterBase.FieldLayouts>
+				<igDP:FieldLayout>
+					<igDP:Field
+						Name="SerialNumber"
+						Label="{x:Static resourceRepository:Resources.General_Serial_Number}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								AllowHiding="Never">
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.ValueConstraint">
+											<Setter.Value>
+												<igEditors:ValueConstraint
+													MaxLength="10" />
+											</Setter.Value>
+										</Setter>
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+										<Setter
+											Property="Background"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderThickness"
+											Value="0" />
+										<Setter
+											Property="BorderBrush"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="RadioAlias"
+						Label="{x:Static resourceRepository:Resources.General_RadioAlias}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+										<Setter
+											Property="Background"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderThickness"
+											Value="0" />
+										<Setter
+											Property="BorderBrush"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="IMEI"
+						Label="{x:Static resourceRepository:Resources.General_IMEI}"
+						Width="Auto"
+						Column="0">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								AllowEdit="False">
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="Background"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderThickness"
+											Value="0" />
+										<Setter
+											Property="BorderBrush"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="Comments"
+						Label="{x:Static resourceRepository:Resources.General_Comments}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.ValueConstraint">
+											<Setter.Value>
+												<igEditors:ValueConstraint
+													MaxLength="1024" />
+											</Setter.Value>
+										</Setter>
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+										<Setter
+											Property="Background"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderBrush"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderThickness"
+											Value="0" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+				</igDP:FieldLayout>
+			</igDP:DataPresenterBase.FieldLayouts>
+		</local:RMDataGrid>
+	</Grid>
+</UserControl>

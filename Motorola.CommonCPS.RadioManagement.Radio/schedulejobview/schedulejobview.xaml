@@ -1,0 +1,715 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Radio.ScheduleJobView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	Width="540"
+	SnapsToDevicePixels="True" xmlns:radio="clr-namespace:Motorola.CommonCPS.RadioManagement.Radio">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:ConnectionMethodToBoolConverter
+				x:Key="ConnectionMethodToBoolConverter" />
+			<converters:RuntimeIdentifiersToVisibilityConverter
+				x:Key="RuntimeIdentifiersToVisibilityConverter" />
+			<converters:MultiVisibility_Visibility_Converter
+				x:Key="MultiVisibility_Visibility_Converter" />
+			<converters:MultiBoolsToBoolConverter
+				x:Key="MultiBoolsToBoolConverter" />
+			<converters:ScheduledJobTypeToBoolConverter
+				x:Key="ScheduledJobTypeToBoolConverter" />
+			<converters:ScheduleJobViewOKButtonEnableConverter
+				x:Key="ScheduleJobViewOKButtonEnableConverter" />
+			<converters:GroupboxForegroudConverter
+				x:Key="GroupboxForegroudConverter" />
+			<converters:OnlySingleApxNextRadioToVisibilityConverter
+				x:Key="OnlySingleApxNextRadioToVisibilityConverter" />
+			<converters:OnlyApxNextRadiosToVisibilityConverter
+				x:Key="OnlyApxNextRadiosToVisibilityConverter" />
+			<converters:BoolToInverseConverter
+				x:Key="BoolToInverseConverter" />
+			<converters:RadiosChangeIndicatorToVisibilityConverter
+				x:Key="RadiosChangeIndicatorToVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="24">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="20" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="10" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="10" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 1-->
+		<controls:RMGroupBox
+			Name="gpbJobType"
+			Header="{x:Static resourceRepository:Resources.RMC_ScheduleJob_JobType}"
+			Padding="10">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="10" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="100" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<!--Unknown connection ID: 2-->
+					<controls:RMRadioButton
+						Name="rbtWriteType"
+						IsChecked="{Binding Path=ScheduleJobContext.Type, Converter={StaticResource ScheduledJobTypeToBoolConverter}, ConverterParameter=Write}"
+						IsEnabled="{Binding ScheduleJobContext.IsTypeWriteEditable}"
+						Content="{Binding ScheduleJobContext.ContentOfWriteLabel}" />
+					<Grid
+						Column="1"
+						Margin="0,10,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 3-->
+						<controls:RMCheckBox
+							Name="cbxWriteJob"
+							Grid.Row="0"
+							Grid.Column="1"
+							Content="{x:Static resourceRepository:Resources.JobType_NoSwithover}"
+							Margin="0,10,0,0"
+							IsChecked="{Binding ScheduleJobContext.TypeWriteNoSwitchover}"
+							IsEnabled="{Binding ScheduleJobContext.IsTypeWriteNoSwitchoverEditable}"
+							Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}" />
+						<!--Unknown connection ID: 4-->
+						<controls:RMCheckBox
+							Name="cbxWriteProtect"
+							Grid.Row="1"
+							Grid.Column="1"
+							Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_WriteProtected}"
+							Margin="0,10,0,0"
+							IsChecked="{Binding ScheduleJobContext.IsWriteProtected}"
+							Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}"
+							IsEnabled="{Binding ScheduleJobContext.IsWriteProtectedEnable}" />
+						<Grid
+							Row="2">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="2*" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="90" />
+							</Grid.ColumnDefinitions>
+							<!--Unknown connection ID: 5-->
+							<controls:RMCheckBox
+								Name="EnableImmediateDeploymentCb"
+								Grid.Column="0"
+								Content="{x:Static resourceRepository:Resources.Force_Immediate_Update}"
+								IsChecked="{Binding ScheduleJobContext.EnableImmediateDeployment}"
+								Visibility="{Binding Path=ScheduleJobContext.Radios, Converter={StaticResource OnlySingleApxNextRadioToVisibilityConverter}}">
+								<UIElement.IsEnabled>
+									<MultiBinding
+										Converter="{StaticResource MultiBoolsToBoolConverter}">
+										<Binding
+											Path="ScheduleJobContext.IsContainingUnprovisionedDevices"
+											Converter="{StaticResource BoolToInverseConverter}" />
+										<Binding
+											Path="ScheduleJobContext.Type"
+											Converter="{StaticResource ScheduledJobTypeToBoolConverter}"
+											ConverterParameter="Write" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+								<i:Interaction.Triggers>
+									<i:EventTrigger
+										EventName="Checked">
+										<i:InvokeCommandAction
+											Command="{Binding EnableImmediateDeploymentCommand}" />
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</controls:RMCheckBox>
+							<Label
+								Grid.Row="0"
+								Grid.Column="1"
+								Content="{x:Static resourceRepository:Resources.MaxNumberOfDeferrals}"
+								IsEnabled="{Binding ElementName=MaxUserDeffersAllowed, Path=IsEnabled}"
+								Visibility="{Binding ElementName=MaxUserDeffersAllowed, Path=Visibility}" />
+							<!--Unknown connection ID: 6-->
+							<controls:RMComboBox
+								Name="MaxUserDeffersAllowed"
+								Grid.Row="0"
+								Grid.Column="2"
+								ItemsSource="{Binding ScheduleJobContext.UIUserDefersAllowedOptions}"
+								SelectedValue="{Binding ScheduleJobContext.UIUserDefersAllowed}">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+										<Binding
+											Path="ScheduleJobContext.Radios"
+											Converter="{StaticResource OnlyApxNextRadiosToVisibilityConverter}" />
+										<Binding
+											Path="ScheduleJobContext.Radios"
+											Converter="{StaticResource RadiosChangeIndicatorToVisibilityConverter}"
+											ConverterParameter="FW" />
+									</MultiBinding>
+								</UIElement.Visibility>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										Converter="{StaticResource MultiBoolsToBoolConverter}">
+										<Binding
+											Path="ScheduleJobContext.EnableImmediateDeployment"
+											Converter="{StaticResource BoolToInverseConverter}" />
+										<Binding
+											Path="ScheduleJobContext.Type"
+											Converter="{StaticResource ScheduledJobTypeToBoolConverter}"
+											ConverterParameter="Write" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</controls:RMComboBox>
+						</Grid>
+					</Grid>
+					<Grid
+						Column="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="10" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<!--Unknown connection ID: 7-->
+						<controls:RMGroupBox
+							Name="gpUserCertifiate"
+							Grid.Column="0"
+							Header="{x:Static resourceRepository:Resources.RMC_ScheduleJob_UserCertificates}"
+							IsEnabled="{Binding ScheduleJobContext.IsCertifcateEnabled}"
+							Foreground="{Binding Path=ScheduleJobContext.IsUserCertUninstallAllEnabled, Converter={StaticResource GroupboxForegroudConverter}}">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 8-->
+								<controls:RMCheckBox
+									Name="usercertUninstallAll"
+									Margin="5"
+									Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_UninstallAll}"
+									IsChecked="{Binding ScheduleJobContext.IsUserCertUninstallAllChecked}"
+									IsEnabled="{Binding ScheduleJobContext.IsUserCertUninstallAllEnabled}" />
+							</Grid>
+						</controls:RMGroupBox>
+						<!--Unknown connection ID: 9-->
+						<controls:RMGroupBox
+							Name="gpSystemCertifiate"
+							Grid.Column="2"
+							Header="{x:Static resourceRepository:Resources.RMC_ScheduleJob_SystemCertificates}"
+							IsEnabled="{Binding ScheduleJobContext.IsCertifcateEnabled}"
+							Foreground="{Binding Path=ScheduleJobContext.IsCertifcateEnabled, Converter={StaticResource GroupboxForegroudConverter}}">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 10-->
+								<controls:RMCheckBox
+									Name="sysCertEnableAll"
+									Grid.Row="0"
+									Margin="5"
+									Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_EnableAll}"
+									IsChecked="{Binding ScheduleJobContext.IsSysCertEnableAllChcked}">
+									<i:Interaction.Triggers>
+										<i:EventTrigger
+											EventName="Checked">
+											<i:InvokeCommandAction
+												Command="{Binding SelectEnableAllCommand}" />
+										</i:EventTrigger>
+									</i:Interaction.Triggers>
+								</controls:RMCheckBox>
+								<!--Unknown connection ID: 11-->
+								<controls:RMCheckBox
+									Name="sysCertDisableAll"
+									Grid.Row="1"
+									Margin="5"
+									Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_DisableAll}"
+									IsChecked="{Binding ScheduleJobContext.IsSysCertDisableAllChecked}">
+									<i:Interaction.Triggers>
+										<i:EventTrigger
+											EventName="Checked">
+											<i:InvokeCommandAction
+												Command="{Binding SelectDisableAllCommand}" />
+										</i:EventTrigger>
+									</i:Interaction.Triggers>
+								</controls:RMCheckBox>
+							</Grid>
+						</controls:RMGroupBox>
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+								<Binding
+									Converter="{StaticResource RuntimeIdentifiersToVisibilityConverter}"
+									ConverterParameter="[PAC:PBB]" />
+								<Binding
+									Path="ScheduleJobContext.InvisibleWhileRestoreJob" />
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Grid>
+				</Grid>
+				<!--Unknown connection ID: 12-->
+				<controls:RMRadioButton
+					Name="rbtIsTypeSwitchoverEditable"
+					Grid.Row="1"
+					Content="{x:Static resourceRepository:Resources.JobType_Switchover}"
+					Margin="0,10,0,0"
+					IsChecked="{Binding Path=ScheduleJobContext.Type, Converter={StaticResource ScheduledJobTypeToBoolConverter}, ConverterParameter=Switchover}"
+					IsEnabled="{Binding ScheduleJobContext.IsTypeSwitchoverEditable}">
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+							<Binding
+								Converter="{StaticResource RuntimeIdentifiersToVisibilityConverter}"
+								ConverterParameter="[PAC:PCR]" />
+							<Binding
+								Path="ScheduleJobContext.InvisibleWhileRestoreJob" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</controls:RMRadioButton>
+				<Grid
+					Row="3">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="139" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<!--Unknown connection ID: 13-->
+					<controls:RMRadioButton
+						Name="rbtReadType"
+						Content="{x:Static resourceRepository:Resources.JobType_Read}"
+						IsChecked="{Binding Path=ScheduleJobContext.Type, Converter={StaticResource ScheduledJobTypeToBoolConverter}, ConverterParameter=Read}"
+						IsEnabled="{Binding ScheduleJobContext.IsTypeReadEditable}">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+								<Binding
+									Path="ScheduleJobContext.InvisibleWhileRestoreJob" />
+							</MultiBinding>
+						</UIElement.Visibility>
+					</controls:RMRadioButton>
+					<Grid
+						Column="1"
+						Margin="0,10,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="10" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 14-->
+							<controls:RMCheckBox
+								Name="cbxGenerateConfiguration"
+								Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_GenerateConfiguration}"
+								IsChecked="{Binding ScheduleJobContext.TypeReadGenerateConfigurationOrTemplate}"
+								IsEnabled="{Binding ScheduleJobContext.IsTypeReadGenerateConfigurationOrTemplateEditable}"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][MODE:Configuration]}" />
+							<!--Unknown connection ID: 15-->
+							<controls:RMCheckBox
+								Name="cbxApplyRadio"
+								Grid.Row="1"
+								Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_ApplyToRadio}"
+								Margin="20,10,0,0"
+								IsChecked="{Binding ScheduleJobContext.TypeReadGenerateConfigurationOrTemplateApplyToRadio}"
+								IsEnabled="{Binding ScheduleJobContext.IsTypeReadGenerateConfigurationOrTemplateApplyToRadioEditable}"
+								Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO/PCR][MODE:Configuration]}" />
+							<!--Unknown connection ID: 16-->
+							<controls:RMCheckBox
+								Name="cbxRetrieveLogFile"
+								Grid.Row="2"
+								Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_RetrieveLogFiles}"
+								IsChecked="{Binding ScheduleJobContext.IsRetrieveLogFilesChecked}"
+								IsEnabled="{Binding ScheduleJobContext.IsRetrieveLogFilesEnabled}">
+								<i:Interaction.Triggers>
+									<i:EventTrigger
+										EventName="Checked">
+										<i:InvokeCommandAction
+											Command="{Binding SelectUEFileCommand}" />
+									</i:EventTrigger>
+									<i:EventTrigger
+										EventName="Unchecked">
+										<i:InvokeCommandAction
+											Command="{Binding UnselectUEFileCommand}" />
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+										<Binding
+											Converter="{StaticResource RuntimeIdentifiersToVisibilityConverter}"
+											ConverterParameter="[PAC:PBB]" />
+										<Binding
+											Path="ScheduleJobContext.InvisibleWhileRestoreJob" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</controls:RMCheckBox>
+						</Grid>
+					</Grid>
+				</Grid>
+				<!--Unknown connection ID: 17-->
+				<controls:RMRadioButton
+					Name="rbtIsTypeFactoryResetEditable"
+					Grid.Row="4"
+					Content="{x:Static resourceRepository:Resources.JobType_FactoryReset}"
+					Margin="0,10,0,0"
+					IsChecked="{Binding Path=ScheduleJobContext.Type, Converter={StaticResource ScheduledJobTypeToBoolConverter}, ConverterParameter=FactoryReset}"
+					IsEnabled="{Binding ScheduleJobContext.IsTypeFactoryResetEditable}">
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+							<Binding
+								Path="FactoryResetVisible" />
+							<Binding
+								Path="ScheduleJobContext.InvisibleWhileRestoreJob" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</controls:RMRadioButton>
+			</Grid>
+		</controls:RMGroupBox>
+		<Grid
+			Row="1"
+			Margin="0,20,0,0"
+			Visibility="{Binding Path=ConnectionTypeVisible}">
+			<controls:RMGroupBox
+				Header="{x:Static resourceRepository:Resources.RMC_ScheduleJob_ConnectionMethod}"
+				Padding="10">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="10" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="10" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="10" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<!--Unknown connection ID: 18-->
+					<controls:RMRadioButton
+						Name="rbtUSB"
+						Content="{x:Static resourceRepository:Resources.ConnectionMethod_ASTROUSB}"
+						GroupName="A"
+						IsChecked="{Binding Path=ScheduleJobContext.ConnectionMethod, Converter={StaticResource ConnectionMethodToBoolConverter}, ConverterParameter=Wired}"
+						IsEnabled="{Binding ScheduleJobContext.IsConnectionMethodWiredEditable}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}" />
+					<!--Unknown connection ID: 19-->
+					<controls:RMRadioButton
+						Name="rbtWired"
+						Content="{x:Static resourceRepository:Resources.ConnectionMethod_Wired}"
+						GroupName="B"
+						IsChecked="{Binding Path=ScheduleJobContext.ConnectionMethod, Converter={StaticResource ConnectionMethodToBoolConverter}, ConverterParameter=Wired}"
+						IsEnabled="{Binding ScheduleJobContext.IsConnectionMethodWiredEditable}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}" />
+					<!--Unknown connection ID: 20-->
+					<controls:RMRadioButton
+						Name="rbtPOP25"
+						Grid.Column="2"
+						Content="{x:Static resourceRepository:Resources.ConnectionMethod_ASTROPOP25}"
+						GroupName="A"
+						IsChecked="{Binding Path=ScheduleJobContext.ConnectionMethod, Converter={StaticResource ConnectionMethodToBoolConverter}, ConverterParameter=OTA}"
+						IsEnabled="{Binding ScheduleJobContext.IsConnectionMethodOTAEditable}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:ASTRO]}" />
+					<!--Unknown connection ID: 21-->
+					<controls:RMRadioButton
+						Name="rbtRRP"
+						Grid.Column="2"
+						Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_RepeaterIPProgram}"
+						GroupName="B"
+						IsChecked="{Binding Path=ScheduleJobContext.ConnectionMethod, Converter={StaticResource ConnectionMethodToBoolConverter}, ConverterParameter=RRP}"
+						IsEnabled="{Binding ScheduleJobContext.IsConnectionMethodRRPEditable}">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+								<Binding
+									Converter="{StaticResource RuntimeIdentifiersToVisibilityConverter}"
+									ConverterParameter="[PAC:PCR]" />
+								<Binding
+									Converter="{StaticResource RuntimeIdentifiersToVisibilityConverter}"
+									ConverterParameter="[PAC:ASTRO/PCR][MODE:Configuration]" />
+							</MultiBinding>
+						</UIElement.Visibility>
+					</controls:RMRadioButton>
+					<!--Unknown connection ID: 22-->
+					<controls:RMRadioButton
+						Name="rbtOVA"
+						Grid.Column="4"
+						Content="{x:Static resourceRepository:Resources.ConnectionMethod_OvertheAir}"
+						GroupName="B"
+						IsChecked="{Binding Path=ScheduleJobContext.ConnectionMethod, Converter={StaticResource ConnectionMethodToBoolConverter}, ConverterParameter=OTA}"
+						IsEnabled="{Binding ScheduleJobContext.IsConnectionMethodOTAEditable}"
+						Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}" />
+					<!--Unknown connection ID: 23-->
+					<controls:RMRadioButton
+						Name="rbtAny"
+						Grid.Column="6"
+						Content="{x:Static resourceRepository:Resources.ConnectionMethod_Any}"
+						IsChecked="{Binding Path=ScheduleJobContext.ConnectionMethod, Converter={StaticResource ConnectionMethodToBoolConverter}, ConverterParameter=WiredOrOTA}"
+						IsEnabled="{Binding ScheduleJobContext.IsConnectionMethodAnyEditable}">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource MultiVisibility_Visibility_Converter}">
+								<Binding
+									Path="ScheduleJobContext.InvisibleWhileRestoreJob" />
+							</MultiBinding>
+						</UIElement.Visibility>
+					</controls:RMRadioButton>
+				</Grid>
+			</controls:RMGroupBox>
+		</Grid>
+		<Grid
+			Row="2"
+			Margin="0,20,0,0"
+			Visibility="{Binding Converter={StaticResource RuntimeIdentifiersToVisibilityConverter}, ConverterParameter=[PAC:PCR]}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="200" />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 24-->
+			<controls:RMCheckBox
+				Name="cbxSwitchover"
+				Content="{x:Static resourceRepository:Resources.RMC_ScheduleJob_SuppressARSAfterSwitchover}"
+				IsChecked="{Binding ScheduleJobContext.SuppressARSAfterSwitchover}"
+				IsEnabled="{Binding ScheduleJobContext.IsSuppressARSAfterSwitchoverEditable}" />
+			<Grid
+				Column="1"
+				IsEnabled="{Binding ScheduleJobContext.IsSwitchoverTimerEditable}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="50" />
+				</Grid.ColumnDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.Window_SetServer_SwitchoverTimer}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 25-->
+				<controls:RMNumericInput
+					Name="nitSwitchover"
+					Grid.Column="1"
+					ig:InvalidValueBehavior="RevertValue"
+					ig:Mask="{}{number:0-480}"
+					ig:SpinButtonDisplayMode="Focused"
+					ig:ValueTypeName="Int"
+					Validation.ErrorTemplate="{x:Null}"
+					ig:Value="{Binding ScheduleJobContext.SwitchoverTimer, UpdateSourceTrigger=LostFocus}">
+					<ig:ValueInput.ValueConstraint>
+						<ig:ValueConstraint
+							Nullable="False" />
+					</ig:ValueInput.ValueConstraint>
+				</controls:RMNumericInput>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="4">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="5" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<controls:RMTextBlock
+				Text="{x:Static resourceRepository:Resources.JobDialog_JobContainerName}" />
+			<!--Unknown connection ID: 26-->
+			<controls:RMTextBox
+				Name="tbxName"
+				Grid.Row="2"
+				MaxLength="128"
+				Text="{Binding Path=ScheduleJobContext.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+		</Grid>
+		<Grid
+			Row="6">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="5" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<controls:RMTextBlock
+				Text="{x:Static resourceRepository:Resources.Wizard_TimeZone}" />
+			<!--Unknown connection ID: 27-->
+			<controls:RMComboBox
+				Name="cbxTimeZone"
+				Grid.Row="2"
+				DisplayMemberPath="DisplayName"
+				ItemsSource="{Binding ScheduleJobContext.TimeZoneInfos}"
+				SelectedItem="{Binding ScheduleJobContext.SelectedTimeZoneInfo}" />
+		</Grid>
+		<Grid
+			Row="8">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="200" />
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="200" />
+			</Grid.ColumnDefinitions>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="5" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_ScheduleJob_StartAfter}" />
+				<Grid
+					Row="2">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition
+							Width="32" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<!--Unknown connection ID: 28-->
+					<controls:RMDateInput
+						Name="ditStartDate"
+						ig:InvalidValueBehavior="RevertValue"
+						ig:Text="{Binding Path=ScheduleJobContext.StartAfterDate, ValidatesOnDataErrors=True}" />
+					<!--Unknown connection ID: 29-->
+					<controls:RMMaskedInput
+						Name="msiStartTime"
+						Grid.Column="2"
+						ig:InvalidValueBehavior="RevertValue"
+						ig:Mask="hh:mm"
+						ig:SpinButtonDisplayMode="Focused"
+						Width="75"
+						ig:Text="{Binding Path=ScheduleJobContext.StartAfterTime, ValidatesOnDataErrors=True}" />
+				</Grid>
+			</Grid>
+			<Grid
+				Column="2">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="5" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<controls:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_ScheduleJob_EndBefore}" />
+				<Grid
+					Row="2">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition
+							Width="32" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<!--Unknown connection ID: 30-->
+					<controls:RMDateInput
+						Name="ditEndDate"
+						ig:InvalidValueBehavior="RevertValue"
+						ig:Text="{Binding Path=ScheduleJobContext.EndBeforeDate, ValidatesOnDataErrors=True}" />
+					<!--Unknown connection ID: 31-->
+					<controls:RMMaskedInput
+						Name="msiEndTime"
+						Grid.Column="2"
+						ig:InvalidValueBehavior="RevertValue"
+						ig:Mask="hh:mm"
+						ig:SpinButtonDisplayMode="Focused"
+						Width="75"
+						ig:Text="{Binding Path=ScheduleJobContext.EndBeforeTime, ValidatesOnDataErrors=True}" />
+				</Grid>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="10"
+			HorizontalAlignment="Right"
+			Width="200"
+			Margin="0, 20, 0, 0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 32-->
+			<controls:RMButton
+				Name="btnOK"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_OK}"
+				IsDefault="True"
+				Command="{Binding ScheduleJobCommand}">
+				<UIElement.IsEnabled>
+					<MultiBinding
+						Converter="{StaticResource ScheduleJobViewOKButtonEnableConverter}">
+						<Binding
+							Path="ScheduleJobContext.IsTypeReadEditable" />
+						<Binding
+							Path="ScheduleJobContext.IsTypeWriteEditable" />
+					</MultiBinding>
+				</UIElement.IsEnabled>
+			</controls:RMButton>
+			<!--Unknown connection ID: 33-->
+			<controls:RMButton
+				Name="btnCancel"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Cancel}"
+				IsCancel="True" />
+		</Grid>
+		<controls:RMErrorBar
+			Grid.Row="11"
+			Error="{Binding ScheduleJobContext.ExceptionMessage}" />
+	</Grid>
+</UserControl>

@@ -1,0 +1,24 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dc="clr-namespace:DevComponents.WpfDock" xmlns:dcp="clr-namespace:DevComponents.WpfDock.Primitives">
+	<Style
+		TargetType="{x:Type dc:g}"
+		x:Key="{x:Type dc:g}">
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+						Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=dc:DockSite, ResourceId={x:Static dc:DockColors.DockPreviewWindowBackground}}}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

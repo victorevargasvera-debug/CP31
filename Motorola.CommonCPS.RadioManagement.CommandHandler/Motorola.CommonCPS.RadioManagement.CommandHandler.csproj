@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.CommandHandler</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASTROOTARProfile\ExportOtarProfileToFileCommand.cs" />
+    <Compile Include="CommandHandlerDIModule\CommandHandlerModule.cs" />
+    <Compile Include="CommandHandlerDIModule\IInstanceResolver.cs" />
+    <Compile Include="CommandHandlerDIModule\InstanceResolver.cs" />
+    <Compile Include="CommandHandlerFactory.cs" />
+    <Compile Include="Command\AboutCommand.cs" />
+    <Compile Include="Command\AddGroupCommand.cs" />
+    <Compile Include="Command\AddSelectedDevices.cs" />
+    <Compile Include="Command\ApplyTemplateCommand.cs" />
+    <Compile Include="Command\ApplyTemplatetoRelatedRadiosCommand.cs" />
+    <Compile Include="Command\ASTROAddDeviceCommand.cs" />
+    <Compile Include="Command\ASTROCommandHandler.cs" />
+    <Compile Include="Command\ASTROModifyCodeplugPasswordCommand.cs" />
+    <Compile Include="Command\AstroPrepareAddRadioCommand.cs" />
+    <Compile Include="Command\AstroPrepareFlashPortCommand.cs" />
+    <Compile Include="Command\ASTROPrepareImportPackagesCommand.cs" />
+    <Compile Include="Command\ASTROPrepareImportTemplateCommand.cs" />
+    <Compile Include="Command\ASTROPrepareModifyCodeplugPasswordCommand.cs" />
+    <Compile Include="Command\ASTROPrepareQueryUpdateRadioCommand.cs" />
+    <Compile Include="Command\ASTROPrepareScheduleJobCommand.cs" />
+    <Compile Include="Command\ASTROPrepareSelectCodeplugVersionCommand.cs" />
+    <Compile Include="Command\AstroPrepareUpgradeFirmwareCommand.cs" />
+    <Compile Include="Command\ASTROQueryUpdateRadioCommand.cs" />
+    <Compile Include="Command\ASTRORecoverLicenseCommand.cs" />
+    <Compile Include="Command\ASTRORestore_PrepareScheduleJobCommand.cs" />
+    <Compile Include="Command\ASTROScheduleJobCommand.cs" />
+    <Compile Include="Command\ASTROSelectCodeplugVersionCommand.cs" />
+    <Compile Include="Command\ASTROSelectWarningRadiostoScheduleJobCommand.cs" />
+    <Compile Include="Command\ASTROSubmitLicenseAssignmentCommand.cs" />
+    <Compile Include="Command\ASTROSubmitRaioLicenseParam.cs" />
+    <Compile Include="Command\AstroUpgradeCommand.cs" />
+    <Compile Include="Command\AstroUpgradeLanguagePackCommand.cs" />
+    <Compile Include="Command\AstroUploadCodeplugCommand.cs" />
+    <Compile Include="Command\ASTROWiFiPWDValidation.cs" />
+    <Compile Include="Command\BatchJobCommandBase.cs" />
+    <Compile Include="Command\BatchOpModelCollection.cs" />
+    <Compile Include="Command\CancelBatchOpCommand.cs" />
+    <Compile Include="Command\CancelDBMigrationBacthOpCommand.cs" />
+    <Compile Include="Command\CancelJobCommand.cs" />
+    <Compile Include="Command\CancelRunningJobsCommand.cs" />
+    <Compile Include="Command\CancelSaveTemplateAsCommand.cs" />
+    <Compile Include="Command\ChangeRMAppButtonBarModeCommand.cs" />
+    <Compile Include="Command\ChangeRMAppLanguageCommand.cs" />
+    <Compile Include="Command\ChangeRMUserPasswordCommand.cs" />
+    <Compile Include="Command\ChangeShowDialogCommand.cs" />
+    <Compile Include="Command\ClearAllCommand.cs" />
+    <Compile Include="Command\ClearBatchOpCommand.cs" />
+    <Compile Include="Command\CommandBase.cs" />
+    <Compile Include="Command\CommandHandler.cs" />
+    <Compile Include="Command\CompleteJobCommand.cs" />
+    <Compile Include="Command\ConvertRadioInBackgroundCommand.cs" />
+    <Compile Include="Command\CopyRadioIdentityCommand.cs" />
+    <Compile Include="Command\DeleteDeviceCommand.cs" />
+    <Compile Include="Command\DeleteGroupCommand.cs" />
+    <Compile Include="Command\DeleteJobContainerCommand.cs" />
+    <Compile Include="Command\DeletePackageCommand.cs" />
+    <Compile Include="Command\DeleteTemplatesCommand.cs" />
+    <Compile Include="Command\DiscardCodeplugCommand.cs" />
+    <Compile Include="Command\EditAstroDataProfileCommand.cs" />
+    <Compile Include="Command\EditASTROOTARProfileCommand.cs" />
+    <Compile Include="Command\EditAstroSystemCommand.cs" />
+    <Compile Include="Command\EditCodeplugCommand.cs" />
+    <Compile Include="Command\EditPackageColumnCommand.cs" />
+    <Compile Include="Command\EditRadioCommand.cs" />
+    <Compile Include="Command\EditTemplateColumnCommand.cs" />
+    <Compile Include="Command\EditTemplateCommand.cs" />
+    <Compile Include="Command\ExportASTROSystemToFileCommand.cs" />
+    <Compile Include="Command\ExportCodeplugCommand.cs" />
+    <Compile Include="Command\ExportDataProfileToFileCommand.cs" />
+    <Compile Include="Command\ExportDVRS_Command.cs" />
+    <Compile Include="Command\ExportGridToFileCommand.cs" />
+    <Compile Include="Command\ExportGridToFileCommandBase.cs" />
+    <Compile Include="Command\FilterAvailableDevicesCommand.cs" />
+    <Compile Include="Command\FilterCommand.cs" />
+    <Compile Include="Command\Filters.cs" />
+    <Compile Include="Command\GetBatchOpCommand.cs" />
+    <Compile Include="Command\GetDatabaseSizeSummaryCommand.cs" />
+    <Compile Include="Command\GetHostIDFileCommand.cs" />
+    <Compile Include="Command\ICommandHandler.cs" />
+    <Compile Include="Command\ICommandImplementation.cs" />
+    <Compile Include="Command\IInternalInstances.cs" />
+    <Compile Include="Command\ImportFileToGridCommandBase.cs" />
+    <Compile Include="Command\ImportFileToRadioGridCommand.cs" />
+    <Compile Include="Command\ImportLanguagePackageCommand.cs" />
+    <Compile Include="Command\ImportRadioCommand.cs" />
+    <Compile Include="Command\ImportTemplateCommand.cs" />
+    <Compile Include="Command\InternalInstances.cs" />
+    <Compile Include="Command\MigrateRadioAndCommonResourceCommand.cs" />
+    <Compile Include="Command\MigrateTemplateCommand.cs" />
+    <Compile Include="Command\ModifyCodeplugPasswordCommand.cs" />
+    <Compile Include="Command\MoveDeviceBatchCommand.cs" />
+    <Compile Include="Command\MoveDeviceCommand.cs" />
+    <Compile Include="Command\NullCommand.cs" />
+    <Compile Include="Command\OpenLicenseFileCommand.cs" />
+    <Compile Include="Command\PasteRadioIdentityCommand.cs" />
+    <Compile Include="Command\PrepareImportPackagesCommand.cs" />
+    <Compile Include="Command\PrepareImportRadiosCommand.cs" />
+    <Compile Include="Command\PrepareImportTemplateCommand.cs" />
+    <Compile Include="Command\PrepareModifyCodeplugPasswordCommand.cs" />
+    <Compile Include="Command\PrepareMoveDeviceBatchCommand.cs" />
+    <Compile Include="Command\PrepareRegisterAppLicenseDialogCommand.cs" />
+    <Compile Include="Command\PrepareRegisterRadioLicenseDialogCommand.cs" />
+    <Compile Include="Command\PrepareReportsInRadioViewCommmand.cs" />
+    <Compile Include="Command\PrepareResetIdentifiersCommand.cs" />
+    <Compile Include="Command\PrepareResetRadioPasswordCommand.cs" />
+    <Compile Include="Command\PrepareScheduleJobCommand.cs" />
+    <Compile Include="Command\PrepareWiFiPasswordValidationCommand.cs" />
+    <Compile Include="Command\PrintPreviewCommand.cs" />
+    <Compile Include="Command\PrintViewCommand.cs" />
+    <Compile Include="Command\ProgressReportingGuiCommand.cs" />
+    <Compile Include="Command\QueryAppEIDCommand.cs" />
+    <Compile Include="Command\QueryEIDCommand.cs" />
+    <Compile Include="Command\QueryMigrationStatusCommand.cs" />
+    <Compile Include="Command\RecoverAppLicenseCommand.cs" />
+    <Compile Include="Command\RecoverRadioLicenseCommand.cs" />
+    <Compile Include="Command\RefreshGroupCommand.cs" />
+    <Compile Include="Command\RegistRadioFeatureGroupChangeCommand.cs" />
+    <Compile Include="Command\RemoveSelectedDevices.cs" />
+    <Compile Include="Command\RenameGroupCommand.cs" />
+    <Compile Include="Command\ResetIdentifiersCommand.cs" />
+    <Compile Include="Command\ResetRadioPasswordCommand.cs" />
+    <Compile Include="Command\RestoreRadioLicenseCommand.cs" />
+    <Compile Include="Command\Restore_PrepareScheduleJobCommand.cs" />
+    <Compile Include="Command\SaveDealerInfoCommand.cs" />
+    <Compile Include="Command\SaveHiddenMessageCommand.cs" />
+    <Compile Include="Command\SaveSettingsCommand.cs" />
+    <Compile Include="Command\SaveTemplateAsCommand.cs" />
+    <Compile Include="Command\SaveTemplateCommandFromCPS.cs" />
+    <Compile Include="Command\ScheduleJobCommand.cs" />
+    <Compile Include="Command\SearchCondition.cs" />
+    <Compile Include="Command\SelectAgencyCommand.cs" />
+    <Compile Include="Command\SelectASKForCFSCommand.cs" />
+    <Compile Include="Command\SelectTemplateCommand.cs" />
+    <Compile Include="Command\SelectWarningRadiostoScheduleJobCommand.cs" />
+    <Compile Include="Command\ShowBatchOpManagerCommand.cs" />
+    <Compile Include="Command\ShowLanguageDetailInfomationCommand.cs" />
+    <Compile Include="Command\ShowRadioConversionDialogCommand.cs" />
+    <Compile Include="Command\ShowRadioDetailsCommand.cs" />
+    <Compile Include="Command\ShowSettingCommand.cs" />
+    <Compile Include="Command\ShowTemplateConversionDialogCommand.cs" />
+    <Compile Include="Command\ShowTemplateLanguageDetailInfomationCommand.cs" />
+    <Compile Include="Command\ShowTemplateVADetailInfomationCommand.cs" />
+    <Compile Include="Command\ShowUpdateLogSettingWindowCommand.cs" />
+    <Compile Include="Command\ShowVADetailInfomationCommand.cs" />
+    <Compile Include="Command\SimpleCommandBase.cs" />
+    <Compile Include="Command\StopLoadingCommand.cs" />
+    <Compile Include="Command\SubmitAppLicenseCommand.cs" />
+    <Compile Include="Command\SubmitLicenseAssignmentCommand.cs" />
+    <Compile Include="Command\SubmitRadioPasteValueCommand.cs" />
+    <Compile Include="Command\UpdateAppFeatureCommand.cs" />
+    <Compile Include="Command\UpdateGroupCommand.cs" />
+    <Compile Include="Command\UpdateLogSettingCommand.cs" />
+    <Compile Include="Command\UpdateRadioFeatureCommand.cs" />
+    <Compile Include="Command\UpgradeLanguageInRadioCommand.cs" />
+    <Compile Include="Command\WiFiPasswordValidationCommand.cs" />
+    <Compile Include="Command\WiFiRecord.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AES\AES.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA643}</Project>
+      <Name>AES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64A}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v15.1\InfragisticsWPF4.DataPresenter.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.ServiceLocation\Microsoft.Practices.ServiceLocation.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69D}</Project>
+      <Name>Microsoft.Practices.ServiceLocation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Converters\Motorola.CommonCPS.RadioManagement.Converters.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AC}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Events\Motorola.CommonCPS.RadioManagement.Events.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AF}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.InteractionHelper\Motorola.CommonCPS.RadioManagement.InteractionHelper.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B4}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.InteractionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.LocalService\Motorola.CommonCPS.RadioManagement.LocalService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B7}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.LocalService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.ModelConvertor\Motorola.CommonCPS.RadioManagement.ModelConvertor.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.ModelConvertor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.SharedService\Motorola.CommonCPS.RadioManagement.SharedService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.SharedService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.Server.RMDiscoveryServiceInterface\Motorola.CommonCPS.Server.RMDiscoveryServiceInterface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C3}</Project>
+      <Name>Motorola.CommonCPS.Server.RMDiscoveryServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Operation\Operation.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6CE}</Project>
+      <Name>Operation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RMCLI\RMCLI.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D4}</Project>
+      <Name>RMCLI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlCommonUtility\SamlCommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D8}</Project>
+      <Name>SamlCommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlTokenComponent\SamlTokenComponent.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D9}</Project>
+      <Name>SamlTokenComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewCache\ViewCache.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E5}</Project>
+      <Name>ViewCache</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

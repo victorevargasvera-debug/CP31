@@ -1,0 +1,174 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Job.OperationalDetailsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:job="clr-namespace:Motorola.CommonCPS.RadioManagement.Job">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="F5"
+			Command="{Binding RefreshCommand}" />
+	</UIElement.InputBindings>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:JobStatusToStringConverter
+				x:Key="JobStatusToStringConverter" />
+			<converters:BatchJobTypeConverter
+				x:Key="BatchJobTypeConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="1" />
+			<RowDefinition
+				Height="15" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				FontWeight="Bold"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Content="{x:Static resourceRepository:Resources.RMC_Views_JobDetails_JobName}" />
+			<controls:RMTextBlock
+				Grid.Row="0"
+				Grid.Column="1"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Margin="5,0,0,0"
+				Text="{Binding JobContainer.ContainerName}" />
+			<Label
+				Grid.Row="0"
+				Grid.Column="2"
+				FontWeight="Bold"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Content="{x:Static resourceRepository:Resources.RMC_Views_JobDetails_CreatedDate}" />
+			<controls:RMTextBlock
+				Grid.Row="0"
+				Grid.Column="3"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Margin="5,0,0,0"
+				Text="{Binding JobContainer.CreatedTime}" />
+			<Label
+				Grid.Row="1"
+				Grid.Column="0"
+				FontWeight="Bold"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Content="{x:Static resourceRepository:Resources.RMC_Views_JobDetails_StartDate}" />
+			<controls:RMTextBlock
+				Grid.Row="1"
+				Grid.Column="1"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Margin="5,0,0,0"
+				Text="{Binding JobContainer.StartTime}" />
+			<Label
+				Grid.Row="1"
+				Grid.Column="2"
+				FontWeight="Bold"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Content="{x:Static resourceRepository:Resources.RMC_Views_JobDetails_EndDate}" />
+			<controls:RMTextBlock
+				Grid.Row="1"
+				Grid.Column="3"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Margin="5,0,0,0"
+				Text="{Binding JobContainer.EndTime}" />
+			<Label
+				Grid.Row="2"
+				Grid.Column="0"
+				FontWeight="Bold"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Content="{x:Static resourceRepository:Resources.RMC_Views_JobDetails_JobType}" />
+			<controls:RMTextBlock
+				Grid.Row="2"
+				Grid.Column="1"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				Margin="5,0,0,0"
+				Text="{Binding JobContainer.Type, Converter={StaticResource BatchJobTypeConverter}}" />
+		</Grid>
+		<Grid
+			Row="1"
+			Background="{StaticResource BrushAccent}" />
+		<!--Unknown connection ID: 1-->
+		<controls:RMDataGrid
+			Name="dgrOperationalJobs"
+			Grid.Row="3"
+			igDP:GroupByAreaLocation="None"
+			igDP:DataSource="{Binding Items}"
+			SearchCommand="{Binding SearchCommand}">
+			<igDP:DataPresenterBase.FieldSettings>
+				<igDP:FieldSettings
+					AllowEdit="False"
+					CellClickAction="SelectCell"
+					Width="Auto" />
+			</igDP:DataPresenterBase.FieldSettings>
+			<igDP:DataPresenterBase.FieldLayouts>
+				<igDP:FieldLayout>
+					<igDP:FieldLayout.Fields>
+						<igDP:Field
+							Name="Name"
+							Label="{x:Static resourceRepository:Resources.RMC_Job_Item}"
+							Column="0" />
+						<igDP:Field
+							Name="UIJobStatus"
+							Label="{x:Static resourceRepository:Resources.RMC_Job_Status}"
+							Column="1"
+							Converter="{StaticResource JobStatusToStringConverter}">
+							<igDP:Field.Settings>
+								<igDP:FieldSettings
+									EditAsType="{x:Type sys:String}" />
+							</igDP:Field.Settings>
+						</igDP:Field>
+						<igDP:Field
+							Name="ExecutedDate"
+							Label="{x:Static resourceRepository:Resources.RMC_Job_ExecutedDate}"
+							Column="2">
+							<igDP:Field.Settings>
+								<igDP:FieldSettings
+									AllowEdit="false"
+									EditAsType="{x:Type sys:DateTime}" />
+							</igDP:Field.Settings>
+						</igDP:Field>
+						<igDP:Field
+							Name="Reason"
+							Label="{x:Static resourceRepository:Resources.RMC_Job_Reason}"
+							Column="3" />
+					</igDP:FieldLayout.Fields>
+				</igDP:FieldLayout>
+			</igDP:DataPresenterBase.FieldLayouts>
+		</controls:RMDataGrid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Template</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Template</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplyTemplatetoRelatedRadiosView.cs" />
+    <Compile Include="ApplyTemplatetoRelatedRadiosViewModel.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ImportTemplatesView.cs" />
+    <Compile Include="ImportTemplatesViewModel.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="ModuleTemplate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SaveTemplateAsView.cs" />
+    <Compile Include="SaveTemplateAsViewModel.cs" />
+    <Compile Include="SelectFirmwareView.cs" />
+    <Compile Include="SelectFirmwareViewModel.cs" />
+    <Compile Include="ShowLanguagePacksView.cs" />
+    <Compile Include="ShowLanguagePacksViewModel.cs" />
+    <Compile Include="ShowVAPacksView.cs" />
+    <Compile Include="ShowVAPacksViewModel.cs" />
+    <Compile Include="TemplateMainView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v15.1\InfragisticsWPF4.DataPresenter.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Editors.v15.1\InfragisticsWPF4.Editors.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68E}</Project>
+      <Name>InfragisticsWPF4.Editors.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.Interactivity\Microsoft.Practices.Prism.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69B}</Project>
+      <Name>Microsoft.Practices.Prism.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.CommandHandler\Motorola.CommonCPS.RadioManagement.CommandHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Controls\Motorola.CommonCPS.RadioManagement.Controls.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AB}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Events\Motorola.CommonCPS.RadioManagement.Events.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AF}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Infrastructure\Motorola.CommonCPS.RadioManagement.Infrastructure.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B3}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.LocalService\Motorola.CommonCPS.RadioManagement.LocalService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B7}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.LocalService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="applytemplatetorelatedradiosview\applytemplatetorelatedradiosview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="importtemplatesview\importtemplatesview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="savetemplateasview\savetemplateasview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="selectfirmwareview\selectfirmwareview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="showlanguagepacksview\showlanguagepacksview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="showvapacksview\showvapacksview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

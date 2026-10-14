@@ -1,0 +1,132 @@
+<local:RMCellPresentableFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMStringFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igEditors="http://schemas.infragistics.com/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Name="fedString"
+	Height="Auto">
+	<!--Unknown connection ID: 2-->
+	<Grid
+		Name="grdMain">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1*" />
+			<ColumnDefinition
+				Width="0.05*" />
+			<ColumnDefinition />
+			<ColumnDefinition
+				Width="21" />
+			<ColumnDefinition
+				Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<local:RMTextBlock
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			Text="{Binding Path=Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}"
+			IsEnabled="{Binding IsApplicable}" />
+		<!--Unknown connection ID: 3-->
+		<Border
+			Name="borderInvalid"
+			Grid.Column="2"
+			BorderThickness="1"
+			Style="{StaticResource InvalidBorderStyle}">
+			<Grid>
+				<!--Unknown connection ID: 4-->
+				<local:RMMaskedInput
+					Name="msiText"
+					Visibility="Collapsed"
+					Width="Auto"
+					TextWrapping="Wrap"
+					Height="Auto"
+					MaxHeight="400"
+					igEditors:InvalidValueBehavior="RevertValue"
+					Style="{StaticResource FieldEditorMaskedInputStyle}"
+					igEditors:Value="{Binding Path=Text, UpdateSourceTrigger=LostFocus}">
+					<igEditors:XamMaskedInput.Mask>
+						<MultiBinding
+							Converter="{StaticResource StringFieldInfoInsertedToMaskConverter}">
+							<Binding
+								ElementName="fedString"
+								Path="Mask" />
+							<Binding
+								Path="MaxLength" />
+						</MultiBinding>
+					</igEditors:XamMaskedInput.Mask>
+				</local:RMMaskedInput>
+				<!--Unknown connection ID: 5-->
+				<local:RMTextBox
+					Name="txbText"
+					TextWrapping="Wrap"
+					Height="Auto"
+					MaxHeight="400"
+					Style="{StaticResource FieldEditorTextBoxStyleGreyed}"
+					Text="{Binding Path=Text, UpdateSourceTrigger=LostFocus}"
+					MaxLength="{Binding MaxLength}">
+					<TextBoxBase.IsReadOnly>
+						<MultiBinding
+							Converter="{StaticResource FieldPropertiesToIsReadOnlyConverter}">
+							<Binding
+								Path="IsEditable" />
+							<Binding
+								Path="IsMVODynamic" />
+							<Binding
+								Path="UseMVODefault" />
+							<Binding
+								Path="IsApplicable" />
+						</MultiBinding>
+					</TextBoxBase.IsReadOnly>
+				</local:RMTextBox>
+				<!--Unknown connection ID: 6-->
+				<Border
+					Name="borderfreeze"
+					Background="#00FFFFFF"
+					Visibility="Collapsed" />
+				<Border
+					Background="{StaticResource BrushGray}"
+					Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+					<TextBlock
+						Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center" />
+				</Border>
+			</Grid>
+		</Border>
+		<!--Unknown connection ID: 7-->
+		<local:RMButton
+			Name="btnLock"
+			Click="btnLock_Click"
+			Grid.Column="3"
+			Margin="1,0,0,0"
+			Width="20"
+			IsEnabled="{Binding IsEditable}"
+			Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}"
+			Tag="{Binding UseMVODefault, Mode=TwoWay}">
+			<Control.Template>
+				<ControlTemplate>
+					<Image>
+						<Image.Source>
+							<MultiBinding
+								Converter="{StaticResource BoolToLockIconPathConverter}">
+								<Binding
+									Path="UseMVODefault" />
+								<Binding
+									Path="IsEditable" />
+								<Binding
+									RelativeSource="{RelativeSource Self}" />
+							</MultiBinding>
+						</Image.Source>
+					</Image>
+				</ControlTemplate>
+			</Control.Template>
+		</local:RMButton>
+		<!--Unknown connection ID: 8-->
+		<local:RMButton
+			Name="PlayBtn"
+			Click="PlayBtn_Click"
+			Grid.Column="4"
+			IsDefault="False"
+			Margin="1,0"
+			Width="20"
+			Visibility="{Binding Path=PlayButtonVisible, FallbackValue=Collapsed, Converter={StaticResource BoolToVisibilityConverter}}">
+			<Polygon
+				Points="0,0 4,4 0,8"
+				Fill="#FFFFFFFF" />
+		</local:RMButton>
+	</Grid>
+</local:RMCellPresentableFieldEditor>

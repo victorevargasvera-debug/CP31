@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Acp.PackUnpack</RootNamespace>
+    <AssemblyName>PackUnpackLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CrcPolynomial.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Encodings\BinaryCodedCharDecoder.cs" />
+    <Compile Include="Encodings\BinaryCodedCharEncoder.cs" />
+    <Compile Include="Encodings\BinaryCodedCharEncoding.cs" />
+    <Compile Include="g.cs" />
+    <Compile Include="ICrcPolynomial.cs" />
+    <Compile Include="Ish\a.cs" />
+    <Compile Include="Ish\AccessRights.cs" />
+    <Compile Include="Ish\ActivePartitionType.cs" />
+    <Compile Include="Ish\ByteBufferStream.cs" />
+    <Compile Include="Ish\ByteBufferStreamReader.cs" />
+    <Compile Include="Ish\ByteBufferStreamWriter.cs" />
+    <Compile Include="Ish\Codeplug.cs" />
+    <Compile Include="Ish\Collections\FieldCollection.cs" />
+    <Compile Include="Ish\Collections\FieldCollectionCollection.cs" />
+    <Compile Include="Ish\Collections\FieldLayoutCollection.cs" />
+    <Compile Include="Ish\Collections\FieldLayoutPositionComparer.cs" />
+    <Compile Include="Ish\Collections\ICollectionFind.cs" />
+    <Compile Include="Ish\Collections\IIshItemCollectionFind.cs" />
+    <Compile Include="Ish\Collections\IIshTypeCollectionFind.cs" />
+    <Compile Include="Ish\Collections\IListItemCollectionCollectionFind.cs" />
+    <Compile Include="Ish\Collections\IPartitionCollectionFind.cs" />
+    <Compile Include="Ish\Collections\IshItemCollection.cs" />
+    <Compile Include="Ish\Collections\IshTypeCollection.cs" />
+    <Compile Include="Ish\Collections\IStructureLayoutCollectionFind.cs" />
+    <Compile Include="Ish\Collections\ListItemCollection.cs" />
+    <Compile Include="Ish\Collections\ListItemCollectionCollection.cs" />
+    <Compile Include="Ish\Collections\PartitionCollection.cs" />
+    <Compile Include="Ish\Collections\StructureLayoutCollection.cs" />
+    <Compile Include="Ish\CompositeItem.cs" />
+    <Compile Include="Ish\CompositeType.cs" />
+    <Compile Include="Ish\Crc16Generator.cs" />
+    <Compile Include="Ish\DataArea.cs" />
+    <Compile Include="Ish\DataExchangeDirection.cs" />
+    <Compile Include="Ish\DataExchangeManager.cs" />
+    <Compile Include="Ish\DataExchange\a.cs" />
+    <Compile Include="Ish\DataExchange\b.cs" />
+    <Compile Include="Ish\DataExchange\c.cs" />
+    <Compile Include="Ish\DataExchange\FieldExchange.cs" />
+    <Compile Include="Ish\DataExchange\RecsetExchange.cs" />
+    <Compile Include="Ish\DataExchange\SectionExchange.cs" />
+    <Compile Include="Ish\DataExchange\SparseLOVFieldAdapter.cs" />
+    <Compile Include="Ish\DataExchange\VoiceFileFieldAdapter.cs" />
+    <Compile Include="Ish\DelimitedArray.cs" />
+    <Compile Include="Ish\Exceptions\ExchangeNotFoundException.cs" />
+    <Compile Include="Ish\Exceptions\FieldNotFoundException.cs" />
+    <Compile Include="Ish\Exceptions\InvalidCrcException.cs" />
+    <Compile Include="Ish\Exceptions\IshItemNotFoundException.cs" />
+    <Compile Include="Ish\Exceptions\IshTypeNotFoundException.cs" />
+    <Compile Include="Ish\Exceptions\PackUnpackException.cs" />
+    <Compile Include="Ish\Exceptions\StructureLayoutNotFoundException.cs" />
+    <Compile Include="Ish\Fields\BoolField.cs" />
+    <Compile Include="Ish\Fields\ByteArrayField.cs" />
+    <Compile Include="Ish\Fields\CharField.cs" />
+    <Compile Include="Ish\Fields\Field.cs" />
+    <Compile Include="Ish\Fields\IFieldValue.cs" />
+    <Compile Include="Ish\Fields\IndexReferenceField.cs" />
+    <Compile Include="Ish\Fields\IntField.cs" />
+    <Compile Include="Ish\Fields\IPAddressField.cs" />
+    <Compile Include="Ish\Fields\ItemReferenceField.cs" />
+    <Compile Include="Ish\Fields\StringField.cs" />
+    <Compile Include="Ish\IAccumulatingCrcGenerator.cs" />
+    <Compile Include="Ish\ICrcGenerator.cs" />
+    <Compile Include="Ish\IIshItem.cs" />
+    <Compile Include="Ish\IIshItemFactory.cs" />
+    <Compile Include="Ish\IIshItemName.cs" />
+    <Compile Include="Ish\IIshType.cs" />
+    <Compile Include="Ish\IListNode.cs" />
+    <Compile Include="Ish\InactivePartitionType.cs" />
+    <Compile Include="Ish\Instantiation.cs" />
+    <Compile Include="Ish\IshId.cs" />
+    <Compile Include="Ish\IshItem.cs" />
+    <Compile Include="Ish\IshItemFactory.cs" />
+    <Compile Include="Ish\IshItemName.cs" />
+    <Compile Include="Ish\IshType.cs" />
+    <Compile Include="Ish\IshTypeEqualityComparer.cs" />
+    <Compile Include="Ish\IshTypeIdTracker.cs" />
+    <Compile Include="Ish\IshTypeSortComparer.cs" />
+    <Compile Include="Ish\ItemStructureType.cs" />
+    <Compile Include="Ish\Layouts\BoolFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\ByteArrayFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\CharEncoding.cs" />
+    <Compile Include="Ish\Layouts\CharFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\ChildLayout.cs" />
+    <Compile Include="Ish\Layouts\CompositeLayout.cs" />
+    <Compile Include="Ish\Layouts\DataAreaLayout.cs" />
+    <Compile Include="Ish\Layouts\DataAreaType.cs" />
+    <Compile Include="Ish\Layouts\DynamicItemReferenceFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\FieldJustification.cs" />
+    <Compile Include="Ish\Layouts\FieldLayout.cs" />
+    <Compile Include="Ish\Layouts\IChildLayout.cs" />
+    <Compile Include="Ish\Layouts\IFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\ILayout.cs" />
+    <Compile Include="Ish\Layouts\IndexReferenceFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\IntegerUse.cs" />
+    <Compile Include="Ish\Layouts\IntFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\IntMask.cs" />
+    <Compile Include="Ish\Layouts\INumericMask.cs" />
+    <Compile Include="Ish\Layouts\IPAddressFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\IPAddressType.cs" />
+    <Compile Include="Ish\Layouts\ItemReferenceFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\IUclListLayout.cs" />
+    <Compile Include="Ish\Layouts\Layout.cs" />
+    <Compile Include="Ish\Layouts\ListLayout.cs" />
+    <Compile Include="Ish\Layouts\MaskApplication.cs" />
+    <Compile Include="Ish\Layouts\Nibble.cs" />
+    <Compile Include="Ish\Layouts\ReferenceFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\ReferenceRelationship.cs" />
+    <Compile Include="Ish\Layouts\StringEncoding.cs" />
+    <Compile Include="Ish\Layouts\StringFieldLayout.cs" />
+    <Compile Include="Ish\Layouts\StructureLayout.cs" />
+    <Compile Include="Ish\Layouts\StructureLayoutType.cs" />
+    <Compile Include="Ish\Layouts\UclCallIdListLayout.cs" />
+    <Compile Include="Ish\Layouts\UclConfigurationCompositeLayout.cs" />
+    <Compile Include="Ish\Layouts\UclContactListLayout.cs" />
+    <Compile Include="Ish\Layouts\UclHotListAliasTextListLayout.cs" />
+    <Compile Include="Ish\Layouts\UclHotListLayout.cs" />
+    <Compile Include="Ish\ListHeaderItem.cs" />
+    <Compile Include="Ish\ListHeaderType.cs" />
+    <Compile Include="Ish\ListItemReader.cs" />
+    <Compile Include="Ish\ListListletItem.cs" />
+    <Compile Include="Ish\ListListletType.cs" />
+    <Compile Include="Ish\Loggers\PartitionLogger.cs" />
+    <Compile Include="Ish\Loggers\WriteState.cs" />
+    <Compile Include="Ish\Packer.cs" />
+    <Compile Include="Ish\Partition.cs" />
+    <Compile Include="Ish\PartitionImageReader.cs" />
+    <Compile Include="Ish\PartitionIOProvider.cs" />
+    <Compile Include="Ish\PartitionType.cs" />
+    <Compile Include="Ish\ReadState.cs" />
+    <Compile Include="Ish\TypeCodeInfo.cs" />
+    <Compile Include="Ish\UclCallIdListHeaderType.cs" />
+    <Compile Include="Ish\UclCallIdListListletType.cs" />
+    <Compile Include="Ish\UclConfigurationCompositeType.cs" />
+    <Compile Include="Ish\UclContactListHeaderType.cs" />
+    <Compile Include="Ish\UclContactListListletType.cs" />
+    <Compile Include="Ish\UclHotListAliasTextListHeaderType.cs" />
+    <Compile Include="Ish\UclHotListAliasTextListListletType.cs" />
+    <Compile Include="Ish\UclHotListHeaderType.cs" />
+    <Compile Include="Ish\UclHotListListletType.cs" />
+    <Compile Include="Ish\Unpacker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpBusinessLayer\AcpBusinessLayer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA630}</Project>
+      <Name>AcpBusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonLib\AcpCommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</Project>
+      <Name>AcpCommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

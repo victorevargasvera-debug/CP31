@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA659}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common.Communication.DeviceDiscovery</RootNamespace>
+    <AssemblyName>Common.Communication.DeviceDiscovery</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeviceDiscovery\DNSSDDecoder\a.cs" />
+    <Compile Include="DeviceDiscovery\DNSSDDecoder\b.cs" />
+    <Compile Include="DeviceDiscovery\DNSSDDecoder\c.cs" />
+    <Compile Include="DeviceDiscovery\DNSSDDecoder\d.cs" />
+    <Compile Include="DeviceDiscovery\DNSSDDecoder\e.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\a.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\b.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\c.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\d.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\d.Designer.cs">
+      <DependentUpon>d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\DeviceDetectorType.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\DeviceEventHandler.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\DeviceMsgEventArgs.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\DevPnPAction.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\DNSSDDetector.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\e.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\f.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\IDeviceDetector.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\LDTConnectMode.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\LDTDetector.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\LDTDetectorBase.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\LDTRadioProfile.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\LDTRadioStatus.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\OriginalPnPMsg.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\PnPDeviceDetectorBase.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\RadioProfileBase.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\RawMDNSMessage.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\RNDISDetector.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\RNDISRadioProfile.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\UDPDetectorBase.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\UDPDeviceConnectionMode.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\UDPDeviceManager.cs" />
+    <Compile Include="Motorola\Common\Communication\DeviceDiscovery\UDPRadioProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Communication.CommonInterface\Common.Communication.CommonInterface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA656}</Project>
+      <Name>Common.Communication.CommonInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.DnsWrapper\Common.Communication.DnsWrapper.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA65A}</Project>
+      <Name>Common.Communication.DnsWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonCommunicationUtility\CommonCommunicationUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA665}</Project>
+      <Name>CommonCommunicationUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

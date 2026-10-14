@@ -1,0 +1,1418 @@
+<UserControl
+	x:Class="ControlHeadGraphicView.O2GraphicView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:local="clr-namespace:ControlHeadGraphicView"
+	Name="MyO2GraphicView">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="styles/O2GraphicViewStyles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:MFKColorConverter
+				x:Key="MFKColorConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<!--Unknown connection ID: 2-->
+	<Grid
+		Name="LayoutRoot"
+		Margin="0,0,50,19">
+		<Viewbox
+			Margin="8,119,0,8">
+			<Grid
+				Height="288.763"
+				Width="938.393">
+				<Image
+					Source="images/O2.png"
+					Margin="8,0,214,46.281" />
+				<!--Unknown connection ID: 3-->
+				<Grid
+					Name="Grid_ShowAllButton"
+					Margin="89.663,-102.285,0,0"
+					VerticalAlignment="Top"
+					Height="27.103"
+					HorizontalAlignment="Left"
+					Width="216.202">
+					<!--Unknown connection ID: 4-->
+					<Viewbox
+						Name="ViewBox_ShowAllHeader"
+						Margin="-50.333,0,-323.918,-50.025"
+						VerticalAlignment="Bottom"
+						Height="24.818">
+						<Canvas
+							Width="540.918"
+							Height="28.396">
+							<Path
+								Width="748.692"
+								Height="29"
+								Canvas.Left="-78.399"
+								Stretch="Fill"
+								Data="F1 M3.8147E-06,24.8129 L0,22.595 C0,19.2812 2.68629,16.595 6,16.595 L97.3387,16.595 L97.3387,5.99994 C97.3387,2.6861 100.025,-6.10352E-05 103.339,-6.10352E-05 L194.089,-6.10352E-05 C197.402,-6.10352E-05 200.089,2.6861 200.089,5.99994 L200.089,16.595 L672.999,16.595 C676.313,16.595 678.999,19.2812 678.999,22.595 L678.999,24.8176 L200.089,24.7895 L97.3387,24.7895 L3.8147E-06,24.8129"
+								Canvas.Top="-60.809">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0.211578,-0.122847"
+										EndPoint="0.211578,2.07988">
+										<GradientStop
+											Color="#FF9F9F9F"
+											Offset="0" />
+										<GradientStop
+											Color="#FFACACAC"
+											Offset="0.0396508" />
+										<GradientStop
+											Color="#FFBABABA"
+											Offset="0.0792396" />
+										<GradientStop
+											Color="#FF838D98"
+											Offset="0.442332" />
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Path>
+							<Path
+								Width="748.692"
+								Height="29.6"
+								Canvas.Left="-78.399"
+								Canvas.Top="-60.809"
+								Stretch="Fill"
+								Data="F1 M1.16666,24.7613 L1.16666,23.7617 C1.16666,20.4478 3.85295,17.7617 7.16666,17.7617 L98.5053,17.7617 L98.5053,7.16656 C98.5053,3.85278 101.192,1.16656 104.505,1.16656 L195.255,1.16656 C198.569,1.16656 201.255,3.85278 201.255,7.16656 L201.255,17.7617 L674.166,17.7617 C677.48,17.7617 680.166,20.4478 680.166,23.7617 L680.166,24.7613 L201.255,24.7613 L98.5053,24.7613 L1.16666,24.7613">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0.156678,0.00260233"
+										EndPoint="0.156678,0.998588">
+										<GradientStop
+											Color="#FFFFFFFF"
+											Offset="0" />
+										<GradientStop
+											Color="#FFDCDCDC"
+											Offset="0.0449946" />
+										<GradientStop
+											Color="#FFBABABA"
+											Offset="0.0899188" />
+										<GradientStop
+											Color="#FFE7F3FF"
+											Offset="0.86" />
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Path>
+						</Canvas>
+					</Viewbox>
+					<!--Unknown connection ID: 5-->
+					<ToggleButton
+						Name="ShowAllButton"
+						Margin="38.857,-1.049,88.879,3.152"
+						Style="{DynamicResource ShowAllButtonStyle}"
+						RenderTransformOrigin="0.884,0.454"
+						Height="25" />
+				</Grid>
+				<!--Unknown connection ID: 6-->
+				<ToggleButton
+					Name="EmergencyButton"
+					HorizontalAlignment="Right"
+					Margin="0,43.232,294.232,0"
+					Style="{DynamicResource EmergencyButtonStyle}"
+					Width="30.543"
+					Height="30.543"
+					VerticalAlignment="Top"
+					DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Placement="Top"
+							Style="{DynamicResource ToolTipStyle}">
+							<StackPanel
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 7-->
+									<AcpUINS:AcpLabel
+										Name="LblEmergencyButtonFeatureToolTipTitle"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+										IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+										IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+										Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 8-->
+									<AcpUINS:AcpLabel
+										Name="LblEmergencyButtonFeatureToolTipValue"
+										FontSize="11"
+										Content="{Binding Path=EmergencyButtonFeatureUIValue}"
+										IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+										IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+										Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+							</StackPanel>
+						</ToolTip>
+					</FrameworkElement.ToolTip>
+					<!--Unknown connection ID: 9-->
+					<Popup
+						Name="EmergencyButton_Popup"
+						Placement="Bottom"
+						VerticalOffset="10"
+						HorizontalOffset="10"
+						StaysOpen="False"
+						AllowsTransparency="True"
+						PopupAnimation="Slide"
+						PlacementTarget="{Binding ElementName=EmergencyButton}"
+						DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+						IsOpen="{Binding ElementName=EmergencyButton, Path=IsChecked, Mode=TwoWay}">
+						<ContentControl
+							Style="{StaticResource ContentControlStyle}">
+							<Grid
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 10-->
+								<AcpUINS:AcpLabel
+									Name="LblEmergencyButtonFeaturePopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup}"
+									IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+									IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+									Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								<!--Unknown connection ID: 11-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxEmergencyButtonFeaturePopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=EmergencyButtonFeatureList.Items}"
+									SelectedValue="{Binding Path=EmergencyButtonFeatureUIValue}"
+									MyBLObject="{Binding Path=EmergencyButtonFeatureList}"
+									MyLabelCtrl="{Binding ElementName=LblEmergencyButtonFeaturePopup}"
+									IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+									Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyButtonFeatureIsAcpEditable" />
+											<Binding
+												Path="EmergencyButtonFeatureList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="EmergencyButtonFeatureIsAcpVisible" />
+											<Binding
+												Path="EmergencyButtonFeatureIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+							</Grid>
+						</ContentControl>
+					</Popup>
+				</ToggleButton>
+				<!--Unknown connection ID: 12-->
+				<Rectangle
+					Name="EmergencyCallOuts"
+					Margin="0,55.637,-52,0"
+					VerticalAlignment="Top"
+					Height="56.092"
+					Stroke="{DynamicResource O2 red}"
+					StrokeLineJoin="Round"
+					StrokeThickness="2.5"
+					HorizontalAlignment="Right"
+					Width="280.575"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 13-->
+				<Path
+					Name="EmergencyCallOuts_Lines"
+					Data="M543.793,66.394509 L543.793,73.370467 L624.6385,73.51552"
+					HorizontalAlignment="Right"
+					Height="9.006"
+					Margin="0,76.067,227.194,0"
+					Stretch="Fill"
+					Stroke="{DynamicResource O2 red}"
+					StrokeThickness="2.5"
+					StrokeLineJoin="Round"
+					VerticalAlignment="Top"
+					Width="83.833"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 14-->
+				<Canvas
+					Name="EmergencyCallOuts_Canvas"
+					Margin="0,71.176,79.354,0"
+					HorizontalAlignment="Right"
+					Width="150"
+					Height="56.092"
+					VerticalAlignment="Top"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<StackPanel
+						Canvas.Left="5">
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Unknown connection ID: 15-->
+							<AcpUINS:AcpLabel
+								Name="LblEmergencyButtonFeatureViewboxTitle"
+								FontSize="11"
+								Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+								IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+								IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup, Path=Visibility}"
+								MyParentCtrl="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup}" />
+							<!--Unknown connection ID: 16-->
+							<AcpUINS:AcpLabel
+								Name="LblEmergencyButtonFeatureViewboxValue"
+								FontSize="11"
+								Content="{Binding Path=EmergencyButtonFeatureUIValue, Mode=TwoWay}"
+								MyParentCtrl="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup}"
+								IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+								IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup, Path=Visibility}" />
+						</StackPanel>
+					</StackPanel>
+				</Canvas>
+				<Grid
+					Width="210"
+					Height="40"
+					Margin="175,125,0,0"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					FlowDirection="{Binding Path=UIFlowDirection}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<!--Unknown connection ID: 17-->
+					<Label
+						Name="bottom_screen_info"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="0"
+						Grid.Column="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,4,0,0"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsConventionalSelectedList" />
+									<Binding
+										Path="MenuItemsConventionalSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 18-->
+					<Label
+						Name="bottom_screen_scan"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="0"
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,4,0,0"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsConventionalSelectedList" />
+									<Binding
+										Path="MenuItemsConventionalSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 19-->
+					<Label
+						Name="bottom_screen_zone"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="0"
+						Grid.Column="2"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,4,0,0"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsConventionalSelectedList" />
+									<Binding
+										Path="MenuItemsConventionalSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 20-->
+					<Label
+						Name="bottom_screen_status"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="0"
+						Grid.Column="3"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,4,0,0"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsConventionalSelectedList" />
+									<Binding
+										Path="MenuItemsConventionalSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 21-->
+					<Label
+						Name="bottom_screen_info_Copy"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="1"
+						Grid.Column="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,0,0,6"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedList" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 22-->
+					<Label
+						Name="bottom_screen_scan_Copy"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="1"
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,0,0,6"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedList" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 23-->
+					<Label
+						Name="bottom_screen_zone_Copy"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="1"
+						Grid.Column="2"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,0,0,6"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedList" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+					<!--Unknown connection ID: 24-->
+					<Label
+						Name="bottom_screen_status_Copy"
+						Foreground="#FFFFFF"
+						Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+						FontSize="9"
+						Grid.Row="1"
+						Grid.Column="3"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom"
+						Margin="-10,0,0,6"
+						Height="20"
+						Width="52">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource menuItemsVisibilityConverter}">
+								<MultiBinding.Bindings>
+									<Binding
+										Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+										Path="AppView" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedList" />
+									<Binding
+										Path="MenuItemsTrunkingSelectedListVisibility" />
+								</MultiBinding.Bindings>
+							</MultiBinding>
+						</UIElement.Visibility>
+					</Label>
+				</Grid>
+				<!--Unknown connection ID: 25-->
+				<ToggleButton
+					Name="UpButton"
+					Height="33.174"
+					Margin="409.826,39.935,502.55,0"
+					Style="{DynamicResource UpButtonStyle}"
+					VerticalAlignment="Top"
+					Width="26.0170000000001"
+					DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+					IsHitTestVisible="{Binding ElementName=UpButtonPopup, Path=IsOpen, Mode=OneWay, Converter={StaticResource InvertBoolConverter}}">
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Placement="Top"
+							Style="{DynamicResource ToolTipStyle}">
+							<StackPanel
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 26-->
+									<AcpUINS:AcpLabel
+										Name="LblUpButtonToolTipTitle"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+										IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+										IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+										Visibility="{Binding Path=UpButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 27-->
+									<AcpUINS:AcpLabel
+										Name="LblUpButtonToolTipValue"
+										FontSize="11"
+										Content="{Binding Path=UpButtonUIValue}"
+										IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+										IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+										Visibility="{Binding Path=UpButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+							</StackPanel>
+						</ToolTip>
+					</FrameworkElement.ToolTip>
+					<!--Unknown connection ID: 28-->
+					<Popup
+						Name="UpButtonPopup"
+						Placement="Bottom"
+						VerticalOffset="10"
+						HorizontalOffset="10"
+						StaysOpen="False"
+						AllowsTransparency="True"
+						PopupAnimation="Slide"
+						PlacementTarget="{Binding ElementName=UpButton}"
+						DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+						IsOpen="{Binding ElementName=UpButton, Path=IsChecked, Mode=TwoWay}">
+						<ContentControl
+							Style="{StaticResource ContentControlStyle}">
+							<Grid
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 29-->
+								<AcpUINS:AcpLabel
+									Name="LblUpButtonPopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxUpButtonPopup}"
+									IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+									IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxUpButtonPopup, Path=Visibility}" />
+								<!--Unknown connection ID: 30-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxUpButtonPopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=UpButtonList.Items}"
+									SelectedValue="{Binding Path=UpButtonUIValue}"
+									MyBLObject="{Binding Path=UpButtonList}"
+									MyLabelCtrl="{Binding ElementName=LblUpButtonPopup}"
+									IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+									Visibility="{Binding Path=UpButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="UpButtonIsAcpEditable" />
+											<Binding
+												Path="UpButtonList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="UpButtonIsAcpVisible" />
+											<Binding
+												Path="UpButtonIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+							</Grid>
+						</ContentControl>
+					</Popup>
+				</ToggleButton>
+				<!--Unknown connection ID: 31-->
+				<Rectangle
+					Name="UpCallOuts"
+					Margin="214.836,-64.309,0,0"
+					VerticalAlignment="Top"
+					Height="56.092"
+					Stroke="{DynamicResource O2 blue}"
+					StrokeLineJoin="Round"
+					StrokeThickness="2.5"
+					HorizontalAlignment="Left"
+					Width="188.778"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 32-->
+				<Path
+					Name="UpCallOuts_Lines"
+					Data="M351.05305,70.735416 L343.8356,70.859962 L343.8356,11.812868 L270.46855,11.119975 L270.39186,-4.2983579"
+					Height="71.933"
+					Margin="306.054,-9.217,0,0"
+					Stretch="Fill"
+					Stroke="{DynamicResource O2 blue}"
+					StrokeThickness="2.5"
+					StrokeLineJoin="Round"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Width="101.969"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 33-->
+				<Canvas
+					Name="UpCallOuts_Canvas"
+					Margin="214.039,-48.824,0,0"
+					Height="56.092"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Width="150"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<StackPanel
+						Canvas.Left="5">
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Unknown connection ID: 34-->
+							<AcpUINS:AcpLabel
+								Name="LblUpButtonViewboxTitle"
+								FontSize="11"
+								Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+								IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+								IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxUpButtonPopup, Path=Visibility}"
+								MyParentCtrl="{Binding ElementName=ComBoxUpButtonPopup}" />
+							<!--Unknown connection ID: 35-->
+							<AcpUINS:AcpLabel
+								Name="LblUpButtonViewboxValue"
+								FontSize="11"
+								Content="{Binding Path=UpButtonUIValue}"
+								MyParentCtrl="{Binding ElementName=ComBoxUpButtonPopup}"
+								IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+								IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxUpButtonPopup, Path=Visibility}" />
+						</StackPanel>
+					</StackPanel>
+				</Canvas>
+				<!--Unknown connection ID: 36-->
+				<ToggleButton
+					Name="DownButton"
+					Height="33.174"
+					Margin="410.076,83.047,502.55,0"
+					Style="{DynamicResource DownButtonStyle}"
+					VerticalAlignment="Top"
+					Width="26.0170000000001"
+					DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Placement="Top"
+							Style="{DynamicResource ToolTipStyle}">
+							<StackPanel
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 37-->
+									<AcpUINS:AcpLabel
+										Name="LblDownButtonToolTipTitle"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+										IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+										IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+										Visibility="{Binding Path=DownButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 38-->
+									<AcpUINS:AcpLabel
+										Name="LblDownButtonToolTipValue"
+										FontSize="11"
+										Content="{Binding Path=DownButtonUIValue}"
+										IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+										IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+										Visibility="{Binding Path=DownButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+							</StackPanel>
+						</ToolTip>
+					</FrameworkElement.ToolTip>
+					<!--Unknown connection ID: 39-->
+					<Popup
+						Name="DownButtonPopup"
+						Placement="Bottom"
+						VerticalOffset="10"
+						HorizontalOffset="10"
+						StaysOpen="False"
+						AllowsTransparency="True"
+						PopupAnimation="Slide"
+						PlacementTarget="{Binding ElementName=DownButton}"
+						DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+						IsOpen="{Binding ElementName=DownButton, Path=IsChecked, Mode=TwoWay}">
+						<ContentControl
+							Style="{StaticResource ContentControlStyle}">
+							<Grid
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 40-->
+								<AcpUINS:AcpLabel
+									Name="LblDownButtonPopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxDownButtonPopup}"
+									IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+									IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxDownButtonPopup, Path=Visibility}" />
+								<!--Unknown connection ID: 41-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxDownButtonPopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=DownButtonList.Items}"
+									SelectedValue="{Binding Path=DownButtonUIValue}"
+									MyBLObject="{Binding Path=DownButtonList}"
+									MyLabelCtrl="{Binding ElementName=LblDownButtonPopup}"
+									IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+									Visibility="{Binding Path=DownButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="DownButtonIsAcpEditable" />
+											<Binding
+												Path="DownButtonList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="DownButtonIsAcpVisible" />
+											<Binding
+												Path="DownButtonIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+							</Grid>
+						</ContentControl>
+					</Popup>
+				</ToggleButton>
+				<!--Unknown connection ID: 42-->
+				<Rectangle
+					Name="DownCallOuts"
+					Margin="0,-64.309,304.779,0"
+					VerticalAlignment="Top"
+					Height="56.092"
+					Stroke="{DynamicResource O2 green}"
+					StrokeLineJoin="Round"
+					StrokeThickness="2.5"
+					HorizontalAlignment="Right"
+					Width="186.365"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 43-->
+				<Path
+					Name="DownCallOuts_Lines"
+					Data="M375.59796,89.298589 L383.53524,89.298124 L383.1842,2.5774291 L459.26142,1.8884964 L459.03162,-12.931469"
+					Height="105.279"
+					Margin="0,-9.98,415.876,0"
+					Stretch="Fill"
+					Stroke="{DynamicResource O2 green}"
+					StrokeThickness="2.5"
+					StrokeLineJoin="Round"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Right"
+					Width="86.674"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 44-->
+				<Canvas
+					Name="DownCallOuts_Canvas"
+					Margin="0,-48.824,341.354,0"
+					Height="56.092"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Right"
+					Width="150"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<StackPanel
+						Canvas.Left="5">
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Unknown connection ID: 45-->
+							<AcpUINS:AcpLabel
+								Name="LblDownButtonViewboxTitle"
+								FontSize="11"
+								Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+								IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+								IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxDownButtonPopup, Path=Visibility}"
+								MyParentCtrl="{Binding ElementName=ComBoxDownButtonPopup}" />
+							<!--Unknown connection ID: 46-->
+							<AcpUINS:AcpLabel
+								Name="LblDownButtonViewboxValue"
+								FontSize="11"
+								Content="{Binding Path=DownButtonUIValue}"
+								MyParentCtrl="{Binding ElementName=ComBoxDownButtonPopup}"
+								IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+								IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxDownButtonPopup, Path=Visibility}" />
+						</StackPanel>
+					</StackPanel>
+				</Canvas>
+				<!--Unknown connection ID: 47-->
+				<ToggleButton
+					Name="MFKButton"
+					Style="{DynamicResource MFKButtonStyle}"
+					Width="67.046"
+					HorizontalAlignment="Right"
+					Margin="0,125.026,278.558,92.658"
+					DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Placement="Top"
+							Style="{DynamicResource ToolTipStyle}">
+							<StackPanel
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 48-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipTitle_Pri"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Primary_Function_Colon_Space}"
+										IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonPrimaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 49-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipValue_Pri"
+										FontSize="11"
+										Content="{Binding Path=MFKButtonPrimaryUIValue}"
+										IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonPrimaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 50-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipTitle_Sec"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Secondary_Function_Colon_Space}"
+										IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonSecondaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 51-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipValue_Sec"
+										FontSize="11"
+										Content="{Binding Path=MFKButtonSecondaryUIValue}"
+										IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonSecondaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+							</StackPanel>
+						</ToolTip>
+					</FrameworkElement.ToolTip>
+					<!--Unknown connection ID: 52-->
+					<Popup
+						Name="MFKButtonPopup"
+						Placement="Bottom"
+						VerticalOffset="10"
+						HorizontalOffset="10"
+						StaysOpen="False"
+						AllowsTransparency="True"
+						PopupAnimation="Slide"
+						PlacementTarget="{Binding ElementName=MFKButton}"
+						DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+						IsOpen="{Binding ElementName=MFKButton, Path=IsChecked, Mode=TwoWay}">
+						<ContentControl
+							Style="{StaticResource ContentControlStyle}">
+							<Grid
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 53-->
+								<AcpUINS:AcpLabel
+									Name="LblMFKButtonPopup_Pri"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Primary_Function_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Pri}"
+									IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+									IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Pri, Path=Visibility}" />
+								<!--Unknown connection ID: 54-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxMFKButtonPopup_Pri"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=MFKButtonPrimaryList.Items}"
+									SelectedValue="{Binding Path=MFKButtonPrimaryUIValue}"
+									MyBLObject="{Binding Path=MFKButtonPrimaryList}"
+									MyLabelCtrl="{Binding ElementName=LblMFKButtonPopup_Pri}"
+									IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+									Visibility="{Binding Path=MFKButtonPrimaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="MFKButtonPrimaryIsAcpEditable" />
+											<Binding
+												Path="MFKButtonPrimaryList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="MFKButtonPrimaryIsAcpVisible" />
+											<Binding
+												Path="MFKButtonPrimaryIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 55-->
+								<AcpUINS:AcpLabel
+									Name="LblMFKButtonPopup_Sec"
+									FontSize="11"
+									Grid.Row="1"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Secondary_Function_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Sec}"
+									IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+									IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Sec, Path=Visibility}" />
+								<!--Unknown connection ID: 56-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxMFKButtonPopup_Sec"
+									FontSize="11"
+									Grid.Row="1"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=MFKButtonSecondaryList.Items}"
+									SelectedValue="{Binding Path=MFKButtonSecondaryUIValue}"
+									MyBLObject="{Binding Path=MFKButtonSecondaryList}"
+									MyLabelCtrl="{Binding ElementName=LblMFKButtonPopup_Sec}"
+									IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+									Visibility="{Binding Path=MFKButtonSecondaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="MFKButtonSecondaryIsAcpEditable" />
+											<Binding
+												Path="MFKButtonSecondaryList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="MFKButtonSecondaryIsAcpVisible" />
+											<Binding
+												Path="MFKButtonSecondaryIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+							</Grid>
+						</ContentControl>
+					</Popup>
+				</ToggleButton>
+				<!--Unknown connection ID: 57-->
+				<ToggleButton
+					Name="MFKButtonOrange"
+					Width="71"
+					HorizontalAlignment="Right"
+					Margin="0,120.026,278.558,97.658"
+					DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+					<FrameworkElement.Style>
+						<MultiBinding
+							Converter="{StaticResource MFKColorConverter}">
+							<Binding
+								Path="MFKPressBehaviorUIValue" />
+							<Binding
+								Path="MFKPressBehaviorList" />
+							<Binding
+								RelativeSource="{RelativeSource self}" />
+						</MultiBinding>
+					</FrameworkElement.Style>
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Height="110"
+							Placement="Top"
+							Style="{DynamicResource ToolTipStyle}">
+							<StackPanel
+								Height="80"
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 58-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipTitle_Behavior"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.MFK_Press_Behavior_Colon_Space}"
+										IsAcpValid="{Binding Path=MFKPressBehaviorIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKPressBehaviorIsAcpApplicable}"
+										Visibility="{Binding Path=MFKPressBehaviorIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 59-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipValue_Behavior"
+										FontSize="11"
+										Content="{Binding Path=MFKPressBehaviorUIValue}"
+										IsAcpValid="{Binding Path=MFKPressBehaviorIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKPressBehaviorIsAcpApplicable}"
+										Visibility="{Binding Path=MFKPressBehaviorIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 60-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipTitle_Pri_Orange"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Primary_Function_Colon_Space}"
+										IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonPrimaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 61-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipValue_Pri_Orange"
+										FontSize="11"
+										Content="{Binding Path=MFKButtonPrimaryUIValue}"
+										IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonPrimaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 62-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipTitle_Sec_Orange"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Secondary_Function_Colon_Space}"
+										IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonSecondaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 63-->
+									<AcpUINS:AcpLabel
+										Name="LblMFKButtonToolTipValue_Sec_Orange"
+										FontSize="11"
+										Content="{Binding Path=MFKButtonSecondaryUIValue}"
+										IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+										IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+										Visibility="{Binding Path=MFKButtonSecondaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+							</StackPanel>
+						</ToolTip>
+					</FrameworkElement.ToolTip>
+					<!--Unknown connection ID: 64-->
+					<Popup
+						Name="MFKButtonPopupOrange"
+						Placement="Bottom"
+						VerticalOffset="10"
+						HorizontalOffset="10"
+						StaysOpen="False"
+						AllowsTransparency="True"
+						PopupAnimation="Slide"
+						PlacementTarget="{Binding ElementName=MFKButtonOrange}"
+						DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+						IsOpen="{Binding ElementName=MFKButtonOrange, Path=IsChecked, Mode=TwoWay}">
+						<ContentControl
+							Style="{StaticResource ContentControlStyle}">
+							<Grid
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 65-->
+								<AcpUINS:AcpLabel
+									Name="LblMFKButtonPopup_Behavior"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.MFK_Press_Behavior_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Behavior}"
+									IsAcpValid="{Binding Path=MFKPressBehaviorIsAcpValid}"
+									IsAcpApplicable="{Binding Path=MFKPressBehaviorIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Behavior, Path=Visibility}" />
+								<!--Unknown connection ID: 66-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxMFKButtonPopup_Behavior"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=MFKPressBehaviorList.Items}"
+									SelectedValue="{Binding Path=MFKPressBehaviorUIValue}"
+									MyBLObject="{Binding Path=MFKPressBehaviorList}"
+									MyLabelCtrl="{Binding ElementName=LblMFKButtonPopup_Behavior}"
+									IsAcpValid="{Binding Path=MFKPressBehaviorIsAcpValid}"
+									IsAcpEditable="{Binding Path=MFKPressBehaviorIsAcpEditable}"
+									IsAcpApplicable="{Binding Path=MFKPressBehaviorIsAcpApplicable}"
+									Visibility="{Binding Path=MFKPressBehaviorIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								<!--Unknown connection ID: 67-->
+								<AcpUINS:AcpLabel
+									Name="LblMFKButtonPopup_Pri_Orange"
+									FontSize="11"
+									Grid.Row="1"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Primary_Function_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Pri_Orange}"
+									IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+									IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Pri_Orange, Path=Visibility}" />
+								<!--Unknown connection ID: 68-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxMFKButtonPopup_Pri_Orange"
+									FontSize="11"
+									Grid.Row="1"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=MFKButtonPrimaryList.Items}"
+									SelectedValue="{Binding Path=MFKButtonPrimaryUIValue}"
+									MyBLObject="{Binding Path=MFKButtonPrimaryList}"
+									MyLabelCtrl="{Binding ElementName=LblMFKButtonPopup_Pri_Orange}"
+									IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+									Visibility="{Binding Path=MFKButtonPrimaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="MFKButtonPrimaryIsAcpEditable" />
+											<Binding
+												Path="MFKButtonPrimaryList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="MFKButtonPrimaryIsAcpVisible" />
+											<Binding
+												Path="MFKButtonPrimaryIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 69-->
+								<AcpUINS:AcpLabel
+									Name="LblMFKButtonPopup_Sec_Orange"
+									FontSize="11"
+									Grid.Row="2"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Secondary_Function_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Sec_Orange}"
+									IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+									IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+									Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Sec_Orange, Path=Visibility}" />
+								<!--Unknown connection ID: 70-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxMFKButtonPopup_Sec_Orange"
+									FontSize="11"
+									Grid.Row="2"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=MFKButtonSecondaryList.Items}"
+									SelectedValue="{Binding Path=MFKButtonSecondaryUIValue}"
+									MyBLObject="{Binding Path=MFKButtonSecondaryList}"
+									MyLabelCtrl="{Binding ElementName=LblMFKButtonPopup_Sec_Orange}"
+									IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+									Visibility="{Binding Path=MFKButtonSecondaryIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="MFKButtonSecondaryIsAcpEditable" />
+											<Binding
+												Path="MFKButtonSecondaryList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="MFKButtonSecondaryIsAcpVisible" />
+											<Binding
+												Path="MFKButtonSecondaryIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+							</Grid>
+						</ContentControl>
+					</Popup>
+				</ToggleButton>
+				<!--Unknown connection ID: 71-->
+				<Rectangle
+					Name="MFKCallOuts"
+					Margin="0,181.176,-52,0"
+					VerticalAlignment="Top"
+					Height="76.092"
+					Stroke="{DynamicResource O2 orange}"
+					StrokeLineJoin="Round"
+					StrokeThickness="2.5"
+					HorizontalAlignment="Right"
+					Width="280.575"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 72-->
+				<Path
+					Name="MFKCallOuts_Lines"
+					Data="M538.83139,172.57307 L538.83139,181.99684 L626.46451,181.89071"
+					HorizontalAlignment="Right"
+					Height="19.09"
+					Margin="0,0,227.297,69.568"
+					Stretch="Fill"
+					Stroke="{DynamicResource O2 orange}"
+					StrokeThickness="2.5"
+					StrokeLineJoin="Round"
+					VerticalAlignment="Bottom"
+					Width="90.638"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 73-->
+				<Canvas
+					Name="MFKCallOuts_Canvas"
+					Margin="0,0,79.354,31.495"
+					Height="71.092"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Right"
+					Width="150"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<StackPanel
+						Canvas.Left="5">
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Unknown connection ID: 74-->
+							<AcpUINS:AcpLabel
+								Name="LblMFKButtonTitle_Behavior"
+								FontSize="11"
+								Content="{x:Static CommonResxNS:AppResources.MFK_Press_Behavior_Colon_Space}"
+								VerticalAlignment="Center"
+								MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Behavior}"
+								IsAcpValid="{Binding Path=MFKPressBehaviorIsAcpValid}"
+								IsAcpApplicable="{Binding Path=MFKPressBehaviorIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Behavior, Path=Visibility}" />
+							<!--Unknown connection ID: 75-->
+							<AcpUINS:AcpLabel
+								Name="LblMFKButtonValue_Behavior"
+								FontSize="11"
+								VerticalAlignment="Center"
+								Content="{Binding Path=MFKPressBehaviorUIValue}"
+								MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Behavior}"
+								IsAcpValid="{Binding Path=MFKPressBehaviorIsAcpValid}"
+								IsAcpApplicable="{Binding Path=MFKPressBehaviorIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Behavior, Path=Visibility}" />
+						</StackPanel>
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Unknown connection ID: 76-->
+							<AcpUINS:AcpLabel
+								Name="LblMFKButtonTitle_Pri"
+								FontSize="11"
+								Content="{x:Static CommonResxNS:AppResources.Primary_Function_Colon_Space}"
+								VerticalAlignment="Center"
+								MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Pri}"
+								IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+								IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Pri, Path=Visibility}" />
+							<!--Unknown connection ID: 77-->
+							<AcpUINS:AcpLabel
+								Name="LblMFKButtonValue_Pri"
+								FontSize="11"
+								VerticalAlignment="Center"
+								Content="{Binding Path=MFKButtonPrimaryUIValue}"
+								MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Pri}"
+								IsAcpValid="{Binding Path=MFKButtonPrimaryIsAcpValid}"
+								IsAcpApplicable="{Binding Path=MFKButtonPrimaryIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Pri, Path=Visibility}" />
+						</StackPanel>
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Unknown connection ID: 78-->
+							<AcpUINS:AcpLabel
+								Name="LblMFKButtonTitle_Sec"
+								FontSize="11"
+								Content="{x:Static CommonResxNS:AppResources.Secondary_Function_Colon_Space}"
+								VerticalAlignment="Center"
+								MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Sec}"
+								IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+								IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Sec, Path=Visibility}" />
+							<!--Unknown connection ID: 79-->
+							<AcpUINS:AcpLabel
+								Name="LblMFKButtonValue_Sec"
+								FontSize="11"
+								VerticalAlignment="Center"
+								Content="{Binding Path=MFKButtonSecondaryUIValue}"
+								MyParentCtrl="{Binding ElementName=ComBoxMFKButtonPopup_Sec}"
+								IsAcpValid="{Binding Path=MFKButtonSecondaryIsAcpValid}"
+								IsAcpApplicable="{Binding Path=MFKButtonSecondaryIsAcpApplicable}"
+								Visibility="{Binding ElementName=ComBoxMFKButtonPopup_Sec, Path=Visibility}" />
+						</StackPanel>
+					</StackPanel>
+				</Canvas>
+			</Grid>
+		</Viewbox>
+	</Grid>
+</UserControl>

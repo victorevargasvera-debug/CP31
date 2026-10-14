@@ -1,0 +1,1607 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.MissionCriticalGeofence.PageMissionCriticalGeofence" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:MissionCriticalGeofenceRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.MissionCriticalGeofence" xmlns:CoordinatesInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.MissionCriticalGeofence"
+	Title="{Binding Path=UIName}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageMissionCriticalGeofence"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<src:ExpanderVisibilityConverterForEmptyTbl
+				x:Key="expanderVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:SRecViewVisibilityConverterForEmptyTbl
+				x:Key="sRecViewVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverterForEmptyTbl
+				x:Key="acpXamDataPresenterVisibilityConverterForEmptyTbl" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4174</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4174</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderMissionCriticalGeofenceCoordinatesTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4174</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10810</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="McGeofenceLongitude_42893CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{double:-3.7}"
+								Text="{Binding Path=Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLongitude_42893_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="McGeofenceLatitude_42894CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBox
+								MaskType="{}{double:-2.7}"
+								Text="{Binding Path=Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+								MyBLObject="{Binding Path=Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.CoordinatesInnerSection.McGeofenceLatitude_42894_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type Button}"
+				x:Key="{x:Type Button}" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<DockPanel
+			Dock="Top">
+			<!--Unknown connection ID: 5-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 6-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderMissionCriticalGeofenceGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<WrapPanel
+				HorizontalAlignment="Left"
+				Margin="265, 2, 0, 0">
+				<!--Unknown connection ID: 7-->
+				<Button
+					Name="BtnImportMap"
+					Width="32"
+					Height="Auto"
+					ToolTip="{x:Static ResourceNS:AppResources.ID_IMPORTMAPFILE}">
+					<Image
+						Source="/AllFeatures;component/images/MapImport.png"
+						Width="28"
+						Height="28" />
+				</Button>
+				<!--Unknown connection ID: 8-->
+				<Button
+					Name="Temp"
+					Width="10"
+					Height="Auto"
+					Visibility="Hidden" />
+				<!--Unknown connection ID: 9-->
+				<Button
+					Name="BtnExportMap"
+					Width="32"
+					Height="Auto"
+					ToolTip="{x:Static ResourceNS:AppResources.ID_EXPORTMAPFILE}">
+					<Image
+						Source="/AllFeatures;component/images/MapExport.png"
+						Width="28"
+						Height="28" />
+				</Button>
+			</WrapPanel>
+		</DockPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 10-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 11-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderMissionCriticalGeofenceGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderMissionCriticalGeofenceGeneralPseudo0"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderMissionCriticalGeofenceCoordinatesTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderMissionCriticalGeofenceCoordinatesSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 12-->
+						<AcpUINS:AcpChildRecNavToolbar
+							Name="RecNavToolbarExpanderMissionCriticalGeofenceCoordinates"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/General.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderMissionCriticalGeofenceCoordinates, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 13-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderMissionCriticalGeofenceGeneralPseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource groupboxVisibilityConverter}">
+										<Binding
+											ElementName="GeofenceAliasName_42867"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="McGeofencePriority_42879"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="McGeofenceRadiusInMeters_42890"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="McGeofenceEntryAction_42887"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="McGeofenceExitAction_42888"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="230" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 14-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnGeofenceAliasName_42867"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=GeofenceAliasName_42867}"
+										IsChecked="{Binding ElementName=GeofenceAliasName_42867, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GeofenceAliasName_42867"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 15-->
+									<AcpUINS:AcpLabel
+										Name="LblGeofenceAliasName_42867"
+										Content="{x:Static ResourceNS:AcgResources.ID_GEOFENCEALIASNAME}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_GEOFENCEALIASNAME}"
+										MyParentCtrl="{Binding ElementName=GeofenceAliasName_42867}"
+										IsAcpValid="{Binding ElementName=GeofenceAliasName_42867, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=GeofenceAliasName_42867, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=GeofenceAliasName_42867, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 16-->
+									<AcpUINS:AcpTextBox
+										Name="GeofenceAliasName_42867"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=General.GeofenceAliasName_42867Value}"
+										MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+										MyBLObject="{Binding Path=General.GeofenceAliasName_42867}"
+										MyLabelCtrl="{Binding ElementName=LblGeofenceAliasName_42867}"
+										IsAcpValid="{Binding Path=General.GeofenceAliasName_42867_Valid}"
+										IsAcpApplicable="{Binding Path=General.GeofenceAliasName_42867_Applicable}"
+										AreValuesEqual="{Binding Path=General.GeofenceAliasName_42867_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="General.GeofenceAliasName_42867_Editable" />
+												<Binding
+													Path="General.GeofenceAliasName_42867" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="General.GeofenceAliasName_42867_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 17-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnGeofenceAliasName_42867"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=GeofenceAliasName_42867}"
+										MyCompCtrl="{Binding ElementName=GeofenceAliasName_42867Comp}"
+										AreValuesEqual="{Binding ElementName=GeofenceAliasName_42867, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GeofenceAliasName_42867"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="GeofenceAliasName_42867"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="GeofenceAliasName_42867"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 18-->
+									<AcpUINS:AcpLabel
+										Name="GeofenceAliasName_42867Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=General.GeofenceAliasName_42867Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=General.GeofenceAliasName_42867}"
+										MyParentCtrl="{Binding ElementName=GeofenceAliasName_42867}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnGeofenceAliasName_42867}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="GeofenceAliasName_42867"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 19-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnMcGeofencePriority_42879"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=McGeofencePriority_42879}"
+										IsChecked="{Binding ElementName=McGeofencePriority_42879, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 20-->
+									<AcpUINS:AcpLabel
+										Name="LblMcGeofencePriority_42879"
+										Content="{x:Static ResourceNS:AcgResources.ID_PRIORITY}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_PRIORITY}"
+										MyParentCtrl="{Binding ElementName=McGeofencePriority_42879}"
+										IsAcpValid="{Binding ElementName=McGeofencePriority_42879, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=McGeofencePriority_42879, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=McGeofencePriority_42879, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 21-->
+									<AcpUINS:AcpTextBoxSpinner
+										Name="McGeofencePriority_42879"
+										MaskTypeSpinner="{}{number:0-100}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										Text="{Binding Path=General.McGeofencePriority_42879_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+										MyBLObject="{Binding Path=General.McGeofencePriority_42879}"
+										MyLabelCtrl="{Binding ElementName=LblMcGeofencePriority_42879}"
+										IsAcpValid="{Binding Path=General.McGeofencePriority_42879_Valid}"
+										IsAcpApplicable="{Binding Path=General.McGeofencePriority_42879_Applicable}"
+										AreValuesEqual="{Binding Path=General.McGeofencePriority_42879_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="General.McGeofencePriority_42879_Editable" />
+												<Binding
+													Path="General.McGeofencePriority_42879" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="General.McGeofencePriority_42879_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinner>
+									<!--Unknown connection ID: 22-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnMcGeofencePriority_42879"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=McGeofencePriority_42879}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 23-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnMcGeofencePriority_42879"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=McGeofencePriority_42879}"
+										MyCompCtrl="{Binding ElementName=McGeofencePriority_42879Comp}"
+										AreValuesEqual="{Binding ElementName=McGeofencePriority_42879, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 24-->
+									<AcpUINS:AcpLabel
+										Name="McGeofencePriority_42879Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=General.McGeofencePriority_42879_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=General.McGeofencePriority_42879}"
+										MyParentCtrl="{Binding ElementName=McGeofencePriority_42879}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnMcGeofencePriority_42879}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofencePriority_42879"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 25-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnMcGeofenceRadiusInMeters_42890"
+										Margin="0,5,0,0"
+										Grid.Row="2"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=McGeofenceRadiusInMeters_42890}"
+										IsChecked="{Binding ElementName=McGeofenceRadiusInMeters_42890, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 26-->
+									<AcpUINS:AcpLabel
+										Name="LblMcGeofenceRadiusInMeters_42890"
+										Content="{x:Static ResourceNS:AcgResources.ID_RADIUSMETERS}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_RADIUSMETERS}"
+										MyParentCtrl="{Binding ElementName=McGeofenceRadiusInMeters_42890}"
+										IsAcpValid="{Binding ElementName=McGeofenceRadiusInMeters_42890, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=McGeofenceRadiusInMeters_42890, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=McGeofenceRadiusInMeters_42890, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 27-->
+									<AcpUINS:AcpTextBoxSpinner
+										Name="McGeofenceRadiusInMeters_42890"
+										MaskTypeSpinner="{}{char:8:0-9disabledDISABLED}"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										Text="{Binding Path=General.McGeofenceRadiusInMeters_42890_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+										MyBLObject="{Binding Path=General.McGeofenceRadiusInMeters_42890}"
+										MyLabelCtrl="{Binding ElementName=LblMcGeofenceRadiusInMeters_42890}"
+										IsAcpValid="{Binding Path=General.McGeofenceRadiusInMeters_42890_Valid}"
+										IsAcpApplicable="{Binding Path=General.McGeofenceRadiusInMeters_42890_Applicable}"
+										AreValuesEqual="{Binding Path=General.McGeofenceRadiusInMeters_42890_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="General.McGeofenceRadiusInMeters_42890_Editable" />
+												<Binding
+													Path="General.McGeofenceRadiusInMeters_42890" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="General.McGeofenceRadiusInMeters_42890_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinner>
+									<!--Unknown connection ID: 28-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnMcGeofenceRadiusInMeters_42890"
+										Grid.Row="2"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=McGeofenceRadiusInMeters_42890}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 29-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnMcGeofenceRadiusInMeters_42890"
+										Grid.Row="2"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=McGeofenceRadiusInMeters_42890}"
+										MyCompCtrl="{Binding ElementName=McGeofenceRadiusInMeters_42890Comp}"
+										AreValuesEqual="{Binding ElementName=McGeofenceRadiusInMeters_42890, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 30-->
+									<AcpUINS:AcpLabel
+										Name="McGeofenceRadiusInMeters_42890Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="2"
+										Grid.Column="5"
+										Content="{Binding Path=General.McGeofenceRadiusInMeters_42890_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=General.McGeofenceRadiusInMeters_42890}"
+										MyParentCtrl="{Binding ElementName=McGeofenceRadiusInMeters_42890}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnMcGeofenceRadiusInMeters_42890}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceRadiusInMeters_42890"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 31-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnMcGeofenceEntryAction_42887"
+										Margin="0,5,0,0"
+										Grid.Row="3"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=McGeofenceEntryAction_42887}"
+										IsChecked="{Binding ElementName=McGeofenceEntryAction_42887, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 32-->
+									<AcpUINS:AcpLabel
+										Name="LblMcGeofenceEntryAction_42887"
+										Content="{x:Static ResourceNS:AcgResources.ID_ENTRYACTION}"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_ENTRYACTION}"
+										MyParentCtrl="{Binding ElementName=McGeofenceEntryAction_42887}"
+										IsAcpValid="{Binding ElementName=McGeofenceEntryAction_42887, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=McGeofenceEntryAction_42887, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=McGeofenceEntryAction_42887, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 33-->
+									<AcpUINS:AcpComboBox
+										Name="McGeofenceEntryAction_42887"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=General.McGeofenceEntryAction_42887.Items}"
+										SelectedValue="{Binding Path=General.McGeofenceEntryAction_42887_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+										MyBLObject="{Binding Path=General.McGeofenceEntryAction_42887}"
+										MyLabelCtrl="{Binding ElementName=LblMcGeofenceEntryAction_42887}"
+										IsAcpValid="{Binding Path=General.McGeofenceEntryAction_42887_Valid}"
+										IsAcpApplicable="{Binding Path=General.McGeofenceEntryAction_42887_Applicable}"
+										AreValuesEqual="{Binding Path=General.McGeofenceEntryAction_42887_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="General.McGeofenceEntryAction_42887_Editable" />
+												<Binding
+													Path="General.McGeofenceEntryAction_42887" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="General.McGeofenceEntryAction_42887_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 34-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnMcGeofenceEntryAction_42887"
+										Grid.Row="3"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=McGeofenceEntryAction_42887}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 35-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnMcGeofenceEntryAction_42887"
+										Grid.Row="3"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=McGeofenceEntryAction_42887}"
+										MyCompCtrl="{Binding ElementName=McGeofenceEntryAction_42887Comp}"
+										AreValuesEqual="{Binding ElementName=McGeofenceEntryAction_42887, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 36-->
+									<AcpUINS:AcpLabel
+										Name="McGeofenceEntryAction_42887Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="3"
+										Grid.Column="5"
+										Content="{Binding Path=General.McGeofenceEntryAction_42887_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=General.McGeofenceEntryAction_42887}"
+										MyParentCtrl="{Binding ElementName=McGeofenceEntryAction_42887}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnMcGeofenceEntryAction_42887}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceEntryAction_42887"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 37-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnMcGeofenceExitAction_42888"
+										Margin="0,5,0,0"
+										Grid.Row="4"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=McGeofenceExitAction_42888}"
+										IsChecked="{Binding ElementName=McGeofenceExitAction_42888, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 38-->
+									<AcpUINS:AcpLabel
+										Name="LblMcGeofenceExitAction_42888"
+										Content="{x:Static ResourceNS:AcgResources.ID_EXITACTION}"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_EXITACTION}"
+										MyParentCtrl="{Binding ElementName=McGeofenceExitAction_42888}"
+										IsAcpValid="{Binding ElementName=McGeofenceExitAction_42888, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=McGeofenceExitAction_42888, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=McGeofenceExitAction_42888, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 39-->
+									<AcpUINS:AcpComboBox
+										Name="McGeofenceExitAction_42888"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=General.McGeofenceExitAction_42888.Items}"
+										SelectedValue="{Binding Path=General.McGeofenceExitAction_42888_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+										MyBLObject="{Binding Path=General.McGeofenceExitAction_42888}"
+										MyLabelCtrl="{Binding ElementName=LblMcGeofenceExitAction_42888}"
+										IsAcpValid="{Binding Path=General.McGeofenceExitAction_42888_Valid}"
+										IsAcpApplicable="{Binding Path=General.McGeofenceExitAction_42888_Applicable}"
+										AreValuesEqual="{Binding Path=General.McGeofenceExitAction_42888_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="General.McGeofenceExitAction_42888_Editable" />
+												<Binding
+													Path="General.McGeofenceExitAction_42888" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="General.McGeofenceExitAction_42888_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 40-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnMcGeofenceExitAction_42888"
+										Grid.Row="4"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=McGeofenceExitAction_42888}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 41-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnMcGeofenceExitAction_42888"
+										Grid.Row="4"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=McGeofenceExitAction_42888}"
+										MyCompCtrl="{Binding ElementName=McGeofenceExitAction_42888Comp}"
+										AreValuesEqual="{Binding ElementName=McGeofenceExitAction_42888, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 42-->
+									<AcpUINS:AcpLabel
+										Name="McGeofenceExitAction_42888Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="4"
+										Grid.Column="5"
+										Content="{Binding Path=General.McGeofenceExitAction_42888_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=General.McGeofenceExitAction_42888}"
+										MyParentCtrl="{Binding ElementName=McGeofenceExitAction_42888}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnMcGeofenceExitAction_42888}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="McGeofenceExitAction_42888"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 43-->
+						<Grid
+							Name="ExpanderMissionCriticalGeofenceGeneralGrid">
+							<!--Unknown connection ID: 44-->
+							<Grid
+								Name="ExpanderMissionCriticalGeofenceCoordinatesGrid"
+								Row="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 45-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderMissionCriticalGeofenceCoordinatesTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderMissionCriticalGeofenceCoordinates"
+												Path="TableMode" />
+											<Binding
+												ElementName="ExpanderMissionCriticalGeofenceCoordinates"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 46-->
+									<AcpUINS:AcpXamDataPresenter
+										Name="ExpanderMissionCriticalGeofenceCoordinates"
+										KeyboardNavigation.AcceptsReturn="True"
+										Header="{x:Static ResourceNS:AcgResources.ID_COORDINATES}"
+										MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+										igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/General.EmbeddedRecset}">
+										<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpXamDataPresenterVisibilityConverterForEmptyTbl}"
+												ConverterParameter="2"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="DataSource.HasDiffs"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="IsAcpVisible"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Source="{StaticResource GetParentFeature}"
+													Path="General.EmbeddedRecset.IsEmpty" />
+												<Binding
+													Source="{StaticResource GetParentFeature}"
+													Path="General.EmbeddedRecset.TemplateNode.CoordinatesInnerSection.McGeofenceLongitude_42893_Visible" />
+												<Binding
+													Source="{StaticResource GetParentFeature}"
+													Path="General.EmbeddedRecset.TemplateNode.CoordinatesInnerSection.McGeofenceLatitude_42894_Visible" />
+												<Binding
+													ElementName="McGeofenceLongitude_42893_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="McGeofenceLatitude_42894_Col"
+													Path="Visibility" />
+											</MultiBinding>
+										</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<igcontrols:DataPresenterBase.FieldLayouts>
+											<igcontrols:FieldLayout>
+												<igcontrols:FieldLayout.Fields>
+													<!--Unknown connection ID: 47-->
+													<igcontrols:UnboundField
+														x:Name="McGeofenceLongitude_42893_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_LONGITUDE}"
+														BindingPath="CoordinatesInnerSection.McGeofenceLongitude_42893"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderMissionCriticalGeofenceCoordinatesTableView}, Path=CoordinatesInnerSection.McGeofenceLongitude_42893_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource McGeofenceLongitude_42893CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 48-->
+													<igcontrols:UnboundField
+														x:Name="McGeofenceLatitude_42894_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_LATITUDE}"
+														BindingPath="CoordinatesInnerSection.McGeofenceLatitude_42894"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderMissionCriticalGeofenceCoordinatesTableView}, Path=CoordinatesInnerSection.McGeofenceLatitude_42894_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource McGeofenceLatitude_42894CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+												</igcontrols:FieldLayout.Fields>
+											</igcontrols:FieldLayout>
+										</igcontrols:DataPresenterBase.FieldLayouts>
+									</AcpUINS:AcpXamDataPresenter>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 49-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderMissionCriticalGeofenceCoordinatesSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibilityConverterForEmptyTbl}"
+											ConverterParameter="2"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderMissionCriticalGeofenceCoordinates"
+												Path="TableMode" />
+											<Binding
+												Source="{StaticResource GetParentFeature}"
+												Path="General.EmbeddedRecset.IsEmpty" />
+											<Binding
+												Source="{StaticResource GetParentFeature}"
+												Path="General.EmbeddedRecset.TemplateNode.CoordinatesInnerSection.McGeofenceLongitude_42893_Visible" />
+											<Binding
+												Source="{StaticResource GetParentFeature}"
+												Path="General.EmbeddedRecset.TemplateNode.CoordinatesInnerSection.McGeofenceLatitude_42894_Visible" />
+											<Binding
+												ElementName="McGeofenceLongitude_42893"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="McGeofenceLatitude_42894"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 50-->
+									<Grid
+										Name="gridExpanderMissionCriticalGeofenceCoordinatesSRecView"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding General.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="170" />
+											<ColumnDefinition
+												Width="225" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="180" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 51-->
+										<AcpUINS:AcpTextBox
+											Name="McGeofenceLongitude_42893"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="2"
+											MaskType="{}{double:-3.7}"
+											Text="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+											MyBLObject="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893}"
+											MyLabelCtrl="{Binding ElementName=LblMcGeofenceLongitude_42893}"
+											IsAcpValid="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893_Valid}"
+											IsAcpApplicable="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893_Applicable}"
+											AreValuesEqual="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="CoordinatesInnerSection.McGeofenceLongitude_42893_Editable" />
+													<Binding
+														Path="CoordinatesInnerSection.McGeofenceLongitude_42893" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpEditable>
+											<AcpUINS:AcpTextBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="CoordinatesInnerSection.McGeofenceLongitude_42893_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpVisible>
+										</AcpUINS:AcpTextBox>
+										<!--Unknown connection ID: 52-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnMcGeofenceLongitude_42893"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=McGeofenceLongitude_42893}"
+											IsChecked="{Binding ElementName=McGeofenceLongitude_42893, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 53-->
+										<AcpUINS:AcpLabel
+											Name="LblMcGeofenceLongitude_42893"
+											Content="{x:Static ResourceNS:AcgResources.ID_LONGITUDE}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_LONGITUDE}"
+											MyParentCtrl="{Binding ElementName=McGeofenceLongitude_42893}"
+											IsAcpValid="{Binding ElementName=McGeofenceLongitude_42893, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=McGeofenceLongitude_42893, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=McGeofenceLongitude_42893, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 54-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnMcGeofenceLongitude_42893"
+											Grid.Row="0"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=McGeofenceLongitude_42893}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 55-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnMcGeofenceLongitude_42893"
+											Grid.Row="0"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=McGeofenceLongitude_42893}"
+											MyCompCtrl="{Binding ElementName=McGeofenceLongitude_42893Comp}"
+											AreValuesEqual="{Binding ElementName=McGeofenceLongitude_42893, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 56-->
+										<AcpUINS:AcpLabel
+											Name="McGeofenceLongitude_42893Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="0"
+											Grid.Column="5"
+											Content="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+											MyBLObject="{Binding Path=CoordinatesInnerSection.McGeofenceLongitude_42893}"
+											MyParentCtrl="{Binding ElementName=McGeofenceLongitude_42893}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnMcGeofenceLongitude_42893}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="McGeofenceLongitude_42893"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 57-->
+										<AcpUINS:AcpTextBox
+											Name="McGeofenceLatitude_42894"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="2"
+											MaskType="{}{double:-2.7}"
+											Text="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderMissionCriticalGeofenceGeneral}"
+											MyBLObject="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894}"
+											MyLabelCtrl="{Binding ElementName=LblMcGeofenceLatitude_42894}"
+											IsAcpValid="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894_Valid}"
+											IsAcpApplicable="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894_Applicable}"
+											AreValuesEqual="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="CoordinatesInnerSection.McGeofenceLatitude_42894_Editable" />
+													<Binding
+														Path="CoordinatesInnerSection.McGeofenceLatitude_42894" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpEditable>
+											<AcpUINS:AcpTextBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="CoordinatesInnerSection.McGeofenceLatitude_42894_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpVisible>
+										</AcpUINS:AcpTextBox>
+										<!--Unknown connection ID: 58-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnMcGeofenceLatitude_42894"
+											Margin="0,5,0,0"
+											Grid.Row="1"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=McGeofenceLatitude_42894}"
+											IsChecked="{Binding ElementName=McGeofenceLatitude_42894, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 59-->
+										<AcpUINS:AcpLabel
+											Name="LblMcGeofenceLatitude_42894"
+											Content="{x:Static ResourceNS:AcgResources.ID_LATITUDE}"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_LATITUDE}"
+											MyParentCtrl="{Binding ElementName=McGeofenceLatitude_42894}"
+											IsAcpValid="{Binding ElementName=McGeofenceLatitude_42894, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=McGeofenceLatitude_42894, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=McGeofenceLatitude_42894, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 60-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnMcGeofenceLatitude_42894"
+											Grid.Row="1"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=McGeofenceLatitude_42894}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 61-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnMcGeofenceLatitude_42894"
+											Grid.Row="1"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=McGeofenceLatitude_42894}"
+											MyCompCtrl="{Binding ElementName=McGeofenceLatitude_42894Comp}"
+											AreValuesEqual="{Binding ElementName=McGeofenceLatitude_42894, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 62-->
+										<AcpUINS:AcpLabel
+											Name="McGeofenceLatitude_42894Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="1"
+											Grid.Column="5"
+											Content="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/General.EmbeddedRecset}"
+											MyBLObject="{Binding Path=CoordinatesInnerSection.McGeofenceLatitude_42894}"
+											MyParentCtrl="{Binding ElementName=McGeofenceLatitude_42894}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnMcGeofenceLatitude_42894}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="McGeofenceLatitude_42894"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

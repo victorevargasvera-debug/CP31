@@ -1,0 +1,49 @@
+<Window
+	x:Class="SpecialFeatures.Programming.USBProgrammingWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	Title="{x:Static CommonResxNS:AppResources.USBProgrammingWindow_Id}"
+	Height="300"
+	Width="300" xmlns:programming="clr-namespace:SpecialFeatures.Programming">
+	<!--Unknown connection ID: 1-->
+	<StackPanel
+		Name="ProgrammingPanel">
+		<!--Unknown connection ID: 2-->
+		<Label
+			Name="operationLabel"
+			FontSize="18"
+			HorizontalAlignment="Stretch"
+			HorizontalContentAlignment="Center"
+			BorderBrush="#FF0000FF"
+			BorderThickness="1">
+			<TextBlock
+				Text="{x:Static CommonResxNS:AppResources.PlaceHolder_Id}" />
+		</Label>
+		<StackPanel
+			Orientation="Horizontal"
+			HorizontalAlignment="Center"
+			Margin="0,10,0,5">
+			<!--Unknown connection ID: 3-->
+			<Button
+				Name="btnOperation"
+				HorizontalAlignment="Center"
+				Margin="0,0,10,0">
+				<TextBlock
+					Text="{x:Static CommonResxNS:AppResources.Replace_ID}" />
+			</Button>
+			<!--Unknown connection ID: 4-->
+			<Button
+				Name="btnCancel"
+				HorizontalAlignment="Center">
+				<TextBlock
+					Text="{x:Static CommonResxNS:AppResources.Cancel_Id}" />
+			</Button>
+			<!--Unknown connection ID: 5-->
+			<Button
+				Name="btnHelp"
+				HorizontalAlignment="Center"
+				Margin="40,0,0,0">
+				<TextBlock
+					Text="{x:Static CommonResxNS:AppResources.Help_Id}" />
+			</Button>
+		</StackPanel>
+	</StackPanel>
+</Window>

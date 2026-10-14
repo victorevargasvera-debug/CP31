@@ -1,0 +1,497 @@
+<AcpUINS:AcpPageFeature
+	x:Class="SpecialFeatures.Flashport.FlashkeyConfiguration.PageFlashkeyConfiguration" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI"
+	Height="Auto"
+	Focusable="True"
+	HorizontalAlignment="Left"
+	VerticalAlignment="Top" xmlns:flashkeyconfiguration="clr-namespace:SpecialFeatures.Flashport.FlashkeyConfiguration"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="FlashkeyConfigurationFeatureNameCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<AcpUINS:AcpTableTextBox
+								Foreground="#FF000000"
+								Text="{Binding Path=(Value).FkeyConfigFeatureNameValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderFlashkeyCfgFeaturesTable}"
+								MyBLObject="{Binding Path=(Value).FkeyConfigFeatureName, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=(Value).FkeyConfigFeatureName_Valid, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpApplicable="{Binding Path=(Value).FkeyConfigFeatureName_Applicable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpEditable="{Binding Path=(Value).FkeyConfigFeatureName_Editable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpVisible="{Binding Path=(Value).FkeyConfigFeatureName_Visible, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}" />
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="FkeyCfgCurrentFlashcodeCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<AcpUINS:AcpTableTextBox
+								Foreground="#FF000000"
+								Text="{Binding Path=(Value).FkeyConfigCurrentFlashcodeValueValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderFlashkeyCfgFeaturesTable}"
+								MyBLObject="{Binding Path=(Value).FkeyConfigCurrentFlashcodeValue, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=(Value).FkeyConfigCurrentFlashcodeValue_Valid, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpApplicable="{Binding Path=(Value).FkeyConfigCurrentFlashcodeValue_Applicable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpEditable="{Binding Path=(Value).FkeyConfigCurrentFlashcodeValue_Editable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpVisible="{Binding Path=(Value).FkeyConfigCurrentFlashcodeValue_Visible, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}" />
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="FkeyCfgNewFlashcodeCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<AcpUINS:AcpTableTextBox
+								Foreground="#FF000000"
+								Text="{Binding Path=(Value).FkeyConfigNewFlashcodeValueValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderFlashkeyCfgFeaturesTable}"
+								MyBLObject="{Binding Path=(Value).FkeyConfigNewFlashcodeValue, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=(Value).FkeyConfigNewFlashcodeValue_Valid, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpApplicable="{Binding Path=(Value).FkeyConfigNewFlashcodeValue_Applicable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpEditable="{Binding Path=(Value).FkeyConfigNewFlashcodeValue_Editable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpVisible="{Binding Path=(Value).FkeyConfigNewFlashcodeValue_Visible, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}" />
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<RoutedCommand
+				x:Key="F1Help" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.CommandBindings>
+		<!--Unknown connection ID: 2-->
+		<CommandBinding
+			Command="{StaticResource F1Help}" />
+	</UIElement.CommandBindings>
+	<UIElement.InputBindings>
+		<KeyBinding
+			Command="{StaticResource F1Help}"
+			Key="F1" />
+	</UIElement.InputBindings>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 3-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="Visible">
+				<!--Unknown connection ID: 4-->
+				<Hyperlink
+					Name="HLinkFlashkeyCfgGeneral"
+					Tag="ExpanderFlashkeyCfgGeneral">
+					<TextBlock
+						TextDecorations="Underline"
+						Text="{Binding Path=General.UIName}">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Source="false" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderFlashkeyCfgFeatures, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 5-->
+				<Hyperlink
+					Name="HLinkFlashkeyCfgFeatures"
+					Tag="ExpanderFlashkeyCfgFeatures">
+					<TextBlock
+						TextDecorations="Underline"
+						Text="{Binding Path=FlashkeyConfigurationFeatures.UIName}">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Source="false" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 6-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 7-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderFlashkeyCfgGeneral"
+					IsAcpVisible="True"
+					Header="{Binding Path=General.UIName}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 8-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderFlashkeyCfgGeneralPseudo0"
+							IsAcpVisible="True"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<!--Unknown connection ID: 9-->
+								<Grid
+									Name="StdGrpBoxExpanderFlashkeyCfgGeneralPseudo0"
+									Column="0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="300" />
+										<ColumnDefinition
+											Width="200" />
+										<ColumnDefinition
+											Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 10-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigFactoryOrderNumberValue"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigFactoryOrderNumberValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigFactoryOrderNumber}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigFactoryOrderNumber}"
+										IsAcpValid="{Binding Path=General.FkeyConfigFactoryOrderNumber_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigFactoryOrderNumber_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigFactoryOrderNumber_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigFactoryOrderNumber_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 11-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigFactoryOrderNumber"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigFactoryOrderNumber_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigFactoryOrderNumberValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigFactoryOrderNumberValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigFactoryOrderNumberValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigFactoryOrderNumberValue, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 12-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigCurrentModelNumberValue"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigCurrentModelNumberValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigCurrentModelNumber}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigCurrentModelNumber}"
+										IsAcpValid="{Binding Path=General.FkeyConfigCurrentModelNumber_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigCurrentModelNumber_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigCurrentModelNumber_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigCurrentModelNumber_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 13-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigCurrentModelNumber"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigCurrentModelNumber_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigCurrentModelNumberValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigCurrentModelNumberValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigCurrentModelNumberValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigCurrentModelNumberValue, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 14-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigNewModelNumberValue"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigNewModelNumberValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigNewModelNumber}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigNewModelNumber}"
+										IsAcpValid="{Binding Path=General.FkeyConfigNewModelNumber_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigNewModelNumber_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigNewModelNumber_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigNewModelNumber_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 15-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigNewModelNumber"
+										VerticalAlignment="Center"
+										Grid.Row="2"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigNewModelNumber_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigNewModelNumberValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigNewModelNumberValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigNewModelNumberValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigNewModelNumberValue, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 16-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigCurrentFlashcodeValue"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigCurrentFlashcodeValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigCurrentFlashcode}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigCurrentFlashcode}"
+										IsAcpValid="{Binding Path=General.FkeyConfigCurrentFlashcode_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigCurrentFlashcode_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigCurrentFlashcode_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigCurrentFlashcode_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 17-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigCurrentFlashcode"
+										VerticalAlignment="Center"
+										Grid.Row="3"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigCurrentFlashcode_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigCurrentFlashcodeValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigCurrentFlashcodeValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigCurrentFlashcodeValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigCurrentFlashcodeValue, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 18-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigNewFlashcodeValue"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigNewFlashcodeValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigNewFlashcode}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigNewFlashcode}"
+										IsAcpValid="{Binding Path=General.FkeyConfigNewFlashcode_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigNewFlashcode_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigNewFlashcode_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigNewFlashcode_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 19-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigNewFlashcode"
+										VerticalAlignment="Center"
+										Grid.Row="4"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigNewFlashcode_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigNewFlashcodeValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigNewFlashcodeValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigNewFlashcodeValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigNewFlashcodeValue, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 20-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigUpgradesPurchasedValue"
+										VerticalAlignment="Center"
+										Grid.Row="5"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigUpgradesPurchasedValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigUpgradesPurchased}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigUpgradesPurchased}"
+										IsAcpValid="{Binding Path=General.FkeyConfigUpgradesPurchased_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigUpgradesPurchased_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigUpgradesPurchased_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigUpgradesPurchased_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 21-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigUpgradesPurchased"
+										VerticalAlignment="Center"
+										Grid.Row="5"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigUpgradesPurchased_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigUpgradesPurchasedValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigUpgradesPurchasedValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigUpgradesPurchasedValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigUpgradesPurchasedValue, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 22-->
+									<AcpUINS:AcpTextBox
+										Name="FkeyConfigUpgradesRemainingValue"
+										VerticalAlignment="Center"
+										Grid.Row="6"
+										Grid.Column="2"
+										Foreground="#FF000000"
+										Text="{Binding Path=General.FkeyConfigUpgradesRemainingValue}"
+										MyExpander="{Binding ElementName=GrpBoxExpanderFlashkeyCfgGeneralPseudo0}"
+										MyBLObject="{Binding Path=General.FkeyConfigUpgradesRemaining}"
+										MyLabelCtrl="{Binding ElementName=LblFkeyConfigUpgradesRemaining}"
+										IsAcpValid="{Binding Path=General.FkeyConfigUpgradesRemaining_Valid, Mode=OneWay}"
+										IsAcpApplicable="{Binding Path=General.FkeyConfigUpgradesRemaining_Applicable, Mode=OneWay}"
+										IsAcpEditable="{Binding Path=General.FkeyConfigUpgradesRemaining_Editable, Mode=OneWay}"
+										IsAcpVisible="{Binding Path=General.FkeyConfigUpgradesRemaining_Visible, Mode=OneWay}" />
+									<!--Unknown connection ID: 23-->
+									<AcpUINS:AcpLabel
+										Name="LblFkeyConfigUpgradesRemaining"
+										VerticalAlignment="Center"
+										Grid.Row="6"
+										Grid.Column="1"
+										HelpText="{x:Static CommonResxNS:AppResources.Factory_Order_Number}"
+										Content="{Binding Path=General.FkeyConfigUpgradesRemaining_UILabel}"
+										MyParentCtrl="{Binding ElementName=FkeyConfigUpgradesRemainingValue}"
+										IsAcpValid="{Binding ElementName=FkeyConfigUpgradesRemainingValue, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=FkeyConfigUpgradesRemainingValue, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=FkeyConfigUpgradesRemainingValue, Path=IsAcpVisible}" />
+								</Grid>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 24-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderFlashkeyCfgFeatures"
+					Header="{Binding Path=FlashkeyConfigurationFeatures.UIName}"
+					IsAcpVisible="{Binding Path=FlashkeyConfigurationFeatures.IsVisible, Mode=OneWay}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 25-->
+						<AcpUINS:AcpXamDataPresenter
+							Name="ExpanderFlashkeyCfgFeaturesTable"
+							KeyboardNavigation.AcceptsReturn="True"
+							Grid.Row="1"
+							igcontrols:DataSource="{Binding FlashkeyConfigurationFeatures.EmbeddedRecset}">
+							<igcontrols:DataPresenterBase.FieldLayouts>
+								<igcontrols:FieldLayout>
+									<igcontrols:FieldLayout.Fields>
+										<igcontrols:UnboundField
+											Name="{x:Static CommonResxNS:AppResources.FLASHcode_Information}"
+											BindingPath="FlashkeyConfigurationFeaturesInnerSection"
+											BindingMode="OneWay">
+											<igcontrols:Field.Settings>
+												<igcontrols:FieldSettings
+													CellValuePresenterStyle="{StaticResource FlashkeyConfigurationFeatureNameCellStyle}"
+													CellMinWidth="200" />
+											</igcontrols:Field.Settings>
+										</igcontrols:UnboundField>
+										<igcontrols:UnboundField
+											Name="{x:Static CommonResxNS:AppResources.Current_Id}"
+											BindingPath="FlashkeyConfigurationFeaturesInnerSection"
+											BindingMode="OneWay">
+											<igcontrols:Field.Settings>
+												<igcontrols:FieldSettings
+													CellValuePresenterStyle="{StaticResource FkeyCfgCurrentFlashcodeCellStyle}" />
+											</igcontrols:Field.Settings>
+										</igcontrols:UnboundField>
+										<igcontrols:UnboundField
+											Name="{x:Static CommonResxNS:AppResources.New_Id}"
+											BindingPath="FlashkeyConfigurationFeaturesInnerSection"
+											BindingMode="OneWay">
+											<igcontrols:Field.Settings>
+												<igcontrols:FieldSettings
+													CellValuePresenterStyle="{StaticResource FkeyCfgNewFlashcodeCellStyle}" />
+											</igcontrols:Field.Settings>
+										</igcontrols:UnboundField>
+									</igcontrols:FieldLayout.Fields>
+								</igcontrols:FieldLayout>
+							</igcontrols:DataPresenterBase.FieldLayouts>
+						</AcpUINS:AcpXamDataPresenter>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+		<Grid
+			DockPanel.Dock="Bottom">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<!--Unknown connection ID: 26-->
+			<Button
+				Name="buttonClose"
+				Content="{x:Static CommonResxNS:AppResources.Close_Id}"
+				Grid.Column="0"
+				Grid.Row="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Width="75"
+				Margin="45,10,5,10" />
+			<!--Unknown connection ID: 27-->
+			<Button
+				Name="buttonHelp"
+				Content="{x:Static CommonResxNS:AppResources.Help_Id}"
+				Grid.Column="1"
+				Grid.Row="0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				Width="75"
+				Margin="45,10,5,10" />
+		</Grid>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

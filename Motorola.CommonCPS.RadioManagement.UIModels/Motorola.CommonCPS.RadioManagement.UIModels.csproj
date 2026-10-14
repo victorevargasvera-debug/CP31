@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.UIModels</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.UIModels</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveSetCategoryChangingEventArgs.cs" />
+    <Compile Include="ActiveSetChangedEventArgs.cs" />
+    <Compile Include="ActiveSetChangingEventArgs.cs" />
+    <Compile Include="ActiveTreeNodeChangingEventArgs.cs" />
+    <Compile Include="AddRadioContext.cs" />
+    <Compile Include="ApplicationShortcutInfo.cs" />
+    <Compile Include="ApplyTemplateCheckResult.cs" />
+    <Compile Include="ApplyTemplatetoRelatedRadiosContext.cs" />
+    <Compile Include="APXWiFiNetwork.cs" />
+    <Compile Include="AstroDataProfile.cs" />
+    <Compile Include="ASTRODVRSFileDto.cs" />
+    <Compile Include="ASTROEIDDetail.cs" />
+    <Compile Include="ASTROModifyCodeplugPasswordContext.cs" />
+    <Compile Include="ASTROOtarProfile.cs" />
+    <Compile Include="ASTROOtarProfileInfo.cs" />
+    <Compile Include="ASTROOtarProfileRadioInfo.cs" />
+    <Compile Include="ASTROProfileInfo.cs" />
+    <Compile Include="ASTROProfileRadioInfo.cs" />
+    <Compile Include="ASTRORadio.cs" />
+    <Compile Include="ASTRORadioLicense.cs" />
+    <Compile Include="ASTRORadioLicenseRadioView.cs" />
+    <Compile Include="AstroSystem.cs" />
+    <Compile Include="ASTROSystemInfo.cs" />
+    <Compile Include="ASTROSystemRadioInfo.cs" />
+    <Compile Include="ASTROTemplate.cs" />
+    <Compile Include="AuthenticationMethod.cs" />
+    <Compile Include="BoolField.cs" />
+    <Compile Include="ButtonBarMode.cs" />
+    <Compile Include="ButtonBarModeEnum.cs" />
+    <Compile Include="CACertificates.cs" />
+    <Compile Include="ChangePasswordContext.cs" />
+    <Compile Include="ChooseLanguageInfo.cs" />
+    <Compile Include="ClearDataProgressUIItem.cs" />
+    <Compile Include="ClearOldDBContext.cs" />
+    <Compile Include="ClipboardWarningResultItem.cs" />
+    <Compile Include="CollectionField.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\FailTypes\FieldNotFound.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\FailTypes\InvalidFieldValue.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\FailTypes\InvalidXmlNodeName.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\FailTypes\SetAddingFailed.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\FailTypes\SetCountMaxLimitReached.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\FailTypes\SetCountMinLimitReached.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\IFailType.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\Failing\PasteStatusCollection.cs" />
+    <Compile Include="ConfigurationEditor\CopyPaste\PasteContext.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="ContainerStatus.cs" />
+    <Compile Include="ContextBase.cs" />
+    <Compile Include="CopyPasteUtility.cs" />
+    <Compile Include="CopyPasteWarningContext.cs" />
+    <Compile Include="CPS\RadioIdentity\IRadioIdentityFields.cs" />
+    <Compile Include="CPS\RadioIdentity\RadioIdentity.cs" />
+    <Compile Include="CPS\RadioIdentity\RadioIdentityFeatureType.cs" />
+    <Compile Include="CPS\RadioIdentity\RadioIdentityFields.cs" />
+    <Compile Include="DataField.cs" />
+    <Compile Include="DBMigrationContext.cs" />
+    <Compile Include="DBMigrationRadioBasicInfo.cs" />
+    <Compile Include="DBMigrationTemplateBasicInfo.cs" />
+    <Compile Include="DBSizeInfo.cs" />
+    <Compile Include="DealerInfo.cs" />
+    <Compile Include="DialogVisibility.cs" />
+    <Compile Include="DockPanelNames.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="DVRSFiles.cs" />
+    <Compile Include="EditSetColumnContext.cs" />
+    <Compile Include="EIDDetail.cs" />
+    <Compile Include="EIDInfo.cs" />
+    <Compile Include="EntityWrapper.cs" />
+    <Compile Include="ErrorMessageContext.cs" />
+    <Compile Include="FeatureInfo.cs" />
+    <Compile Include="FeatureOptionStatus.cs" />
+    <Compile Include="FieldBase.cs" />
+    <Compile Include="FieldCollection.cs" />
+    <Compile Include="FieldInfo.cs" />
+    <Compile Include="FieldPasteWarningInfo.cs" />
+    <Compile Include="FieldVisibilityChangedEventArgs.cs" />
+    <Compile Include="FieldXmlConstants.cs" />
+    <Compile Include="FilePassword.cs" />
+    <Compile Include="FillOperationWarningItem.cs" />
+    <Compile Include="Firmware.cs" />
+    <Compile Include="FlatParentChildSet.cs" />
+    <Compile Include="GeneralPackage.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="GuiResultItem.cs" />
+    <Compile Include="HiddenMessage.cs" />
+    <Compile Include="HistoricalJob.cs" />
+    <Compile Include="IBoolEdit.cs" />
+    <Compile Include="IControlType.cs" />
+    <Compile Include="ICopyable.cs" />
+    <Compile Include="IFieldEdit.cs" />
+    <Compile Include="IListEdit.cs" />
+    <Compile Include="ImportedLanguagePack.cs" />
+    <Compile Include="ImportLanguagePackContext.cs" />
+    <Compile Include="ImportRadiosContext.cs" />
+    <Compile Include="ImportTemplatesContext.cs" />
+    <Compile Include="IMultiSelectionListEdit.cs" />
+    <Compile Include="INumericEdit.cs" />
+    <Compile Include="IRxGroupList.cs" />
+    <Compile Include="IScanList.cs" />
+    <Compile Include="IStringEdit.cs" />
+    <Compile Include="ITreeNode.cs" />
+    <Compile Include="IUIModelValidate.cs" />
+    <Compile Include="JobBase.cs" />
+    <Compile Include="JobContainer.cs" />
+    <Compile Include="LabelField.cs" />
+    <Compile Include="Langauge.cs" />
+    <Compile Include="LanguageDetailInfo.cs" />
+    <Compile Include="LanguagePack.cs" />
+    <Compile Include="LeaveSetConfirmationContext.cs" />
+    <Compile Include="LeaveSetOption.cs" />
+    <Compile Include="LicenseSubmissionResult.cs" />
+    <Compile Include="ListField.cs" />
+    <Compile Include="ListFieldItem.cs" />
+    <Compile Include="LoadingInfo.cs" />
+    <Compile Include="LogSetting.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="MigrationJob.cs" />
+    <Compile Include="MigrationJobContainer.cs" />
+    <Compile Include="ModifyCodeplugPasswordContext.cs" />
+    <Compile Include="MoveDeviceContext.cs" />
+    <Compile Include="NavigateModeType.cs" />
+    <Compile Include="NullField.cs" />
+    <Compile Include="OAuthLoginContext.cs" />
+    <Compile Include="OAuthLoginResult.cs" />
+    <Compile Include="OpJob.cs" />
+    <Compile Include="Option.cs" />
+    <Compile Include="OutputPaneBackgroundWorkStatus.cs" />
+    <Compile Include="PackageBase.cs" />
+    <Compile Include="ParseArchiveParameters.cs" />
+    <Compile Include="PasteResult.cs" />
+    <Compile Include="PCRTemplate.cs" />
+    <Compile Include="PreloadFieldInfo.cs" />
+    <Compile Include="PreloadSetInfo.cs" />
+    <Compile Include="PrintViewContext.cs" />
+    <Compile Include="ProgressContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioBase.cs" />
+    <Compile Include="RadioConversionContext.cs" />
+    <Compile Include="RadioDetails.cs" />
+    <Compile Include="RadioLicenseBase.cs" />
+    <Compile Include="RadioLicenseFeatureViewBase.cs" />
+    <Compile Include="RadioLicenseRadioViewBase.cs" />
+    <Compile Include="RadioOption.cs" />
+    <Compile Include="RadioPair.cs" />
+    <Compile Include="RangeField.cs" />
+    <Compile Include="ReadWriteDeviceJob.cs" />
+    <Compile Include="RefRelationSet.cs" />
+    <Compile Include="RegisterApplicationLicenseContext.cs" />
+    <Compile Include="RegisterRadioLicenseContext.cs" />
+    <Compile Include="ReportType.cs" />
+    <Compile Include="ResetIdentifiersContext.cs" />
+    <Compile Include="ResetRadioPasswordContext.cs" />
+    <Compile Include="RestartOptions.cs" />
+    <Compile Include="ResultType.cs" />
+    <Compile Include="RetryConfirmation.cs" />
+    <Compile Include="RfGuiPath.cs" />
+    <Compile Include="RfNodeType.cs" />
+    <Compile Include="RFSearchResultItem.cs" />
+    <Compile Include="RMDataGridColumnInfo.cs" />
+    <Compile Include="RMDataGridInfo.cs" />
+    <Compile Include="RMResource.cs" />
+    <Compile Include="RMUserPassword.cs" />
+    <Compile Include="SaveScenario.cs" />
+    <Compile Include="SaveSetConfirmationContext.cs" />
+    <Compile Include="SaveTemplateAsContext.cs" />
+    <Compile Include="ScheduledJobType.cs" />
+    <Compile Include="ScheduleJobContext.cs" />
+    <Compile Include="ScheduleJobContextHandler.cs" />
+    <Compile Include="ScheduleRestoreJobContext.cs" />
+    <Compile Include="SelectAgencyContext.cs" />
+    <Compile Include="SelectASKForCFSContext.cs" />
+    <Compile Include="SelectCodeplugVersionContext.cs" />
+    <Compile Include="SelectedType.cs" />
+    <Compile Include="SelectFirmwareContext.cs" />
+    <Compile Include="SelectGeneralPackageContext.cs" />
+    <Compile Include="SelectModifiedRadioContext.cs" />
+    <Compile Include="SelectMVOContext.cs" />
+    <Compile Include="SelectRadiosContext.cs" />
+    <Compile Include="SelectRunningRadiosContext.cs" />
+    <Compile Include="SelectTemplateContext.cs" />
+    <Compile Include="SelectWarningRadiostoScheduleJobContext.cs" />
+    <Compile Include="Set.cs" />
+    <Compile Include="SetCategory.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsContext.cs" />
+    <Compile Include="SettingsForImportFromConsoleContext.cs" />
+    <Compile Include="ShowCACertificatesPacksContext.cs" />
+    <Compile Include="ShowDVRSFilePacksContext.cs" />
+    <Compile Include="ShowLanguagePacksContext.cs" />
+    <Compile Include="ShowMismatchOptionsContext.cs" />
+    <Compile Include="ShowTemplateCACertificatesPacksContext.cs" />
+    <Compile Include="ShowTemplateDVRSFilesPacksContext.cs" />
+    <Compile Include="ShowTemplateLanguagePacksContext.cs" />
+    <Compile Include="ShowTemplateVAPacksContext.cs" />
+    <Compile Include="ShowVAPacksContext.cs" />
+    <Compile Include="SimpleTouchTreeNode.cs" />
+    <Compile Include="SpellCheckResultItem.cs" />
+    <Compile Include="SpellCheckResultsFilterOption.cs" />
+    <Compile Include="StringField.cs" />
+    <Compile Include="TasksContext.cs" />
+    <Compile Include="TemplateBase.cs" />
+    <Compile Include="TemplateConversionContext.cs" />
+    <Compile Include="TemplateRadioPair.cs" />
+    <Compile Include="TestDlgContext.cs" />
+    <Compile Include="TextToSpeech.cs" />
+    <Compile Include="TreeViewNode.cs" />
+    <Compile Include="UIJobStatus.cs" />
+    <Compile Include="UIModelBase.cs" />
+    <Compile Include="UIRadioFactory.cs" />
+    <Compile Include="UIVisitor.cs" />
+    <Compile Include="UpdateRadioContext.cs" />
+    <Compile Include="UserLoginContext.cs" />
+    <Compile Include="UserOperationType.cs" />
+    <Compile Include="ValidateRadioWarning_SelectConfiguration_Result.cs" />
+    <Compile Include="VoiceAnnouncement.cs" />
+    <Compile Include="VoiceDetailInfo.cs" />
+    <Compile Include="WarningResultItem.cs" />
+    <Compile Include="WiFiEncryptionMode.cs" />
+    <Compile Include="WiFiPasswordValidationContext.cs" />
+    <Compile Include="XmlContentType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.Interactivity\Microsoft.Practices.Prism.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69B}</Project>
+      <Name>Microsoft.Practices.Prism.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlCommonUtility\SamlCommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D8}</Project>
+      <Name>SamlCommonUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

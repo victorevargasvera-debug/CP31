@@ -1,0 +1,87 @@
+<UserControl
+	x:Class="SpecialFeatures.Programming.UI.SPF_UI_IPAddressV4_Control" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mycustom="clr-namespace:SpecialFeatures.Programming.UI;assembly=">
+	<!--Unknown connection ID: 1-->
+	<StackPanel
+		Name="ipAddressStackPanel"
+		Orientation="Horizontal"
+		DockPanel.Dock="Left">
+		<!--Unknown connection ID: 2-->
+		<mycustom:IPTextBox
+			Name="ip1TextBox"
+			PreviewTextInput="ipAddressStackPanel_PreviewTextInput"
+			TextChanged="ipAddressStackPanel_TextChanged"
+			Min="0"
+			Max="255"
+			MaxLength="3"
+			MaxLines="1"
+			HorizontalAlignment="Center"
+			MinWidth="20"
+			TextAlignment="Center" />
+		<Label
+			FontWeight="Bold"
+			VerticalAlignment="Bottom"
+			Padding="2,0,2,0">.</Label>
+		<!--Unknown connection ID: 3-->
+		<mycustom:IPTextBox
+			Name="ip2TextBox"
+			TextChanged="ipAddressStackPanel_TextChanged"
+			PreviewTextInput="ipAddressStackPanel_PreviewTextInput"
+			Min="0"
+			Max="255"
+			MaxLength="3"
+			MaxLines="1"
+			HorizontalAlignment="Center"
+			MinWidth="20"
+			TextAlignment="Center" />
+		<Label
+			FontWeight="Bold"
+			VerticalAlignment="Bottom"
+			Padding="2,0,2,0">.</Label>
+		<!--Unknown connection ID: 4-->
+		<mycustom:IPTextBox
+			Name="ip3TextBox"
+			TextChanged="ipAddressStackPanel_TextChanged"
+			PreviewTextInput="ipAddressStackPanel_PreviewTextInput"
+			Min="0"
+			Max="255"
+			MaxLines="1"
+			MaxLength="3"
+			HorizontalAlignment="Center"
+			MinWidth="20"
+			TextAlignment="Center" />
+		<Label
+			FontWeight="Bold"
+			VerticalAlignment="Bottom"
+			Padding="2,0,2,0">.</Label>
+		<!--Unknown connection ID: 5-->
+		<mycustom:IPTextBox
+			Name="ip4TextBox"
+			TextChanged="ipAddressStackPanel_TextChanged"
+			PreviewTextInput="ipAddressStackPanel_PreviewTextInput"
+			Min="0"
+			Max="255"
+			MaxLines="1"
+			MaxLength="3"
+			HorizontalAlignment="Center"
+			MinWidth="20"
+			TextAlignment="Center" />
+		<Label
+			Visibility="Collapsed"
+			FontWeight="Bold"
+			VerticalAlignment="Center"
+			Margin="10,0,10,0"
+			Padding="2,0,2,0">:</Label>
+		<!--Unknown connection ID: 6-->
+		<mycustom:IPTextBox
+			Name="portTextBox"
+			Visibility="Collapsed"
+			Min="0"
+			Max="65536"
+			MaxLength="5"
+			MaxLines="1"
+			HorizontalAlignment="Center"
+			MinWidth="30"
+			TextAlignment="Center"
+			Margin="0,0,5,0" />
+	</StackPanel>
+</UserControl>

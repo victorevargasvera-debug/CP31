@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA657}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common.Communication</RootNamespace>
+    <AssemblyName>Common.Communication.CommunicationManager</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AstroCommunicationModule.cs" />
+    <Compile Include="AstroCommunicationPipeModule.cs" />
+    <Compile Include="AstroDeviceDetectorsModule.cs" />
+    <Compile Include="AstroDeviceFactoriesModule.cs" />
+    <Compile Include="AstroSequenceManagerModule.cs" />
+    <Compile Include="CommunicationManager\AstroCpsSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroFileFlashSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroFileSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroFlashSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroOtapCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\AstroOtapDevice.cs" />
+    <Compile Include="CommunicationManager\AstroOtapFileSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroOtapIshSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroOtapTlsHandshakeCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\AstroRadioFactory.cs" />
+    <Compile Include="CommunicationManager\AstroUsbBtCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\AstroUsbBtResetCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\AstroUsbBtTlsHandshakeCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\AstroWifiCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\AstroWiFiDevice.cs" />
+    <Compile Include="CommunicationManager\AstroWiFiFileFlashSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroWiFiRadioFactory.cs" />
+    <Compile Include="CommunicationManager\AstroWiFiSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\AstroWifiTlsDevice.cs" />
+    <Compile Include="CommunicationManager\AstroWireDevice.cs" />
+    <Compile Include="CommunicationManager\BlindPushDeviceFactory.cs" />
+    <Compile Include="CommunicationManager\CommunicationManagerClass.cs" />
+    <Compile Include="CommunicationManager\CommunicationPipeFactory.cs" />
+    <Compile Include="CommunicationManager\Constants.cs" />
+    <Compile Include="CommunicationManager\Creators\CommunicationPipe\ASTRO\AmpCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\Creators\CommunicationPipe\ASTRO\AmpTlsHandshakeCommPipeCreator.cs" />
+    <Compile Include="CommunicationManager\Creators\SequenceManager\AMP\AmpCpsSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\Creators\SequenceManager\AMP\AmpFileFlashSequenceManagerCreator.cs" />
+    <Compile Include="CommunicationManager\DeviceEventHandler.cs" />
+    <Compile Include="CommunicationManager\DeviceFactory\AmpRadioFactory\AmpApRadioFactory.cs" />
+    <Compile Include="CommunicationManager\DeviceFactory\AmpRadioFactory\AmpBpRadioFactory.cs" />
+    <Compile Include="CommunicationManager\DeviceFactory\AmpRadioFactory\AmpWiFiRadioFactory.cs" />
+    <Compile Include="CommunicationManager\Device\AmpZeroConfigDevice.cs" />
+    <Compile Include="CommunicationManager\Device\BTDevice.cs" />
+    <Compile Include="CommunicationManager\IDeviceEventHandler.cs" />
+    <Compile Include="CommunicationManager\InitializerAttribute.cs" />
+    <Compile Include="CommunicationManager\MotoDevice.cs" />
+    <Compile Include="CommunicationManager\MotoDeviceDetector.cs" />
+    <Compile Include="CommunicationManager\MotoDeviceFactory.cs" />
+    <Compile Include="CommunicationManager\ParametersSet.cs" />
+    <Compile Include="CommunicationManager\RNDISDeviceFactory.cs" />
+    <Compile Include="CommunicationManager\SequenceManagerFactory.cs" />
+    <Compile Include="CommunicationManager\SessionIdGenerator.cs" />
+    <Compile Include="CommunicationManager\Utilities.cs" />
+    <Compile Include="CommunicationManager\WiFiDevice.cs" />
+    <Compile Include="CommunicationManager\WiFiDeviceFactory.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VirtualCommunicationModule.cs" />
+    <Compile Include="VirtualDeviceDetectorModule.cs" />
+    <Compile Include="VirtualDeviceFactoryModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64A}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.AstroDeviceUpdate\Common.Communication.AstroDeviceUpdate.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA653}</Project>
+      <Name>Common.Communication.AstroDeviceUpdate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.AstroSequenceManager\Common.Communication.AstroSequenceManager.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA654}</Project>
+      <Name>Common.Communication.AstroSequenceManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommonInterface\Common.Communication.CommonInterface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA656}</Project>
+      <Name>Common.Communication.CommonInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommunicationPipe\Common.Communication.CommunicationPipe.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA658}</Project>
+      <Name>Common.Communication.CommunicationPipe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.DeviceDiscovery\Common.Communication.DeviceDiscovery.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA659}</Project>
+      <Name>Common.Communication.DeviceDiscovery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.IshHandler\Common.Communication.IshHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA65C}</Project>
+      <Name>Common.Communication.IshHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.SequenceManager.Astro\Common.Communication.SequenceManager.Astro.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA65F}</Project>
+      <Name>Common.Communication.SequenceManager.Astro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.Simulator\Common.Communication.Simulator.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA661}</Project>
+      <Name>Common.Communication.Simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonCommunicationUtility\CommonCommunicationUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA665}</Project>
+      <Name>CommonCommunicationUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pba\Pba.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D1}</Project>
+      <Name>Pba</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransportLayerSecurity\TransportLayerSecurity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E3}</Project>
+      <Name>TransportLayerSecurity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

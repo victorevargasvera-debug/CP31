@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.SharedService</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\Services\RMCExportToCPS\QueryUpdateRadioEventArgs.cs" />
+    <Compile Include="Interface\RmcCpsWcfContractInterfaceForTestsOnly\IRmcCpsWcfContract.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioFeatureOperation\RadioSecurityData.cs" />
+    <Compile Include="Services\Package\AstroAmpFirmwarePackageService.cs" />
+    <Compile Include="SharedServices\AnalysisPackageEventArgs.cs" />
+    <Compile Include="SharedServices\AppLicenseInfo.cs" />
+    <Compile Include="SharedServices\ApplyRadioWithFeaturesEventArgs.cs" />
+    <Compile Include="SharedServices\ASKUtility.cs" />
+    <Compile Include="SharedServices\AstroASKRequirementEventArgs.cs" />
+    <Compile Include="SharedServices\AstroCompatibilityEventArgs.cs" />
+    <Compile Include="SharedServices\ASTRODataProfileService.cs" />
+    <Compile Include="SharedServices\AstroDecodeFlashCodeEventArgs.cs" />
+    <Compile Include="SharedServices\AstroDecodeLanguageIndexToLPIDEventArgs.cs" />
+    <Compile Include="SharedServices\AstroDecreaseKeyCountEventArgs.cs" />
+    <Compile Include="SharedServices\AstroEncodeFlashCodeEventArgs.cs" />
+    <Compile Include="SharedServices\ASTROFirmwarePackageService.cs" />
+    <Compile Include="SharedServices\AstroFlashKeyEventArgs.cs" />
+    <Compile Include="SharedServices\ASTROHoptionEnableEventArgs.cs" />
+    <Compile Include="SharedServices\ASTROIndividualIdEditingEventArgs.cs" />
+    <Compile Include="SharedServices\AstroLanguageCompatibleCheckEventArgs.cs" />
+    <Compile Include="SharedServices\ASTROLicenseService.cs" />
+    <Compile Include="SharedServices\ASTROManageRadioLicenseService.cs" />
+    <Compile Include="SharedServices\ASTROOTARProfileService.cs" />
+    <Compile Include="SharedServices\AstroParseFlashCodeEventArgs.cs" />
+    <Compile Include="SharedServices\AstroPINPasswordConvertEventArgs.cs" />
+    <Compile Include="SharedServices\AstroPop25EnabledEventArgs.cs" />
+    <Compile Include="SharedServices\ASTRORadioDetailService.cs" />
+    <Compile Include="SharedServices\ASTRORadioLicenseService.cs" />
+    <Compile Include="SharedServices\ASTRORadioService.cs" />
+    <Compile Include="SharedServices\ASTROSyncData.cs" />
+    <Compile Include="SharedServices\AstroSystemKeyDataEventArgs.cs" />
+    <Compile Include="SharedServices\ASTROSystemService.cs" />
+    <Compile Include="SharedServices\ASTROTemplateOperation.cs" />
+    <Compile Include="SharedServices\ASTROTemplateService.cs" />
+    <Compile Include="SharedServices\AstroUpgradeCodeplugEventArgs.cs" />
+    <Compile Include="SharedServices\AstroUpgradeFWCompatibleCheckEventArgs.cs" />
+    <Compile Include="SharedServices\AstroUpgradeWithLanugagePackIsSupportedCheckEventArgs.cs" />
+    <Compile Include="SharedServices\ASTROValidationService.cs" />
+    <Compile Include="SharedServices\AstroWritingEventArgs.cs" />
+    <Compile Include="SharedServices\AutomaticUpgradeLPUtility.cs" />
+    <Compile Include="SharedServices\BindingServerLanguagePackEventArgs.cs" />
+    <Compile Include="SharedServices\CommonDeviceService.cs" />
+    <Compile Include="SharedServices\ConfigurationRegistryAndSetting.cs" />
+    <Compile Include="SharedServices\ConnectionClosedFaulted.cs" />
+    <Compile Include="SharedServices\ConsoleAliasesListSetting.cs" />
+    <Compile Include="SharedServices\ConsoleAliasesListSettingsSectionHandler.cs" />
+    <Compile Include="SharedServices\CSVHeaderConverter.cs" />
+    <Compile Include="SharedServices\CSVProvider.cs" />
+    <Compile Include="SharedServices\CustomCertificateValidator.cs" />
+    <Compile Include="SharedServices\DataProviderService.cs" />
+    <Compile Include="SharedServices\DBMigrationService.cs" />
+    <Compile Include="SharedServices\DeviceEventArgs.cs" />
+    <Compile Include="SharedServices\DeviceOperation.cs" />
+    <Compile Include="SharedServices\DeviceServiceBase.cs" />
+    <Compile Include="SharedServices\DMServiceAccessor.cs" />
+    <Compile Include="SharedServices\Encryption.cs" />
+    <Compile Include="SharedServices\ExportDeviceEventArgs.cs" />
+    <Compile Include="SharedServices\ExportDVRSEventArgs.cs" />
+    <Compile Include="SharedServices\FilterLicenseEventArgs.cs" />
+    <Compile Include="SharedServices\FirmwareUpgradeIncludeEqualEventArgs.cs" />
+    <Compile Include="SharedServices\FlashKeyInfo.cs" />
+    <Compile Include="SharedServices\GenerateLicenseFilterEventArgs.cs" />
+    <Compile Include="SharedServices\GetLocalizedFeatureNameArgs.cs" />
+    <Compile Include="SharedServices\GetPcrUserRegionArgs.cs" />
+    <Compile Include="SharedServices\GetTTSInstallationPathEventArgs.cs" />
+    <Compile Include="SharedServices\GetVAInstallationPathEventArgs.cs" />
+    <Compile Include="SharedServices\GroupService.cs" />
+    <Compile Include="SharedServices\HOptionAdvancedKeyIDS.cs" />
+    <Compile Include="SharedServices\IAstroAmpFirmwarePackageService.cs" />
+    <Compile Include="SharedServices\IASTRODataProfileService.cs" />
+    <Compile Include="SharedServices\IASTROFirmwarePackageService.cs" />
+    <Compile Include="SharedServices\IASTROOTARProfileService.cs" />
+    <Compile Include="SharedServices\IASTRORadioDetailService.cs" />
+    <Compile Include="SharedServices\IASTRORadioService.cs" />
+    <Compile Include="SharedServices\IASTROSystemService.cs" />
+    <Compile Include="SharedServices\IASTROTemplateService.cs" />
+    <Compile Include="SharedServices\IASTROValidationService.cs" />
+    <Compile Include="SharedServices\ICSVProvider.cs" />
+    <Compile Include="SharedServices\IDataProviderService.cs" />
+    <Compile Include="SharedServices\IDBMigrationService.cs" />
+    <Compile Include="SharedServices\IDeviceOperation.cs" />
+    <Compile Include="SharedServices\IDeviceService.cs" />
+    <Compile Include="SharedServices\IDMServiceAccessor.cs" />
+    <Compile Include="SharedServices\IGroupService.cs" />
+    <Compile Include="SharedServices\IKeyValidationService.cs" />
+    <Compile Include="SharedServices\ILicenseService.cs" />
+    <Compile Include="SharedServices\IManageRadioLicenseService.cs" />
+    <Compile Include="SharedServices\ImportCSVCache.cs" />
+    <Compile Include="SharedServices\ImportDevicesToRMCDelegate.cs" />
+    <Compile Include="SharedServices\ImportTemplateToRMCDelegate.cs" />
+    <Compile Include="SharedServices\IncompatibilityHandler.cs" />
+    <Compile Include="SharedServices\IPackageManagementService.cs" />
+    <Compile Include="SharedServices\IPCRTemplateService.cs" />
+    <Compile Include="SharedServices\IRadioDetailService.cs" />
+    <Compile Include="SharedServices\IRadioFeatureOperation.cs" />
+    <Compile Include="SharedServices\IRadioFeatureRequestProcessor.cs" />
+    <Compile Include="SharedServices\IRadioLicenseService.cs" />
+    <Compile Include="SharedServices\IRegistryAndSetting.cs" />
+    <Compile Include="SharedServices\IRMCExportInterface.cs" />
+    <Compile Include="SharedServices\IServerAccessor.cs" />
+    <Compile Include="SharedServices\IService.cs" />
+    <Compile Include="SharedServices\IServiceContainer.cs" />
+    <Compile Include="SharedServices\IsFreonEventArgs.cs" />
+    <Compile Include="SharedServices\IsSameFWVersionUpgradeSupportedEventArgs.cs" />
+    <Compile Include="SharedServices\ITemplateDeviceOperation.cs" />
+    <Compile Include="SharedServices\ITemplateOperation.cs" />
+    <Compile Include="SharedServices\ITemplateService.cs" />
+    <Compile Include="SharedServices\IValidationServiceBase.cs" />
+    <Compile Include="SharedServices\LanguagePackInfosEventArgs.cs" />
+    <Compile Include="SharedServices\LicenseService.cs" />
+    <Compile Include="SharedServices\ListLpPackageEventArgs.cs" />
+    <Compile Include="SharedServices\ListTTSLpPackageEventArgs.cs" />
+    <Compile Include="SharedServices\ManageRadioLicenseServiceBase.cs" />
+    <Compile Include="SharedServices\ModelTierEventArgs.cs" />
+    <Compile Include="SharedServices\OpenFileEventArgs.cs" />
+    <Compile Include="SharedServices\OverrideResult.cs" />
+    <Compile Include="SharedServices\PackageManagementServiceBase.cs" />
+    <Compile Include="SharedServices\PackingParameter_CheckRadioOrJobStatus.cs" />
+    <Compile Include="SharedServices\ParseFeatureCodeEventArgs.cs" />
+    <Compile Include="SharedServices\ParseFeatureStatusEventArgs.cs" />
+    <Compile Include="SharedServices\ParseRadioFeatureEventArgs.cs" />
+    <Compile Include="SharedServices\PCRFilterLicenseEventArgs.cs" />
+    <Compile Include="SharedServices\PcrLanguagePackCompatibleCheckEventArgs.cs" />
+    <Compile Include="SharedServices\PcrRadioEntitledLicenseSummary.cs" />
+    <Compile Include="SharedServices\PopulateRadioFeaturesFromCodeplugEventArgs.cs" />
+    <Compile Include="SharedServices\PopulateRadioFeaturesFromFlashCodeEventArgs.cs" />
+    <Compile Include="SharedServices\RadioCfsChangesInUpgradeEventArgs.cs" />
+    <Compile Include="SharedServices\RadioDetailService.cs" />
+    <Compile Include="SharedServices\RadioFeatureOperationFactory.cs" />
+    <Compile Include="SharedServices\RadioFeatureRequestProcessor.cs" />
+    <Compile Include="SharedServices\RadioLicenseServiceBase.cs" />
+    <Compile Include="SharedServices\RadioNext\Consts.cs" />
+    <Compile Include="SharedServices\RadioNext\TargetModelMap.cs" />
+    <Compile Include="SharedServices\RegistryAndSettingProxy.cs" />
+    <Compile Include="SharedServices\RMCExportInterface.cs" />
+    <Compile Include="SharedServices\RmServerAccessor.cs" />
+    <Compile Include="SharedServices\RMServerCallback.cs" />
+    <Compile Include="SharedServices\SaveCodeplugToRMCDelegate.cs" />
+    <Compile Include="SharedServices\ServerAccessor.cs" />
+    <Compile Include="SharedServices\ServerEventHandler.cs" />
+    <Compile Include="SharedServices\ServiceBase.cs" />
+    <Compile Include="SharedServices\ServiceContainer.cs" />
+    <Compile Include="SharedServices\ServiceUtility.cs" />
+    <Compile Include="SharedServices\SyncDataForASTROUpgradeForConfigMode.cs" />
+    <Compile Include="SharedServices\SyncDataForASTROUpgradeForTemplateMode.cs" />
+    <Compile Include="SharedServices\TemplateDeviceOperation.cs" />
+    <Compile Include="SharedServices\TemplateOperation.cs" />
+    <Compile Include="SharedServices\TemplateRegistryAndSetting.cs" />
+    <Compile Include="SharedServices\TemplateServiceBase.cs" />
+    <Compile Include="SharedServices\UpdatePcrFwDescriptionArgs.cs" />
+    <Compile Include="SharedServices\UpdateProgressToRMCDelegate.cs" />
+    <Compile Include="SharedServices\UpgradeTemplateByFeaturesEventArgs.cs" />
+    <Compile Include="SharedServices\ValidateEntityBuilder.cs" />
+    <Compile Include="VersionComparer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASK.Interface\ASK.Interface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA648}</Project>
+      <Name>ASK.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASKLib\ASKLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA649}</Project>
+      <Name>ASKLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoUpdate\AutoUpdate.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64B}</Project>
+      <Name>AutoUpdate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonDBConstants\CommonDBConstants.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA666}</Project>
+      <Name>CommonDBConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtility\CommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA66B}</Project>
+      <Name>CommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionService\ExceptionService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA675}</Project>
+      <Name>ExceptionService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.Cryptography\Motorola.Common.Cryptography.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A2}</Project>
+      <Name>Motorola.Common.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.Server.RMDiscoveryServiceInterface\Motorola.CommonCPS.Server.RMDiscoveryServiceInterface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C3}</Project>
+      <Name>Motorola.CommonCPS.Server.RMDiscoveryServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.Server.RMServerContract\Motorola.CommonCPS.Server.RMServerContract.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C4}</Project>
+      <Name>Motorola.CommonCPS.Server.RMServerContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C8}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pba\Pba.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D1}</Project>
+      <Name>Pba</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFResourceRepository\RFResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D3}</Project>
+      <Name>RFResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RMLSA\RMLSA.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D7}</Project>
+      <Name>RMLSA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlCommonUtility\SamlCommonUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D8}</Project>
+      <Name>SamlCommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SamlTokenComponent\SamlTokenComponent.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D9}</Project>
+      <Name>SamlTokenComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerCallbackContract\ServerCallbackContract.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DA}</Project>
+      <Name>ServerCallbackContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedUtility\SharedUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DB}</Project>
+      <Name>SharedUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

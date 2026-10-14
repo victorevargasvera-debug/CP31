@@ -1,0 +1,264 @@
+<local:RMSealedFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMScanList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository"
+	Name="itemsMover"
+	DataContextChanged="UserControl_DataContextChanged"
+	Height="400">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<local:ItemsMoverFieldInfoToIconVisibilityConverter
+				x:Key="ItemsMoverFieldInfoToIconVisibilityConverter" />
+			<local:BoolToVisibilityConverter
+				x:Key="BoolToVisibilityConverter" />
+			<local:ItemsMoverIsCanSetPriorityToIconWidthConverter
+				x:Key="ItemsMoverIsCanSetPriorityToIconWidthConverter" />
+			<local:ListFieldItemToForegroundConverter
+				x:Key="ListFieldItemToForegroundConverter" />
+			<local:RxGrouplistToVisibilityConverter
+				x:Key="RxGrouplistToVisibilityConverter" />
+			<Style
+				TargetType="{x:Type Run}"
+				x:Key="Subscripted">
+				<Setter
+					Property="Inline.BaselineAlignment"
+					Value="Subscript" />
+				<Setter
+					Property="FontSize"
+					Value="8" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="10"
+		Height="380">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="30" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="{Binding Path=IsCanSetPriority, Converter={StaticResource ItemsMoverIsCanSetPriorityToIconWidthConverter}}" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="140" />
+			<ColumnDefinition
+				Width="*" />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="0"
+			Content="{Binding ElementName=itemsMover, Path=AvailableListBoxLabel}" />
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			Content="{Binding ElementName=itemsMover, Path=SelectedListBoxLabel}" />
+		<!--Unknown connection ID: 2-->
+		<ListBox
+			Name="lbItems"
+			Grid.Row="1"
+			Grid.Column="0"
+			SelectionMode="Extended"
+			AllowDrop="True"
+			ItemsSource="{Binding Items}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock
+						Text="{Binding Name}">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource ListFieldItemToForegroundConverter}">
+								<Binding
+									Path="IsApplicable" />
+								<Binding
+									Path="IsValid" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListBox>
+		<Grid
+			Row="1"
+			Column="1"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="10" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="30" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 3-->
+			<local:RMButton
+				Name="btnAddAll"
+				Content="{x:Static resourceRepository:Resources.RMC_ItemMover_AddAll}"
+				Grid.Row="0"
+				Command="{Binding AddAllCommand}"
+				Visibility="{Binding ElementName=itemsMover, Path=IsBatchOperationAllowed, Converter={StaticResource BoolToVisibilityConverter}}" />
+			<!--Unknown connection ID: 4-->
+			<local:RMButton
+				Name="btnAdd"
+				Content="{x:Static resourceRepository:Resources.RMC_ItemMover_Add}"
+				Grid.Row="2"
+				Command="{Binding AddCommand}" />
+			<!--Unknown connection ID: 5-->
+			<local:RMButton
+				Name="btnRemove"
+				Content="{x:Static resourceRepository:Resources.RMC_ItemMover_Remove}"
+				Grid.Row="4"
+				Command="{Binding RemoveCommand}" />
+			<!--Unknown connection ID: 6-->
+			<local:RMButton
+				Name="btnRemoveAll"
+				Content="{x:Static resourceRepository:Resources.RMC_ItemMover_RemoveAll}"
+				Grid.Row="6"
+				Command="{Binding RemoveAllCommand}"
+				Visibility="{Binding ElementName=itemsMover, Path=IsBatchOperationAllowed, Converter={StaticResource BoolToVisibilityConverter}}" />
+		</Grid>
+		<!--Unknown connection ID: 7-->
+		<ListBox
+			Name="lbSelectedItems"
+			Grid.Row="1"
+			Grid.Column="2"
+			SelectionMode="Extended"
+			AllowDrop="True"
+			ItemsSource="{Binding SelectedItems}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="{Binding Path=IsCanSetPriority, Converter={StaticResource ItemsMoverIsCanSetPriorityToIconWidthConverter}}" />
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0">
+							<TextBlock>
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource ItemsMoverFieldInfoToIconVisibilityConverter}">
+										<Binding
+											ElementName="itemsMover"
+											Path="DataContext.FirstPriority" />
+										<Binding />
+									</MultiBinding>
+								</UIElement.Visibility>Z<Run
+									Style="{StaticResource Subscripted}">1</Run></TextBlock>
+						</Label>
+						<Label
+							Grid.Column="0">
+							<TextBlock>
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource ItemsMoverFieldInfoToIconVisibilityConverter}">
+										<Binding
+											ElementName="itemsMover"
+											Path="DataContext.SecondPriority" />
+										<Binding />
+									</MultiBinding>
+								</UIElement.Visibility>Z<Run
+									Style="{StaticResource Subscripted}">2</Run></TextBlock>
+						</Label>
+						<Label
+							Grid.Column="2">
+							<TextBlock>
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource RxGrouplistToVisibilityConverter}">
+										<Binding
+											ElementName="itemsMover"
+											Path="DataContext.AffiliationsUI" />
+										<Binding />
+									</MultiBinding>
+								</UIElement.Visibility>*<Run
+									Style="{StaticResource Subscripted}" /></TextBlock>
+						</Label>
+						<TextBlock
+							Grid.Column="1"
+							Text="{Binding Name}">
+							<TextBlock.Foreground>
+								<MultiBinding
+									Converter="{StaticResource ListFieldItemToForegroundConverter}">
+									<Binding
+										Path="IsApplicable" />
+									<Binding
+										Path="IsValid" />
+								</MultiBinding>
+							</TextBlock.Foreground>
+						</TextBlock>
+					</Grid>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListBox>
+		<Grid
+			Row="2"
+			Column="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid
+				Column="1"
+				Visibility="{Binding Path=IsCanSetPriority, Converter={StaticResource BoolToVisibilityConverter}}">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<!--Unknown connection ID: 8-->
+				<local:RMButton
+					Name="btnSetPriority1"
+					Margin="10"
+					MinWidth="150"
+					Grid.Row="0"
+					Content="{x:Static resourceRepository:Resources.RMC_ScanList_SetClearPriority1}"
+					Command="{Binding SetFirstPriorityCommand}" />
+				<!--Unknown connection ID: 9-->
+				<local:RMButton
+					Name="btnSetPriority2"
+					Margin="10"
+					MinWidth="150"
+					Grid.Row="1"
+					Content="{x:Static resourceRepository:Resources.RMC_ScanList_SetClearPriority2}"
+					Command="{Binding SetSecondPriorityCommand}" />
+				<!--Unknown connection ID: 10-->
+				<local:RMButton
+					Name="btnSetAffiliation"
+					Margin="10"
+					MinWidth="150"
+					Grid.Row="2"
+					Content="{x:Static resourceRepository:Resources.RMC_ScanList_SetAffiliation}"
+					Command="{Binding SetAffiliationCommand}"
+					Visibility="{Binding Path=IsShowAffiliation, Converter={StaticResource BoolToVisibilityConverter}}" />
+			</Grid>
+		</Grid>
+	</Grid>
+</local:RMSealedFieldEditor>

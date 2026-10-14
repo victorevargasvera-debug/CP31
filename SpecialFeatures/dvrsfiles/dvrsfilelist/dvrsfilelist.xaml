@@ -1,0 +1,567 @@
+<AcpUINS:AcpPageFeature
+	x:Class="SpecialFeatures.DVRSFiles.List.DVRSFileListPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:DVRSFileRecSetNS="clr-namespace:SpecialFeatures.DVRSFiles.List" xmlns:srcFeat="clr-namespace:ConstraintHelper;assembly=AllFeatures"
+	Title="{x:Static ResourceNS:AppResources.DVRS_File_List_ID}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageDVRSFileList"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<srcFeat:ExpanderVisibilityConverterForEmptyTbl
+				x:Key="expanderVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:SRecViewVisibilityConverterForEmptyTbl
+				x:Key="sRecViewVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverterForEmptyTbl
+				x:Key="acpXamDataPresenterVisibilityConverterForEmptyTbl" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4234</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4234</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderDVRSFileListTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4234</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10893</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSConfigDVRSFileName_CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTextBoxFileBrowser
+								Name="dvrsFileBrowser"
+								Text="{Binding Path=Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSFileLabtool}"
+								MyBLObject="{Binding Path=Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736Object, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBoxFileBrowser.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736Object"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBoxFileBrowser.IsAcpEditable>
+								<AcpUINS:AcpTextBoxFileBrowser.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileName_A43736_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBoxFileBrowser.IsAcpApplicable>
+							</AcpUINS:AcpTextBoxFileBrowser>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="DVRSConfigDVRSFileData_A43734_CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderDVRSFileLabtool}"
+								MyBLObject="{Binding Path=Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 5-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderDVRSFileLabtool, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 6-->
+				<Hyperlink
+					Name="HLinkLabtool"
+					Tag="ExpanderDVRSFileLabtool">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_LABTOOL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="DVRSFileLabtoolSection.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 7-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 8-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderDVRSFileLabtool"
+					Width="Auto"
+					Header="{x:Static ResourceNS:AcgResources.ID_LABTOOL}"
+					ShowDiffIcon="{Binding Path=Labtool.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderDVRSFileListLabtoolPseudo0"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="GroupBoxExpanderDVRSFileListTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="GroupBoxExpanderDVRSFileListSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 9-->
+						<AcpUINS:AcpVoiceAnnRecNavToolBar
+							Name="RecNavToolbarExpanderDVRSFileListEmbeddedList"
+							Grid.Row="0"
+							Visibility="Hidden"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/Labtool.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderDVRSFileListEmbeddedList, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/Labtool.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderDVRSFileListLabtoolPseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource groupboxVisibilityConverter}">
+										<Binding
+											ElementName="DVRSConfigDVRSFileName_A43736"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="230" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 11-->
+									<AcpUINS:AcpLabel
+										Name="LblDVRSConfigDVRSFileName_A43736"
+										Content="{x:Static ResourceNS:AcgResources.ID_DVRSFILE}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=DVRSConfigDVRSFileName_A43736}"
+										IsAcpValid="{Binding ElementName=DVRSConfigDVRSFileName_A43736, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=DVRSConfigDVRSFileName_A43736, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=DVRSConfigDVRSFileName_A43736, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 12-->
+									<AcpUINS:AcpTextBox
+										Name="DVRSConfigDVRSFileName_A43736"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										Text="{Binding Path=Labtool.DVRSConfigDVRSFileName_A43736Value}"
+										MyExpander="{Binding ElementName=ExpanderDVRSFileLabtool}"
+										MyBLObject="{Binding Path=Labtool.DVRSConfigDVRSFileName_A43736Object}"
+										MyLabelCtrl="{Binding ElementName=LblDVRSConfigDVRSFileName_A43736}"
+										IsAcpValid="{Binding Path=Labtool.DVRSConfigDVRSFileName_A43736_Valid}"
+										IsAcpApplicable="{Binding Path=Labtool.DVRSConfigDVRSFileName_A43736_Applicable}"
+										AreValuesEqual="{Binding Path=Labtool.DVRSConfigDVRSFileName_A43736_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="Labtool.DVRSConfigDVRSFileName_A43736_Editable" />
+												<Binding
+													Path="Labtool.DVRSConfigDVRSFileName_A43736Object" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="Labtool.DVRSConfigDVRSFileName_A43736_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 13-->
+						<Grid
+							Name="ExpanderDVRSFileListLabtoolGrid">
+							<!--Unknown connection ID: 14-->
+							<Grid
+								Name="ExpanderDVRSFileListEmbeddedListGrid"
+								Row="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 15-->
+								<AcpUINS:AcpGroupBox
+									Name="GroupBoxExpanderDVRSFileListTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderDVRSFileListEmbeddedList"
+												Path="TableMode" />
+											<Binding
+												ElementName="ExpanderDVRSFileListEmbeddedList"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 16-->
+										<AcpUINS:AcpXamDataPresenter
+											Name="ExpanderDVRSFileListEmbeddedList"
+											KeyboardNavigation.AcceptsReturn="True"
+											Grid.Row="1"
+											Header="{x:Static ResourceNS:AcgResources.ID_DVRSFILES}"
+											MyExpander="{Binding ElementName=ExpanderDVRSFileLabtool}"
+											igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/Labtool.EmbeddedRecset}">
+											<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpXamDataPresenterVisibilityConverterForEmptyTbl}"
+													ConverterParameter="1"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="DataSource.HasDiffs"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="IsAcpVisible"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Source="{StaticResource GetParentFeature}"
+														Path="Labtool.EmbeddedRecset.IsEmpty" />
+													<Binding
+														Source="{StaticResource GetParentFeature}"
+														Path="Labtool.EmbeddedRecset.TemplateNode.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Visible" />
+													<Binding
+														ElementName="DVRSConfigDVRSFileData_A43734_Col"
+														Path="Visibility" />
+												</MultiBinding>
+											</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<igcontrols:DataPresenterBase.FieldLayouts>
+												<igcontrols:FieldLayout>
+													<igcontrols:FieldLayout.Fields>
+														<!--Unknown connection ID: 17-->
+														<igcontrols:UnboundField
+															x:Name="DVRSConfigDVRSFileData_A43734_Col"
+															Label="{x:Static ResourceNS:AcgResources.ID_DVRSFILE}"
+															BindingPath="DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734"
+															BindingMode="OneWay"
+															ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+															Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderDVRSFileListTableView}, Path=DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Visible, Converter={StaticResource BooleanToVisibility}}">
+															<igcontrols:Field.Settings>
+																<igcontrols:FieldSettings
+																	CellValuePresenterStyle="{StaticResource DVRSConfigDVRSFileData_A43734_CellStyle}" />
+															</igcontrols:Field.Settings>
+														</igcontrols:UnboundField>
+													</igcontrols:FieldLayout.Fields>
+												</igcontrols:FieldLayout>
+											</igcontrols:DataPresenterBase.FieldLayouts>
+										</AcpUINS:AcpXamDataPresenter>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 18-->
+								<AcpUINS:AcpGroupBox
+									Name="GroupBoxExpanderDVRSFileListSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibilityConverterForEmptyTbl}"
+											ConverterParameter="1"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderDVRSFileListEmbeddedList"
+												Path="TableMode" />
+											<Binding
+												Source="{StaticResource GetParentFeature}"
+												Path="Labtool.EmbeddedRecset.IsEmpty" />
+											<Binding
+												Source="{StaticResource GetParentFeature}"
+												Path="Labtool.EmbeddedRecset.TemplateNode.DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Visible" />
+											<Binding
+												ElementName="DVRSConfigDVRSFileData_A43734"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 19-->
+									<Grid
+										Name="gridExpanderDVRSFileListSRecView"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding Labtool.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<!--Unknown connection ID: 20-->
+										<Grid
+											Name="StdGridExpanderDVRSFileListSRecView"
+											Column="0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="170" />
+												<ColumnDefinition
+													Width="225" />
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition />
+												<RowDefinition />
+												<RowDefinition />
+											</Grid.RowDefinitions>
+											<!--Unknown connection ID: 21-->
+											<AcpUINS:AcpTextBox
+												Name="DVRSConfigDVRSFileData_A43734"
+												VerticalAlignment="Center"
+												Grid.Row="0"
+												Grid.Column="2"
+												Text="{Binding Path=DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734Value}"
+												MyExpander="{Binding ElementName=ExpanderDVRSFileLabtool}"
+												MyBLObject="{Binding Path=DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734}"
+												MyLabelCtrl="{Binding ElementName=LblDVRSConfigDVRSFileData_A43734}"
+												IsAcpValid="{Binding Path=DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Valid}"
+												IsAcpApplicable="{Binding Path=DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Applicable}"
+												AreValuesEqual="{Binding Path=DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+												<AcpUINS:AcpTextBox.IsAcpEditable>
+													<MultiBinding
+														Converter="{StaticResource editabilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Path="DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Editable" />
+														<Binding
+															Path="DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734" />
+													</MultiBinding>
+												</AcpUINS:AcpTextBox.IsAcpEditable>
+												<AcpUINS:AcpTextBox.IsAcpVisible>
+													<MultiBinding
+														Converter="{StaticResource parentControlVisibilityConverter}"
+														Mode="OneWay">
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppMode" />
+														<Binding
+															Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+															Path="AppHideMatches" />
+														<Binding
+															Path="AreValuesEqual"
+															RelativeSource="{RelativeSource Self}" />
+														<Binding
+															Path="DVRSFileListInnerSection.DVRSConfigDVRSFileData_A43734_Visible" />
+													</MultiBinding>
+												</AcpUINS:AcpTextBox.IsAcpVisible>
+											</AcpUINS:AcpTextBox>
+											<!--Unknown connection ID: 22-->
+											<AcpUINS:AcpLabel
+												Name="LblDVRSConfigDVRSFileData_A43734"
+												Content="{x:Static ResourceNS:AcgResources.ID_DVRSFILE}"
+												VerticalAlignment="Center"
+												Grid.Row="0"
+												Grid.Column="1"
+												HelpText="{x:Static ResourceNS:AcgResources.ID_DVRSFILE}"
+												MyParentCtrl="{Binding ElementName=DVRSConfigDVRSFileData_A43734}"
+												IsAcpValid="{Binding ElementName=DVRSConfigDVRSFileData_A43734, Path=IsAcpValid}"
+												IsAcpApplicable="{Binding ElementName=DVRSConfigDVRSFileData_A43734, Path=IsAcpApplicable}"
+												IsAcpVisible="{Binding ElementName=DVRSConfigDVRSFileData_A43734, Path=IsAcpVisible}" />
+										</Grid>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

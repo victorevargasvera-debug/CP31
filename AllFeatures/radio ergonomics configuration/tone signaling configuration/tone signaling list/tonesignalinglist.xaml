@@ -1,0 +1,2708 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.ToneSignalingList.PageToneSignalingList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:ToneSignalingListRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ToneSignalingList" xmlns:AstroAlertingToneTableInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ToneSignalingList"
+	Title="{Binding Path=UIName}">
+	<AcpUINS:AcpPageFeature.PageRecNavToolbar>
+		<!--Unknown connection ID: 2-->
+		<AcpUINS:AcpParentRecNavToolbar
+			Name="RecNavToolbarPageToneSignalingList"
+			TableMode="False"
+			MyRecordsetDataSource="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" />
+	</AcpUINS:AcpPageFeature.PageRecNavToolbar>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4156</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4156</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4156</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10787</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableToneAliasText_42533CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableTone1FreqCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{double:4.1}"
+								Text="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableTone2FreqCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner=""
+								Text="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableUnmuteEnableCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 6-->
+							<AcpUINS:AcpTableCheckBox
+								IsChecked="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnableValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpCheckBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpEditable>
+								<AcpUINS:AcpCheckBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpCheckBox.IsAcpApplicable>
+							</AcpUINS:AcpTableCheckBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableAlertToneCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 7-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableExternalControlCellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 8-->
+							<AcpUINS:AcpTableComboBox
+								DisplayMemberPath="ItemName"
+								SelectedValuePath="ItemName"
+								ItemsSource="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl.Items, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								SelectedValue="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpComboBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpEditable>
+								<AcpUINS:AcpComboBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpComboBox.IsAcpApplicable>
+							</AcpUINS:AcpTableComboBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableToneFreq_A43069CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 9-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{double:4.1}"
+								Text="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableToneDuration_A43070CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 10-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-6375}"
+								Text="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="RadErgoAstroAlertingToneTableTonePretime_A43071CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 11-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-6375}"
+								Text="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+								MyBLObject="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 12-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 13-->
+				<Hyperlink
+					Name="HLinkAstroAlertingToneListExpander"
+					Tag="ExpanderToneSignalingListAstroAlertingToneListExpander">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_TONESIGNALINGLIST}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="AstroAlertingToneListExpander.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 14-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 15-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderToneSignalingListAstroAlertingToneListExpander"
+					Width="Auto"
+					Header="{Binding Path=AstroAlertingToneListExpander.UIName}"
+					ShowDiffIcon="{Binding Path=AstroAlertingToneListExpander.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderToneSignalingListAstroAlertingToneListExpanderPseudo0"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderToneSignalingListAstroAlertingToneTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderToneSignalingListAstroAlertingToneTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 16-->
+						<AcpUINS:AcpChildRecNavToolbar
+							Name="RecNavToolbarExpanderToneSignalingListAstroAlertingToneTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<StackPanel>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 17-->
+							<AcpUINS:AcpGroupBox
+								Name="GrpBoxExpanderToneSignalingListAstroAlertingToneListExpanderPseudo0"
+								BorderBrush="#FF000000"
+								Grid.Row="0"
+								Grid.Column="0"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource groupboxVisibilityConverter}">
+										<Binding
+											ElementName="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="RadErgoAstroAlertingToneListType_A43068"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="230" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 18-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 19-->
+									<AcpUINS:AcpLabel
+										Name="LblRadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+										Content="{x:Static ResourceNS:AcgResources.ID_TONELISTALIAS}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_TONELISTALIAS}"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 20-->
+									<AcpUINS:AcpTextBox
+										Name="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAliasValue}"
+										MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+										MyBLObject="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										IsAcpValid="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias_Valid}"
+										IsAcpApplicable="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias_Applicable}"
+										AreValuesEqual="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias_Editable" />
+												<Binding
+													Path="AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 21-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAliasComp}"
+										AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 22-->
+									<AcpUINS:AcpLabel
+										Name="RadErgoAstroAlertingToneTableAstroAlertingToneTableAliasComp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAliasValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableAstroAlertingToneTableAlias}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableAstroAlertingToneTableAlias"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 23-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnRadErgoAstroAlertingToneListType_A43068"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068}"
+										IsChecked="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 24-->
+									<AcpUINS:AcpLabel
+										Name="LblRadErgoAstroAlertingToneListType_A43068"
+										Content="{x:Static ResourceNS:AcgResources.ID_TONELISTTYPE}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_TONELISTTYPE}"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068}"
+										IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 25-->
+									<AcpUINS:AcpComboBox
+										Name="RadErgoAstroAlertingToneListType_A43068"
+										DisplayMemberPath="ItemName"
+										SelectedValuePath="ItemName"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										ItemsSource="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068.Items}"
+										SelectedValue="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+										MyBLObject="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068}"
+										MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneListType_A43068}"
+										IsAcpValid="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_Valid}"
+										IsAcpApplicable="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_Applicable}"
+										AreValuesEqual="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpComboBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_Editable" />
+												<Binding
+													Path="AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpEditable>
+										<AcpUINS:AcpComboBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpComboBox.IsAcpVisible>
+									</AcpUINS:AcpComboBox>
+									<!--Unknown connection ID: 26-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnRadErgoAstroAlertingToneListType_A43068"
+										Grid.Row="1"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 27-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnRadErgoAstroAlertingToneListType_A43068"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068}"
+										MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068Comp}"
+										AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 28-->
+									<AcpUINS:AcpLabel
+										Name="RadErgoAstroAlertingToneListType_A43068Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+										MyBLObject="{Binding Path=AstroAlertingToneListExpander.RadErgoAstroAlertingToneListType_A43068}"
+										MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneListType_A43068}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneListType_A43068}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneListType_A43068"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+						<!--Unknown connection ID: 29-->
+						<Grid
+							Name="ExpanderToneSignalingListAstroAlertingToneListExpanderGrid">
+							<!--Unknown connection ID: 30-->
+							<Grid
+								Name="ExpanderToneSignalingListAstroAlertingToneTableGrid"
+								Row="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 31-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderToneSignalingListAstroAlertingToneTableTableView"
+									Grid.Row="1"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource tableViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderToneSignalingListAstroAlertingToneTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="ExpanderToneSignalingListAstroAlertingToneTable"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 32-->
+									<AcpUINS:AcpXamDataPresenter
+										Name="ExpanderToneSignalingListAstroAlertingToneTable"
+										KeyboardNavigation.AcceptsReturn="True"
+										Header="{x:Static ResourceNS:AcgResources.ID_TONESIGNALINGTABLE}"
+										MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+										igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}">
+										<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="DataSource.HasDiffs"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="IsAcpVisible"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableTone1Freq_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableTone2Freq_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableUnmuteEnable_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableAlertTone_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableExternalControl_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070_Col"
+													Path="Visibility" />
+												<Binding
+													ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071_Col"
+													Path="Visibility" />
+											</MultiBinding>
+										</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<igcontrols:DataPresenterBase.FieldLayouts>
+											<igcontrols:FieldLayout>
+												<igcontrols:FieldLayout.Fields>
+													<!--Unknown connection ID: 33-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableToneAliasText_42533_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_TONEALIAS}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+														Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}, Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Visible, Converter={StaticResource BooleanToVisibility}}">
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableToneAliasText_42533CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 34-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableTone1Freq_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_TONE1FREQHZ}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableTone1FreqCellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 35-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableTone2Freq_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_TONE2FREQHZ}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableTone2FreqCellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 36-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableUnmuteEnable_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_UNMUTEENABLE}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableUnmuteEnableCellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 37-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableAlertTone_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_ALERTTONE}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableAlertToneCellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 38-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableExternalControl_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_EXTERNALCONTROL}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableExternalControlCellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 39-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableToneFreq_A43069_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_TONEFREQHZ}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableToneFreq_A43069CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 40-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableToneDuration_A43070_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_TONEDURATIONMS}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableToneDuration_A43070CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+													<!--Unknown connection ID: 41-->
+													<igcontrols:UnboundField
+														x:Name="RadErgoAstroAlertingToneTableTonePretime_A43071_Col"
+														Label="{x:Static ResourceNS:AcgResources.ID_TONEPRETIMEMS}"
+														BindingPath="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071"
+														BindingMode="OneWay"
+														ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}">
+														<igcontrols:Field.Visibility>
+															<MultiBinding
+																Converter="{StaticResource ClmVisibilityStatus}">
+																<MultiBinding.Bindings>
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071" />
+																	<Binding
+																		Source="{StaticResource GetEmbeddedNodeExpanderToneSignalingListAstroAlertingToneTableTableView}"
+																		Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Visible" />
+																</MultiBinding.Bindings>
+															</MultiBinding>
+														</igcontrols:Field.Visibility>
+														<igcontrols:Field.Settings>
+															<igcontrols:FieldSettings
+																CellValuePresenterStyle="{StaticResource RadErgoAstroAlertingToneTableTonePretime_A43071CellStyle}" />
+														</igcontrols:Field.Settings>
+													</igcontrols:UnboundField>
+												</igcontrols:FieldLayout.Fields>
+											</igcontrols:FieldLayout>
+										</igcontrols:DataPresenterBase.FieldLayouts>
+									</AcpUINS:AcpXamDataPresenter>
+								</AcpUINS:AcpGroupBox>
+								<!--Unknown connection ID: 42-->
+								<AcpUINS:AcpGroupBox
+									Name="ExpanderToneSignalingListAstroAlertingToneTableSRecView"
+									Grid.Row="2"
+									BorderThickness="0">
+									<AcpUINS:AcpGroupBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource sRecViewVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												ElementName="RecNavToolbarExpanderToneSignalingListAstroAlertingToneTable"
+												Path="TableMode" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableAlertTone"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableExternalControl"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpGroupBox.IsAcpVisible>
+									<!--Unknown connection ID: 43-->
+									<Grid
+										Name="gridExpanderToneSignalingListAstroAlertingToneTableSRecView"
+										RenderTransformOrigin="0.5,0.5"
+										DataContext="{Binding AstroAlertingToneListExpander.EmbeddedRecset}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="170" />
+											<ColumnDefinition
+												Width="225" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="180" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<!--Unknown connection ID: 44-->
+										<AcpUINS:AcpTextBox
+											Name="RadErgoAstroAlertingToneTableToneAliasText_42533"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="2"
+											Text="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533Value}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableToneAliasText_42533}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpEditable>
+											<AcpUINS:AcpTextBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBox.IsAcpVisible>
+										</AcpUINS:AcpTextBox>
+										<!--Unknown connection ID: 45-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableToneAliasText_42533"
+											Margin="0,5,0,0"
+											Grid.Row="0"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 46-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableToneAliasText_42533"
+											Content="{x:Static ResourceNS:AcgResources.ID_TONEALIAS}"
+											VerticalAlignment="Center"
+											Grid.Row="0"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_TONEALIAS}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 47-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableToneAliasText_42533"
+											Grid.Row="0"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533Comp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 48-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableToneAliasText_42533Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="0"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533Value}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneAliasText_42533}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneAliasText_42533}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableToneAliasText_42533}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneAliasText_42533"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 49-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="RadErgoAstroAlertingToneTableTone1Freq"
+											MaskTypeSpinner="{}{double:4.1}"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="2"
+											Text="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableTone1Freq}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 50-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableTone1Freq"
+											Margin="0,5,0,0"
+											Grid.Row="1"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 51-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableTone1Freq"
+											Content="{x:Static ResourceNS:AcgResources.ID_TONE1FREQHZ}"
+											VerticalAlignment="Center"
+											Grid.Row="1"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_TONE1FREQHZ}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 52-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableTone1Freq"
+											Grid.Row="1"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 53-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableTone1Freq"
+											Grid.Row="1"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone1FreqComp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 54-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableTone1FreqComp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="1"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone1Freq}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone1Freq}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableTone1Freq}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone1Freq"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 55-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="RadErgoAstroAlertingToneTableTone2Freq"
+											MaskTypeSpinner=""
+											VerticalAlignment="Center"
+											Grid.Row="2"
+											Grid.Column="2"
+											Text="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableTone2Freq}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 56-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableTone2Freq"
+											Margin="0,5,0,0"
+											Grid.Row="2"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 57-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableTone2Freq"
+											Content="{x:Static ResourceNS:AcgResources.ID_TONE2FREQHZ}"
+											VerticalAlignment="Center"
+											Grid.Row="2"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_TONE2FREQHZ}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 58-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableTone2Freq"
+											Grid.Row="2"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 59-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableTone2Freq"
+											Grid.Row="2"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone2FreqComp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 60-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableTone2FreqComp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="2"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTone2Freq}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTone2Freq}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableTone2Freq}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTone2Freq"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 61-->
+										<AcpUINS:AcpCheckBox
+											Name="RadErgoAstroAlertingToneTableUnmuteEnable"
+											VerticalAlignment="Center"
+											Grid.Row="3"
+											Grid.Column="2"
+											IsChecked="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnableValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableUnmuteEnable}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpCheckBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable" />
+												</MultiBinding>
+											</AcpUINS:AcpCheckBox.IsAcpEditable>
+											<AcpUINS:AcpCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCheckBox>
+										<!--Unknown connection ID: 62-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableUnmuteEnable"
+											Margin="0,5,0,0"
+											Grid.Row="3"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 63-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableUnmuteEnable"
+											Content="{x:Static ResourceNS:AcgResources.ID_UNMUTEENABLE}"
+											VerticalAlignment="Center"
+											Grid.Row="3"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_UNMUTEENABLE}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 64-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableUnmuteEnable"
+											Grid.Row="3"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 65-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableUnmuteEnable"
+											Grid.Row="3"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnableComp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 66-->
+										<AcpUINS:AcpCheckBox
+											Name="RadErgoAstroAlertingToneTableUnmuteEnableComp"
+											IsAcpEditable="false"
+											Grid.Row="3"
+											Grid.Column="5"
+											IsChecked="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnableValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableUnmuteEnable}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableUnmuteEnable}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableUnmuteEnable}">
+											<AcpUINS:AcpCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableUnmuteEnable"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCheckBox>
+										<!--Unknown connection ID: 67-->
+										<AcpUINS:AcpComboBox
+											Name="RadErgoAstroAlertingToneTableAlertTone"
+											DisplayMemberPath="ItemName"
+											SelectedValuePath="ItemName"
+											VerticalAlignment="Center"
+											Grid.Row="4"
+											Grid.Column="2"
+											ItemsSource="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone.Items}"
+											SelectedValue="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableAlertTone}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpComboBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone" />
+												</MultiBinding>
+											</AcpUINS:AcpComboBox.IsAcpEditable>
+											<AcpUINS:AcpComboBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpComboBox.IsAcpVisible>
+										</AcpUINS:AcpComboBox>
+										<!--Unknown connection ID: 68-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableAlertTone"
+											Margin="0,5,0,0"
+											Grid.Row="4"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 69-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableAlertTone"
+											Content="{x:Static ResourceNS:AcgResources.ID_ALERTTONE}"
+											VerticalAlignment="Center"
+											Grid.Row="4"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_ALERTTONE}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 70-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableAlertTone"
+											Grid.Row="4"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 71-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableAlertTone"
+											Grid.Row="4"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAlertToneComp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 72-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableAlertToneComp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="4"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableAlertTone}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableAlertTone}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableAlertTone}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableAlertTone"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 73-->
+										<AcpUINS:AcpComboBox
+											Name="RadErgoAstroAlertingToneTableExternalControl"
+											DisplayMemberPath="ItemName"
+											SelectedValuePath="ItemName"
+											VerticalAlignment="Center"
+											Grid.Row="5"
+											Grid.Column="2"
+											ItemsSource="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl.Items}"
+											SelectedValue="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableExternalControl}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpComboBox.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl" />
+												</MultiBinding>
+											</AcpUINS:AcpComboBox.IsAcpEditable>
+											<AcpUINS:AcpComboBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpComboBox.IsAcpVisible>
+										</AcpUINS:AcpComboBox>
+										<!--Unknown connection ID: 74-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableExternalControl"
+											Margin="0,5,0,0"
+											Grid.Row="5"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 75-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableExternalControl"
+											Content="{x:Static ResourceNS:AcgResources.ID_EXTERNALCONTROL}"
+											VerticalAlignment="Center"
+											Grid.Row="5"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_EXTERNALCONTROL}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 76-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableExternalControl"
+											Grid.Row="5"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 77-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableExternalControl"
+											Grid.Row="5"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControlComp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 78-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableExternalControlComp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="5"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableExternalControl}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableExternalControl}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableExternalControl}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableExternalControl"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 79-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="RadErgoAstroAlertingToneTableToneFreq_A43069"
+											MaskTypeSpinner="{}{double:4.1}"
+											VerticalAlignment="Center"
+											Grid.Row="6"
+											Grid.Column="2"
+											Text="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableToneFreq_A43069}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 80-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableToneFreq_A43069"
+											Margin="0,5,0,0"
+											Grid.Row="6"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 81-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableToneFreq_A43069"
+											Content="{x:Static ResourceNS:AcgResources.ID_TONEFREQHZ}"
+											VerticalAlignment="Center"
+											Grid.Row="6"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_TONEFREQHZ}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 82-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableToneFreq_A43069"
+											Grid.Row="6"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 83-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableToneFreq_A43069"
+											Grid.Row="6"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069Comp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 84-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableToneFreq_A43069Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="6"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneFreq_A43069}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneFreq_A43069}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableToneFreq_A43069}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneFreq_A43069"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 85-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="RadErgoAstroAlertingToneTableToneDuration_A43070"
+											MaskTypeSpinner="{}{number:0-6375}"
+											VerticalAlignment="Center"
+											Grid.Row="7"
+											Grid.Column="2"
+											Text="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableToneDuration_A43070}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 86-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableToneDuration_A43070"
+											Margin="0,5,0,0"
+											Grid.Row="7"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 87-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableToneDuration_A43070"
+											Content="{x:Static ResourceNS:AcgResources.ID_TONEDURATIONMS}"
+											VerticalAlignment="Center"
+											Grid.Row="7"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_TONEDURATIONMS}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 88-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableToneDuration_A43070"
+											Grid.Row="7"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 89-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableToneDuration_A43070"
+											Grid.Row="7"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070Comp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 90-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableToneDuration_A43070Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="7"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableToneDuration_A43070}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableToneDuration_A43070}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableToneDuration_A43070}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableToneDuration_A43070"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+										<!--Unknown connection ID: 91-->
+										<AcpUINS:AcpTextBoxSpinner
+											Name="RadErgoAstroAlertingToneTableTonePretime_A43071"
+											MaskTypeSpinner="{}{number:0-6375}"
+											VerticalAlignment="Center"
+											Grid.Row="8"
+											Grid.Column="2"
+											Text="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_UIValue}"
+											MyExpander="{Binding ElementName=ExpanderToneSignalingListAstroAlertingToneListExpander}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071}"
+											MyLabelCtrl="{Binding ElementName=LblRadErgoAstroAlertingToneTableTonePretime_A43071}"
+											IsAcpValid="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Valid}"
+											IsAcpApplicable="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Applicable}"
+											AreValuesEqual="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+											<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+												<MultiBinding
+													Converter="{StaticResource editabilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Editable" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource parentControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppHideMatches" />
+													<Binding
+														Path="AreValuesEqual"
+														RelativeSource="{RelativeSource Self}" />
+													<Binding
+														Path="AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_Visible" />
+												</MultiBinding>
+											</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+										</AcpUINS:AcpTextBoxSpinner>
+										<!--Unknown connection ID: 92-->
+										<AcpUINS:AcpCustomViewCheckBox
+											Name="CVBtnRadErgoAstroAlertingToneTableTonePretime_A43071"
+											Margin="0,5,0,0"
+											Grid.Row="8"
+											Grid.Column="0"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071}"
+											IsChecked="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071, Path=MyBLObject.CustomViewVisibility}">
+											<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										</AcpUINS:AcpCustomViewCheckBox>
+										<!--Unknown connection ID: 93-->
+										<AcpUINS:AcpLabel
+											Name="LblRadErgoAstroAlertingToneTableTonePretime_A43071"
+											Content="{x:Static ResourceNS:AcgResources.ID_TONEPRETIMEMS}"
+											VerticalAlignment="Center"
+											Grid.Row="8"
+											Grid.Column="1"
+											HelpText="{x:Static ResourceNS:AcgResources.ID_TONEPRETIMEMS}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071}"
+											IsAcpValid="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071, Path=IsAcpValid}"
+											IsAcpApplicable="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071, Path=IsAcpApplicable}"
+											IsAcpVisible="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071, Path=IsAcpVisible}" />
+										<!--Unknown connection ID: 94-->
+										<AcpUINS:AcpRtdButton
+											Name="RTDBtnRadErgoAstroAlertingToneTableTonePretime_A43071"
+											Grid.Row="8"
+											Grid.Column="3"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071}">
+											<AcpUINS:AcpRtdButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="ShowRtdButtons" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpRtdButton.IsAcpVisible>
+										</AcpUINS:AcpRtdButton>
+										<!--Unknown connection ID: 95-->
+										<AcpUINS:AcpCopyButton
+											Name="CpyBtnRadErgoAstroAlertingToneTableTonePretime_A43071"
+											Grid.Row="8"
+											Grid.Column="4"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071}"
+											MyCompCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071Comp}"
+											AreValuesEqual="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071, Path=AreValuesEqual}">
+											<AcpUINS:AcpCopyButton.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="MyBLObject" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="IsAcpVisible" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="IsAcpEditable" />
+												</MultiBinding>
+											</AcpUINS:AcpCopyButton.IsAcpVisible>
+										</AcpUINS:AcpCopyButton>
+										<!--Unknown connection ID: 96-->
+										<AcpUINS:AcpLabel
+											Name="RadErgoAstroAlertingToneTableTonePretime_A43071Comp"
+											AcpLabelFromViewOnlyCtrl="True"
+											Grid.Row="8"
+											Grid.Column="5"
+											Content="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071_UIValue}"
+											DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/AstroAlertingToneListExpander.EmbeddedRecset}"
+											MyBLObject="{Binding Path=AstroAlertingToneTableInnerSection.RadErgoAstroAlertingToneTableTonePretime_A43071}"
+											MyParentCtrl="{Binding ElementName=RadErgoAstroAlertingToneTableTonePretime_A43071}"
+											MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoAstroAlertingToneTableTonePretime_A43071}">
+											<AcpUINS:AcpLabel.IsAcpVisible>
+												<MultiBinding
+													Converter="{StaticResource comparatorControlVisibilityConverter}"
+													Mode="OneWay">
+													<Binding
+														Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+														Path="AppMode" />
+													<Binding
+														ElementName="RadErgoAstroAlertingToneTableTonePretime_A43071"
+														Path="IsAcpVisible" />
+												</MultiBinding>
+											</AcpUINS:AcpLabel.IsAcpVisible>
+										</AcpUINS:AcpLabel>
+									</Grid>
+								</AcpUINS:AcpGroupBox>
+							</Grid>
+						</Grid>
+					</StackPanel>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

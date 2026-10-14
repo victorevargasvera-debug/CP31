@@ -1,0 +1,2513 @@
+<UserControl
+	x:Class="ControlHeadGraphicView.O5GraphicView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib"
+	Name="MyO5GraphicView" xmlns:controlheadgraphicview="clr-namespace:ControlHeadGraphicView">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="styles/O5GraphicViewStyles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Viewbox
+			Width="949"
+			Height="340.048"
+			Stretch="Fill"
+			RenderTransformOrigin="0.5,0.5">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform
+						ScaleX="1"
+						ScaleY="1" />
+					<SkewTransform
+						AngleX="0"
+						AngleY="0" />
+					<RotateTransform
+						Angle="0" />
+					<TranslateTransform
+						X="0"
+						Y="0" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+			<!--Unknown connection ID: 2-->
+			<Grid
+				Name="LayoutRoot"
+				Width="3028"
+				Height="1085">
+				<Image
+					Margin="45.626,116,507.143,156.815"
+					Source="images/05 Controlhead.png"
+					Stretch="Fill">
+					<UIElement.BitmapEffect>
+						<DropShadowBitmapEffect
+							Softness="1"
+							ShadowDepth="70"
+							Opacity="0.42" />
+					</UIElement.BitmapEffect>
+				</Image>
+				<!--Unknown connection ID: 3-->
+				<ToggleButton
+					Name="Emergency_Key_Button"
+					HorizontalAlignment="Right"
+					Margin="0,194.767,567.712,0"
+					Style="{DynamicResource EmergencyButtonStyle}"
+					VerticalAlignment="Top"
+					Width="123.752"
+					Height="123.752">
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Placement="Top"
+							Style="{DynamicResource ToolTipStyle}">
+							<StackPanel
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<StackPanel
+									Orientation="Horizontal">
+									<!--Unknown connection ID: 4-->
+									<AcpUINS:AcpLabel
+										Name="LblEmergencyButtonFeatureToolTipTitle"
+										FontSize="11"
+										Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+										IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+										IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+										Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+									<!--Unknown connection ID: 5-->
+									<AcpUINS:AcpLabel
+										Name="LblEmergencyButtonFeatureToolTipValue"
+										FontSize="11"
+										Content="{Binding Path=EmergencyButtonFeatureUIValue}"
+										IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+										IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+										Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								</StackPanel>
+							</StackPanel>
+						</ToolTip>
+					</FrameworkElement.ToolTip>
+					<!--Unknown connection ID: 6-->
+					<Popup
+						Name="Emergency_Key_Button_Popup"
+						Placement="Bottom"
+						VerticalOffset="10"
+						HorizontalOffset="10"
+						StaysOpen="False"
+						AllowsTransparency="True"
+						PopupAnimation="Slide"
+						PlacementTarget="{Binding ElementName=Emergency_Key_Button}"
+						DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+						IsOpen="{Binding ElementName=Emergency_Key_Button, Path=IsChecked, Mode=TwoWay}">
+						<ContentControl
+							Style="{StaticResource ContentControlStyle}">
+							<Grid
+								FlowDirection="{Binding Path=UIFlowDirection}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 7-->
+								<AcpUINS:AcpLabel
+									Name="LblEmergencyButtonFeaturePopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="0"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									VerticalAlignment="Center"
+									MyParentCtrl="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup}"
+									IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+									IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+									Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+								<!--Unknown connection ID: 8-->
+								<AcpUINS:AcpComboBox
+									Name="ComBoxEmergencyButtonFeaturePopup"
+									FontSize="11"
+									Grid.Row="0"
+									Grid.Column="1"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									AreValuesEqual="false"
+									ItemsSource="{Binding Path=EmergencyButtonFeatureList.Items}"
+									SelectedValue="{Binding Path=EmergencyButtonFeatureUIValue}"
+									MyBLObject="{Binding Path=EmergencyButtonFeatureList}"
+									MyLabelCtrl="{Binding ElementName=LblEmergencyButtonFeaturePopup}"
+									IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+									Visibility="{Binding Path=EmergencyButtonFeatureIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="EmergencyButtonFeatureIsAcpEditable" />
+											<Binding
+												Path="EmergencyButtonFeatureList" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpApplicable>
+										<MultiBinding
+											Converter="{StaticResource CellVisibilityStatus}">
+											<Binding
+												Path="EmergencyButtonFeatureIsAcpVisible" />
+											<Binding
+												Path="EmergencyButtonFeatureIsAcpApplicable" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpApplicable>
+								</AcpUINS:AcpComboBox>
+							</Grid>
+						</ContentControl>
+					</Popup>
+				</ToggleButton>
+				<!--Unknown connection ID: 9-->
+				<Button
+					Name="_5"
+					HorizontalAlignment="Right"
+					Margin="0,0,1198.288,282.37"
+					Style="{DynamicResource ButtonStyle2}"
+					VerticalAlignment="Bottom"
+					Width="176.286"
+					Height="105.789"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<!--Unknown connection ID: 10-->
+				<Button
+					Name="_4"
+					Margin="1423.776,0,1427.938,282.37"
+					Style="{DynamicResource ButtonStyle3}"
+					VerticalAlignment="Bottom"
+					Height="105.789"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<!--Unknown connection ID: 11-->
+				<Button
+					Name="_3"
+					Margin="1194.126,0,0,282.37"
+					Style="{DynamicResource ButtonStyle4}"
+					VerticalAlignment="Bottom"
+					Height="105.789"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}"
+					Width="176.286"
+					HorizontalAlignment="Left" />
+				<!--Unknown connection ID: 12-->
+				<Button
+					Name="_2"
+					HorizontalAlignment="Left"
+					Margin="964.481,0,0,282.37"
+					Style="{DynamicResource ButtonStyle5}"
+					VerticalAlignment="Bottom"
+					Width="176.286"
+					Height="105.789"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<!--Unknown connection ID: 13-->
+				<Button
+					Name="_1"
+					HorizontalAlignment="Left"
+					Margin="734.834,0,0,282.37"
+					Style="{DynamicResource ButtonStyle6}"
+					VerticalAlignment="Bottom"
+					Width="176.286"
+					Height="105.789"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<!--Unknown connection ID: 14-->
+				<Viewbox
+					Name="Nav_knob"
+					HorizontalAlignment="Right"
+					Margin="0,489.495,645.771,298.852"
+					Width="296.653">
+					<Canvas
+						Width="296.653"
+						Height="296.653">
+						<Ellipse
+							Width="296.653"
+							Height="296.653"
+							Canvas.Left="4.07696e-005"
+							Canvas.Top="-5.07832e-005"
+							Stretch="Fill"
+							StrokeThickness="4.66667"
+							StrokeLineJoin="Round">
+							<Shape.Stroke>
+								<RadialGradientBrush
+									RadiusX="0.499999"
+									RadiusY="0.5"
+									Center="0.5,0.5"
+									GradientOrigin="0.5,0.5">
+									<Brush.RelativeTransform>
+										<TransformGroup />
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FF989898"
+										Offset="0" />
+									<GradientStop
+										Color="#FF393939"
+										Offset="0.597181" />
+									<GradientStop
+										Color="#FF343434"
+										Offset="0.784067" />
+								</RadialGradientBrush>
+							</Shape.Stroke>
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.507991"
+									RadiusY="0.507991"
+									Center="0.5,0.5"
+									GradientOrigin="0.5,0.5">
+									<Brush.RelativeTransform>
+										<TransformGroup />
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FF414141"
+										Offset="0.549124" />
+									<GradientStop
+										Color="#FF525252"
+										Offset="0.725331" />
+									<GradientStop
+										Color="#FF393939"
+										Offset="0.746689" />
+									<GradientStop
+										Color="#FF000000"
+										Offset="0.986971" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Ellipse
+							Width="164.048"
+							Height="164.048"
+							Canvas.Left="66.2981"
+							Canvas.Top="66.3036"
+							Stretch="Fill">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.942534"
+									RadiusY="0.942534"
+									Center="0.834647,0.846627"
+									GradientOrigin="0.834647,0.846627">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<RotateTransform
+												CenterX="0.834647"
+												CenterY="0.846627"
+												Angle="225" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FF636363"
+										Offset="0" />
+									<GradientStop
+										Color="#FF525252"
+										Offset="0.282764" />
+									<GradientStop
+										Color="#FF414141"
+										Offset="0.490389" />
+									<GradientStop
+										Color="#FE2D2D2D"
+										Offset="0.970953" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Viewbox
+							Width="210"
+							Height="38.944"
+							Canvas.Left="50.013"
+							Canvas.Top="127.987">
+							<Canvas
+								Width="210"
+								Height="38.944">
+								<!--Unknown connection ID: 15-->
+								<Button
+									Name="Nav_Left"
+									Width="55"
+									Height="25"
+									Style="{DynamicResource NavLeftRightButtonStyle}"
+									BorderThickness="2.89521"
+									Canvas.Top="5"
+									Canvas.Left="-12" />
+								<!--Unknown connection ID: 16-->
+								<Button
+									Name="Nav_Right"
+									Width="55"
+									Height="25"
+									Style="{DynamicResource NavLeftRightButtonStyle}"
+									Canvas.Left="154.225"
+									Canvas.Top="5"
+									BorderThickness="2.89521" />
+							</Canvas>
+						</Viewbox>
+						<Viewbox
+							Width="38.944"
+							Height="210"
+							Canvas.Left="134.278"
+							Canvas.Top="39.388">
+							<Canvas
+								Width="38.944"
+								Height="210">
+								<!--Unknown connection ID: 17-->
+								<ToggleButton
+									Name="Nav_Up"
+									Width="25"
+									Height="55"
+									Style="{DynamicResource NavUpButtonStyle}"
+									BorderThickness="2.89521"
+									Canvas.Left="2"
+									DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+									IsHitTestVisible="{Binding ElementName=UpButtonPopup, Path=IsOpen, Mode=OneWay, Converter={StaticResource InvertBoolConverter}}">
+									<FrameworkElement.ToolTip>
+										<ToolTip
+											Placement="Top"
+											Style="{DynamicResource ToolTipStyle}">
+											<StackPanel
+												FlowDirection="{Binding Path=UIFlowDirection}">
+												<StackPanel
+													Orientation="Horizontal">
+													<!--Unknown connection ID: 18-->
+													<AcpUINS:AcpLabel
+														Name="LblUpButtonToolTipTitle"
+														FontSize="11"
+														Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+														IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+														IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+														Visibility="{Binding Path=UpButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+													<!--Unknown connection ID: 19-->
+													<AcpUINS:AcpLabel
+														Name="LblUpButtonToolTipValue"
+														FontSize="11"
+														Content="{Binding Path=UpButtonUIValue}"
+														IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+														IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+														Visibility="{Binding Path=UpButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+												</StackPanel>
+											</StackPanel>
+										</ToolTip>
+									</FrameworkElement.ToolTip>
+									<!--Unknown connection ID: 20-->
+									<Popup
+										Name="UpButtonPopup"
+										Placement="Bottom"
+										VerticalOffset="10"
+										HorizontalOffset="10"
+										StaysOpen="False"
+										AllowsTransparency="True"
+										PopupAnimation="Slide"
+										PlacementTarget="{Binding ElementName=Nav_Up}"
+										DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+										IsOpen="{Binding ElementName=Nav_Up, Path=IsChecked, Mode=TwoWay}">
+										<ContentControl
+											Style="{StaticResource ContentControlStyle}">
+											<Grid
+												FlowDirection="{Binding Path=UIFlowDirection}">
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition />
+													<ColumnDefinition />
+												</Grid.ColumnDefinitions>
+												<Grid.RowDefinitions>
+													<RowDefinition />
+												</Grid.RowDefinitions>
+												<!--Unknown connection ID: 21-->
+												<AcpUINS:AcpLabel
+													Name="LblUpButtonPopup"
+													FontSize="11"
+													Grid.Row="0"
+													Grid.Column="0"
+													Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+													VerticalAlignment="Center"
+													MyParentCtrl="{Binding ElementName=ComBoxUpButtonPopup}"
+													IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+													IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+													Visibility="{Binding ElementName=ComBoxUpButtonPopup, Path=Visibility}" />
+												<!--Unknown connection ID: 22-->
+												<AcpUINS:AcpComboBox
+													Name="ComBoxUpButtonPopup"
+													FontSize="11"
+													Grid.Row="0"
+													Grid.Column="1"
+													DisplayMemberPath="ItemName"
+													SelectedValuePath="ItemName"
+													VerticalAlignment="Center"
+													AreValuesEqual="false"
+													ItemsSource="{Binding Path=UpButtonList.Items}"
+													SelectedValue="{Binding Path=UpButtonUIValue}"
+													MyBLObject="{Binding Path=UpButtonList}"
+													MyLabelCtrl="{Binding ElementName=LblUpButtonPopup}"
+													IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+													Visibility="{Binding Path=UpButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+													<AcpUINS:AcpComboBox.IsAcpEditable>
+														<MultiBinding
+															Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+															Mode="OneWay">
+															<Binding
+																Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+																Path="AppMode" />
+															<Binding
+																Path="UpButtonIsAcpEditable" />
+															<Binding
+																Path="UpButtonList" />
+														</MultiBinding>
+													</AcpUINS:AcpComboBox.IsAcpEditable>
+													<AcpUINS:AcpComboBox.IsAcpApplicable>
+														<MultiBinding
+															Converter="{StaticResource CellVisibilityStatus}">
+															<Binding
+																Path="UpButtonIsAcpVisible" />
+															<Binding
+																Path="UpButtonIsAcpApplicable" />
+														</MultiBinding>
+													</AcpUINS:AcpComboBox.IsAcpApplicable>
+												</AcpUINS:AcpComboBox>
+											</Grid>
+										</ContentControl>
+									</Popup>
+								</ToggleButton>
+								<!--Unknown connection ID: 23-->
+								<ToggleButton
+									Name="Nav_Down"
+									Width="25"
+									Height="55"
+									Style="{DynamicResource NavDownButtonStyle}"
+									Canvas.Left="2"
+									Canvas.Top="160.225"
+									BorderThickness="2.89521"
+									DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+									IsHitTestVisible="{Binding ElementName=DownButtonPopup, Path=IsOpen, Mode=OneWay, Converter={StaticResource InvertBoolConverter}}">
+									<FrameworkElement.ToolTip>
+										<ToolTip
+											Placement="Top"
+											Style="{DynamicResource ToolTipStyle}">
+											<StackPanel
+												FlowDirection="{Binding Path=UIFlowDirection}">
+												<StackPanel
+													Orientation="Horizontal">
+													<!--Unknown connection ID: 24-->
+													<AcpUINS:AcpLabel
+														Name="LblDownButtonToolTipTitle"
+														FontSize="11"
+														Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+														IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+														IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+														Visibility="{Binding Path=DownButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+													<!--Unknown connection ID: 25-->
+													<AcpUINS:AcpLabel
+														Name="LblDownButtonToolTipValue"
+														FontSize="11"
+														Content="{Binding Path=DownButtonUIValue}"
+														IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+														IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+														Visibility="{Binding Path=DownButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}" />
+												</StackPanel>
+											</StackPanel>
+										</ToolTip>
+									</FrameworkElement.ToolTip>
+									<!--Unknown connection ID: 26-->
+									<Popup
+										Name="DownButtonPopup"
+										Placement="Bottom"
+										VerticalOffset="10"
+										HorizontalOffset="10"
+										StaysOpen="False"
+										AllowsTransparency="True"
+										PopupAnimation="Slide"
+										PlacementTarget="{Binding ElementName=Nav_Down}"
+										DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}}}"
+										IsOpen="{Binding ElementName=Nav_Down, Path=IsChecked, Mode=TwoWay}">
+										<ContentControl
+											Style="{StaticResource ContentControlStyle}">
+											<Grid
+												FlowDirection="{Binding Path=UIFlowDirection}">
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition />
+													<ColumnDefinition />
+												</Grid.ColumnDefinitions>
+												<Grid.RowDefinitions>
+													<RowDefinition />
+												</Grid.RowDefinitions>
+												<!--Unknown connection ID: 27-->
+												<AcpUINS:AcpLabel
+													Name="LblDownButtonPopup"
+													FontSize="11"
+													Grid.Row="0"
+													Grid.Column="0"
+													Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+													VerticalAlignment="Center"
+													MyParentCtrl="{Binding ElementName=ComBoxDownButtonPopup}"
+													IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+													IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+													Visibility="{Binding ElementName=ComBoxDownButtonPopup, Path=Visibility}" />
+												<!--Unknown connection ID: 28-->
+												<AcpUINS:AcpComboBox
+													Name="ComBoxDownButtonPopup"
+													FontSize="11"
+													Grid.Row="0"
+													Grid.Column="1"
+													DisplayMemberPath="ItemName"
+													SelectedValuePath="ItemName"
+													VerticalAlignment="Center"
+													AreValuesEqual="false"
+													ItemsSource="{Binding Path=DownButtonList.Items}"
+													SelectedValue="{Binding Path=DownButtonUIValue}"
+													MyBLObject="{Binding Path=DownButtonList}"
+													MyLabelCtrl="{Binding ElementName=LblDownButtonPopup}"
+													IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+													Visibility="{Binding Path=DownButtonIsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+													<AcpUINS:AcpComboBox.IsAcpEditable>
+														<MultiBinding
+															Converter="{StaticResource o9GraphicviewEditabilityConverter}"
+															Mode="OneWay">
+															<Binding
+																Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+																Path="AppMode" />
+															<Binding
+																Path="DownButtonIsAcpEditable" />
+															<Binding
+																Path="DownButtonList" />
+														</MultiBinding>
+													</AcpUINS:AcpComboBox.IsAcpEditable>
+													<AcpUINS:AcpComboBox.IsAcpApplicable>
+														<MultiBinding
+															Converter="{StaticResource CellVisibilityStatus}">
+															<Binding
+																Path="DownButtonIsAcpVisible" />
+															<Binding
+																Path="DownButtonIsAcpApplicable" />
+														</MultiBinding>
+													</AcpUINS:AcpComboBox.IsAcpApplicable>
+												</AcpUINS:AcpComboBox>
+											</Grid>
+										</ContentControl>
+									</Popup>
+								</ToggleButton>
+							</Canvas>
+						</Viewbox>
+						<Path
+							Width="104.514"
+							Height="62.5687"
+							Canvas.Left="50.0127"
+							Canvas.Top="39.388"
+							Stretch="Fill"
+							Data="F1 M93.427,55.9485 C112.694,44.4447 133.886,39.1713 154.526,39.5562 C133.593,38.3923 112.1,43.2483 92.7444,54.8049 C73.3894,66.3611 58.9187,82.9775 50.0127,101.957 C59.4651,83.6055 74.1604,67.452 93.427,55.9485">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.886938"
+									RadiusY="0.638668"
+									Center="0.454435,0.373869"
+									GradientOrigin="0.454435,0.373869">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<SkewTransform
+												CenterX="0.454435"
+												CenterY="0.373869"
+												AngleX="25.2544"
+												AngleY="0" />
+											<RotateTransform
+												CenterX="0.454435"
+												CenterY="0.373869"
+												Angle="70.3309" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FEE9E9EA"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#62525252"
+										Offset="1" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Width="66.5874"
+							Height="69.7277"
+							Canvas.Left="163.219"
+							Canvas.Top="159.351"
+							Stretch="Fill"
+							Data="F1 M206.716,203.96 C194.441,216.813 179.26,225.205 163.219,229.078 C179.664,225.752 195.172,217.625 207.504,204.712 C219.835,191.799 227.24,175.932 229.806,159.351 C226.675,175.554 218.991,191.105 206.716,203.96">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.731955"
+									RadiusY="0.706359"
+									Center="0.582532,0.575268"
+									GradientOrigin="0.582532,0.575268">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<SkewTransform
+												CenterX="0.582532"
+												CenterY="0.575268"
+												AngleX="-2.63681"
+												AngleY="0" />
+											<RotateTransform
+												CenterX="0.582532"
+												CenterY="0.575268"
+												Angle="42.364" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FEE9E9EA"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#62525252"
+										Offset="1" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Path>
+					</Canvas>
+				</Viewbox>
+				<!--Unknown connection ID: 29-->
+				<Viewbox
+					Name="Control_Knob1"
+					HorizontalAlignment="Right"
+					Margin="0,184.74,690.842,0"
+					VerticalAlignment="Top"
+					Width="270.412"
+					Height="270.412">
+					<Canvas
+						Width="270.412"
+						Height="270.412">
+						<Ellipse
+							Width="270.412"
+							Height="270.412"
+							Canvas.Left="3.05176e-005"
+							Canvas.Top="-9.15527e-005"
+							Stretch="Fill"
+							StrokeThickness="3.73334"
+							StrokeLineJoin="Round"
+							Stroke="#FF2D2D2D">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.0155051,0.630072"
+									EndPoint="0.975461,0.342585">
+									<GradientStop
+										Color="#FF707070"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#FF000000"
+										Offset="0.0685604" />
+									<GradientStop
+										Color="#FF3B3B3B"
+										Offset="0.314182" />
+									<GradientStop
+										Color="#FF636363"
+										Offset="0.447672" />
+									<GradientStop
+										Color="#FF080808"
+										Offset="0.693293" />
+									<GradientStop
+										Color="#FF393939"
+										Offset="0.954934" />
+									<GradientStop
+										Color="#FFE06326"
+										Offset="0.997651" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Ellipse
+							Width="234.625"
+							Height="234.625"
+							Canvas.Left="17.8937"
+							Canvas.Top="17.8936"
+							Stretch="Fill">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.878233"
+									RadiusY="0.878234"
+									Center="0.636814,0.836678"
+									GradientOrigin="0.636814,0.836678">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<RotateTransform
+												CenterX="0.636814"
+												CenterY="0.836678"
+												Angle="245.536" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FF636363"
+										Offset="0" />
+									<GradientStop
+										Color="#FF525252"
+										Offset="0.282764" />
+									<GradientStop
+										Color="#FF414141"
+										Offset="0.490389" />
+									<GradientStop
+										Color="#FE2D2D2D"
+										Offset="0.970953" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Path
+							Width="104.514"
+							Height="62.5686"
+							Canvas.Left="32.1447"
+							Canvas.Top="19.698"
+							Stretch="Fill"
+							Data="F1 M75.559,36.2584 C94.8263,24.7547 116.019,19.4813 136.658,19.8662 C115.725,18.7023 94.2318,23.5583 74.8763,35.1149 C55.5214,46.6711 41.0507,63.2875 32.1447,82.2667 C41.597,63.9154 56.2924,47.762 75.559,36.2584">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.88694"
+									RadiusY="0.638669"
+									Center="0.454435,0.373868"
+									GradientOrigin="0.454435,0.373868">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<SkewTransform
+												CenterX="0.454435"
+												CenterY="0.373868"
+												AngleX="25.2543"
+												AngleY="0" />
+											<RotateTransform
+												CenterX="0.454435"
+												CenterY="0.373868"
+												Angle="70.3308" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FEE9E9EA"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#62525252"
+										Offset="1" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Viewbox
+							Width="262.234"
+							Height="262.234"
+							Canvas.Left="5.08936"
+							Canvas.Top="7.48877">
+							<Canvas
+								Width="262.234"
+								Height="262.234">
+								<Viewbox
+									Width="262.234"
+									Height="17.7778"
+									Canvas.Left="0"
+									Canvas.Top="122.228">
+									<Canvas
+										Width="262.234"
+										Height="17.7778">
+										<Path
+											Width="46.7295"
+											Height="17.7778"
+											Canvas.Left="0.00012207"
+											Canvas.Top="0"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M4.00012,0 L43.13,0.890076 C45.1183,0.890076 46.7296,2.50159 46.7296,4.4895 L46.7296,13.2883 C46.7296,15.2763 45.1183,16.8878 43.13,16.8878 L4.00012,17.7778 C1.79077,17.7778 0.00012207,15.987 0.00012207,13.7778 L0.00012207,4 C0.00012207,1.79089 1.79077,0 4.00012,0" />
+										<Path
+											Width="46.7297"
+											Height="17.7778"
+											Canvas.Left="215.504"
+											Canvas.Top="0"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M258.234,0 L219.103,0.890015 C217.116,0.890015 215.504,2.50159 215.504,4.4895 L215.504,13.2883 C215.504,15.2762 217.116,16.8878 219.103,16.8878 L258.234,17.7778 C260.443,17.7778 262.234,15.9869 262.234,13.7778 L262.234,4 C262.234,1.79083 260.443,0 258.234,0" />
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="17.7778"
+									Height="262.234"
+									Canvas.Left="122.228"
+									Canvas.Top="0">
+									<Canvas
+										Width="17.7778"
+										Height="262.234">
+										<Path
+											Width="17.7778"
+											Height="46.7294"
+											Canvas.Left="0"
+											Canvas.Top="0"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M17.7778,4 L16.8877,43.1299 C16.8877,45.118 15.2764,46.7294 13.2883,46.7294 L4.4895,46.7294 C2.50146,46.7294 0.890137,45.118 0.890137,43.1299 L0,4 C0,1.79083 1.79102,0 4,0 L13.7778,0 C15.9871,0 17.7778,1.79083 17.7778,4" />
+										<Path
+											Width="17.7778"
+											Height="46.7296"
+											Canvas.Left="0"
+											Canvas.Top="215.504"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M17.7778,258.234 L16.8877,219.104 C16.8877,217.116 15.2761,215.504 13.2881,215.504 L4.4895,215.504 C2.50146,215.504 0.889893,217.116 0.889893,219.104 L0,258.234 C0,260.443 1.79102,262.234 4,262.234 L13.7778,262.234 C15.9868,262.234 17.7778,260.443 17.7778,258.234" />
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="195.466"
+									Height="195.466"
+									Canvas.Left="33.3837"
+									Canvas.Top="33.3838">
+									<Canvas
+										Width="195.466"
+										Height="195.466">
+										<Path
+											Width="41.8366"
+											Height="41.8364"
+											Canvas.Left="153.239"
+											Canvas.Top="0.390594"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M193.904,14.1329 L165.605,41.1727 C164.199,42.5785 161.92,42.5784 160.515,41.1727 L154.293,34.951 C152.887,33.5453 152.887,31.2664 154.293,29.8606 L181.333,1.56213 C182.895,6.10352E-05 185.427,6.10352E-05 186.99,1.56226 L193.904,8.47614 C195.466,10.0382 195.466,12.5709 193.904,14.1329" />
+										<Path
+											Width="41.8362"
+											Height="41.8364"
+											Canvas.Left="0.390503"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M14.1328,193.904 L41.1724,165.605 C42.5781,164.2 42.5781,161.921 41.1726,160.515 L34.9509,154.293 C33.5452,152.887 31.2661,152.888 29.8604,154.293 L1.56201,181.333 C0,182.895 0,185.428 1.56201,186.99 L8.47607,193.904 C10.0381,195.466 12.5708,195.466 14.1328,193.904" />
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="195.466"
+									Height="195.466"
+									Canvas.Left="33.3834"
+									Canvas.Top="33.3838">
+									<Canvas
+										Width="195.466"
+										Height="195.466">
+										<Path
+											Width="41.8363"
+											Height="41.8362"
+											Canvas.Left="153.239"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M181.333,193.903 L154.293,165.605 C152.887,164.199 152.887,161.92 154.293,160.515 L160.515,154.293 C161.921,152.887 164.199,152.887 165.605,154.293 L193.904,181.333 C195.466,182.895 195.466,185.427 193.904,186.99 L186.99,193.903 C185.427,195.466 182.895,195.466 181.333,193.903" />
+										<Path
+											Width="41.8363"
+											Height="41.8364"
+											Canvas.Left="0.390656"
+											Canvas.Top="0.390556"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M1.56226,14.1329 L29.8606,41.1728 C31.2664,42.5785 33.5452,42.5784 34.9509,41.1727 L41.1726,34.951 C42.5784,33.5453 42.5784,31.2664 41.1726,29.8607 L14.1331,1.56213 C12.5708,0 10.0383,6.10352E-05 8.47607,1.56213 L1.56226,8.47614 C0.000244141,10.0382 0,12.5708 1.56226,14.1329" />
+									</Canvas>
+								</Viewbox>
+							</Canvas>
+						</Viewbox>
+						<Viewbox
+							Width="263.567"
+							Height="263.567"
+							Canvas.Left="3.42261"
+							Canvas.Top="3.42267">
+							<Canvas
+								Width="263.567"
+								Height="263.567">
+								<Viewbox
+									Width="263.567"
+									Height="19.1112"
+									Canvas.Left="0"
+									Canvas.Top="122.228">
+									<Canvas
+										Width="263.567"
+										Height="19.1112">
+										<Path
+											Width="48.0628"
+											Height="19.1112"
+											Canvas.Left="0.000203431"
+											Canvas.Top="8.13603e-005"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M4.66687,0.666748 L43.7968,1.55676 C45.785,1.55676 47.3964,3.16827 47.3964,5.15625 L47.3964,13.9551 C47.3964,15.943 45.785,17.5545 43.7968,17.5545 L4.66687,18.4446 C2.45752,18.4446 0.66687,16.6537 0.66687,14.4446 L0.66687,4.66675 C0.66687,2.45758 2.45752,0.666748 4.66687,0.666748">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.722973,0.499907"
+													EndPoint="-0.00937285,0.499907">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="48.0631"
+											Height="19.1111"
+											Canvas.Left="215.504"
+											Canvas.Top="2.03252e-005"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M258.901,0.666687 L219.77,1.5567 C217.782,1.5567 216.171,3.16827 216.171,5.15619 L216.171,13.955 C216.171,15.9429 217.782,17.5544 219.77,17.5544 L258.901,18.4445 C261.11,18.4445 262.901,16.6536 262.901,14.4445 L262.901,4.66669 C262.901,2.45752 261.11,0.666687 258.901,0.666687">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.27703,0.499909"
+													EndPoint="1.00937,0.499909">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="19.1113"
+									Height="263.567"
+									Canvas.Left="122.228"
+									Canvas.Top="0">
+									<Canvas
+										Width="19.1113"
+										Height="263.567">
+										<Path
+											Width="19.1112"
+											Height="48.0627"
+											Canvas.Left="8.13603e-005"
+											Canvas.Top="2.03252e-005"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M18.4446,4.66669 L17.5544,43.7966 C17.5544,45.7847 15.9431,47.3961 13.9551,47.3961 L5.15625,47.3961 C3.16821,47.3961 1.55688,45.7847 1.55688,43.7966 L0.666748,4.66669 C0.666748,2.45752 2.45776,0.666687 4.66675,0.666687 L14.4446,0.666687 C16.6538,0.666687 18.4446,2.45752 18.4446,4.66669">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.500096,0.722975"
+													EndPoint="0.500096,-0.00937156">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="19.1112"
+											Height="48.0629"
+											Canvas.Left="8.13603e-005"
+											Canvas.Top="215.505"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M18.4446,258.901 L17.5544,219.771 C17.5544,217.783 15.9429,216.171 13.9548,216.171 L5.15625,216.171 C3.16821,216.171 1.55664,217.783 1.55664,219.771 L0.666748,258.901 C0.666748,261.11 2.45776,262.901 4.66675,262.901 L14.4446,262.901 C16.6536,262.901 18.4446,261.11 18.4446,258.901">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.500096,0.277031"
+													EndPoint="0.500096,1.00938">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="196.799"
+									Height="196.799"
+									Canvas.Left="33.3837"
+									Canvas.Top="33.384">
+									<Canvas
+										Width="196.799"
+										Height="196.799">
+										<Path
+											Width="43.17"
+											Height="43.1698"
+											Canvas.Left="153.239"
+											Canvas.Top="0.390585"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M194.57,14.7996 L166.272,41.8394 C164.866,43.2452 162.587,43.2451 161.181,41.8394 L154.96,35.6177 C153.554,34.212 153.554,31.933 154.96,30.5272 L182,2.22882 C183.562,0.666748 186.094,0.666748 187.656,2.22888 L194.57,9.14282 C196.133,10.7049 196.133,13.2375 194.57,14.7996">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.31838,0.681673"
+													EndPoint="0.896791,0.10326">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="43.1696"
+											Height="43.1698"
+											Canvas.Left="0.390562"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M14.7996,194.57 L41.8391,166.272 C43.2449,164.866 43.2449,162.587 41.8394,161.181 L35.6177,154.96 C34.2119,153.554 31.9329,153.554 30.5271,154.96 L2.22876,182 C0.666748,183.562 0.666748,186.094 2.22876,187.656 L9.14282,194.57 C10.7048,196.132 13.2375,196.132 14.7996,194.57">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.681674,0.318384"
+													EndPoint="0.103259,0.896796">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="196.799"
+									Height="196.799"
+									Canvas.Left="33.3834"
+									Canvas.Top="33.384">
+									<Canvas
+										Width="196.799"
+										Height="196.799">
+										<Path
+											Width="43.1696"
+											Height="43.1696"
+											Canvas.Left="153.239"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M182,194.57 L154.96,166.272 C153.554,164.866 153.554,162.587 154.96,161.181 L161.182,154.96 C162.587,153.554 164.866,153.554 166.272,154.96 L194.57,181.999 C196.133,183.561 196.132,186.094 194.57,187.656 L187.656,194.57 C186.094,196.132 183.562,196.132 182,194.57">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.318324,0.318379"
+													EndPoint="0.896739,0.896794">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="43.1697"
+											Height="43.1698"
+											Canvas.Left="0.390715"
+											Canvas.Top="0.390531"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M2.229,14.7996 L30.5273,41.8395 C31.9331,43.2451 34.2119,43.2451 35.6177,41.8394 L41.8394,35.6177 C43.2451,34.212 43.2451,31.933 41.8394,30.5273 L14.7998,2.22882 C13.2375,0.666626 10.7051,0.666748 9.14282,2.22882 L2.229,9.14282 C0.666992,10.7049 0.666748,13.2374 2.229,14.7996">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.681617,0.681668"
+													EndPoint="0.103202,0.103259">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+							</Canvas>
+						</Viewbox>
+					</Canvas>
+				</Viewbox>
+				<Viewbox
+					HorizontalAlignment="Left"
+					Margin="110.828,173.782,0,0"
+					VerticalAlignment="Top"
+					Width="292.33"
+					Height="292.33">
+					<Canvas
+						Width="292.33"
+						Height="292.33">
+						<Ellipse
+							Width="292.329"
+							Height="292.33"
+							Canvas.Left="6.86646e-005"
+							Canvas.Top="3.05176e-005"
+							Stretch="Fill"
+							StrokeThickness="3.73334"
+							StrokeLineJoin="Round"
+							Stroke="#FF2D2D2D">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.11147,0.172048"
+									EndPoint="0.922291,0.784206">
+									<GradientStop
+										Color="#FF707070"
+										Offset="0.00448526" />
+									<GradientStop
+										Color="#FF393939"
+										Offset="0.725331" />
+									<GradientStop
+										Color="#FF343434"
+										Offset="0.997651" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Ellipse
+							Width="270.412"
+							Height="270.412"
+							Canvas.Left="10.9588"
+							Canvas.Top="10.9586"
+							Stretch="Fill"
+							StrokeThickness="3.73334"
+							StrokeLineJoin="Round"
+							Stroke="#FF2D2D2D">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.984495,0.630072"
+									EndPoint="0.0245391,0.342585">
+									<GradientStop
+										Color="#FF707070"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#FF000000"
+										Offset="0.0738983" />
+									<GradientStop
+										Color="#FF3B3B3B"
+										Offset="0.314182" />
+									<GradientStop
+										Color="#FF636363"
+										Offset="0.447672" />
+									<GradientStop
+										Color="#FF000000"
+										Offset="0.693293" />
+									<GradientStop
+										Color="#FF393939"
+										Offset="0.954934" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Ellipse
+							Width="234.625"
+							Height="234.625"
+							Canvas.Left="28.8525"
+							Canvas.Top="28.8523"
+							Stretch="Fill">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.732093"
+									RadiusY="0.732093"
+									Center="0.600511,0.736162"
+									GradientOrigin="0.600511,0.736162">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<RotateTransform
+												CenterX="0.600511"
+												CenterY="0.736162"
+												Angle="242.241" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FF636363"
+										Offset="0" />
+									<GradientStop
+										Color="#FF525252"
+										Offset="0.282764" />
+									<GradientStop
+										Color="#FF414141"
+										Offset="0.490389" />
+									<GradientStop
+										Color="#FE2D2D2D"
+										Offset="0.970953" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Ellipse>
+						<Path
+							Width="136.306"
+							Height="62.1189"
+							Canvas.Left="40.0951"
+							Canvas.Top="30.5866"
+							Stretch="Fill"
+							Data="F1 M99.7498,43.3989 C74.6215,54.4572 54.3413,71.8515 40.0951,92.7054 C53.7726,71.0066 73.8498,53.0165 99.0933,41.9075 C124.336,30.7988 151.163,28.1472 176.401,32.7195 C151.401,29.1373 124.877,32.3409 99.7498,43.3989">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="1.11899"
+									RadiusY="0.585182"
+									Center="0.466415,0.349711"
+									GradientOrigin="0.466415,0.349711">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<SkewTransform
+												CenterX="0.466415"
+												CenterY="0.349711"
+												AngleX="32.658"
+												AngleY="0" />
+											<RotateTransform
+												CenterX="0.466415"
+												CenterY="0.349711"
+												Angle="78.6595" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FEE9E9EA"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#62525252"
+										Offset="1" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Width="116.729"
+							Height="27.9656"
+							Canvas.Left="106.19"
+							Canvas.Top="235.714"
+							Stretch="Fill"
+							Data="F1 M167.039,261.283 C188.557,258.154 207.685,248.964 222.919,235.714 C207.945,249.755 188.848,259.459 167.231,262.602 C145.613,265.746 124.543,261.883 106.19,252.688 C124.567,261.051 145.52,264.413 167.039,261.283">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="2.15707"
+									RadiusY="0.510263"
+									Center="0.511461,0.632455"
+									GradientOrigin="0.511461,0.632455">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<SkewTransform
+												CenterX="0.511461"
+												CenterY="0.632455"
+												AngleX="29.262"
+												AngleY="0" />
+											<RotateTransform
+												CenterX="0.511461"
+												CenterY="0.632455"
+												Angle="88.0046" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FEE9E9EA"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#62525252"
+										Offset="1" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Width="104.514"
+							Height="62.5687"
+							Canvas.Left="144.713"
+							Canvas.Top="30.6568"
+							Stretch="Fill"
+							Data="F1 M205.812,47.2172 C186.545,35.7134 165.352,30.4401 144.713,30.825 C165.646,29.6611 187.139,34.5171 206.495,46.0737 C225.85,57.6299 240.32,74.2462 249.226,93.2255 C239.774,74.8742 225.079,58.7207 205.812,47.2172">
+							<Shape.Fill>
+								<RadialGradientBrush
+									RadiusX="0.886938"
+									RadiusY="0.638667"
+									Center="0.545565,0.373869"
+									GradientOrigin="0.545565,0.373869">
+									<Brush.RelativeTransform>
+										<TransformGroup>
+											<SkewTransform
+												CenterX="0.545565"
+												CenterY="0.373869"
+												AngleX="-25.2544"
+												AngleY="0" />
+											<RotateTransform
+												CenterX="0.545565"
+												CenterY="0.373869"
+												Angle="109.669" />
+										</TransformGroup>
+									</Brush.RelativeTransform>
+									<GradientStop
+										Color="#FEE9E9EA"
+										Offset="0.00982486" />
+									<GradientStop
+										Color="#62525252"
+										Offset="1" />
+								</RadialGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Viewbox
+							Width="262.234"
+							Height="262.234"
+							Canvas.Left="14.0477"
+							Canvas.Top="18.4475">
+							<Canvas
+								Width="262.234"
+								Height="262.234">
+								<Viewbox
+									Width="262.234"
+									Height="17.778"
+									Canvas.Left="0"
+									Canvas.Top="122.228">
+									<Canvas
+										Width="262.234"
+										Height="17.778">
+										<Path
+											Width="46.7296"
+											Height="17.7778"
+											Canvas.Left="215.505"
+											Canvas.Top="0"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M258.234,0 L219.104,0.890015 C217.116,0.890015 215.505,2.50159 215.505,4.4895 L215.505,13.2883 C215.505,15.2762 217.116,16.8878 219.104,16.8878 L258.234,17.7778 C260.443,17.7778 262.234,15.9869 262.234,13.7778 L262.234,4 C262.234,1.79089 260.443,0 258.234,0" />
+										<Path
+											Width="46.7298"
+											Height="17.7778"
+											Canvas.Left="4.57764e-005"
+											Canvas.Top="0.000183105"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M4.00002,0.000183105 L43.1303,0.890198 C45.118,0.890198 46.7298,2.50177 46.7298,4.48969 L46.7298,13.2885 C46.7298,15.2764 45.118,16.8879 43.1303,16.8879 L4.00002,17.778 C1.79083,17.778 4.57764E-05,15.9871 4.57764E-05,13.778 L4.57764E-05,4.00018 C4.57764E-05,1.79102 1.79083,0.000183105 4.00002,0.000183105" />
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="17.7779"
+									Height="262.234"
+									Canvas.Left="122.228"
+									Canvas.Top="0">
+									<Canvas
+										Width="17.7779"
+										Height="262.234">
+										<Path
+											Width="17.7778"
+											Height="46.7294"
+											Canvas.Left="0"
+											Canvas.Top="-6.10352e-005"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M0,3.99994 L0.890091,43.1298 C0.890091,45.1179 2.50163,46.7294 4.48958,46.7294 L13.2884,46.7294 C15.2763,46.7294 16.8879,45.1179 16.8879,43.1298 L17.7778,3.99994 C17.7778,1.79077 15.9869,-6.10352E-05 13.7778,-6.10352E-05 L4,-6.10352E-05 C1.79085,-6.10352E-05 0,1.79077 0,3.99994" />
+										<Path
+											Width="17.7778"
+											Height="46.7296"
+											Canvas.Left="0.000137329"
+											Canvas.Top="215.504"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M0.000137329,258.234 L0.890244,219.104 C0.890244,217.116 2.50182,215.504 4.48973,215.504 L13.2885,215.504 C15.2765,215.504 16.888,217.116 16.888,219.104 L17.7779,258.234 C17.7779,260.443 15.9871,262.234 13.7779,262.234 L4.00014,262.234 C1.791,262.234 0.000137329,260.443 0.000137329,258.234" />
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="195.466"
+									Height="195.466"
+									Canvas.Left="33.3846"
+									Canvas.Top="33.3837">
+									<Canvas
+										Width="195.466"
+										Height="195.466">
+										<Path
+											Width="41.8366"
+											Height="41.8364"
+											Canvas.Left="0.390633"
+											Canvas.Top="0.390617"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M1.56222,14.1329 L29.8608,41.1727 C31.2666,42.5785 33.5456,42.5784 34.9513,41.1727 L41.1729,34.951 C42.5786,33.5453 42.5787,31.2664 41.1729,29.8606 L14.133,1.56213 C12.5709,6.10352E-05 10.0383,0.00012207 8.47617,1.56226 L1.56223,8.47614 C0.00012207,10.0382 8.39233E-05,12.5709 1.56222,14.1329" />
+										<Path
+											Width="41.8363"
+											Height="41.8364"
+											Canvas.Left="153.239"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M181.333,193.904 L154.293,165.605 C152.888,164.2 152.887,161.921 154.293,160.515 L160.515,154.293 C161.921,152.888 164.2,152.888 165.605,154.293 L193.904,181.333 C195.466,182.895 195.466,185.428 193.904,186.99 L186.99,193.904 C185.428,195.466 182.895,195.466 181.333,193.904" />
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="195.466"
+									Height="195.466"
+									Canvas.Left="33.3849"
+									Canvas.Top="33.3837">
+									<Canvas
+										Width="195.466"
+										Height="195.466">
+										<Path
+											Width="41.8363"
+											Height="41.8362"
+											Canvas.Left="0.390635"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M14.133,193.903 L41.1726,165.605 C42.5784,164.199 42.5784,161.921 41.1727,160.515 L34.951,154.293 C33.5453,152.887 31.2663,152.887 29.8605,154.293 L1.56222,181.333 C8.39233E-05,182.895 0.0001297,185.427 1.56223,186.99 L8.47617,193.903 C10.0383,195.466 12.5709,195.466 14.133,193.903" />
+										<Path
+											Width="41.8364"
+											Height="41.8364"
+											Canvas.Left="153.239"
+											Canvas.Top="0.390579"
+											Stretch="Fill"
+											Fill="#68000000"
+											Data="F1 M193.903,14.1329 L165.605,41.1728 C164.199,42.5785 161.92,42.5784 160.515,41.1727 L154.293,34.951 C152.887,33.5453 152.887,31.2664 154.293,29.8607 L181.333,1.56213 C182.895,6.10352E-05 185.427,6.10352E-05 186.989,1.56213 L193.903,8.47614 C195.465,10.0382 195.466,12.5708 193.903,14.1329" />
+									</Canvas>
+								</Viewbox>
+							</Canvas>
+						</Viewbox>
+						<Viewbox
+							Width="263.567"
+							Height="263.567"
+							Canvas.Left="14.381"
+							Canvas.Top="14.3815">
+							<Canvas
+								Width="263.567"
+								Height="263.567">
+								<Viewbox
+									Width="263.567"
+									Height="19.1113"
+									Canvas.Left="0"
+									Canvas.Top="122.228">
+									<Canvas
+										Width="263.567"
+										Height="19.1113">
+										<Path
+											Width="48.0629"
+											Height="19.1111"
+											Canvas.Left="215.505"
+											Canvas.Top="2.03252e-005"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M258.901,0.666687 L219.771,1.5567 C217.783,1.5567 216.171,3.16821 216.171,5.15619 L216.171,13.955 C216.171,15.9429 217.783,17.5544 219.771,17.5544 L258.901,18.4445 C261.11,18.4445 262.901,16.6536 262.901,14.4445 L262.901,4.66669 C262.901,2.45752 261.11,0.666687 258.901,0.666687">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.277027,0.499906"
+													EndPoint="1.00937,0.499906">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="48.0631"
+											Height="19.1112"
+											Canvas.Left="5.08428e-005"
+											Canvas.Top="0.000142395"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M4.66669,0.666809 L43.797,1.55682 C45.7847,1.55682 47.3965,3.1684 47.3965,5.15631 L47.3965,13.9551 C47.3965,15.9431 45.7847,17.5546 43.797,17.5546 L4.66669,18.4446 C2.4575,18.4446 0.666718,16.6537 0.666718,14.4446 L0.666718,4.66681 C0.666718,2.4577 2.4575,0.666809 4.66669,0.666809">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.722966,0.499911"
+													EndPoint="-0.00937541,0.499911">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="19.1113"
+									Height="263.567"
+									Canvas.Left="122.228"
+									Canvas.Top="0">
+									<Canvas
+										Width="19.1113"
+										Height="263.567">
+										<Path
+											Width="19.1111"
+											Height="48.0628"
+											Canvas.Left="5.06639e-006"
+											Canvas.Top="-0.000101745"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Fill="#FFFFFFFF"
+											Data="F1 M0.666672,4.66656 L1.55676,43.7964 C1.55676,45.7845 3.1683,47.396 5.15625,47.396 L13.955,47.396 C15.943,47.396 17.5545,45.7845 17.5545,43.7964 L18.4445,4.66656 C18.4445,2.4574 16.6536,0.666565 14.4445,0.666565 L4.66667,0.666565 C2.45752,0.666565 0.666672,2.4574 0.666672,4.66656" />
+										<Path
+											Width="19.1111"
+											Height="48.0629"
+											Canvas.Left="0.000142395"
+											Canvas.Top="215.504"
+											Stretch="Fill"
+											StrokeThickness="1.33333"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M0.666809,258.901 L1.55692,219.771 C1.55692,217.783 3.16849,216.171 5.1564,216.171 L13.9552,216.171 C15.9431,216.171 17.5547,217.783 17.5547,219.771 L18.4446,258.901 C18.4446,261.11 16.6537,262.901 14.4446,262.901 L4.66681,262.901 C2.45767,262.901 0.666809,261.11 0.666809,258.901">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.49991,0.277031"
+													EndPoint="0.49991,1.00938">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="196.799"
+									Height="196.799"
+									Canvas.Left="33.3846"
+									Canvas.Top="33.3838">
+									<Canvas
+										Width="196.799"
+										Height="196.799">
+										<Path
+											Width="43.17"
+											Height="43.1698"
+											Canvas.Left="0.390631"
+											Canvas.Top="0.390608"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M2.2289,14.7996 L30.5275,41.8394 C31.9333,43.2452 34.2122,43.2451 35.6179,41.8394 L41.8396,35.6177 C43.2453,34.212 43.2454,31.933 41.8396,30.5272 L14.7997,2.22882 C13.2376,0.666748 10.705,0.666809 9.14285,2.22888 L2.22891,9.14282 C0.666809,10.7049 0.666771,13.2375 2.2289,14.7996">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.681615,0.681673"
+													EndPoint="0.103205,0.10326">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="43.1697"
+											Height="43.1698"
+											Canvas.Left="153.239"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M182,194.57 L154.96,166.272 C153.554,164.866 153.554,162.587 154.96,161.181 L161.182,154.96 C162.587,153.554 164.866,153.554 166.272,154.96 L194.57,182 C196.132,183.562 196.132,186.094 194.57,187.656 L187.656,194.57 C186.094,196.132 183.562,196.132 182,194.57">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.318329,0.318384"
+													EndPoint="0.896742,0.896797">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="196.799"
+									Height="196.799"
+									Canvas.Left="33.3849"
+									Canvas.Top="33.3838">
+									<Canvas
+										Width="196.799"
+										Height="196.799">
+										<Path
+											Width="43.1697"
+											Height="43.1696"
+											Canvas.Left="0.390634"
+											Canvas.Top="153.239"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M14.7997,194.57 L41.8393,166.272 C43.2451,164.866 43.245,162.587 41.8393,161.181 L35.6177,154.96 C34.212,153.554 31.933,153.554 30.5272,154.96 L2.2289,181.999 C0.666771,183.561 0.666817,186.094 2.22891,187.656 L9.14286,194.57 C10.705,196.132 13.2376,196.132 14.7997,194.57">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.681675,0.31838"
+													EndPoint="0.103261,0.896794">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Width="43.1697"
+											Height="43.1698"
+											Canvas.Left="153.239"
+											Canvas.Top="0.390577"
+											Stretch="Fill"
+											StrokeThickness="1.33338"
+											StrokeLineJoin="Round"
+											Stroke="#FF2D2D2D"
+											Data="F1 M194.57,14.7996 L166.272,41.8395 C164.866,43.2451 162.587,43.2451 161.181,41.8394 L154.96,35.6177 C153.554,34.212 153.554,31.933 154.96,30.5273 L181.999,2.22882 C183.561,0.666748 186.094,0.666748 187.656,2.22882 L194.57,9.14282 C196.132,10.7049 196.132,13.2374 194.57,14.7996">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.318384,0.681668"
+													EndPoint="0.896797,0.103258">
+													<GradientStop
+														Color="#FF414141"
+														Offset="0.0563445" />
+													<GradientStop
+														Color="#FF555555"
+														Offset="0.537334" />
+													<GradientStop
+														Color="#FF393939"
+														Offset="0.725331" />
+													<GradientStop
+														Color="#FF343434"
+														Offset="0.997651" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+							</Canvas>
+						</Viewbox>
+					</Canvas>
+				</Viewbox>
+				<Viewbox
+					Margin="699.797,269.288,1049.363,479.978">
+					<Canvas
+						Width="1278.84"
+						Height="335.734">
+						<Path
+							Width="1278.84"
+							Height="335.734"
+							Canvas.Left="7.11679e-005"
+							Canvas.Top="1.01328e-005"
+							Stretch="Fill"
+							StrokeThickness="2.4"
+							StrokeLineJoin="Round"
+							Stroke="#FF424836"
+							Data="F1 M1266.98,1.20001 L11.8668,1.20001 C5.97583,1.20001 1.20007,5.97565 1.20007,11.8666 L1.20007,323.867 C1.20007,329.758 5.97583,334.534 11.8668,334.534 L1266.98,334.534 C1272.87,334.534 1277.64,329.758 1277.64,323.867 L1277.64,11.8666 C1277.64,5.97565 1272.87,1.20001 1266.98,1.20001">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.397488,-0.00175799"
+									EndPoint="0.397488,0.99024">
+									<GradientStop
+										Color="#FF727766"
+										Offset="0" />
+									<GradientStop
+										Color="#FF7F8485"
+										Offset="0.0334402" />
+									<GradientStop
+										Color="#FE8D92A4"
+										Offset="0.0964269" />
+									<GradientStop
+										Color="#FE7B848A"
+										Offset="0.949611" />
+									<GradientStop
+										Color="#FE5E6B49"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Width="1192.69"
+							Height="333.334"
+							Canvas.Left="1.20032"
+							Canvas.Top="1.20001"
+							Stretch="Fill"
+							Data="F1 M1183.23,1.20001 L11.867,1.20001 C5.9762,1.20001 1.20032,5.97565 1.20032,11.8666 L1.20032,323.867 C1.20032,329.758 5.9762,334.534 11.867,334.534 L1183.23,334.534 C1189.12,334.534 1193.89,329.758 1193.89,323.867 L1193.89,11.8666 C1193.89,5.97565 1189.12,1.20001 1183.23,1.20001">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.397488,-0.00175799"
+									EndPoint="0.397488,0.99024">
+									<GradientStop
+										Color="#FF727766"
+										Offset="0" />
+									<GradientStop
+										Color="#FF898D79"
+										Offset="0.0334402" />
+									<GradientStop
+										Color="#FEA1A48D"
+										Offset="0.0964269" />
+									<GradientStop
+										Color="#FE8C9086"
+										Offset="0.522426" />
+									<GradientStop
+										Color="#FE7F8A7B"
+										Offset="0.955337" />
+									<GradientStop
+										Color="#FE5E6B49"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Width="229.333"
+							Height="327.999"
+							Canvas.Left="1044.78"
+							Canvas.Top="3.38556"
+							Stretch="Fill"
+							Data="F1 M1055.44,3.38556 L1263.44,3.38556 C1269.33,3.38556 1274.11,8.16119 1274.11,14.0522 L1274.11,320.718 C1274.11,326.609 1269.33,331.385 1263.44,331.385 L1055.44,331.385 C1049.55,331.385 1044.78,326.609 1044.78,320.718 L1044.78,14.0522 C1044.78,8.16119 1049.55,3.38556 1055.44,3.38556">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="-0.00521611,0.499998"
+									EndPoint="1.00525,0.499998">
+									<GradientStop
+										Color="#00727766"
+										Offset="0" />
+									<GradientStop
+										Color="#027F8485"
+										Offset="0.0404419" />
+									<GradientStop
+										Color="#048D92A4"
+										Offset="0.116617" />
+									<GradientStop
+										Color="#52868D9B"
+										Offset="0.372918" />
+									<GradientStop
+										Color="#FC979885"
+										Offset="0.650577" />
+									<GradientStop
+										Color="#77606875"
+										Offset="0.714652" />
+									<GradientStop
+										Color="#FE6D7981"
+										Offset="0.949611" />
+									<GradientStop
+										Color="#FE5E6B49"
+										Offset="1" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+						<Path
+							Width="1266.67"
+							Height="125.333"
+							Canvas.Left="3.89709"
+							Canvas.Top="28.6082"
+							Stretch="Fill"
+							Fill="#14FFFFFF"
+							Data="F1 M3.89709,28.6082 L1270.56,28.6082 L1270.56,153.942 C1023.16,126.647 921.602,120.647 613.184,120.647 C304.767,120.647 197.205,134.647 3.89709,153.942 L3.89709,28.6082" />
+						<Grid
+							Width="1178.964"
+							Height="125.526"
+							Canvas.Left="14.926"
+							Canvas.Top="194.142"
+							FlowDirection="{Binding Path=UIFlowDirection}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 30-->
+							<Label
+								Name="bottom_screen_info"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="0"
+								Grid.Column="0"
+								VerticalAlignment="Bottom"
+								Margin="67.155,0,-81.362,-22"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsConventionalSelectedList" />
+											<Binding
+												Path="MenuItemsConventionalSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 31-->
+							<Label
+								Name="bottom_screen_scan"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="0"
+								Grid.Column="1"
+								VerticalAlignment="Bottom"
+								Margin="51.092,0,-39.363,-20"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsConventionalSelectedList" />
+											<Binding
+												Path="MenuItemsConventionalSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 32-->
+							<Label
+								Name="bottom_screen_zone"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="0"
+								Grid.Column="2"
+								VerticalAlignment="Bottom"
+								Margin="32.979,0,-73.125,-20"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsConventionalSelectedList" />
+											<Binding
+												Path="MenuItemsConventionalSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 33-->
+							<Label
+								Name="bottom_screen_status"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="0"
+								Grid.Column="3"
+								VerticalAlignment="Bottom"
+								Margin="34.974,0,0.818,-17"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsConventionalSelectedList" />
+											<Binding
+												Path="MenuItemsConventionalSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 34-->
+							<Label
+								Name="bottom_screen_contacts"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="0"
+								Grid.Column="4"
+								VerticalAlignment="Bottom"
+								Margin="28.913,0,6.879,-17"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsConventionalSelectedList" />
+											<Binding
+												Path="MenuItemsConventionalSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 35-->
+							<Label
+								Name="bottom_screen_info_Copy"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="1"
+								Grid.Column="0"
+								VerticalAlignment="Top"
+								Margin="67.155,9,-31.362,0"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedList" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 36-->
+							<Label
+								Name="bottom_screen_scan_Copy"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="1"
+								Grid.Column="1"
+								VerticalAlignment="Top"
+								Margin="51.092,8,-39.363,0"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedList" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 37-->
+							<Label
+								Name="bottom_screen_zone_Copy"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="1"
+								Grid.Column="2"
+								VerticalAlignment="Top"
+								Margin="32.979,6,-73.125,0"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedList" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 38-->
+							<Label
+								Name="bottom_screen_status_Copy"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="1"
+								Grid.Column="3"
+								VerticalAlignment="Top"
+								Margin="34.974,4,0.818,0"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedList" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+							<!--Unknown connection ID: 39-->
+							<Label
+								Name="bottom_screen_contacts_Copy"
+								Foreground="#000000"
+								Content="{x:Static CommonResxNS:AppResources.Text_Id}"
+								FontSize="30"
+								Grid.Row="1"
+								Grid.Column="4"
+								VerticalAlignment="Top"
+								Margin="28.913,4,6.879,0"
+								Width="250">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{StaticResource menuItemsVisibilityConverter}">
+										<MultiBinding.Bindings>
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppView" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedList" />
+											<Binding
+												Path="MenuItemsTrunkingSelectedListVisibility" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</UIElement.Visibility>
+							</Label>
+						</Grid>
+						<Path
+							Stretch="Fill"
+							Stroke="#FF000000"
+							StrokeThickness="3"
+							Width="3"
+							Height="100.592"
+							Canvas.Left="235.658"
+							Canvas.Top="223.142"
+							Data="M244.65822,190.142 L244.65822,271.61664" />
+						<Path
+							Stretch="Fill"
+							Stroke="#FF000000"
+							StrokeThickness="3"
+							Width="3"
+							Height="100.592"
+							Canvas.Left="471.658"
+							Canvas.Top="223.142"
+							Data="M244.65822,190.142 L244.65822,271.61664" />
+						<Path
+							Stretch="Fill"
+							Stroke="#FF000000"
+							StrokeThickness="3"
+							Width="3"
+							Height="100.592"
+							Canvas.Left="697.658"
+							Canvas.Top="223.142"
+							Data="M244.65822,190.142 L244.65822,271.61664" />
+						<Path
+							Stretch="Fill"
+							Stroke="#FF000000"
+							StrokeThickness="3"
+							Width="3"
+							Height="100.592"
+							Canvas.Left="931.658"
+							Canvas.Top="223.142"
+							Data="M244.65822,190.142 L244.65822,271.61664" />
+					</Canvas>
+				</Viewbox>
+				<Button
+					HorizontalAlignment="Left"
+					Margin="476.148,236.821,0,0"
+					Style="{DynamicResource ButtonStyle7}"
+					VerticalAlignment="Top"
+					Width="96.761"
+					Height="117.774"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<Button
+					HorizontalAlignment="Left"
+					Margin="473.127,411.934,0,0"
+					Style="{DynamicResource ButtonStyle9}"
+					VerticalAlignment="Top"
+					Width="99.782"
+					Height="117.774"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<Button
+					HorizontalAlignment="Left"
+					Margin="475.677,0,0,380.178"
+					Style="{DynamicResource ButtonStyle8}"
+					VerticalAlignment="Bottom"
+					Width="97.232"
+					Height="117.775"
+					Content="{x:Static CommonResxNS:AppResources.Button_Id}" />
+				<Ellipse
+					HorizontalAlignment="Right"
+					Margin="0,528.94,506.528,457.945"
+					Width="144.381"
+					Stroke="#FF000000">
+					<Shape.Fill>
+						<LinearGradientBrush
+							EndPoint="0.5,1"
+							StartPoint="0.5,0">
+							<GradientStop
+								Color="#FF000000"
+								Offset="0" />
+							<GradientStop
+								Color="#00000000"
+								Offset="1" />
+						</LinearGradientBrush>
+					</Shape.Fill>
+				</Ellipse>
+				<!--Unknown connection ID: 40-->
+				<Rectangle
+					Name="EmergencyButtonCallOuts"
+					Margin="0,127.629,-2.001,0"
+					VerticalAlignment="Top"
+					Height="260.385"
+					StrokeLineJoin="Round"
+					StrokeThickness="8"
+					HorizontalAlignment="Right"
+					Width="477.419"
+					Stroke="{DynamicResource O5 red}"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<!--Unknown connection ID: 41-->
+				<Viewbox
+					Name="EmergencyButtonViewbox"
+					Margin="0,116,-2.001,0"
+					HorizontalAlignment="Right"
+					Width="792.942"
+					Height="318.896"
+					VerticalAlignment="Top"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<Canvas
+						Width="792.942"
+						Height="295.638">
+						<Path
+							Width="105.104"
+							Height="10"
+							Canvas.Left="213.419"
+							Canvas.Top="136.486"
+							Stretch="Fill"
+							StrokeThickness="8"
+							StrokeLineJoin="Round"
+							Stroke="#FFFF081E"
+							Data="F1 M33.5,13.2114 L9.2938088,13.2114" />
+						<StackPanel
+							Canvas.Left="326.822"
+							Canvas.Top="91.222"
+							Width="460"
+							DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+							FlowDirection="{Binding Path=UIFlowDirection}">
+							<!--Unknown connection ID: 42-->
+							<StackPanel
+								Name="StackPanelEmergencyButtonFeatureViewboxWrapping"
+								Orientation="Horizontal"
+								Margin="0,10,0,0">
+								<!--Unknown connection ID: 43-->
+								<AcpUINS:AcpLabel
+									Name="LblEmergencyButtonFeatureViewboxTitleWrapping"
+									FontSize="34.667"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+									IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+									MyParentCtrl="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup}"
+									Visibility="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup, Path=Visibility}" />
+								<!--Unknown connection ID: 44-->
+								<Canvas
+									Name="EmergencyButtonFeatureCanvas"
+									Margin="-8,0,0,0"
+									HorizontalAlignment="Left"
+									Width="300"
+									ClipToBounds="True">
+									<!--Unknown connection ID: 45-->
+									<AcpUINS:AcpLabel
+										Name="LblEmergencyButtonFeatureViewboxValue"
+										FontSize="37.5"
+										Content="{Binding Path=EmergencyButtonFeatureUIValue, Mode=TwoWay}"
+										MyParentCtrl="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup}"
+										IsAcpValid="{Binding Path=EmergencyButtonFeatureIsAcpValid}"
+										IsAcpApplicable="{Binding Path=EmergencyButtonFeatureIsAcpApplicable}"
+										Visibility="{Binding ElementName=ComBoxEmergencyButtonFeaturePopup, Path=Visibility}">
+										<UIElement.RenderTransform>
+											<!--Unknown connection ID: 46-->
+											<TranslateTransform
+												x:Name="RenderTransformEmergencyButtonFeatureViewbox" />
+										</UIElement.RenderTransform>
+									</AcpUINS:AcpLabel>
+								</Canvas>
+							</StackPanel>
+						</StackPanel>
+					</Canvas>
+				</Viewbox>
+				<!--Unknown connection ID: 47-->
+				<Rectangle
+					Name="UpButtonCallOuts"
+					Margin="0,438.896,-2.001,385.719"
+					StrokeLineJoin="Round"
+					StrokeThickness="8"
+					HorizontalAlignment="Right"
+					Width="477.419"
+					Stroke="{DynamicResource 05 blue}"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<Viewbox
+					Margin="0,455.152,-2.001,306.952"
+					HorizontalAlignment="Right"
+					Width="792.942"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<Canvas
+						Width="792.942"
+						Height="295.638">
+						<Path
+							Width="321.287"
+							Height="11.424"
+							Canvas.Left="0.418"
+							Canvas.Top="89.194"
+							Stretch="Fill"
+							StrokeThickness="8"
+							StrokeLineJoin="Round"
+							Stroke="{DynamicResource 05 blue}"
+							Data="F1 M34.293201,-30.659662 L-43.803312,-34.083936" />
+						<StackPanel
+							Width="458.12"
+							Height="200"
+							Canvas.Left="326.822"
+							Canvas.Top="8">
+							<StackPanel
+								Orientation="Horizontal"
+								Height="100"
+								Margin="0,30,0,0">
+								<!--Unknown connection ID: 48-->
+								<AcpUINS:AcpLabel
+									Name="LblUpButtonViewboxTitleWrapping"
+									FontSize="34.667"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+									IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+									MyParentCtrl="{Binding ElementName=ComBoxUpButtonPopup}"
+									Visibility="{Binding ElementName=ComBoxUpButtonPopup, Path=Visibility}" />
+								<!--Unknown connection ID: 49-->
+								<AcpUINS:AcpLabel
+									Name="LblUpButtonViewboxValueWrapping"
+									FontSize="34.667"
+									Width="280"
+									Content="{Binding Path=UpButtonUIValue}"
+									IsAcpValid="{Binding Path=UpButtonIsAcpValid}"
+									IsAcpApplicable="{Binding Path=UpButtonIsAcpApplicable}"
+									MyParentCtrl="{Binding ElementName=ComBoxUpButtonPopup}"
+									Visibility="{Binding ElementName=ComBoxUpButtonPopup, Path=Visibility}" />
+							</StackPanel>
+						</StackPanel>
+					</Canvas>
+				</Viewbox>
+				<!--Unknown connection ID: 50-->
+				<Rectangle
+					Name="DownButtonCallOuts"
+					Margin="0,0,-2.001,78.011"
+					StrokeLineJoin="Round"
+					StrokeThickness="8"
+					HorizontalAlignment="Right"
+					Width="477.419"
+					Stroke="{DynamicResource 05 green}"
+					Height="260.385"
+					VerticalAlignment="Bottom"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+				<Viewbox
+					Margin="0,0,-2.001,28.064"
+					HorizontalAlignment="Right"
+					Width="792.942"
+					Height="318.896"
+					VerticalAlignment="Bottom"
+					Visibility="{Binding ElementName=ShowAllButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+					<Canvas
+						Width="792.942"
+						Height="295.638">
+						<Path
+							Width="329.465"
+							Height="157.166"
+							Canvas.Left="-6.752"
+							Canvas.Top="-28.961"
+							Stretch="Fill"
+							StrokeThickness="8"
+							StrokeLineJoin="Round"
+							Stroke="{DynamicResource 05 green}"
+							Data="F1 M34.544583,-3.070882 L-45.391728,-3.0697371 L-45.590505,-152.2494" />
+						<StackPanel
+							Canvas.Left="326.822"
+							Canvas.Top="27.222">
+							<StackPanel
+								Orientation="Horizontal"
+								Height="100"
+								Margin="0,40,0,0">
+								<!--Unknown connection ID: 51-->
+								<AcpUINS:AcpLabel
+									Name="LblDownButtonViewboxTitleWrapping"
+									FontSize="34.667"
+									Content="{x:Static CommonResxNS:AppResources.Feature_Colon_Space}"
+									IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+									IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+									MyParentCtrl="{Binding ElementName=ComBoxDownButtonPopup}"
+									Visibility="{Binding ElementName=ComBoxDownButtonPopup, Path=Visibility}" />
+								<!--Unknown connection ID: 52-->
+								<AcpUINS:AcpLabel
+									Name="LblDownButtonViewboxValueWrapping"
+									FontSize="34.667"
+									Width="280"
+									Content="{Binding Path=DownButtonUIValue}"
+									IsAcpValid="{Binding Path=DownButtonIsAcpValid}"
+									IsAcpApplicable="{Binding Path=DownButtonIsAcpApplicable}"
+									MyParentCtrl="{Binding ElementName=ComBoxDownButtonPopup}"
+									Visibility="{Binding ElementName=ComBoxDownButtonPopup, Path=Visibility}" />
+							</StackPanel>
+						</StackPanel>
+					</Canvas>
+				</Viewbox>
+				<Grid
+					Margin="110.828,-17.526,551.996,0"
+					VerticalAlignment="Top"
+					Height="119.629"
+					FlowDirection="{Binding Path=UIFlowDirection}">
+					<Viewbox
+						Margin="8,5,8,3">
+						<Canvas
+							Width="1812.333"
+							Height="81.103">
+							<!--Unknown connection ID: 53-->
+							<Path
+								Name="li"
+								Width="1800"
+								Height="47.085"
+								Canvas.Left="-12.903"
+								Canvas.Top="26.848"
+								Stretch="Fill"
+								Data="F1 M1.16666,24.7613 L1.16666,23.7617 C1.16666,20.4478 3.85295,12.868242 7.16666,12.868242 L98.5053,12.868242 L98.5053,7.16656 C98.5053,3.85278 99.799164,-10.596177 103.11216,-10.596177 L194.62789,-11.076166 C197.94189,-11.076166 201.46505,2.0981661 201.51075,4.3923687 L201.255,14.27342 L674.166,14.27342 C677.48,14.27342 680.166,20.4478 680.166,23.7617 L680.166,24.7613 L201.255,24.7613 L98.5053,24.7613 L1.16666,24.7613">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0.211578,-0.122847"
+										EndPoint="0.211578,2.07988">
+										<GradientStop
+											Color="#FF9F9F9F"
+											Offset="0" />
+										<GradientStop
+											Color="#FFACACAC"
+											Offset="0.0396508" />
+										<GradientStop
+											Color="#FFBABABA"
+											Offset="0.0792396" />
+										<GradientStop
+											Color="#FF838D98"
+											Offset="0.442332" />
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Path>
+							<!--Unknown connection ID: 54-->
+							<Path
+								Name="yan"
+								Width="1800"
+								Height="47.085"
+								Canvas.Left="-12.903"
+								Canvas.Top="26.018"
+								Stretch="Fill"
+								Data="F1 M1.16666,24.7613 L1.16666,23.7617 C1.16666,20.4478 3.85295,12.868242 7.16666,12.868242 L98.5053,12.868242 L98.5053,7.16656 C98.5053,3.85278 99.799164,-10.596177 103.11216,-10.596177 L194.62789,-11.076166 C197.94189,-11.076166 201.46505,2.0981661 201.51075,4.3923687 L201.255,14.27342 L674.166,14.27342 C677.48,14.27342 680.166,20.4478 680.166,23.7617 L680.166,24.7613 L201.255,24.7613 L98.5053,24.7613 L1.16666,24.7613">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0.156678,0.00260233"
+										EndPoint="0.156678,0.998588">
+										<GradientStop
+											Color="#FFFFFFFF"
+											Offset="0" />
+										<GradientStop
+											Color="#FFDCDCDC"
+											Offset="0.0449946" />
+										<GradientStop
+											Color="#FFBABABA"
+											Offset="0.0899188" />
+										<GradientStop
+											Color="#FFE7F3FF"
+											Offset="0.86" />
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Path>
+							<!--Unknown connection ID: 55-->
+							<ToggleButton
+								Name="ShowAllButton"
+								Width="236.311"
+								Height="39.385"
+								Content="ToggleButton"
+								Canvas.Left="262.793"
+								Canvas.Top="30.848"
+								Style="{DynamicResource ShowAllButtonStyle}" />
+						</Canvas>
+					</Viewbox>
+				</Grid>
+			</Grid>
+		</Viewbox>
+	</Grid>
+</UserControl>

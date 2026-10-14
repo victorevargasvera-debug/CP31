@@ -1,0 +1,4505 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:src="clr-namespace:ControlHeadGraphicView.converters">
+	<src:O9GraphicviewEditabilityConverter
+		x:Key="o9GraphicviewEditabilityConverter" />
+	<src:O9GraphicviewMenuItemsVisibilityConverter
+		x:Key="menuItemsVisibilityConverter" />
+	<AcpUICommonNS:CellVisibilityStausConverter
+		x:Key="CellVisibilityStatus" />
+	<BooleanToVisibilityConverter
+		x:Key="BooleanToVisibility" />
+	<AcpBLConverterNS:InvertBoolConverter
+		x:Key="InvertBoolConverter" />
+	<SolidColorBrush
+		Color="#FFEAFF00"
+		x:Key="YellowPress" />
+	<SolidColorBrush
+		Color="#FFB3C20F"
+		x:Key="Yellow Mouseover" />
+	<SolidColorBrush
+		Color="#FFFF7D00"
+		x:Key="orange" />
+	<SolidColorBrush
+		Color="#FF40D640"
+		x:Key="green" />
+	<SolidColorBrush
+		Color="#FF0096FF"
+		x:Key="blue" />
+	<SolidColorBrush
+		Color="#FFFF081E"
+		x:Key="red" />
+	<SolidColorBrush
+		Color="#FFFBE803"
+		x:Key="yellow" />
+	<SolidColorBrush
+		Color="#6BFFFFFF"
+		x:Key="Greyboxbackground" />
+	<Style
+		TargetType="{x:Type ContentControl}"
+		x:Key="ContentControlStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ContentControl}">
+					<Grid
+						Background="#00FFFFFF"
+						Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}">
+						<Path
+							Stretch="Fill"
+							StrokeThickness="3.2"
+							StrokeMiterLimit="2.75"
+							Stroke="#FF778B9F"
+							Data="F1 M447.768,315.643 L565.675,315.643 C568.988,315.643 571.675,318.33 571.675,321.643 L571.675,368.958 C571.675,372.271 568.988,374.958 565.675,374.958 L447.768,374.958 C444.454,374.958 441.768,372.271 441.768,368.958 L441.768,321.643 C441.768,318.33 444.454,315.643 447.768,315.643"
+							Fill="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+							<UIElement.BitmapEffect>
+								<DropShadowBitmapEffect
+									Softness="0.3"
+									ShadowDepth="12"
+									Opacity="0.4"
+									Color="#FF000000"
+									Direction="315"
+									Noise="0" />
+							</UIElement.BitmapEffect>
+						</Path>
+						<ContentPresenter
+							Margin="5,5,5,5"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Content="{TemplateBinding Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToolTip}"
+		x:Key="ToolTipStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToolTip}">
+					<Grid
+						Name="Border"
+						Background="#00FFFFFF"
+						Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}">
+						<Path
+							Stretch="Fill"
+							StrokeThickness="3.2"
+							StrokeMiterLimit="2.75"
+							Stroke="#FF778B9F"
+							Data="F1 M682.642,71.8275 L800.549,71.8275 C803.863,71.8275 806.549,74.5139 806.549,77.8275 L806.549,104.142 C806.549,107.455 803.863,110.142 800.549,110.142 L708.013,110.142 L699.004,125.745 L691.003,110.142 L682.642,110.142 C679.329,110.142 676.642,107.455 676.642,104.142 L676.642,77.8275 C676.642,74.5139 679.329,71.8275 682.642,71.8275"
+							Fill="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+							<UIElement.BitmapEffect>
+								<DropShadowBitmapEffect
+									Softness="0.3"
+									ShadowDepth="12"
+									Opacity="0.4"
+									Color="#FF000000"
+									Direction="315"
+									Noise="0" />
+							</UIElement.BitmapEffect>
+						</Path>
+						<ContentPresenter
+							Margin="5,-12,5,5"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Content="{TemplateBinding Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="ShowAllButtonStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						Margin="-11.073,1.015,-12.889,-2.592">
+						<Viewbox
+							Margin="0,3.336,0,0">
+							<Canvas
+								Width="78.654"
+								Height="19.517">
+								<Path
+									Width="90.74"
+									Height="18.612"
+									Canvas.Top="0.905"
+									Stretch="Fill"
+									Data="F1 M4,0.904907 L79.8958,0.904907 C82.1049,0.904907 83.8957,2.69574 83.8957,4.90491 L83.8957,15.5168 C83.8957,17.726 82.1049,19.5168 79.8958,19.5168 L4,19.5168 C1.79083,19.5168 -3.05176E-05,17.726 -3.05176E-05,15.5168 L-3.05176E-05,4.90491 C-3.05176E-05,2.69574 1.79083,0.904907 4,0.904907"
+									Canvas.Left="-5.242">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.442311,0.0127895"
+											EndPoint="0.442311,1.02562">
+											<GradientStop
+												Color="#FF757575"
+												Offset="0.698633" />
+											<GradientStop
+												Color="#FFC9D7E6"
+												Offset="1" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="90.74"
+									Height="17.212"
+									Canvas.Top="0.905"
+									Stretch="Fill"
+									Data="F1 M4.44444,0 L79.2707,0 C81.4799,0 83.2708,1.79089 83.2708,4 L83.2708,13.2125 C83.2708,15.4216 81.4799,17.2125 79.2707,17.2125 L4.44444,17.2125 C2.23531,17.2125 0.444473,15.4216 0.444473,13.2125 L0.444473,4 C0.444473,1.79089 2.23531,0 4.44444,0"
+									Canvas.Left="-5.242">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.442311,0.0127903"
+											EndPoint="0.442311,1.02563">
+											<GradientStop
+												Color="#FF95969D"
+												Offset="0" />
+											<GradientStop
+												Color="#FF757C86"
+												Offset="0.0712353" />
+											<GradientStop
+												Color="#FF556270"
+												Offset="0.0716612" />
+											<GradientStop
+												Color="#FF212121"
+												Offset="0.559803" />
+											<GradientStop
+												Color="#FF212121"
+												Offset="0.884908" />
+											<GradientStop
+												Color="#FF454647"
+												Offset="0.889251" />
+											<GradientStop
+												Color="#FF212121"
+												Offset="0.995657" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+							</Canvas>
+						</Viewbox>
+						<Label
+							Name="label"
+							FontFamily="Arial"
+							FontWeight="Bold"
+							Foreground="#FFC0C0C0"
+							Margin="0.445,2,0.625,0"
+							FontSize="8.5"
+							Content="{x:Static CommonResxNS:AppResources.Show_All}"
+							HorizontalAlignment="Center" />
+						<Path
+							Stretch="Fill"
+							Data="F1 M156.888,-10.8521 C162.598,-13.8823 176.107,-14.8628 199.756,-14.8627 C222.361,-14.8626 234.365,-14.024 239.714,-12.2121 L239.714,-16.0477 C239.714,-18.2569 237.923,-20.0477 235.714,-20.0477 L160.888,-20.0477 C158.679,-20.0477 156.888,-18.2569 156.888,-16.0477 L156.888,-10.8521"
+							Opacity="0.615"
+							Margin="0.445,3.336,0.625,10.321">
+							<Shape.Fill>
+								<LinearGradientBrush
+									EndPoint="0.5,1"
+									StartPoint="0.5,0">
+									<GradientStop
+										Color="#00FFFFFF"
+										Offset="0" />
+									<GradientStop
+										Color="#FFFFFFFF"
+										Offset="0.994" />
+								</LinearGradientBrush>
+							</Shape.Fill>
+						</Path>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.442311,1.02563"
+										StartPoint="0.442311,0.0127903">
+										<GradientStop
+											Color="#FF95969D"
+											Offset="0" />
+										<GradientStop
+											Color="#FF757C86"
+											Offset="0.0712353" />
+										<GradientStop
+											Color="#FF556270"
+											Offset="0.0716612" />
+										<GradientStop
+											Color="#FF556270"
+											Offset="0.559803" />
+										<GradientStop
+											Color="#FF343940"
+											Offset="0.884908" />
+										<GradientStop
+											Color="#FF454647"
+											Offset="0.905" />
+										<GradientStop
+											Color="#FF212121"
+											Offset="0.995657" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="label"
+								Property="Foreground"
+								Value="#FF000000" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="label"
+								Property="Foreground"
+								Value="#FFFFFFFF" />
+							<Setter
+								TargetName="path"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.442311,1.02563"
+										StartPoint="0.442311,0.0127903">
+										<GradientStop
+											Color="#FFF0CA8A"
+											Offset="0" />
+										<GradientStop
+											Color="#FF757C86"
+											Offset="0.0712353" />
+										<GradientStop
+											Color="#FF6F604B"
+											Offset="0.0716612" />
+										<GradientStop
+											Color="#FFF89B32"
+											Offset="0.408" />
+										<GradientStop
+											Color="#FF9E611D"
+											Offset="0.884908" />
+										<GradientStop
+											Color="#FF736246"
+											Offset="0.905" />
+										<GradientStop
+											Color="#FFD5A351"
+											Offset="0.995657" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad1Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_1">
+							<Canvas
+								Width="46.5339"
+								Height="45.7629">
+								<Path
+									Width="38.8338"
+									Height="38.0629"
+									Canvas.Left="3.85004"
+									Canvas.Top="5.35001"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.60016,42.6629 C7.01825,42.6629 6.47504,42.4972 6.01508,42.2105 C5.16547,41.6807 4.6001,40.7378 4.6001,39.6629 L4.60004,15.7298 C4.60004,10.7875 10.0435,6.10001 15.1923,6.10001 L39.6744,6.10001 C40.9731,6.42972 41.9338,7.60663 41.9338,9.00797 L41.9338,39.6629 C41.9338,40.7378 41.3685,41.6807 40.5189,42.2105 C40.059,42.4972 39.5158,42.6629 38.9339,42.6629 L7.60016,42.6629">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.516258,0"
+											EndPoint="0.516258,0.994861">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6338"
+									Height="38.8629"
+									Canvas.Left="3.45004"
+									Canvas.Top="3.45001"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.60016,41.1629 C7.01825,41.1629 6.47504,40.9972 6.01508,40.7105 C5.16547,40.1807 4.6001,39.2378 4.6001,38.1629 L4.60004,14.2298 C4.60004,9.28748 10.0435,4.60001 15.1923,4.60001 L39.6744,4.60001 C40.9731,4.92972 41.9338,6.10663 41.9338,7.50797 L41.9338,38.1629 C41.9338,39.2378 41.3685,40.1807 40.5189,40.7105 C40.059,40.9972 39.5158,41.1629 38.9339,41.1629 L7.60016,41.1629">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.516258,0"
+											EndPoint="0.516258,0.994861">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path4"
+									Width="37.3338"
+									Height="36.5629"
+									Canvas.Left="6.85004"
+									Canvas.Top="8.85001"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.85016,45.4129 C9.26825,45.4129 8.72504,45.2472 8.26508,44.9605 C7.41547,44.4307 6.8501,43.4878 6.8501,42.4129 L6.85004,18.4798 C6.85004,13.5375 12.2935,8.85001 17.4423,8.85001 L41.9244,8.85001 C43.2231,9.17972 44.1838,10.3566 44.1838,11.758 L44.1838,42.4129 C44.1838,43.4878 43.6185,44.4307 42.7689,44.9605 C42.309,45.2472 41.7658,45.4129 41.1839,45.4129 L9.85016,45.4129" />
+								<Path
+									Name="path3"
+									Width="37.3338"
+									Height="36.5629"
+									Canvas.Left="4.60004"
+									Canvas.Top="4.60001"
+									Stretch="Fill"
+									Data="F1 M7.60016,41.1629 C7.01825,41.1629 6.47504,40.9972 6.01508,40.7105 C5.16547,40.1807 4.6001,39.2378 4.6001,38.1629 L4.60004,14.2298 C4.60004,9.28748 10.0435,4.60001 15.1923,4.60001 L39.6744,4.60001 C40.9731,4.92972 41.9338,6.10663 41.9338,7.50797 L41.9338,38.1629 C41.9338,39.2378 41.3685,40.1807 40.5189,40.7105 C40.059,40.9972 39.5158,41.1629 38.9339,41.1629 L7.60016,41.1629">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.516258,0"
+											EndPoint="0.516258,0.994861">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path2"
+									Width="7.17041"
+									Height="16.6975"
+									Canvas.Left="18.2602"
+									Canvas.Top="10.0422"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M25.4306,26.7397 L23.0405,26.7397 L23.0405,13.7274 C22.4651,14.1961 21.7106,14.6653 20.7769,15.1352 C19.8433,15.605 19.0044,15.9572 18.2602,16.1914 L18.2602,14.2166 C19.5964,13.6803 20.7652,13.0298 21.7665,12.2653 C22.768,11.5007 23.4762,10.7597 23.8911,10.0422 L25.4306,10.0422 L25.4306,26.7397" />
+								<Rectangle
+									Name="rectangle"
+									Width="1.1748"
+									Height="1.1748"
+									Canvas.Left="14.9813"
+									Canvas.Top="33.8802"
+									Stretch="Fill"
+									Fill="#CDCBCFBC" />
+								<Path
+									Name="path"
+									Width="1.1748"
+									Height="3.13275"
+									Canvas.Left="20.5942"
+									Canvas.Top="33.8802"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M20.5942,35.0551 L20.5942,33.8802 L21.769,33.8802 L21.769,35.0551 C21.769,35.5636 21.6959,35.9742 21.5497,36.2869 C21.4036,36.5997 21.1721,36.8417 20.8553,37.013 L20.5942,36.4909 C20.79,36.3781 20.9338,36.2128 21.0256,35.9953 C21.1174,35.7777 21.1687,35.4643 21.1796,35.0551 L20.5942,35.0551" />
+								<Path
+									Name="path1"
+									Width="4.0213"
+									Height="5.64536"
+									Canvas.Left="25.4189"
+									Canvas.Top="29.4097"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M27.8936,33.5857 L26.811,33.5857 C26.8085,33.4472 26.8073,33.363 26.8073,33.3332 C26.8073,33.0206 26.8617,32.7636 26.9705,32.5623 C27.0792,32.3609 27.2971,32.1343 27.6241,31.8826 C27.9512,31.6308 28.1465,31.4659 28.2102,31.3878 C28.3085,31.2645 28.3576,31.1288 28.3576,30.9805 C28.3576,30.7824 28.2797,30.6128 28.1238,30.4718 C27.968,30.3309 27.7579,30.2604 27.4937,30.2604 C27.2391,30.2604 27.0262,30.3305 26.855,30.4706 C26.6839,30.6108 26.566,30.8242 26.5016,31.111 L25.4189,31.0337 C25.4471,30.5818 25.6415,30.1982 26.002,29.8828 C26.3624,29.5674 26.8359,29.4097 27.4224,29.4097 C28.0386,29.4097 28.529,29.57 28.8935,29.8906 C29.258,30.2112 29.4402,30.5846 29.4402,31.0107 C29.4402,31.2452 29.3738,31.4667 29.2409,31.6753 C29.108,31.884 28.8236,32.1683 28.3878,32.5284 C28.1623,32.7145 28.0223,32.8643 27.968,32.9779 C27.9135,33.0915 27.8887,33.2941 27.8936,33.5857 M26.811,35.0551 L26.811,33.9724 L27.8936,33.9724 L27.8936,35.0551 L26.811,35.0551" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="rectangle"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path3"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.516,0"
+										StartPoint="0.516,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Top"
+								Value="5.52" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="rectangle"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path3"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.516,0"
+										StartPoint="0.516,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Top"
+								Value="5.52" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="rectangle"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad2Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_2">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35001"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.60004,6.10001 L38.9338,6.10001 C40.5906,6.10001 41.9337,7.44315 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.60004,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44315 5.94312,6.10001 7.60004,6.10001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45001"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.60004,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.60004,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60001 7.60004,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path5"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85001"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.85004,8.85001 L41.1838,8.85001 C42.8406,8.85001 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.85004,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.85001 9.85004,8.85001" />
+								<Path
+									Name="path4"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60001"
+									Stretch="Fill"
+									Data="F1 M7.60004,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.60004,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60001 7.60004,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="5.21857"
+									Height="5.56799"
+									Canvas.Left="14.6575"
+									Canvas.Top="29.5795"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M19.8761,35.1475 L18.757,35.1475 L18.3245,33.9102 L16.2174,33.9102 L15.7873,35.1475 L14.6575,35.1475 L16.6748,29.5795 L17.8447,29.5795 L19.8761,35.1475 M17.9983,32.9822 L17.2668,30.8942 L16.54,32.9822 L17.9983,32.9822" />
+								<Path
+									Name="path1"
+									Width="4.61353"
+									Height="5.56799"
+									Canvas.Left="21.2375"
+									Canvas.Top="29.5795"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M21.2375,29.5795 L23.4615,29.5795 C23.9012,29.5795 24.2293,29.598 24.446,29.6351 C24.6626,29.6721 24.8562,29.7495 25.0268,29.8671 C25.1974,29.9847 25.3396,30.1415 25.4534,30.3377 C25.5673,30.5339 25.6241,30.7536 25.6241,30.9969 C25.6241,31.2603 25.5583,31.502 25.4268,31.7219 C25.2953,31.9418 25.1168,32.1069 24.8915,32.2173 C25.1995,32.3148 25.4365,32.4815 25.6023,32.7175 C25.7682,32.9536 25.8511,33.2307 25.8511,33.5489 C25.8511,33.7994 25.7928,34.0433 25.6761,34.2805 C25.5596,34.5177 25.4004,34.7071 25.1987,34.8484 C24.9971,34.9898 24.7485,35.077 24.4531,35.11 C24.2679,35.1302 23.8208,35.1426 23.1118,35.1475 L21.2375,35.1475 L21.2375,29.5795 M22.2964,30.5075 L22.2964,31.8222 L23.0657,31.8222 C23.5234,31.8222 23.8079,31.8157 23.9189,31.8028 C24.1198,31.7794 24.2778,31.7116 24.3928,31.5992 C24.5078,31.4868 24.5653,31.3388 24.5653,31.1552 C24.5653,30.9796 24.5157,30.8368 24.4164,30.7268 C24.3171,30.6169 24.1698,30.5502 23.9745,30.5269 C23.8578,30.5139 23.5234,30.5075 22.9711,30.5075 L22.2964,30.5075 M22.2964,32.7502 L22.2964,34.2195 L23.3883,34.2195 C23.8137,34.2195 24.0836,34.2082 24.1978,34.1857 C24.3735,34.1558 24.5165,34.0828 24.6268,33.9663 C24.7371,33.8499 24.7922,33.6943 24.7922,33.4993 C24.7922,33.335 24.7497,33.1952 24.6646,33.08 C24.5795,32.9648 24.4566,32.881 24.2959,32.8287 C24.1351,32.7764 23.7861,32.7502 23.2488,32.7502 L22.2964,32.7502" />
+								<Path
+									Name="path2"
+									Width="4.76477"
+									Height="5.64536"
+									Canvas.Left="27.2881"
+									Canvas.Top="29.5021"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M30.994,33.0595 L32.0529,33.3688 C31.889,33.9706 31.616,34.4175 31.2339,34.7095 C30.8518,35.0015 30.3673,35.1475 29.7804,35.1475 C29.054,35.1475 28.457,34.8998 27.9894,34.4044 C27.5219,33.909 27.2881,33.2319 27.2881,32.3732 C27.2881,31.4645 27.5201,30.7588 27.9841,30.2562 C28.4481,29.7535 29.0583,29.5021 29.8146,29.5021 C30.4756,29.5021 31.0121,29.7028 31.4242,30.1039 C31.67,30.3416 31.8544,30.6823 31.9772,31.1262 L30.9184,31.3582 C30.8522,31.0714 30.7144,30.845 30.5048,30.6791 C30.2952,30.5131 30.0408,30.4302 29.7414,30.4302 C29.327,30.4302 28.991,30.5766 28.7333,30.8694 C28.4757,31.1622 28.3469,31.636 28.3469,32.291 C28.3469,32.9862 28.4757,33.4814 28.7333,33.7766 C28.991,34.0719 29.3258,34.2195 29.7378,34.2195 C30.0419,34.2195 30.3035,34.1263 30.5225,33.9398 C30.7415,33.7533 30.8987,33.4599 30.994,33.0595" />
+								<Path
+									Name="path3"
+									Width="15.4583"
+									Height="16.6975"
+									Canvas.Left="15.6248"
+									Canvas.Top="10.1347"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M31.0831,24.745 L31.0831,26.8322 L15.6273,26.8322 C15.6067,26.3273 15.7146,25.8405 15.951,25.3719 C16.3278,24.6013 16.9324,23.8524 17.7648,23.1252 C18.5972,22.3981 19.8269,21.5779 21.454,20.6648 C23.9786,19.1453 25.6666,17.9719 26.5178,17.1445 C27.369,16.3171 27.7947,15.5157 27.7947,14.7403 C27.7947,13.9672 27.3922,13.3156 26.5872,12.7853 C25.7822,12.2551 24.734,11.9899 23.4426,11.9899 C22.0758,11.9899 20.9822,12.2563 20.1617,12.7889 C19.3414,13.3216 18.926,14.0602 18.9158,15.0048 L15.9561,14.7729 C16.1582,13.263 16.9144,12.1125 18.2247,11.3214 C19.5349,10.5302 21.2948,10.1347 23.5042,10.1347 C25.7377,10.1347 27.5043,10.5767 28.8043,11.4609 C30.1043,12.345 30.7543,13.4406 30.7543,14.7475 C30.7543,15.4118 30.5779,16.0647 30.225,16.7061 C29.8722,17.3474 29.2865,18.0232 28.4678,18.7335 C27.649,19.4437 26.2361,20.4052 24.2287,21.6178 C22.5057,22.6228 21.3727,23.3046 20.8297,23.6634 C20.2868,24.0221 19.8389,24.3826 19.4861,24.745 L31.0831,24.745" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="5.52" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="5.52" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad3Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_3">
+							<Canvas
+								Width="46.5338"
+								Height="45.7629">
+								<Path
+									Width="38.8338"
+									Height="38.0629"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35001"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M38.9337,42.6629 C39.5156,42.6629 40.0588,42.4972 40.5187,42.2105 C41.3684,41.6808 41.9337,40.7378 41.9337,39.6629 L41.9338,15.7298 C41.9338,10.7875 36.4904,6.10001 31.3416,6.10001 L6.8595,6.10001 C5.56079,6.42972 4.59998,7.60666 4.59998,9.00797 L4.59998,39.6629 C4.59998,40.7378 5.16534,41.6808 6.01495,42.2105 C6.47485,42.4972 7.01807,42.6629 7.59998,42.6629 L38.9337,42.6629">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.483742,-8.88178e-016"
+											EndPoint="0.483742,0.99486">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6338"
+									Height="38.8629"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45001"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M38.9337,41.1629 C39.5156,41.1629 40.0588,40.9972 40.5187,40.7105 C41.3684,40.1808 41.9337,39.2378 41.9337,38.1629 L41.9338,14.2298 C41.9338,9.28748 36.4904,4.60001 31.3416,4.60001 L6.8595,4.60001 C5.56079,4.92972 4.59998,6.10666 4.59998,7.50797 L4.59998,38.1629 C4.59998,39.2378 5.16534,40.1808 6.01495,40.7105 C6.47485,40.9972 7.01807,41.1629 7.59998,41.1629 L38.9337,41.1629">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.483742,-8.88178e-016"
+											EndPoint="0.483742,0.99486">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path5"
+									Width="37.3338"
+									Height="36.5629"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85001"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M41.1837,45.4129 C41.7656,45.4129 42.3088,45.2472 42.7687,44.9605 C43.6184,44.4308 44.1837,43.4878 44.1837,42.4129 L44.1838,18.4798 C44.1838,13.5375 38.7404,8.85001 33.5916,8.85001 L9.1095,8.85001 C7.81079,9.17972 6.84998,10.3567 6.84998,11.758 L6.84998,42.4129 C6.84998,43.4878 7.41534,44.4308 8.26495,44.9605 C8.72485,45.2472 9.26807,45.4129 9.84998,45.4129 L41.1837,45.4129" />
+								<Path
+									Name="path4"
+									Width="37.3338"
+									Height="36.5629"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60001"
+									Stretch="Fill"
+									Data="F1 M38.9337,41.1629 C39.5156,41.1629 40.0588,40.9972 40.5187,40.7105 C41.3684,40.1808 41.9337,39.2378 41.9337,38.1629 L41.9338,14.2298 C41.9338,9.28748 36.4904,4.60001 31.3416,4.60001 L6.8595,4.60001 C5.56079,4.92972 4.59998,6.10666 4.59998,7.50797 L4.59998,38.1629 C4.59998,39.2378 5.16534,40.1808 6.01495,40.7105 C6.47485,40.9972 7.01807,41.1629 7.59998,41.1629 L38.9337,41.1629">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.483742,-8.88178e-016"
+											EndPoint="0.483742,0.99486">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="4.61353"
+									Height="5.56799"
+									Canvas.Left="15.2336"
+									Canvas.Top="29.4873"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M15.2336,29.4873 L17.2651,29.4873 C17.7228,29.4873 18.0718,29.5227 18.3121,29.5936 C18.6351,29.6895 18.9116,29.8602 19.1417,30.1059 C19.3717,30.3516 19.5469,30.6523 19.667,31.0079 C19.7871,31.3636 19.8472,31.8024 19.8472,32.3244 C19.8472,32.7828 19.7909,33.1779 19.6782,33.5098 C19.5403,33.915 19.3438,34.2428 19.0885,34.4934 C18.8963,34.6835 18.6363,34.8317 18.3086,34.938 C18.0627,35.0162 17.7346,35.0553 17.3242,35.0553 L15.2336,35.0553 L15.2336,29.4873 M16.2925,30.4153 L16.2925,34.1272 L17.1718,34.1272 C17.501,34.1272 17.7385,34.1095 17.8843,34.0741 C18.0757,34.0282 18.2345,33.9504 18.3606,33.8409 C18.4866,33.7313 18.5894,33.5509 18.669,33.2996 C18.7485,33.0482 18.7883,32.7063 18.7883,32.2737 C18.7883,31.8403 18.7485,31.5076 18.669,31.2756 C18.5894,31.0436 18.478,30.8625 18.3346,30.7325 C18.1912,30.6023 18.0096,30.5143 17.7898,30.4684 C17.6251,30.433 17.3025,30.4153 16.8219,30.4153 L16.2925,30.4153" />
+								<Path
+									Name="path1"
+									Width="4.15979"
+									Height="5.56799"
+									Canvas.Left="21.5111"
+									Canvas.Top="29.4873"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M21.5111,35.0553 L21.5111,29.4873 L25.5952,29.4873 L25.5952,30.4153 L22.5699,30.4153 L22.5699,31.6526 L25.3683,31.6526 L25.3683,32.5806 L22.5699,32.5806 L22.5699,34.1272 L25.6709,34.1272 L25.6709,35.0553 L21.5111,35.0553" />
+								<Path
+									Name="path2"
+									Width="3.70599"
+									Height="5.56799"
+									Canvas.Left="27.4104"
+									Canvas.Top="29.4873"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M27.4104,35.0553 L27.4104,29.4873 L31.1164,29.4873 L31.1164,30.4153 L28.4692,30.4153 L28.4692,31.7299 L30.8138,31.7299 L30.8138,32.6579 L28.4692,32.6579 L28.4692,35.0553 L27.4104,35.0553" />
+								<Path
+									Name="path3"
+									Width="15.127"
+									Height="16.9294"
+									Canvas.Left="15.6115"
+									Canvas.Top="10.0422"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M15.6115,22.3335 L18.571,22.1016 C18.8931,23.1693 19.4155,23.9387 20.1382,24.4098 C20.861,24.8809 21.8339,25.1164 23.0568,25.1164 C24.4921,25.1164 25.6379,24.7945 26.4943,24.1507 C27.3506,23.5069 27.7788,22.7103 27.7788,21.761 C27.7788,20.855 27.3566,20.1068 26.5122,19.5161 C25.6678,18.9254 24.5948,18.6301 23.2931,18.6301 C22.7622,18.6301 22.0994,18.705 21.3046,18.8548 L21.618,16.9995 C21.8065,17.0164 21.9554,17.0249 22.0651,17.0249 C23.1921,17.0249 24.2069,16.8081 25.1095,16.3745 C26.0121,15.9408 26.4634,15.2735 26.4634,14.3724 C26.4634,13.6598 26.1286,13.0691 25.4589,12.6005 C24.7892,12.1318 23.9252,11.8975 22.8666,11.8975 C21.8185,11.8975 20.9449,12.1294 20.2462,12.5932 C19.5474,13.057 19.0986,13.7528 18.8999,14.6804 L15.9403,14.4485 C16.2828,13.0498 17.0579,11.9657 18.2654,11.1963 C19.4728,10.4269 20.9758,10.0422 22.7742,10.0422 C24.0142,10.0422 25.1558,10.2355 26.1988,10.622 C27.2419,11.0085 28.04,11.5363 28.5933,12.2055 C29.1465,12.8747 29.4231,13.5849 29.4231,14.3362 C29.4231,15.0488 29.1499,15.698 28.6035,16.2838 C28.0571,16.8697 27.2496,17.3353 26.1808,17.6808 C27.5716,17.9078 28.6789,18.3783 29.5027,19.0922 C30.3265,19.806 30.7385,20.6992 30.7385,21.7718 C30.7385,23.2212 30.0028,24.4502 28.5316,25.4588 C27.0603,26.4674 25.2012,26.9716 22.954,26.9716 C20.9261,26.9716 19.2424,26.541 17.9031,25.6798 C16.5637,24.8186 15.7998,23.7032 15.6115,22.3335" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.484,0"
+										StartPoint="0.484,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="5.52" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.484,0"
+										StartPoint="0.484,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="5.52" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad4Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_4">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35001"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.60004,6.10001 L38.9338,6.10001 C40.5906,6.10001 41.9337,7.44315 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.60004,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44315 5.94312,6.10001 7.60004,6.10001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.99536">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45001"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.60004,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.60004,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60001 7.60004,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.99536">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path4"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85001"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.85004,8.85001 L41.1838,8.85001 C42.8406,8.85001 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.85004,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.85001 9.85004,8.85001" />
+								<Path
+									Name="path3"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60001"
+									Stretch="Fill"
+									Data="F1 M7.60004,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.60004,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60001 7.60004,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.99536">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="5.06738"
+									Height="5.72266"
+									Canvas.Left="16.0985"
+									Canvas.Top="29.6916"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M18.8213,33.2489 L18.8213,32.321 L21.1659,32.321 L21.1659,34.5817 C20.9366,34.8016 20.6046,34.9954 20.1697,35.1629 C19.7348,35.3305 19.2944,35.4143 18.8485,35.4143 C18.282,35.4143 17.7881,35.2928 17.3666,35.05 C16.9451,34.8071 16.6284,34.4599 16.4164,34.0084 C16.2045,33.5569 16.0985,33.0653 16.0985,32.5336 C16.0985,31.9576 16.2167,31.4457 16.4531,30.9978 C16.6895,30.5499 17.0353,30.2064 17.4907,29.9671 C17.8373,29.7834 18.269,29.6916 18.7859,29.6916 C19.4579,29.6916 19.983,29.8354 20.3611,30.123 C20.7393,30.4106 20.9823,30.8081 21.0903,31.3156 L20.0314,31.5476 C19.9526,31.2608 19.8045,31.0345 19.587,30.8685 C19.3696,30.7026 19.0978,30.6196 18.7717,30.6196 C18.2785,30.6196 17.8861,30.7765 17.5947,31.0902 C17.3032,31.404 17.1574,31.8698 17.1574,32.4877 C17.1574,33.1539 17.3061,33.6535 17.6035,33.9866 C17.9009,34.3197 18.2907,34.4863 18.7728,34.4863 C19.0107,34.4863 19.2497,34.4379 19.4896,34.3413 C19.7295,34.2446 19.9353,34.127 20.1071,33.9884 L20.1071,33.2489 L18.8213,33.2489" />
+								<Path
+									Name="path1"
+									Width="4.38666"
+									Height="5.56799"
+									Canvas.Left="23.0567"
+									Canvas.Top="29.769"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M23.0567,35.3369 L23.0567,29.769 L24.1155,29.769 L24.1155,31.9343 L26.3845,31.9343 L26.3845,29.769 L27.4434,29.769 L27.4434,35.3369 L26.3845,35.3369 L26.3845,32.8623 L24.1155,32.8623 L24.1155,35.3369 L23.0567,35.3369" />
+								<Rectangle
+									Name="rectangle"
+									Width="1.05884"
+									Height="5.56799"
+									Canvas.Left="29.3342"
+									Canvas.Top="29.769"
+									Stretch="Fill"
+									Fill="#CDCBCFBC" />
+								<Path
+									Name="path2"
+									Width="16.4424"
+									Height="16.4656"
+									Canvas.Left="14.7845"
+									Canvas.Top="10.556"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M25.3076,27.0216 L25.3076,23.0792 L14.7845,23.0792 L14.7845,20.992 L25.9653,10.556 L28.2673,10.556 L28.2673,20.992 L31.2269,20.992 L31.2269,23.0792 L28.2673,23.0792 L28.2673,27.0216 L25.3076,27.0216 M25.3076,20.992 L25.3076,14.5492 L18.407,20.992 L25.3076,20.992" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="rectangle"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path3"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="rectangle"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path3"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path4"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="rectangle"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad5Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_5">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.34998"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.59998,6.09998 L38.9338,6.09998 C40.5906,6.09998 41.9337,7.44312 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.59998,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44312 5.94312,6.09998 7.59998,6.09998">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.99536">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF373737"
+												Offset="0.0553746" />
+											<GradientStop
+												Color="#FF4F4F4F"
+												Offset="0.903226" />
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0.990783" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.44998"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.59998,4.59998 L38.9338,4.59998 C40.5906,4.59998 41.9337,5.94312 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94312 5.94312,4.59998 7.59998,4.59998">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.99536">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF373737"
+												Offset="0.0553746" />
+											<GradientStop
+												Color="#FF4F4F4F"
+												Offset="0.903226" />
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0.990783" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path5"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.84998"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.84998,8.84998 L41.1838,8.84998 C42.8406,8.84998 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.84998,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.84998 9.84998,8.84998" />
+								<Path
+									Name="path4"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.59998"
+									Stretch="Fill"
+									Data="F1 M7.59998,4.59998 L38.9338,4.59998 C40.5906,4.59998 41.9337,5.94312 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94312 5.94312,4.59998 7.59998,4.59998">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.99536">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF373737"
+												Offset="0.0553746" />
+											<GradientStop
+												Color="#FF4F4F4F"
+												Offset="0.903226" />
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0.990783" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="3.55469"
+									Height="5.64532"
+									Canvas.Left="15.7164"
+									Canvas.Top="29.7158"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M18.2122,29.7158 L19.2711,29.7158 L19.2711,33.2296 C19.2711,33.6888 19.2305,34.042 19.1494,34.2893 C19.0406,34.6123 18.8436,34.8717 18.5585,35.0674 C18.2733,35.2632 17.8967,35.3611 17.4287,35.3611 C16.8812,35.3611 16.4595,35.2038 16.1636,34.8892 C15.8678,34.5746 15.7188,34.1133 15.7164,33.5051 L16.7752,33.4277 C16.7886,33.7564 16.8375,33.9884 16.9218,34.1237 C17.0478,34.33 17.2396,34.4331 17.4973,34.4331 C17.7581,34.4331 17.9424,34.3614 18.0503,34.218 C18.1583,34.0746 18.2122,33.7766 18.2122,33.3238 L18.2122,29.7158" />
+								<Path
+									Name="path1"
+									Width="4.8783"
+									Height="5.56799"
+									Canvas.Left="21.1619"
+									Canvas.Top="29.7158"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M21.1619,35.2838 L21.1619,29.7158 L22.2207,29.7158 L22.2207,32.2134 L24.5121,29.7158 L25.9645,29.7158 L23.8988,31.869 L26.0402,35.2838 L24.6185,35.2838 L23.0929,32.7088 L22.2207,33.6187 L22.2207,35.2838 L21.1619,35.2838" />
+								<Path
+									Name="path2"
+									Width="3.85724"
+									Height="5.56799"
+									Canvas.Left="27.4393"
+									Canvas.Top="29.7158"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M27.4393,35.2838 L27.4393,29.7158 L28.4982,29.7158 L28.4982,34.3557 L31.2966,34.3557 L31.2966,35.2838 L27.4393,35.2838" />
+								<Path
+									Name="path3"
+									Width="15.127"
+									Height="16.6975"
+									Canvas.Left="16.285"
+									Canvas.Top="10.5028"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M16.285,22.5621 L19.2446,22.3302 C19.4639,23.3304 19.9426,24.0829 20.6808,24.5877 C21.4189,25.0926 22.403,25.3451 23.6327,25.3451 C25.1433,25.3451 26.3243,24.9827 27.1755,24.258 C28.0267,23.5333 28.4524,22.5718 28.4524,21.3736 C28.4524,20.2358 28.0524,19.3377 27.2526,18.6794 C26.4528,18.0212 25.2546,17.692 23.6584,17.692 C22.6616,17.692 21.8334,17.8424 21.174,18.1432 C20.5146,18.4439 19.9811,18.8347 19.5735,19.3154 L16.6138,19.0835 L18.9158,10.5028 L30.0966,10.5028 L30.0966,12.59 L21.3564,12.59 L20.226,16.9093 C21.5688,16.1943 22.9784,15.8367 24.4548,15.8367 C26.4073,15.8367 28.055,16.3422 29.3978,17.3532 C30.7406,18.3642 31.412,19.6633 31.412,21.2504 C31.412,22.7626 30.8108,24.0695 29.6085,25.1711 C28.1458,26.5239 26.1487,27.2003 23.6172,27.2003 C21.5414,27.2003 19.8475,26.777 18.5355,25.9303 C17.2236,25.0836 16.4734,23.9608 16.285,22.5621" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF373737"
+											Offset="0.0553746" />
+										<GradientStop
+											Color="#FF4F4F4F"
+											Offset="0.903226" />
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0.990783" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF373737"
+											Offset="0.0553746" />
+										<GradientStop
+											Color="#FF4F4F4F"
+											Offset="0.903226" />
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0.990783" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad6Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_6">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35001"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.59998,6.10001 L38.9338,6.10001 C40.5906,6.10001 41.9337,7.44315 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.59998,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44315 5.94312,6.10001 7.59998,6.10001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,-8.88178e-016"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45001"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.59998,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60001 7.59998,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path5"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85001"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.84998,8.85001 L41.1838,8.85001 C42.8406,8.85001 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.84998,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.85001 9.84998,8.85001" />
+								<Path
+									Name="path4"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60001"
+									Stretch="Fill"
+									Data="F1 M7.59998,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60001 7.59998,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="5.36987"
+									Height="5.56799"
+									Canvas.Left="13.9101"
+									Canvas.Top="29.7691"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M13.9101,35.3371 L13.9101,29.7691 L15.7217,29.7691 L16.595,33.5669 L17.4684,29.7691 L19.28,29.7691 L19.28,35.3371 L18.2211,35.3371 L18.1833,30.9545 L17.2142,35.3371 L15.9758,35.3371 L15.0068,30.9545 L14.9689,35.3371 L13.9101,35.3371" />
+								<Path
+									Name="path1"
+									Width="4.38666"
+									Height="5.56799"
+									Canvas.Left="21.0952"
+									Canvas.Top="29.7691"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M21.0952,35.3371 L21.0952,29.7691 L22.2025,29.7691 L24.423,33.4316 L24.423,29.7691 L25.4818,29.7691 L25.4818,35.3371 L24.3414,35.3371 L22.154,31.729 L22.154,35.3371 L21.0952,35.3371" />
+								<Path
+									Name="path2"
+									Width="5.29425"
+									Height="5.72266"
+									Canvas.Left="27.1457"
+									Canvas.Top="29.6918"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M27.1457,32.5869 C27.1457,32.0231 27.2288,31.5498 27.395,31.1671 C27.5195,30.886 27.6891,30.6335 27.9038,30.4095 C28.1185,30.1856 28.3535,30.0192 28.6087,29.9105 C28.9491,29.7647 29.3414,29.6918 29.7858,29.6918 C30.5894,29.6918 31.2326,29.9447 31.7155,30.4506 C32.1985,30.9565 32.4399,31.6597 32.4399,32.5604 C32.4399,33.4537 32.2004,34.1527 31.7214,34.6574 C31.2424,35.1621 30.6019,35.4144 29.7999,35.4144 C28.9885,35.4144 28.3432,35.1635 27.8642,34.6617 C27.3852,34.1598 27.1457,33.4682 27.1457,32.5869 M28.2046,32.5495 C28.2046,33.1851 28.3546,33.6668 28.6548,33.9946 C28.955,34.3225 29.3363,34.4865 29.7987,34.4865 C30.2612,34.4865 30.6405,34.3237 30.9368,33.9983 C31.233,33.6728 31.3811,33.1847 31.3811,32.5338 C31.3811,31.8909 31.2369,31.4112 30.9486,31.0947 C30.6602,30.7781 30.277,30.6198 29.7987,30.6198 C29.3206,30.6198 28.9353,30.7799 28.6429,31.1001 C28.3507,31.4203 28.2046,31.9034 28.2046,32.5495" />
+								<Path
+									Name="path3"
+									Width="15.7847"
+									Height="16.9294"
+									Canvas.Left="14.9537"
+									Canvas.Top="10.3241"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M30.4096,14.7303 L27.45,14.9623 C27.1896,14.1119 26.8197,13.4935 26.3401,13.107 C25.5454,12.4886 24.5657,12.1794 23.401,12.1794 C22.4658,12.1794 21.5889,12.3484 20.7703,12.6866 C19.955,13.1239 19.2802,13.7617 18.7457,14.5999 C18.2114,15.4382 17.9339,16.6811 17.9133,18.3286 C18.619,17.5821 19.4805,17.0277 20.4979,16.6653 C21.5153,16.303 22.5823,16.1218 23.699,16.1218 C25.6516,16.1218 27.313,16.6255 28.6832,17.6329 C30.0533,18.6402 30.7385,19.9423 30.7385,21.5391 C30.7385,22.5875 30.4147,23.5623 29.7673,24.4633 C29.1199,25.3644 28.231,26.0547 27.1006,26.5342 C25.9702,27.0137 24.6873,27.2535 23.252,27.2535 C20.8062,27.2535 18.8117,26.6296 17.2685,25.3819 C15.7253,24.1342 14.9537,22.0778 14.9537,19.2128 C14.9537,16.0095 15.8118,13.6795 17.528,12.2228 C19.0284,10.957 21.0477,10.3241 23.586,10.3241 C25.4769,10.3241 27.0269,10.7142 28.2361,11.4945 C29.4453,12.2748 30.1698,13.3534 30.4096,14.7303 M17.9133,21.492 C17.9133,22.1805 18.1385,22.8394 18.5891,23.4687 C19.0395,24.098 19.6415,24.5769 20.3951,24.9054 C21.1487,25.2339 22.0257,25.3982 23.0259,25.3982 C24.4338,25.3982 25.5779,25.0582 26.4583,24.3782 C27.3386,23.6982 27.7788,22.7735 27.7788,21.6043 C27.7788,20.481 27.3446,19.5956 26.4763,18.9482 C25.6079,18.3008 24.4184,17.9771 22.9077,17.9771 C21.517,17.9771 20.3369,18.3008 19.3675,18.9482 C18.3981,19.5956 17.9133,20.4435 17.9133,21.492" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad7Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_7">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35004"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.60004,6.10004 L38.9338,6.10004 C40.5906,6.10004 41.9337,7.44315 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.60004,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44315 5.94312,6.10004 7.60004,6.10004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995359">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45004"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.60004,4.60004 L38.9338,4.60004 C40.5906,4.60004 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.60004,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60004 7.60004,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995359">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path6"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85004"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.85004,8.85004 L41.1838,8.85004 C42.8406,8.85004 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.85004,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.85004 9.85004,8.85004" />
+								<Path
+									Name="path5"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60004"
+									Stretch="Fill"
+									Data="F1 M7.60004,4.60004 L38.9338,4.60004 C40.5906,4.60004 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.60004,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60004 7.60004,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995359">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="4.23535"
+									Height="5.56799"
+									Canvas.Left="11.901"
+									Canvas.Top="29.6376"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M11.901,35.2056 L11.901,29.6376 L13.6925,29.6376 C14.3716,29.6376 14.814,29.6654 15.0197,29.721 C15.3364,29.8047 15.6017,29.9872 15.8156,30.2683 C16.0294,30.5495 16.1364,30.9124 16.1364,31.3571 C16.1364,31.6994 16.0735,31.9876 15.9479,32.2216 C15.8223,32.4556 15.6629,32.6393 15.4698,32.7726 C15.2769,32.9059 15.0803,32.9944 14.8802,33.0378 C14.6092,33.091 14.2161,33.1176 13.7008,33.1176 L12.9598,33.1176 L12.9598,35.2056 L11.901,35.2056 M12.9598,30.5656 L12.9598,32.1896 L13.6169,32.1896 C14.0904,32.1896 14.4069,32.1596 14.5664,32.0996 C14.726,32.0396 14.8511,31.9459 14.9417,31.8186 C15.0322,31.6913 15.0775,31.5432 15.0775,31.374 C15.0775,31.1653 15.0139,30.9933 14.8867,30.858 C14.7595,30.7227 14.5985,30.6381 14.4039,30.6042 C14.2606,30.5785 13.9726,30.5656 13.5401,30.5656 L12.9598,30.5656" />
+								<Path
+									Name="path1"
+									Width="5.52118"
+									Height="6.18665"
+									Canvas.Left="17.5734"
+									Canvas.Top="29.5603"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M22.1952,34.4335 C22.4709,34.6276 22.7708,34.7819 23.0945,34.8963 L22.6809,35.7469 C22.5115,35.6962 22.3457,35.6265 22.1834,35.5379 C22.1479,35.5202 21.899,35.3558 21.4365,35.0449 C21.0797,35.2036 20.6846,35.2829 20.2512,35.2829 C19.4146,35.2829 18.7591,35.0326 18.2848,34.532 C17.8105,34.0313 17.5734,33.3279 17.5734,32.4216 C17.5734,31.5178 17.8119,30.8149 18.2889,30.313 C18.766,29.8112 19.413,29.5603 20.23,29.5603 C21.0399,29.5603 21.6819,29.8086 22.1563,30.3052 C22.6305,30.8018 22.8677,31.4968 22.8677,32.3902 C22.8677,32.8638 22.8019,33.2799 22.6703,33.6384 C22.5718,33.9123 22.4135,34.1773 22.1952,34.4335 M21.2924,33.8849 C21.4649,33.7133 21.5941,33.5061 21.68,33.2632 C21.7659,33.0203 21.8088,32.7414 21.8088,32.4264 C21.8088,31.7764 21.6627,31.2908 21.3704,30.9698 C21.0781,30.6488 20.6956,30.4883 20.2229,30.4883 C19.7502,30.4883 19.3669,30.6479 19.073,30.9674 C18.7792,31.2868 18.6323,31.7671 18.6323,32.4083 C18.6323,33.06 18.7756,33.5474 19.0624,33.8704 C19.3492,34.1934 19.712,34.3549 20.1508,34.3549 C20.3138,34.3549 20.4679,34.33 20.6129,34.28 C20.3852,34.1471 20.1536,34.0432 19.918,33.9683 L20.2335,33.3496 C20.603,33.4688 20.9559,33.6472 21.2924,33.8849" />
+								<Path
+									Name="path2"
+									Width="4.84039"
+									Height="5.56799"
+									Canvas.Left="24.5316"
+									Canvas.Top="29.6376"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M24.5316,35.2056 L24.5316,29.6376 L26.8112,29.6376 C27.3839,29.6376 27.8003,29.6876 28.0602,29.7874 C28.3202,29.8873 28.5282,30.0652 28.6842,30.3209 C28.8402,30.5767 28.9182,30.8689 28.9182,31.1976 C28.9182,31.6156 28.8062,31.9606 28.582,32.2325 C28.3578,32.5044 28.0228,32.6758 27.5769,32.7466 C27.7991,32.8884 27.9822,33.0443 28.1264,33.2143 C28.2706,33.3842 28.4652,33.6855 28.7102,34.1181 L29.3719,35.2056 L28.1359,35.2056 L27.3618,33.9429 C27.0656,33.5313 26.8627,33.2721 26.7532,33.1653 C26.6437,33.0586 26.5279,32.9853 26.4058,32.9454 C26.2837,32.9055 26.0898,32.8856 25.8243,32.8856 L25.5904,32.8856 L25.5904,35.2056 L24.5316,35.2056 M25.5904,31.9576 L26.4211,31.9576 C26.96,31.9576 27.2964,31.9352 27.4304,31.8905 C27.5643,31.8458 27.6693,31.7685 27.7453,31.6585 C27.8214,31.5486 27.8594,31.4114 27.8594,31.2471 C27.8594,31.0618 27.8093,30.9126 27.7092,30.7994 C27.6092,30.6862 27.4682,30.6143 27.2862,30.5837 C27.1956,30.5717 26.9226,30.5656 26.4672,30.5656 L25.5904,30.5656 L25.5904,31.9576" />
+								<Path
+									Name="path3"
+									Width="4.38666"
+									Height="5.72266"
+									Canvas.Left="30.5821"
+									Canvas.Top="29.5603"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M30.5821,33.4269 L31.6409,33.3496 C31.7056,33.6952 31.8367,33.9491 32.0344,34.1115 C32.2322,34.2738 32.4993,34.3549 32.8357,34.3549 C33.191,34.3549 33.4589,34.2812 33.6393,34.1338 C33.8197,33.9864 33.9099,33.814 33.9099,33.6166 C33.9099,33.4902 33.8724,33.3826 33.7976,33.294 C33.7228,33.2054 33.5924,33.1281 33.4065,33.062 C33.2788,33.0145 32.9882,32.9303 32.5343,32.8095 C31.9506,32.654 31.5409,32.4667 31.3053,32.2476 C30.9744,31.9399 30.809,31.5645 30.809,31.1214 C30.809,30.8363 30.8848,30.5696 31.0365,30.3215 C31.1881,30.0734 31.4067,29.8845 31.6923,29.7548 C31.9779,29.6251 32.3228,29.5603 32.7269,29.5603 C33.3864,29.5603 33.8829,29.7079 34.2166,30.0031 C34.5502,30.2983 34.7253,30.6921 34.7418,31.1843 L33.683,31.2616 C33.6389,30.9869 33.5438,30.7893 33.3976,30.6689 C33.2515,30.5485 33.0322,30.4883 32.74,30.4883 C32.439,30.4883 32.2031,30.5539 32.0321,30.6852 C31.9226,30.7698 31.8678,30.8826 31.8678,31.0236 C31.8678,31.1524 31.921,31.2628 32.0273,31.3546 C32.1628,31.4714 32.4914,31.5969 33.0129,31.731 C33.5345,31.8652 33.9202,32.0007 34.1699,32.1376 C34.4196,32.2746 34.6152,32.4615 34.7566,32.6983 C34.8981,32.9351 34.9688,33.2284 34.9688,33.578 C34.9688,33.8937 34.8829,34.1898 34.7111,34.4661 C34.5394,34.7424 34.2965,34.9476 33.9825,35.0818 C33.6686,35.2159 33.2772,35.2829 32.8085,35.2829 C32.1262,35.2829 31.6023,35.1248 31.2368,34.8087 C30.8712,34.4925 30.653,34.0319 30.5821,33.4269" />
+								<Path
+									Name="path4"
+									Width="15.4559"
+									Height="16.4656"
+									Canvas.Left="15.7711"
+									Canvas.Top="10.4247"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M15.7711,12.5119 L15.7711,10.4247 L31.2269,10.4247 L31.2269,12.1133 C29.7437,13.2511 28.2742,14.7495 26.8183,16.6083 C25.3625,18.4672 24.2372,20.3787 23.4425,22.3427 C22.8704,23.7269 22.5056,25.2428 22.348,26.8903 L19.3884,26.8903 C19.4227,25.5882 19.8149,24.0156 20.5651,22.1724 C21.3152,20.3292 22.3917,18.5518 23.7944,16.8402 C25.1972,15.1287 26.6881,13.6859 28.2673,12.5119 L15.7711,12.5119" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path5"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path5"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path5"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource green}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad8Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_8">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35004"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.59998,6.10004 L38.9338,6.10004 C40.5906,6.10004 41.9337,7.44315 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.59998,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44315 5.94312,6.10004 7.59998,6.10004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995359">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45004"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.59998,4.60004 L38.9338,4.60004 C40.5906,4.60004 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60004 7.59998,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995359">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path5"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85004"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.84998,8.85004 L41.1838,8.85004 C42.8406,8.85004 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.84998,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.85004 9.84998,8.85004" />
+								<Path
+									Name="path4"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60004"
+									Stretch="Fill"
+									Data="F1 M7.59998,4.60004 L38.9338,4.60004 C40.5906,4.60004 41.9337,5.94315 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94315 5.94312,4.60004 7.59998,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995359">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="4.23535"
+									Height="5.56799"
+									Canvas.Left="15.376"
+									Canvas.Top="29.4852"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M16.9643,35.0532 L16.9643,30.4132 L15.376,30.4132 L15.376,29.4852 L19.6114,29.4852 L19.6114,30.4132 L18.0231,30.4132 L18.0231,35.0532 L16.9643,35.0532" />
+								<Path
+									Name="path1"
+									Width="4.38666"
+									Height="5.64532"
+									Canvas.Left="21.1241"
+									Canvas.Top="29.4852"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M21.1241,29.4852 L22.1829,29.4852 L22.1829,32.5109 C22.1829,32.991 22.1975,33.3019 22.2267,33.4437 C22.2762,33.6725 22.3948,33.8561 22.5823,33.9947 C22.7699,34.1333 23.0259,34.2025 23.3505,34.2025 C23.6814,34.2025 23.9305,34.1371 24.098,34.0062 C24.2654,33.8753 24.3662,33.7146 24.4005,33.524 C24.4348,33.3335 24.4519,33.0172 24.4519,32.5749 L24.4519,29.4852 L25.5107,29.4852 L25.5107,32.4009 C25.5107,33.0671 25.4808,33.5378 25.4209,33.8128 C25.361,34.0879 25.2504,34.3202 25.0889,34.5094 C24.9274,34.6988 24.7115,34.8496 24.4413,34.9619 C24.171,35.0743 23.8185,35.1305 23.3835,35.1305 C22.8581,35.1305 22.4597,35.0693 22.1882,34.9469 C21.9169,34.8244 21.7023,34.6653 21.5448,34.4696 C21.3872,34.2738 21.2832,34.0688 21.2328,33.8545 C21.1603,33.5363 21.1241,33.0667 21.1241,32.4456 L21.1241,29.4852" />
+								<Path
+									Name="path2"
+									Width="4.91614"
+									Height="5.56799"
+									Canvas.Left="26.8721"
+									Canvas.Top="29.4852"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M28.7723,35.0532 L26.8721,29.4852 L27.9901,29.4852 L29.3301,33.5839 L30.6774,29.4852 L31.7882,29.4852 L29.8785,35.0532 L28.7723,35.0532" />
+								<Path
+									Name="path3"
+									Width="15.127"
+									Height="16.9294"
+									Canvas.Left="16.285"
+									Canvas.Top="10.0403"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M20.4984,17.6354 C19.2926,17.3286 18.3985,16.8907 17.8162,16.3219 C17.2338,15.753 16.9427,15.0723 16.9427,14.28 C16.9427,13.0842 17.5678,12.0786 18.8181,11.2633 C20.0685,10.448 21.7316,10.0403 23.8074,10.0403 C25.8936,10.0403 27.5729,10.4571 28.8455,11.2905 C30.118,12.1239 30.7543,13.1397 30.7543,14.338 C30.7543,15.1013 30.4674,15.765 29.8937,16.3291 C29.3199,16.8932 28.449,17.3286 27.2809,17.6354 C28.6271,17.9688 29.6522,18.5075 30.3561,19.2515 C31.0601,19.9956 31.412,20.8834 31.412,21.9149 C31.412,23.3426 30.7175,24.542 29.3284,25.5131 C27.9394,26.4843 26.1127,26.9698 23.8485,26.9698 C21.5842,26.9698 19.7576,26.4824 18.3685,25.5077 C16.9795,24.5329 16.285,23.316 16.285,21.8569 C16.285,20.7722 16.6498,19.8639 17.3794,19.132 C18.1091,18.4 19.1487,17.9012 20.4984,17.6354 M19.9023,14.2655 C19.9023,14.9998 20.244,15.6002 20.9274,16.0664 C21.6108,16.5326 22.5947,16.7657 23.8793,16.7657 C25.1365,16.7657 26.1033,16.5345 26.7799,16.0718 C27.4564,15.6092 27.7947,15.0433 27.7947,14.3742 C27.7947,13.6736 27.4453,13.0854 26.7465,12.6095 C26.0477,12.1336 25.0817,11.8956 23.8485,11.8956 C22.605,11.8956 21.6365,12.1288 20.9428,12.595 C20.2491,13.0612 19.9023,13.618 19.9023,14.2655 M19.2446,21.8351 C19.2446,22.3956 19.4048,22.9385 19.725,23.464 C20.0453,23.9894 20.6028,24.3958 21.3975,24.6833 C22.1923,24.9708 23.0178,25.1145 23.8741,25.1145 C25.3094,25.1145 26.4313,24.812 27.2397,24.2068 C28.0482,23.6017 28.4524,22.8329 28.4524,21.9004 C28.4524,20.9534 28.0353,20.1701 27.2012,19.5505 C26.3671,18.9308 25.2255,18.621 23.7766,18.621 C22.3618,18.621 21.2528,18.9272 20.4495,19.5396 C19.6462,20.152 19.2446,20.9172 19.2446,21.8351" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path4"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path5"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource yellow}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad9Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_9">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35001"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.59998,6.10001 L38.9338,6.10001 C40.5906,6.10001 41.9337,7.44312 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4121 40.5906,42.7553 38.9338,42.7553 L7.59998,42.7553 C5.94312,42.7553 4.59998,41.4121 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44312 5.94312,6.10001 7.59998,6.10001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45001"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.59998,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94312 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94312 5.94312,4.60001 7.59998,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path6"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85001"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.84998,8.85001 L41.1838,8.85001 C42.8406,8.85001 44.1837,10.1931 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1621 42.8406,45.5053 41.1838,45.5053 L9.84998,45.5053 C8.19312,45.5053 6.84998,44.1621 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1931 8.19312,8.85001 9.84998,8.85001" />
+								<Path
+									Name="path5"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60001"
+									Stretch="Fill"
+									Data="F1 M7.59998,4.60001 L38.9338,4.60001 C40.5906,4.60001 41.9337,5.94312 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9121 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9121 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94312 5.94312,4.60001 7.59998,4.60001">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.477284,0"
+											EndPoint="0.477284,0.995361">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="7.18506"
+									Height="5.56796"
+									Canvas.Left="10.9226"
+									Canvas.Top="29.6378"
+									Stretch="Fill"
+									Fill="#FF999B8F"
+									Data="F1 M12.2285,35.2057 L10.9226,29.6378 L12.0074,29.6378 L12.8513,33.4621 L13.8014,29.6378 L15.2349,29.6378 L16.1791,33.5274 L17.0204,29.6378 L18.1077,29.6378 L16.8267,35.2057 L15.5267,35.2057 L14.5151,31.043 L13.4811,35.2057 L12.2285,35.2057" />
+								<Path
+									Name="path1"
+									Width="4.9917"
+									Height="5.56796"
+									Canvas.Left="18.9774"
+									Canvas.Top="29.6378"
+									Stretch="Fill"
+									Fill="#FF999B8F"
+									Data="F1 M18.9774,35.2057 L20.8529,32.2429 L19.2043,29.6378 L20.4452,29.6378 L21.4733,31.2617 L22.5002,29.6378 L23.7422,29.6378 L22.0937,32.2429 L23.9691,35.2057 L22.7271,35.2057 L21.4733,33.2229 L20.2183,35.2057 L18.9774,35.2057" />
+								<Path
+									Name="path2"
+									Width="5.06738"
+									Height="5.56796"
+									Canvas.Left="24.8011"
+									Canvas.Top="29.6378"
+									Stretch="Fill"
+									Fill="#FF999B8F"
+									Data="F1 M26.8054,35.2057 L26.8054,32.8628 L24.8011,29.6378 L26.0408,29.6378 L27.3336,31.9299 L28.6288,29.6378 L29.8685,29.6378 L27.8642,32.87 L27.8642,35.2057 L26.8054,35.2057" />
+								<Path
+									Name="path3"
+									Width="4.38666"
+									Height="5.56796"
+									Canvas.Left="30.7382"
+									Canvas.Top="29.6378"
+									Stretch="Fill"
+									Fill="#FF999B8F"
+									Data="F1 M30.7382,35.2057 L30.7382,34.2004 L33.7126,30.5657 L31.0408,30.5657 L31.0408,29.6378 L35.0492,29.6378 L35.0492,30.5657 L32.0121,34.2777 L35.1249,34.2777 L35.1249,35.2057 L30.7382,35.2057" />
+								<Path
+									Name="path4"
+									Width="15.127"
+									Height="16.9294"
+									Canvas.Left="15.6115"
+									Canvas.Top="10.1927"
+									Stretch="Fill"
+									Fill="#FFDFDFDF"
+									Data="F1 M15.9403,22.7159 L18.8999,22.4839 C19.1226,23.4599 19.5482,24.1677 20.1768,24.6074 C20.8054,25.047 21.6112,25.2668 22.5944,25.2668 C23.437,25.2668 24.2018,25.1334 24.8885,24.8665 C25.5754,24.5995 26.0944,24.2426 26.4454,23.7957 C26.7966,23.3488 27.1091,22.74 27.3832,21.9694 C27.6572,21.1988 27.7943,20.3907 27.7943,19.5452 C27.7943,19.4558 27.7891,19.3206 27.7788,19.1393 C27.2205,19.7868 26.4574,20.3128 25.4897,20.7174 C24.522,21.1221 23.4747,21.3244 22.3477,21.3244 C20.4636,21.3244 18.8699,20.8219 17.5665,19.817 C16.2631,18.812 15.6115,17.4882 15.6115,15.8455 C15.6115,14.1472 16.2991,12.7805 17.6744,11.7454 C19.0498,10.7103 20.7737,10.1927 22.8461,10.1927 C24.343,10.1927 25.7107,10.4832 26.949,11.0642 C28.1873,11.6451 29.1285,12.4725 29.7725,13.5463 C30.4165,14.6201 30.7385,16.1753 30.7385,18.2117 C30.7385,20.3303 30.4174,22.0171 29.775,23.2721 C29.1328,24.527 28.177,25.4825 26.9079,26.1383 C25.6387,26.7942 24.1512,27.1221 22.4453,27.1221 C20.6367,27.1221 19.1586,26.7368 18.011,25.9662 C16.8635,25.1956 16.1732,24.1121 15.9403,22.7159 M27.7788,15.7984 C27.7788,14.6485 27.3687,13.736 26.5482,13.0608 C25.7278,12.3856 24.6479,12.048 23.3085,12.048 C21.9281,12.048 20.7933,12.4116 19.9044,13.1387 C19.0155,13.8658 18.571,14.808 18.571,15.9651 C18.571,17.0038 18.9916,17.8475 19.8325,18.4962 C20.6735,19.1448 21.8065,19.4691 23.2314,19.4691 C24.5571,19.4691 25.6465,19.1448 26.4994,18.4962 C27.3524,17.8475 27.7788,16.9483 27.7788,15.7984" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path5"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path5"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path5"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.477,0"
+										StartPoint="0.477,0.995">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path6"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path3"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path4"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPad0Style">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="_0">
+							<Canvas
+								Width="46.5338"
+								Height="45.8553">
+								<Path
+									Width="38.8337"
+									Height="38.1553"
+									Canvas.Left="3.84998"
+									Canvas.Top="5.35004"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.59998,6.10004 L38.9338,6.10004 C40.5906,6.10004 41.9337,7.44318 41.9337,9.09998 L41.9337,39.7553 C41.9337,41.4122 40.5906,42.7553 38.9338,42.7553 L7.59998,42.7553 C5.94312,42.7553 4.59998,41.4122 4.59998,39.7553 L4.59998,9.09998 C4.59998,7.44318 5.94312,6.10004 7.59998,6.10004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.437454,0.00321533"
+											EndPoint="0.437454,1.00353">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.9553"
+									Canvas.Left="3.44998"
+									Canvas.Top="3.45004"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.59998,4.60004 L38.9338,4.60004 C40.5906,4.60004 41.9337,5.94318 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9122 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9122 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94318 5.94312,4.60004 7.59998,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.437454,0.00321533"
+											EndPoint="0.437454,1.00353">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path3"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="6.84998"
+									Canvas.Top="8.85004"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.84998,8.85004 L41.1838,8.85004 C42.8406,8.85004 44.1837,10.1932 44.1837,11.85 L44.1837,42.5053 C44.1837,44.1622 42.8406,45.5053 41.1838,45.5053 L9.84998,45.5053 C8.19312,45.5053 6.84998,44.1622 6.84998,42.5053 L6.84998,11.85 C6.84998,10.1932 8.19312,8.85004 9.84998,8.85004" />
+								<Path
+									Name="path2"
+									Width="37.3337"
+									Height="36.6553"
+									Canvas.Left="4.59998"
+									Canvas.Top="4.60004"
+									Stretch="Fill"
+									Data="F1 M7.59998,4.60004 L38.9338,4.60004 C40.5906,4.60004 41.9337,5.94318 41.9337,7.59998 L41.9337,38.2553 C41.9337,39.9122 40.5906,41.2553 38.9338,41.2553 L7.59998,41.2553 C5.94312,41.2553 4.59998,39.9122 4.59998,38.2553 L4.59998,7.59998 C4.59998,5.94318 5.94312,4.60004 7.59998,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.437454,0.00321533"
+											EndPoint="0.437454,1.00353">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="15.127"
+									Height="16.9294"
+									Canvas.Left="16.285"
+									Canvas.Top="9.685"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M16.285,18.1569 C16.285,16.1954 16.5676,14.598 17.1328,13.3647 C17.698,12.1315 18.5364,11.2099 19.6479,10.5999 C20.7595,9.98999 22.1597,9.685 23.8485,9.685 C25.0919,9.685 26.2112,9.86377 27.2064,10.2213 C28.2014,10.5788 28.9773,11.0952 29.5339,11.7704 C30.0906,12.4456 30.5428,13.2675 30.8905,14.2362 C31.2382,15.2049 31.412,16.5118 31.412,18.1569 C31.412,20.1016 31.1328,21.6906 30.5745,22.9238 C30.0161,24.157 29.1803,25.0804 28.067,25.694 C26.9537,26.3076 25.5475,26.6144 23.8485,26.6144 C21.6116,26.6144 19.8561,26.0806 18.5818,25.0128 C17.0505,23.5537 16.285,21.2684 16.285,18.1569 M19.2446,18.1497 C19.2446,20.8771 19.6874,22.6605 20.5729,23.4999 C21.4584,24.3394 22.5502,24.7592 23.8485,24.7592 C25.1467,24.7592 26.2386,24.3376 27.1241,23.4945 C28.0096,22.6514 28.4524,20.8698 28.4524,18.1497 C28.4524,15.4924 28.0233,13.7265 27.1652,12.852 C26.3071,11.9775 25.1913,11.5403 23.8176,11.5403 C22.5194,11.5403 21.4541,11.9256 20.6217,12.6962 C19.7036,13.6818 19.2446,15.4996 19.2446,18.1497" />
+								<Path
+									Name="path1"
+									Width="7.70453"
+									Height="7.56702"
+									Canvas.Left="19.4702"
+									Canvas.Top="29.637"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M21.941,37.204 L21.941,33.4871 L19.4702,33.4871 L23.3221,29.637 L26.6597,32.9732 L26.447,33.1877 L26.447,32.8864 L26.447,33.1877 L26.6597,32.9732 L27.1747,33.4871 L24.7026,33.4871 L24.7026,37.204 L21.941,37.204 M20.9244,32.8864 L22.5436,32.8864 L22.5422,36.6015 L24.1002,36.6015 L24.1002,32.8864 L25.7194,32.8864 L23.3221,30.4874 L20.9244,32.8864" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path2"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.437,0.003"
+										StartPoint="0.437,1.004">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path2"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.437,0.003"
+										StartPoint="0.437,1.004">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource blue}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPadAsteriskStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="Astick">
+							<Canvas
+								Width="46.5339"
+								Height="45.7629">
+								<Path
+									Width="38.8338"
+									Height="38.0629"
+									Canvas.Left="3.85004"
+									Canvas.Top="5.35004"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M7.60016,6.10004 C7.01825,6.10004 6.47504,6.26575 6.01508,6.55249 C5.16547,7.08221 4.6001,8.02515 4.6001,9.10004 L4.60004,33.0331 C4.60004,37.9755 10.0435,42.663 15.1923,42.663 L39.6744,42.663 C40.9731,42.3333 41.9338,41.1563 41.9338,39.755 L41.9338,9.10004 C41.9338,8.02515 41.3685,7.08221 40.5189,6.55249 C40.059,6.26575 39.5158,6.10004 38.9339,6.10004 L7.60016,6.10004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="1.7389,0.00883904"
+											EndPoint="1.7389,1.01168">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6338"
+									Height="38.8629"
+									Canvas.Left="3.45004"
+									Canvas.Top="3.45004"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M7.60016,4.60004 C7.01825,4.60004 6.47504,4.76575 6.01508,5.05249 C5.16547,5.58221 4.6001,6.52515 4.6001,7.60004 L4.60004,31.5331 C4.60004,36.4755 10.0435,41.163 15.1923,41.163 L39.6744,41.163 C40.9731,40.8333 41.9338,39.6563 41.9338,38.255 L41.9338,7.60004 C41.9338,6.52515 41.3685,5.58221 40.5189,5.05249 C40.059,4.76575 39.5158,4.60004 38.9339,4.60004 L7.60016,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="1.7389,0.00883904"
+											EndPoint="1.7389,1.01168">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path3"
+									Width="37.3338"
+									Height="36.5629"
+									Canvas.Left="6.85004"
+									Canvas.Top="8.85004"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M9.85016,8.85004 C9.26825,8.85004 8.72504,9.01575 8.26508,9.30249 C7.41547,9.83221 6.8501,10.7751 6.8501,11.85 L6.85004,35.7831 C6.85004,40.7255 12.2935,45.413 17.4423,45.413 L41.9244,45.413 C43.2231,45.0833 44.1838,43.9063 44.1838,42.505 L44.1838,11.85 C44.1838,10.7751 43.6185,9.83221 42.7689,9.30249 C42.309,9.01575 41.7658,8.85004 41.1839,8.85004 L9.85016,8.85004" />
+								<Path
+									Name="path2"
+									Width="37.3338"
+									Height="36.5629"
+									Canvas.Left="4.60004"
+									Canvas.Top="4.60004"
+									Stretch="Fill"
+									Data="F1 M7.60016,4.60004 C7.01825,4.60004 6.47504,4.76575 6.01508,5.05249 C5.16547,5.58221 4.6001,6.52515 4.6001,7.60004 L4.60004,31.5331 C4.60004,36.4755 10.0435,41.163 15.1923,41.163 L39.6744,41.163 C40.9731,40.8333 41.9338,39.6563 41.9338,38.255 L41.9338,7.60004 C41.9338,6.52515 41.3685,5.58221 40.5189,5.05249 C40.059,4.76575 39.5158,4.60004 38.9339,4.60004 L7.60016,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="1.7389,0.00883904"
+											EndPoint="1.7389,1.01168">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="11.2635"
+									Height="10.2397"
+									Canvas.Left="18.0317"
+									Canvas.Top="12.9548"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M18.0317,17.7333 L18.8263,15.4241 C20.6573,16.032 21.9818,16.5582 22.7995,17.0027 C22.5897,15.04 22.4795,13.6908 22.4688,12.9548 L24.8581,12.9548 C24.8261,14.0286 24.6999,15.3725 24.4794,16.9866 C25.6456,16.4213 26.9878,15.9005 28.5059,15.4241 L29.2952,17.7333 C27.8447,18.1955 26.4207,18.5048 25.0234,18.6613 C25.7238,19.2444 26.7087,20.2861 27.978,21.7865 L25.9194,23.1945 C25.2581,22.3234 24.4919,21.1376 23.6208,19.6372 C22.8066,21.191 22.0777,22.3767 21.4342,23.1945 L19.3969,21.7865 C20.7302,20.2114 21.6884,19.1697 22.2715,18.6613 C20.7818,18.384 19.3685,18.0746 18.0317,17.7333" />
+								<Path
+									Name="path1"
+									Width="11.3268"
+									Height="4.00531"
+									Canvas.Left="17.9442"
+									Canvas.Top="31.5923"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M17.9442,35.5976 L17.9455,31.5923 L18.5997,31.5923 L18.5982,34.6249 L28.6154,34.6249 L28.6154,31.5923 L28.6168,31.5923 L29.2709,31.5923 L29.2709,35.5976 L17.9442,35.5976" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path2"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="1.739,0.009"
+										StartPoint="1.739,1.012">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path2"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="1.739,0.009"
+										StartPoint="1.739,1.012">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource red}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="DialPadPoundStyle">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="Pound">
+							<Canvas
+								Width="46.5339"
+								Height="45.7629">
+								<Path
+									Width="38.8337"
+									Height="38.0629"
+									Canvas.Left="3.85004"
+									Canvas.Top="5.35004"
+									Stretch="Fill"
+									StrokeThickness="1.5"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF8B8B8B"
+									Data="F1 M38.9337,6.10004 C39.5156,6.10004 40.0588,6.26569 40.5187,6.55243 C41.3684,7.08221 41.9338,8.02509 41.9338,9.09998 L41.9338,33.0331 C41.9338,37.9755 36.4904,42.6629 31.3416,42.6629 L6.8595,42.6629 C5.56079,42.3332 4.60004,41.1563 4.60004,39.7549 L4.60004,9.09998 C4.60004,8.02509 5.16534,7.08221 6.01495,6.55243 C6.47491,6.26569 7.01807,6.10004 7.59998,6.10004 L38.9337,6.10004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.864003,0.00884072"
+											EndPoint="-0.864003,1.01168">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Width="39.6337"
+									Height="38.8629"
+									Canvas.Left="3.45004"
+									Canvas.Top="3.45004"
+									Stretch="Fill"
+									StrokeThickness="2.3"
+									StrokeMiterLimit="2.75"
+									Stroke="#FF000000"
+									Data="F1 M38.9337,4.60004 C39.5156,4.60004 40.0588,4.76569 40.5187,5.05243 C41.3684,5.58221 41.9338,6.52509 41.9338,7.59998 L41.9338,31.5331 C41.9338,36.4755 36.4904,41.1629 31.3416,41.1629 L6.8595,41.1629 C5.56079,40.8332 4.60004,39.6563 4.60004,38.2549 L4.60004,7.59998 C4.60004,6.52509 5.16534,5.58221 6.01495,5.05243 C6.47491,4.76569 7.01807,4.60004 7.59998,4.60004 L38.9337,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.864003,0.00884072"
+											EndPoint="-0.864003,1.01168">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.611292" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path3"
+									Width="37.3337"
+									Height="36.5629"
+									Canvas.Left="6.85004"
+									Canvas.Top="8.85004"
+									Stretch="Fill"
+									Fill="#77000000"
+									Data="F1 M41.1837,8.85004 C41.7656,8.85004 42.3088,9.01569 42.7687,9.30243 C43.6184,9.83221 44.1838,10.7751 44.1838,11.85 L44.1838,35.7831 C44.1838,40.7255 38.7404,45.4129 33.5916,45.4129 L9.1095,45.4129 C7.81079,45.0832 6.85004,43.9063 6.85004,42.5049 L6.85004,11.85 C6.85004,10.7751 7.41534,9.83221 8.26495,9.30243 C8.72491,9.01569 9.26807,8.85004 9.84998,8.85004 L41.1837,8.85004" />
+								<Path
+									Name="path2"
+									Width="37.3337"
+									Height="36.5629"
+									Canvas.Left="4.60004"
+									Canvas.Top="4.60004"
+									Stretch="Fill"
+									Data="F1 M38.9337,4.60004 C39.5156,4.60004 40.0588,4.76569 40.5187,5.05243 C41.3684,5.58221 41.9338,6.52509 41.9338,7.59998 L41.9338,31.5331 C41.9338,36.4755 36.4904,41.1629 31.3416,41.1629 L6.8595,41.1629 C5.56079,40.8332 4.60004,39.6563 4.60004,38.2549 L4.60004,7.59998 C4.60004,6.52509 5.16534,5.58221 6.01495,5.05243 C6.47491,4.76569 7.01807,4.60004 7.59998,4.60004 L38.9337,4.60004">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="-0.864003,0.00884072"
+											EndPoint="-0.864003,1.01168">
+											<GradientStop
+												Color="#FF2B2B2B"
+												Offset="0" />
+											<GradientStop
+												Color="#FF737373"
+												Offset="0.0276498" />
+											<GradientStop
+												Color="#FF434343"
+												Offset="0.0552995" />
+											<GradientStop
+												Color="#FF444444"
+												Offset="0.124404" />
+											<GradientStop
+												Color="#FF454545"
+												Offset="0.270358" />
+											<GradientStop
+												Color="#FF3D3D3D"
+												Offset="0.480477" />
+											<GradientStop
+												Color="#FF353535"
+												Offset="0.665581" />
+											<GradientStop
+												Color="#FF272727"
+												Offset="0.998914" />
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<Path
+									Name="path"
+									Width="17.429"
+									Height="16.6975"
+									Canvas.Left="14.2961"
+									Canvas.Top="9.8902"
+									Stretch="Fill"
+									Fill="#CDFFFFFF"
+									Data="F1 M15.6115,26.5877 L16.9114,22.1814 L14.2961,22.1814 L14.2961,20.0942 L17.5281,20.0942 L18.6276,16.3837 L14.2961,16.3837 L14.2961,14.2964 L19.2442,14.2964 L20.5443,9.8902 L23.5552,9.8902 L22.2552,14.2964 L26.0987,14.2964 L27.3986,9.8902 L30.4097,9.8902 L29.1097,14.2964 L31.725,14.2964 L31.725,16.3837 L28.4931,16.3837 L27.3935,20.0942 L31.725,20.0942 L31.725,22.1814 L26.7769,22.1814 L25.4769,26.5877 L22.4659,26.5877 L23.7659,22.1814 L19.9225,22.1814 L18.6225,26.5877 L15.6115,26.5877 M20.5391,20.0942 L24.3825,20.0942 L25.4821,16.3837 L21.6387,16.3837 L20.5391,20.0942" />
+								<Path
+									Name="path1"
+									Width="9.45715"
+									Height="9.45642"
+									Canvas.Left="27.017"
+									Canvas.Top="27.5922"
+									Stretch="Fill"
+									Fill="#CDCBCFBC"
+									Data="F1 M27.017,33.393 L27.017,27.5922 L32.8185,27.5922 L32.8185,29.4196 L34.6467,29.4196 L34.6467,31.2477 L36.4741,31.2477 L36.4741,36.7004 L36.4741,37.0486 L30.6726,37.0486 L30.6726,35.2211 L28.8451,35.2211 L28.8451,33.393 L27.017,33.393 M34.6466,34.8729 L34.6466,35.2211 L31.3669,35.2211 L31.3669,36.3528 L35.7783,36.3528 L35.7783,31.9422 L34.6466,31.9422 L34.6466,34.8729 M27.7127,32.6993 L28.845,32.6993 L28.845,29.4197 L32.1234,29.4197 L32.1234,28.288 L27.7127,28.288 L27.7127,32.6993" />
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource mouseover Black}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path2"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="-0.864,0.009"
+										StartPoint="-0.864,1.012">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<Setter
+								TargetName="path2"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="-0.864,0.009"
+										StartPoint="-0.864,1.012">
+										<GradientStop
+											Color="#FF2B2B2B"
+											Offset="0" />
+										<GradientStop
+											Color="#FF737373"
+											Offset="0.0276498" />
+										<GradientStop
+											Color="#FF434343"
+											Offset="0.0552995" />
+										<GradientStop
+											Color="#FF444444"
+											Offset="0.124404" />
+										<GradientStop
+											Color="#FF454545"
+											Offset="0.270358" />
+										<GradientStop
+											Color="#FF3D3D3D"
+											Offset="0.480477" />
+										<GradientStop
+											Color="#FF353535"
+											Offset="0.665581" />
+										<GradientStop
+											Color="#FF272727"
+											Offset="0.998914" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Left"
+								Value="6.85" />
+							<Setter
+								TargetName="path3"
+								Property="Canvas.Top"
+								Value="2.18" />
+							<Setter
+								TargetName="path"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+							<Setter
+								TargetName="path1"
+								Value="{DynamicResource orange}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		BasedOn="{x:Null}"
+		x:Key="ContrastControlButton">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Viewbox
+							Name="Contrast_Control">
+							<Canvas
+								Width="36.272"
+								Height="36.2711">
+								<Viewbox
+									Width="36.272"
+									Height="36.2711"
+									Canvas.Left="0"
+									Canvas.Top="0">
+									<Canvas
+										Width="36.272"
+										Height="36.2711">
+										<Path
+											Width="36.272"
+											Height="36.2711"
+											Canvas.Left="0"
+											Canvas.Top="0"
+											Stretch="Fill"
+											Data="F1 M36.272,18.1356 C36.272,8.11938 28.1512,0 18.136,0 C8.1208,0 0,8.11938 0,18.1356 C0,28.1517 8.1208,36.2711 18.136,36.2711 C28.1512,36.2711 36.272,28.1517 36.272,18.1356">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.518744,-0.00285731"
+													EndPoint="0.518744,1.01119">
+													<GradientStop
+														Color="#FF272F37"
+														Offset="0" />
+													<GradientStop
+														Color="#FF363D45"
+														Offset="0.286348" />
+													<GradientStop
+														Color="#FF454C53"
+														Offset="0.57341" />
+													<GradientStop
+														Color="#FF747D87"
+														Offset="0.70289" />
+													<GradientStop
+														Color="#FF545A61"
+														Offset="0.840462" />
+													<GradientStop
+														Color="#FF595F66"
+														Offset="0.926012" />
+													<GradientStop
+														Color="#FF5D636A"
+														Offset="0.998844" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Name="path11"
+											Width="31.8352"
+											Height="31.8344"
+											Canvas.Left="2.21836"
+											Canvas.Top="2.21835"
+											Stretch="Fill"
+											StrokeThickness="0.865426"
+											StrokeMiterLimit="2.75"
+											Stroke="#FF000000"
+											Data="F1 M33.6208,18.1356 C33.6208,9.58356 26.6871,2.65106 18.136,2.65106 C9.58479,2.65106 2.65108,9.58356 2.65108,18.1356 C2.65108,26.6876 9.58479,33.6201 18.136,33.6201 C26.6871,33.6201 33.6208,26.6876 33.6208,18.1356">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.526613,0.0232895"
+													EndPoint="0.526613,0.987387">
+													<GradientStop
+														Color="#FF7D7D7D"
+														Offset="0.00115607" />
+													<GradientStop
+														Color="#FF3E3E3E"
+														Offset="0.360194" />
+													<GradientStop
+														Color="#FF000000"
+														Offset="0.71978" />
+													<GradientStop
+														Color="#FF2B292A"
+														Offset="0.859715" />
+													<GradientStop
+														Color="#FF565354"
+														Offset="1" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+										<Path
+											Name="path10"
+											Width="29.0534"
+											Height="29.0527"
+											Canvas.Left="3.60921"
+											Canvas.Top="3.60919"
+											Stretch="Fill"
+											Data="F1 M32.6626,18.1356 C32.6626,10.1127 26.158,3.60919 18.1359,3.60919 C10.1139,3.60919 3.60921,10.1127 3.60921,18.1356 C3.60921,26.1583 10.1139,32.6619 18.1359,32.6619 C26.158,32.6619 32.6626,26.1583 32.6626,18.1356">
+											<Shape.Fill>
+												<LinearGradientBrush
+													StartPoint="0.498578,-0.00318908"
+													EndPoint="0.498578,0.984786">
+													<GradientStop
+														Color="#FF181A1D"
+														Offset="0.00115607" />
+													<GradientStop
+														Color="#FF37393B"
+														Offset="0.500197" />
+													<GradientStop
+														Color="#FF57585A"
+														Offset="1" />
+												</LinearGradientBrush>
+											</Shape.Fill>
+										</Path>
+									</Canvas>
+								</Viewbox>
+								<Viewbox
+									Width="20.818"
+									Height="21.3269"
+									Canvas.Left="9.54008"
+									Canvas.Top="9.22839">
+									<Canvas
+										Width="20.818"
+										Height="21.3269">
+										<Viewbox
+											Width="7.45782"
+											Height="7.94574"
+											Canvas.Left="0.825378"
+											Canvas.Top="0">
+											<Canvas
+												Width="7.45782"
+												Height="7.94574">
+												<Path
+													Name="path9"
+													Width="3.12196"
+													Height="3.32635"
+													Canvas.Left="2.16818"
+													Canvas.Top="2.30969"
+													Stretch="Fill"
+													Fill="#CDFFFFFF"
+													Data="F1 M5.29015,3.97284 C5.29015,3.05377 4.59108,2.30969 3.72916,2.30969 C2.86685,2.30969 2.16818,3.05377 2.16818,3.97284 C2.16818,4.89197 2.86685,5.63605 3.72916,5.63605 C4.59108,5.63605 5.29015,4.89197 5.29015,3.97284" />
+												<Viewbox
+													Width="7.45782"
+													Height="7.94574"
+													Canvas.Left="0"
+													Canvas.Top="0">
+													<Canvas
+														Width="7.45782"
+														Height="7.94574">
+														<Path
+															Name="path1"
+															Width="1.64755"
+															Height="0.474182"
+															Canvas.Left="0"
+															Canvas.Top="3.73627"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M1.64755,3.97284 C1.64755,4.10352 1.5477,4.21045 1.42471,4.21045 L0.222946,4.21045 C0.0999451,4.21045 0,4.10352 0,3.97284 L0,3.97284 C0,3.84131 0.0999451,3.73627 0.222946,3.73627 L1.42471,3.73627 C1.5477,3.73627 1.64755,3.84131 1.64755,3.97284" />
+														<Path
+															Name="path2"
+															Width="1.64754"
+															Height="0.474182"
+															Canvas.Left="5.81029"
+															Canvas.Top="3.73627"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M5.81029,3.97284 C5.81029,3.84131 5.91013,3.73627 6.03323,3.73627 L7.23489,3.73627 C7.358,3.73627 7.45782,3.84131 7.45782,3.97284 L7.45782,3.97284 C7.45782,4.10352 7.358,4.21045 7.23489,4.21045 L6.03323,4.21045 C5.91013,4.21045 5.81029,4.10352 5.81029,3.97284" />
+														<Path
+															Name="path3"
+															Width="0.446365"
+															Height="1.75494"
+															Canvas.Left="3.50574"
+															Canvas.Top="0"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M3.72916,1.75494 C3.60606,1.75494 3.50574,1.64893 3.50574,1.5174 L3.50574,0.236633 C3.50574,0.105957 3.60606,0 3.72916,0 L3.72916,0 C3.85226,0 3.9521,0.105957 3.9521,0.236633 L3.9521,1.5174 C3.9521,1.64893 3.85226,1.75494 3.72916,1.75494" />
+														<Path
+															Name="path4"
+															Width="0.446365"
+															Height="1.755"
+															Canvas.Left="3.50574"
+															Canvas.Top="6.19073"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M3.72916,6.19073 C3.85226,6.19073 3.9521,6.29681 3.9521,6.42737 L3.9521,7.70911 C3.9521,7.83978 3.85226,7.94574 3.72916,7.94574 L3.72916,7.94574 C3.60606,7.94574 3.50574,7.83978 3.50574,7.70911 L3.50574,6.42737 C3.50574,6.29681 3.60606,6.19073 3.72916,6.19073" />
+														<Path
+															Name="path5"
+															Width="1.29544"
+															Height="1.38031"
+															Canvas.Left="5.13534"
+															Canvas.Top="1.09381"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M5.20068,2.40527 C5.11356,2.3125 5.11356,2.16113 5.20068,2.06836 L6.0502,1.16339 C6.13734,1.07062 6.27885,1.07062 6.36542,1.16339 L6.36542,1.16339 C6.45256,1.25702 6.45256,1.40662 6.36542,1.49933 L5.51591,2.40527 C5.42877,2.49707 5.28772,2.49707 5.20068,2.40527" />
+														<Path
+															Name="path6"
+															Width="1.29587"
+															Height="1.38106"
+															Canvas.Left="1.02665"
+															Canvas.Top="5.47185"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M2.25716,5.54138 C2.3443,5.63416 2.3443,5.78461 2.25716,5.87738 L1.40764,6.78333 C1.32051,6.8761 1.17899,6.8761 1.09193,6.78333 L1.09193,6.78333 C1.00488,6.68958 1.00488,6.53912 1.09193,6.44635 L1.94202,5.54138 C2.02907,5.44867 2.1701,5.44867 2.25716,5.54138" />
+														<Path
+															Name="path7"
+															Width="1.29593"
+															Height="1.3806"
+															Canvas.Left="5.13534"
+															Canvas.Top="5.47185"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M5.20068,5.54138 C5.28772,5.44867 5.42877,5.44867 5.51591,5.54138 L6.36591,6.44635 C6.45305,6.53912 6.45305,6.68958 6.36591,6.78149 L6.36591,6.78149 C6.27885,6.8761 6.13734,6.8761 6.0502,6.78149 L5.20068,5.87738 C5.11356,5.78461 5.11356,5.63416 5.20068,5.54138" />
+														<Path
+															Name="path8"
+															Width="1.29599"
+															Height="1.3808"
+															Canvas.Left="1.02665"
+															Canvas.Top="1.09381"
+															Stretch="Fill"
+															Fill="#CDFFFFFF"
+															Data="F1 M2.25764,2.4043 C2.1701,2.49805 2.02907,2.49805 1.94202,2.4043 L1.09193,1.49933 C1.00488,1.4057 1.00488,1.25702 1.09193,1.16339 L1.09193,1.16339 C1.17899,1.07062 1.32051,1.07062 1.40764,1.16339 L2.25764,2.06836 C2.3443,2.16113 2.3443,2.3125 2.25764,2.4043" />
+													</Canvas>
+												</Viewbox>
+											</Canvas>
+										</Viewbox>
+										<Path
+											Name="path"
+											Width="19.6643"
+											Height="19.7814"
+											Canvas.Left="0"
+											Canvas.Top="0.391907"
+											Stretch="Fill"
+											Fill="#CDFFFFFF"
+											Data="M13.8714,15.3245 C11.7454,15.3397 10.0089,13.5193 9.9928,11.2598 C9.98233,9.83423 10.6615,8.5752 11.6971,7.836 C9.95636,8.38306 8.68451,10.0859 8.69876,12.1165 C8.71669,14.5757 10.6019,16.556 12.9106,16.5399 C14.5246,16.5285 15.9015,15.5338 16.5882,14.1024 C15.8962,14.8503 14.9363,15.3169 13.8714,15.3245 M16.2218,0.391907 C20.766,4.87213 20.818,12.1865 16.3382,16.7311 C11.8594,21.2748 4.54416,21.3269 0,16.8475 L16.2218,0.391907" />
+									</Canvas>
+								</Viewbox>
+							</Canvas>
+						</Viewbox>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True" />
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="path"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path1"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path3"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path4"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path5"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path6"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path7"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path8"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path9"
+								Property="Fill"
+								Value="#FFD2E40C" />
+							<Setter
+								TargetName="path10"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.499,-0.003"
+										StartPoint="0.499,0.985">
+										<GradientStop
+											Color="#FF181A1D"
+											Offset="0.00115607" />
+										<GradientStop
+											Color="#FF37393B"
+											Offset="0.500197" />
+										<GradientStop
+											Color="#FF57585A"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource Yellow Mouseover}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="path10"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.499,1.78"
+										StartPoint="0.499,-0.003">
+										<GradientStop
+											Color="#FF181A1D"
+											Offset="0.00115607" />
+										<GradientStop
+											Color="#FF37393B"
+											Offset="0.500197" />
+										<GradientStop
+											Color="#FFFFF764"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path11"
+								Property="Fill">
+								<Setter.Value>
+									<LinearGradientBrush
+										EndPoint="0.402,0.04"
+										StartPoint="0.651,0.971">
+										<GradientStop
+											Color="#FF7D7D7D"
+											Offset="0.00115607" />
+										<GradientStop
+											Color="#FF3E3E3E"
+											Offset="0.360194" />
+										<GradientStop
+											Color="#FF000000"
+											Offset="0.71978" />
+										<GradientStop
+											Color="#FF2B292A"
+											Offset="0.859715" />
+										<GradientStop
+											Color="#FF565354"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="path1"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path3"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path4"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path5"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path6"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path7"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path8"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path9"
+								Property="Fill"
+								Value="#FFFFF764" />
+							<Setter
+								TargetName="path2"
+								Value="{DynamicResource YellowPress}"
+								Property="Fill" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

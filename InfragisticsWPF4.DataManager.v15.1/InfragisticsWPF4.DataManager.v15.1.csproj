@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA686}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.DataManager.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AsynchoronousSummaryCalculator.cs" />
+    <Compile Include="CachedTypedInfo.cs" />
+    <Compile Include="Collections\BindableItemCollection.cs" />
+    <Compile Include="ComparisonCondition.cs" />
+    <Compile Include="ComparisonConditionBase.cs" />
+    <Compile Include="ComparisonOperator.cs" />
+    <Compile Include="ConditionCollection.cs" />
+    <Compile Include="CustomComparisonCondition.cs" />
+    <Compile Include="DataAcquisitionEventArgs.cs" />
+    <Compile Include="DataField.cs" />
+    <Compile Include="DataFieldComparer.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="DataManagerBase.cs" />
+    <Compile Include="DataManagerProvider.cs" />
+    <Compile Include="DataManager\Properties\Resources.cs" />
+    <Compile Include="DataManager\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="DataObjectTypeMismatchException.cs" />
+    <Compile Include="DataSourceDoesNotSupportIListException.cs" />
+    <Compile Include="EvaluationStage.cs" />
+    <Compile Include="FilterContext.2.cs" />
+    <Compile Include="FilterContext.cs" />
+    <Compile Include="FormattingRuleCollection.cs" />
+    <Compile Include="GroupByContext.2.cs" />
+    <Compile Include="GroupByContext.cs" />
+    <Compile Include="GroupByDataContext.cs" />
+    <Compile Include="HandleableEventArgs.cs" />
+    <Compile Include="HandleableObjectGenerationEventArgs.cs" />
+    <Compile Include="IBindableItem.cs" />
+    <Compile Include="IExpressConditions.cs" />
+    <Compile Include="IFilterCondition.cs" />
+    <Compile Include="IFilteredCollectionView.cs" />
+    <Compile Include="IGroupFilterConditions.cs" />
+    <Compile Include="InformationContext.2.cs" />
+    <Compile Include="InformationContext.cs" />
+    <Compile Include="InvalidEnumeratorException.cs" />
+    <Compile Include="IPagedCollectionView.cs" />
+    <Compile Include="IProvideDataItems.cs" />
+    <Compile Include="IRecordFilter.cs" />
+    <Compile Include="IRule.cs" />
+    <Compile Include="ISupportLinqSummaries.cs" />
+    <Compile Include="LinqSummaryOperator.cs" />
+    <Compile Include="LogicalOperator.cs" />
+    <Compile Include="MergedColumnInfo.cs" />
+    <Compile Include="MergedDataContext.2.cs" />
+    <Compile Include="MergedDataContext.cs" />
+    <Compile Include="MergeDelegate.cs" />
+    <Compile Include="MergedRowInfo.cs" />
+    <Compile Include="MultiSortComparer.cs" />
+    <Compile Include="PageChangingEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordFilterCollection.cs" />
+    <Compile Include="RequireEmptyConstructorException.cs" />
+    <Compile Include="SortContext.2.cs" />
+    <Compile Include="SortContext.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="SummaryCalculatorBase.cs" />
+    <Compile Include="SummaryContext.2.cs" />
+    <Compile Include="SummaryContext.cs" />
+    <Compile Include="SummaryDefinition.cs" />
+    <Compile Include="SummaryDefinitionCollection.cs" />
+    <Compile Include="SummaryExecution.cs" />
+    <Compile Include="SummaryOperandBase.cs" />
+    <Compile Include="SummaryResult.cs" />
+    <Compile Include="SummaryResultCollection.cs" />
+    <Compile Include="SynchronousSummaryCalculator.cs" />
+    <Compile Include="TypelessDataManager.cs" />
+    <Compile Include="ValObj.cs" />
+    <Compile Include="ValObjComparer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataManager\Properties\Resources.resources" />
+    <EmbeddedResource Include="DataManager\strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataManager\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

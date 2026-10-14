@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA67E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics.Controls.Barcodes</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.Controls.Barcodes.v15.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="AutomationPeers\XamBarcodeAutomationPeer.cs" />
+    <Compile Include="BarcodeAlgorithm.cs" />
+    <Compile Include="BarcodeEncodedAlgorithm.cs" />
+    <Compile Include="BarcodeGrid.cs" />
+    <Compile Include="BarsFillMode.cs" />
+    <Compile Include="Bch.cs" />
+    <Compile Include="CharType.cs" />
+    <Compile Include="Code128Algorithm.cs" />
+    <Compile Include="Code128CodeType.cs" />
+    <Compile Include="Code128Encoder.cs" />
+    <Compile Include="Code39Algorithm.cs" />
+    <Compile Include="Code39Encoder.cs" />
+    <Compile Include="CodeSet.cs" />
+    <Compile Include="CompactionMode.cs" />
+    <Compile Include="DataChangedEventArgs.cs" />
+    <Compile Include="Dimensions.cs" />
+    <Compile Include="EanUpcAlgorithm.cs" />
+    <Compile Include="EanUpcCodeType.cs" />
+    <Compile Include="EanUpcEncoder.cs" />
+    <Compile Include="EncodeT.cs" />
+    <Compile Include="EncodingMode.cs" />
+    <Compile Include="EncodingSequence.cs" />
+    <Compile Include="Fnc1Mode.cs" />
+    <Compile Include="Gf256.cs" />
+    <Compile Include="Gf64.cs" />
+    <Compile Include="GfArithmetics.cs" />
+    <Compile Include="GS1CodeType.cs" />
+    <Compile Include="Gs1DataBarAlgorithm.cs" />
+    <Compile Include="Gs1DataBarAlgorithmMode.cs" />
+    <Compile Include="Gs1DataBarEncoder.cs" />
+    <Compile Include="Gs1Helper.cs" />
+    <Compile Include="HeaderDisplayMode.cs" />
+    <Compile Include="IntelligentMailAlgorithm.cs" />
+    <Compile Include="IntelligentMailEncoder.cs" />
+    <Compile Include="Interleaved2Of5Algorithm.cs" />
+    <Compile Include="Interleaved2Of5Encoder.cs" />
+    <Compile Include="MaxiCodeAlgorithm.cs" />
+    <Compile Include="MaxiCodeErrorCorrectionLevel.cs" />
+    <Compile Include="MaxiCodeModulesPanel.cs" />
+    <Compile Include="MaxiCodeReedSolomon.cs" />
+    <Compile Include="MeasureHelper.cs" />
+    <Compile Include="ModeIndicator.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="Pdf417Algorithm.cs" />
+    <Compile Include="Pdf417Encoder.cs" />
+    <Compile Include="Pdf417ErrorCorrectionLevel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QRCodeAlgorithm.cs" />
+    <Compile Include="QRCodeEncoder.cs" />
+    <Compile Include="QRCodeErrorCorrectionLevel.cs" />
+    <Compile Include="QRMask.cs" />
+    <Compile Include="QRModeIndicator.cs" />
+    <Compile Include="QRReedSolomon.cs" />
+    <Compile Include="ReedSolomon.cs" />
+    <Compile Include="ResourceHelper.cs" />
+    <Compile Include="RoyalMailAlgorithm.cs" />
+    <Compile Include="SizeSettings.cs" />
+    <Compile Include="SizeVersion.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="TextSubmode.cs" />
+    <Compile Include="VisualData\BarcodeVisualData.cs" />
+    <Compile Include="VisualData\GridBarcodeVisualData.cs" />
+    <Compile Include="XamBarcode.cs" />
+    <Compile Include="XamBarcodeView.cs" />
+    <Compile Include="XamCode128Barcode.cs" />
+    <Compile Include="XamCode39Barcode.cs" />
+    <Compile Include="XamEanUpcBarcode.cs" />
+    <Compile Include="XamGridBarcode.cs" />
+    <Compile Include="XamGridBarcodeView.cs" />
+    <Compile Include="XamGs1DataBarBarcode.cs" />
+    <Compile Include="XamIntelligentMailBarcode.cs" />
+    <Compile Include="XamInterleaved2Of5Barcode.cs" />
+    <Compile Include="XamMaxiCodeBarcode.cs" />
+    <Compile Include="XamPdf417Barcode.cs" />
+    <Compile Include="XamQRCodeBarcode.cs" />
+    <Compile Include="XamRoyalMailBarcode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+    <EmbeddedResource Include="Resources\ecc10H.dat" />
+    <EmbeddedResource Include="Resources\ecc10L.dat" />
+    <EmbeddedResource Include="Resources\ecc10M.dat" />
+    <EmbeddedResource Include="Resources\ecc10Q.dat" />
+    <EmbeddedResource Include="Resources\ecc11H.dat" />
+    <EmbeddedResource Include="Resources\ecc11L.dat" />
+    <EmbeddedResource Include="Resources\ecc11M.dat" />
+    <EmbeddedResource Include="Resources\ecc11Q.dat" />
+    <EmbeddedResource Include="Resources\ecc12H.dat" />
+    <EmbeddedResource Include="Resources\ecc12L.dat" />
+    <EmbeddedResource Include="Resources\ecc12M.dat" />
+    <EmbeddedResource Include="Resources\ecc12Q.dat" />
+    <EmbeddedResource Include="Resources\ecc13H.dat" />
+    <EmbeddedResource Include="Resources\ecc13L.dat" />
+    <EmbeddedResource Include="Resources\ecc13M.dat" />
+    <EmbeddedResource Include="Resources\ecc13Q.dat" />
+    <EmbeddedResource Include="Resources\ecc14H.dat" />
+    <EmbeddedResource Include="Resources\ecc14L.dat" />
+    <EmbeddedResource Include="Resources\ecc14M.dat" />
+    <EmbeddedResource Include="Resources\ecc14Q.dat" />
+    <EmbeddedResource Include="Resources\ecc15H.dat" />
+    <EmbeddedResource Include="Resources\ecc15L.dat" />
+    <EmbeddedResource Include="Resources\ecc15M.dat" />
+    <EmbeddedResource Include="Resources\ecc15Q.dat" />
+    <EmbeddedResource Include="Resources\ecc16H.dat" />
+    <EmbeddedResource Include="Resources\ecc16L.dat" />
+    <EmbeddedResource Include="Resources\ecc16M.dat" />
+    <EmbeddedResource Include="Resources\ecc16Q.dat" />
+    <EmbeddedResource Include="Resources\ecc17H.dat" />
+    <EmbeddedResource Include="Resources\ecc17L.dat" />
+    <EmbeddedResource Include="Resources\ecc17M.dat" />
+    <EmbeddedResource Include="Resources\ecc17Q.dat" />
+    <EmbeddedResource Include="Resources\ecc18H.dat" />
+    <EmbeddedResource Include="Resources\ecc18L.dat" />
+    <EmbeddedResource Include="Resources\ecc18M.dat" />
+    <EmbeddedResource Include="Resources\ecc18Q.dat" />
+    <EmbeddedResource Include="Resources\ecc19H.dat" />
+    <EmbeddedResource Include="Resources\ecc19L.dat" />
+    <EmbeddedResource Include="Resources\ecc19M.dat" />
+    <EmbeddedResource Include="Resources\ecc19Q.dat" />
+    <EmbeddedResource Include="Resources\ecc1H.dat" />
+    <EmbeddedResource Include="Resources\ecc1L.dat" />
+    <EmbeddedResource Include="Resources\ecc1M.dat" />
+    <EmbeddedResource Include="Resources\ecc1Q.dat" />
+    <EmbeddedResource Include="Resources\ecc20H.dat" />
+    <EmbeddedResource Include="Resources\ecc20L.dat" />
+    <EmbeddedResource Include="Resources\ecc20M.dat" />
+    <EmbeddedResource Include="Resources\ecc20Q.dat" />
+    <EmbeddedResource Include="Resources\ecc21H.dat" />
+    <EmbeddedResource Include="Resources\ecc21L.dat" />
+    <EmbeddedResource Include="Resources\ecc21M.dat" />
+    <EmbeddedResource Include="Resources\ecc21Q.dat" />
+    <EmbeddedResource Include="Resources\ecc22H.dat" />
+    <EmbeddedResource Include="Resources\ecc22L.dat" />
+    <EmbeddedResource Include="Resources\ecc22M.dat" />
+    <EmbeddedResource Include="Resources\ecc22Q.dat" />
+    <EmbeddedResource Include="Resources\ecc23H.dat" />
+    <EmbeddedResource Include="Resources\ecc23L.dat" />
+    <EmbeddedResource Include="Resources\ecc23M.dat" />
+    <EmbeddedResource Include="Resources\ecc23Q.dat" />
+    <EmbeddedResource Include="Resources\ecc24H.dat" />
+    <EmbeddedResource Include="Resources\ecc24L.dat" />
+    <EmbeddedResource Include="Resources\ecc24M.dat" />
+    <EmbeddedResource Include="Resources\ecc24Q.dat" />
+    <EmbeddedResource Include="Resources\ecc25H.dat" />
+    <EmbeddedResource Include="Resources\ecc25L.dat" />
+    <EmbeddedResource Include="Resources\ecc25M.dat" />
+    <EmbeddedResource Include="Resources\ecc25Q.dat" />
+    <EmbeddedResource Include="Resources\ecc26H.dat" />
+    <EmbeddedResource Include="Resources\ecc26L.dat" />
+    <EmbeddedResource Include="Resources\ecc26M.dat" />
+    <EmbeddedResource Include="Resources\ecc26Q.dat" />
+    <EmbeddedResource Include="Resources\ecc27H.dat" />
+    <EmbeddedResource Include="Resources\ecc27L.dat" />
+    <EmbeddedResource Include="Resources\ecc27M.dat" />
+    <EmbeddedResource Include="Resources\ecc27Q.dat" />
+    <EmbeddedResource Include="Resources\ecc28H.dat" />
+    <EmbeddedResource Include="Resources\ecc28L.dat" />
+    <EmbeddedResource Include="Resources\ecc28M.dat" />
+    <EmbeddedResource Include="Resources\ecc28Q.dat" />
+    <EmbeddedResource Include="Resources\ecc29H.dat" />
+    <EmbeddedResource Include="Resources\ecc29L.dat" />
+    <EmbeddedResource Include="Resources\ecc29M.dat" />
+    <EmbeddedResource Include="Resources\ecc29Q.dat" />
+    <EmbeddedResource Include="Resources\ecc2H.dat" />
+    <EmbeddedResource Include="Resources\ecc2L.dat" />
+    <EmbeddedResource Include="Resources\ecc2M.dat" />
+    <EmbeddedResource Include="Resources\ecc2Q.dat" />
+    <EmbeddedResource Include="Resources\ecc30H.dat" />
+    <EmbeddedResource Include="Resources\ecc30L.dat" />
+    <EmbeddedResource Include="Resources\ecc30M.dat" />
+    <EmbeddedResource Include="Resources\ecc30Q.dat" />
+    <EmbeddedResource Include="Resources\ecc31H.dat" />
+    <EmbeddedResource Include="Resources\ecc31L.dat" />
+    <EmbeddedResource Include="Resources\ecc31M.dat" />
+    <EmbeddedResource Include="Resources\ecc31Q.dat" />
+    <EmbeddedResource Include="Resources\ecc32H.dat" />
+    <EmbeddedResource Include="Resources\ecc32L.dat" />
+    <EmbeddedResource Include="Resources\ecc32M.dat" />
+    <EmbeddedResource Include="Resources\ecc32Q.dat" />
+    <EmbeddedResource Include="Resources\ecc33H.dat" />
+    <EmbeddedResource Include="Resources\ecc33L.dat" />
+    <EmbeddedResource Include="Resources\ecc33M.dat" />
+    <EmbeddedResource Include="Resources\ecc33Q.dat" />
+    <EmbeddedResource Include="Resources\ecc34H.dat" />
+    <EmbeddedResource Include="Resources\ecc34L.dat" />
+    <EmbeddedResource Include="Resources\ecc34M.dat" />
+    <EmbeddedResource Include="Resources\ecc34Q.dat" />
+    <EmbeddedResource Include="Resources\ecc35H.dat" />
+    <EmbeddedResource Include="Resources\ecc35L.dat" />
+    <EmbeddedResource Include="Resources\ecc35M.dat" />
+    <EmbeddedResource Include="Resources\ecc35Q.dat" />
+    <EmbeddedResource Include="Resources\ecc36H.dat" />
+    <EmbeddedResource Include="Resources\ecc36L.dat" />
+    <EmbeddedResource Include="Resources\ecc36M.dat" />
+    <EmbeddedResource Include="Resources\ecc36Q.dat" />
+    <EmbeddedResource Include="Resources\ecc37H.dat" />
+    <EmbeddedResource Include="Resources\ecc37L.dat" />
+    <EmbeddedResource Include="Resources\ecc37M.dat" />
+    <EmbeddedResource Include="Resources\ecc37Q.dat" />
+    <EmbeddedResource Include="Resources\ecc38H.dat" />
+    <EmbeddedResource Include="Resources\ecc38L.dat" />
+    <EmbeddedResource Include="Resources\ecc38M.dat" />
+    <EmbeddedResource Include="Resources\ecc38Q.dat" />
+    <EmbeddedResource Include="Resources\ecc39H.dat" />
+    <EmbeddedResource Include="Resources\ecc39L.dat" />
+    <EmbeddedResource Include="Resources\ecc39M.dat" />
+    <EmbeddedResource Include="Resources\ecc39Q.dat" />
+    <EmbeddedResource Include="Resources\ecc3H.dat" />
+    <EmbeddedResource Include="Resources\ecc3L.dat" />
+    <EmbeddedResource Include="Resources\ecc3M.dat" />
+    <EmbeddedResource Include="Resources\ecc3Q.dat" />
+    <EmbeddedResource Include="Resources\ecc40H.dat" />
+    <EmbeddedResource Include="Resources\ecc40L.dat" />
+    <EmbeddedResource Include="Resources\ecc40M.dat" />
+    <EmbeddedResource Include="Resources\ecc40Q.dat" />
+    <EmbeddedResource Include="Resources\ecc4H.dat" />
+    <EmbeddedResource Include="Resources\ecc4L.dat" />
+    <EmbeddedResource Include="Resources\ecc4M.dat" />
+    <EmbeddedResource Include="Resources\ecc4Q.dat" />
+    <EmbeddedResource Include="Resources\ecc5H.dat" />
+    <EmbeddedResource Include="Resources\ecc5L.dat" />
+    <EmbeddedResource Include="Resources\ecc5M.dat" />
+    <EmbeddedResource Include="Resources\ecc5Q.dat" />
+    <EmbeddedResource Include="Resources\ecc6H.dat" />
+    <EmbeddedResource Include="Resources\ecc6L.dat" />
+    <EmbeddedResource Include="Resources\ecc6M.dat" />
+    <EmbeddedResource Include="Resources\ecc6Q.dat" />
+    <EmbeddedResource Include="Resources\ecc7H.dat" />
+    <EmbeddedResource Include="Resources\ecc7L.dat" />
+    <EmbeddedResource Include="Resources\ecc7M.dat" />
+    <EmbeddedResource Include="Resources\ecc7Q.dat" />
+    <EmbeddedResource Include="Resources\ecc8H.dat" />
+    <EmbeddedResource Include="Resources\ecc8L.dat" />
+    <EmbeddedResource Include="Resources\ecc8M.dat" />
+    <EmbeddedResource Include="Resources\ecc8Q.dat" />
+    <EmbeddedResource Include="Resources\ecc9H.dat" />
+    <EmbeddedResource Include="Resources\ecc9L.dat" />
+    <EmbeddedResource Include="Resources\ecc9M.dat" />
+    <EmbeddedResource Include="Resources\ecc9Q.dat" />
+    <EmbeddedResource Include="Resources\RSP10.dat" />
+    <EmbeddedResource Include="Resources\RSP13.dat" />
+    <EmbeddedResource Include="Resources\RSP15.dat" />
+    <EmbeddedResource Include="Resources\RSP16.dat" />
+    <EmbeddedResource Include="Resources\RSP17.dat" />
+    <EmbeddedResource Include="Resources\RSP18.dat" />
+    <EmbeddedResource Include="Resources\RSP20.dat" />
+    <EmbeddedResource Include="Resources\RSP22.dat" />
+    <EmbeddedResource Include="Resources\RSP24.dat" />
+    <EmbeddedResource Include="Resources\RSP26.dat" />
+    <EmbeddedResource Include="Resources\RSP28.dat" />
+    <EmbeddedResource Include="Resources\RSP30.dat" />
+    <EmbeddedResource Include="Resources\RSP32.dat" />
+    <EmbeddedResource Include="Resources\RSP34.dat" />
+    <EmbeddedResource Include="Resources\RSP36.dat" />
+    <EmbeddedResource Include="Resources\RSP40.dat" />
+    <EmbeddedResource Include="Resources\RSP42.dat" />
+    <EmbeddedResource Include="Resources\RSP44.dat" />
+    <EmbeddedResource Include="Resources\RSP46.dat" />
+    <EmbeddedResource Include="Resources\RSP48.dat" />
+    <EmbeddedResource Include="Resources\RSP50.dat" />
+    <EmbeddedResource Include="Resources\RSP52.dat" />
+    <EmbeddedResource Include="Resources\RSP54.dat" />
+    <EmbeddedResource Include="Resources\RSP56.dat" />
+    <EmbeddedResource Include="Resources\RSP58.dat" />
+    <EmbeddedResource Include="Resources\RSP60.dat" />
+    <EmbeddedResource Include="Resources\RSP62.dat" />
+    <EmbeddedResource Include="Resources\RSP64.dat" />
+    <EmbeddedResource Include="Resources\RSP66.dat" />
+    <EmbeddedResource Include="Resources\RSP68.dat" />
+    <EmbeddedResource Include="Resources\RSP7.dat" />
+    <EmbeddedResource Include="Strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.DataVisualization.v15.1\InfragisticsWPF4.DataVisualization.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA689}</Project>
+      <Name>InfragisticsWPF4.DataVisualization.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="themes\generic.2.xaml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

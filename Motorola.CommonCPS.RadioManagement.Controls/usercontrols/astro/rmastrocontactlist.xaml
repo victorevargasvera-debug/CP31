@@ -1,0 +1,644 @@
+<local:RMContactList
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMASTROContactList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:RFResourceRepository="clr-namespace:RFResourceRepository;assembly=RFResourceRepository" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters"
+	DataContextChanged="UserControl_DataContextChanged"
+	Width="1024"
+	Height="500">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Themes/Generic.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:SetCategoryAddMultipleSetsToVisibilityConverter
+				x:Key="SetCategoryAddMultipleSetsToVisibilityConverter" />
+			<local:SetCategoryAddSetCopiesToResourceConverter
+				x:Key="SetCategoryAddSetCopiesToResourceConverter" />
+			<local:ActiveCellToSetCategoryConverter
+				x:Key="ActiveCellToSetCategoryConverter" />
+			<local:ActiveCellToContactSetCategoryConverter
+				x:Key="ActiveCellToContactSetCategoryConverter" />
+			<local:UnboundColumnDataContextConverter
+				x:Key="UnboundColumnDataContextConverter" />
+			<local:UnboundColumnValueConverter
+				x:Key="UnboundColumnValueConverter" />
+			<local:PeudoCallIdFieldToDatacontextConverter
+				x:Key="PeudoCallIdFieldToDatacontextConverter" />
+			<local:ControlTypeToVisibilityConverter
+				x:Key="ControlTypeToVisibilityConverter" />
+			<local:ASTROContactNameSortComparer
+				x:Key="ContactNameSortComparer" />
+			<local:ASTROTopContactNameSortComparer
+				x:Key="TopContactNameSortComparer" />
+			<local:CallTypeSortComparer
+				x:Key="CallTypeSortComparer" />
+			<local:PeudoCallIdSortComparer
+				x:Key="PeudoCallIdSortComparer" />
+			<local:FieldGroupByCompare
+				x:Key="FieldGroupByCompare" />
+			<local:BindingProxy
+				Data="{Binding Path=ActiveField, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+				x:Key="ActiveFieldProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.AddEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+				x:Key="AddEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+				x:Key="EditEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+				x:Key="DeleteEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareCopyEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+				x:Key="PrepareAddCopiesProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareShowEmbeddedSetRelatedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+				x:Key="PrepareShowRelatedSetsProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=ActiveField, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}, Converter={StaticResource ActiveCellToSetCategoryConverter}}"
+				x:Key="SetCategoryProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMASTROContactList}}}"
+				x:Key="ContactSetCategoryProxy" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<!--Unknown connection ID: 1-->
+	<Border
+		Name="borderInvalid"
+		BorderThickness="1"
+		Style="{StaticResource InvalidBorderStyle}"
+		Margin="0,0,0,10">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="1" />
+				<RowDefinition
+					Height="15" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid
+				VerticalAlignment="Center">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="Auto" />
+					<ColumnDefinition
+						Width="10" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<local:RMTextBlock
+					Text="{x:Static resourceRepository:Resources.RMC_ViewBy}"
+					VerticalAlignment="Center" />
+				<!--Unknown connection ID: 2-->
+				<local:RMRadioButton
+					Name="rbtByName"
+					Checked="rbtByName_Checked"
+					Grid.Column="2"
+					VerticalAlignment="Center"
+					Content="{x:Static resourceRepository:Resources.RMC_RMContactList_ByName}" />
+				<!--Unknown connection ID: 3-->
+				<local:RMRadioButton
+					Name="rbtByType"
+					Checked="rbtByType_Checked"
+					Grid.Column="4"
+					VerticalAlignment="Center"
+					Content="{x:Static resourceRepository:Resources.RMC_RMContactList_ByType}" />
+				<!--Unknown connection ID: 4-->
+				<local:RMRadioButton
+					Name="rbtNameOnly"
+					Checked="rbtNameOnly_Checked"
+					Grid.Column="6"
+					VerticalAlignment="Center"
+					Content="{x:Static resourceRepository:Resources.RMC_RMContactList_NameOnly}" />
+			</Grid>
+			<!--Unknown connection ID: 5-->
+			<Grid
+				Name="gridSets"
+				Row="3">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Grid
+					Margin="0,0,0,10">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="2" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="2" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="2" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="2" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="40" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<!--Unknown connection ID: 6-->
+					<Button
+						Name="btnAdd"
+						Grid.Column="2"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconAdd}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Add}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.AddEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+						CommandParameter="{Binding Path=SetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMASTROContactList}}}" />
+					<!--Unknown connection ID: 7-->
+					<Button
+						Name="btnAdditional"
+						Style="{StaticResource DataGridButtonMoreStyle}"
+						Content="{StaticResource IconMore}"
+						Grid.Column="6"
+						Padding="0"
+						ContextMenuService.IsEnabled="False">
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<local:BindingProxy
+									Data="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+									x:Key="buttonProxy" />
+								<local:BindingProxy
+									Data="{Binding Path=SetPresenter.AddMultipleSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+									x:Key="AddMultipleSetsCommandProxy" />
+								<local:BindingProxy
+									Data="{Binding Path=SetPresenter.SetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+									x:Key="TopSetCategoryCommandProxy" />
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+						<FrameworkElement.ContextMenu>
+							<!--Unknown connection ID: 8-->
+							<ContextMenu
+								Name="ctmExtended"
+								Placement="Bottom"
+								PlacementTarget="{Binding Data, Source={StaticResource buttonProxy}}">
+								<!--Unknown connection ID: 9-->
+								<MenuItem
+									Name="mniAddSet"
+									Header="{x:Static resourceRepository:Resources.RMC_Title_AddSet}"
+									Command="{Binding Data, Source={StaticResource AddEmbeddedSetProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource ContactSetCategoryProxy}}" />
+								<!--Unknown connection ID: 10-->
+								<MenuItem
+									Name="mniAddMultipleSets"
+									Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_AddMultipleSets}"
+									Command="{Binding Data, Source={StaticResource AddMultipleSetsCommandProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource ContactSetCategoryProxy}}" />
+								<!--Unknown connection ID: 11-->
+								<MenuItem
+									Name="mniAddSetCopies"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_AddCopies}"
+									Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource SetCategoryProxy}}" />
+							</ContextMenu>
+						</FrameworkElement.ContextMenu>
+					</Button>
+					<!--Unknown connection ID: 12-->
+					<Button
+						Name="btnEdit"
+						Grid.Column="0"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconEdit}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Edit}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+						CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToContactSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}" />
+					<!--Unknown connection ID: 13-->
+					<Button
+						Name="btnDelete"
+						Grid.Column="4"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconDelete}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Delete}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}"
+						CommandParameter="{Binding Path=ActiveField, Converter={StaticResource ActiveCellToSetCategoryConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:RMContactList}}}" />
+					<!--Unknown connection ID: 14-->
+					<Button
+						Name="btnGridToFile"
+						Grid.Column="8"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconGridToFile}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Export}"
+						Margin="0,0,2,0"
+						Padding="0"
+						Visibility="Collapsed" />
+				</Grid>
+				<!--Unknown connection ID: 15-->
+				<ig:XamGrid
+					Name="grdContacts"
+					Grid.Row="1"
+					VerticalAlignment="Top"
+					BorderThickness="0"
+					AutoGenerateColumns="False"
+					Height="400">
+					<ig:XamGrid.DeferredScrollingSettings>
+						<ig:DeferredScrollingSettings
+							AllowDeferredScrolling="Default" />
+					</ig:XamGrid.DeferredScrollingSettings>
+					<ig:XamGrid.ColumnResizingSettings>
+						<ig:ColumnResizingSettings
+							AllowCellAreaResizing="True"
+							AllowColumnResizing="Indicator"
+							AllowDoubleClickToSize="True"
+							AllowMultipleColumnResize="True" />
+					</ig:XamGrid.ColumnResizingSettings>
+					<ig:XamGrid.EditingSettings>
+						<ig:EditingSettings
+							AllowEditing="Cell"
+							IsMouseActionEditingEnabled="SingleClick"
+							IsEnterKeyEditingEnabled="True"
+							IsF2EditingEnabled="True"
+							IsOnCellActiveEditingEnabled="True" />
+					</ig:XamGrid.EditingSettings>
+					<ig:XamGrid.GroupBySettings>
+						<ig:GroupBySettings
+							AllowGroupByArea="Hidden"
+							GroupByOperation="MergeCells" />
+					</ig:XamGrid.GroupBySettings>
+					<FrameworkElement.ContextMenu>
+						<ContextMenu>
+							<ItemsControl.Items>
+								<!--Unknown connection ID: 16-->
+								<MenuItem
+									Name="mniEdit"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_EditSet}"
+									Command="{Binding Data, Source={StaticResource EditEmbeddedSetProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToContactSetCategoryConverter}}" />
+								<!--Unknown connection ID: 17-->
+								<MenuItem
+									Name="mniDelete"
+									Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Delete}"
+									InputGestureText="{x:Static resourceRepository:Resources.Gesture_Delete}"
+									Command="{Binding Data, Source={StaticResource DeleteEmbeddedSetProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+								<!--Unknown connection ID: 18-->
+								<MenuItem
+									Name="mniAddCopies"
+									Header="{Binding Data, Source={StaticResource SetCategoryProxy}, Converter={StaticResource SetCategoryAddSetCopiesToResourceConverter}}"
+									Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+								<Separator />
+								<!--Unknown connection ID: 19-->
+								<MenuItem
+									Name="mniShowRelatedSets"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_ShowRelatedSets}"
+									Command="{Binding Data, Source={StaticResource PrepareShowRelatedSetsProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+							</ItemsControl.Items>
+						</ContextMenu>
+					</FrameworkElement.ContextMenu>
+					<ig:XamGrid.Columns>
+						<ig:UnboundColumn
+							Key="TopContactName"
+							HeaderText="{x:Static resourceRepository:Resources.RMC_RMContactList_ContactName}"
+							IsSortable="True"
+							ValueConverter="{StaticResource UnboundColumnValueConverter}"
+							ValueConverterParameter="ParentSet|UclGen_ContactAlias_A00009"
+							HorizontalContentAlignment="Stretch"
+							SortComparer="{StaticResource TopContactNameSortComparer}"
+							GroupByComparer="{StaticResource FieldGroupByCompare}">
+							<ig:UnboundColumn.ItemTemplate>
+								<DataTemplate>
+									<Grid
+										Height="24">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="*" />
+										</Grid.ColumnDefinitions>
+										<Grid
+											VerticalAlignment="Center">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="Auto" />
+												<ColumnDefinition
+													Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<Image
+												MaxHeight="16"
+												MaxWidth="24"
+												Source="{Binding Path=RowData.ParentSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+											<Image
+												Grid.Column="1"
+												Margin="5,0,5,0"
+												Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+												Height="16"
+												Width="16"
+												ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+												Visibility="{Binding Path=RowData.ParentSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+										</Grid>
+										<Grid
+											Column="1"
+											DataContext="{Binding RowData.ParentSet, Converter={StaticResource UnboundColumnDataContextConverter}, ConverterParameter=UclGen_ContactAlias_A00009}"
+											Visibility="{Binding IsVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="*" />
+												<ColumnDefinition
+													Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<local:RMTextBox
+												Name="txbText"
+												Style="{StaticResource MergedCellsFieldEditorTextBoxtyle}"
+												Text="{Binding Path=Text, UpdateSourceTrigger=LostFocus}"
+												MaxLength="{Binding MaxLength}" />
+											<Border
+												Background="{StaticResource BrushGray}"
+												Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+												<local:RMTextBlock
+													Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+													VerticalAlignment="Center"
+													HorizontalAlignment="Center" />
+											</Border>
+											<Image
+												Grid.Column="1"
+												Margin="1,0,0,0"
+												Width="20"
+												Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}">
+												<Image.Source>
+													<MultiBinding
+														Converter="{StaticResource BoolToLockIconPathConverter}">
+														<Binding
+															Path="UseMVODefault" />
+														<Binding
+															Path="IsEditable" />
+													</MultiBinding>
+												</Image.Source>
+											</Image>
+										</Grid>
+									</Grid>
+								</DataTemplate>
+							</ig:UnboundColumn.ItemTemplate>
+							<ig:Column.MergedItemTemplate>
+								<DataTemplate>
+									<Grid
+										Height="24">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="*" />
+										</Grid.ColumnDefinitions>
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="Auto" />
+												<ColumnDefinition
+													Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<Image
+												MaxHeight="16"
+												MaxWidth="24"
+												Source="{Binding Path=Value.ParentSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+											<Image
+												Grid.Column="1"
+												Margin="5,0,5,0"
+												Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+												Height="16"
+												Width="16"
+												ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+												Visibility="{Binding Path=Value.ParentSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+										</Grid>
+										<Grid
+											Column="1"
+											DataContext="{Binding Value.ParentSet, Converter={StaticResource UnboundColumnDataContextConverter}, ConverterParameter=UclGen_ContactAlias_A00009}"
+											Visibility="{Binding IsVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													Width="*" />
+												<ColumnDefinition
+													Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<Border
+												Style="{StaticResource InvalidBorderTemplateStyle}">
+												<local:RMTextBlock
+													Style="{StaticResource StringEditorTemplateTextBlockStyle}"
+													VerticalAlignment="Center"
+													Text="{Binding Text}" />
+											</Border>
+											<Border
+												Background="{StaticResource BrushGray}"
+												Visibility="{Binding Path=IsValueVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+												<local:RMTextBlock
+													Text="{x:Static resourceRepository:Resources.RMC_Tooltip_MVOdefaultvalueAssigned}"
+													VerticalAlignment="Center"
+													HorizontalAlignment="Center" />
+											</Border>
+											<Image
+												Grid.Column="1"
+												Margin="1,0,0,0"
+												Width="20"
+												Visibility="{Binding Path=IsMVODynamic, Converter={StaticResource BoolToVisibilityConverter}}">
+												<Image.Source>
+													<MultiBinding
+														Converter="{StaticResource BoolToLockIconPathConverter}">
+														<Binding
+															Path="UseMVODefault" />
+														<Binding
+															Path="IsEditable" />
+													</MultiBinding>
+												</Image.Source>
+											</Image>
+										</Grid>
+									</Grid>
+								</DataTemplate>
+							</ig:Column.MergedItemTemplate>
+						</ig:UnboundColumn>
+						<ig:UnboundColumn
+							Key="EmbeddedInvaild"
+							HeaderText=" "
+							IsSortable="False"
+							IsHideable="False"
+							ValueConverter="{StaticResource UnboundColumnValueConverter}"
+							ValueConverterParameter="ChildSet|CallType">
+							<ig:UnboundColumn.ItemTemplate>
+								<DataTemplate>
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Image
+											MaxHeight="16"
+											MaxWidth="24"
+											Source="{Binding Path=RowData.ChildSet.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+										<Image
+											Grid.Column="1"
+											Margin="5,0,0,0"
+											Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+											Height="16"
+											Width="16"
+											ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+											Visibility="{Binding Path=RowData.ChildSet.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+									</Grid>
+								</DataTemplate>
+							</ig:UnboundColumn.ItemTemplate>
+						</ig:UnboundColumn>
+						<ig:UnboundColumn
+							Key="CallType"
+							HeaderText="{x:Static resourceRepository:Resources.RMC_RMContactList_CallType}"
+							ItemTemplate="{StaticResource StringEditorDataTemplate}"
+							ValueConverter="{StaticResource UnboundColumnValueConverter}"
+							ValueConverterParameter="ChildSet|CallType"
+							HorizontalContentAlignment="Stretch"
+							SortComparer="{StaticResource CallTypeSortComparer}" />
+						<ig:UnboundColumn
+							Key="PeudoCallId"
+							HeaderText="{x:Static resourceRepository:Resources.RMC_RMContactList_CallID}"
+							ItemTemplate="{StaticResource StringEditorDataTemplate}"
+							ValueConverter="{StaticResource UnboundColumnValueConverter}"
+							ValueConverterParameter="ChildSet|PeudoCallId"
+							HorizontalContentAlignment="Stretch"
+							SortComparer="{StaticResource PeudoCallIdSortComparer}" />
+					</ig:XamGrid.Columns>
+				</ig:XamGrid>
+				<!--Unknown connection ID: 20-->
+				<ig:XamGrid
+					Name="grdContactNames"
+					Grid.Row="1"
+					VerticalAlignment="Top"
+					Visibility="Collapsed"
+					BorderThickness="0"
+					AutoGenerateColumns="False"
+					MinHeight="200"
+					MaxHeight="400">
+					<ig:XamGrid.DeferredScrollingSettings>
+						<ig:DeferredScrollingSettings
+							AllowDeferredScrolling="Default" />
+					</ig:XamGrid.DeferredScrollingSettings>
+					<ig:XamGrid.ColumnResizingSettings>
+						<ig:ColumnResizingSettings
+							AllowCellAreaResizing="True"
+							AllowColumnResizing="Indicator"
+							AllowDoubleClickToSize="True"
+							AllowMultipleColumnResize="True" />
+					</ig:XamGrid.ColumnResizingSettings>
+					<ig:XamGrid.EditingSettings>
+						<ig:EditingSettings
+							AllowEditing="Cell"
+							IsMouseActionEditingEnabled="SingleClick"
+							IsEnterKeyEditingEnabled="True"
+							IsF2EditingEnabled="True"
+							IsOnCellActiveEditingEnabled="False" />
+					</ig:XamGrid.EditingSettings>
+					<FrameworkElement.ContextMenu>
+						<ContextMenu>
+							<ItemsControl.Items>
+								<!--Unknown connection ID: 21-->
+								<MenuItem
+									Name="mninEdit"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_EditSet}"
+									Command="{Binding Data, Source={StaticResource EditEmbeddedSetProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+								<!--Unknown connection ID: 22-->
+								<MenuItem
+									Name="mninDelete"
+									Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Delete}"
+									InputGestureText="{x:Static resourceRepository:Resources.Gesture_Delete}"
+									Command="{Binding Data, Source={StaticResource DeleteEmbeddedSetProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+								<!--Unknown connection ID: 23-->
+								<MenuItem
+									Name="mninAddCopies"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_AddCopies}"
+									Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+								<Separator />
+								<!--Unknown connection ID: 24-->
+								<MenuItem
+									Name="mninShowRelatedSets"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_ShowRelatedSets}"
+									Command="{Binding Data, Source={StaticResource PrepareShowRelatedSetsProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource ActiveFieldProxy}, Converter={StaticResource ActiveCellToSetCategoryConverter}}" />
+							</ItemsControl.Items>
+						</ContextMenu>
+					</FrameworkElement.ContextMenu>
+					<ig:XamGrid.Columns>
+						<ig:UnboundColumn
+							Key="Invaild"
+							HeaderText=" "
+							IsSortable="False"
+							IsHideable="False"
+							ValueConverter="{StaticResource UnboundColumnValueConverter}"
+							ValueConverterParameter="UclGen_ContactAlias_A00009">
+							<ig:UnboundColumn.ItemTemplate>
+								<DataTemplate>
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												Width="Auto" />
+											<ColumnDefinition
+												Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Image
+											MaxHeight="16"
+											MaxWidth="24"
+											Source="{Binding Path=RowData.TypeIcon, Converter={StaticResource BitmapToBitmapSourceConverter}}" />
+										<Image
+											Grid.Column="1"
+											Margin="5,0,0,0"
+											Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Icons/Error_red_16x16.png"
+											Height="16"
+											Width="16"
+											ToolTip="{x:Static resourceRepository:Resources.RMC_Tooltip_InvalidSet}"
+											Visibility="{Binding Path=RowData.IsValid, Converter={StaticResource BoolToVisibilityInverseConverter}}" />
+									</Grid>
+								</DataTemplate>
+							</ig:UnboundColumn.ItemTemplate>
+						</ig:UnboundColumn>
+						<ig:UnboundColumn
+							Key="ContactName"
+							HeaderText="{x:Static resourceRepository:Resources.RMC_RMContactList_ContactName}"
+							ItemTemplate="{StaticResource StringEditorDataTemplate}"
+							ValueConverter="{StaticResource UnboundColumnValueConverter}"
+							ValueConverterParameter="UclGen_ContactAlias_A00009"
+							SortComparer="{StaticResource ContactNameSortComparer}"
+							HorizontalContentAlignment="Stretch">
+							<ig:UnboundColumn.EditorTemplate>
+								<DataTemplate>
+									<local:RMStringFieldEditor
+										IsEditorOnly="True"
+										Height="24"
+										Margin="4,0,4,0"
+										DataContext="{Binding Value}" />
+								</DataTemplate>
+							</ig:UnboundColumn.EditorTemplate>
+						</ig:UnboundColumn>
+					</ig:XamGrid.Columns>
+				</ig:XamGrid>
+			</Grid>
+		</Grid>
+	</Border>
+</local:RMContactList>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA692}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SevenZip</RootNamespace>
+    <AssemblyName>LZMA</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="CoderPropID.cs" />
+    <Compile Include="Compression\LZMA\a.cs" />
+    <Compile Include="Compression\LZMA\Decoder.cs" />
+    <Compile Include="Compression\LZMA\Encoder.cs" />
+    <Compile Include="Compression\LZ\a.cs" />
+    <Compile Include="Compression\LZ\b.cs" />
+    <Compile Include="Compression\LZ\BinTree.cs" />
+    <Compile Include="Compression\LZ\InWindow.cs" />
+    <Compile Include="Compression\LZ\OutWindow.cs" />
+    <Compile Include="Compression\RangeCoder\a.cs" />
+    <Compile Include="Compression\RangeCoder\b.cs" />
+    <Compile Include="Compression\RangeCoder\c.cs" />
+    <Compile Include="Compression\RangeCoder\d.cs" />
+    <Compile Include="Compression\RangeCoder\e.cs" />
+    <Compile Include="Compression\RangeCoder\f.cs" />
+    <Compile Include="DataErrorException.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="ICodeProgress.cs" />
+    <Compile Include="ICoder.cs" />
+    <Compile Include="InvalidParamException.cs" />
+    <Compile Include="ISetCoderProperties.cs" />
+    <Compile Include="ISetDecoderProperties.cs" />
+    <Compile Include="IWriteCoderProperties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

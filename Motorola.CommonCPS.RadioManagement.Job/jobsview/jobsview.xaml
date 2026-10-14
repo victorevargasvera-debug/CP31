@@ -1,0 +1,158 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Job.JobsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Job" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="F5"
+			Command="{Binding RefreshCommand}" />
+	</UIElement.InputBindings>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Job;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:JobTypeToUINameConverter
+				x:Key="JobTypeToUINameConverter" />
+			<converters:JobContainerStatusToStringConverter
+				x:Key="JobContainerStatusToStringConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<!--Unknown connection ID: 1-->
+	<controls:RMDataGrid
+		Name="dgrJobContainers"
+		igDP:GroupByAreaLocation="None"
+		CRUDToolBarVisibility="Visible"
+		ContextMenu="{StaticResource CutCopyPasteDeleteContextMenu}"
+		igDP:DataSource="{Binding Items}"
+		SearchCommand="{Binding SearchCommand}"
+		DeleteCommand="{Binding DeleteJobsCommand}"
+		infrastructure:DataGridSelectedItemsChanged.Command="{Binding UpdateSelectedItemsCommand}">
+		<igDP:DataPresenterBase.FieldSettings>
+			<igDP:FieldSettings
+				AllowEdit="False"
+				CellClickAction="SelectCell"
+				Width="Auto" />
+		</igDP:DataPresenterBase.FieldSettings>
+		<igDP:DataPresenterBase.FieldLayouts>
+			<igDP:FieldLayout>
+				<igDP:FieldLayout.SortedFields>
+					<igDP:FieldSortDescription
+						Direction="Descending"
+						FieldName="CreatedTime" />
+				</igDP:FieldLayout.SortedFields>
+				<igDP:FieldLayout.Fields>
+					<igDP:Field
+						Name="ContainerName"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_Name}"
+						Column="0">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.CellValuePresenterStyle>
+									<Style
+										TargetType="{x:Type igDP:CellValuePresenter}">
+										<Setter
+											Property="Template">
+											<Setter.Value>
+												<ControlTemplate
+													TargetType="{x:Type igDP:CellValuePresenter}">
+													<TextBlock
+														Margin="{TemplateBinding Padding}"
+														VerticalAlignment="Center">
+														<controls:RMHyperlink
+															Command="{Binding Path=DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+															CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+															<TextBlock
+																Text="{Binding Path=Value, RelativeSource={RelativeSource TemplatedParent}}" />
+														</controls:RMHyperlink>
+													</TextBlock>
+												</ControlTemplate>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</igDP:FieldSettings.CellValuePresenterStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="Type"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_Type}"
+						Column="1">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								EditAsType="{x:Type sys:String}">
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.Text">
+											<Setter.Value>
+												<MultiBinding
+													Converter="{StaticResource JobTypeToUINameConverter}"
+													Mode="OneWay">
+													<Binding
+														Path="DataItem.IsMigrationJob" />
+													<Binding
+														Path="DataItem.Type" />
+												</MultiBinding>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="CreatedTime"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_CreatedTime}"
+						Column="2">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								AllowEdit="false"
+								EditAsType="{x:Type sys:DateTime}" />
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="StartTime"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_StartTime}"
+						Column="3">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								AllowEdit="false"
+								EditAsType="{x:Type sys:DateTime}" />
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="EndTime"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_EndTime}"
+						Column="4">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								AllowEdit="false"
+								EditAsType="{x:Type sys:DateTime}" />
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="Status"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_Status}"
+						Column="5"
+						Converter="{StaticResource JobContainerStatusToStringConverter}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								EditAsType="{x:Type sys:String}" />
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="TotalCount"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_TotalItems}"
+						Column="6" />
+					<igDP:Field
+						Name="ItemsCompleted"
+						Label="{x:Static resourceRepository:Resources.RMC_JobContainer_ItemsCompleted}"
+						Column="7" />
+				</igDP:FieldLayout.Fields>
+			</igDP:FieldLayout>
+		</igDP:DataPresenterBase.FieldLayouts>
+	</controls:RMDataGrid>
+</UserControl>

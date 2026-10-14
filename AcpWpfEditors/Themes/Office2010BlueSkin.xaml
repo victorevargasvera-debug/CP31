@@ -1,0 +1,906 @@
+<ResourceDictionary
+	x:Class="DevComponents.WpfEditors.Themes.Office2010BlueSkin" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:dc="clr-namespace:DevComponents.WpfEditors" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:themes="clr-namespace:DevComponents.WpfEditors.Themes">
+	<SolidColorBrush
+		Color="#FFABBAD0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.EditBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonNormalBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFECF5FD"
+				Offset="0" />
+			<GradientStop
+				Color="#FFD4E5F6"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFABBAD0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonNormalBorder}}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonNormalBorderInner}}" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonNormalForeground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonHoverBorder}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFF1CA58"
+				Offset="0" />
+			<GradientStop
+				Color="#FFF5D84C"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonHoverBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFDF8E5"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFDFBF3"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonHoverBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFDECA9"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFDE386"
+				Offset=".5" />
+			<GradientStop
+				Color="#FFFDF4CD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonHoverForeground}}" />
+	<SolidColorBrush
+		Color="#FFC2772B"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonPressedBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonPressedBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFEFBB56"
+				Offset="0" />
+			<GradientStop
+				Color="#FFF2C867"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonPressedBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFCDB7F"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFFE48A"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF333333"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonPressedForeground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonDisabledBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFE3E8EE"
+				Offset="0" />
+			<GradientStop
+				Color="#FFCBD2DB"
+				Offset=".36" />
+			<GradientStop
+				Color="#FFCBD2DB"
+				Offset=".4" />
+			<GradientStop
+				Color="#FFCBD2DB"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFB3B3B3"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonDisabledBorder}}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonDisabledBorderInner}}" />
+	<SolidColorBrush
+		Color="#FF8D8D8D"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonDisabledForeground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonCheckedBorder}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFC28A30"
+				Offset="0" />
+			<GradientStop
+				Color="#FFC2A44D"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonCheckedBorderInner}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonCheckedBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFFE575"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFFE272"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ButtonCheckedForeground}}" />
+	<SolidColorBrush
+		Color="#FFF4F4F4"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxNormalBackground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxNormalBackgroundInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFE8E9EB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFF0F1F2"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxNormalForeground}}" />
+	<SolidColorBrush
+		Color="#FFABC1DE"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxNormalBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxNormalBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFA2ACB9"
+				Offset="0" />
+			<GradientStop
+				Color="#FFBEC4CC"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF4C6D97"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxNormalCheckMark}}" />
+	<SolidColorBrush
+		Color="#FFFCF1C2"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxHoverBackground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxHoverBackgroundInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFAECC8"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFCF3DD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxHoverForeground}}" />
+	<SolidColorBrush
+		Color="#FFCF9037"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxHoverBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxHoverBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFCAD5D"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFDCC9B"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF4B6C97"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxHoverCheckMark}}" />
+	<SolidColorBrush
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxDisabledBackground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxDisabledBackgroundInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFE0E2E5"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFBFBFB"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF8D8D8D"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxDisabledForeground}}" />
+	<SolidColorBrush
+		Color="#FFAEB1B5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxDisabledBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxDisabledBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFE0E2E5"
+				Offset="0" />
+			<GradientStop
+				Color="#FFF2F3F3"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF8D8D8D"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxDisabledCheckMark}}" />
+	<SolidColorBrush
+		Color="#FFE5ECF7"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxPressedBackground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxPressedBackgroundInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFF28926"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFFF4D5"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF333333"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxPressedForeground}}" />
+	<SolidColorBrush
+		Color="#FF848484"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxPressedBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxPressedBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFF28926"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFAD5AF"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF4B6C97"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.CheckBoxPressedCheckMark}}" />
+	<SolidColorBrush
+		Color="#FFCBDAEC"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarBackground}}" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarForeground}}" />
+	<SolidColorBrush
+		Color="#FFABBAD0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarBorder}}" />
+	<SolidColorBrush
+		Color="#FFBB5503"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarTodayDateBorder}}" />
+	<SolidColorBrush
+		Color="#FFB3B3B3"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarTrailingDayForeground}}" />
+	<SolidColorBrush
+		Color="#FF6E6D8F"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarDayNameBorder}}" />
+	<SolidColorBrush
+		Color="#FFCBDAEC"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarNavigationBackground}}" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarNavigationForeground}}" />
+	<SolidColorBrush
+		Color="#FFE5E5E5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarWeekBackground}}" />
+	<SolidColorBrush
+		Color="#FFE5E5E5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MonthCalendarDayDisabledForeground}}" />
+	<SolidColorBrush
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabNavigationBackground}}" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabNavigationForeground}}" />
+	<SolidColorBrush
+		Color="#FFABBAD0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabNavigationBorder}}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabNavigationTitleForeground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabNavigationTitleBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFF5FAFF"
+				Offset="0" />
+			<GradientStop
+				Color="#FFD8E4F2"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFDEECFC"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderPanelBackground}}" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderControlForeground}}" />
+	<SolidColorBrush
+		Color="#FFABBAD0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderControlBorder}}" />
+	<SolidColorBrush
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderControlBackground}}" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderItemForeground}}" />
+	<SolidColorBrush
+		Color="#FFABBAD0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderItemBorder}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderItemBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFDEECFC"
+				Offset="0" />
+			<GradientStop
+				Color="#FFD8E4F2"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFFFFFFF"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderItemSelectedBackground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderItemSelectedMouseOverBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFFBD69"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFFAC43"
+				Offset="0.4" />
+			<GradientStop
+				Color="#FFFB8C3C"
+				Offset="0.4" />
+			<GradientStop
+				Color="#FFFED264"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.TabHeaderItemMouseOverBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFFFEE4"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFFE9A8"
+				Offset="0.4" />
+			<GradientStop
+				Color="#FFFFD767"
+				Offset="0.4" />
+			<GradientStop
+				Color="#FFFFE69E"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorSwatchBorder}}" />
+	<DrawingBrush
+		Viewport="0,0,.5,.5"
+		TileMode="Tile"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorSwatchBackground}}">
+		<DrawingBrush.Drawing>
+			<GeometryDrawing
+				Brush="#FFD3D3D3">
+				<GeometryDrawing.Geometry>
+					<GeometryGroup>
+						<RectangleGeometry
+							Rect="3,0,3,3" />
+						<RectangleGeometry
+							Rect="0,3,3,3" />
+					</GeometryGroup>
+				</GeometryDrawing.Geometry>
+			</GeometryDrawing>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<SolidColorBrush
+		Color="#FFECE9D8"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemNormalBorder}}" />
+	<SolidColorBrush
+		Color="#FFF29436"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemHoverBorder}}" />
+	<SolidColorBrush
+		Color="#FFFFE294"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemHoverInnerBorder}}" />
+	<SolidColorBrush
+		Color="#FF868686"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemMenuBorder}}" />
+	<SolidColorBrush
+		Color="#FFFAFAFA"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemMenuBackground}}" />
+	<SolidColorBrush
+		Color="#FFEFEFEF"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemMenuSideBackground}}" />
+	<SolidColorBrush
+		Color="#FFC5C5C5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemMenuSideLineDark}}" />
+	<SolidColorBrush
+		Color="#FFF5F5F5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.ColorItemMenuSideLineLight}}" />
+	<SolidColorBrush
+		Color="#FFF0F2F5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuHeaderLabelBackground}}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuHeaderLabelForeground}}" />
+	<SolidColorBrush
+		Color="#FFA7ABB0"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuHeaderLabelBorder}}" />
+	<SolidColorBrush
+		Color="#FFC5C5C5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuSeparatorBorder}}" />
+	<SolidColorBrush
+		Color="#FFF5F5F5"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuSeparatorBackground}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuItemHoverBackground}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFCEDB2"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFCE286"
+				Offset=".5" />
+			<GradientStop
+				Color="#FFFCE590"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuItemHoverBorder}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFF0C957"
+				Offset="0" />
+			<GradientStop
+				Color="#FFF6D74A"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuItemHoverBorderInner}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFFDF9E8"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFDFCF3"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.MenuItemForeground}}" />
+	<SolidColorBrush
+		Color="#FFA9B1B8"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.RibbonEditBorder}}" />
+	<SolidColorBrush
+		Color="#FFE8EAEC"
+		x:Key="{ComponentResourceKey {x:Type dc:EditColors}, {x:Static dc:EditColors.RibbonEditBackground}}" />
+	<SolidColorBrush
+		Color="#FFBBCEE6"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabControl}, Office2007Background}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalBackground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalBorder}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalForeground}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFD6DFEA"
+				Offset="0" />
+			<GradientStop
+				Color="#FFC8D7E9"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFB1B5BA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF4F6FA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007NormalMouseOverForeground}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedForeground}" />
+	<SolidColorBrush
+		Color="#FFEFF6FD"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedContentBackground}" />
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedContentBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedContentInnerBorder}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007SelectedMouseOverForeground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalBackground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalBorder}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalForeground}" />
+	<LinearGradientBrush
+		StartPoint="0,1"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFD6DFEA"
+				Offset="0" />
+			<GradientStop
+				Color="#FFC8D7E9"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFB1B5BA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF4F6FA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomNormalMouseOverForeground}" />
+	<LinearGradientBrush
+		StartPoint="0,1"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedForeground}" />
+	<SolidColorBrush
+		Color="#FFEFF6FD"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedContentBackground}" />
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedContentBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedContentInnerBorder}" />
+	<LinearGradientBrush
+		StartPoint="0,1"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007BottomSelectedMouseOverForeground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalBackground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalBorder}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalForeground}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFD6DFEA"
+				Offset="0" />
+			<GradientStop
+				Color="#FFC8D7E9"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFB1B5BA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF4F6FA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftNormalMouseOverForeground}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedForeground}" />
+	<SolidColorBrush
+		Color="#FFEFF6FD"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedContentBackground}" />
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedContentBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedContentInnerBorder}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007LeftSelectedMouseOverForeground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalBackground}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalBorder}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalForeground}" />
+	<LinearGradientBrush
+		StartPoint="1,0"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFD6DFEA"
+				Offset="0" />
+			<GradientStop
+				Color="#FFC8D7E9"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FFB1B5BA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF4F6FA"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightNormalMouseOverForeground}" />
+	<LinearGradientBrush
+		StartPoint="1,0"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedForeground}" />
+	<SolidColorBrush
+		Color="#FFEFF6FD"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedContentBackground}" />
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedContentBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedContentInnerBorder}" />
+	<LinearGradientBrush
+		StartPoint="1,0"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedMouseOverBackground}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#FFB8C9DB"
+				Offset="0" />
+			<GradientStop
+				Color="#FFEFF6FD"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#FF9FB2C7"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedMouseOverBorder}" />
+	<SolidColorBrush
+		Color="#FFF5FAFF"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedMouseOverBorderInner}" />
+	<SolidColorBrush
+		Color="#FF1E395B"
+		x:Key="{ComponentResourceKey {x:Type dc:SuperTabItem}, Office2007RightSelectedMouseOverForeground}" />
+</ResourceDictionary>

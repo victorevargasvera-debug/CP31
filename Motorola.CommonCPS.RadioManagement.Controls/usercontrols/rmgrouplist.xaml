@@ -1,0 +1,48 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMGroupList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 2-->
+		<local:RMToggleButton
+			Name="MyDevices"
+			MouseRightButtonDown="ContextMenuOpeningOnMyDevicesButton"
+			Checked="MyDevice_OnChecked"
+			Unchecked="MyDevice_OnUnchecked"
+			Content="{x:Static resourceRepository:Resources.RMC_Group_All}"
+			HorizontalAlignment="Stretch"
+			AutomationProperties.AutomationId="MyDevices" />
+		<!--Unknown connection ID: 3-->
+		<local:RMDataTree
+			Name="GroupTree"
+			NodeExitingEditMode="GroupTree_EditModeEnding"
+			MouseRightButtonDown="GroupTree_ContextMenuOpening"
+			ActiveNodeChanged="GroupTree_SelectedGroupChanged"
+			Loaded="GroupTree_OnLoaded"
+			GotKeyboardFocus="GroupTree_OnGotKeyboardFocus"
+			KeyDown="GroupTree_OnKeyDown"
+			NodeDragDrop="GroupTree_OnNodeDragDrop"
+			NodeExpansionChanged="GroupTree_OnNodeExpansionChanged"
+			NodeDragEnd="GroupTree_OnNodeDragEnd"
+			Grid.Row="1"
+			ig:NodeLineVisibility="Visible"
+			ig:ItemsSource="{Binding Path=Groups, RelativeSource={RelativeSource AncestorType={x:Type local:RMGroupList}}}"
+			ig:IsDraggable="{Binding Path=AllowDragAndDrop, RelativeSource={RelativeSource AncestorType={x:Type local:RMGroupList}}}"
+			ig:IsDropTarget="{Binding Path=AllowDragAndDrop, RelativeSource={RelativeSource AncestorType={x:Type local:RMGroupList}}}">
+			<ig:XamDataTree.EditingSettings>
+				<ig:TreeEditingSettings
+					IsMouseActionEditingEnabled="DoubleClick"
+					IsF2EditingEnabled="True" />
+			</ig:XamDataTree.EditingSettings>
+			<ig:XamDataTree.GlobalNodeLayouts>
+				<ig:NodeLayout
+					Key="Group"
+					TargetTypeName="Group"
+					DisplayMemberPath="Name" />
+			</ig:XamDataTree.GlobalNodeLayouts>
+		</local:RMDataTree>
+	</Grid>
+</UserControl>

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA630}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcpBusinessLayer</RootNamespace>
+    <AssemblyName>AcpBusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcpConstraints.cs" />
+    <Compile Include="AcpCustomRangeField.cs" />
+    <Compile Include="AcpDocInfo.cs" />
+    <Compile Include="AcpDocument.cs" />
+    <Compile Include="AcpField.cs" />
+    <Compile Include="AcpFieldBase.cs" />
+    <Compile Include="AcpFieldX.cs" />
+    <Compile Include="AcpFrequencyField.cs" />
+    <Compile Include="AcpIPAddressField.cs" />
+    <Compile Include="AcpKeyField.cs" />
+    <Compile Include="AcpListField.cs" />
+    <Compile Include="AcpNumericKeyField.cs" />
+    <Compile Include="AcpPointerField.cs" />
+    <Compile Include="AcpRangeField.cs" />
+    <Compile Include="AcpRecRefField.cs" />
+    <Compile Include="AcpRecRefItem.cs" />
+    <Compile Include="AcpRecRefSlaveItem.cs" />
+    <Compile Include="AcpSimpleRangeField.cs" />
+    <Compile Include="AcpSparseLOVField.cs" />
+    <Compile Include="AcpStringField.cs" />
+    <Compile Include="AcpVoiceFileField.cs" />
+    <Compile Include="AcpVoiceFileStruct.cs" />
+    <Compile Include="AddMultipleRecordsTask.cs" />
+    <Compile Include="DeleteMultipleRecordsTask.cs" />
+    <Compile Include="DifferenceCount.cs" />
+    <Compile Include="DifferenceCountChangedAction.cs" />
+    <Compile Include="DifferenceCountChangedEventArgs.cs" />
+    <Compile Include="DifferenceCountChangedEventHandler.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="FeatureNode.cs" />
+    <Compile Include="FeatureSection.cs" />
+    <Compile Include="Impl\AcpFieldImpl.cs" />
+    <Compile Include="Impl\AcpFieldImplBase.cs" />
+    <Compile Include="Impl\AcpListFieldImpl.cs" />
+    <Compile Include="Impl\AcpRangeFieldImpl.cs" />
+    <Compile Include="Impl\AcpRecRefFieldImpl.cs" />
+    <Compile Include="ListItem.cs" />
+    <Compile Include="ListItemToStringConverter.cs" />
+    <Compile Include="MemoryUtility.cs" />
+    <Compile Include="Microsoft\CodeAnalysis\EmbeddedAttribute.cs" />
+    <Compile Include="MultiRecordTaskBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recordset.cs" />
+    <Compile Include="ReferencedNodeCollection.cs" />
+    <Compile Include="SerializationInfoExtensions.cs" />
+    <Compile Include="System\Runtime\CompilerServices\NullableAttribute.cs" />
+    <Compile Include="TrunkingSystemData.cs" />
+    <Compile Include="UndoRedo\AddCurrentRecordContainerTask.cs" />
+    <Compile Include="UndoRedo\AddListItemTask.cs" />
+    <Compile Include="UndoRedo\AddMultipleCurrRecordsContainerTask.cs" />
+    <Compile Include="UndoRedo\AddRecordContainerTask.cs" />
+    <Compile Include="UndoRedo\AddRecordTask.cs" />
+    <Compile Include="UndoRedo\ChangeMaxTask.cs" />
+    <Compile Include="UndoRedo\ChangeMinTask.cs" />
+    <Compile Include="UndoRedo\ChangePermissionsTask.cs" />
+    <Compile Include="UndoRedo\DeleteRecordTask.cs" />
+    <Compile Include="UndoRedo\FieldTaskBase.cs" />
+    <Compile Include="UndoRedo\ListItemTask.cs" />
+    <Compile Include="UndoRedo\ModifyAppInfoStateTask.cs" />
+    <Compile Include="UndoRedo\ModifyDataTask.cs" />
+    <Compile Include="UndoRedo\ModifyRecRefDataTask.cs" />
+    <Compile Include="UndoRedo\ModifyUIValueTask.cs" />
+    <Compile Include="UndoRedo\MoveListItemTask.cs" />
+    <Compile Include="UndoRedo\MoveRecordTask.cs" />
+    <Compile Include="UndoRedo\RecordTaskBase.cs" />
+    <Compile Include="UndoRedo\RemoveListItemTask.cs" />
+    <Compile Include="UndoRedo\SetRefRecsetTask.cs" />
+    <Compile Include="UndoRedo\SetValueTask.cs" />
+    <Compile Include="ValueConverters\DivideBy10Converter.cs" />
+    <Compile Include="ValueConverters\DummyConverter.cs" />
+    <Compile Include="ValueConverters\FactorByConverter.cs" />
+    <Compile Include="ValueConverters\FrequencyConverter.cs" />
+    <Compile Include="ValueConverters\Int32ToStringConverter.cs" />
+    <Compile Include="ValueConverters\InvertBoolConverter.cs" />
+    <Compile Include="ValueConverters\IPAddressConverter.cs" />
+    <Compile Include="ValueConverters\StringConverter.cs" />
+    <Compile Include="ValueConverters\UInt16FactorByConverter.cs" />
+    <Compile Include="ValueConverters\UInt32FactorByConverter.cs" />
+    <Compile Include="VAUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcpASKLib\AcpASKLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA62E}</Project>
+      <Name>AcpASKLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonLib\AcpCommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA631}</Project>
+      <Name>AcpCommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpCommonResources\AcpCommonResources.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA632}</Project>
+      <Name>AcpCommonResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpFileHandlerLib\AcpFileHandlerLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA635}</Project>
+      <Name>AcpFileHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcpUtility\AcpUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63C}</Project>
+      <Name>AcpUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACPVoiceAnnouncementLib\ACPVoiceAnnouncementLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA63D}</Project>
+      <Name>ACPVoiceAnnouncementLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BinarySerializer\BinarySerializer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64C}</Project>
+      <Name>BinarySerializer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

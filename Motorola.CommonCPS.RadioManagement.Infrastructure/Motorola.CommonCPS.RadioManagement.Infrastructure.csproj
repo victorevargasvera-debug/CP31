@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.Infrastructure</RootNamespace>
+    <AssemblyName>Motorola.CommonCPS.RadioManagement.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="AutoPopulateExportedViewsBehavior.cs" />
+    <Compile Include="b.cs" />
+    <Compile Include="CachedTableViewModelBase.cs" />
+    <Compile Include="ComboBoxSelectionChanged.cs" />
+    <Compile Include="ComboBoxSelectionChangedCommandBehavior.cs" />
+    <Compile Include="ComboBoxSelectSetRequested.cs" />
+    <Compile Include="ComboBoxSelectSetRequestedCommandBehavior.cs" />
+    <Compile Include="CommandCellValueSetter.cs" />
+    <Compile Include="CommandProxies\a.cs" />
+    <Compile Include="CommandProxies\b.cs" />
+    <Compile Include="CommandProxies\c.cs" />
+    <Compile Include="CommandProxies\CompositeCommand\CompositeCommandBuilder.cs" />
+    <Compile Include="CommandProxies\CompositeCommand\CompositeCommandBuilderFactory.cs" />
+    <Compile Include="CommandProxies\CompositeCommand\ICompositeCommandBuilder.cs" />
+    <Compile Include="CommandProxies\CompositeCommand\ICompositeCommandBuilderFactory.cs" />
+    <Compile Include="CommandProxies\d.cs" />
+    <Compile Include="CommandProxy.cs" />
+    <Compile Include="ContainerViewModelBase.cs" />
+    <Compile Include="DataGridEditModeEnded.cs" />
+    <Compile Include="DataGridEditModeEndedCommandBehavior.cs" />
+    <Compile Include="DataGridEditModeEnding.cs" />
+    <Compile Include="DataGridEditModeEndingCommandBehavior.cs" />
+    <Compile Include="DataGridEditModeStarted.cs" />
+    <Compile Include="DataGridEditModeStartedCommandBehavior.cs" />
+    <Compile Include="DataGridSelectedItemsChanged.cs" />
+    <Compile Include="DataGridSelectedItemsChangedCommandBehavior.cs" />
+    <Compile Include="DetailViewModelBase.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="EditModeCheckBehavior.cs" />
+    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="FieldCheckChanged.cs" />
+    <Compile Include="FieldCheckChangedCommandBehavior.cs" />
+    <Compile Include="FieldSelectedChanged.cs" />
+    <Compile Include="FieldSelectedChangedCommandBehavior.cs" />
+    <Compile Include="GridSort.cs" />
+    <Compile Include="GridSortByColumnBehavior.cs" />
+    <Compile Include="GridSorting.cs" />
+    <Compile Include="IPAddressFieldSetter.cs" />
+    <Compile Include="IPopupWindowActionAware.cs" />
+    <Compile Include="IRegionManagerAware.cs" />
+    <Compile Include="IViewRegionRegistration.cs" />
+    <Compile Include="ListBoxSelectionChanged.cs" />
+    <Compile Include="ListBoxSelectionChangedCommandBehavior.cs" />
+    <Compile Include="MailMessageExtension.cs" />
+    <Compile Include="MailMHTMLHelper.cs" />
+    <Compile Include="MainModuleNames.cs" />
+    <Compile Include="MaskedInputEnterKeyDown.cs" />
+    <Compile Include="MaskedInputEnterKeyDownCommandBehavior.cs" />
+    <Compile Include="MenuItemClick.cs" />
+    <Compile Include="MenuItemClickCommandBehavior.cs" />
+    <Compile Include="NavigatedContainerViewModelBase.cs" />
+    <Compile Include="NavigatedTableViewModelBase.cs" />
+    <Compile Include="NavigationHelper.cs" />
+    <Compile Include="PopoupViewModelBase.cs" />
+    <Compile Include="PopupWindowAction.cs" />
+    <Compile Include="PostFillActionResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioManagementInfrastructure.cs" />
+    <Compile Include="RegionNames.cs" />
+    <Compile Include="RMTreeComboCommandBehavior.cs" />
+    <Compile Include="RMTreeItemSelected.cs" />
+    <Compile Include="ServiceProxy.cs" />
+    <Compile Include="SetPresenterEditorClosing.cs" />
+    <Compile Include="SetPresenterEditorClosingCommandBehavior.cs" />
+    <Compile Include="SetPresenterSelectSetRequested.cs" />
+    <Compile Include="SetPresenterSelectSetRequestedCommandBehavior.cs" />
+    <Compile Include="TableViewModelBase.cs" />
+    <Compile Include="TemplateGridEditModeEnding.cs" />
+    <Compile Include="TemplateGridEditModeEndingCommandBehavior.cs" />
+    <Compile Include="TreeNodeClick.cs" />
+    <Compile Include="TreeNodeClickCommandBehavior.cs" />
+    <Compile Include="Utility\DataGridOperation.cs" />
+    <Compile Include="ViewExportAttribute.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewNames.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="reports.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CellRangeFill\CellRangeFill.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA651}</Project>
+      <Name>CellRangeFill</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBase\CommonBase.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA664}</Project>
+      <Name>CommonBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityModel\EntityModel.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA674}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionService\ExceptionService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA675}</Project>
+      <Name>ExceptionService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Editors.XamMaskedInput.v15.1\InfragisticsWPF4.Controls.Editors.XamMaskedInput.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA682}</Project>
+      <Name>InfragisticsWPF4.Controls.Editors.XamMaskedInput.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1\InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA684}</Project>
+      <Name>InfragisticsWPF4.Controls.Menus.XamDataTree.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Controls.Menus.XamMenu.v15.1\InfragisticsWPF4.Controls.Menus.XamMenu.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA685}</Project>
+      <Name>InfragisticsWPF4.Controls.Menus.XamMenu.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.DataPresenter.v15.1\InfragisticsWPF4.DataPresenter.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA688}</Project>
+      <Name>InfragisticsWPF4.DataPresenter.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Editors.v15.1\InfragisticsWPF4.Editors.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68E}</Project>
+      <Name>InfragisticsWPF4.Editors.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.Reporting.v15.1\InfragisticsWPF4.Reporting.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68F}</Project>
+      <Name>InfragisticsWPF4.Reporting.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfragisticsWPF4.v15.1\InfragisticsWPF4.v15.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA691}</Project>
+      <Name>InfragisticsWPF4.v15.1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism.Interactivity\Microsoft.Practices.Prism.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69B}</Project>
+      <Name>Microsoft.Practices.Prism.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Prism\Microsoft.Practices.Prism.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69A}</Project>
+      <Name>Microsoft.Practices.Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.ServiceLocation\Microsoft.Practices.ServiceLocation.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA69D}</Project>
+      <Name>Microsoft.Practices.ServiceLocation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.Common.LogUtility\Motorola.Common.LogUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A3}</Project>
+      <Name>Motorola.Common.LogUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.CommandHandler\Motorola.CommonCPS.RadioManagement.CommandHandler.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6A8}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Controls\Motorola.CommonCPS.RadioManagement.Controls.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AB}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Events\Motorola.CommonCPS.RadioManagement.Events.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6AF}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.Global\Motorola.CommonCPS.RadioManagement.Global.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B1}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.InteractionHelper\Motorola.CommonCPS.RadioManagement.InteractionHelper.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B4}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.InteractionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.LocalService\Motorola.CommonCPS.RadioManagement.LocalService.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6B7}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.LocalService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.RadioManagement.UIModels\Motorola.CommonCPS.RadioManagement.UIModels.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C0}</Project>
+      <Name>Motorola.CommonCPS.RadioManagement.UIModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Interactivity\System.Windows.Interactivity.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E2}</Project>
+      <Name>System.Windows.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewCache\ViewCache.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6E5}</Project>
+      <Name>ViewCache</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

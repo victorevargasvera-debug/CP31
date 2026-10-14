@@ -1,0 +1,392 @@
+<local:RMCellPresentableFieldEditor
+	x:Class="Motorola.CommonCPS.RadioManagement.Controls.RMEmbeddedSetFieldEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDp="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls.Converters" xmlns:converters1="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="N"
+			Modifiers="Control"
+			Command="{Binding Path=SetPresenter.AddEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+			CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+		<KeyBinding
+			Gesture="Delete"
+			Command="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+			CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+		<KeyBinding
+			Key="E"
+			Modifiers="Control"
+			Command="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+			CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+	</UIElement.InputBindings>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Themes/Generic.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<local:EmbeddedSetCategorImportToVisibilityConverter
+				x:Key="EmbeddedSetCategorImportToVisibilityConverter" />
+			<converters:MultiBindingToSetExportArgsConverter
+				x:Key="MultiBindingToSetExportArgsConverter" />
+			<converters:MultiBindingToSetImportArgsConverter
+				x:Key="MultiBindingToSetImportArgsConverter" />
+			<converters:EmbeddedSetCategoryNameToImportExportButtonVisibility
+				x:Key="EmbeddedSetCategoryNameToImportExportButtonVisibility" />
+			<converters1:HideInCpsModeConverter
+				x:Key="HideInCpsModeConverter" />
+			<local:EmbeddedSetCategorImportXMLToVisibilityConverter
+				x:Key="EmbeddedSetCategorImportXMLToVisibilityConverter" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.AddEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="AddEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="EmbeddedSetCategoryProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="EditEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="DeleteEmbeddedSetProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.FillDownCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="FillDownProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=FillDownSourceFields, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="FillDownSourceFieldsProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareCopyEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="PrepareAddCopiesProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareShowEmbeddedSetRelatedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="PrepareShowRelatedSetsProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareImportEmbeddedSetFromAPKCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="PrepareImportEmbeddedSetFromAPKProxy" />
+			<local:BindingProxy
+				Data="{Binding Path=SetPresenter.PrepareImportEmbeddedSetFromXMLCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+				x:Key="PrepareImportEmbeddedSetFromXMLProxy" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="10" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--Unknown connection ID: 1-->
+		<local:RMTextBlock
+			Name="tblLabel"
+			Style="{StaticResource FieldEditorTextBlockStyle}"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Left"
+			Text="{Binding Label, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}" />
+		<!--Unknown connection ID: 2-->
+		<Border
+			Name="borderInvalid"
+			Grid.Row="2"
+			BorderThickness="1"
+			Style="{StaticResource InvalidBorderStyle}"
+			Margin="0,0,0,10">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<!--Unknown connection ID: 3-->
+				<StackPanel
+					Name="ToolBarStackPanel"
+					Orientation="Horizontal"
+					Grid.Row="0"
+					Margin="0,0,0,10">
+					<!--Unknown connection ID: 4-->
+					<Button
+						Name="btnEdit"
+						Margin="0,0,2,0"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconEdit}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Edit}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.EditEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+						CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+					<!--Unknown connection ID: 5-->
+					<Button
+						Name="btnAdd"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconAdd}"
+						Margin="0,0,2,0"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Add}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.AddEmbeddedSetCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+						CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+					<!--Unknown connection ID: 6-->
+					<Button
+						Name="btnDelete"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconDelete}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Delete}"
+						Padding="0"
+						Margin="0,0,2,0"
+						Command="{Binding Path=SetPresenter.DeleteEmbeddedSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+						CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+					<!--Unknown connection ID: 7-->
+					<Button
+						Name="btnAdditional"
+						Style="{StaticResource DataGridButtonMoreStyle}"
+						Content="{StaticResource IconMore}"
+						Padding="0"
+						ContextMenuService.IsEnabled="False"
+						Margin="0,0,2,0">
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<local:BindingProxy
+									Data="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+									x:Key="buttonProxy" />
+								<local:BindingProxy
+									Data="{Binding Path=SetPresenter.AddMultipleSetsCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+									x:Key="AddMultipleSetsCommandProxy" />
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+						<FrameworkElement.ContextMenu>
+							<!--Unknown connection ID: 8-->
+							<ContextMenu
+								Name="ctmExtended"
+								Placement="Bottom"
+								PlacementTarget="{Binding Data, Source={StaticResource buttonProxy}}">
+								<!--Unknown connection ID: 9-->
+								<MenuItem
+									Name="mniAddSet"
+									Header="{x:Static resourceRepository:Resources.RMC_Title_AddSet}"
+									Command="{Binding Data, Source={StaticResource AddEmbeddedSetProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}" />
+								<!--Unknown connection ID: 10-->
+								<MenuItem
+									Name="mniAddMultipleSets"
+									Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_AddMultipleSets}"
+									Command="{Binding Data, Source={StaticResource AddMultipleSetsCommandProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}" />
+								<!--Unknown connection ID: 11-->
+								<MenuItem
+									Name="mniAddSetCopies"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_AddCopies}"
+									Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}" />
+								<!--Unknown connection ID: 12-->
+								<MenuItem
+									Name="mniImportFromAPK"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_ImportFromApk}"
+									Command="{Binding Data, Source={StaticResource PrepareImportEmbeddedSetFromAPKProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}"
+									Visibility="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}, Converter={StaticResource EmbeddedSetCategorImportToVisibilityConverter}}" />
+								<!--Unknown connection ID: 13-->
+								<MenuItem
+									Name="mniImportFromXML"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_ImportFromXml}"
+									Command="{Binding Data, Source={StaticResource PrepareImportEmbeddedSetFromXMLProxy}}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}"
+									Visibility="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}, Converter={StaticResource EmbeddedSetCategorImportXMLToVisibilityConverter}}" />
+							</ContextMenu>
+						</FrameworkElement.ContextMenu>
+					</Button>
+					<!--Unknown connection ID: 14-->
+					<Button
+						Name="btnUp"
+						Margin="0,0,2,0"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconUp}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_MoveUp}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.MoveEmbeddedSetUpCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+						CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+					<!--Unknown connection ID: 15-->
+					<Button
+						Name="btnDown"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconDown}"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_MoveDown}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.MoveEmbeddedSetDownCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+						CommandParameter="{Binding Path=EmbeddedSetCategory, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}" />
+					<!--Unknown connection ID: 16-->
+					<Button
+						Name="btnGridToFile"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconGridToFile}"
+						Margin="0,0,2,0"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Export}"
+						Padding="0"
+						Width="32"
+						Visibility="{Binding Path=EmbeddedSetCategory.Name, Converter={StaticResource EmbeddedSetCategoryNameToImportExportButtonVisibility}, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}"
+						Command="{Binding Path=SetPresenter.GridToFileEmbeddedCommand, Delay=1000, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}">
+						<ButtonBase.CommandParameter>
+							<MultiBinding
+								Converter="{StaticResource MultiBindingToSetExportArgsConverter}">
+								<Binding
+									Path="EmbeddedSetCategory"
+									RelativeSource="{RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}" />
+								<Binding
+									Path="GetFieldsInCorrectOrder"
+									Mode="OneWay"
+									RelativeSource="{RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}" />
+								<Binding
+									Path="TranslatedColumnName"
+									Mode="OneWay"
+									RelativeSource="{RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}" />
+							</MultiBinding>
+						</ButtonBase.CommandParameter>
+					</Button>
+					<!--Unknown connection ID: 17-->
+					<Button
+						Name="btnFileToGrid"
+						Visibility="Collapsed"
+						Style="{StaticResource DataGridButtonStyle}"
+						Content="{StaticResource IconFileToGrid}"
+						Margin="0,0,2,0"
+						ToolTip="{x:Static resourceRepository:Resources.RMC_ToolTip_Grid_Import}"
+						Padding="0"
+						Command="{Binding Path=SetPresenter.FileToGridEmbeddedCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}">
+						<ButtonBase.CommandParameter>
+							<MultiBinding
+								Converter="{StaticResource MultiBindingToSetImportArgsConverter}">
+								<Binding
+									Path="EmbeddedSetCategory"
+									RelativeSource="{RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}" />
+								<Binding
+									Path="GetFieldsInCorrectOrder"
+									Mode="OneWay"
+									RelativeSource="{RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}" />
+							</MultiBinding>
+						</ButtonBase.CommandParameter>
+					</Button>
+				</StackPanel>
+				<!--Unknown connection ID: 18-->
+				<local:RMDataGrid
+					Name="dgrSets"
+					InitializeRecord="dgrSets_InitializeRecord"
+					Grid.Row="1"
+					igDp:GroupByAreaLocation="None"
+					ToolbarVisibility="Collapsed"
+					MinHeight="200"
+					BorderBrush="{StaticResource BrushGray}"
+					BorderThickness="1"
+					IsBindingViewCache="False"
+					CustomizedTotalCount="{Binding SetCategory.UITotalNum}"
+					igDp:DataSource="{Binding SetCategory.Sets, UpdateSourceTrigger=PropertyChanged}"
+					MaxHeight="{Binding SetsDataGridMaxHeight, RelativeSource={RelativeSource AncestorType={x:Type local:RMFieldEditor}}}"
+					EditCommand="{Binding Path=EditCommand, RelativeSource={RelativeSource AncestorType={x:Type local:RMEmbeddedSetFieldEditor}}}">
+					<FrameworkElement.ContextMenu>
+						<!--Unknown connection ID: 19-->
+						<ContextMenu
+							Name="ctmSets">
+							<ItemsControl.Items>
+								<!--Unknown connection ID: 20-->
+								<MenuItem
+									Name="mniEdit"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_EditSet}"
+									Command="{Binding Data, Source={StaticResource EditEmbeddedSetProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}" />
+								<!--Unknown connection ID: 21-->
+								<MenuItem
+									Name="mniDelete"
+									Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_Delete}"
+									InputGestureText="{x:Static resourceRepository:Resources.Gesture_Delete}"
+									Command="{Binding Data, Source={StaticResource DeleteEmbeddedSetProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}" />
+								<!--Unknown connection ID: 22-->
+								<MenuItem
+									Name="mniAddCopies"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_AddCopies}"
+									Command="{Binding Data, Source={StaticResource PrepareAddCopiesProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}" />
+								<!--Unknown connection ID: 23-->
+								<MenuItem
+									Name="mniFillDown"
+									Header="{x:Static resourceRepository:Resources.RMC_ContextMenu_FillDown}"
+									Command="{Binding Data, Source={StaticResource FillDownProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource FillDownSourceFieldsProxy}}" />
+								<Separator
+									Visibility="{Binding Converter={StaticResource HideInCpsModeConverter}}" />
+								<!--Unknown connection ID: 24-->
+								<MenuItem
+									Name="mniShowRelatedSets"
+									Header="{x:Static resourceRepository:Resources.RMC_Action_ShowRelatedSets}"
+									Command="{Binding Data, Source={StaticResource PrepareShowRelatedSetsProxy}, IsAsync=True}"
+									CommandParameter="{Binding Data, Source={StaticResource EmbeddedSetCategoryProxy}}"
+									Visibility="{Binding Converter={StaticResource HideInCpsModeConverter}}" />
+							</ItemsControl.Items>
+						</ContextMenu>
+					</FrameworkElement.ContextMenu>
+					<igDp:DataPresenterBase.SuppressedEvents>
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igEditors:ValueEditor.TextChanged" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igEditors:ValueEditor.ValueChanged" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.AssigningFieldLayoutToItem" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.CellActivating" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.CellActivated" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.CellDeactivating" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.DataValueChanged" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.ExecutingCommand" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.ExecutedCommand" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.InitializeCellValuePresenter" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.RecordActivating" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.RecordActivated" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.RecordDeactivating" />
+						<igDp:RoutedEventWrapper
+							RoutedEvent="igDp:DataPresenterBase.RecordsInViewChanged" />
+					</igDp:DataPresenterBase.SuppressedEvents>
+					<igDp:DataPresenterBase.FieldLayoutSettings>
+						<igDp:FieldLayoutSettings
+							HighlightAlternateRecords="True"
+							AllowClipboardOperations="Copy"
+							AllowDelete="False"
+							AllowFieldMoving="WithinLogicalRow"
+							AutoGenerateFields="False"
+							CopyFieldLabelsToClipboard="False"
+							DataErrorDisplayMode="ErrorIconAndHighlight"
+							SupportDataErrorInfo="CellsOnly" />
+					</igDp:DataPresenterBase.FieldLayoutSettings>
+					<igDp:DataPresenterBase.FieldSettings>
+						<igDp:FieldSettings
+							CellClickAction="EnterEditModeIfAllowed"
+							AutoSizeOptions="All"
+							Width="Auto"
+							CellHeight="26"
+							CellMinWidth="100"
+							LabelTextWrapping="Wrap"
+							AllowCellVirtualization="True" />
+					</igDp:DataPresenterBase.FieldSettings>
+					<igDp:DataPresenterBase.FieldLayouts>
+						<igDp:FieldLayout />
+					</igDp:DataPresenterBase.FieldLayouts>
+				</local:RMDataGrid>
+			</Grid>
+		</Border>
+		<!--Unknown connection ID: 25-->
+		<local:RMWaitingIndicator
+			Name="roundProgressCtrl"
+			Grid.RowSpan="3"
+			Grid.Column="0"
+			Visibility="Collapsed"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch"
+			Margin="0"
+			ProgressBrush="#FF808080"
+			PercentVisibility="Hidden" />
+	</Grid>
+</local:RMCellPresentableFieldEditor>

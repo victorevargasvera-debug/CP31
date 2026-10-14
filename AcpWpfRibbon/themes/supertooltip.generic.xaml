@@ -1,0 +1,149 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:DevCo="clr-namespace:DevComponents.WpfRibbon" xmlns:WinTheme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:dcc="clr-namespace:DevComponents.WpfRibbon.Converters">
+	<dcc:BoolToVisibilityConverter
+		x:Key="BoolToVisibilityConverter" />
+	<Style
+		TargetType="{x:Type DevCo:SuperToolTip}"
+		x:Key="{x:Type DevCo:SuperToolTip}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.ToolTipBackground}}}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.ToolTipBorder}}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.ToolTipForeground}}}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="true" />
+		<Setter
+			Property="ToolTip.HasDropShadow"
+			Value="true" />
+		<Setter
+			Property="Padding"
+			Value="4,1,4,4" />
+		<Setter
+			Property="FontSize"
+			Value="11" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type DevCo:SuperToolTip}">
+					<WinTheme:SystemDropShadowChrome
+						Name="Shdw"
+						Color="Transparent"
+						SnapsToDevicePixels="true"
+						CornerRadius="2">
+						<Border
+							Name="PART_TooltipBorder"
+							Background="{TemplateBinding Background}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Padding="{TemplateBinding Padding}"
+							CornerRadius="2">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition
+										Height="*" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<ContentPresenter
+									Name="ContentHeader"
+									Grid.Row="0"
+									Grid.Column="0"
+									Margin="0.5,0,0,8"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top"
+									Content="{TemplateBinding DevCo:Header}"
+									TextBlock.FontWeight="Bold"
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+									Visibility="{TemplateBinding DevCo:SuperToolTip.HasHeader, Converter={StaticResource BoolToVisibilityConverter}}" />
+								<ContentPresenter
+									Name="ContentBody"
+									Grid.Row="1"
+									Grid.Column="0"
+									Margin="0,0,0,0"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								<StackPanel
+									Grid.Row="2"
+									Grid.Column="0"
+									Margin="0,4,0,0"
+									Visibility="{TemplateBinding DevCo:SuperToolTip.HasFooter, Converter={StaticResource BoolToVisibilityConverter}}">
+									<Separator
+										Padding="0"
+										Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.ToolTipSeparatorBackground}}}"
+										BorderBrush="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=DevCo:Ribbon, ResourceId={x:Static DevCo:RibbonColors.ToolTipSeparatorBorder}}}" />
+									<StackPanel
+										VerticalAlignment="Center"
+										Orientation="Horizontal">
+										<ContentPresenter
+											Name="ContentFooterImage"
+											Margin="0,0,3,0"
+											VerticalAlignment="Center"
+											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+											Content="{TemplateBinding DevCo:FooterImage}" />
+										<ContentPresenter
+											Name="ContentFooter"
+											HorizontalAlignment="Left"
+											VerticalAlignment="Top"
+											Content="{TemplateBinding DevCo:Footer}"
+											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									</StackPanel>
+								</StackPanel>
+							</Grid>
+						</Border>
+					</WinTheme:SystemDropShadowChrome>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ToolTip.HasDropShadow"
+							Value="true">
+							<Setter
+								TargetName="Shdw"
+								Property="Margin"
+								Value="0,0,5,5" />
+							<Setter
+								TargetName="Shdw"
+								Property="WinTheme:SystemDropShadowChrome.Color">
+								<Setter.Value>
+									<Color>#71000000</Color>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger
+							Property="DevCo:SuperToolTip.HasHeader"
+							Value="True">
+							<Setter
+								TargetName="ContentBody"
+								Property="Margin"
+								Value="10,0,0,0" />
+						</Trigger>
+						<Trigger
+							Property="DevCo:SuperToolTip.FooterImage"
+							Value="{x:Null}">
+							<Setter
+								TargetName="ContentFooterImage"
+								Property="Visibility"
+								Value="Hidden" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

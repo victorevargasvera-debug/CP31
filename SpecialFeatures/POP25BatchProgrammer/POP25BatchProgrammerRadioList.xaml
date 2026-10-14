@@ -1,0 +1,352 @@
+<Window
+	x:Class="SpecialFeatures.POP25BatchProgrammer.POP25BatchProgrammerRadioList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:SpecialFeatures.POP25BatchProgrammer" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:SPFProgrammungUI="clr-namespace:SpecialFeatures.Programming.UI;assembly="
+	Name="This"
+	Title="{x:Static CommonResxNS:AppResources.POP25_Batch_Programming_Radio_List}"
+	Height="580"
+	Width="520"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaPopupDialogueBackground}}}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<SolidColorBrush
+				Color="#FF4F81BD"
+				x:Key="DataGrid_Style0_Header" />
+			<local:ValidityToForegroundConverter
+				x:Key="ValidityToForegroundConverter" />
+			<RoutedCommand
+				x:Key="F1Help" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.CommandBindings>
+		<!--Unknown connection ID: 2-->
+		<CommandBinding
+			Command="{StaticResource F1Help}" />
+	</UIElement.CommandBindings>
+	<UIElement.InputBindings>
+		<KeyBinding
+			Command="{StaticResource F1Help}"
+			Key="F1" />
+	</UIElement.InputBindings>
+	<ScrollViewer
+		VerticalScrollBarVisibility="Auto"
+		HorizontalScrollBarVisibility="Auto">
+		<DockPanel
+			Width="500"
+			Height="540">
+			<Grid
+				Height="520"
+				Width="480"
+				DockPanel.Dock="Bottom">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="260" />
+					<ColumnDefinition
+						Width="100" />
+					<ColumnDefinition
+						Width="150" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="40" />
+				</Grid.RowDefinitions>
+				<!--Unknown connection ID: 3-->
+				<Label
+					Name="lbSchedulerList"
+					Grid.Row="0"
+					Grid.Column="0"
+					Content="{x:Static CommonResxNS:AppResources.Radio_List_File_Path}"
+					FontSize="12"
+					Height="28"
+					HorizontalAlignment="Left"
+					Margin="6,10,0,0"
+					VerticalAlignment="Top"
+					Width="300" />
+				<!--Unknown connection ID: 4-->
+				<TextBox
+					Name="txtboxRadioListFilePath"
+					Grid.Row="0"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					Height="40"
+					HorizontalAlignment="Left"
+					Margin="5,30,0,0"
+					VerticalAlignment="Top"
+					Width="330"
+					HorizontalScrollBarVisibility="Visible"
+					Grid.RowSpan="2" />
+				<!--Unknown connection ID: 5-->
+				<Button
+					Name="btnRadioListFilePathBrowse"
+					Grid.Row="1"
+					Grid.Column="2"
+					Content="{x:Static CommonResxNS:AppResources.Browse_Suspension}"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="-6,2,0,0"
+					VerticalAlignment="Top"
+					Width="125"
+					ToolTip="{x:Static CommonResxNS:AppResources.Browse_To_The_Directory_Containing_The_Radio_List_Files}" />
+				<!--Unknown connection ID: 6-->
+				<Label
+					Name="lbRadioList"
+					Grid.Row="2"
+					Content="{x:Static CommonResxNS:AppResources.Radio_List}"
+					FontSize="12"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="6,0,0,0"
+					VerticalAlignment="Top"
+					Width="220" />
+				<!--Unknown connection ID: 7-->
+				<Label
+					Name="label1"
+					Content="{x:Static CommonResxNS:AppResources.Note_Double_Click_On_Cell_AddEdit_Radio_Information}"
+					FontSize="10"
+					Grid.Row="2"
+					Height="25"
+					HorizontalAlignment="Left"
+					Margin="6,18,0,0"
+					VerticalAlignment="Top"
+					Width="440"
+					Grid.ColumnSpan="3" />
+				<!--Unknown connection ID: 8-->
+				<DataGrid
+					Name="dgRadioList"
+					BorderThickness="3"
+					AlternatingRowBackground="#FFF0F8FF"
+					AlternationCount="2"
+					CanUserAddRows="True"
+					CanUserDeleteRows="True"
+					VerticalScrollBarVisibility="Visible"
+					CanUserSortColumns="False"
+					ColumnHeaderHeight="18"
+					Grid.Row="3"
+					Grid.ColumnSpan="2"
+					Grid.RowSpan="9"
+					AutoGenerateColumns="False"
+					Height="350"
+					RowHeight="18"
+					HorizontalAlignment="Left"
+					Margin="6,2,0,0"
+					VerticalAlignment="Top"
+					Width="330"
+					SelectionMode="Extended"
+					ItemsSource="{Binding Path=DataSource}"
+					Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}">
+					<DataGrid.RowStyle>
+						<Style
+							TargetType="{x:Type DataGridRow}">
+							<Setter
+								Property="DataGridRow.ValidationErrorTemplate">
+								<Setter.Value>
+									<ControlTemplate>
+										<Image
+											Source="/SpecialFeatures;component/CBI/error.ico"
+											Margin="0"
+											Width="11"
+											Height="11"
+											ToolTip="{Binding Path=(Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}}" />
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</DataGrid.RowStyle>
+					<DataGrid.CellStyle>
+						<Style
+							TargetType="{x:Type DataGridCell}">
+							<Style.Triggers>
+								<Trigger
+									Property="DataGridCell.IsSelected"
+									Value="True">
+									<Setter
+										Property="Background"
+										Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameContentAreaBackground}}}" />
+									<Setter
+										Property="Foreground"
+										Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=Frame, ResourceId={x:Static AcpUINS:AcpColorKeys.FrameForegroundSpecialWindow}}}" />
+								</Trigger>
+							</Style.Triggers>
+							<Setter
+								Property="HorizontalContentAlignment"
+								Value="Center" />
+						</Style>
+					</DataGrid.CellStyle>
+					<DataGrid.RowHeaderStyle>
+						<Style
+							TargetType="{x:Type DataGridRowHeader}">
+							<Setter
+								Property="Width"
+								Value="12" />
+							<Setter
+								Property="Background"
+								Value="#FF000000" />
+						</Style>
+					</DataGrid.RowHeaderStyle>
+					<DataGrid.Columns>
+						<DataGridTextColumn
+							Header="{x:Static CommonResxNS:AppResources.Space_Radio_ID}"
+							Width="140"
+							Binding="{Binding Path=Radio_ID, UpdateSourceTrigger=PropertyChanged}">
+							<DataGridColumn.HeaderStyle>
+								<Style
+									TargetType="{x:Type DataGridColumnHeader}">
+									<Setter
+										Property="Background"
+										Value="{StaticResource DataGrid_Style0_Header}" />
+									<Setter
+										Property="Foreground"
+										Value="#FFFFFFFF" />
+								</Style>
+							</DataGridColumn.HeaderStyle>
+							<DataGridBoundColumn.ElementStyle>
+								<Style
+									TargetType="{x:Type TextBlock}">
+									<Style.Triggers>
+										<DataTrigger
+											Value="false"
+											Binding="{Binding Path=Radio_ID_Valid}">
+											<Setter
+												Property="Foreground"
+												Value="#FFFF0000" />
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</DataGridBoundColumn.ElementStyle>
+						</DataGridTextColumn>
+						<DataGridTextColumn
+							Header="{x:Static CommonResxNS:AppResources.Space_Radio_IP_Address}"
+							Width="155"
+							Binding="{Binding Path=Radio_IP, UpdateSourceTrigger=PropertyChanged}">
+							<DataGridColumn.HeaderStyle>
+								<Style
+									TargetType="{x:Type DataGridColumnHeader}">
+									<Setter
+										Property="Background"
+										Value="{StaticResource DataGrid_Style0_Header}" />
+									<Setter
+										Property="Foreground"
+										Value="#FFFFFFFF" />
+								</Style>
+							</DataGridColumn.HeaderStyle>
+							<DataGridBoundColumn.ElementStyle>
+								<Style
+									TargetType="{x:Type TextBlock}">
+									<Style.Triggers>
+										<DataTrigger
+											Value="false"
+											Binding="{Binding Path=Radio_IP_Valid}">
+											<Setter
+												Property="Foreground"
+												Value="#FFFF0000" />
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</DataGridBoundColumn.ElementStyle>
+						</DataGridTextColumn>
+					</DataGrid.Columns>
+				</DataGrid>
+				<!--Unknown connection ID: 9-->
+				<Button
+					Name="btnDelete"
+					Grid.Row="4"
+					Grid.Column="2"
+					Content="{x:Static CommonResxNS:AppResources.Delete_Id}"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="-6,2,0,0"
+					VerticalAlignment="Top"
+					Width="125" />
+				<!--Unknown connection ID: 10-->
+				<Button
+					Name="btnDeleteAll"
+					Grid.Row="5"
+					Grid.Column="2"
+					Content="{x:Static CommonResxNS:AppResources.Delete_All}"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="-6,2,0,0"
+					VerticalAlignment="Top"
+					Width="125" />
+				<!--Unknown connection ID: 11-->
+				<Button
+					Name="btnSave"
+					Grid.Row="6"
+					Grid.Column="2"
+					Content="{x:Static CommonResxNS:AppResources.Save_ID}"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="-6,2,0,0"
+					VerticalAlignment="Top"
+					Width="125" />
+				<!--Unknown connection ID: 12-->
+				<Button
+					Name="btnSaveAs"
+					Grid.Row="7"
+					Grid.Column="2"
+					Content="{x:Static CommonResxNS:AppResources.Save_As_}"
+					Height="23"
+					HorizontalAlignment="Left"
+					Margin="-6,2,0,0"
+					VerticalAlignment="Top"
+					Width="125" />
+				<StackPanel
+					Grid.Row="13"
+					Grid.Column="0"
+					Grid.ColumnSpan="3">
+					<!--Unknown connection ID: 13-->
+					<Button
+						Name="btnDone"
+						Content="{x:Static CommonResxNS:AppResources.Done_Id}"
+						Height="23"
+						HorizontalAlignment="Left"
+						Margin="6,2,0,0"
+						VerticalAlignment="Top"
+						Width="125" />
+					<!--Unknown connection ID: 14-->
+					<Button
+						Name="btnCancel"
+						Content="{x:Static CommonResxNS:AppResources.Cancel_Id}"
+						Height="23"
+						HorizontalAlignment="Center"
+						Width="125"
+						Margin="7,-23,38,0"
+						VerticalAlignment="Top" />
+					<!--Unknown connection ID: 15-->
+					<Button
+						Name="btnHelp"
+						Content="{x:Static CommonResxNS:AppResources.Help_Id}"
+						Height="23"
+						HorizontalAlignment="Right"
+						Margin="0,-23,38,0"
+						VerticalAlignment="Top"
+						Width="125" />
+				</StackPanel>
+			</Grid>
+		</DockPanel>
+	</ScrollViewer>
+</Window>

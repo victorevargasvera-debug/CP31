@@ -1,0 +1,1303 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.ConventionalAliasLists.PageConventionalAliasLists" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:ConventionalAliasListsRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ConventionalAliasLists" xmlns:MessageAliasTableInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ConventionalAliasLists" xmlns:StatusAliasTableInnerNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.ConventionalAliasLists"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2007</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2007</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderConventionalAliasListsMessageAliasTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2007</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10012</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetEmbeddedNodeExpanderConventionalAliasListsStatusAliasTableTableView">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>2007</sys:Int32>
+					<sys:Int32>0</sys:Int32>
+					<sys:Int32>10014</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CnvAlsLstMessageAliasListMessageAliasNumber_A8501CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 2-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-16}"
+								Text="{Binding Path=Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasList}"
+								MyBLObject="{Binding Path=Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CnvAlsLstMessageAliasListMessageAliasText_A8502CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 3-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasList}"
+								MyBLObject="{Binding Path=Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CnvAlsLstStatusAliasListStatusAliasNumber_A9191CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<AcpUINS:AcpTableTextBoxSpinner
+								MaskTypeSpinner="{}{number:0-16}"
+								Text="{Binding Path=Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_UIValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasList}"
+								MyBLObject="{Binding Path=Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpEditable>
+								<AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTableTextBoxSpinner.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBoxSpinner>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				TargetType="{x:Type igcontrols:CellValuePresenter}"
+				BasedOn="{StaticResource MyCellValuePresenter}"
+				x:Key="CnvAlsLstStatusAliasListStatusAliasText_A9192CellStyle">
+				<Setter
+					Property="ContentTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<AcpUINS:AcpTableTextBox
+								Text="{Binding Path=Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192Value, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								MyExpander="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasList}"
+								MyBLObject="{Binding Path=Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}"
+								IsAcpValid="{Binding Path=Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Valid, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}}">
+								<AcpUINS:AcpTextBox.IsAcpEditable>
+									<MultiBinding
+										Mode="OneWay"
+										Converter="{StaticResource editabilityConverter}">
+										<Binding
+											Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+											Path="AppMode" />
+										<Binding
+											Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Editable"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										<Binding
+											Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192"
+											RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpEditable>
+								<AcpUINS:AcpTextBox.IsAcpApplicable>
+									<MultiBinding
+										Converter="{StaticResource CellVisibilityStatus}">
+										<MultiBinding.Bindings>
+											<Binding
+												Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Visible"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+											<Binding
+												Path="Record.DataItem.StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Applicable"
+												RelativeSource="{RelativeSource AncestorType={x:Type igcontrols:CellValuePresenter}}" />
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</AcpUINS:AcpTextBox.IsAcpApplicable>
+							</AcpUINS:AcpTableTextBox>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 6-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasList, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 7-->
+				<Hyperlink
+					Name="HLinkMessageAliasList"
+					Tag="ExpanderConventionalAliasListsMessageAliasList">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASLIST}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="MessageAliasList.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasList, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 8-->
+				<Hyperlink
+					Name="HLinkStatusAliasList"
+					Tag="ExpanderConventionalAliasListsStatusAliasList">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_STATUSALIASLIST}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="StatusAliasList.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderConventionalAliasListsLabtool, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 9-->
+				<Hyperlink
+					Name="HLinkLabtool"
+					Tag="ExpanderConventionalAliasListsLabtool">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_LABTOOL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="Labtool.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 10-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 11-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderConventionalAliasListsMessageAliasList"
+					Width="Auto"
+					Header="{Binding Path=MessageAliasList.UIName}"
+					ShowDiffIcon="{Binding Path=MessageAliasList.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderConventionalAliasListsMessageAliasTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderConventionalAliasListsMessageAliasTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 12-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderConventionalAliasListsMessageAliasTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/MessageAliasList.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/MessageAliasList.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 13-->
+					<Grid
+						Name="ExpanderConventionalAliasListsMessageAliasListGrid">
+						<!--Unknown connection ID: 14-->
+						<Grid
+							Name="ExpanderConventionalAliasListsMessageAliasTableGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 15-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderConventionalAliasListsMessageAliasTableTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderConventionalAliasListsMessageAliasTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderConventionalAliasListsMessageAliasTable"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderConventionalAliasListsMessageAliasTable"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASTABLE}"
+									MyExpander="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasList}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/MessageAliasList.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 17-->
+												<igcontrols:UnboundField
+													x:Name="CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASNUMBER}"
+													BindingPath="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderConventionalAliasListsMessageAliasTableTableView}, Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CnvAlsLstMessageAliasListMessageAliasNumber_A8501CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 18-->
+												<igcontrols:UnboundField
+													x:Name="CnvAlsLstMessageAliasListMessageAliasText_A8502_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASTEXT}"
+													BindingPath="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderConventionalAliasListsMessageAliasTableTableView}, Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CnvAlsLstMessageAliasListMessageAliasText_A8502CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 19-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderConventionalAliasListsMessageAliasTableSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderConventionalAliasListsMessageAliasTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 20-->
+								<Grid
+									Name="gridExpanderConventionalAliasListsMessageAliasTableSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding MessageAliasList.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 21-->
+									<AcpUINS:AcpTextBoxSpinner
+										Name="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+										MaskTypeSpinner="{}{number:0-16}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasList}"
+										MyBLObject="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										MyLabelCtrl="{Binding ElementName=LblCnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										IsAcpValid="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Valid}"
+										IsAcpApplicable="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Applicable}"
+										AreValuesEqual="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Editable" />
+												<Binding
+													Path="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinner>
+									<!--Unknown connection ID: 22-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										IsChecked="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 23-->
+									<AcpUINS:AcpLabel
+										Name="LblCnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+										Content="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASNUMBER}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASNUMBER}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										IsAcpValid="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 24-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnCnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 25-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										MyCompCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501Comp}"
+										AreValuesEqual="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 26-->
+									<AcpUINS:AcpLabel
+										Name="CnvAlsLstMessageAliasListMessageAliasNumber_A8501Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/MessageAliasList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasNumber_A8501}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCnvAlsLstMessageAliasListMessageAliasNumber_A8501}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasNumber_A8501"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 27-->
+									<AcpUINS:AcpTextBox
+										Name="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										Text="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502Value}"
+										MyExpander="{Binding ElementName=ExpanderConventionalAliasListsMessageAliasList}"
+										MyBLObject="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										MyLabelCtrl="{Binding ElementName=LblCnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										IsAcpValid="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Valid}"
+										IsAcpApplicable="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Applicable}"
+										AreValuesEqual="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Editable" />
+												<Binding
+													Path="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 28-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCnvAlsLstMessageAliasListMessageAliasText_A8502"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										IsChecked="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 29-->
+									<AcpUINS:AcpLabel
+										Name="LblCnvAlsLstMessageAliasListMessageAliasText_A8502"
+										Content="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASTEXT}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_MESSAGEALIASTEXT}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										IsAcpValid="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 30-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCnvAlsLstMessageAliasListMessageAliasText_A8502"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										MyCompCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502Comp}"
+										AreValuesEqual="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 31-->
+									<AcpUINS:AcpLabel
+										Name="CnvAlsLstMessageAliasListMessageAliasText_A8502Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/MessageAliasList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=MessageAliasTableInnerSection.CnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstMessageAliasListMessageAliasText_A8502}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCnvAlsLstMessageAliasListMessageAliasText_A8502}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstMessageAliasListMessageAliasText_A8502"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 32-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderConventionalAliasListsStatusAliasList"
+					Width="Auto"
+					Header="{Binding Path=StatusAliasList.UIName}"
+					ShowDiffIcon="{Binding Path=StatusAliasList.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="ExpanderConventionalAliasListsStatusAliasTableTableView"
+								Path="IsAcpVisible" />
+							<Binding
+								ElementName="ExpanderConventionalAliasListsStatusAliasTableSRecView"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<AcpUINS:AcpExpander.ExpToolbar>
+						<!--Unknown connection ID: 33-->
+						<AcpUINS:AcpRecNavToolbar
+							Name="RecNavToolbarExpanderConventionalAliasListsStatusAliasTable"
+							Grid.Row="0"
+							DataContext="{Binding Source={StaticResource GetParentFeature}, Path=/StatusAliasList.EmbeddedRecset}"
+							MyRecordsetDataSource="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasTable, Path=DataSource}"
+							MySecondaryRecordsetDataSource="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/StatusAliasList.EmbeddedRecset}"
+							TableMode="{Binding Source={x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}, Path=AppMode, Converter={StaticResource acpRecNavToolbarTableModeConverter}, Mode=OneWay}" />
+					</AcpUINS:AcpExpander.ExpToolbar>
+					<!--Unknown connection ID: 34-->
+					<Grid
+						Name="ExpanderConventionalAliasListsStatusAliasListGrid">
+						<!--Unknown connection ID: 35-->
+						<Grid
+							Name="ExpanderConventionalAliasListsStatusAliasTableGrid"
+							Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<!--Unknown connection ID: 36-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderConventionalAliasListsStatusAliasTableTableView"
+								Grid.Row="1"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource tableViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderConventionalAliasListsStatusAliasTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="ExpanderConventionalAliasListsStatusAliasTable"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 37-->
+								<AcpUINS:AcpXamDataPresenter
+									Name="ExpanderConventionalAliasListsStatusAliasTable"
+									KeyboardNavigation.AcceptsReturn="True"
+									Header="{x:Static ResourceNS:AcgResources.ID_STATUSALIASTABLE}"
+									MyExpander="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasList}"
+									igcontrols:DataSource="{Binding Source={StaticResource GetParentFeature}, Path=/StatusAliasList.EmbeddedRecset}">
+									<AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpXamDataPresenterVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="DataSource.HasDiffs"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="IsAcpVisible"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Col"
+												Path="Visibility" />
+											<Binding
+												ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192_Col"
+												Path="Visibility" />
+										</MultiBinding>
+									</AcpUINS:AcpXamDataPresenter.IsAcpVisible>
+									<igcontrols:DataPresenterBase.FieldLayouts>
+										<igcontrols:FieldLayout>
+											<igcontrols:FieldLayout.Fields>
+												<!--Unknown connection ID: 38-->
+												<igcontrols:UnboundField
+													x:Name="CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_STATUSALIASNUMBER}"
+													BindingPath="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderConventionalAliasListsStatusAliasTableTableView}, Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CnvAlsLstStatusAliasListStatusAliasNumber_A9191CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+												<!--Unknown connection ID: 39-->
+												<igcontrols:UnboundField
+													x:Name="CnvAlsLstStatusAliasListStatusAliasText_A9192_Col"
+													Label="{x:Static ResourceNS:AcgResources.ID_STATUSALIASTEXT}"
+													BindingPath="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192"
+													BindingMode="OneWay"
+													ToolTip="{Binding Path=Label, RelativeSource={RelativeSource Self}}"
+													Visibility="{Binding Source={StaticResource GetEmbeddedNodeExpanderConventionalAliasListsStatusAliasTableTableView}, Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Visible, Converter={StaticResource BooleanToVisibility}}">
+													<igcontrols:Field.Settings>
+														<igcontrols:FieldSettings
+															CellValuePresenterStyle="{StaticResource CnvAlsLstStatusAliasListStatusAliasText_A9192CellStyle}" />
+													</igcontrols:Field.Settings>
+												</igcontrols:UnboundField>
+											</igcontrols:FieldLayout.Fields>
+										</igcontrols:FieldLayout>
+									</igcontrols:DataPresenterBase.FieldLayouts>
+								</AcpUINS:AcpXamDataPresenter>
+							</AcpUINS:AcpGroupBox>
+							<!--Unknown connection ID: 40-->
+							<AcpUINS:AcpGroupBox
+								Name="ExpanderConventionalAliasListsStatusAliasTableSRecView"
+								Grid.Row="2"
+								BorderThickness="0">
+								<AcpUINS:AcpGroupBox.IsAcpVisible>
+									<MultiBinding
+										Converter="{StaticResource sRecViewVisibilityConverter}"
+										Mode="OneWay">
+										<Binding
+											ElementName="RecNavToolbarExpanderConventionalAliasListsStatusAliasTable"
+											Path="TableMode" />
+										<Binding
+											ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+											Path="IsAcpVisible" />
+										<Binding
+											ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+											Path="IsAcpVisible" />
+									</MultiBinding>
+								</AcpUINS:AcpGroupBox.IsAcpVisible>
+								<!--Unknown connection ID: 41-->
+								<Grid
+									Name="gridExpanderConventionalAliasListsStatusAliasTableSRecView"
+									RenderTransformOrigin="0.5,0.5"
+									DataContext="{Binding StatusAliasList.EmbeddedRecset}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="170" />
+										<ColumnDefinition
+											Width="225" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="Auto" />
+										<ColumnDefinition
+											Width="180" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<!--Unknown connection ID: 42-->
+									<AcpUINS:AcpTextBoxSpinner
+										Name="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+										MaskTypeSpinner="{}{number:0-16}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="2"
+										Text="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_UIValue}"
+										MyExpander="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasList}"
+										MyBLObject="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										MyLabelCtrl="{Binding ElementName=LblCnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										IsAcpValid="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Valid}"
+										IsAcpApplicable="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Applicable}"
+										AreValuesEqual="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Editable" />
+												<Binding
+													Path="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpEditable>
+										<AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBoxSpinner.IsAcpVisible>
+									</AcpUINS:AcpTextBoxSpinner>
+									<!--Unknown connection ID: 43-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+										Margin="0,5,0,0"
+										Grid.Row="0"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										IsChecked="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 44-->
+									<AcpUINS:AcpLabel
+										Name="LblCnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+										Content="{x:Static ResourceNS:AcgResources.ID_STATUSALIASNUMBER}"
+										VerticalAlignment="Center"
+										Grid.Row="0"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_STATUSALIASNUMBER}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										IsAcpValid="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 45-->
+									<AcpUINS:AcpRtdButton
+										Name="RTDBtnCnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+										Grid.Row="0"
+										Grid.Column="3"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191}">
+										<AcpUINS:AcpRtdButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="ShowRtdButtons" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpRtdButton.IsAcpVisible>
+									</AcpUINS:AcpRtdButton>
+									<!--Unknown connection ID: 46-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+										Grid.Row="0"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										MyCompCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191Comp}"
+										AreValuesEqual="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 47-->
+									<AcpUINS:AcpLabel
+										Name="CnvAlsLstStatusAliasListStatusAliasNumber_A9191Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="0"
+										Grid.Column="5"
+										Content="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191_UIValue}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/StatusAliasList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasNumber_A9191}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCnvAlsLstStatusAliasListStatusAliasNumber_A9191}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasNumber_A9191"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+									<!--Unknown connection ID: 48-->
+									<AcpUINS:AcpTextBox
+										Name="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="2"
+										Text="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192Value}"
+										MyExpander="{Binding ElementName=ExpanderConventionalAliasListsStatusAliasList}"
+										MyBLObject="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										MyLabelCtrl="{Binding ElementName=LblCnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										IsAcpValid="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Valid}"
+										IsAcpApplicable="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Applicable}"
+										AreValuesEqual="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+										<AcpUINS:AcpTextBox.IsAcpEditable>
+											<MultiBinding
+												Converter="{StaticResource editabilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Path="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Editable" />
+												<Binding
+													Path="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpEditable>
+										<AcpUINS:AcpTextBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource parentControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppHideMatches" />
+												<Binding
+													Path="AreValuesEqual"
+													RelativeSource="{RelativeSource Self}" />
+												<Binding
+													Path="StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192_Visible" />
+											</MultiBinding>
+										</AcpUINS:AcpTextBox.IsAcpVisible>
+									</AcpUINS:AcpTextBox>
+									<!--Unknown connection ID: 49-->
+									<AcpUINS:AcpCustomViewCheckBox
+										Name="CVBtnCnvAlsLstStatusAliasListStatusAliasText_A9192"
+										Margin="0,5,0,0"
+										Grid.Row="1"
+										Grid.Column="0"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										IsChecked="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192, Path=MyBLObject.CustomViewVisibility}">
+										<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+									</AcpUINS:AcpCustomViewCheckBox>
+									<!--Unknown connection ID: 50-->
+									<AcpUINS:AcpLabel
+										Name="LblCnvAlsLstStatusAliasListStatusAliasText_A9192"
+										Content="{x:Static ResourceNS:AcgResources.ID_STATUSALIASTEXT}"
+										VerticalAlignment="Center"
+										Grid.Row="1"
+										Grid.Column="1"
+										HelpText="{x:Static ResourceNS:AcgResources.ID_STATUSALIASTEXT}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										IsAcpValid="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192, Path=IsAcpValid}"
+										IsAcpApplicable="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192, Path=IsAcpApplicable}"
+										IsAcpVisible="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192, Path=IsAcpVisible}" />
+									<!--Unknown connection ID: 51-->
+									<AcpUINS:AcpCopyButton
+										Name="CpyBtnCnvAlsLstStatusAliasListStatusAliasText_A9192"
+										Grid.Row="1"
+										Grid.Column="4"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										MyCompCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192Comp}"
+										AreValuesEqual="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192, Path=AreValuesEqual}">
+										<AcpUINS:AcpCopyButton.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+													Path="MyBLObject" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+													Path="IsAcpVisible" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+													Path="IsAcpEditable" />
+											</MultiBinding>
+										</AcpUINS:AcpCopyButton.IsAcpVisible>
+									</AcpUINS:AcpCopyButton>
+									<!--Unknown connection ID: 52-->
+									<AcpUINS:AcpLabel
+										Name="CnvAlsLstStatusAliasListStatusAliasText_A9192Comp"
+										AcpLabelFromViewOnlyCtrl="True"
+										Grid.Row="1"
+										Grid.Column="5"
+										Content="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192Value}"
+										DataContext="{Binding Source={StaticResource GetComparatorParentFeature}, Path=/StatusAliasList.EmbeddedRecset}"
+										MyBLObject="{Binding Path=StatusAliasTableInnerSection.CnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										MyParentCtrl="{Binding ElementName=CnvAlsLstStatusAliasListStatusAliasText_A9192}"
+										MyCopyButtonCtrl="{Binding ElementName=CpyBtnCnvAlsLstStatusAliasListStatusAliasText_A9192}">
+										<AcpUINS:AcpLabel.IsAcpVisible>
+											<MultiBinding
+												Converter="{StaticResource comparatorControlVisibilityConverter}"
+												Mode="OneWay">
+												<Binding
+													Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+													Path="AppMode" />
+												<Binding
+													ElementName="CnvAlsLstStatusAliasListStatusAliasText_A9192"
+													Path="IsAcpVisible" />
+											</MultiBinding>
+										</AcpUINS:AcpLabel.IsAcpVisible>
+									</AcpUINS:AcpLabel>
+								</Grid>
+							</AcpUINS:AcpGroupBox>
+						</Grid>
+					</Grid>
+				</AcpUINS:AcpExpander>
+				<!--Unknown connection ID: 53-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderConventionalAliasListsLabtool"
+					Width="Auto"
+					Header="{Binding Path=Labtool.UIName}"
+					ShowDiffIcon="{Binding Path=Labtool.HasDiffs, Mode=OneWay}"
+					IsAcpVisible="{MultiBinding Converter={StaticResource groupboxVisibilityConverter}}" />
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

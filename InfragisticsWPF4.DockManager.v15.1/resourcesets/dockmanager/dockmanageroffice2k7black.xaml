@@ -1,0 +1,743 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:igWindows="http://infragistics.com/Windows" xmlns:igDock="clr-namespace:Infragistics.Windows.DockManager" xmlns:luna="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:igThemes="clr-namespace:Infragistics.Windows.Themes" xmlns:interop="clr-namespace:System.Windows.Interop;assembly=PresentationFramework" xmlns:igWinThemes="http://infragistics.com/Themes">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="DockManagerGeneric.xaml" />
+		<ResourceDictionary
+			Source="../DockManagerBrushes/DockManagerOffice2k7Black_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<ControlTemplate
+		TargetType="{x:Type igDock:PaneTabItem}"
+		x:Key="{x:Static igDock:PaneTabItem.DockableTabItemTemplateKey}">
+		<Border
+			Name="ctrlBorder"
+			SnapsToDevicePixels="True">
+			<igWindows:CardPanel>
+				<igWindows:CardPanel
+					Name="Background">
+					<Grid
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						Width="Auto"
+						Height="Auto">
+						<Border
+							Name="Border"
+							Margin="0,0,0,0"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="1,0,1,1"
+							SnapsToDevicePixels="True"
+							CornerRadius="0,0,2,2" />
+						<Rectangle
+							Name="CurvedEdgesEffect"
+							Margin="0,0,0,0"
+							Fill="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveBottomCenterFillKey}"
+							VerticalAlignment="Top"
+							Height="1"
+							Visibility="Collapsed"
+							SnapsToDevicePixels="True" />
+						<Rectangle
+							Name="firstTabCloseGap"
+							Margin="0,-3,0,0"
+							Width="1"
+							Height="4"
+							Fill="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveOuterBorderFillKey}"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Visibility="Collapsed"
+							SnapsToDevicePixels="True"
+							Stroke="{x:Null}" />
+						<Border
+							Name="HighlightBorder"
+							Margin="1,0,1,1"
+							BorderBrush="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveInnerBorderFillKey}"
+							BorderThickness="1,0,1,1"
+							SnapsToDevicePixels="True"
+							CornerRadius="0,0,1,1" />
+					</Grid>
+				</igWindows:CardPanel>
+				<Border
+					Name="Content"
+					BorderThickness="{TemplateBinding BorderThickness}"
+					Padding="{TemplateBinding Padding}">
+					<DockPanel
+						Name="contentPanel"
+						VerticalAlignment="Center">
+						<igWindows:AutoDisabledImage
+							Name="image"
+							DockPanel.Dock="Left"
+							Margin="0,0,2,0"
+							Stretch="None"
+							Visibility="{Binding Path=Pane.HasImage, RelativeSource={x:Static RelativeSource.TemplatedParent}, Converter={StaticResource BoolToVisConverter}}"
+							Source="{Binding Path=Pane.Image, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+						<ContentPresenter
+							Name="contentHeader"
+							ContentSource="Header"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							RecognizesAccessKey="True"
+							VerticalAlignment="Center"
+							igWindows:ClippedTextToolTipService.ShowToolTipWhenClipped="True"
+							igWindows:ClippedTextToolTipService.ToolTipStyleKey="{x:Static igDock:XamDockManager.ToolTipStyleKey}"
+							TextElement.Foreground="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+							igWindows:ClippedTextToolTipService.AncestorTypeForToolTip="{x:Type ContentControl}" />
+					</DockPanel>
+				</Border>
+			</igWindows:CardPanel>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Top">
+				<Setter
+					TargetName="ctrlBorder"
+					Property="Margin"
+					Value="0,2,0,0" />
+				<Setter
+					TargetName="Border"
+					Property="Border.CornerRadius"
+					Value="2,2,0,0" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Border.CornerRadius"
+					Value="1,1,0,0" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					TargetName="Border"
+					Property="BorderThickness"
+					Value="1,1,1,0" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="VerticalAlignment"
+					Value="Bottom" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="BorderThickness"
+					Value="1,1,1,0" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Margin"
+					Value="1,1,1,0" />
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Bottom">
+				<Setter
+					TargetName="ctrlBorder"
+					Property="Margin"
+					Value="0,0,0,2" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Left">
+				<Setter
+					TargetName="ctrlBorder"
+					Property="Margin"
+					Value="2,0,0,0" />
+				<Setter
+					TargetName="Border"
+					Property="Border.CornerRadius"
+					Value="2,0,0,2" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Border.CornerRadius"
+					Value="1,0,0,1" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					TargetName="Border"
+					Property="BorderThickness"
+					Value="1,1,0,1" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="VerticalAlignment"
+					Value="Stretch" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="HorizontalAlignment"
+					Value="Right" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Height"
+					Value="Auto" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Width"
+					Value="1" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="BorderThickness"
+					Value="1,1,0,1" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Margin"
+					Value="1,1,0,1" />
+				<Setter
+					TargetName="Content"
+					Property="FrameworkElement.LayoutTransform">
+					<Setter.Value>
+						<RotateTransform
+							Angle="-90" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="TabItem.TabStripPlacement"
+				Value="Right">
+				<Setter
+					TargetName="ctrlBorder"
+					Property="Margin"
+					Value="0,0,2,0" />
+				<Setter
+					TargetName="Border"
+					Property="Border.CornerRadius"
+					Value="0,2,2,0" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Border.CornerRadius"
+					Value="0,1,1,0" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					TargetName="Border"
+					Property="BorderThickness"
+					Value="0,1,1,1" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="VerticalAlignment"
+					Value="Stretch" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="HorizontalAlignment"
+					Value="Left" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Height"
+					Value="Auto" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Width"
+					Value="1" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="BorderThickness"
+					Value="0,1,1,1" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Margin"
+					Value="0,1,1,1" />
+				<Setter
+					TargetName="Content"
+					Property="FrameworkElement.LayoutTransform">
+					<Setter.Value>
+						<RotateTransform
+							Angle="90" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="TabItem.IsSelected"
+				Value="True">
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Panel.ZIndex"
+					Value="1" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="HighlightBorder"
+					Property="Visibility"
+					Value="Collapsed" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveBottomCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igWindows:TabItemEx.IsMouseOverTab"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Bottom" />
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackBottomCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igWindows:TabItemEx.IsMouseOverTab"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Top" />
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackTopCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igWindows:TabItemEx.IsMouseOverTab"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Left" />
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackLeftCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igWindows:TabItemEx.IsMouseOverTab"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Right" />
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackRightCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListHottrackOuterBorderFillKey}"
+					Property="BorderBrush" />
+			</MultiTrigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.GrayTextBrushKey}"
+					Property="Foreground" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Bottom" />
+				</MultiTrigger.Conditions>
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Margin"
+					Value="0,-1,0,0" />
+				<Setter
+					Property="Padding"
+					Value="3,4,3,2" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Top" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTopCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Property="Margin"
+					Value="0,0,0,-1" />
+				<Setter
+					Property="Padding"
+					Value="3,4,3,2" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Left" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveLeftCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Property="Margin"
+					Value="0,0,-1,0" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Right" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveRightCenterFillKey}"
+					Property="Background" />
+				<Setter
+					Property="Margin"
+					Value="-1,0,0,0" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="-2,0,-1,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Bottom" />
+				</MultiTrigger.Conditions>
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="-2,0,0,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Top" />
+				</MultiTrigger.Conditions>
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="-2,0,0,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Left" />
+				</MultiTrigger.Conditions>
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="0,0,0,-2" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="False" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Right" />
+				</MultiTrigger.Conditions>
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}"
+					Property="Foreground" />
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="0,-2,0,0" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Bottom" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Padding"
+					Value="3,4,3,2" />
+				<Setter
+					Property="Margin"
+					Value="-2,-1,0,0" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}"
+					Property="Foreground" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Top" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Padding"
+					Value="3,4,3,2" />
+				<Setter
+					Property="Margin"
+					Value="-2,0,0,-1" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="VerticalAlignment"
+					Value="Bottom" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="HorizontalAlignment"
+					Value="Left" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Margin"
+					Value="0,0,0,-2" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Width"
+					Value="1" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Height"
+					Value="4" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="VerticalAlignment"
+					Value="Bottom" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Margin"
+					Value="1,0,0,0" />
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}"
+					Property="Foreground" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Left" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="0,0,-1,-2" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="VerticalAlignment"
+					Value="Bottom" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="HorizontalAlignment"
+					Value="Right" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Height"
+					Value="1" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Width"
+					Value="3" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Margin"
+					Value="0,0,-2,0" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Margin"
+					Value="0,0,0,1" />
+				<Setter
+					TargetName="CurvedEdgesEffect"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}"
+					Property="Foreground" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="TabItem.IsSelected"
+						Value="True" />
+					<Condition
+						Property="igWindows:TabItemPanel.IsFirstTabInRow"
+						Value="True" />
+					<Condition
+						Property="TabItem.TabStripPlacement"
+						Value="Right" />
+				</MultiTrigger.Conditions>
+				<Setter
+					Property="Padding"
+					Value="3,2,3,1" />
+				<Setter
+					Property="Margin"
+					Value="-1,-2,0,0" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Margin"
+					Value="-2,0,0,0" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="VerticalAlignment"
+					Value="Top" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="HorizontalAlignment"
+					Value="Left" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Height"
+					Value="1" />
+				<Setter
+					TargetName="firstTabCloseGap"
+					Property="Width"
+					Value="3" />
+				<Setter
+					TargetName="contentHeader"
+					Value="{DynamicResource igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}"
+					Property="Foreground" />
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		BasedOn="{x:Static igWinThemes:PrimitivesOffice2k7Black.ToolWindow}"
+		TargetType="{x:Type igDock:PaneToolWindow}"
+		x:Key="{x:Type igDock:PaneToolWindow}" />
+</ResourceDictionary>

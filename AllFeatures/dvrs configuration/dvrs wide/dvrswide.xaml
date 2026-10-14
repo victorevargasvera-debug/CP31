@@ -1,0 +1,1281 @@
+<AcpUINS:AcpPageFeature
+	x:Class="Motorola.MackinawCPS.CoreFeatures.DVRSWide.PageDVRSWide" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:AcpBLNS="clr-namespace:AcpBusinessLayer;assembly=AcpBusinessLayer" xmlns:AcpBLConverterNS="clr-namespace:AcpBusinessLayer.ValueConverters;assembly=AcpBusinessLayer" xmlns:AcpUICommonNS="clr-namespace:AcpUI.Common;assembly=AcpUI" xmlns:AcpCommonLibNS="clr-namespace:AcpCommonLib;assembly=AcpCommonLib" xmlns:src="clr-namespace:ConstraintHelper" xmlns:ResourceNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:DVRSWideRecsetNS="clr-namespace:Motorola.MackinawCPS.CoreFeatures.DVRSWide"
+	Title="{Binding Path=UIName}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:AppXamDataPresenterVisibilityConverter
+				x:Key="appXamDataPresenterVisibilityConverter" />
+			<src:LabelBindingConverter
+				x:Key="labelBindingConverter" />
+			<src:LabelBindingApplicabilityConverter
+				x:Key="labelBindingApplicabilityConverter" />
+			<AcpUICommonNS:AcpRtdButtonVisibilityConverter
+				x:Key="acpRtdButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCopyButtonVisibilityConverter
+				x:Key="acpCopyButtonVisibilityConverter" />
+			<AcpUICommonNS:AcpCustomViewCheckBoxVisibilityConverter
+				x:Key="acpCustomViewCheckBoxVisibilityConverter" />
+			<AcpUICommonNS:AcpXamDataPresenterVisibilityConverter
+				x:Key="acpXamDataPresenterVisibilityConverter" />
+			<AcpUICommonNS:EditabilityConverter
+				x:Key="editabilityConverter" />
+			<AcpUICommonNS:ParentControlVisibilityConverter
+				x:Key="parentControlVisibilityConverter" />
+			<AcpUICommonNS:ComparatorControlVisibilityConverter
+				x:Key="comparatorControlVisibilityConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarTableModeConverter
+				x:Key="acpRecNavToolbarTableModeConverter" />
+			<AcpUICommonNS:AcpRecNavToolbarVisibilityConverter
+				x:Key="acpRecNavToolbarVisibilityConverter" />
+			<AcpUICommonNS:TableViewVisibilityConverter
+				x:Key="tableViewVisibilityConverter" />
+			<AcpUICommonNS:SRecViewVisibilityConverter
+				x:Key="sRecViewVisibilityConverter" />
+			<AcpUICommonNS:EditabilityInComparatorCustomModesConverter
+				x:Key="editabilityInComparatorCustomModesConverter" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibility" />
+			<AcpBLConverterNS:InvertBoolConverter
+				x:Key="InvertBoolConverter" />
+			<AcpUICommonNS:ClmVisibilityStausConverter
+				x:Key="ClmVisibilityStatus" />
+			<AcpUICommonNS:CellVisibilityStausConverter
+				x:Key="CellVisibilityStatus" />
+			<AcpUICommonNS:DateTimeFormatConverter
+				x:Key="dateTimeFormatter" />
+			<AcpUICommonNS:ParentContainerVisibilityConverter
+				x:Key="groupboxVisibilityConverter" />
+			<AcpUICommonNS:BooleanToColorConverter
+				x:Key="BooleanToColor" />
+			<AcpUICommonNS:MultiValueToColorConverter
+				x:Key="MultiValueToColor" />
+			<ObjectDataProvider
+				MethodName="GetRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4142</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+			<ObjectDataProvider
+				MethodName="GetComparatorRecordset"
+				ObjectType="{x:Type AcpUINS:AcpObjectDataProvider}"
+				x:Key="GetComparatorParentFeature">
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>4142</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<WrapPanel
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 2-->
+			<AcpUICommonNS:AcpThemeBase
+				Name="ThemeBaseObj" />
+			<TextBlock
+				Margin="25 3 0 0"
+				Visibility="{Binding ElementName=ExpanderDVRSWideGeneral, Path=IsAcpVisible, Converter={StaticResource BooleanToVisibility}}">
+				<!--Unknown connection ID: 3-->
+				<Hyperlink
+					Name="HLinkGeneral"
+					Tag="ExpanderDVRSWideGeneral">
+					<TextBlock
+						Text="{x:Static ResourceNS:AcgResources.ID_GENERAL}"
+						TextDecorations="Underline">
+						<TextBlock.Foreground>
+							<MultiBinding
+								Converter="{StaticResource MultiValueToColor}">
+								<Binding
+									Path="General.HasDiffs" />
+								<Binding
+									Path="ThemeName"
+									ElementName="ThemeBaseObj" />
+							</MultiBinding>
+						</TextBlock.Foreground>
+					</TextBlock>
+				</Hyperlink>
+			</TextBlock>
+		</WrapPanel>
+		<DockPanel
+			Height="20"
+			Background="#00FFFFFF"
+			Dock="Top">
+			<Rectangle
+				Height="2"
+				RadiusX="20"
+				RadiusY="20"
+				Stroke="#FF000000"
+				Fill="#FF808080"
+				VerticalAlignment="Center" />
+		</DockPanel>
+		<ScrollViewer
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto"
+			DockPanel.Dock="Top">
+			<!--Unknown connection ID: 4-->
+			<StackPanel
+				Name="MyStackPanel"
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 5-->
+				<AcpUINS:AcpExpander
+					Name="ExpanderDVRSWideGeneral"
+					Width="Auto"
+					Header="{Binding Path=General.UIName}"
+					ShowDiffIcon="{Binding Path=General.HasDiffs, Mode=OneWay}">
+					<AcpUINS:AcpExpander.IsAcpVisible>
+						<MultiBinding
+							Converter="{StaticResource groupboxVisibilityConverter}">
+							<Binding
+								ElementName="GrpBoxExpanderDVRSWideGeneralPseudo0"
+								Path="IsAcpVisible" />
+						</MultiBinding>
+					</AcpUINS:AcpExpander.IsAcpVisible>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--Unknown connection ID: 6-->
+						<AcpUINS:AcpGroupBox
+							Name="GrpBoxExpanderDVRSWideGeneralPseudo0"
+							BorderBrush="#FF000000"
+							Grid.Row="0"
+							Grid.Column="0"
+							BorderThickness="0">
+							<AcpUINS:AcpGroupBox.IsAcpVisible>
+								<MultiBinding
+									Converter="{StaticResource groupboxVisibilityConverter}">
+									<Binding
+										ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="DVRSWideGeneralInCarMonitor_A41799"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="RadWideLabtoolDVRSFatalError_A7910"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="DVRSWideLabtoolVrId_A43727"
+										Path="IsAcpVisible" />
+									<Binding
+										ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+										Path="IsAcpVisible" />
+								</MultiBinding>
+							</AcpUINS:AcpGroupBox.IsAcpVisible>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="170" />
+									<ColumnDefinition
+										Width="230" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="Auto" />
+									<ColumnDefinition
+										Width="180" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<!--Unknown connection ID: 7-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnRadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+									Margin="0,5,0,0"
+									Grid.Row="0"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									IsChecked="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 8-->
+								<AcpUINS:AcpLabel
+									Name="LblRadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+									Content="{x:Static ResourceNS:AcgResources.ID_DVRSHARDWAREENABLE}"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DVRSHARDWAREENABLE}"
+									MyParentCtrl="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									IsAcpValid="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 9-->
+								<AcpUINS:AcpCheckBox
+									Name="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+									VerticalAlignment="Center"
+									Grid.Row="0"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911Value}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									MyLabelCtrl="{Binding ElementName=LblRadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									IsAcpValid="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911_Valid}"
+									IsAcpApplicable="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911_Applicable}"
+									AreValuesEqual="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911_Editable" />
+											<Binding
+												Path="General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 10-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnRadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+									Grid.Row="0"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 11-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnRadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+									Grid.Row="0"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									MyCompCtrl="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911Comp}"
+									AreValuesEqual="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 12-->
+								<AcpUINS:AcpCheckBox
+									Name="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911Comp"
+									IsAcpEditable="false"
+									Grid.Row="0"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									MyParentCtrl="{Binding ElementName=RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="RadErgoWideDigitalVehicularRepeaterSystemDVRSHardwareEnable_A7911"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 13-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDVRSWideGeneralVIPCtrlofDVRS_A41798"
+									Margin="0,5,0,0"
+									Grid.Row="1"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									IsChecked="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 14-->
+								<AcpUINS:AcpLabel
+									Name="LblDVRSWideGeneralVIPCtrlofDVRS_A41798"
+									Content="{x:Static ResourceNS:AcgResources.ID_VIPCONTROLOFDVRS}"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_VIPCONTROLOFDVRS}"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									IsAcpValid="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 15-->
+								<AcpUINS:AcpComboBox
+									Name="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="1"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798.Items}"
+									SelectedValue="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									MyLabelCtrl="{Binding ElementName=LblDVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									IsAcpValid="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798_Valid}"
+									IsAcpApplicable="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798_Applicable}"
+									AreValuesEqual="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.DVRSWideGeneralVIPCtrlofDVRS_A41798_Editable" />
+											<Binding
+												Path="General.DVRSWideGeneralVIPCtrlofDVRS_A41798" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DVRSWideGeneralVIPCtrlofDVRS_A41798_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 16-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnDVRSWideGeneralVIPCtrlofDVRS_A41798"
+									Grid.Row="1"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 17-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDVRSWideGeneralVIPCtrlofDVRS_A41798"
+									Grid.Row="1"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									MyCompCtrl="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798Comp}"
+									AreValuesEqual="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 18-->
+								<AcpUINS:AcpLabel
+									Name="DVRSWideGeneralVIPCtrlofDVRS_A41798Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="1"
+									Grid.Column="5"
+									Content="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralVIPCtrlofDVRS_A41798}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDVRSWideGeneralVIPCtrlofDVRS_A41798}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralVIPCtrlofDVRS_A41798"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 19-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDVRSWideGeneralInCarMonitor_A41799"
+									Margin="0,5,0,0"
+									Grid.Row="2"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799}"
+									IsChecked="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 20-->
+								<AcpUINS:AcpLabel
+									Name="LblDVRSWideGeneralInCarMonitor_A41799"
+									Content="{x:Static ResourceNS:AcgResources.ID_INCARMONITOR}"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_INCARMONITOR}"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799}"
+									IsAcpValid="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 21-->
+								<AcpUINS:AcpComboBox
+									Name="DVRSWideGeneralInCarMonitor_A41799"
+									DisplayMemberPath="ItemName"
+									SelectedValuePath="ItemName"
+									VerticalAlignment="Center"
+									Grid.Row="2"
+									Grid.Column="2"
+									ItemsSource="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799.Items}"
+									SelectedValue="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799_UIValue}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799}"
+									MyLabelCtrl="{Binding ElementName=LblDVRSWideGeneralInCarMonitor_A41799}"
+									IsAcpValid="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799_Valid}"
+									IsAcpApplicable="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799_Applicable}"
+									AreValuesEqual="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpComboBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.DVRSWideGeneralInCarMonitor_A41799_Editable" />
+											<Binding
+												Path="General.DVRSWideGeneralInCarMonitor_A41799" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpEditable>
+									<AcpUINS:AcpComboBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DVRSWideGeneralInCarMonitor_A41799_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpComboBox.IsAcpVisible>
+								</AcpUINS:AcpComboBox>
+								<!--Unknown connection ID: 22-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnDVRSWideGeneralInCarMonitor_A41799"
+									Grid.Row="2"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 23-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDVRSWideGeneralInCarMonitor_A41799"
+									Grid.Row="2"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799}"
+									MyCompCtrl="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799Comp}"
+									AreValuesEqual="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 24-->
+								<AcpUINS:AcpLabel
+									Name="DVRSWideGeneralInCarMonitor_A41799Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="2"
+									Grid.Column="5"
+									Content="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799_UIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DVRSWideGeneralInCarMonitor_A41799}"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralInCarMonitor_A41799}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDVRSWideGeneralInCarMonitor_A41799}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralInCarMonitor_A41799"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 25-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+									Margin="0,5,0,0"
+									Grid.Row="4"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									IsChecked="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 26-->
+								<AcpUINS:AcpLabel
+									Name="LblDVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+									Content="{x:Static ResourceNS:AcgResources.ID_DVRSSYNCFIELDSHASH}"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DVRSSYNCFIELDSHASH}"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									IsAcpValid="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 27-->
+								<AcpUINS:AcpTextBox
+									Name="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+									VerticalAlignment="Center"
+									Grid.Row="4"
+									Grid.Column="2"
+									IsAcpEditable="False"
+									Text="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811Value, StringFormat={}{0:x}}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									MyLabelCtrl="{Binding ElementName=LblDVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									IsAcpValid="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811_Valid}"
+									IsAcpApplicable="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811_Applicable}"
+									AreValuesEqual="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBox.IsAcpVisible>
+								</AcpUINS:AcpTextBox>
+								<!--Unknown connection ID: 28-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnDVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+									Grid.Row="4"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 29-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+									Grid.Row="4"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									MyCompCtrl="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811Comp}"
+									AreValuesEqual="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 30-->
+								<AcpUINS:AcpTextBox
+									Name="DVRSWideLabtoolDVRSSyncFieldsHash_A41811Comp"
+									Grid.Row="4"
+									IsAcpEditable="False"
+									Grid.Column="5"
+									Text="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811Value, StringFormat={}{0:x}}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolDVRSSyncFieldsHash_A41811}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDVRSWideLabtoolDVRSSyncFieldsHash_A41811}">
+									<AcpUINS:AcpTextBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideLabtoolDVRSSyncFieldsHash_A41811"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBox.IsAcpVisible>
+								</AcpUINS:AcpTextBox>
+								<!--Unknown connection ID: 31-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnRadWideLabtoolDVRSFatalError_A7910"
+									Margin="0,5,0,0"
+									Grid.Row="5"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910}"
+									IsChecked="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 32-->
+								<AcpUINS:AcpLabel
+									Name="LblRadWideLabtoolDVRSFatalError_A7910"
+									Content="{x:Static ResourceNS:AcgResources.ID_DVRSFATALERROR}"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_DVRSFATALERROR}"
+									MyParentCtrl="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910}"
+									IsAcpValid="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 33-->
+								<AcpUINS:AcpLabel
+									Name="RadWideLabtoolDVRSFatalError_A7910"
+									AcpLabelFromViewOnlyCtrl="True"
+									VerticalAlignment="Center"
+									Grid.Row="5"
+									Grid.Column="2"
+									IsAcpEditable="false"
+									Content="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910Value}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910}"
+									MyLabelCtrl="{Binding ElementName=LblRadWideLabtoolDVRSFatalError_A7910}"
+									IsAcpValid="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910_Valid}"
+									IsAcpApplicable="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910_Applicable}"
+									AreValuesEqual="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.RadWideLabtoolDVRSFatalError_A7910_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 34-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnRadWideLabtoolDVRSFatalError_A7910"
+									Grid.Row="5"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 35-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnRadWideLabtoolDVRSFatalError_A7910"
+									Grid.Row="5"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910}"
+									MyCompCtrl="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910Comp}"
+									AreValuesEqual="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 36-->
+								<AcpUINS:AcpLabel
+									Name="RadWideLabtoolDVRSFatalError_A7910Comp"
+									AcpLabelFromViewOnlyCtrl="True"
+									Grid.Row="5"
+									Grid.Column="5"
+									IsAcpEditable="false"
+									Content="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.RadWideLabtoolDVRSFatalError_A7910}"
+									MyParentCtrl="{Binding ElementName=RadWideLabtoolDVRSFatalError_A7910}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnRadWideLabtoolDVRSFatalError_A7910}">
+									<AcpUINS:AcpLabel.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="RadWideLabtoolDVRSFatalError_A7910"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpLabel.IsAcpVisible>
+								</AcpUINS:AcpLabel>
+								<!--Unknown connection ID: 37-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDVRSWideLabtoolVrId_A43727"
+									Margin="0,5,0,0"
+									Grid.Row="6"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolVrId_A43727}"
+									IsChecked="{Binding ElementName=DVRSWideLabtoolVrId_A43727, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 38-->
+								<AcpUINS:AcpLabel
+									Name="LblDVRSWideLabtoolVrId_A43727"
+									Content="{x:Static ResourceNS:AcgResources.ID_VRID}"
+									VerticalAlignment="Center"
+									Grid.Row="6"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_VRID}"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolVrId_A43727}"
+									IsAcpValid="{Binding ElementName=DVRSWideLabtoolVrId_A43727, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DVRSWideLabtoolVrId_A43727, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DVRSWideLabtoolVrId_A43727, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 39-->
+								<AcpUINS:AcpTextBoxSpinnerDecHex
+									Name="DVRSWideLabtoolVrId_A43727"
+									VerticalAlignment="Center"
+									Grid.Row="6"
+									Grid.Column="2"
+									Text="{Binding Path=General.DVRSWideLabtoolVrId_A43727_UIValue}"
+									HexText="{Binding Path=General.DVRSWideLabtoolVrId_A43727_HexUIValue}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.DVRSWideLabtoolVrId_A43727}"
+									MyLabelCtrl="{Binding ElementName=LblDVRSWideLabtoolVrId_A43727}"
+									IsAcpValid="{Binding Path=General.DVRSWideLabtoolVrId_A43727_Valid}"
+									IsAcpApplicable="{Binding Path=General.DVRSWideLabtoolVrId_A43727_Applicable}"
+									AreValuesEqual="{Binding Path=General.DVRSWideLabtoolVrId_A43727_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.DVRSWideLabtoolVrId_A43727_Editable" />
+											<Binding
+												Path="General.DVRSWideLabtoolVrId_A43727" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpEditable>
+									<AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DVRSWideLabtoolVrId_A43727_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxSpinnerDecHex.IsAcpVisible>
+								</AcpUINS:AcpTextBoxSpinnerDecHex>
+								<!--Unknown connection ID: 40-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnDVRSWideLabtoolVrId_A43727"
+									Grid.Row="6"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolVrId_A43727}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 41-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDVRSWideLabtoolVrId_A43727"
+									Grid.Row="6"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolVrId_A43727}"
+									MyCompCtrl="{Binding ElementName=DVRSWideLabtoolVrId_A43727Comp}"
+									AreValuesEqual="{Binding ElementName=DVRSWideLabtoolVrId_A43727, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 42-->
+								<AcpUINS:AcpTextBoxDecHex
+									Name="DVRSWideLabtoolVrId_A43727Comp"
+									IsAcpEditable="false"
+									Grid.Row="6"
+									Grid.Column="5"
+									Text="{Binding Path=General.DVRSWideLabtoolVrId_A43727_UIValue}"
+									HexText="{Binding Path=General.DVRSWideLabtoolVrId_A43727_HexUIValue}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DVRSWideLabtoolVrId_A43727}"
+									MyParentCtrl="{Binding ElementName=DVRSWideLabtoolVrId_A43727}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDVRSWideLabtoolVrId_A43727}">
+									<AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideLabtoolVrId_A43727"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpTextBoxDecHex.IsAcpVisible>
+								</AcpUINS:AcpTextBoxDecHex>
+								<!--Unknown connection ID: 43-->
+								<AcpUINS:AcpCustomViewCheckBox
+									Name="CVBtnDVRSWideGeneralChannelOnlyDisplay_A41811"
+									Margin="0,5,0,0"
+									Grid.Row="3"
+									Grid.Column="0"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811}"
+									IsChecked="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811, Path=MyBLObject.CustomViewVisibility}">
+									<AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCustomViewCheckBoxVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCustomViewCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCustomViewCheckBox>
+								<!--Unknown connection ID: 44-->
+								<AcpUINS:AcpLabel
+									Name="LblDVRSWideGeneralChannelOnlyDisplay_A41811"
+									Content="{x:Static ResourceNS:AcgResources.ID_CHANNELONLYDISPLAY}"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="1"
+									HelpText="{x:Static ResourceNS:AcgResources.ID_CHANNELONLYDISPLAY}"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811}"
+									IsAcpValid="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811, Path=IsAcpValid}"
+									IsAcpApplicable="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811, Path=IsAcpApplicable}"
+									IsAcpVisible="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811, Path=IsAcpVisible}" />
+								<!--Unknown connection ID: 45-->
+								<AcpUINS:AcpCheckBox
+									Name="DVRSWideGeneralChannelOnlyDisplay_A41811"
+									VerticalAlignment="Center"
+									Grid.Row="3"
+									Grid.Column="2"
+									IsChecked="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811Value}"
+									MyExpander="{Binding ElementName=ExpanderDVRSWideGeneral}"
+									MyBLObject="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811}"
+									MyLabelCtrl="{Binding ElementName=LblDVRSWideGeneralChannelOnlyDisplay_A41811}"
+									IsAcpValid="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811_Valid}"
+									IsAcpApplicable="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811_Applicable}"
+									AreValuesEqual="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811_HasDiffs, Converter={StaticResource InvertBoolConverter}, Mode=OneWay}">
+									<AcpUINS:AcpCheckBox.IsAcpEditable>
+										<MultiBinding
+											Converter="{StaticResource editabilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Path="General.DVRSWideGeneralChannelOnlyDisplay_A41811_Editable" />
+											<Binding
+												Path="General.DVRSWideGeneralChannelOnlyDisplay_A41811" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpEditable>
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource parentControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppHideMatches" />
+											<Binding
+												Path="AreValuesEqual"
+												RelativeSource="{RelativeSource Self}" />
+											<Binding
+												Path="General.DVRSWideGeneralChannelOnlyDisplay_A41811_Visible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+								<!--Unknown connection ID: 46-->
+								<AcpUINS:AcpRtdButton
+									Name="RTDBtnDVRSWideGeneralChannelOnlyDisplay_A41811"
+									Grid.Row="3"
+									Grid.Column="3"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811}">
+									<AcpUINS:AcpRtdButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpRtdButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="ShowRtdButtons" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpRtdButton.IsAcpVisible>
+								</AcpUINS:AcpRtdButton>
+								<!--Unknown connection ID: 47-->
+								<AcpUINS:AcpCopyButton
+									Name="CpyBtnDVRSWideGeneralChannelOnlyDisplay_A41811"
+									Grid.Row="3"
+									Grid.Column="4"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811}"
+									MyCompCtrl="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811Comp}"
+									AreValuesEqual="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811, Path=AreValuesEqual}">
+									<AcpUINS:AcpCopyButton.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource acpCopyButtonVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="MyBLObject" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="IsAcpVisible" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="IsAcpEditable" />
+										</MultiBinding>
+									</AcpUINS:AcpCopyButton.IsAcpVisible>
+								</AcpUINS:AcpCopyButton>
+								<!--Unknown connection ID: 48-->
+								<AcpUINS:AcpCheckBox
+									Name="DVRSWideGeneralChannelOnlyDisplay_A41811Comp"
+									IsAcpEditable="false"
+									Grid.Row="3"
+									Grid.Column="5"
+									IsChecked="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811Value}"
+									DataContext="{Binding Source={StaticResource GetComparatorParentFeature}}"
+									MyBLObject="{Binding Path=General.DVRSWideGeneralChannelOnlyDisplay_A41811}"
+									MyParentCtrl="{Binding ElementName=DVRSWideGeneralChannelOnlyDisplay_A41811}"
+									MyCopyButtonCtrl="{Binding ElementName=CpyBtnDVRSWideGeneralChannelOnlyDisplay_A41811}">
+									<AcpUINS:AcpCheckBox.IsAcpVisible>
+										<MultiBinding
+											Converter="{StaticResource comparatorControlVisibilityConverter}"
+											Mode="OneWay">
+											<Binding
+												Source="{x:Static AcpCommonLibNS:AppInfoManager.AppInfoHelper}"
+												Path="AppMode" />
+											<Binding
+												ElementName="DVRSWideGeneralChannelOnlyDisplay_A41811"
+												Path="IsAcpVisible" />
+										</MultiBinding>
+									</AcpUINS:AcpCheckBox.IsAcpVisible>
+								</AcpUINS:AcpCheckBox>
+							</Grid>
+						</AcpUINS:AcpGroupBox>
+					</Grid>
+				</AcpUINS:AcpExpander>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

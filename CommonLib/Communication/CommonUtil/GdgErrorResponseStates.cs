@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace Motorola.Common.Communication.CommonUtil
+{
+	// Token: 0x02000047 RID: 71
+	public enum GdgErrorResponseStates
+	{
+		// Token: 0x040001B7 RID: 439
+		AUTH_ERROR,
+		// Token: 0x040001B8 RID: 440
+		FILE_CHECKSUM_ERROR,
+		// Token: 0x040001B9 RID: 441
+		FILE_LOCKED,
+		// Token: 0x040001BA RID: 442
+		IMPROPER_SYNTAX,
+		// Token: 0x040001BB RID: 443
+		REQUEST_REJECTED,
+		// Token: 0x040001BC RID: 444
+		RESOURCE_BUSY,
+		// Token: 0x040001BD RID: 445
+		RESOURCE_NOT_FIRMWARE_DOWNLOAD_CAPABLE,
+		// Token: 0x040001BE RID: 446
+		RESOURCE_UNAVAILABLE,
+		// Token: 0x040001BF RID: 447
+		SERVER_INTERNAL_ERROR,
+		// Token: 0x040001C0 RID: 448
+		UNKNOWN_FIRMWARE_FILE_ID,
+		// Token: 0x040001C1 RID: 449
+		UNKNOWN_RESOURCE
+	}
+}

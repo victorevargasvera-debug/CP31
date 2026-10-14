@@ -1,0 +1,403 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.Common.TemplateConversionView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDp="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	Name="TemplateView"
+	Height="600"
+	Width="800" xmlns:common="clr-namespace:Motorola.CommonCPS.RadioManagement.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.Controls;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:GridViewSourceConverter
+				x:Key="GridViewSourceConverter" />
+			<controls:TemplateListWorkModeToBoolConverter
+				x:Key="TemplateListWorkModeToBoolConverter" />
+			<converters:StringValueToVisibilityConverter
+				x:Key="StringValueToVisibilityConverter" />
+			<converters:DMR3ProductFamilyToVALPEnable
+				x:Key="DMR3ProductFamilyToVALPEnable" />
+			<controls:LpErrorToForegroundConverter
+				x:Key="LpErrorToForegroundConverter" />
+			<converters:SelectAllParameterConverter
+				x:Key="SelectAllParameterConverter" />
+			<Style
+				TargetType="{x:Type igDp:CellValuePresenter}"
+				x:Key="{x:Type igDp:CellValuePresenter}">
+				<Setter
+					Property="BorderBrush"
+					Value="#FFD3D3D3" />
+				<Setter
+					Property="BorderThickness"
+					Value="0,0,1,0" />
+				<Setter
+					Property="igDp:CellValuePresenter.BorderHoverBrush"
+					Value="#FFD3D3D3" />
+				<Setter
+					Property="FontFamily"
+					Value="Arial" />
+				<Setter
+					Property="Height"
+					Value="25" />
+				<Style.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding Record.IsSelected, RelativeSource={RelativeSource Self}}">
+						<Setter
+							Property="igDp:CellValuePresenter.ForegroundStyle">
+							<Setter.Value>
+								<Style>
+									<Setter
+										Property="FontWeight"
+										Value="Bold" />
+									<Setter
+										Property="Foreground"
+										Value="{DynamicResource SelectedRowForegroundBrush}" />
+								</Style>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Background"
+							Value="{DynamicResource SelectedRowBackgroundBrush}" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="24,10,24,24">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition />
+			<RowDefinition
+				Height="20" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<controls:RMTextBlock
+			FontSize="14"
+			VerticalAlignment="Center"
+			TextWrapping="Wrap"
+			Text="{x:Static resourceRepository:Resources.RMC_Select_Template_To_Convert}" />
+		<!--Unknown connection ID: 2-->
+		<controls:RMDataGrid
+			Name="dgrTemplates"
+			Grid.Row="1"
+			Margin="0,20,0,0"
+			BorderThickness="0"
+			igDp:GroupByAreaLocation="None"
+			CustomizedSelectedCount="{Binding TemplateConversionContext.SelectedTemplates.Count}"
+			igDp:DataSource="{Binding TemplateConversionContext.Templates, Converter={StaticResource GridViewSourceConverter}}"
+			SearchCommand="{Binding SearchCommand}">
+			<igDp:DataPresenterBase.FieldSettings>
+				<igDp:FieldSettings
+					CellClickAction="SelectRecord"
+					Width="Auto" />
+			</igDp:DataPresenterBase.FieldSettings>
+			<igDp:DataPresenterBase.FieldLayouts>
+				<igDp:FieldLayout>
+					<igDp:FieldLayout.Fields>
+						<igDp:Field
+							BindingType="Unbound"
+							Name="Selected">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings
+									CellClickAction="EnterEditModeIfAllowed"
+									LabelClickAction="Nothing"
+									AllowResize="False"
+									EditAsType="{x:Type sys:Boolean}">
+									<igDp:FieldSettings.EditorStyle>
+										<!--Unknown connection ID: 3-->
+										<Style
+											TargetType="{x:Type igEditors:XamCheckEditor}">
+											<Setter
+												Property="infrastructure:FieldCheckChanged.Command"
+												Value="{Binding ElementName=TemplateView, Path=DataContext.FieldCheckChangedCommand}" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+									<igDp:FieldSettings.LabelPresenterStyle>
+										<Style
+											TargetType="{x:Type igDp:LabelPresenter}">
+											<Setter
+												Property="Template">
+												<Setter.Value>
+													<ControlTemplate
+														TargetType="{x:Type igDp:LabelPresenter}">
+														<!--Unknown connection ID: 4-->
+														<CheckBox
+															Name="HeaderCheckBox"
+															HorizontalAlignment="Center"
+															VerticalAlignment="Center"
+															IsThreeState="False"
+															Command="{Binding ElementName=TemplateView, Path=DataContext.SelectedAllCheckChangedCommand}"
+															IsChecked="{Binding Path=IsSelectAll, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+															<ButtonBase.CommandParameter>
+																<MultiBinding
+																	Converter="{StaticResource SelectAllParameterConverter}">
+																	<MultiBinding.Bindings>
+																		<Binding
+																			Path="IsSelectAll"
+																			RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+																		<Binding
+																			ElementName="dgrTemplates"
+																			Path="Records" />
+																	</MultiBinding.Bindings>
+																</MultiBinding>
+															</ButtonBase.CommandParameter>
+														</CheckBox>
+													</ControlTemplate>
+												</Setter.Value>
+											</Setter>
+										</Style>
+									</igDp:FieldSettings.LabelPresenterStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="Name"
+							Label="{x:Static resourceRepository:Resources.General_Template}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings>
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="ModelNumber"
+							Label="{x:Static resourceRepository:Resources.General_Model_Number}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings>
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="FirmwareVersion"
+							Label="{x:Static resourceRepository:Resources.RMC_Template_FWVersion}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings>
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="LanguagePacksInfo"
+							Label="{x:Static resourceRepository:Resources.General_LanguagePacks}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings
+									LabelClickAction="Nothing">
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+									<igDp:FieldSettings.CellValuePresenterStyle>
+										<Style
+											BasedOn="{StaticResource CellValuePresenterStyle}"
+											TargetType="{x:Type igDp:CellValuePresenter}">
+											<Style.Setters>
+												<Setter
+													Property="Template">
+													<Setter.Value>
+														<ControlTemplate>
+															<controls:RMTextBlock
+																Margin="{TemplateBinding Padding}"
+																VerticalAlignment="Center"
+																HorizontalAlignment="Center"
+																Visibility="{Binding Path=DataRecord.DataItem.LanguagePacksInfo, Converter={StaticResource StringValueToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}">
+																<controls:RMHyperlink
+																	Name="lbtDetails"
+																	Command="{Binding Path=DataContext.PrepareShowTemplateLanguagePacksDetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+																	CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}"
+																	Foreground="{Binding Path=DataRecord.DataItem.LPError, Converter={StaticResource LpErrorToForegroundConverter}, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}"
+																	ToolTip="{Binding Path=DataRecord.DataItem.LPError, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}">
+																	<controls:RMTextBlock
+																		Text="{Binding Path=DataRecord.DataItem.LanguagePacksInfo, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}" />
+																</controls:RMHyperlink>
+															</controls:RMTextBlock>
+														</ControlTemplate>
+													</Setter.Value>
+												</Setter>
+											</Style.Setters>
+										</Style>
+									</igDp:FieldSettings.CellValuePresenterStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="VAFiles"
+							Label="{x:Static resourceRepository:Resources.RMC_VoiceFiles}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings
+									LabelClickAction="Nothing">
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+									<igDp:FieldSettings.CellValuePresenterStyle>
+										<Style
+											BasedOn="{StaticResource CellValuePresenterStyle}"
+											TargetType="{x:Type igDp:CellValuePresenter}">
+											<Style.Setters>
+												<Setter
+													Property="Template">
+													<Setter.Value>
+														<ControlTemplate>
+															<controls:RMTextBlock
+																Margin="{TemplateBinding Padding}"
+																VerticalAlignment="Center"
+																HorizontalAlignment="Center"
+																Visibility="{Binding Path=DataRecord.DataItem.VAFiles, Converter={StaticResource StringValueToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}">
+																<controls:RMHyperlink
+																	Name="lbtDetails"
+																	IsEnabled="{Binding Path=DataRecord.DataItem.ProductFamily, Converter={StaticResource DMR3ProductFamilyToVALPEnable}, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}"
+																	Command="{Binding Path=DataContext.PrepareShowTemplateVADetailInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+																	CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}">
+																	<controls:RMTextBlock
+																		Text="{Binding Path=DataRecord.DataItem.VAFiles, RelativeSource={RelativeSource AncestorType={x:Type igDp:DataRecordPresenter}}}" />
+																</controls:RMHyperlink>
+															</controls:RMTextBlock>
+														</ControlTemplate>
+													</Setter.Value>
+												</Setter>
+											</Style.Setters>
+										</Style>
+									</igDp:FieldSettings.CellValuePresenterStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="CodeplugVersion"
+							Label="{x:Static resourceRepository:Resources.JobHistory_Template_CPG_Version}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings>
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="ModifiedDate"
+							Label="{x:Static resourceRepository:Resources.RMC_PM_ImportedTime}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings
+									AllowEdit="false"
+									EditAsType="{x:Type sys:DateTime}" />
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="RadioReferencedCount"
+							Label="{x:Static resourceRepository:Resources.RMC_Referenced_Count}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings>
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="True" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+						<igDp:Field
+							Name="Comments"
+							Label="{x:Static resourceRepository:Resources.General_Comments}">
+							<igDp:Field.Settings>
+								<igDp:FieldSettings>
+									<igDp:FieldSettings.EditorStyle>
+										<Style
+											TargetType="{x:Type igEditors:XamTextEditor}">
+											<Setter
+												Property="igEditors:ValueEditor.ValueConstraint">
+												<Setter.Value>
+													<igEditors:ValueConstraint
+														MaxLength="1024" />
+												</Setter.Value>
+											</Setter>
+											<Setter
+												Property="igEditors:ValueEditor.IsReadOnly"
+												Value="{Binding Path=WorkMode, Converter={StaticResource TemplateListWorkModeToBoolConverter}, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+											<Setter
+												Property="Background"
+												Value="#00FFFFFF" />
+											<Setter
+												Property="BorderBrush"
+												Value="#00FFFFFF" />
+											<Setter
+												Property="BorderThickness"
+												Value="0" />
+											<Setter
+												Property="Foreground"
+												Value="#FF000000" />
+										</Style>
+									</igDp:FieldSettings.EditorStyle>
+								</igDp:FieldSettings>
+							</igDp:Field.Settings>
+						</igDp:Field>
+					</igDp:FieldLayout.Fields>
+				</igDp:FieldLayout>
+			</igDp:DataPresenterBase.FieldLayouts>
+		</controls:RMDataGrid>
+		<Grid
+			Row="3"
+			HorizontalAlignment="Right"
+			Width="200">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<!--Unknown connection ID: 5-->
+			<controls:RMButton
+				Name="btnOK"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_OK}"
+				IsDefault="True"
+				Command="{Binding ConvertTemplateCommand}" />
+			<!--Unknown connection ID: 6-->
+			<controls:RMButton
+				Name="btnCancel"
+				Grid.Column="2"
+				Content="{x:Static resourceRepository:Resources.RMC_Action_Cancel}"
+				IsCancel="True"
+				Command="{Binding CloseCommand}" />
+		</Grid>
+	</Grid>
+</UserControl>

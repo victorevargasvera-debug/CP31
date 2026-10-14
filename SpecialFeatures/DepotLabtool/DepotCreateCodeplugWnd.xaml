@@ -1,0 +1,377 @@
+<Window
+	x:Class="SpecialFeatures.DepotLabtool.DepotCreateCodeplugWnd" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="clr-namespace:SpecialFeatures.DepotLabtool" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources"
+	WindowStartupLocation="CenterOwner"
+	Title="{x:Static CommonResxNS:AppResources.Create_Codeplug}"
+	Height="320"
+	Width="396"
+	ResizeMode="NoResize"
+	WindowStyle="ToolWindow"
+	ShowInTaskbar="False">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="ResourceSpecialFeatures.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<LinearGradientBrush
+				EndPoint="0.5,0.99"
+				StartPoint="0.5,0.105"
+				x:Key="BrushBackgroundSilver">
+				<GradientStop
+					Color="#FFA6A9AF"
+					Offset="0.545" />
+				<GradientStop
+					Color="#FFC2C5CC"
+					Offset="1" />
+				<GradientStop
+					Color="#FF8F939B"
+					Offset="0" />
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				StartPoint="0.0338026,-0.0020342"
+				EndPoint="0.0338026,0.998692"
+				x:Key="MyBrush1234">
+				<GradientStop
+					Color="#FF1C2027"
+					Offset="0" />
+				<GradientStop
+					Color="#FF5C626B"
+					Offset="0.0859826" />
+				<GradientStop
+					Color="#FF9CA4B0"
+					Offset="0.0863636" />
+				<GradientStop
+					Color="#FF5D636C"
+					Offset="0.462964" />
+				<GradientStop
+					Color="#FF1E2228"
+					Offset="0.463636" />
+				<GradientStop
+					Color="#FF4C4C4C"
+					Offset="1" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				Color="LightGray"
+				x:Key="{x:Static SystemColors.HighlightBrushKey}" />
+			<d:ExtendedU1ValidConverter
+				x:Key="ExtendedU1ValidConverter" />
+			<d:RegionValidConverter
+				x:Key="RegionValidConverter" />
+			<d:UltraLowPowerConverter
+				x:Key="UltraLowPowerConverter" />
+			<d:MariRadSoftConverter
+				x:Key="MariRadSoftConverter" />
+			<d:DualKnobsConverter
+				x:Key="DualKnobsConverter" />
+			<d:DisableEncConverter
+				x:Key="DisableEncConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Background>
+		<LinearGradientBrush
+			EndPoint="0.5,0.99"
+			StartPoint="0.5,0.105">
+			<GradientStop
+				Color="#FFA6A9AF"
+				Offset="0.545" />
+			<GradientStop
+				Color="#FFC2C5CC"
+				Offset="1" />
+			<GradientStop
+				Color="#FF8F939B"
+				Offset="0" />
+		</LinearGradientBrush>
+	</Control.Background>
+	<Grid>
+		<!--Unknown connection ID: 1-->
+		<Label
+			Name="label1"
+			Height="28"
+			HorizontalAlignment="Left"
+			Margin="26,19,0,0"
+			VerticalAlignment="Top"
+			Width="67">Radio:</Label>
+		<!--Unknown connection ID: 2-->
+		<ComboBox
+			Name="cmbRadio"
+			Height="23"
+			Margin="171,19,0,0"
+			VerticalAlignment="Top"
+			SelectedIndex="0"
+			HorizontalAlignment="Left"
+			Width="148">
+			<ComboBoxItem>APX900</ComboBoxItem>
+			<ComboBoxItem>APX1000</ComboBoxItem>
+			<ComboBoxItem>APX1500</ComboBoxItem>
+			<ComboBoxItem>APX2000</ComboBoxItem>
+			<ComboBoxItem>TXM2000</ComboBoxItem>
+			<ComboBoxItem>TXM3000</ComboBoxItem>
+			<ComboBoxItem>SRX2200</ComboBoxItem>
+			<ComboBoxItem>APX2500</ComboBoxItem>
+			<ComboBoxItem>APX3000</ComboBoxItem>
+			<ComboBoxItem>APX4000</ComboBoxItem>
+			<ComboBoxItem>APX4000XH</ComboBoxItem>
+			<ComboBoxItem>APX4500</ComboBoxItem>
+			<ComboBoxItem>APX5000</ComboBoxItem>
+			<ComboBoxItem>APX5500</ComboBoxItem>
+			<ComboBoxItem>APX6000</ComboBoxItem>
+			<ComboBoxItem>APX6500</ComboBoxItem>
+			<ComboBoxItem>APX7000</ComboBoxItem>
+			<ComboBoxItem>APX7000XE</ComboBoxItem>
+			<ComboBoxItem>APX7500</ComboBoxItem>
+			<ComboBoxItem>APX8000</ComboBoxItem>
+			<ComboBoxItem>APX8500</ComboBoxItem>
+			<ComboBoxItem>VX-P949</ComboBoxItem>
+			<ComboBoxItem>APX8000H</ComboBoxItem>
+			<ComboBoxItem>APX8000HXE</ComboBoxItem>
+			<ComboBoxItem>ATS2500p</ComboBoxItem>
+		</ComboBox>
+		<!--Unknown connection ID: 3-->
+		<Label
+			Name="label3"
+			Height="28"
+			HorizontalAlignment="Left"
+			Margin="25,49,0,0"
+			VerticalAlignment="Top"
+			Width="105">Model Number:</Label>
+		<!--Unknown connection ID: 4-->
+		<ComboBox
+			Name="cmbModelNum"
+			Height="23"
+			Margin="171,53,0,0"
+			VerticalAlignment="Top"
+			SelectedIndex="0"
+			HorizontalAlignment="Left"
+			Width="148" />
+		<!--Unknown connection ID: 5-->
+		<Label
+			Name="label4"
+			Height="28"
+			HorizontalAlignment="Left"
+			Margin="26,86,0,0"
+			VerticalAlignment="Top"
+			Width="92">Serial Number:</Label>
+		<!--Unknown connection ID: 6-->
+		<Label
+			Name="label5"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="26,120,0,0"
+			VerticalAlignment="Top"
+			Width="83"
+			Content="FLASHCode:" />
+		<!--Unknown connection ID: 7-->
+		<TextBox
+			Name="txtFlashCode1"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="171,121,0,0"
+			VerticalAlignment="Top"
+			Width="49"
+			MaxLength="6">000000</TextBox>
+		<!--Unknown connection ID: 8-->
+		<Label
+			Name="label6"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="220,119,0,0"
+			VerticalAlignment="Top"
+			Width="17">-</Label>
+		<!--Unknown connection ID: 9-->
+		<TextBox
+			Name="txtFlashCode2"
+			Height="23"
+			Margin="235,122,0,0"
+			VerticalAlignment="Top"
+			MaxLength="6"
+			HorizontalAlignment="Left"
+			Width="49">000000</TextBox>
+		<!--Unknown connection ID: 10-->
+		<Label
+			Name="label7"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="285,119,0,0"
+			VerticalAlignment="Top"
+			Width="17">-</Label>
+		<!--Unknown connection ID: 11-->
+		<TextBox
+			Name="txtFlashCodeCheckSum"
+			Height="23"
+			HorizontalAlignment="Left"
+			Margin="300,122,0,0"
+			VerticalAlignment="Top"
+			Width="19"
+			IsReadOnly="True">0</TextBox>
+		<!--Unknown connection ID: 12-->
+		<Button
+			Name="btnOK"
+			Style="{StaticResource AnotherB}"
+			Background="{DynamicResource SilverButton}"
+			Foreground="#FFFF7F50"
+			Height="23"
+			HorizontalAlignment="Left"
+			IsDefault="True"
+			Margin="83,0,0,21"
+			VerticalAlignment="Bottom"
+			Width="75"
+			IsEnabled="True">OK</Button>
+		<!--Unknown connection ID: 13-->
+		<Button
+			Name="btnCancel"
+			Style="{StaticResource AnotherB}"
+			Background="{DynamicResource Brush1234}"
+			Foreground="#FFFF7F50"
+			Height="23"
+			IsCancel="True"
+			Margin="220,0,0,21"
+			VerticalAlignment="Bottom"
+			HorizontalAlignment="Left"
+			Width="75">Cancel</Button>
+		<!--Unknown connection ID: 14-->
+		<TextBox
+			Name="txtSerNum"
+			Height="23"
+			Margin="171,86,0,0"
+			VerticalAlignment="Top"
+			MaxLength="10"
+			AutoWordSelection="False"
+			CharacterCasing="Upper"
+			HorizontalAlignment="Left"
+			Width="148">123ABC1234</TextBox>
+		<!--Unknown connection ID: 15-->
+		<Label
+			Name="labelRegion"
+			Height="28"
+			HorizontalAlignment="Left"
+			Margin="26,153,0,0"
+			VerticalAlignment="Top"
+			Width="130"
+			Content="Regional Governance:" />
+		<!--Unknown connection ID: 16-->
+		<ComboBox
+			Name="cmbRegion"
+			Height="23"
+			Margin="171,153,0,0"
+			VerticalAlignment="Top"
+			HorizontalAlignment="Left"
+			Width="148">
+			<Control.Foreground>
+				<MultiBinding
+					Converter="{StaticResource RegionValidConverter}">
+					<Binding
+						Path="Text"
+						ElementName="cmbModelNum" />
+					<Binding
+						Path="Text"
+						ElementName="txtFlashCode1" />
+					<Binding
+						Path="Text"
+						ElementName="cmbRegion" />
+				</MultiBinding>
+			</Control.Foreground>
+			<ComboBoxItem
+				Content="FCC Compliant"
+				Foreground="#FF000000" />
+			<ComboBoxItem
+				Content="ACMA">
+				<Control.Foreground>
+					<MultiBinding
+						Converter="{StaticResource ExtendedU1ValidConverter}">
+						<Binding
+							Path="Text"
+							ElementName="cmbModelNum" />
+						<Binding
+							Path="Text"
+							ElementName="txtFlashCode1" />
+					</MultiBinding>
+				</Control.Foreground>
+			</ComboBoxItem>
+			<ComboBoxItem
+				Content="RTTE Compliant"
+				Foreground="#FF000000" />
+		</ComboBox>
+		<!--Unknown connection ID: 17-->
+		<CheckBox
+			Name="cbULP"
+			Content="Ultra Low Power"
+			Height="16"
+			HorizontalAlignment="Left"
+			Margin="171,200,0,0"
+			VerticalAlignment="Top">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{StaticResource UltraLowPowerConverter}">
+					<Binding
+						Path="Text"
+						ElementName="cmbRadio" />
+					<Binding
+						Path="Text"
+						ElementName="cmbModelNum" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</CheckBox>
+		<!--Unknown connection ID: 18-->
+		<CheckBox
+			Name="cbAPX6000P25"
+			Content="APX6000P25 Radio"
+			Height="16"
+			HorizontalAlignment="Left"
+			Margin="171,200,0,0"
+			VerticalAlignment="Top"
+			Visibility="Hidden" />
+		<!--Unknown connection ID: 19-->
+		<CheckBox
+			Name="cbMariTimeRadio"
+			Content="Maritime Radio Software"
+			Height="16"
+			HorizontalAlignment="Left"
+			Margin="171,190,0,0"
+			VerticalAlignment="Top">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{StaticResource MariRadSoftConverter}">
+					<Binding
+						Path="Text"
+						ElementName="cmbModelNum" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</CheckBox>
+		<!--Unknown connection ID: 20-->
+		<CheckBox
+			Name="cbDualKnobs"
+			Content="APX 2-Knob Control"
+			Height="16"
+			HorizontalAlignment="Left"
+			Margin="171,210,0,0"
+			VerticalAlignment="Top"
+			IsChecked="False">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{StaticResource DualKnobsConverter}">
+					<Binding
+						Path="Text"
+						ElementName="cmbModelNum" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</CheckBox>
+		<!--Unknown connection ID: 21-->
+		<CheckBox
+			Name="cbDisableEnc"
+			Content="Disable Encryption"
+			Height="16"
+			HorizontalAlignment="Left"
+			Margin="171,220,0,0"
+			VerticalAlignment="Top"
+			IsChecked="False">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{StaticResource DisableEncConverter}">
+					<Binding
+						Path="Text"
+						ElementName="cmbModelNum" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</CheckBox>
+	</Grid>
+</Window>

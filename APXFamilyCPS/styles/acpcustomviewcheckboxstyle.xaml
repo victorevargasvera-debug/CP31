@@ -1,0 +1,110 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI">
+	<Style
+		TargetType="{x:Type AcpUINS:AcpCustomViewCheckBox}"
+		x:Key="{x:Type AcpUINS:AcpCustomViewCheckBox}">
+		<Style.Triggers>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpValid, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpCustomViewCheckBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpCustomViewCheckBoxInValidForeground}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpApplicable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpEditable, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="IsEnabled"
+					Value="False" />
+			</DataTrigger>
+			<DataTrigger
+				Value="false"
+				Binding="{Binding Path=IsAcpVisible, RelativeSource={RelativeSource Self}}">
+				<Setter
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</Style.Triggers>
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="true" />
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="true" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type AcpUINS:AcpCustomViewCheckBox}">
+					<BulletDecorator
+						Background="#00FFFFFF">
+						<BulletDecorator.Bullet>
+							<Border
+								Name="Border"
+								Width="16"
+								Height="16"
+								CornerRadius="0"
+								BorderThickness="1"
+								Background="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpCustomViewCheckBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpCustomViewCheckBoxNormalBackground}}}"
+								BorderBrush="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpCustomViewCheckBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpCustomViewCheckBoxNormalBorder}}}">
+								<Image
+									Name="CheckMark"
+									Source="../../icons/GreenCheckIcon.png" />
+							</Border>
+						</BulletDecorator.Bullet>
+						<ContentPresenter
+							Margin="4,0,0,0"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left"
+							RecognizesAccessKey="True" />
+					</BulletDecorator>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="false">
+							<Setter
+								TargetName="CheckMark"
+								Property="Visibility"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="true">
+							<Setter
+								TargetName="CheckMark"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="true">
+							<Setter
+								TargetName="Border"
+								Property="Background"
+								Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpCustomViewCheckBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpCustomViewCheckBoxHoverBackground}}}" />
+						</Trigger>
+						<Trigger
+							Property="IsPressed"
+							Value="true">
+							<Setter
+								TargetName="Border"
+								Property="Background"
+								Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpCustomViewCheckBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpCustomViewCheckBoxPressedBackground}}}" />
+							<Setter
+								TargetName="Border"
+								Property="BorderBrush"
+								Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=AcpUINS:AcpCustomViewCheckBox, ResourceId={x:Static AcpUINS:AcpColorKeys.AcpCustomViewCheckBoxPressedBorderBackground}}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

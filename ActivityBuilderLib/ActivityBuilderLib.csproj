@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA642}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.CommonCPS.RadioManagement.ActivityBuilderLib</RootNamespace>
+    <AssemblyName>ActivityBuilderLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities.cs" />
+    <Compile Include="Activity.cs" />
+    <Compile Include="ActivityBase.cs" />
+    <Compile Include="ActivityBuilderLibCommonService.cs" />
+    <Compile Include="ActivityPanelSetting.cs" />
+    <Compile Include="ActivitySet.cs" />
+    <Compile Include="ActivityType.cs" />
+    <Compile Include="AppWidget.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="Eventset.cs" />
+    <Compile Include="HLPanel.cs" />
+    <Compile Include="HLPanelSetting.cs" />
+    <Compile Include="HomeLayout.cs" />
+    <Compile Include="HomeSetEditorDataHelper.cs" />
+    <Compile Include="HomeSetUiService.cs" />
+    <Compile Include="ItemBase.cs" />
+    <Compile Include="MapItemType.cs" />
+    <Compile Include="MapWidget.cs" />
+    <Compile Include="PreviewPanelType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScxmlParser.cs" />
+    <Compile Include="ShortcutWidget.cs" />
+    <Compile Include="SignatureHelper.cs" />
+    <Compile Include="Transition.cs" />
+    <Compile Include="TransitionSetting.cs" />
+    <Compile Include="TreeNodeDataType.cs" />
+    <Compile Include="TreeRootNodeType.cs" />
+    <Compile Include="WebKitWidget.cs" />
+    <Compile Include="WidgetBase.cs" />
+    <Compile Include="WidgetDefaultSize.cs" />
+    <Compile Include="WidgetItemType.cs" />
+    <Compile Include="WidgetMaxSize.cs" />
+    <Compile Include="WidgetMinSize.cs" />
+    <Compile Include="WidgetsConstant.cs" />
+    <Compile Include="WidgetsDefine.cs" />
+    <Compile Include="WidgetType.cs" />
+    <Compile Include="WidgetTypeItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BouncyCastle.Crypto\BouncyCastle.Crypto.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64D}</Project>
+      <Name>BouncyCastle.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motorola.CommonCPS.ResourceRepository\Motorola.CommonCPS.ResourceRepository.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6C2}</Project>
+      <Name>Motorola.CommonCPS.ResourceRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

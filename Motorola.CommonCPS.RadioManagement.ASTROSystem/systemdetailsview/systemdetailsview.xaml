@@ -1,0 +1,280 @@
+<UserControl
+	x:Class="Motorola.CommonCPS.RadioManagement.ASTROSystem.SystemDetailsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:interactionRequest="http://www.codeplex.com/prism" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:igDP="clr-namespace:Infragistics.Windows.DataPresenter;assembly=InfragisticsWPF4.DataPresenter.v15.1" xmlns:igEditors="http://infragistics.com/Editors" xmlns:resourceRepository="clr-namespace:Motorola.CommonCPS.ResourceRepository;assembly=Motorola.CommonCPS.ResourceRepository" xmlns:controls="clr-namespace:Motorola.CommonCPS.RadioManagement.Controls;assembly=Motorola.CommonCPS.RadioManagement.Controls" xmlns:converters="clr-namespace:Motorola.CommonCPS.RadioManagement.Converters;assembly=Motorola.CommonCPS.RadioManagement.Converters" xmlns:infrastructure="clr-namespace:Motorola.CommonCPS.RadioManagement.Infrastructure;assembly=Motorola.CommonCPS.RadioManagement.Infrastructure" xmlns:local="clr-namespace:Motorola.CommonCPS.RadioManagement.ASTROSystem"
+	Name="uscSystemDetails">
+	<UIElement.InputBindings>
+		<KeyBinding
+			Key="F5"
+			Command="{Binding RefreshCommand}" />
+	</UIElement.InputBindings>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Motorola.CommonCPS.RadioManagement.ASTROSystem;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<converters:SystemTypeConverter
+				x:Key="systemTypeConverter" />
+			<converters:SubSystemTypeConverter
+				x:Key="subSystemTypeConverter" />
+			<controls:BindingProxy
+				Data="{Binding ChangeRadioIDEntryFormatCommand}"
+				x:Key="ChangeRadioIDEntryFormatCommandProxy" />
+			<ContextMenu
+				x:Key="cmConverter">
+				<!--Unknown connection ID: 2-->
+				<MenuItem
+					Name="DecimalFormat"
+					Header="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_RadioID_EntryFormat_Dec}"
+					CommandParameter="D"
+					Command="{Binding Data, Source={StaticResource ChangeRadioIDEntryFormatCommandProxy}}" />
+				<!--Unknown connection ID: 3-->
+				<MenuItem
+					Name="HexFormat"
+					Header="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_RadioID_EntryFormat_Hex}"
+					CommandParameter="H"
+					Command="{Binding Data, Source={StaticResource ChangeRadioIDEntryFormatCommandProxy}}" />
+			</ContextMenu>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<i:Interaction.Triggers>
+		<interactionRequest:InteractionRequestTrigger
+			i:SourceObject="{Binding ShowRadioDetailsDialogRequest}">
+			<infrastructure:PopupWindowAction
+				IsModal="True"
+				IsMaximizationEnabled="True"
+				DisableMinimalizingButtonInWindow="True">
+				<infrastructure:PopupWindowAction.Content>
+					<local:RadioJobsView />
+				</infrastructure:PopupWindowAction.Content>
+			</infrastructure:PopupWindowAction>
+		</interactionRequest:InteractionRequestTrigger>
+	</i:Interaction.Triggers>
+	<!--Unknown connection ID: 4-->
+	<controls:RMDataGrid
+		Name="dgrRadios"
+		Grid.Column="1"
+		igDP:GroupByAreaLocation="None"
+		CRUDToolBarVisibility="Visible"
+		igDP:DataSource="{Binding Items}"
+		SearchCommand="{Binding SearchCommand}"
+		infrastructure:DataGridEditModeEnding.Command="{Binding SaveItemCommand}"
+		infrastructure:DataGridEditModeStarted.Command="{Binding EnterEditModeCommand}"
+		infrastructure:DataGridSelectedItemsChanged.Command="{Binding UpdateSelectedItemsCommand}"
+		IsLoadingItemsFromViewCache="{Binding IsLoadingItemsFromViewCache}">
+		<igDP:DataPresenterBase.FieldLayouts>
+			<igDP:FieldLayout>
+				<igDP:FieldLayout.Fields>
+					<igDP:Field
+						Name="SerialNumber"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_Radio_SerialNumber}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.CellValuePresenterStyle>
+									<Style
+										TargetType="{x:Type igDP:CellValuePresenter}">
+										<Setter
+											Property="Template">
+											<Setter.Value>
+												<ControlTemplate
+													TargetType="{x:Type igDP:CellValuePresenter}">
+													<TextBlock
+														Margin="{TemplateBinding Padding}"
+														VerticalAlignment="Center">
+														<controls:RMHyperlink
+															Command="{Binding Path=DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+															CommandParameter="{Binding Path=DataRecord.DataItem, RelativeSource={RelativeSource AncestorType={x:Type igDP:DataRecordPresenter}}}">
+															<TextBlock
+																Text="{Binding Path=Value, RelativeSource={RelativeSource TemplatedParent}}" />
+														</controls:RMHyperlink>
+													</TextBlock>
+												</ControlTemplate>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</igDP:FieldSettings.CellValuePresenterStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="RadioID"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_RadioID}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmMaskedEditorStyle}"
+										TargetType="{x:Type igEditors:XamMaskedEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="{Binding Path=DataItem.IsRadioIDEditable, Converter={StaticResource BoolToInverseConverter}}" />
+										<Setter
+											Property="igEditors:XamMaskedEditor.PromptChar"
+											Value="" />
+										<Setter
+											Property="Background"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderBrush"
+											Value="#00FFFFFF" />
+										<Setter
+											Property="BorderThickness"
+											Value="0" />
+										<Setter
+											Property="igEditors:XamMaskedEditor.Mask"
+											Value="{}{char:8:0-9a-fA-FxX}" />
+										<Setter
+											Property="HorizontalContentAlignment"
+											Value="Right" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="ConfigurationName"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_Radio_Configuration}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="TemplateName"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_Radio_Template}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="AskRequired"
+						Label="{x:Static resourceRepository:Resources.General_ASKRequired}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource CheckFieldStyle}"
+										TargetType="{x:Type igEditors:XamCheckEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+										<Setter
+											Property="IsEnabled"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="RadioAlias"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_Radio_Alias}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="SystemType"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_System_CommunicationType}"
+						Converter="{StaticResource systemTypeConverter}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								EditAsType="{x:Type sys:String}">
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="SubSystemType"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_System_SubSystemType}"
+						Converter="{StaticResource subSystemTypeConverter}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings
+								EditAsType="{x:Type sys:String}">
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="SystemId"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_System_ID}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+					<igDP:Field
+						Name="SystemName"
+						Label="{x:Static resourceRepository:Resources.RMC_Model_ASTROSystem_System_Name}">
+						<igDP:Field.Settings>
+							<igDP:FieldSettings>
+								<igDP:FieldSettings.EditorStyle>
+									<Style
+										BasedOn="{StaticResource rmTextEditorStyle}"
+										TargetType="{x:Type igEditors:XamTextEditor}">
+										<Setter
+											Property="igEditors:ValueEditor.IsReadOnly"
+											Value="True" />
+									</Style>
+								</igDP:FieldSettings.EditorStyle>
+							</igDP:FieldSettings>
+						</igDP:Field.Settings>
+					</igDP:Field>
+				</igDP:FieldLayout.Fields>
+			</igDP:FieldLayout>
+		</igDP:DataPresenterBase.FieldLayouts>
+	</controls:RMDataGrid>
+</UserControl>

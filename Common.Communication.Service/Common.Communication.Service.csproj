@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA660}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motorola.Common.Communication.Service</RootNamespace>
+    <AssemblyName>Common.Communication.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a.cs" />
+    <Compile Include="b.cs" />
+    <Compile Include="c.cs" />
+    <Compile Include="CommunicationServiceModule.cs" />
+    <Compile Include="d.cs" />
+    <Compile Include="DeviceDiscovery.cs" />
+    <Compile Include="DeviceServiceManager.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="e.cs" />
+    <Compile Include="IDeviceDiscovery.cs" />
+    <Compile Include="IDeviceOperation.cs" />
+    <Compile Include="IDiscoveryServiceEvent.cs" />
+    <Compile Include="InitializedParameters.cs" />
+    <Compile Include="IOperationServiceEvent.cs" />
+    <Compile Include="MotorolaDeviceOperation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64A}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommonInterface\Common.Communication.CommonInterface.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA656}</Project>
+      <Name>Common.Communication.CommonInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.CommunicationManager\Common.Communication.CommunicationManager.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA657}</Project>
+      <Name>Common.Communication.CommunicationManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Communication.Simulator\Common.Communication.Simulator.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA661}</Project>
+      <Name>Common.Communication.Simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonCommunicationUtility\CommonCommunicationUtility.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA665}</Project>
+      <Name>CommonCommunicationUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonError\CommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA667}</Project>
+      <Name>CommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IACommonError\IACommonError.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA678}</Project>
+      <Name>IACommonError</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pba\Pba.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6D1}</Project>
+      <Name>Pba</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSLManagerComp\SSLManagerComp.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA6DD}</Project>
+      <Name>SSLManagerComp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

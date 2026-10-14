@@ -1,0 +1,308 @@
+<Window
+	x:Class="SpecialFeatures.Programming.OTAPProgrammingWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:SPFProgrammungUI="clr-namespace:SpecialFeatures.Programming.UI;assembly=" xmlns:src="clr-namespace:SpecialFeatures.Programming" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="{x:Static CommonResxNS:AppResources.POP25_Programming_Window}"
+	WindowStartupLocation="CenterOwner"
+	ShowInTaskbar="False"
+	WindowStyle="None"
+	AllowsTransparency="True"
+	SizeToContent="WidthAndHeight">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<src:CheckToVisibilityConverter
+				x:Key="BoolVisibilityConverter" />
+			<src:CheckToNotEnabled
+				x:Key="CheckToNotEnabledConverter" />
+			<LinearGradientBrush
+				StartPoint="0.0338026,-0.0020342"
+				EndPoint="0.0338026,0.998692"
+				x:Key="Brush1234">
+				<GradientStop
+					Color="#FFE3F5FD"
+					Offset="0.07" />
+				<GradientStop
+					Color="#FFC1D9F3"
+					Offset="0.096" />
+				<GradientStop
+					Color="#FF85AAC4"
+					Offset="0.448" />
+				<GradientStop
+					Color="#FF648DAE"
+					Offset="0.468" />
+				<GradientStop
+					Color="#FF07090B"
+					Offset="0.984" />
+				<GradientStop
+					Color="#FFB2D4F0"
+					Offset="0.004" />
+				<GradientStop
+					Color="#FF4288BA"
+					Offset="0.828" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				Color="#FFA6A9AF"
+				x:Key="Brush19090" />
+			<RoutedCommand
+				x:Key="F1Help" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<UIElement.CommandBindings>
+		<!--Unknown connection ID: 2-->
+		<CommandBinding
+			Command="{StaticResource F1Help}" />
+	</UIElement.CommandBindings>
+	<UIElement.InputBindings>
+		<KeyBinding
+			Command="{StaticResource F1Help}"
+			Key="F1" />
+	</UIElement.InputBindings>
+	<Control.Background>
+		<LinearGradientBrush
+			EndPoint="0.5,0.99"
+			StartPoint="0.5,0.105">
+			<GradientStop
+				Color="#FFD0D4DD"
+				Offset="0.545" />
+			<GradientStop
+				Color="#FFC2C5CC"
+				Offset="1" />
+			<GradientStop
+				Color="#FFC2CCE7"
+				Offset="0" />
+		</LinearGradientBrush>
+	</Control.Background>
+	<!--Unknown connection ID: 3-->
+	<StackPanel
+		Name="ProgrammingPanel"
+		Width="Auto">
+		<!--Unknown connection ID: 4-->
+		<Label
+			Name="operationLabel"
+			FontSize="16"
+			HorizontalAlignment="Stretch"
+			HorizontalContentAlignment="Center"
+			BorderThickness="0,0,0,0"
+			Background="{DynamicResource Brush1234}"
+			Foreground="#FFFFFFFF"
+			Width="337.95"
+			Content="{x:Static CommonResxNS:AppResources.PlaceHolder_Id}"
+			BorderBrush="{x:Null}">
+			<UIElement.OpacityMask>
+				<RadialGradientBrush>
+					<Brush.RelativeTransform>
+						<TransformGroup>
+							<ScaleTransform
+								CenterX="0.5"
+								CenterY="0.5"
+								ScaleX="1.557"
+								ScaleY="1.557" />
+							<SkewTransform
+								AngleX="0"
+								AngleY="0"
+								CenterX="0.5"
+								CenterY="0.5" />
+							<RotateTransform
+								Angle="0"
+								CenterX="0.5"
+								CenterY="0.5" />
+							<TranslateTransform
+								X="0"
+								Y="0" />
+						</TransformGroup>
+					</Brush.RelativeTransform>
+					<GradientStop
+						Color="#FF000000"
+						Offset="0.529" />
+					<GradientStop
+						Color="#FF000000"
+						Offset="0.959" />
+				</RadialGradientBrush>
+			</UIElement.OpacityMask>
+		</Label>
+		<!--Unknown connection ID: 5-->
+		<GroupBox
+			Name="GrpbxOTAPParameters"
+			Margin="5,5,5,17"
+			Header="{x:Static CommonResxNS:AppResources.POP25_Programming_Parameters}"
+			Foreground="#FF323232">
+			<StackPanel
+				Orientation="Vertical">
+				<!--Unknown connection ID: 6-->
+				<CheckBox
+					Name="useRadioIDCheckBox"
+					Margin="5,5,5,5"
+					IsChecked="True"
+					Foreground="#FF323232"
+					Content="{x:Static CommonResxNS:AppResources.Get_Radio_IP_Address_From_The_Automatic_Registration_Server}" />
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0"
+					Visibility="{Binding Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=useRadioIDCheckBox}">
+					<Label
+						Foreground="#FF323232"
+						Content="{x:Static CommonResxNS:AppResources.Automatic_Registration_Server}" />
+					<!--Unknown connection ID: 7-->
+					<ComboBox
+						Name="autoRegServer"
+						Width="200"
+						Margin="5,0,0,0"
+						SelectedIndex="0"
+						ItemsSource="{Binding Path=ARS_DataSource}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0"
+					Visibility="{Binding Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=useRadioIDCheckBox}">
+					<!--Unknown connection ID: 8-->
+					<Label
+						Name="lbArsConnectionType"
+						Content="{x:Static CommonResxNS:AppResources.Connection_Type}"
+						Foreground="#FF323232"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Top" />
+					<!--Unknown connection ID: 9-->
+					<TextBox
+						Name="txtboxConnectionType"
+						Height="23"
+						HorizontalAlignment="left"
+						Margin="68,2,0,0"
+						VerticalAlignment="Top"
+						Width="200"
+						IsEnabled="False" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0"
+					Visibility="{Binding Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=useRadioIDCheckBox}">
+					<!--Unknown connection ID: 10-->
+					<Label
+						Name="lblTimeout"
+						Foreground="#FF323232"
+						Content="{x:Static CommonResxNS:AppResources.Automatic_Registration_Server_Connectivity_Timeout_Timer}" />
+					<!--Unknown connection ID: 11-->
+					<SPFProgrammungUI:IPTextBox
+						Name="TimeOutTextbox"
+						TextAlignment="Center"
+						Min="5"
+						Max="60"
+						MaxLength="2"
+						Text="8"
+						IsEnabled="{Binding Path=IsChecked, ElementName=useRadioIDCheckBox}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0"
+					Visibility="{Binding Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=useRadioIDCheckBox}">
+					<!--Unknown connection ID: 12-->
+					<Label
+						Name="lblRadioID"
+						Foreground="#FF323232"
+						Content="{x:Static CommonResxNS:AppResources.Individual_POP25_Radio_ID}" />
+					<!--Unknown connection ID: 13-->
+					<SPFProgrammungUI:IPTextBox
+						Name="RadioID"
+						Margin="92,0,0,0"
+						TextAlignment="Center"
+						Width="15"
+						Min="1"
+						Max="16777211"
+						MaxLength="8"
+						Text="1"
+						IsEnabled="{Binding Path=IsChecked, ElementName=useRadioIDCheckBox}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0">
+					<!--Unknown connection ID: 14-->
+					<Label
+						Name="lblRadioIPOutput"
+						Foreground="#FF323232"
+						Content="{x:Static CommonResxNS:AppResources.Individual_POP25_Radio_IP_Address}" />
+					<!--Unknown connection ID: 15-->
+					<SPFProgrammungUI:SPF_UI_IPAddressV4_Control
+						Name="RadioIPAddressTextBox"
+						FlowDirection="LeftToRight"
+						Margin="51,0,0,0"
+						IsEnabled="{Binding Path=IsChecked, Converter={StaticResource CheckToNotEnabledConverter}, ElementName=useRadioIDCheckBox}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0">
+					<!--Unknown connection ID: 16-->
+					<Label
+						Name="lblInactivityTimer"
+						Foreground="#FF323232"
+						Content="{x:Static CommonResxNS:AppResources.CPS_Session_Inactivity_Timeout_Timer}" />
+					<!--Unknown connection ID: 17-->
+					<SPFProgrammungUI:IPTextBox
+						Name="InactivityTimerTextbox"
+						Margin="10,0,0,0"
+						TextAlignment="Center"
+						Min="1"
+						Max="4"
+						MaxLength="1"
+						Text="3" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Margin="0,10,0,0"
+					Visibility="{Binding Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=useRadioIDCheckBox}">
+					<!--Unknown connection ID: 18-->
+					<Label
+						Name="lblTimeElapsed"
+						Foreground="#FF323232"
+						Content="{x:Static CommonResxNS:AppResources.Time_Elapsed}" />
+					<!--Unknown connection ID: 19-->
+					<TextBox
+						Name="txtTimeElapsed"
+						HorizontalAlignment="Center"
+						MinWidth="200"
+						Margin="10,0,0,0"
+						IsEnabled="True"
+						BorderThickness="0"
+						Focusable="False"
+						VerticalAlignment="Center"
+						Text="{Binding Path=RunningTime}"
+						Background="{x:Null}" />
+				</StackPanel>
+			</StackPanel>
+		</GroupBox>
+		<StackPanel
+			Orientation="Horizontal"
+			HorizontalAlignment="Center"
+			Margin="0,-1,0,12">
+			<!--Unknown connection ID: 20-->
+			<Button
+				Name="btnGetIPOnly"
+				HorizontalAlignment="Center"
+				Margin="0,0,10,0"
+				Background="#FFD4D4D4"
+				Foreground="#FF373737"
+				Content="{x:Static CommonResxNS:AppResources.Get_IP_Only}"
+				IsEnabled="{Binding Path=IsChecked, ElementName=useRadioIDCheckBox}" />
+			<!--Unknown connection ID: 21-->
+			<Button
+				Name="btnOperation"
+				HorizontalAlignment="Center"
+				Margin="0,0,10,0"
+				Background="#FFD4D4D4"
+				Foreground="#FF373737"
+				Content="{x:Static CommonResxNS:AppResources.Continue_Read_Write}" />
+			<!--Unknown connection ID: 22-->
+			<Button
+				Name="btnCancel"
+				HorizontalAlignment="Center"
+				Background="#FFD4D4D4"
+				Foreground="#FF373737"
+				Margin="0,0,10,0"
+				Content="{x:Static CommonResxNS:AppResources.Cancel_Id}" />
+			<!--Unknown connection ID: 23-->
+			<Button
+				Name="btnHelp"
+				HorizontalAlignment="Center"
+				Background="#FFD4D4D4"
+				Foreground="#FF373737"
+				Margin="0,0,10,0"
+				Content="{x:Static CommonResxNS:AppResources.Help_Id}" />
+		</StackPanel>
+	</StackPanel>
+</Window>

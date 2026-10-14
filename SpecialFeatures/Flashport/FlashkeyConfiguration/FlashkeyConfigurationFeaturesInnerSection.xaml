@@ -1,0 +1,112 @@
+<AcpUINS:AcpPageFeature
+	x:Class="SpecialFeatures.Flashport.FlashkeyConfiguration.PageFlashkeyConfigurationFeaturesInnerSection" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AcpUINS="clr-namespace:AcpUI;assembly=AcpUI" xmlns:igcontrols="http://infragistics.com/DataPresenter" xmlns:igEditors="http://infragistics.com/Editors" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:CommonResxNS="clr-namespace:CommonResources;assembly=CommonResources" xmlns:flashkeyconfiguration="clr-namespace:SpecialFeatures.Flashport.FlashkeyConfiguration"
+	Title="{Binding Path=UIName}">
+	<DockPanel>
+		<ScrollViewer>
+			<StackPanel
+				Width="Auto"
+				Height="Auto">
+				<!--Unknown connection ID: 1-->
+				<Grid
+					Name="grid"
+					RenderTransformOrigin="0.5,0.5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="200" />
+						<ColumnDefinition
+							Width="200" />
+						<ColumnDefinition
+							Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<!--Unknown connection ID: 2-->
+					<AcpUINS:AcpTextBox
+						Name="FkeyConfigFeatureName"
+						VerticalAlignment="Center"
+						Grid.Row="0"
+						Grid.Column="2"
+						Foreground="#FF000000"
+						Text="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureNameValue}"
+						MyExpander="{Binding ElementName=ExpanderFlashkeyCfgFeaturesTable}"
+						MyBLObject="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureName}"
+						MyLabelCtrl="{Binding ElementName=LblFlashkeyCfgFeatureName}"
+						IsAcpValid="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureName_Valid, Mode=OneWay}"
+						IsAcpApplicable="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureName_Applicable, Mode=OneWay}"
+						IsAcpEditable="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureName_Editable, Mode=OneWay}"
+						IsAcpVisible="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureName_Visible, Mode=OneWay}" />
+					<!--Unknown connection ID: 3-->
+					<AcpUINS:AcpLabel
+						Name="LblFlashkeyCfgFeatureName"
+						VerticalAlignment="Center"
+						Grid.Row="0"
+						Grid.Column="1"
+						HelpText="{x:Static CommonResxNS:AppResources.Feature_Name}"
+						Content="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigFeatureName_UILabel}"
+						MyParentCtrl="{Binding ElementName=FkeyConfigFeatureName}"
+						IsAcpValid="{Binding ElementName=FkeyConfigFeatureName, Path=IsAcpValid}"
+						IsAcpApplicable="{Binding ElementName=FkeyConfigFeatureName, Path=IsAcpApplicable}"
+						IsAcpVisible="{Binding ElementName=FkeyConfigFeatureName, Path=IsAcpVisible}" />
+					<!--Unknown connection ID: 4-->
+					<AcpUINS:AcpTextBox
+						Name="FkeyConfigCurrentFlashcodeValue"
+						VerticalAlignment="Center"
+						Grid.Row="1"
+						Grid.Column="2"
+						Foreground="#FF000000"
+						Text="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValueValue}"
+						MyExpander="{Binding ElementName=ExpanderFlashkeyCfgFeaturesTable}"
+						MyBLObject="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValue}"
+						MyLabelCtrl="{Binding ElementName=LblFlashkeyCfgCurrentFlashcode}"
+						IsAcpValid="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValue_Valid, Mode=OneWay}"
+						IsAcpApplicable="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValue_Applicable, Mode=OneWay}"
+						IsAcpEditable="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValue_Editable, Mode=OneWay}"
+						IsAcpVisible="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValue_Visible, Mode=OneWay}" />
+					<!--Unknown connection ID: 5-->
+					<AcpUINS:AcpLabel
+						Name="LblFlashkeyCfgCurrentFlashcode"
+						VerticalAlignment="Center"
+						Grid.Row="1"
+						Grid.Column="1"
+						HelpText="{x:Static CommonResxNS:AppResources.Current_FLASHcode_Feature_Value}"
+						Content="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigCurrentFlashcodeValue_UILabel}"
+						MyParentCtrl="{Binding ElementName=FkeyConfigCurrentFlashcodeValue}"
+						IsAcpValid="{Binding ElementName=FkeyConfigCurrentFlashcodeValue, Path=IsAcpValid}"
+						IsAcpApplicable="{Binding ElementName=FkeyConfigCurrentFlashcodeValue, Path=IsAcpApplicable}"
+						IsAcpVisible="{Binding ElementName=FkeyConfigCurrentFlashcodeValue, Path=IsAcpVisible}" />
+					<!--Unknown connection ID: 6-->
+					<AcpUINS:AcpTextBox
+						Name="FkeyConfigNewFlashcodeValue"
+						VerticalAlignment="Center"
+						Grid.Row="2"
+						Grid.Column="2"
+						Foreground="#FF000000"
+						Text="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigNewFlashcodeValueValue}"
+						MyExpander="{Binding ElementName=ExpanderFlashkeyCfgFeaturesTable}"
+						MyBLObject="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigNewFlashcodeValue}"
+						MyLabelCtrl="{Binding ElementName=LblFlashkeyCfgNewFlashcode}"
+						IsAcpValid="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigNewFlashcodeValue_Valid, Mode=OneWay}"
+						IsAcpApplicable="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigNewFlashcodeValue_Applicable, Mode=OneWay}"
+						IsAcpVisible="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigNewFlashcodeValue_Visible, Mode=OneWay}" />
+					<!--Unknown connection ID: 7-->
+					<AcpUINS:AcpLabel
+						Name="LblFlashkeyCfgNewFlashcode"
+						VerticalAlignment="Center"
+						Grid.Row="2"
+						Grid.Column="1"
+						HelpText="{x:Static CommonResxNS:AppResources.New_FLASHcode_Feature_Value}"
+						Content="{Binding Path=FlashkeyConfigurationFeaturesInnerSection.FkeyConfigNewFlashcodeValue_UILabel}"
+						MyParentCtrl="{Binding ElementName=FkeyConfigNewFlashcodeValue}"
+						IsAcpValid="{Binding ElementName=FkeyConfigNewFlashcodeValue, Path=IsAcpValid}"
+						IsAcpApplicable="{Binding ElementName=FkeyConfigNewFlashcodeValue, Path=IsAcpApplicable}"
+						IsAcpVisible="{Binding ElementName=FkeyConfigNewFlashcodeValue, Path=IsAcpVisible}" />
+				</Grid>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</AcpUINS:AcpPageFeature>

@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA68D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infragistics.Windows</RootNamespace>
+    <AssemblyName>InfragisticsWPF4.Editors.v12.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="Automation\Peers\Editors\CalendarItemAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\CalendarItemGroupAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\CalendarItemGroupTitleAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\SectionsListAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\SelectedDateAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\ValueEditorAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\XamCheckEditorAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\XamComboEditorAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\XamMaskedEditorAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\XamMonthCalendarAutomationPeer.cs" />
+    <Compile Include="Automation\Peers\Editors\XamTextEditorAutomationPeer.cs" />
+    <Compile Include="Editors\AlphaChar.cs" />
+    <Compile Include="Editors\AlphanumericChar.cs" />
+    <Compile Include="Editors\AMPMSection.cs" />
+    <Compile Include="Editors\AutoFillDate.cs" />
+    <Compile Include="Editors\CalendarAnimation.cs" />
+    <Compile Include="Editors\CalendarDateRange.cs" />
+    <Compile Include="Editors\CalendarDateRangeCollection.cs" />
+    <Compile Include="Editors\CalendarDateRangeConverter.cs" />
+    <Compile Include="Editors\CalendarDay.cs" />
+    <Compile Include="Editors\CalendarDayOfWeek.cs" />
+    <Compile Include="Editors\CalendarDimensions.cs" />
+    <Compile Include="Editors\CalendarDimensionsConverter.cs" />
+    <Compile Include="Editors\CalendarItem.cs" />
+    <Compile Include="Editors\CalendarItemArea.cs" />
+    <Compile Include="Editors\CalendarItemAreaPanel.cs" />
+    <Compile Include="Editors\CalendarItemChange.cs" />
+    <Compile Include="Editors\CalendarItemGroup.cs" />
+    <Compile Include="Editors\CalendarItemGroupPanel.cs" />
+    <Compile Include="Editors\CalendarItemGroupTitle.cs" />
+    <Compile Include="Editors\CalendarManager.cs" />
+    <Compile Include="Editors\CalendarMode.cs" />
+    <Compile Include="Editors\CalendarWeekNumber.cs" />
+    <Compile Include="Editors\CaretElement.cs" />
+    <Compile Include="Editors\CharacterSet.cs" />
+    <Compile Include="Editors\CollectionViewProxy.cs" />
+    <Compile Include="Editors\ComboBoxDataItem.cs" />
+    <Compile Include="Editors\ComboBoxItemsProvider.cs" />
+    <Compile Include="Editors\ComboEditorCommands.cs" />
+    <Compile Include="Editors\ComboEditorStates.cs" />
+    <Compile Include="Editors\CurrentDate.cs" />
+    <Compile Include="Editors\DayOfWeekHeaderFormat.cs" />
+    <Compile Include="Editors\DayOfWeekToStringConverter.cs" />
+    <Compile Include="Editors\DaySection.cs" />
+    <Compile Include="Editors\DecimalSeperatorChar.cs" />
+    <Compile Include="Editors\DigitChar.cs" />
+    <Compile Include="Editors\DisplayCharacterPresenter.cs" />
+    <Compile Include="Editors\DisplayCharactersList.cs" />
+    <Compile Include="Editors\DisplayCharBase.cs" />
+    <Compile Include="Editors\DisplayCharIncludeMethod.cs" />
+    <Compile Include="Editors\DisplayCharsCollection.cs" />
+    <Compile Include="Editors\DisplayCharsEditSection.cs" />
+    <Compile Include="Editors\DisplayValueSource.cs" />
+    <Compile Include="Editors\DropDownButtonDisplayMode.cs" />
+    <Compile Include="Editors\EditInfo.cs" />
+    <Compile Include="Editors\EditOrientation.cs" />
+    <Compile Include="Editors\EditorsBrushKeys.cs" />
+    <Compile Include="Editors\EditSectionBase.cs" />
+    <Compile Include="Editors\Events\EditModeEndedEventArgs.cs" />
+    <Compile Include="Editors\Events\EditModeEndingEventArgs.cs" />
+    <Compile Include="Editors\Events\EditModeStartedEventArgs.cs" />
+    <Compile Include="Editors\Events\EditModeStartingEventArgs.cs" />
+    <Compile Include="Editors\Events\EditModeValidationErrorEventArgs.cs" />
+    <Compile Include="Editors\Events\InvalidCharEventArgs.cs" />
+    <Compile Include="Editors\Events\InvalidOperationEventArgs.cs" />
+    <Compile Include="Editors\Events\SelectedDatesChangedEventArgs.cs" />
+    <Compile Include="Editors\FilterType.cs" />
+    <Compile Include="Editors\FractionPart.cs" />
+    <Compile Include="Editors\FractionPartContinuous.cs" />
+    <Compile Include="Editors\HexDigitChar.cs" />
+    <Compile Include="Editors\HorizontalToTextAlignmentConverter.cs" />
+    <Compile Include="Editors\HourSection.cs" />
+    <Compile Include="Editors\ICalendarItemArea.cs" />
+    <Compile Include="Editors\IItemMemberProvider.cs" />
+    <Compile Include="Editors\InputCharBase.cs" />
+    <Compile Include="Editors\InvalidValueBehavior.cs" />
+    <Compile Include="Editors\ISupportsSelectableText.cs" />
+    <Compile Include="Editors\KeyboardAndForeignChar.cs" />
+    <Compile Include="Editors\LiteralChar.cs" />
+    <Compile Include="Editors\LiteralSection.cs" />
+    <Compile Include="Editors\MaskDefaultType.cs" />
+    <Compile Include="Editors\MaskedEditorCommands.cs" />
+    <Compile Include="Editors\MaskedEditorDefaultConverter.cs" />
+    <Compile Include="Editors\MaskedEditorStates.cs" />
+    <Compile Include="Editors\MaskedEditTabNavigation.cs" />
+    <Compile Include="Editors\MaskInfo.cs" />
+    <Compile Include="Editors\MaskMode.cs" />
+    <Compile Include="Editors\MaskParser.cs" />
+    <Compile Include="Editors\MaskSelectAllBehavior.cs" />
+    <Compile Include="Editors\MinuteSection.cs" />
+    <Compile Include="Editors\MonthCalendarChange.cs" />
+    <Compile Include="Editors\MonthCalendarCommands.cs" />
+    <Compile Include="Editors\MonthCalendarStates.cs" />
+    <Compile Include="Editors\MonthSection.cs" />
+    <Compile Include="Editors\NumberSection.cs" />
+    <Compile Include="Editors\ParsedMask.cs" />
+    <Compile Include="Editors\Resources.cs" />
+    <Compile Include="Editors\SecondSection.cs" />
+    <Compile Include="Editors\SectionBase.cs" />
+    <Compile Include="Editors\SectionPresenter.cs" />
+    <Compile Include="Editors\SectionsCollection.cs" />
+    <Compile Include="Editors\SectionsList.cs" />
+    <Compile Include="Editors\SelectedDateCollection.cs" />
+    <Compile Include="Editors\SignDisplayType.cs" />
+    <Compile Include="Editors\SpinButtonDisplayMode.cs" />
+    <Compile Include="Editors\SpinInfo.cs" />
+    <Compile Include="Editors\State.cs" />
+    <Compile Include="Editors\TextEditorBase.cs" />
+    <Compile Include="Editors\Utils.cs" />
+    <Compile Include="Editors\ValidateAsType.cs" />
+    <Compile Include="Editors\ValidatedObservableCollection.cs" />
+    <Compile Include="Editors\ValidationErrorInfo.cs" />
+    <Compile Include="Editors\ValueConstraint.cs" />
+    <Compile Include="Editors\ValueConstraintFlags.cs" />
+    <Compile Include="Editors\ValueEditor.cs" />
+    <Compile Include="Editors\ValueEditorCheckBox.cs" />
+    <Compile Include="Editors\ValueEditorDefaultConverter.cs" />
+    <Compile Include="Editors\ValuePresenter.cs" />
+    <Compile Include="Editors\VirtualizingStackPanelEx.cs" />
+    <Compile Include="Editors\XamCheckEditor.cs" />
+    <Compile Include="Editors\XamComboEditor.cs" />
+    <Compile Include="Editors\XamCurrencyEditor.cs" />
+    <Compile Include="Editors\XamDateTimeEditor.cs" />
+    <Compile Include="Editors\XamMaskedEditor.cs" />
+    <Compile Include="Editors\XamMonthCalendar.cs" />
+    <Compile Include="Editors\XamNumericEditor.cs" />
+    <Compile Include="Editors\XamTextEditor.cs" />
+    <Compile Include="Editors\YearSection.cs" />
+    <Compile Include="InternalDynamicResourceString.cs" />
+    <Compile Include="LocalizedCategoryAttribute.cs" />
+    <Compile Include="LocalizedDescriptionAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceCustomizerLocator.cs" />
+    <Compile Include="SR.cs" />
+    <Compile Include="Themes\EditorBrushes.cs" />
+    <Compile Include="Themes\EditorsAero.cs" />
+    <Compile Include="Themes\EditorsAeroBrushes.cs" />
+    <Compile Include="Themes\EditorsGeneric.cs" />
+    <Compile Include="Themes\EditorsGenericBrushes.cs" />
+    <Compile Include="Themes\EditorsIGTheme.cs" />
+    <Compile Include="Themes\EditorsLunaNormal.cs" />
+    <Compile Include="Themes\EditorsLunaNormalBrushes.cs" />
+    <Compile Include="Themes\EditorsLunaOlive.cs" />
+    <Compile Include="Themes\EditorsLunaOliveBrushes.cs" />
+    <Compile Include="Themes\EditorsLunaSilver.cs" />
+    <Compile Include="Themes\EditorsLunaSilverBrushes.cs" />
+    <Compile Include="Themes\EditorsMetro.cs" />
+    <Compile Include="Themes\EditorsOffice2010Blue.cs" />
+    <Compile Include="Themes\EditorsOffice2k7Black.cs" />
+    <Compile Include="Themes\EditorsOffice2k7BlackBrushes.cs" />
+    <Compile Include="Themes\EditorsOffice2k7Blue.cs" />
+    <Compile Include="Themes\EditorsOffice2k7BlueBrushes.cs" />
+    <Compile Include="Themes\EditorsOffice2k7Silver.cs" />
+    <Compile Include="Themes\EditorsOffice2k7SilverBrushes.cs" />
+    <Compile Include="Themes\EditorsOnyx.cs" />
+    <Compile Include="Themes\EditorsOnyxBrushes.cs" />
+    <Compile Include="Themes\EditorsPrintBasic.cs" />
+    <Compile Include="Themes\EditorsPrintBasicBrushes.cs" />
+    <Compile Include="Themes\EditorsResourceSet.cs" />
+    <Compile Include="Themes\EditorsRoyale.cs" />
+    <Compile Include="Themes\EditorsRoyaleBrushes.cs" />
+    <Compile Include="Themes\EditorsRoyaleStrong.cs" />
+    <Compile Include="Themes\EditorsRoyaleStrongBrushes.cs" />
+    <Compile Include="Themes\EditorsWashBaseDark.cs" />
+    <Compile Include="Themes\EditorsWashBaseDarkBrushes.cs" />
+    <Compile Include="Themes\EditorsWashBaseLight.cs" />
+    <Compile Include="Themes\EditorsWashBaseLightBrushes.cs" />
+    <Compile Include="Themes\Internal\EditorsAssemblyResourceSetLoader.cs" />
+    <Compile Include="Themes\Internal\EditorsThemeTypeConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Infragistics.Windows.Properties.Resources.resources" />
+    <EmbeddedResource Include="Infragistics.Windows.strings.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfragisticsWPF4.v12.1\InfragisticsWPF4.v12.1.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA690}</Project>
+      <Name>InfragisticsWPF4.v12.1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="resourcesets\editorsbrushes\editorsaero_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsgeneric_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsigtheme_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorslunanormal_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorslunaolive_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorslunasilver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsmetro_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsoffice2010blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsoffice2k7black_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsoffice2k7blue_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsoffice2k7silver_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsonyx_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsprintbasic_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsroyalestrong_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorsroyale_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorswashbasedark_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editorsbrushes\editorswashbaselight_brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsaero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsaero_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsgeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsgeneric_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsigtheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsigtheme_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorslunanormal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorslunanormal_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorslunaolive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorslunaolive_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorslunasilver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorslunasilver_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsmetro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsmetro_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2010blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2010blue_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2k7black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2k7black_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2k7blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2k7blue_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2k7silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsoffice2k7silver_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsonyx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsonyx_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsprintbasic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsprintbasic_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsroyale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsroyalestrong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsroyalestrong_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorsroyale_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorswashbasedark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorswashbasedark_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorswashbaselight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcesets\editors\editorswashbaselight_express.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\royale.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\zune.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

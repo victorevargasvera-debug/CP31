@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA662}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AESCryptoUtil.cs" />
+    <Compile Include="CodeplugStatus.cs" />
+    <Compile Include="CodeplugStatusManager.cs" />
+    <Compile Include="DotfuscatorAttribute.cs" />
+    <Compile Include="FeatureIDs.cs" />
+    <Compile Include="FeatureSectionIDs.cs" />
+    <Compile Include="Features\Common\AllowedTypes.cs" />
+    <Compile Include="Features\Common\MTFAliasList.cs" />
+    <Compile Include="ModelTypes.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\MemoryCleaner.cs" />
+    <Compile Include="Motorola\CommonCPS\RadioManagement\CommonBase\Utility\MemoryCleanerEventArgs.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordsetConstant.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AES\AES.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA643}</Project>
+      <Name>AES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BinarySerializer\BinarySerializer.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA64C}</Project>
+      <Name>BinarySerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0CE3A589-B4AC-4FC2-9B80-1C7067CFA668}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
